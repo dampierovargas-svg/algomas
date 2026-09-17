@@ -1,0 +1,1854 @@
+[
+  {
+    "equipment_type_id": "CELL_LFP",
+    "name_es": "Celda LFP (litio fierro fosfato)",
+    "subsystem": "CELL",
+    "properties": [
+      {
+        "name_es": "Quimica",
+        "field_id": "BESS-007",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Capacidad Ah",
+        "field_id": "BESS-008",
+        "data_type": "float",
+        "unit": "Ah",
+        "min": 50,
+        "max": 320
+      },
+      {
+        "name_es": "Vnom",
+        "field_id": "BESS-009",
+        "data_type": "float",
+        "unit": "V",
+        "min": 3.2,
+        "max": 3.3
+      },
+      {
+        "name_es": "Vmax",
+        "field_id": "BESS-010",
+        "data_type": "float",
+        "unit": "V",
+        "min": 3.65,
+        "max": 3.65
+      },
+      {
+        "name_es": "Vmin",
+        "field_id": "BESS-011",
+        "data_type": "float",
+        "unit": "V",
+        "min": 2.0,
+        "max": 2.5
+      },
+      {
+        "name_es": "Resistencia interna",
+        "field_id": "BESS-012",
+        "data_type": "float",
+        "unit": "mOhm",
+        "min": 0.3,
+        "max": 10
+      },
+      {
+        "name_es": "Calor especifico",
+        "field_id": "BESS-018",
+        "data_type": "float",
+        "unit": "J/kg/K",
+        "min": 800,
+        "max": 1200
+      },
+      {
+        "name_es": "C-rate continuo",
+        "field_id": "BESS-017",
+        "data_type": "float",
+        "unit": "1/h",
+        "min": 0.5,
+        "max": 3.0
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CELL_NMC",
+    "name_es": "Celda NMC (litio niquel manganeso cobalto)",
+    "subsystem": "CELL",
+    "properties": [
+      {
+        "name_es": "Quimica",
+        "field_id": "BESS-007",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Capacidad Ah",
+        "field_id": "BESS-008",
+        "data_type": "float",
+        "unit": "Ah",
+        "min": 1,
+        "max": 300
+      },
+      {
+        "name_es": "Vnom",
+        "field_id": "BESS-009",
+        "data_type": "float",
+        "unit": "V",
+        "min": 3.6,
+        "max": 3.7
+      },
+      {
+        "name_es": "Vmax",
+        "field_id": "BESS-010",
+        "data_type": "float",
+        "unit": "V",
+        "min": 4.2,
+        "max": 4.2
+      },
+      {
+        "name_es": "Vmin",
+        "field_id": "BESS-011",
+        "data_type": "float",
+        "unit": "V",
+        "min": 2.5,
+        "max": 3.0
+      },
+      {
+        "name_es": "Resistencia interna",
+        "field_id": "BESS-012",
+        "data_type": "float",
+        "unit": "mOhm",
+        "min": 0.5,
+        "max": 15
+      },
+      {
+        "name_es": "C-rate continuo",
+        "field_id": "BESS-017",
+        "data_type": "float",
+        "unit": "1/h",
+        "min": 0.5,
+        "max": 4.0
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CELL_NCA",
+    "name_es": "Celda NCA (litio niquel cobalto aluminio)",
+    "subsystem": "CELL",
+    "properties": [
+      {
+        "name_es": "Quimica",
+        "field_id": "BESS-007",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Capacidad Ah",
+        "field_id": "BESS-008",
+        "data_type": "float",
+        "unit": "Ah",
+        "min": 1,
+        "max": 250
+      },
+      {
+        "name_es": "Vnom",
+        "field_id": "BESS-009",
+        "data_type": "float",
+        "unit": "V",
+        "min": 3.6,
+        "max": 3.7
+      },
+      {
+        "name_es": "Vmax",
+        "field_id": "BESS-010",
+        "data_type": "float",
+        "unit": "V",
+        "min": 4.2,
+        "max": 4.2
+      },
+      {
+        "name_es": "Vmin",
+        "field_id": "BESS-011",
+        "data_type": "float",
+        "unit": "V",
+        "min": 2.5,
+        "max": 3.0
+      },
+      {
+        "name_es": "C-rate continuo",
+        "field_id": "BESS-017",
+        "data_type": "float",
+        "unit": "1/h",
+        "min": 0.5,
+        "max": 3.0
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CELL_LTO",
+    "name_es": "Celda LTO (litio titanato)",
+    "subsystem": "CELL",
+    "properties": [
+      {
+        "name_es": "Quimica",
+        "field_id": "BESS-007",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Capacidad Ah",
+        "field_id": "BESS-008",
+        "data_type": "float",
+        "unit": "Ah",
+        "min": 5,
+        "max": 60
+      },
+      {
+        "name_es": "Vnom",
+        "field_id": "BESS-009",
+        "data_type": "float",
+        "unit": "V",
+        "min": 2.4,
+        "max": 2.4
+      },
+      {
+        "name_es": "Vmax",
+        "field_id": "BESS-010",
+        "data_type": "float",
+        "unit": "V",
+        "min": 2.8,
+        "max": 2.8
+      },
+      {
+        "name_es": "Vmin",
+        "field_id": "BESS-011",
+        "data_type": "float",
+        "unit": "V",
+        "min": 1.5,
+        "max": 1.8
+      },
+      {
+        "name_es": "C-rate continuo",
+        "field_id": "BESS-017",
+        "data_type": "float",
+        "unit": "1/h",
+        "min": 1.0,
+        "max": 5.0
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CELL_LCO",
+    "name_es": "Celda LCO (litio cobalto)",
+    "subsystem": "CELL",
+    "properties": [
+      {
+        "name_es": "Quimica",
+        "field_id": "BESS-007",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Capacidad Ah",
+        "field_id": "BESS-008",
+        "data_type": "float",
+        "unit": "Ah",
+        "min": 1,
+        "max": 100
+      },
+      {
+        "name_es": "Vnom",
+        "field_id": "BESS-009",
+        "data_type": "float",
+        "unit": "V",
+        "min": 3.7,
+        "max": 3.8
+      },
+      {
+        "name_es": "Vmax",
+        "field_id": "BESS-010",
+        "data_type": "float",
+        "unit": "V",
+        "min": 4.2,
+        "max": 4.4
+      },
+      {
+        "name_es": "Vmin",
+        "field_id": "BESS-011",
+        "data_type": "float",
+        "unit": "V",
+        "min": 2.7,
+        "max": 3.0
+      },
+      {
+        "name_es": "C-rate continuo",
+        "field_id": "BESS-017",
+        "data_type": "float",
+        "unit": "1/h",
+        "min": 0.3,
+        "max": 1.5
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "MODULE",
+    "name_es": "Modulo BESS",
+    "subsystem": "MODULE",
+    "properties": [
+      {
+        "name_es": "Celdas por modulo",
+        "field_id": "BESS-019",
+        "data_type": "string",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Vnom modulo",
+        "field_id": "BESS-020",
+        "data_type": "float",
+        "unit": "V",
+        "min": 12,
+        "max": 200
+      },
+      {
+        "name_es": "Energia modulo kWh",
+        "field_id": "BESS-021",
+        "data_type": "float",
+        "unit": "kWh",
+        "min": 0.5,
+        "max": 100
+      },
+      {
+        "name_es": "Masa modulo",
+        "field_id": "BESS-022",
+        "data_type": "float",
+        "unit": "kg",
+        "min": 5,
+        "max": 500
+      },
+      {
+        "name_es": "BMS de modulo",
+        "field_id": "BESS-023",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Ancho modulo",
+        "field_id": "BESS-024",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 100,
+        "max": 2000
+      },
+      {
+        "name_es": "Alto modulo",
+        "field_id": "BESS-025",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 100,
+        "max": 2500
+      },
+      {
+        "name_es": "Profundidad modulo",
+        "field_id": "BESS-026",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 50,
+        "max": 1000
+      },
+      {
+        "name_es": "IP modulo",
+        "field_id": "BESS-027",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "RACK",
+    "name_es": "Rack BESS",
+    "subsystem": "RACK",
+    "properties": [
+      {
+        "name_es": "Modulos por rack",
+        "field_id": "BESS-028",
+        "data_type": "integer",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Vnom rack DC",
+        "field_id": "BESS-029",
+        "data_type": "float",
+        "unit": "V",
+        "min": 48,
+        "max": 1500
+      },
+      {
+        "name_es": "Energia rack kWh",
+        "field_id": "BESS-030",
+        "data_type": "float",
+        "unit": "kWh",
+        "min": 5,
+        "max": 500
+      },
+      {
+        "name_es": "Corriente maxima rack",
+        "field_id": "BESS-031",
+        "data_type": "float",
+        "unit": "A",
+        "min": 5,
+        "max": 500
+      },
+      {
+        "name_es": "IP rack",
+        "field_id": "BESS-032",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Masa rack",
+        "field_id": "BESS-033",
+        "data_type": "float",
+        "unit": "kg",
+        "min": 100,
+        "max": 5000
+      },
+      {
+        "name_es": "Ancho rack",
+        "field_id": "BESS-034",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 400,
+        "max": 2000
+      },
+      {
+        "name_es": "Alto rack",
+        "field_id": "BESS-035",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 1000,
+        "max": 3000
+      },
+      {
+        "name_es": "Profundidad rack",
+        "field_id": "BESS-036",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 300,
+        "max": 1500
+      },
+      {
+        "name_es": "Temp max rack",
+        "field_id": "BESS-037",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 0,
+        "max": 65
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CONTAINER",
+    "name_es": "Contenedor / gabinete BESS",
+    "subsystem": "CONTAINER",
+    "properties": [
+      {
+        "name_es": "Racks por contenedor",
+        "field_id": "BESS-038",
+        "data_type": "integer",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Energia contenedor MWh",
+        "field_id": "BESS-039",
+        "data_type": "float",
+        "unit": "MWh",
+        "min": 0.05,
+        "max": 10
+      },
+      {
+        "name_es": "Potencia contenedor MW",
+        "field_id": "BESS-040",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 0.01,
+        "max": 5
+      },
+      {
+        "name_es": "HVAC kW",
+        "field_id": "BESS-041",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 1,
+        "max": 200
+      },
+      {
+        "name_es": "Tipo supresion incendio",
+        "field_id": "BESS-042",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "IP contenedor",
+        "field_id": "BESS-043",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Ancho contenedor",
+        "field_id": "BESS-044",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 800,
+        "max": 3500
+      },
+      {
+        "name_es": "Alto contenedor",
+        "field_id": "BESS-045",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 2000,
+        "max": 3200
+      },
+      {
+        "name_es": "Largo contenedor",
+        "field_id": "BESS-046",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 2000,
+        "max": 20000
+      },
+      {
+        "name_es": "Modo acceso",
+        "field_id": "BESS-047",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "PCS",
+    "name_es": "Sistema de conversion de potencia (PCS)",
+    "subsystem": "PCS",
+    "properties": [
+      {
+        "name_es": "kVA PCS",
+        "field_id": "BESS-075",
+        "data_type": "float",
+        "unit": "kVA",
+        "min": 10,
+        "max": 5000
+      },
+      {
+        "name_es": "Eficiencia max PCS",
+        "field_id": "BESS-076",
+        "data_type": "float",
+        "unit": "%",
+        "min": 90,
+        "max": 99.5
+      },
+      {
+        "name_es": "IEEE 1547",
+        "field_id": "BESS-077",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Modo operacion",
+        "field_id": "BESS-078",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "V DC max PCS",
+        "field_id": "BESS-079",
+        "data_type": "float",
+        "unit": "V",
+        "min": 200,
+        "max": 1800
+      },
+      {
+        "name_es": "V AC PCS",
+        "field_id": "BESS-080",
+        "data_type": "float",
+        "unit": "V",
+        "min": 120,
+        "max": 1000
+      },
+      {
+        "name_es": "FP PCS",
+        "field_id": "BESS-081",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0.8,
+        "max": 1.0
+      },
+      {
+        "name_es": "THD PCS",
+        "field_id": "BESS-082",
+        "data_type": "float",
+        "unit": "%",
+        "min": 1,
+        "max": 8
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BMS_CELL",
+    "name_es": "BMS nivel celda",
+    "subsystem": "BMS",
+    "properties": [
+      {
+        "name_es": "BMS celda",
+        "field_id": "BESS-060",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Vnom celda",
+        "field_id": "BESS-009",
+        "data_type": "float",
+        "unit": "V",
+        "min": 2.0,
+        "max": 5.0
+      },
+      {
+        "name_es": "Vmax celda",
+        "field_id": "BESS-010",
+        "data_type": "float",
+        "unit": "V",
+        "min": 2.5,
+        "max": 5.5
+      },
+      {
+        "name_es": "Vmin celda",
+        "field_id": "BESS-011",
+        "data_type": "float",
+        "unit": "V",
+        "min": 1.5,
+        "max": 4.0
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BMS_MODULE",
+    "name_es": "BMS nivel modulo",
+    "subsystem": "BMS",
+    "properties": [
+      {
+        "name_es": "BMS modulo",
+        "field_id": "BESS-061",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Vnom modulo",
+        "field_id": "BESS-020",
+        "data_type": "float",
+        "unit": "V",
+        "min": 12,
+        "max": 200
+      },
+      {
+        "name_es": "Capacidad modulo kWh",
+        "field_id": "BESS-021",
+        "data_type": "float",
+        "unit": "kWh",
+        "min": 0.5,
+        "max": 100
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BMS_RACK",
+    "name_es": "BMS nivel rack",
+    "subsystem": "BMS",
+    "properties": [
+      {
+        "name_es": "BMS rack",
+        "field_id": "BESS-062",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Vnom rack",
+        "field_id": "BESS-029",
+        "data_type": "float",
+        "unit": "V",
+        "min": 48,
+        "max": 1500
+      },
+      {
+        "name_es": "Energia rack kWh",
+        "field_id": "BESS-030",
+        "data_type": "float",
+        "unit": "kWh",
+        "min": 5,
+        "max": 500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BMS_SYSTEM",
+    "name_es": "BMS nivel sistema",
+    "subsystem": "BMS",
+    "properties": [
+      {
+        "name_es": "BMS sistema",
+        "field_id": "BESS-063",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "SOC superior",
+        "field_id": "BESS-064",
+        "data_type": "float",
+        "unit": "%",
+        "min": 80,
+        "max": 100
+      },
+      {
+        "name_es": "SOC inferior",
+        "field_id": "BESS-065",
+        "data_type": "float",
+        "unit": "%",
+        "min": 0,
+        "max": 30
+      },
+      {
+        "name_es": "SOH minimo",
+        "field_id": "BESS-066",
+        "data_type": "float",
+        "unit": "%",
+        "min": 60,
+        "max": 90
+      },
+      {
+        "name_es": "Puntos monitoreo V/rack",
+        "field_id": "BESS-067",
+        "data_type": "integer",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "EMS",
+    "name_es": "Sistema de gestion de energia (EMS)",
+    "subsystem": "EMS",
+    "properties": [
+      {
+        "name_es": "Modo despacho",
+        "field_id": "BESS-068",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Ramp rate EMS",
+        "field_id": "BESS-069",
+        "data_type": "float",
+        "unit": "%MW/min",
+        "min": 1,
+        "max": 100
+      },
+      {
+        "name_es": "Ciclos diarios",
+        "field_id": "BESS-070",
+        "data_type": "float",
+        "unit": "1/day",
+        "min": 0.5,
+        "max": 10
+      },
+      {
+        "name_es": "Tiempo respuesta EMS",
+        "field_id": "BESS-071",
+        "data_type": "float",
+        "unit": "ms",
+        "min": 10,
+        "max": 5000
+      },
+      {
+        "name_es": "Tiempo soporte PFR",
+        "field_id": "BESS-072",
+        "data_type": "float",
+        "unit": "s",
+        "min": 10,
+        "max": 1800
+      },
+      {
+        "name_es": "VPP",
+        "field_id": "BESS-074",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "HVAC_AIR",
+    "name_es": "HVAC aire forzado",
+    "subsystem": "HVAC",
+    "properties": [
+      {
+        "name_es": "Capacidad refrigeracion HVAC",
+        "field_id": "BESS-094",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 5,
+        "max": 5000
+      },
+      {
+        "name_es": "Modo refrigeracion",
+        "field_id": "BESS-095",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Setpoint HVAC",
+        "field_id": "BESS-096",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 10,
+        "max": 35
+      },
+      {
+        "name_es": "Fans redundantes",
+        "field_id": "BESS-098",
+        "data_type": "integer",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "HVAC_LIQUID",
+    "name_es": "HVAC refrigeracion liquida",
+    "subsystem": "HVAC",
+    "properties": [
+      {
+        "name_es": "Capacidad refrigeracion HVAC",
+        "field_id": "BESS-094",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 5,
+        "max": 5000
+      },
+      {
+        "name_es": "Modo refrigeracion",
+        "field_id": "BESS-095",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Setpoint HVAC",
+        "field_id": "BESS-096",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 10,
+        "max": 35
+      },
+      {
+        "name_es": "Fans redundantes",
+        "field_id": "BESS-098",
+        "data_type": "integer",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "FIRE_CLEAN_AGENT",
+    "name_es": "Supresion incendio agente limpio Novec 1230",
+    "subsystem": "FIRE",
+    "properties": [
+      {
+        "name_es": "Tipo supresion",
+        "field_id": "BESS-042",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Masa Novec 1230",
+        "field_id": "BESS-099",
+        "data_type": "float",
+        "unit": "kg",
+        "min": 5,
+        "max": 500
+      },
+      {
+        "name_es": "Tiempo descarga",
+        "field_id": "BESS-103",
+        "data_type": "float",
+        "unit": "s",
+        "min": 5,
+        "max": 30
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "FIRE_WATER_MIST",
+    "name_es": "Supresion incendio water mist",
+    "subsystem": "FIRE",
+    "properties": [
+      {
+        "name_es": "Tipo supresion",
+        "field_id": "BESS-042",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Tipo water mist",
+        "field_id": "BESS-100",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Demanda agua",
+        "field_id": "BESS-101",
+        "data_type": "float",
+        "unit": "L/min",
+        "min": 200,
+        "max": 20000
+      },
+      {
+        "name_es": "Reserva agua",
+        "field_id": "BESS-102",
+        "data_type": "float",
+        "unit": "m3",
+        "min": 10,
+        "max": 2000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "FIRE_SPRINKLER",
+    "name_es": "Supresion incendio sprinkler NFPA 13",
+    "subsystem": "FIRE",
+    "properties": [
+      {
+        "name_es": "Cumplimiento NFPA 13",
+        "field_id": "BESS-104",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Demanda agua",
+        "field_id": "BESS-101",
+        "data_type": "float",
+        "unit": "L/min",
+        "min": 200,
+        "max": 20000
+      },
+      {
+        "name_es": "Reserva agua",
+        "field_id": "BESS-102",
+        "data_type": "float",
+        "unit": "m3",
+        "min": 10,
+        "max": 2000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GAS_DETECTION_H2",
+    "name_es": "Deteccion de gas H2",
+    "subsystem": "GAS_DETECTION",
+    "properties": [
+      {
+        "name_es": "Detectores H2",
+        "field_id": "BESS-105",
+        "data_type": "integer",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Nivel alarma H2",
+        "field_id": "BESS-108",
+        "data_type": "float",
+        "unit": "ppm",
+        "min": 100,
+        "max": 4000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GAS_DETECTION_CO",
+    "name_es": "Deteccion de gas CO",
+    "subsystem": "GAS_DETECTION",
+    "properties": [
+      {
+        "name_es": "Detectores CO",
+        "field_id": "BESS-106",
+        "data_type": "integer",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GAS_DETECTION_SMOKE",
+    "name_es": "Deteccion de humo",
+    "subsystem": "GAS_DETECTION",
+    "properties": [
+      {
+        "name_es": "Detectores humo",
+        "field_id": "BESS-107",
+        "data_type": "integer",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "SURGE_ARRESTER",
+    "name_es": "Pararrayos / descargador de sobretension",
+    "subsystem": "PROTECTION",
+    "properties": [
+      {
+        "name_es": "Cantidad pararrayos",
+        "field_id": "BESS-119",
+        "data_type": "integer",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "LPL IEC 62305",
+        "field_id": "BESS-117",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Cumplimiento NFPA 780",
+        "field_id": "BESS-118",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BESS-BREAKER-AC",
+    "name_es": "Breaker AC",
+    "subsystem": "PROTECTION",
+    "properties": [
+      {
+        "name_es": "Capacidad interruptiva AC",
+        "field_id": "BESS-092",
+        "data_type": "float",
+        "unit": "kA",
+        "min": 5,
+        "max": 80
+      },
+      {
+        "name_es": "Tension AC LV",
+        "field_id": "BESS-089",
+        "data_type": "float",
+        "unit": "V",
+        "min": 208,
+        "max": 1000
+      },
+      {
+        "name_es": "Tension AC MV",
+        "field_id": "BESS-090",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 1,
+        "max": 69
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BESS-BREAKER-DC",
+    "name_es": "Breaker DC",
+    "subsystem": "PROTECTION",
+    "properties": [
+      {
+        "name_es": "Capacidad interruptiva DC",
+        "field_id": "BESS-093",
+        "data_type": "float",
+        "unit": "kA",
+        "min": 5,
+        "max": 100
+      },
+      {
+        "name_es": "Tension disconnect DC",
+        "field_id": "BESS-091",
+        "data_type": "float",
+        "unit": "V",
+        "min": 200,
+        "max": 1800
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BESS-FUSE-AC",
+    "name_es": "Fusible AC",
+    "subsystem": "PROTECTION",
+    "properties": [
+      {
+        "name_es": "Tension AC LV",
+        "field_id": "BESS-089",
+        "data_type": "float",
+        "unit": "V",
+        "min": 208,
+        "max": 1000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BESS-FUSE-DC",
+    "name_es": "Fusible DC",
+    "subsystem": "PROTECTION",
+    "properties": [
+      {
+        "name_es": "Tension disconnect DC",
+        "field_id": "BESS-091",
+        "data_type": "float",
+        "unit": "V",
+        "min": 200,
+        "max": 1800
+      },
+      {
+        "name_es": "Vnom rack DC",
+        "field_id": "BESS-029",
+        "data_type": "float",
+        "unit": "V",
+        "min": 48,
+        "max": 1500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "DISCONNECT",
+    "name_es": "Disconnect DC",
+    "subsystem": "PROTECTION",
+    "properties": [
+      {
+        "name_es": "Tension disconnect DC",
+        "field_id": "BESS-091",
+        "data_type": "float",
+        "unit": "V",
+        "min": 200,
+        "max": 1800
+      },
+      {
+        "name_es": "Corriente maxima rack",
+        "field_id": "BESS-031",
+        "data_type": "float",
+        "unit": "A",
+        "min": 5,
+        "max": 500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TRANSFORMER_LV_MV",
+    "name_es": "Transformador LV/MV",
+    "subsystem": "ELECTRICAL",
+    "properties": [
+      {
+        "name_es": "Tipo (LV/MV/HV)",
+        "field_id": "BESS-083",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Refrigeracion",
+        "field_id": "BESS-084",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Potencia kVA",
+        "field_id": "BESS-085",
+        "data_type": "float",
+        "unit": "kVA",
+        "min": 50,
+        "max": 20000
+      },
+      {
+        "name_es": "Impedancia",
+        "field_id": "BESS-086",
+        "data_type": "float",
+        "unit": "%",
+        "min": 3,
+        "max": 12
+      },
+      {
+        "name_es": "Relacion",
+        "field_id": "BESS-087",
+        "data_type": "string",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Perdidas",
+        "field_id": "BESS-088",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 1,
+        "max": 200
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TRANSFORMER_MV_HV",
+    "name_es": "Transformador MV/HV",
+    "subsystem": "ELECTRICAL",
+    "properties": [
+      {
+        "name_es": "Tipo (LV/MV/HV)",
+        "field_id": "BESS-083",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Refrigeracion",
+        "field_id": "BESS-084",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Potencia kVA",
+        "field_id": "BESS-085",
+        "data_type": "float",
+        "unit": "kVA",
+        "min": 1000,
+        "max": 20000
+      },
+      {
+        "name_es": "Impedancia",
+        "field_id": "BESS-086",
+        "data_type": "float",
+        "unit": "%",
+        "min": 3,
+        "max": 12
+      },
+      {
+        "name_es": "Relacion",
+        "field_id": "BESS-087",
+        "data_type": "string",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Perdidas",
+        "field_id": "BESS-088",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 5,
+        "max": 200
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BESS-SWITCHGEAR",
+    "name_es": "Switchgear AC/DC",
+    "subsystem": "ELECTRICAL",
+    "properties": [
+      {
+        "name_es": "Tension AC LV",
+        "field_id": "BESS-089",
+        "data_type": "float",
+        "unit": "V",
+        "min": 208,
+        "max": 1000
+      },
+      {
+        "name_es": "Tension AC MV",
+        "field_id": "BESS-090",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 1,
+        "max": 69
+      },
+      {
+        "name_es": "Tension disconnect DC",
+        "field_id": "BESS-091",
+        "data_type": "float",
+        "unit": "V",
+        "min": 200,
+        "max": 1800
+      },
+      {
+        "name_es": "Capacidad interruptiva AC",
+        "field_id": "BESS-092",
+        "data_type": "float",
+        "unit": "kA",
+        "min": 5,
+        "max": 80
+      },
+      {
+        "name_es": "Capacidad interruptiva DC",
+        "field_id": "BESS-093",
+        "data_type": "float",
+        "unit": "kA",
+        "min": 5,
+        "max": 100
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BESS-SCADA-GATEWAY",
+    "name_es": "Gateway SCADA",
+    "subsystem": "COMMUNICATION",
+    "properties": [
+      {
+        "name_es": "Pila protocolos SCADA",
+        "field_id": "BESS-131",
+        "data_type": "string",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Gateway SCADA principal",
+        "field_id": "BESS-132",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Tasa muestreo SCADA",
+        "field_id": "BESS-133",
+        "data_type": "float",
+        "unit": "Hz",
+        "min": 0.1,
+        "max": 100
+      },
+      {
+        "name_es": "Redundancia SCADA",
+        "field_id": "BESS-134",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Historiador",
+        "field_id": "BESS-138",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "RTUs remotas",
+        "field_id": "BESS-140",
+        "data_type": "integer",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CYBER_GATEWAY",
+    "name_es": "Gateway de cyberseguridad",
+    "subsystem": "COMMUNICATION",
+    "properties": [
+      {
+        "name_es": "Zonas cyber",
+        "field_id": "BESS-135",
+        "data_type": "integer",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "MFA SCADA",
+        "field_id": "BESS-136",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "IDS SCADA",
+        "field_id": "BESS-137",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "THERMAL_RUNAWAY_CONTAINMENT",
+    "name_es": "Contencion de runaway termico",
+    "subsystem": "SAFETY",
+    "properties": [
+      {
+        "name_es": "Reporte UL 9540A",
+        "field_id": "BESS-109",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Tiempo propagacion celdas",
+        "field_id": "BESS-110",
+        "data_type": "float",
+        "unit": "s",
+        "min": 0,
+        "max": 3600
+      },
+      {
+        "name_es": "Spill containment",
+        "field_id": "BESS-111",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Contencion secundaria",
+        "field_id": "BESS-112",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Capacidad sump",
+        "field_id": "BESS-113",
+        "data_type": "float",
+        "unit": "L",
+        "min": 10,
+        "max": 10000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "SECONDARY_SPILL_CONTAINMENT",
+    "name_es": "Contencion secundaria de derrame",
+    "subsystem": "SAFETY",
+    "properties": [
+      {
+        "name_es": "Spill containment",
+        "field_id": "BESS-111",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Contencion secundaria",
+        "field_id": "BESS-112",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Capacidad sump",
+        "field_id": "BESS-113",
+        "data_type": "float",
+        "unit": "L",
+        "min": 10,
+        "max": 10000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "WALK_IN_ENCLOSURE",
+    "name_es": "Contenedor walk-in",
+    "subsystem": "CONTAINER",
+    "properties": [
+      {
+        "name_es": "Modo acceso",
+        "field_id": "BESS-047",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "ACH walk-in",
+        "field_id": "BESS-097",
+        "data_type": "float",
+        "unit": "1/h",
+        "min": 0,
+        "max": 30
+      },
+      {
+        "name_es": "Largo contenedor",
+        "field_id": "BESS-046",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 2000,
+        "max": 20000
+      },
+      {
+        "name_es": "HVAC kW",
+        "field_id": "BESS-041",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 1,
+        "max": 200
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  }
+]

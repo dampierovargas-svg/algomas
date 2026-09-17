@@ -1,0 +1,1583 @@
+[
+  {
+    "rule_id": "GEO-QA-001",
+    "name_es": "Coherencia de coordenadas lat/lon",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "abs(GEO-001)<=90 AND abs(GEO-002)<=180",
+    "severity": "BLOCKED",
+    "message_template": "Latitud o longitud fuera de rango válido",
+    "required_evidence": [
+      "topographic_survey",
+      "geodetic_control"
+    ],
+    "affected_fields": [
+      "GEO-001",
+      "GEO-002"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-001",
+      "GEO-DRW-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111",
+      "IAPWS_IF97",
+      "ISO_6107_1",
+      "ISO_14685"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-002",
+    "name_es": "Capacidad de planta coherente con pozos",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-058 <= (GEO-026 * GEO-103 * h_reservoir_m * eta_global / 1000)",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad de planta excede el recurso disponible",
+    "required_evidence": [
+      "reservoir_report",
+      "production_test"
+    ],
+    "affected_fields": [
+      "GEO-058",
+      "GEO-026",
+      "GEO-103",
+      "GEO-006"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-001",
+      "GEO-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IAPWS_IF97",
+      "IAPWS_IF97",
+      "ISO_6107_1",
+      "ISO_14685"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-003",
+    "name_es": "Coordenadas en implantación general",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "has_coordinates(GEO-DRW-002) AND coordinate_count >= equipment_count",
+    "severity": "BLOCKED",
+    "message_template": "Faltan coordenadas en plano de implantación",
+    "required_evidence": [
+      "implant_plan"
+    ],
+    "affected_fields": [
+      "GEO-001",
+      "GEO-002",
+      "GEO-058"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_5457",
+      "ISO_7200",
+      "ISO_129_1",
+      "ISO_128_20",
+      "ISO_5455",
+      "ANSI_Y14_5",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-004",
+    "name_es": "Distancia mínima entre pozos productores y reinyectores",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "distance(any producer, any injector) >= 500",
+    "severity": "BLOCKED",
+    "message_template": "Distancia entre pozos productores y reinyectores menor a 500 m",
+    "required_evidence": [
+      "wellpad_layout",
+      "reservoir_model"
+    ],
+    "affected_fields": [
+      "GEO-026",
+      "GEO-027",
+      "GEO-099",
+      "GEO-100"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-003",
+      "GEO-DRW-004"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_3_2022",
+      "API_1104_2021",
+      "MINAM_DS_019_2009",
+      "ISO_14685",
+      "IAPWS_IF97",
+      "ISO_6107_1",
+      "ISO_14685"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-005",
+    "name_es": "Velocidad bifásica en gathering < 20 m/s",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-038 <= 20",
+    "severity": "BLOCKED",
+    "message_template": "Velocidad bifásica excede 20 m/s (riesgo de erosión y slug flow)",
+    "required_evidence": [
+      "gathering_calculation"
+    ],
+    "affected_fields": [
+      "GEO-036",
+      "GEO-037",
+      "GEO-038",
+      "GEO-103"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_3_2022",
+      "API_1104_2021",
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-006",
+    "name_es": "Pendiente de drenaje en gathering bifásico",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "slope(GEO-DRW-005) >= 0.5 OR has_drip_pot",
+    "severity": "BLOCKED",
+    "message_template": "Falta pendiente de drenaje en gathering bifásico",
+    "required_evidence": [
+      "gathering_profile"
+    ],
+    "affected_fields": [
+      "GEO-036",
+      "GEO-037"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_3_2022",
+      "API_1104_2021",
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-007",
+    "name_es": "Tiempo de residencia en separador >= 5 s",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-043 >= 5",
+    "severity": "BLOCKED",
+    "message_template": "Tiempo de residencia en separador menor a 5 s",
+    "required_evidence": [
+      "separator_sizing_calc"
+    ],
+    "affected_fields": [
+      "GEO-041",
+      "GEO-042",
+      "GEO-043",
+      "GEO-103"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_B31_3_2022",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-008",
+    "name_es": "Validación de saturación sílice (AMI) y calcite (LSI)",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-081 <= 0.5 AND GEO-082 <= 0.5",
+    "severity": "BLOCKED",
+    "message_template": "Tendencia crítica de scaling de sílice o calcite",
+    "required_evidence": [
+      "chemistry_report",
+      "scaling_calc"
+    ],
+    "affected_fields": [
+      "GEO-081",
+      "GEO-082",
+      "GEO-083"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-007",
+      "GEO-DRW-004"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IAPWS_IF97",
+      "ASME_B31_3_2022",
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-009",
+    "name_es": "Eficiencia isoentrópica de turbina >= 80%",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "plant_type in [dry_steam,single_flash,double_flash,flash_binary_hybrid]",
+    "assertion_expression": "GEO-064 >= 80",
+    "severity": "BLOCKED",
+    "message_template": "Eficiencia de turbina menor a 80%",
+    "required_evidence": [
+      "turbine_datasheet"
+    ],
+    "affected_fields": [
+      "GEO-060",
+      "GEO-064"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-008",
+      "GEO-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_PTC_10",
+      "IAPWS_IF97",
+      "ISO_1940_1"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-010",
+    "name_es": "Balance de rotor según ISO 1940-1",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "plant_type in [dry_steam,single_flash,double_flash,flash_binary_hybrid]",
+    "assertion_expression": "balance_grade(orbital) <= 2.5",
+    "severity": "BLOCKED",
+    "message_template": "Calidad de balance de rotor no cumple ISO 1940-1 grado 2.5",
+    "required_evidence": [
+      "rotor_balance_test"
+    ],
+    "affected_fields": [
+      "GEO-060",
+      "GEO-064"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_1940_1",
+      "ASME_PTC_10",
+      "IAPWS_IF97",
+      "ISO_1940_1"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-011",
+    "name_es": "Eficiencia ORC >= 8%",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "plant_type contains binary",
+    "assertion_expression": "GEO-094 >= 8",
+    "severity": "BLOCKED",
+    "message_template": "Eficiencia ORC menor a 8%",
+    "required_evidence": [
+      "orc_balance_calc"
+    ],
+    "affected_fields": [
+      "GEO-090",
+      "GEO-091",
+      "GEO-092",
+      "GEO-094",
+      "GEO-095"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-010",
+      "GEO-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_15547_1",
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-012",
+    "name_es": "Interconexión IEEE 1547 con SEIN",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "compliance(IEEE_1547_2018, GEO-109) == true",
+    "severity": "BLOCKED",
+    "message_template": "Punto de interconexión no cumple IEEE 1547-2018",
+    "required_evidence": [
+      "interconnection_study",
+      "coordination_study"
+    ],
+    "affected_fields": [
+      "GEO-109",
+      "GEO-107",
+      "GEO-108"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "IEEE_80_2013",
+      "IEC_60364_5_54",
+      "MINEM_DS_043_2006",
+      "CNE_2011"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-013",
+    "name_es": "Presión de condensador dentro de rango de diseño",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "plant_type in [dry_steam,single_flash,double_flash,flash_binary_hybrid]",
+    "assertion_expression": "GEO-066 >= 0.02 AND GEO-066 <= 0.20",
+    "severity": "BLOCKED",
+    "message_template": "Presión de condensador fuera de rango (0.02 - 0.20 bar)",
+    "required_evidence": [
+      "condenser_design"
+    ],
+    "affected_fields": [
+      "GEO-065",
+      "GEO-066",
+      "GEO-067",
+      "GEO-068",
+      "GEO-069"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "IAPWS_IF97",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-014",
+    "name_es": "Eficiencia de abatimiento de H2S >= 99%",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-075 >= 99",
+    "severity": "BLOCKED",
+    "message_template": "Eficiencia de abatimiento de H2S menor a 99%",
+    "required_evidence": [
+      "h2s_abatement_datasheet"
+    ],
+    "affected_fields": [
+      "GEO-074",
+      "GEO-075",
+      "GEO-076",
+      "GEO-077"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "MINAM_DS_019_2009",
+      "API_521",
+      "MINAM_DS_019_2009",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-015",
+    "name_es": "Sistema instrumentado de seguridad SIL asignado",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-113 in [SIL1,SIL2,SIL3]",
+    "severity": "BLOCKED",
+    "message_template": "SIL no asignado al sistema instrumentado de seguridad",
+    "required_evidence": [
+      "sil_lopa_analysis"
+    ],
+    "affected_fields": [
+      "GEO-112",
+      "GEO-113",
+      "GEO-114"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61511_1",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-015B",
+    "name_es": "Clasificación de área NFPA 497 / IEC 60079-10-1",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-115 in [Zone_0,Zone_1,Zone_2,non_hazardous]",
+    "severity": "BLOCKED",
+    "message_template": "Zona de clasificación de área no definida",
+    "required_evidence": [
+      "area_classification_study"
+    ],
+    "affected_fields": [
+      "GEO-084",
+      "GEO-085",
+      "GEO-115",
+      "GEO-080"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-016",
+      "GEO-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_497_2024",
+      "IEC_60079_10_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-016",
+    "name_es": "Reinyección obligatoria de salmuera",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-118 == true",
+    "severity": "BLOCKED",
+    "message_template": "Reinyección obligatoria de salmuera requerida por EIA",
+    "required_evidence": [
+      "eia_approval",
+      "environmental_permit"
+    ],
+    "affected_fields": [
+      "GEO-027",
+      "GEO-099",
+      "GEO-100",
+      "GEO-101",
+      "GEO-118"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-001",
+      "GEO-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-016B",
+    "name_es": "Sello as-built en plano final",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "has_asbuilt_stamp(GEO-DRW-017) AND survey_date_valid",
+    "severity": "BLOCKED",
+    "message_template": "Plano as-built sin sello o fecha de relevamiento",
+    "required_evidence": [
+      "asbuilt_stamp",
+      "survey_report"
+    ],
+    "affected_fields": [
+      "GEO-001",
+      "GEO-002",
+      "GEO-058"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-017"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_5457",
+      "ISO_7200",
+      "ISO_129_1",
+      "ISO_128_20",
+      "ISO_5455",
+      "ANSI_Y14_5",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-017",
+    "name_es": "Distancia mínima entre pozos productores y reinyectores (wellpad)",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "distance(producer_wellpad, injector_wellpad) >= 500",
+    "severity": "BLOCKED",
+    "message_template": "Distancia entre wellpads productor-reinyector insuficiente",
+    "required_evidence": [
+      "wellpad_layout"
+    ],
+    "affected_fields": [
+      "GEO-026",
+      "GEO-027",
+      "GEO-121"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_3_2022",
+      "API_1104_2021",
+      "MINAM_DS_019_2009",
+      "ISO_14685",
+      "ISO_19111",
+      "ISO_14685"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-018",
+    "name_es": "Detección de H2S obligatoria",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-114 == true",
+    "severity": "BLOCKED",
+    "message_template": "Detección de H2S no requerida en planta con H2S",
+    "required_evidence": [
+      "fire_safety_study"
+    ],
+    "affected_fields": [
+      "GEO-084",
+      "GEO-114"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-015",
+      "GEO-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_15_2022",
+      "NFPA_20_2022",
+      "NFPA_497_2024",
+      "NFPA_30_2024",
+      "MINEM_DS_032_2003",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-018B",
+    "name_es": "Cobertura de hidrantes 100% en planta",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "hydrant_coverage >= 1.0",
+    "severity": "BLOCKED",
+    "message_template": "Hidrantes no cubren toda el área de planta",
+    "required_evidence": [
+      "fire_water_layout"
+    ],
+    "affected_fields": [
+      "GEO-114",
+      "GEO-116",
+      "GEO-117"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_15_2022",
+      "NFPA_20_2022",
+      "NFPA_497_2024",
+      "NFPA_30_2024",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-019",
+    "name_es": "Residencia separador cumple ASME BPVC VIII-1",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-043 >= 5 AND vessel_stamp(ASME_BPVC_VIII_1_2023) == true",
+    "severity": "BLOCKED",
+    "message_template": "Separador sin sello ASME BPVC VIII-1 o residencia insuficiente",
+    "required_evidence": [
+      "separator_cert",
+      "design_calc"
+    ],
+    "affected_fields": [
+      "GEO-040",
+      "GEO-041",
+      "GEO-042",
+      "GEO-043"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_B31_3_2022",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-020",
+    "name_es": "Cálculo de AMI y LSI incluido en P&ID",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "has_AMI_calc AND has_LSI_calc",
+    "severity": "BLOCKED",
+    "message_template": "P&ID no incluye cálculo de AMI/LSI",
+    "required_evidence": [
+      "pid_with_calcs"
+    ],
+    "affected_fields": [
+      "GEO-021",
+      "GEO-081",
+      "GEO-082",
+      "GEO-083"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IAPWS_IF97",
+      "ASME_B31_3_2022",
+      "MINAM_DS_019_2009",
+      "ISO_10628",
+      "ISO_10628_2",
+      "ISO_14617",
+      "ISO_14617_2"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-021",
+    "name_es": "Eficiencia de turbina reportada en plano",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "plant_type in [dry_steam,single_flash,double_flash,flash_binary_hybrid]",
+    "assertion_expression": "GEO-064 displayed_on(GEO-DRW-008)",
+    "severity": "BLOCKED",
+    "message_template": "Eficiencia de turbina no reportada en plano de turbina",
+    "required_evidence": [
+      "turbine_plan"
+    ],
+    "affected_fields": [
+      "GEO-060",
+      "GEO-064"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_PTC_10",
+      "IAPWS_IF97",
+      "ISO_1940_1"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-022",
+    "name_es": "Balance de rotor según ISO 1940-1 en sección",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "plant_type in [dry_steam,single_flash,double_flash,flash_binary_hybrid]",
+    "assertion_expression": "ISO_1940_balance_grade displayed_on(GEO-DRW-009)",
+    "severity": "BLOCKED",
+    "message_template": "Sección de turbina no reporta balance ISO 1940-1",
+    "required_evidence": [
+      "turbine_section"
+    ],
+    "affected_fields": [
+      "GEO-060",
+      "GEO-064"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_1940_1",
+      "ASME_PTC_10",
+      "IAPWS_IF97",
+      "ISO_1940_1"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-023",
+    "name_es": "Datos ORC completos en plano ORC",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "plant_type contains binary",
+    "assertion_expression": "has_orc_data_table(GEO-DRW-010)",
+    "severity": "BLOCKED",
+    "message_template": "Plano ORC no incluye tabla de datos ORC completa",
+    "required_evidence": [
+      "orc_plan"
+    ],
+    "affected_fields": [
+      "GEO-090",
+      "GEO-091",
+      "GEO-092",
+      "GEO-093",
+      "GEO-094",
+      "GEO-095"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-010"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_15547_1",
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-024",
+    "name_es": "Protección y vector group reportados en SLD",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "has_protection_table(GEO-DRW-011) AND has_vector_group",
+    "severity": "BLOCKED",
+    "message_template": "SLD sin tabla de protecciones o vector group",
+    "required_evidence": [
+      "sld_drawing"
+    ],
+    "affected_fields": [
+      "GEO-107",
+      "GEO-108",
+      "GEO-109",
+      "GEO-110"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "IEEE_80_2013",
+      "IEC_60364_5_54",
+      "MINEM_DS_043_2006",
+      "CNE_2011",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-025",
+    "name_es": "Datos del condensador en plano",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "plant_type in [dry_steam,single_flash,double_flash,flash_binary_hybrid]",
+    "assertion_expression": "has_condenser_data_table(GEO-DRW-012)",
+    "severity": "BLOCKED",
+    "message_template": "Plano de condensador sin tabla de datos",
+    "required_evidence": [
+      "condenser_plan"
+    ],
+    "affected_fields": [
+      "GEO-065",
+      "GEO-066",
+      "GEO-067",
+      "GEO-068",
+      "GEO-069"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "IAPWS_IF97",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-026",
+    "name_es": "Capacidad de extracción de NCG >= a NCG producido",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-071 >= computed_NCG_kg_h",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad de extracción de NCG menor a NCG producido",
+    "required_evidence": [
+      "ncg_balance",
+      "ncg_system_datasheet"
+    ],
+    "affected_fields": [
+      "GEO-022",
+      "GEO-023",
+      "GEO-070",
+      "GEO-071",
+      "GEO-072",
+      "GEO-073"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_PTC_10",
+      "API_521",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-027",
+    "name_es": "Altura de chimenea de vente según API 521",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-078 >= min_stack_height_API_521 AND GEO-080 >= computed_radius",
+    "severity": "BLOCKED",
+    "message_template": "Altura de chimenea o radio de radiación insuficiente (API 521)",
+    "required_evidence": [
+      "vent_radiation_calc",
+      "api_521_dispersion"
+    ],
+    "affected_fields": [
+      "GEO-078",
+      "GEO-079",
+      "GEO-080"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-013",
+      "GEO-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "API_521",
+      "ASME_PTC_10",
+      "API_521",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-028",
+    "name_es": "Emisión de mercurio bajo límite EIA",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "computed_mercury_emission <= GEO-120",
+    "severity": "BLOCKED",
+    "message_template": "Emisión de mercurio excede límite permisible",
+    "required_evidence": [
+      "mercury_balance",
+      "eia_permit"
+    ],
+    "affected_fields": [
+      "GEO-088",
+      "GEO-089",
+      "GEO-120"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "MINEM_DS_032_2003",
+      "ISO_6107_1",
+      "MINAM_DS_019_2009",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-029",
+    "name_es": "SCADA redundante y protocolo definido",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-111 in [DNP3,IEC_61850,OPC_UA] AND redundancy(SCADA) == true",
+    "severity": "BLOCKED",
+    "message_template": "SCADA sin redundancia o protocolo no estándar",
+    "required_evidence": [
+      "scada_architecture"
+    ],
+    "affected_fields": [
+      "GEO-111",
+      "GEO-112"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006",
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "IEEE_80_2013",
+      "IEC_60364_5_54",
+      "MINEM_DS_043_2006",
+      "CNE_2011"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-030",
+    "name_es": "Densidad de rociadores según NFPA 13",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-117 >= 4 AND GEO-117 <= 12",
+    "severity": "BLOCKED",
+    "message_template": "Densidad de rociadores fuera de rango NFPA 13",
+    "required_evidence": [
+      "fire_sprinkler_calc"
+    ],
+    "affected_fields": [
+      "GEO-116",
+      "GEO-117"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_13_2022",
+      "NFPA_15_2022",
+      "NFPA_20_2022",
+      "NFPA_497_2024",
+      "NFPA_30_2024",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-031",
+    "name_es": "Tubería de vapor conforme ASME B31.1",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "pipe_stamp(ASME_B31_1_2022, GEO-051) == true",
+    "severity": "BLOCKED",
+    "message_template": "Tubería de vapor no cumple ASME B31.1",
+    "required_evidence": [
+      "pipe_calculation",
+      "pipe_material_cert"
+    ],
+    "affected_fields": [
+      "GEO-051",
+      "GEO-052",
+      "GEO-053"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005",
+      "GEO-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-032",
+    "name_es": "Tubería de salmuera conforme ASME B31.3",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "pipe_stamp(ASME_B31_3_2022, GEO-054) == true",
+    "severity": "BLOCKED",
+    "message_template": "Tubería de salmuera no cumple ASME B31.3",
+    "required_evidence": [
+      "pipe_calculation",
+      "pipe_material_cert"
+    ],
+    "affected_fields": [
+      "GEO-054",
+      "GEO-055",
+      "GEO-056"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-033",
+    "name_es": "Vessels conforme ASME BPVC VIII-1",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "vessel_stamp(ASME_BPVC_VIII_1_2023, all_vessels) == true",
+    "severity": "BLOCKED",
+    "message_template": "Vessels no cumplen ASME BPVC VIII-1",
+    "required_evidence": [
+      "vessel_cert",
+      "design_calc"
+    ],
+    "affected_fields": [
+      "GEO-041",
+      "GEO-042",
+      "GEO-046",
+      "GEO-047"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-034",
+    "name_es": "Presión de reinyección menor a presión de fractura",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-099 < frac_pressure(reservoir)",
+    "severity": "BLOCKED",
+    "message_template": "Presión de reinyección excede presión de fractura del reservorio",
+    "required_evidence": [
+      "fracture_gradient_test",
+      "reinjection_calc"
+    ],
+    "affected_fields": [
+      "GEO-008",
+      "GEO-099",
+      "GEO-100",
+      "GEO-101",
+      "GEO-102"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_3_2022",
+      "API_1104_2021",
+      "MINAM_DS_019_2009",
+      "ISO_14685",
+      "IAPWS_IF97",
+      "ISO_6107_1",
+      "ISO_14685"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-035",
+    "name_es": "Calidad de vapor >= 99.5% en admisión a turbina",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-049 >= 99.5",
+    "severity": "BLOCKED",
+    "message_template": "Calidad de vapor menor a 99.5% en admisión a turbina",
+    "required_evidence": [
+      "demister_calc"
+    ],
+    "affected_fields": [
+      "GEO-048",
+      "GEO-049",
+      "GEO-050"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-007",
+      "GEO-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_B31_3_2022",
+      "IAPWS_IF97",
+      "ASME_B31_1_2022",
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-036",
+    "name_es": "Material de tubería compatible con química del fluido",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "material_compatible(GEO-052,GEO-055,GEO-084,GEO-085,GEO-086) == true",
+    "severity": "BLOCKED",
+    "message_template": "Material de tubería no compatible con H2S/CO2/Cl del fluido",
+    "required_evidence": [
+      "material_selection_report",
+      "corrosion_study"
+    ],
+    "affected_fields": [
+      "GEO-052",
+      "GEO-055",
+      "GEO-084",
+      "GEO-085",
+      "GEO-086",
+      "GEO-087"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_B31_1_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "ISO_6107_1",
+      "MINAM_DS_019_2009",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-037",
+    "name_es": "Malla de tierra < 1 ohm según IEEE 80",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-110 <= 1.0",
+    "severity": "BLOCKED",
+    "message_template": "Resistencia de malla de tierra excede 1 ohm IEEE 80",
+    "required_evidence": [
+      "grounding_study"
+    ],
+    "affected_fields": [
+      "GEO-003",
+      "GEO-005",
+      "GEO-110"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "IEEE_80_2013",
+      "IEC_60364_5_54",
+      "MINEM_DS_043_2006",
+      "CNE_2011"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-038",
+    "name_es": "Venta de H2S bajo límite permisible",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "computed_H2S_vent_kg_h <= GEO-119",
+    "severity": "BLOCKED",
+    "message_template": "Venta de H2S excede límite permisible por EIA",
+    "required_evidence": [
+      "h2s_balance",
+      "eia_permit"
+    ],
+    "affected_fields": [
+      "GEO-023",
+      "GEO-074",
+      "GEO-075",
+      "GEO-077",
+      "GEO-079",
+      "GEO-119"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "MINAM_DS_019_2009",
+      "API_521",
+      "MINAM_DS_019_2009",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-039",
+    "name_es": "Hojas de plano conforme ISO 5457 / 7200",
+    "category": "GRAPHIC",
+    "applicability_expression": "always",
+    "assertion_expression": "sheet_format(GEO-DRW-X) in [A0,A1,A2,A3] AND titleblock(ISO_7200) == true",
+    "severity": "BLOCKED",
+    "message_template": "Formato de hoja o bloque de título no conforme ISO 5457/7200",
+    "required_evidence": [
+      "drawing_checklist"
+    ],
+    "affected_fields": [
+      "GEO-122"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-001",
+      "GEO-DRW-002",
+      "GEO-DRW-017"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_5457",
+      "ISO_7200"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-040",
+    "name_es": "Símbolos P&ID conforme ISO 10628 / 14617",
+    "category": "GRAPHIC",
+    "applicability_expression": "always",
+    "assertion_expression": "symbols_used(ISO_10628, ISO_14617) == true",
+    "severity": "BLOCKED",
+    "message_template": "P&ID usa símbolos no normalizados por ISO 10628/14617",
+    "required_evidence": [
+      "pid_review"
+    ],
+    "affected_fields": [
+      "GEO-040",
+      "GEO-041",
+      "GEO-042",
+      "GEO-043"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-007",
+      "GEO-DRW-013",
+      "GEO-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_10628",
+      "ISO_14617",
+      "ISO_10628_2"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-041",
+    "name_es": "Capacidad de planta reportada en implantación",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-058 displayed_on(GEO-DRW-002)",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad de planta no reportada en plano de implantación",
+    "required_evidence": [
+      "implant_plan"
+    ],
+    "affected_fields": [
+      "GEO-057",
+      "GEO-058"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_5457",
+      "ISO_7200",
+      "ISO_129_1",
+      "ISO_128_20",
+      "ISO_5455",
+      "ANSI_Y14_5",
+      "ISO_13567_1",
+      "IAPWS_IF97",
+      "ISO_6107_1",
+      "ISO_14685"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-042",
+    "name_es": "MINEM DS 032-2003-EM seguridad en hidrocarburos aplicable",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "compliance(MINEM_DS_032_2003, plant_safety) == true",
+    "severity": "BLOCKED",
+    "message_template": "Cumplimiento del DS 032-2003-EM para seguridad de hidrocarburos",
+    "required_evidence": [
+      "safety_compliance_report"
+    ],
+    "affected_fields": [
+      "GEO-084",
+      "GEO-085",
+      "GEO-114",
+      "GEO-115",
+      "GEO-118"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-015",
+      "GEO-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-043",
+    "name_es": "Venteo NCG con depresurización API 521",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "depressuring_system(API_521, plant) == true",
+    "severity": "BLOCKED",
+    "message_template": "Sistema de depresurización conforme API 521 no implementado",
+    "required_evidence": [
+      "depressuring_study"
+    ],
+    "affected_fields": [
+      "GEO-078",
+      "GEO-079",
+      "GEO-080",
+      "GEO-084"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-013",
+      "GEO-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "API_521",
+      "API_520_1"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-044",
+    "name_es": "Soldadura de tuberías conforme API 1104",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "weld_procedure(API_1104_2021) == true AND welder_certified",
+    "severity": "BLOCKED",
+    "message_template": "Procedimiento de soldadura no cumple API 1104",
+    "required_evidence": [
+      "wps_doc",
+      "welder_cert"
+    ],
+    "affected_fields": [
+      "GEO-036",
+      "GEO-051",
+      "GEO-054",
+      "GEO-037"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "API_1104_2021"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-045",
+    "name_es": "Bomba centrífuga conforme API 610",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "pump_compliance(API_610_2024, all_pumps) == true",
+    "severity": "BLOCKED",
+    "message_template": "Bombas centrífugas no cumplen API 610",
+    "required_evidence": [
+      "pump_datasheet",
+      "api_610_test"
+    ],
+    "affected_fields": [
+      "GEO-102",
+      "GEO-105",
+      "GEO-099"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-010"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "API_610_2024"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-046",
+    "name_es": "Protección contra rayos conforme IEC 62305 / NFPA 780",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "lps_compliance(IEC_62305, NFPA_780_2023) == true",
+    "severity": "BLOCKED",
+    "message_template": "Sistema de protección contra rayos no cumple IEC 62305/NFPA 780",
+    "required_evidence": [
+      "lps_design"
+    ],
+    "affected_fields": [
+      "GEO-003",
+      "GEO-110"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-002",
+      "GEO-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023",
+      "IEC_61400_24"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-047",
+    "name_es": "Intercambiadores de calor (ORC) conforme ISO 15547-1",
+    "category": "NORMATIVE",
+    "applicability_expression": "plant_type contains binary",
+    "assertion_expression": "hex_compliance(ISO_15547_1, vaporizer) == true",
+    "severity": "BLOCKED",
+    "message_template": "Intercambiadores ORC no cumplen ISO 15547-1",
+    "required_evidence": [
+      "hex_datasheet"
+    ],
+    "affected_fields": [
+      "GEO-090",
+      "GEO-091",
+      "GEO-092",
+      "GEO-093"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-010"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_15547_1"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-048",
+    "name_es": "Steam quality >= 99.5% en admisión a turbina",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "GEO-049 >= 99.5",
+    "severity": "BLOCKED",
+    "message_template": "Steam quality < 99.5% en inlet de turbina (riesgo de erosión)",
+    "required_evidence": [
+      "demister_calc",
+      "moisture_test"
+    ],
+    "affected_fields": [
+      "GEO-048",
+      "GEO-049",
+      "GEO-050"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-007",
+      "GEO-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_B31_3_2022",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-049",
+    "name_es": "Tasa de vente de CO2 reportada",
+    "category": "ENVIRONMENTAL",
+    "applicability_expression": "always",
+    "assertion_expression": "computed_CO2_vent_kg_h reported_in(GEO-DRW-013)",
+    "severity": "BLOCKED",
+    "message_template": "Tasa de vente de CO2 no reportada en plano NCG",
+    "required_evidence": [
+      "ncg_balance"
+    ],
+    "affected_fields": [
+      "GEO-022",
+      "GEO-079"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "MINEM_DS_032_2003",
+      "ASME_PTC_10",
+      "API_521",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "rule_id": "GEO-QA-050",
+    "name_es": "Caudal de salmuera a reinyección = caudal total - vapor a turbina",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "abs(computed_brine - (GEO-026 * GEO-103 * (1 - x))) / computed_brine < 0.05",
+    "severity": "BLOCKED",
+    "message_template": "Balance de masa: salmuera + vapor != total producido",
+    "required_evidence": [
+      "mass_balance_calc"
+    ],
+    "affected_fields": [
+      "GEO-026",
+      "GEO-103",
+      "GEO-099",
+      "GEO-100"
+    ],
+    "affected_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IAPWS_IF97",
+      "ISO_6107_1",
+      "ISO_14685",
+      "IAPWS_IF97"
+    ]
+  }
+]

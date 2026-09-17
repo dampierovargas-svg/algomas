@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/absence_policy.schema.json",
+  "title": "Política de ausencia de campo",
+  "description": "Define comportamiento cuando un campo falta: obligatorio, condicional, prohibido",
+  "type": "object",
+  "required": [
+    "policy_id",
+    "field_id",
+    "policy_type",
+    "blocking_if_missing",
+    "affected_calculations",
+    "affected_drawings"
+  ],
+  "properties": {
+    "policy_id": {
+      "type": "string",
+      "pattern": "^POL-[A-Z]{3,6}-\\d{4}$"
+    },
+    "field_id": {
+      "type": "string",
+      "pattern": "^FLD-[A-Z]{3,6}-\\d{4}$"
+    },
+    "policy_type": {
+      "type": "string",
+      "enum": ["project_mandatory", "technology_mandatory", "conditional_blocking", "prohibited_assume", "optional"]
+    },
+    "blocking_if_missing": {
+      "type": "boolean",
+      "default": false
+    },
+    "condition_expression": {
+      "type": "string",
+      "description": "Expresión que define cuándo aplica la política condicional"
+    },
+    "affected_calculations": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "description": "Cálculos que se bloquean si el campo falta"
+    },
+    "affected_drawings": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "description": "Planos que se bloquean si el campo falta"
+    },
+    "fallback_behavior": {
+      "type": "string",
+      "enum": ["block", "warn_and_continue", "use_default", "skip"],
+      "description": "Comportamiento ante ausencia"
+    },
+    "default_value": {},
+    "justification_required_for_override": {
+      "type": "boolean",
+      "default": true
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}

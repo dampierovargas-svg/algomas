@@ -1,0 +1,1413 @@
+[
+  {
+    "geometry_rule_id": "PVF-GEO-001",
+    "name_es": "Layout de grilla de flotadores (float grid layout)",
+    "description": "Regla de grilla regular para la colocacion de flotadores individuales en el arreglo.",
+    "rule_logic": "grid(N_rows, N_cols) at pitch = array_layout_pitch_m, offset from shoreline >= navigation_exclusion_zone_m",
+    "geometry_type": "regular_grid",
+    "controlled_by_fields": [
+      "PVF-064",
+      "PVF-066",
+      "PVF-029"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-002",
+      "PVF-DRW-003"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "NREL_PVWatts"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-001: required input field missing or invalid",
+      "PVF-GEO-001: collision between generated entities detected",
+      "PVF-GEO-001: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-002",
+    "name_es": "Patron de fondeo - punto simple (single point mooring)",
+    "description": "Patron de fondeo con un unico punto de anclaje por array.",
+    "rule_logic": "single_anchor_centroid(array), lines radiate from anchor to array corners, watch circle radius = water_depth * 3",
+    "geometry_type": "radial_pattern",
+    "controlled_by_fields": [
+      "PVF-032",
+      "PVF-002",
+      "PVF-011"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-004",
+      "PVF-DRW-013"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_OS_C101"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-002: required input field missing or invalid",
+      "PVF-GEO-002: collision between generated entities detected",
+      "PVF-GEO-002: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-003",
+    "name_es": "Patron de fondeo - multileg (multi-leg mooring)",
+    "description": "Patron de fondeo con multiples anclas distribuidas en el perimetro del array.",
+    "rule_logic": "anchor_ring(N_anchors >= 4) around centroid, two lines per anchor (45 deg apart), spread_angle = 360 / N_anchors",
+    "geometry_type": "polygonal_pattern",
+    "controlled_by_fields": [
+      "PVF-032",
+      "PVF-052",
+      "PVF-053"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-004",
+      "PVF-DRW-013"
+    ],
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-003: required input field missing or invalid",
+      "PVF-GEO-003: collision between generated entities detected",
+      "PVF-GEO-003: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-004",
+    "name_es": "Patron de fondeo - spread (spread mooring)",
+    "description": "Patron de fondeo distribuido con anclas en cada esquina del array y lines semi-taut.",
+    "rule_logic": "anchors placed at array corners, line length = max_water_level_depth * 1.5, anchor zone onshore if water_body_type=pond",
+    "geometry_type": "spread_pattern",
+    "controlled_by_fields": [
+      "PVF-032",
+      "PVF-012",
+      "PVF-030"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-004",
+      "PVF-DRW-013"
+    ],
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-004: required input field missing or invalid",
+      "PVF-GEO-004: collision between generated entities detected",
+      "PVF-GEO-004: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-005",
+    "name_es": "Posicionamiento de anclas (anchor positions)",
+    "description": "Reglas de posicionamiento de anclas submarinas en funcion del sedimento y profundidad.",
+    "rule_logic": "anchor_positions = circle_ring(centroid, R = max_water_level - min_water_level + 5m, N_anchors)",
+    "geometry_type": "point_pattern",
+    "controlled_by_fields": [
+      "PVF-052",
+      "PVF-053",
+      "PVF-005",
+      "PVF-006"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-005",
+      "PVF-DRW-014"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "ISO_14685"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-005: required input field missing or invalid",
+      "PVF-GEO-005: collision between generated entities detected",
+      "PVF-GEO-005: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-006",
+    "name_es": "Ruta de cable submarino (subsea cable route)",
+    "description": "Trazado del cable submarino desde el arreglo flotante hasta la orilla.",
+    "rule_logic": "route_polyline(floating_centroid, onshore_point) with min_bend_radius = 12 * cable_diameter, anchor_offset = 5m",
+    "geometry_type": "polyline_route",
+    "controlled_by_fields": [
+      "PVF-046",
+      "PVF-011",
+      "PVF-012"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-008"
+    ],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_835"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-006: required input field missing or invalid",
+      "PVF-GEO-006: collision between generated entities detected",
+      "PVF-GEO-006: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-007",
+    "name_es": "Ruta de cable en tierra (onshore cable route)",
+    "description": "Trazado del cable en tierra desde el punto de desembarque al transformador / subestacion.",
+    "rule_logic": "route_polyline(onshore_landfall, substation_point) with min_depth_buried = 0.6m",
+    "geometry_type": "polyline_route",
+    "controlled_by_fields": [
+      "PVF-047",
+      "PVF-048"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-009"
+    ],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_835",
+      "NFPA_70_2023"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-007: required input field missing or invalid",
+      "PVF-GEO-007: collision between generated entities detected",
+      "PVF-GEO-007: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-008",
+    "name_es": "Layout de pasarelas (walkway layout)",
+    "description": "Trazado de las pasarelas de servicio dentro del arreglo flotante.",
+    "rule_logic": "walkway_main_axis along E-W, cross_walkway every 4 rows, width >= walkway_width_mm",
+    "geometry_type": "orthogonal_grid",
+    "controlled_by_fields": [
+      "PVF-054",
+      "PVF-064"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-011",
+      "PVF-DRW-012"
+    ],
+    "source_ids": [
+      "ISO_5455",
+      "NFPA_70_2023"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-008: required input field missing or invalid",
+      "PVF-GEO-008: collision between generated entities detected",
+      "PVF-GEO-008: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-009",
+    "name_es": "Corredor de navegacion (navigation corridor)",
+    "description": "Zona perimetral reservada para paso seguro de embarcaciones.",
+    "rule_logic": "corridor_polygon = offset(shoreline, +navigation_exclusion_zone_m)",
+    "geometry_type": "buffer_polygon",
+    "controlled_by_fields": [
+      "PVF-028",
+      "PVF-029"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-001",
+      "PVF-DRW-002"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "MINAM_DS_019_2009"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-009: required input field missing or invalid",
+      "PVF-GEO-009: collision between generated entities detected",
+      "PVF-GEO-009: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-010",
+    "name_es": "Zona de exclusion (exclusion zone)",
+    "description": "Zona de exclusion perimetral del arreglo flotante para seguridad y mantenimiento.",
+    "rule_logic": "exclusion_polygon = offset(array_polygon, +min(10m, 0.25 * array_width))",
+    "geometry_type": "buffer_polygon",
+    "controlled_by_fields": [
+      "PVF-029",
+      "PVF-066"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-001",
+      "PVF-DRW-002"
+    ],
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-010: required input field missing or invalid",
+      "PVF-GEO-010: collision between generated entities detected",
+      "PVF-GEO-010: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-011",
+    "name_es": "Poligono de profundidad de agua (water depth polygon)",
+    "description": "Area del cuerpo de agua con profundidad suficiente para el arreglo flotante.",
+    "rule_logic": "depth_polygon = bathymetric_contour(min_depth = bathymetry_min_depth_m, max_slope = bathymetry_slope_pct)",
+    "geometry_type": "bathymetric_polygon",
+    "controlled_by_fields": [
+      "PVF-002",
+      "PVF-003",
+      "PVF-004"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-001"
+    ],
+    "source_ids": [
+      "ISO_14685",
+      "ICOLD_Bull_60"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-011: required input field missing or invalid",
+      "PVF-GEO-011: collision between generated entities detected",
+      "PVF-GEO-011: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-012",
+    "name_es": "Poligono de sedimento (sediment polygon)",
+    "description": "Zonas del fondo con sediment compatible con el tipo de ancla seleccionada.",
+    "rule_logic": "sediment_polygon = reclass(bed_material=sediment_type, anchor_compatibility=true)",
+    "geometry_type": "thematic_polygon",
+    "controlled_by_fields": [
+      "PVF-005",
+      "PVF-006",
+      "PVF-052"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-001",
+      "PVF-DRW-005"
+    ],
+    "source_ids": [
+      "ISO_14685",
+      "DNV_OS_E301"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-012: required input field missing or invalid",
+      "PVF-GEO-012: collision between generated entities detected",
+      "PVF-GEO-012: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-013",
+    "name_es": "Zona de anclaje en tierra (anchoring zone onshore)",
+    "description": "Area en la orilla reservada para el anclaje terrestre del sistema de fondeo.",
+    "rule_logic": "onshore_zone_polygon = polygon(shoreline_buffer=5m inland, area >= onshore_anchor_zone_available_m2)",
+    "geometry_type": "buffer_polygon",
+    "controlled_by_fields": [
+      "PVF-030",
+      "PVF-031"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-005",
+      "PVF-DRW-014"
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "ISO_14685"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-013: required input field missing or invalid",
+      "PVF-GEO-013: collision between generated entities detected",
+      "PVF-GEO-013: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-014",
+    "name_es": "Zona del transformador flotante (floating transformer zone)",
+    "description": "Localizacion de la plataforma flotante del transformador dentro del arreglo.",
+    "rule_logic": "transformer_zone = subgrid_central(array_polygon, dimensions = 6m x 4m)",
+    "geometry_type": "polygon_subzone",
+    "controlled_by_fields": [
+      "PVF-048",
+      "PVF-044"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-007",
+      "PVF-DRW-002"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-014: required input field missing or invalid",
+      "PVF-GEO-014: collision between generated entities detected",
+      "PVF-GEO-014: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-015",
+    "name_es": "Zona del inverter flotante (floating inverter zone)",
+    "description": "Localizacion de la plataforma flotante del inverter dentro del arreglo.",
+    "rule_logic": "inverter_zone = subgrid_north(array_polygon, dimensions = 5m x 3m)",
+    "geometry_type": "polygon_subzone",
+    "controlled_by_fields": [
+      "PVF-044",
+      "PVF-045"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-006",
+      "PVF-DRW-002"
+    ],
+    "source_ids": [
+      "IEC_62894",
+      "IEEE_1547_2018"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-015: required input field missing or invalid",
+      "PVF-GEO-015: collision between generated entities detected",
+      "PVF-GEO-015: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-016",
+    "name_es": "Puente pasarela-orilla (walkway-to-shore bridge)",
+    "description": "Puente de conexion entre la pasarela del arreglo flotante y la orilla.",
+    "rule_logic": "bridge_line = polyline(shore_connection_point, array_walkway_start), slope <= 1:12",
+    "geometry_type": "polyline_bridge",
+    "controlled_by_fields": [
+      "PVF-054",
+      "PVF-011",
+      "PVF-012"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-011",
+      "PVF-DRW-012"
+    ],
+    "source_ids": [
+      "ISO_5455",
+      "NFPA_70_2023"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-016: required input field missing or invalid",
+      "PVF-GEO-016: collision between generated entities detected",
+      "PVF-GEO-016: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-017",
+    "name_es": "Puentes de conexion de flotadores (float connecting bridges)",
+    "description": "Puentes de conexion entre islas de flotadores adyacentes.",
+    "rule_logic": "connector_lines = connect(adjacent_array_centroids, max_gap=0.8m)",
+    "geometry_type": "polyline_connectors",
+    "controlled_by_fields": [
+      "PVF-066",
+      "PVF-064"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-002",
+      "PVF-DRW-011"
+    ],
+    "source_ids": [
+      "DNV_OS_C101",
+      "ASTM_D638"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-017: required input field missing or invalid",
+      "PVF-GEO-017: collision between generated entities detected",
+      "PVF-GEO-017: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-018",
+    "name_es": "Rutas de evacuacion de emergencia (emergency egress routes)",
+    "description": "Rutas de evacuacion del arreglo flotante hacia la orilla.",
+    "rule_logic": "egress_routes = N_routes >= 2, route_length <= 200m, end at onshore_safety_zone",
+    "geometry_type": "polyline_routes",
+    "controlled_by_fields": [
+      "PVF-057",
+      "PVF-054"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-011"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "NFPA_70_2023"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-018: required input field missing or invalid",
+      "PVF-GEO-018: collision between generated entities detected",
+      "PVF-GEO-018: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-019",
+    "name_es": "Poligono de tension de lineas de ancla (anchor line tension polygon)",
+    "description": "Visualizacion de las tensiones calculadas en las lineas de fondeo sobre el plano.",
+    "rule_logic": "tension_polygon = heat_map(line_set, tension_value, color_scale_aci 1-5)",
+    "geometry_type": "heat_map_polygon",
+    "controlled_by_fields": [
+      "PVF-033",
+      "PVF-050",
+      "PVF-051"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-004",
+      "PVF-DRW-013"
+    ],
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-019: required input field missing or invalid",
+      "PVF-GEO-019: collision between generated entities detected",
+      "PVF-GEO-019: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-020",
+    "name_es": "Layout de barrera de proteccion ictica (fish protection barrier layout)",
+    "description": "Trazado de la barrera de proteccion ictica en torno al sistema de fondeo.",
+    "rule_logic": "barrier_polygon = offset(anchor_centroid_ring, +2m, mesh_size=fish_species_criteria)",
+    "geometry_type": "mesh_polygon",
+    "controlled_by_fields": [
+      "PVF-058",
+      "PVF-052"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-001",
+      "PVF-DRW-002"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "ISO_6107_1"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-020: required input field missing or invalid",
+      "PVF-GEO-020: collision between generated entities detected",
+      "PVF-GEO-020: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-021",
+    "name_es": "Offset del arreglo respecto a la orilla (array offset from shoreline)",
+    "description": "Distancia minima de separacion entre el borde del arreglo flotante y la orilla.",
+    "rule_logic": "array_offset >= max(navigation_exclusion_zone_m, 0.5 * max_wave_runup, 10m)",
+    "geometry_type": "buffer_polygon",
+    "controlled_by_fields": [
+      "PVF-029",
+      "PVF-014"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-001",
+      "PVF-DRW-002"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "ICOLD_Bull_60"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-021: required input field missing or invalid",
+      "PVF-GEO-021: collision between generated entities detected",
+      "PVF-GEO-021: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVF-GEO-022",
+    "name_es": "Layout de strings por filas (string layout rows)",
+    "description": "Agrupacion de strings por filas del arreglo flotante para minimizar perdidas electricas.",
+    "rule_logic": "string_grouping = group(modules_in_row, max_string_length = 2 * row_length)",
+    "geometry_type": "string_layout",
+    "controlled_by_fields": [
+      "PVF-041",
+      "PVF-042",
+      "PVF-064"
+    ],
+    "output_drawing_ids": [
+      "PVF-DRW-003"
+    ],
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "applicability_expression": "",
+    "required_field_ids": [
+      "PVF-001",
+      "PVF-002"
+    ],
+    "required_calculation_ids": [
+      "PVF-CAL-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVF-GEO-022: required input field missing or invalid",
+      "PVF-GEO-022: collision between generated entities detected",
+      "PVF-GEO-022: clearance violation"
+    ]
+  }
+]

@@ -1,0 +1,621 @@
+{
+  "validation_timestamp": "2026-09-17T19:26:02.436300",
+  "base_directory": ".",
+  "structural_validation": {
+    "status": "PASS",
+    "errors": 0
+  },
+  "semantic_validation": {
+    "status": "FAIL",
+    "generic_formulas": 21,
+    "generic_geometries": 0,
+    "constant_qa": 0,
+    "generic_symbols": 616,
+    "errors": 657
+  },
+  "integration_recommendation": "NOT_READY",
+  "official_issue_recommendation": "BLOCKED",
+  "error_details": [
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Falta clave requerida: domain_tags",
+      "location": "05_common_calculations.json:C-COM-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Constante sin valor: a",
+      "location": "05_common_calculations.json:C-COM-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Constante sin valor: f",
+      "location": "05_common_calculations.json:C-COM-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Constante sin valor: k0",
+      "location": "05_common_calculations.json:C-COM-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Falta clave requerida: domain_tags",
+      "location": "05_common_calculations.json:C-COM-002",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Falta clave requerida: domain_tags",
+      "location": "05_common_calculations.json:C-COM-003",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Falta clave requerida: domain_tags",
+      "location": "05_common_calculations.json:C-COM-004",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Falta clave requerida: domain_tags",
+      "location": "05_common_calculations.json:C-COM-005",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Falta clave requerida: domain_tags",
+      "location": "05_common_calculations.json:C-COM-006",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Falta clave requerida: domain_tags",
+      "location": "05_common_calculations.json:C-COM-007",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Constante sin valor: c_factor",
+      "location": "05_common_calculations.json:C-COM-007",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Falta clave requerida: domain_tags",
+      "location": "05_common_calculations.json:C-COM-008",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Falta clave requerida: domain_tags",
+      "location": "05_common_calculations.json:C-COM-009",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Constante sin valor: burial_depth",
+      "location": "05_common_calculations.json:C-COM-009",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Falta clave requerida: domain_tags",
+      "location": "05_common_calculations.json:C-COM-010",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Constante sin valor: design_density",
+      "location": "05_common_calculations.json:C-COM-010",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Constante sin valor: duration",
+      "location": "05_common_calculations.json:C-COM-010",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Falta clave requerida: domain_tags",
+      "location": "05_common_calculations.json:C-COM-011",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Constante sin valor: points_per_rtu",
+      "location": "05_common_calculations.json:C-COM-011",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Constante sin valor: bytes_per_point",
+      "location": "05_common_calculations.json:C-COM-011",
+      "severity": "error"
+    },
+    {
+      "code": "E_FORMULA_GENERIC",
+      "message": "Constante sin valor: poll_cycle",
+      "location": "05_common_calculations.json:C-COM-011",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Sin entidades producidas definidas",
+      "location": "07_common_geometry_rules.json:GR-COM-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'min_distance_to_property_line_m': 5.0}",
+      "location": "07_common_geometry_rules.json:GR-COM-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Sin entidades producidas definidas",
+      "location": "07_common_geometry_rules.json:GR-COM-002",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'min_distance_to_property_line_m': 5.0}",
+      "location": "07_common_geometry_rules.json:GR-COM-002",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'min_distance_between_equipments_m': 1.5}",
+      "location": "07_common_geometry_rules.json:GR-COM-002",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'min_distance_to_exclusion_zone_m': 0.0}",
+      "location": "07_common_geometry_rules.json:GR-COM-002",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Sin entidades producidas definidas",
+      "location": "07_common_geometry_rules.json:GR-COM-003",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'min_distance_between_footings_m': 2.5, 'context': 'stress bulb overlap'}",
+      "location": "07_common_geometry_rules.json:GR-COM-003",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'min_distance_to_groundwater_m': 0.5, 'context': 'below footing base'}",
+      "location": "07_common_geometry_rules.json:GR-COM-003",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Sin entidades producidas definidas",
+      "location": "07_common_geometry_rules.json:GR-COM-004",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'min_text_to_line_mm': 1.5, 'context': 'legibility'}",
+      "location": "07_common_geometry_rules.json:GR-COM-004",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'min_symbol_spacing_mm': 10, 'context': 'clarity'}",
+      "location": "07_common_geometry_rules.json:GR-COM-004",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Sin entidades producidas definidas",
+      "location": "07_common_geometry_rules.json:GR-COM-005",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'max_hydrant_spacing_m': 60, 'context': 'NFPA 13'}",
+      "location": "07_common_geometry_rules.json:GR-COM-005",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'max_hydrant_to_hazard_m': 45, 'context': 'NFPA 13'}",
+      "location": "07_common_geometry_rules.json:GR-COM-005",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'min_tank_to_property_line_m': 3.0, 'context': 'NFPA 22'}",
+      "location": "07_common_geometry_rules.json:GR-COM-005",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Sin entidades producidas definidas",
+      "location": "07_common_geometry_rules.json:GR-COM-006",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'min_distance_rt_to_hv_m': 5.0, 'context': 'EMI'}",
+      "location": "07_common_geometry_rules.json:GR-COM-006",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'min_distance_rt_to_fire_hydrant_m': 1.0, 'context': 'water spray'}",
+      "location": "07_common_geometry_rules.json:GR-COM-006",
+      "severity": "error"
+    },
+    {
+      "code": "E_GEOMETRY_GENERIC",
+      "message": "Clearance incompleto: {'min_cyber_zone_separation_m': 0, 'context': 'logical separation via firewall'}",
+      "location": "07_common_geometry_rules.json:GR-COM-006",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Válvula compuerta",
+      "location": "04_common_symbols.json:SYM-PROC-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Válvula compuerta",
+      "location": "04_common_symbols.json:SYM-PROC-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Válvula globo",
+      "location": "04_common_symbols.json:SYM-PROC-002",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Válvula globo",
+      "location": "04_common_symbols.json:SYM-PROC-002",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Válvula check",
+      "location": "04_common_symbols.json:SYM-PROC-003",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Válvula check",
+      "location": "04_common_symbols.json:SYM-PROC-003",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Válvula de alivio PSV",
+      "location": "04_common_symbols.json:SYM-PROC-004",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Bomba centrífuga",
+      "location": "04_common_symbols.json:SYM-PROC-005",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Bomba centrífuga",
+      "location": "04_common_symbols.json:SYM-PROC-005",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Intercambiador shell-tube",
+      "location": "04_common_symbols.json:SYM-PROC-006",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Intercambiador shell-tube",
+      "location": "04_common_symbols.json:SYM-PROC-006",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Intercambiador shell-tube",
+      "location": "04_common_symbols.json:SYM-PROC-006",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Intercambiador shell-tube",
+      "location": "04_common_symbols.json:SYM-PROC-006",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Compresor reciprocante",
+      "location": "04_common_symbols.json:SYM-PROC-007",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Compresor reciprocante",
+      "location": "04_common_symbols.json:SYM-PROC-007",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Tanque atmospheric",
+      "location": "04_common_symbols.json:SYM-PROC-008",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Tanque atmospheric",
+      "location": "04_common_symbols.json:SYM-PROC-008",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Columna de destilación",
+      "location": "04_common_symbols.json:SYM-PROC-009",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Columna de destilación",
+      "location": "04_common_symbols.json:SYM-PROC-009",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Columna de destilación",
+      "location": "04_common_symbols.json:SYM-PROC-009",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Filtro",
+      "location": "04_common_symbols.json:SYM-PROC-010",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Filtro",
+      "location": "04_common_symbols.json:SYM-PROC-010",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Tubería principal",
+      "location": "04_common_symbols.json:SYM-PROC-011",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Tubería principal",
+      "location": "04_common_symbols.json:SYM-PROC-011",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Reductor de diámetro",
+      "location": "04_common_symbols.json:SYM-PROC-012",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Reductor de diámetro",
+      "location": "04_common_symbols.json:SYM-PROC-012",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Tee / derivación",
+      "location": "04_common_symbols.json:SYM-PROC-013",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Tee / derivación",
+      "location": "04_common_symbols.json:SYM-PROC-013",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Tee / derivación",
+      "location": "04_common_symbols.json:SYM-PROC-013",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Codo 90",
+      "location": "04_common_symbols.json:SYM-PROC-014",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Codo 90",
+      "location": "04_common_symbols.json:SYM-PROC-014",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Brida / flange",
+      "location": "04_common_symbols.json:SYM-PROC-015",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Brida / flange",
+      "location": "04_common_symbols.json:SYM-PROC-015",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Transmisor presión",
+      "location": "04_common_symbols.json:SYM-INST-004",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Transmisor temperatura",
+      "location": "04_common_symbols.json:SYM-INST-005",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Transmisor flujo",
+      "location": "04_common_symbols.json:SYM-INST-006",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Transmisor nivel",
+      "location": "04_common_symbols.json:SYM-INST-007",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Válvula de control",
+      "location": "04_common_symbols.json:SYM-INST-009",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Válvula de control",
+      "location": "04_common_symbols.json:SYM-INST-009",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Electrolizador AEL",
+      "location": "04_common_symbols.json:SYM-H2-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Electrolizador AEL",
+      "location": "04_common_symbols.json:SYM-H2-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Electrolizador AEL",
+      "location": "04_common_symbols.json:SYM-H2-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Electrolizador PEM",
+      "location": "04_common_symbols.json:SYM-H2-002",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Electrolizador PEM",
+      "location": "04_common_symbols.json:SYM-H2-002",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Electrolizador PEM",
+      "location": "04_common_symbols.json:SYM-H2-002",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Compresor H2 reciprocante",
+      "location": "04_common_symbols.json:SYM-H2-003",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Compresor H2 reciprocante",
+      "location": "04_common_symbols.json:SYM-H2-003",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Tanque almacenamiento H2",
+      "location": "04_common_symbols.json:SYM-H2-004",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Tanque almacenamiento H2",
+      "location": "04_common_symbols.json:SYM-H2-004",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Tube trailer",
+      "location": "04_common_symbols.json:SYM-H2-005",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Tube trailer",
+      "location": "04_common_symbols.json:SYM-H2-005",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Digestor anaerobio",
+      "location": "04_common_symbols.json:SYM-BIO-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Digestor anaerobio",
+      "location": "04_common_symbols.json:SYM-BIO-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Digestor anaerobio",
+      "location": "04_common_symbols.json:SYM-BIO-001",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Gasómetro",
+      "location": "04_common_symbols.json:SYM-BIO-002",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Gasómetro",
+      "location": "04_common_symbols.json:SYM-BIO-002",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Antorcha biogás",
+      "location": "04_common_symbols.json:SYM-BIO-003",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Caldera de biomasa",
+      "location": "04_common_symbols.json:SYM-BIO-004",
+      "severity": "error"
+    },
+    {
+      "code": "E_SYMBOL_GENERIC",
+      "message": "Puerto genérico PROCESS en símbolo Caldera de biomasa",
+      "location": "04_common_symbols.json:SYM-BIO-004",
+      "severity": "error"
+    }
+  ],
+  "warning_details": []
+}

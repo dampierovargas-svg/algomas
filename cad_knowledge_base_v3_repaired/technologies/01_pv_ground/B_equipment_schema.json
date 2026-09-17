@@ -1,0 +1,2395 @@
+[
+  {
+    "equipment_type_id": "PV_MODULE_MONOCRYSTALLINE",
+    "name_es": "Módulo fotovoltaico mono-cristalino",
+    "subsystem": "DC_GENERATION",
+    "properties": [
+      {
+        "name_es": "Potencia STC",
+        "field_id": "PVG-032",
+        "data_type": "float",
+        "unit": "Wp",
+        "min": 100,
+        "max": 700
+      },
+      {
+        "name_es": "Tecnología",
+        "field_id": "PVG-031",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Vmp",
+        "field_id": "PVG-033",
+        "data_type": "float",
+        "unit": "V",
+        "min": 15,
+        "max": 90
+      },
+      {
+        "name_es": "Imp",
+        "field_id": "PVG-034",
+        "data_type": "float",
+        "unit": "A",
+        "min": 3,
+        "max": 25
+      },
+      {
+        "name_es": "Voc",
+        "field_id": "PVG-035",
+        "data_type": "float",
+        "unit": "V",
+        "min": 20,
+        "max": 100
+      },
+      {
+        "name_es": "Isc",
+        "field_id": "PVG-036",
+        "data_type": "float",
+        "unit": "A",
+        "min": 3,
+        "max": 25
+      },
+      {
+        "name_es": "Beta Voc",
+        "field_id": "PVG-037",
+        "data_type": "float",
+        "unit": "V/°C",
+        "min": -0.5,
+        "max": -0.01
+      },
+      {
+        "name_es": "Gamma Pmax",
+        "field_id": "PVG-038",
+        "data_type": "float",
+        "unit": "%/°C",
+        "min": -0.6,
+        "max": -0.1
+      },
+      {
+        "name_es": "Alpha Isc",
+        "field_id": "PVG-039",
+        "data_type": "float",
+        "unit": "A/°C",
+        "min": 0,
+        "max": 0.05
+      },
+      {
+        "name_es": "Largo",
+        "field_id": "PVG-040",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 1000,
+        "max": 2500
+      },
+      {
+        "name_es": "Ancho",
+        "field_id": "PVG-041",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 500,
+        "max": 1500
+      },
+      {
+        "name_es": "Bifacialidad",
+        "field_id": "PVG-044",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0,
+        "max": 1
+      },
+      {
+        "name_es": "Coef IAM",
+        "field_id": "PVG-045",
+        "data_type": "array",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Diodos bypass",
+        "field_id": "PVG-046",
+        "data_type": "int",
+        "unit": "-",
+        "min": 1,
+        "max": 6
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Salida positiva DC",
+        "port_type": "DC_OUT",
+        "polarity": "POSITIVE",
+        "rated_voltage": 1500,
+        "rated_current": 25,
+        "connector_standard": "IEC_62894_MCX4"
+      },
+      {
+        "name_es": "Salida negativa DC",
+        "port_type": "DC_OUT",
+        "polarity": "NEGATIVE",
+        "rated_voltage": 1500,
+        "rated_current": 25,
+        "connector_standard": "IEC_62894_MCX4"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_min": 1000,
+      "width_mm_min": 500,
+      "thickness_mm_max": 50,
+      "weight_kg_max": 40
+    },
+    "operating_limits": [
+      {
+        "name": "Tensión DC",
+        "limit_field": "PVG-053",
+        "max": 2000,
+        "min": 0
+      },
+      {
+        "name": "Corriente DC",
+        "limit_field": "PVG-057",
+        "max": 25,
+        "min": 0
+      },
+      {
+        "name": "Temperancia",
+        "limit_field": "PVG-014",
+        "max": 85,
+        "min": -40
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 61215-1 design qualification",
+      "IEC 61730-1/2 safety qualification",
+      "IEC 61853-1/2 energy rating",
+      "IAM coefficients (b0..b5)",
+      "Temperature coefficients (alpha,beta,gamma)",
+      "Datasheet with STC values"
+    ],
+    "required_certificates": [
+      "IEC_61215_1",
+      "IEC_61730_1",
+      "IEC_61730_2",
+      "UL_61730"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-004",
+      "PVG-DRW-005",
+      "PVG-DRW-010",
+      "PVG-DRW-014"
+    ],
+    "validation_rules": [
+      "string_voltage_cold < inverter_dc_vmax",
+      "module_area_derivable",
+      "iam_loss_positive"
+    ],
+    "source_ids": [
+      "IEC_61215_1",
+      "IEC_61730_1",
+      "IEC_61730_2",
+      "IEC_60904_3",
+      "IEC_61853_1",
+      "IEC_61853_2",
+      "IEC_61853_4",
+      "UL_61730"
+    ]
+  },
+  {
+    "equipment_type_id": "PV_STRING",
+    "name_es": "String fotovoltaico (serie de módulos)",
+    "subsystem": "DC_GENERATION",
+    "properties": [
+      {
+        "name_es": "Módulos por string",
+        "field_id": "PVG-047",
+        "data_type": "int",
+        "unit": "-",
+        "min": 8,
+        "max": 40
+      },
+      {
+        "name_es": "Vmp operación",
+        "field_id": "PVG-033",
+        "data_type": "float",
+        "unit": "V",
+        "min": 200,
+        "max": 2000
+      },
+      {
+        "name_es": "Voc en frío",
+        "field_id": "PVG-035",
+        "data_type": "float",
+        "unit": "V",
+        "min": 200,
+        "max": 2000
+      },
+      {
+        "name_es": "Imp total",
+        "field_id": "PVG-034",
+        "data_type": "float",
+        "unit": "A",
+        "min": 3,
+        "max": 25
+      },
+      {
+        "name_es": "Isc total",
+        "field_id": "PVG-036",
+        "data_type": "float",
+        "unit": "A",
+        "min": 3,
+        "max": 25
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Polaridad DC",
+        "port_type": "DC_STRING",
+        "polarity": "POSITIVE",
+        "rated_voltage": 1500,
+        "rated_current": 25,
+        "connector_standard": "IEC_62894"
+      },
+      {
+        "name_es": "Polaridad DC",
+        "port_type": "DC_STRING",
+        "polarity": "NEGATIVE",
+        "rated_voltage": 1500,
+        "rated_current": 25,
+        "connector_standard": "IEC_62894"
+      }
+    ],
+    "geometric_envelope": {
+      "length_m_max": 500,
+      "cable_section_mm2_max": 10
+    },
+    "operating_limits": [
+      {
+        "name": "V_oc frío",
+        "limit_field": "PVG-015",
+        "max": 2000,
+        "min": 0
+      },
+      {
+        "name": "I_sc cálida",
+        "limit_field": "PVG-016",
+        "max": 25,
+        "min": 0
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 62548 string sizing",
+      "IEC 60364-7-712 installation"
+    ],
+    "required_certificates": [
+      "IEC_62548"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-005",
+      "PVG-DRW-006"
+    ],
+    "validation_rules": [
+      "vmp_within_mppt_window",
+      "voc_cold_below_inverter_vmax",
+      "isc_below_inverter_imax"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60364_7_712"
+    ]
+  },
+  {
+    "equipment_type_id": "CENTRAL_INVERTER",
+    "name_es": "Inversor central trifásico",
+    "subsystem": "DC_TO_AC",
+    "properties": [
+      {
+        "name_es": "Potencia AC",
+        "field_id": "PVG-059",
+        "data_type": "float",
+        "unit": "kVA",
+        "min": 30,
+        "max": 5000
+      },
+      {
+        "name_es": "Tensión DC máx",
+        "field_id": "PVG-053",
+        "data_type": "float",
+        "unit": "V",
+        "min": 500,
+        "max": 2000
+      },
+      {
+        "name_es": "Tensión MPPT mín",
+        "field_id": "PVG-054",
+        "data_type": "float",
+        "unit": "V",
+        "min": 200,
+        "max": 1000
+      },
+      {
+        "name_es": "Tensión MPPT máx",
+        "field_id": "PVG-055",
+        "data_type": "float",
+        "unit": "V",
+        "min": 500,
+        "max": 1500
+      },
+      {
+        "name_es": "Canales MPPT",
+        "field_id": "PVG-056",
+        "data_type": "int",
+        "unit": "-",
+        "min": 1,
+        "max": 12
+      },
+      {
+        "name_es": "I_dc máx MPPT",
+        "field_id": "PVG-057",
+        "data_type": "float",
+        "unit": "A",
+        "min": 10,
+        "max": 200
+      },
+      {
+        "name_es": "I_sc máx",
+        "field_id": "PVG-058",
+        "data_type": "float",
+        "unit": "A",
+        "min": 10,
+        "max": 400
+      },
+      {
+        "name_es": "Eficiencia máx",
+        "field_id": "PVG-061",
+        "data_type": "float",
+        "unit": "%",
+        "min": 90,
+        "max": 99.5
+      },
+      {
+        "name_es": "Eficiencia Euro",
+        "field_id": "PVG-062",
+        "data_type": "float",
+        "unit": "%",
+        "min": 88,
+        "max": 99
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Entrada DC MPPT_1",
+        "port_type": "DC_IN",
+        "polarity": "POSITIVE",
+        "rated_voltage": 1500,
+        "rated_current": 200,
+        "connector_standard": "IEC_62894"
+      },
+      {
+        "name_es": "Entrada DC MPPT_1",
+        "port_type": "DC_IN",
+        "polarity": "NEGATIVE",
+        "rated_voltage": 1500,
+        "rated_current": 200,
+        "connector_standard": "IEC_62894"
+      },
+      {
+        "name_es": "Salida AC",
+        "port_type": "AC_OUT",
+        "polarity": "L1_L2_L3_N_PE",
+        "rated_voltage": 690,
+        "rated_current": 8000,
+        "connector_standard": "Copper busbar"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 3000,
+      "width_mm_max": 2200,
+      "height_mm_max": 2400,
+      "weight_kg_max": 5000
+    },
+    "operating_limits": [
+      {
+        "name": "Potencia",
+        "limit_field": "PVG-059",
+        "max": 5000,
+        "min": 30
+      },
+      {
+        "name": "Frecuencia AC",
+        "limit_field": "PVG-024",
+        "max": 60.5,
+        "min": 59.5
+      },
+      {
+        "name": "Temperatura",
+        "limit_field": "PVG-014",
+        "max": 60,
+        "min": -25
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 62109-1/2 safety",
+      "IEC 62894 efficiency weighted",
+      "IEEE 1547-2018 grid code",
+      "IEC 62116 anti-islanding",
+      "Reactive power range (PVG-030)"
+    ],
+    "required_certificates": [
+      "IEC_62109_1",
+      "IEC_62109_2",
+      "UL_1741",
+      "IEEE_1547_2018",
+      "IEC_62116"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-005",
+      "PVG-DRW-007",
+      "PVG-DRW-008",
+      "PVG-DRW-015"
+    ],
+    "validation_rules": [
+      "voc_cold_below_dc_vmax",
+      "dc_ac_ratio_in_range",
+      "ac_current_within_breaker"
+    ],
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62109_2",
+      "UL_1741",
+      "IEEE_1547_2018",
+      "IEC_62894",
+      "IEC_62116"
+    ]
+  },
+  {
+    "equipment_type_id": "STRING_INVERTER",
+    "name_es": "Inversor de string trifásico",
+    "subsystem": "DC_TO_AC",
+    "properties": [
+      {
+        "name_es": "Potencia AC",
+        "field_id": "PVG-059",
+        "data_type": "float",
+        "unit": "kVA",
+        "min": 3,
+        "max": 500
+      },
+      {
+        "name_es": "Tensión DC máx",
+        "field_id": "PVG-053",
+        "data_type": "float",
+        "unit": "V",
+        "min": 500,
+        "max": 1500
+      },
+      {
+        "name_es": "Canales MPPT",
+        "field_id": "PVG-056",
+        "data_type": "int",
+        "unit": "-",
+        "min": 1,
+        "max": 12
+      },
+      {
+        "name_es": "Eficiencia máx",
+        "field_id": "PVG-061",
+        "data_type": "float",
+        "unit": "%",
+        "min": 97,
+        "max": 99.5
+      },
+      {
+        "name_es": "Eficiencia Euro",
+        "field_id": "PVG-062",
+        "data_type": "float",
+        "unit": "%",
+        "min": 95,
+        "max": 99
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Entrada DC MPPT_1",
+        "port_type": "DC_IN",
+        "polarity": "POSITIVE",
+        "rated_voltage": 1500,
+        "rated_current": 50,
+        "connector_standard": "IEC_62894"
+      },
+      {
+        "name_es": "Entrada DC MPPT_1",
+        "port_type": "DC_IN",
+        "polarity": "NEGATIVE",
+        "rated_voltage": 1500,
+        "rated_current": 50,
+        "connector_standard": "IEC_62894"
+      },
+      {
+        "name_es": "Salida AC",
+        "port_type": "AC_OUT",
+        "polarity": "L1_L2_L3_N_PE",
+        "rated_voltage": 480,
+        "rated_current": 800,
+        "connector_standard": "Screw terminal"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 1500,
+      "width_mm_max": 800,
+      "height_mm_max": 600,
+      "weight_kg_max": 120
+    },
+    "operating_limits": [
+      {
+        "name": "Potencia",
+        "limit_field": "PVG-059",
+        "max": 500,
+        "min": 3
+      },
+      {
+        "name": "Temperatura",
+        "limit_field": "PVG-014",
+        "max": 60,
+        "min": -25
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 62109-1/2 safety",
+      "IEC 62894 efficiency",
+      "IEEE 1547-2018 grid code",
+      "IEC 62116 anti-islanding"
+    ],
+    "required_certificates": [
+      "IEC_62109_1",
+      "IEC_62109_2",
+      "UL_1741",
+      "IEEE_1547_2018",
+      "IEC_62116"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-005",
+      "PVG-DRW-007",
+      "PVG-DRW-008",
+      "PVG-DRW-015"
+    ],
+    "validation_rules": [
+      "voc_cold_below_dc_vmax",
+      "mppt_channels_count",
+      "ac_voltage_match"
+    ],
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62109_2",
+      "UL_1741",
+      "IEEE_1547_2018",
+      "IEC_62894",
+      "IEC_62116"
+    ]
+  },
+  {
+    "equipment_type_id": "DC_COMBINER_BOX",
+    "name_es": "Caja de combinación DC pasiva",
+    "subsystem": "DC_COLLECTION",
+    "properties": [
+      {
+        "name_es": "Polos de entrada",
+        "field_id": "PVG-048",
+        "data_type": "int",
+        "unit": "-",
+        "min": 1,
+        "max": 32
+      },
+      {
+        "name_es": "Salidas paralelo",
+        "field_id": "PVG-049",
+        "data_type": "int",
+        "unit": "-",
+        "min": 1,
+        "max": 4
+      },
+      {
+        "name_es": "IP",
+        "field_id": "PVG-051",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "IP65",
+        "max": "IP66"
+      },
+      {
+        "name_es": "Fusible DC",
+        "field_id": "PVG-082",
+        "data_type": "float",
+        "unit": "A",
+        "min": 10,
+        "max": 40
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Entrada DC string",
+        "port_type": "DC_IN",
+        "polarity": "POSITIVE_NEGATIVE",
+        "rated_voltage": 1500,
+        "rated_current": 25,
+        "connector_standard": "IEC_62894"
+      },
+      {
+        "name_es": "Salida DC home-run",
+        "port_type": "DC_OUT",
+        "polarity": "POSITIVE_NEGATIVE",
+        "rated_voltage": 1500,
+        "rated_current": 400,
+        "connector_standard": "Copper busbar"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 1000,
+      "width_mm_max": 600,
+      "height_mm_max": 400
+    },
+    "operating_limits": [
+      {
+        "name": "Tensión DC",
+        "limit_field": "PVG-053",
+        "max": 1500,
+        "min": 0
+      },
+      {
+        "name": "Corriente DC sumada",
+        "limit_field": "PVG-057",
+        "max": 400,
+        "min": 0
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 62817 DC combiner standard",
+      "IP rating IEC 60529"
+    ],
+    "required_certificates": [
+      "IEC_62817",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-006",
+      "PVG-DRW-013"
+    ],
+    "validation_rules": [
+      "fuse_size_correct",
+      "ip_rating_outdoor"
+    ],
+    "source_ids": [
+      "IEC_62817",
+      "IEC_60529",
+      "IEC_62548"
+    ]
+  },
+  {
+    "equipment_type_id": "INTELLIGENT_COMBINER_BOX",
+    "name_es": "Caja de combinación DC inteligente",
+    "subsystem": "DC_COLLECTION",
+    "properties": [
+      {
+        "name_es": "Polos de entrada",
+        "field_id": "PVG-048",
+        "data_type": "int",
+        "unit": "-",
+        "min": 1,
+        "max": 32
+      },
+      {
+        "name_es": "Monitoreo por string",
+        "field_id": "PVG-123",
+        "data_type": "int",
+        "unit": "-",
+        "min": 1,
+        "max": 32
+      },
+      {
+        "name_es": "IP",
+        "field_id": "PVG-051",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "IP65",
+        "max": "IP66"
+      },
+      {
+        "name_es": "Fusible DC",
+        "field_id": "PVG-082",
+        "data_type": "float",
+        "unit": "A",
+        "min": 10,
+        "max": 40
+      },
+      {
+        "name_es": "Comunicación",
+        "field_id": "PVG-122",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "Modbus_RTU",
+        "max": "Modbus_TCP"
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Entrada DC string",
+        "port_type": "DC_IN",
+        "polarity": "POSITIVE_NEGATIVE",
+        "rated_voltage": 1500,
+        "rated_current": 25,
+        "connector_standard": "IEC_62894"
+      },
+      {
+        "name_es": "Salida DC home-run",
+        "port_type": "DC_OUT",
+        "polarity": "POSITIVE_NEGATIVE",
+        "rated_voltage": 1500,
+        "rated_current": 400,
+        "connector_standard": "Copper busbar"
+      },
+      {
+        "name_es": "Comunicación SCADA",
+        "port_type": "COM",
+        "polarity": "RS485_OR_ETHERNET",
+        "rated_voltage": 24,
+        "rated_current": 1,
+        "connector_standard": "RJ45"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 1200,
+      "width_mm_max": 800,
+      "height_mm_max": 500
+    },
+    "operating_limits": [
+      {
+        "name": "Tensión DC",
+        "limit_field": "PVG-053",
+        "max": 1500,
+        "min": 0
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 62817 DC combiner",
+      "IEC 61724-1 monitoring",
+      "IP rating IEC 60529"
+    ],
+    "required_certificates": [
+      "IEC_62817",
+      "IEC_60529",
+      "IEC_61724_1"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-006",
+      "PVG-DRW-013",
+      "PVG-DRW-015"
+    ],
+    "validation_rules": [
+      "string_current_monitoring_per_input",
+      "fuse_rating_match"
+    ],
+    "source_ids": [
+      "IEC_62817",
+      "IEC_60529",
+      "IEC_61724_1",
+      "IEC_62548"
+    ]
+  },
+  {
+    "equipment_type_id": "AC_COMBINER_PANEL",
+    "name_es": "Tablero de combinación AC",
+    "subsystem": "AC_COLLECTION",
+    "properties": [
+      {
+        "name_es": "Tensión",
+        "field_id": "PVG-073",
+        "data_type": "float",
+        "unit": "V",
+        "min": 208,
+        "max": 690
+      },
+      {
+        "name_es": "Salidas",
+        "field_id": "PVG-059",
+        "data_type": "int",
+        "unit": "-",
+        "min": 1,
+        "max": 40
+      },
+      {
+        "name_es": "Breaker AC",
+        "field_id": "PVG-085",
+        "data_type": "float",
+        "unit": "A",
+        "min": 40,
+        "max": 6300
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Entrada AC inversor",
+        "port_type": "AC_IN",
+        "polarity": "L1_L2_L3_N_PE",
+        "rated_voltage": 690,
+        "rated_current": 800,
+        "connector_standard": "Screw terminal"
+      },
+      {
+        "name_es": "Salida AC colectora",
+        "port_type": "AC_OUT",
+        "polarity": "L1_L2_L3_N_PE",
+        "rated_voltage": 690,
+        "rated_current": 6300,
+        "connector_standard": "Busbar"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 2200,
+      "width_mm_max": 800,
+      "height_mm_max": 2200
+    },
+    "operating_limits": [
+      {
+        "name": "Tensión AC",
+        "limit_field": "PVG-073",
+        "max": 690,
+        "min": 0
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 61439-1 LV assembly (not in register; covered by NFPA 70 / IEEE C2)",
+      "Short circuit coordination"
+    ],
+    "required_certificates": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-007",
+      "PVG-DRW-008"
+    ],
+    "validation_rules": [
+      "breaker_coordination_ok",
+      "ac_ampacity_check"
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "equipment_type_id": "POWER_TRANSFORMER_LV_MV",
+    "name_es": "Transformador elevador LV/MV",
+    "subsystem": "AC_COLLECTION",
+    "properties": [
+      {
+        "name_es": "S nominal",
+        "field_id": "PVG-079",
+        "data_type": "float",
+        "unit": "kVA",
+        "min": 30,
+        "max": 10000
+      },
+      {
+        "name_es": "V LV",
+        "field_id": "PVG-077",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 0.208,
+        "max": 1
+      },
+      {
+        "name_es": "V MV",
+        "field_id": "PVG-078",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 10,
+        "max": 66
+      },
+      {
+        "name_es": "Z porc",
+        "field_id": "PVG-080",
+        "data_type": "float",
+        "unit": "%",
+        "min": 3,
+        "max": 12
+      },
+      {
+        "name_es": "Vector group",
+        "field_id": "PVG-081",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "Dyn11",
+        "max": "YNd11"
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Lado LV",
+        "port_type": "AC_IN",
+        "polarity": "L1_L2_L3_N_PE",
+        "rated_voltage": 1000,
+        "rated_current": 8000,
+        "connector_standard": "Busbar"
+      },
+      {
+        "name_es": "Lado MV",
+        "port_type": "AC_OUT",
+        "polarity": "L1_L2_L3",
+        "rated_voltage": 66000,
+        "rated_current": 1500,
+        "connector_standard": "Termination"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 4500,
+      "width_mm_max": 2800,
+      "height_mm_max": 3500,
+      "weight_kg_max": 25000
+    },
+    "operating_limits": [
+      {
+        "name": "Potencia",
+        "limit_field": "PVG-079",
+        "max": 10000,
+        "min": 30
+      },
+      {
+        "name": "Sobretemperatura",
+        "limit_field": "PVG-016",
+        "max": 65,
+        "min": -25
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 60076-1 (not in register; replaced by ASME BPVC VIII for tank) ",
+      "IEEE C57.12 (covered by NFPA 70 / IEEE C2)",
+      "Vector group as per IEEE 1547"
+    ],
+    "required_certificates": [
+      "ASME_BPVC_VIII_1_2023",
+      "IEEE_C2_2023",
+      "NFPA_70_2023"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-007",
+      "PVG-DRW-008"
+    ],
+    "validation_rules": [
+      "vector_group_compatible",
+      "z_in_range",
+      "s_nominal_ok"
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "IEEE_C2_2023",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "equipment_type_id": "POWER_TRANSFORMER_MV_HV",
+    "name_es": "Transformador elevador MV/HV",
+    "subsystem": "AC_COLLECTION",
+    "properties": [
+      {
+        "name_es": "S nominal",
+        "field_id": "PVG-079",
+        "data_type": "float",
+        "unit": "kVA",
+        "min": 1000,
+        "max": 50000
+      },
+      {
+        "name_es": "V MV",
+        "field_id": "PVG-078",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 10,
+        "max": 66
+      },
+      {
+        "name_es": "Z porc",
+        "field_id": "PVG-080",
+        "data_type": "float",
+        "unit": "%",
+        "min": 3,
+        "max": 12
+      },
+      {
+        "name_es": "Vector group",
+        "field_id": "PVG-081",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "YNd11",
+        "max": "YNd1"
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Lado MV",
+        "port_type": "AC_IN",
+        "polarity": "L1_L2_L3",
+        "rated_voltage": 66000,
+        "rated_current": 1500,
+        "connector_standard": "Termination"
+      },
+      {
+        "name_es": "Lado HV",
+        "port_type": "AC_OUT",
+        "polarity": "L1_L2_L3",
+        "rated_voltage": 500000,
+        "rated_current": 1500,
+        "connector_standard": "Termination"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 8000,
+      "width_mm_max": 4500,
+      "height_mm_max": 6000,
+      "weight_kg_max": 80000
+    },
+    "operating_limits": [
+      {
+        "name": "Potencia",
+        "limit_field": "PVG-079",
+        "max": 50000,
+        "min": 1000
+      }
+    ],
+    "datasheet_requirements": [
+      "IEEE C57.12",
+      "Tap changer specification"
+    ],
+    "required_certificates": [
+      "IEEE_C2_2023",
+      "NFPA_70_2023"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-007",
+      "PVG-DRW-008"
+    ],
+    "validation_rules": [
+      "vector_group_compatible",
+      "z_in_range"
+    ],
+    "source_ids": [
+      "IEEE_C2_2023",
+      "IEEE_1547_2018",
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "equipment_type_id": "MOUNTING_STRUCTURE_FIXED",
+    "name_es": "Estructura de soporte fija",
+    "subsystem": "MECHANICAL",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "PVG-095",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "FIXED_TILT",
+        "max": "FIXED_TILT"
+      },
+      {
+        "name_es": "Tilt",
+        "field_id": "PVG-096",
+        "data_type": "float",
+        "unit": "deg",
+        "min": 0,
+        "max": 45
+      },
+      {
+        "name_es": "Azimut",
+        "field_id": "PVG-097",
+        "data_type": "float",
+        "unit": "deg",
+        "min": 0,
+        "max": 359
+      },
+      {
+        "name_es": "Posting",
+        "field_id": "PVG-099",
+        "data_type": "array",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Girts",
+        "field_id": "PVG-100",
+        "data_type": "array",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Anclaje a cimentación",
+        "port_type": "FOUNDATION",
+        "polarity": "MECHANICAL",
+        "rated_voltage": 0,
+        "rated_current": 0,
+        "connector_standard": "Bolted"
+      },
+      {
+        "name_es": "Soporte de módulo",
+        "port_type": "MODULE",
+        "polarity": "MECHANICAL",
+        "rated_voltage": 0,
+        "rated_current": 0,
+        "connector_standard": "Clamped"
+      }
+    ],
+    "geometric_envelope": {
+      "length_m_max": 50,
+      "width_m_max": 5,
+      "height_m_max": 3
+    },
+    "operating_limits": [
+      {
+        "name": "Carga de viento",
+        "limit_field": "PVG-022",
+        "max": "C",
+        "min": "B"
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 62548 structural",
+      "IEC 62938 snow load",
+      "ASME BPVC VIII tank (not for structure - replaced by ASME B31.1)"
+    ],
+    "required_certificates": [
+      "ASME_B31_1_2022",
+      "IEC_62548",
+      "IEC_62938"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-010",
+      "PVG-DRW-014"
+    ],
+    "validation_rules": [
+      "tilt_in_range",
+      "azimuth_correct_for_hemisphere",
+      "posting_section_ok"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "IEC_62548",
+      "IEC_62938"
+    ]
+  },
+  {
+    "equipment_type_id": "MOUNTING_STRUCTURE_TRACKER",
+    "name_es": "Estructura de seguimiento single-axis",
+    "subsystem": "MECHANICAL",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "PVG-095",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "SINGLE_AXIS_TRACKER",
+        "max": "DUAL_AXIS_TRACKER"
+      },
+      {
+        "name_es": "Rango de rotación",
+        "field_id": "PVG-101",
+        "data_type": "float",
+        "unit": "deg",
+        "min": -90,
+        "max": 90
+      },
+      {
+        "name_es": "Backtracking",
+        "field_id": "PVG-102",
+        "data_type": "boolean",
+        "unit": "-",
+        "min": true,
+        "max": true
+      },
+      {
+        "name_es": "Drive type",
+        "field_id": "PVG-103",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "SINGLE_LINKAGE",
+        "max": "MULTI_TORQUE_TUBE"
+      },
+      {
+        "name_es": "Stow wind",
+        "field_id": "PVG-104",
+        "data_type": "float",
+        "unit": "m/s",
+        "min": 15,
+        "max": 40
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Anclaje a cimentación",
+        "port_type": "FOUNDATION",
+        "polarity": "MECHANICAL",
+        "rated_voltage": 0,
+        "rated_current": 0,
+        "connector_standard": "Bolted"
+      },
+      {
+        "name_es": "Torque tube",
+        "port_type": "MODULE",
+        "polarity": "MECHANICAL",
+        "rated_voltage": 0,
+        "rated_current": 0,
+        "connector_standard": "Clamped"
+      },
+      {
+        "name_es": "Comando motor",
+        "port_type": "MOTOR",
+        "polarity": "ELECTRICAL",
+        "rated_voltage": 24,
+        "rated_current": 15,
+        "connector_standard": "Cable"
+      }
+    ],
+    "geometric_envelope": {
+      "length_m_max": 100,
+      "width_m_max": 5,
+      "height_m_max": 4
+    },
+    "operating_limits": [
+      {
+        "name": "Stow wind",
+        "limit_field": "PVG-104",
+        "max": 40,
+        "min": 15
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 62548 structural",
+      "IEC 62938 wind load",
+      "ASME B31.1"
+    ],
+    "required_certificates": [
+      "ASME_B31_1_2022",
+      "IEC_62548",
+      "IEC_62938",
+      "IEC_TS_63049"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-011",
+      "PVG-DRW-014"
+    ],
+    "validation_rules": [
+      "backtracking_logic_enabled",
+      "rotation_limits_in_range",
+      "stow_wind_safe"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "IEC_62548",
+      "IEC_62938",
+      "IEC_TS_63049"
+    ]
+  },
+  {
+    "equipment_type_id": "MOUNTING_STRUCTURE_CARPORT",
+    "name_es": "Estructura tipo carport",
+    "subsystem": "MECHANICAL",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "PVG-095",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "CARPORT",
+        "max": "CARPORT"
+      },
+      {
+        "name_es": "Tilt",
+        "field_id": "PVG-096",
+        "data_type": "float",
+        "unit": "deg",
+        "min": 0,
+        "max": 15
+      },
+      {
+        "name_es": "Altura libre",
+        "field_id": "PVG-098",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 2200,
+        "max": 3000
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Anclaje a cimentación",
+        "port_type": "FOUNDATION",
+        "polarity": "MECHANICAL",
+        "rated_voltage": 0,
+        "rated_current": 0,
+        "connector_standard": "Bolted"
+      },
+      {
+        "name_es": "Soporte de módulo",
+        "port_type": "MODULE",
+        "polarity": "MECHANICAL",
+        "rated_voltage": 0,
+        "rated_current": 0,
+        "connector_standard": "Clamped"
+      }
+    ],
+    "geometric_envelope": {
+      "length_m_max": 100,
+      "width_m_max": 10,
+      "height_m_max": 5
+    },
+    "operating_limits": [
+      {
+        "name": "Carga de viento",
+        "limit_field": "PVG-022",
+        "max": "C",
+        "min": "B"
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 62548 structural",
+      "IEC 62938"
+    ],
+    "required_certificates": [
+      "ASME_B31_1_2022",
+      "IEC_62548",
+      "IEC_62938"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-010",
+      "PVG-DRW-014"
+    ],
+    "validation_rules": [
+      "tilt_low",
+      "clearance_above_vehicle"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "IEC_62548"
+    ]
+  },
+  {
+    "equipment_type_id": "H_PILE_FOUNDATION",
+    "name_es": "Cimentación H-pile hincado",
+    "subsystem": "CIVIL",
+    "properties": [
+      {
+        "name_es": "Profundidad",
+        "field_id": "PVG-106",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.5,
+        "max": 5
+      },
+      {
+        "name_es": "Sección H",
+        "field_id": "PVG-107",
+        "data_type": "array",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Protección corrosión",
+        "field_id": "PVG-108",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "HOT_DIP_GALVANIZED",
+        "max": "CATHODIC_PROTECTION"
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Conexión estructura",
+        "port_type": "TOP",
+        "polarity": "MECHANICAL",
+        "rated_voltage": 0,
+        "rated_current": 0,
+        "connector_standard": "Bolted"
+      }
+    ],
+    "geometric_envelope": {
+      "depth_m_max": 5,
+      "section_width_mm_max": 300
+    },
+    "operating_limits": [
+      {
+        "name": "Capacidad portante",
+        "limit_field": "PVG-007",
+        "max": 1000,
+        "min": 50
+      }
+    ],
+    "datasheet_requirements": [
+      "Geotechnical report",
+      "ASME B31.1",
+      "IEEE 80 for grounding integration"
+    ],
+    "required_certificates": [
+      "ASME_B31_1_2022",
+      "IEEE_80_2013",
+      "IEC_62548"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-009"
+    ],
+    "validation_rules": [
+      "depth_above_frost_line",
+      "section_compatible_with_load"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "IEEE_80_2013",
+      "IEC_62548"
+    ]
+  },
+  {
+    "equipment_type_id": "GROUND_SCREW_FOUNDATION",
+    "name_es": "Cimentación tornillo de tierra",
+    "subsystem": "CIVIL",
+    "properties": [
+      {
+        "name_es": "Profundidad",
+        "field_id": "PVG-106",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.8,
+        "max": 3
+      },
+      {
+        "name_es": "Diámetro hélice",
+        "field_id": "PVG-107",
+        "data_type": "array",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Protección corrosión",
+        "field_id": "PVG-108",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "HOT_DIP_GALVANIZED",
+        "max": "ZINC_SPRAY"
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Conexión estructura",
+        "port_type": "TOP",
+        "polarity": "MECHANICAL",
+        "rated_voltage": 0,
+        "rated_current": 0,
+        "connector_standard": "Bolted"
+      }
+    ],
+    "geometric_envelope": {
+      "depth_m_max": 3,
+      "helix_diameter_mm_max": 400
+    },
+    "operating_limits": [
+      {
+        "name": "Capacidad portante",
+        "limit_field": "PVG-007",
+        "max": 1000,
+        "min": 100
+      }
+    ],
+    "datasheet_requirements": [
+      "Geotechnical report",
+      "ASME B31.1",
+      "IEC 62548"
+    ],
+    "required_certificates": [
+      "ASME_B31_1_2022",
+      "IEC_62548"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-009"
+    ],
+    "validation_rules": [
+      "torque_test_pass",
+      "depth_in_soil_layer"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "IEEE_80_2013",
+      "IEC_62548"
+    ]
+  },
+  {
+    "equipment_type_id": "BALLAST_FOUNDATION",
+    "name_es": "Cimentación de lastre",
+    "subsystem": "CIVIL",
+    "properties": [
+      {
+        "name_es": "Bloques",
+        "field_id": "PVG-109",
+        "data_type": "int",
+        "unit": "-",
+        "min": 1,
+        "max": 20
+      },
+      {
+        "name_es": "Masa total",
+        "field_id": "PVG-043",
+        "data_type": "float",
+        "unit": "kg",
+        "min": 100,
+        "max": 10000
+      },
+      {
+        "name_es": "Protección corrosión",
+        "field_id": "PVG-108",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "PAINTED",
+        "max": "HOT_DIP_GALVANIZED"
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Conexión estructura",
+        "port_type": "TOP",
+        "polarity": "MECHANICAL",
+        "rated_voltage": 0,
+        "rated_current": 0,
+        "connector_standard": "Bolted"
+      }
+    ],
+    "geometric_envelope": {
+      "block_count_max": 20,
+      "block_dimension_mm_max": 1500
+    },
+    "operating_limits": [
+      {
+        "name": "Capacidad portante",
+        "limit_field": "PVG-007",
+        "max": 1000,
+        "min": 50
+      }
+    ],
+    "datasheet_requirements": [
+      "Geotechnical report",
+      "ASME B31.1"
+    ],
+    "required_certificates": [
+      "ASME_B31_1_2022",
+      "NFPA_70_2023"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-009"
+    ],
+    "validation_rules": [
+      "ballast_mass_balances_uplift",
+      "no_penetration_required"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "NFPA_70_2023",
+      "IEC_62548"
+    ]
+  },
+  {
+    "equipment_type_id": "GRADE_BEAM_FOUNDATION",
+    "name_es": "Cimentación viga de riostra",
+    "subsystem": "CIVIL",
+    "properties": [
+      {
+        "name_es": "Profundidad",
+        "field_id": "PVG-106",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.8,
+        "max": 4
+      },
+      {
+        "name_es": "Sección",
+        "field_id": "PVG-107",
+        "data_type": "array",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Protección corrosión",
+        "field_id": "PVG-108",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "HOT_DIP_GALVANIZED",
+        "max": "CATHODIC_PROTECTION"
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Conexión estructura",
+        "port_type": "TOP",
+        "polarity": "MECHANICAL",
+        "rated_voltage": 0,
+        "rated_current": 0,
+        "connector_standard": "Bolted"
+      }
+    ],
+    "geometric_envelope": {
+      "depth_m_max": 4,
+      "width_mm_max": 600,
+      "length_m_max": 8
+    },
+    "operating_limits": [
+      {
+        "name": "Capacidad portante",
+        "limit_field": "PVG-007",
+        "max": 1000,
+        "min": 50
+      }
+    ],
+    "datasheet_requirements": [
+      "Geotechnical report",
+      "ASME B31.1"
+    ],
+    "required_certificates": [
+      "ASME_B31_1_2022",
+      "IEEE_80_2013"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-009"
+    ],
+    "validation_rules": [
+      "depth_below_frost_line",
+      "reinforcement_size_ok"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "IEEE_80_2013",
+      "IEC_62548"
+    ]
+  },
+  {
+    "equipment_type_id": "SURGE_ARRESTER_DC",
+    "name_es": "SPD DC para lado DC",
+    "subsystem": "PROTECTION_DC",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "PVG-084",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "TYPE1",
+        "max": "TYPE2"
+      },
+      {
+        "name_es": "Tensión DC máx",
+        "field_id": "PVG-053",
+        "data_type": "float",
+        "unit": "V",
+        "min": 500,
+        "max": 1500
+      },
+      {
+        "name_es": "I nominal",
+        "field_id": "PVG-082",
+        "data_type": "float",
+        "unit": "kA",
+        "min": 5,
+        "max": 40
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Línea DC +",
+        "port_type": "DC_SPD",
+        "polarity": "POSITIVE",
+        "rated_voltage": 1500,
+        "rated_current": 0,
+        "connector_standard": "Busbar"
+      },
+      {
+        "name_es": "Línea DC -",
+        "port_type": "DC_SPD",
+        "polarity": "NEGATIVE",
+        "rated_voltage": 1500,
+        "rated_current": 0,
+        "connector_standard": "Busbar"
+      },
+      {
+        "name_es": "Tierra",
+        "port_type": "PE",
+        "polarity": "PE",
+        "rated_voltage": 0,
+        "rated_current": 0,
+        "connector_standard": "Busbar"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 200,
+      "width_mm_max": 100,
+      "height_mm_max": 120
+    },
+    "operating_limits": [
+      {
+        "name": "I nominal",
+        "limit_field": "PVG-084",
+        "max": "TYPE1_2",
+        "min": "TYPE1"
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 61643-11 SPD selection",
+      "IEC 60364-7-712"
+    ],
+    "required_certificates": [
+      "IEC_61643_11",
+      "IEC_60364_7_712",
+      "NFPA_780_2023"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-008",
+      "PVG-DRW-012"
+    ],
+    "validation_rules": [
+      "up_ok",
+      "i_nominal_match_grid_risk"
+    ],
+    "source_ids": [
+      "IEC_61643_11",
+      "IEC_60364_7_712"
+    ]
+  },
+  {
+    "equipment_type_id": "SURGE_ARRESTER_AC",
+    "name_es": "SPD AC para lado AC",
+    "subsystem": "PROTECTION_AC",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "PVG-086",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "TYPE1",
+        "max": "TYPE2"
+      },
+      {
+        "name_es": "Tensión AC máx",
+        "field_id": "PVG-073",
+        "data_type": "float",
+        "unit": "V",
+        "min": 208,
+        "max": 690
+      },
+      {
+        "name_es": "I nominal",
+        "field_id": "PVG-085",
+        "data_type": "float",
+        "unit": "kA",
+        "min": 5,
+        "max": 40
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Línea AC L",
+        "port_type": "AC_SPD",
+        "polarity": "L1_L2_L3",
+        "rated_voltage": 690,
+        "rated_current": 0,
+        "connector_standard": "Busbar"
+      },
+      {
+        "name_es": "Tierra",
+        "port_type": "PE",
+        "polarity": "PE",
+        "rated_voltage": 0,
+        "rated_current": 0,
+        "connector_standard": "Busbar"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 200,
+      "width_mm_max": 100,
+      "height_mm_max": 120
+    },
+    "operating_limits": [
+      {
+        "name": "I nominal",
+        "limit_field": "PVG-086",
+        "max": "TYPE1_2",
+        "min": "TYPE1"
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 61643-11",
+      "IEC 60364-7-712"
+    ],
+    "required_certificates": [
+      "IEC_61643_11",
+      "IEC_60364_7_712",
+      "NFPA_780_2023"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-008",
+      "PVG-DRW-012"
+    ],
+    "validation_rules": [
+      "up_ok",
+      "i_nominal_match_grid_risk"
+    ],
+    "source_ids": [
+      "IEC_61643_11",
+      "IEC_60364_7_712"
+    ]
+  },
+  {
+    "equipment_type_id": "PVG-BREAKER-AC",
+    "name_es": "Breaker AC principal o de inversor",
+    "subsystem": "PROTECTION_AC",
+    "properties": [
+      {
+        "name_es": "In",
+        "field_id": "PVG-085",
+        "data_type": "float",
+        "unit": "A",
+        "min": 40,
+        "max": 6300
+      },
+      {
+        "name_es": "Tensión AC",
+        "field_id": "PVG-073",
+        "data_type": "float",
+        "unit": "V",
+        "min": 208,
+        "max": 690
+      },
+      {
+        "name_es": "Esquema relés",
+        "field_id": "PVG-087",
+        "data_type": "array",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Entrada AC",
+        "port_type": "AC_IN",
+        "polarity": "L1_L2_L3_N_PE",
+        "rated_voltage": 690,
+        "rated_current": 6300,
+        "connector_standard": "Busbar"
+      },
+      {
+        "name_es": "Salida AC",
+        "port_type": "AC_OUT",
+        "polarity": "L1_L2_L3_N_PE",
+        "rated_voltage": 690,
+        "rated_current": 6300,
+        "connector_standard": "Busbar"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 1000,
+      "width_mm_max": 600,
+      "height_mm_max": 1500
+    },
+    "operating_limits": [
+      {
+        "name": "In",
+        "limit_field": "PVG-085",
+        "max": 6300,
+        "min": 40
+      }
+    ],
+    "datasheet_requirements": [
+      "NFPA 70 / IEEE C2 coordination",
+      "IEC 60947-2 (covered by NFPA 70)"
+    ],
+    "required_certificates": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-008"
+    ],
+    "validation_rules": [
+      "coordination_selectivity_ok",
+      "in_above_inverter_current"
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "equipment_type_id": "PVG-BREAKER-DC",
+    "name_es": "Breaker DC de string",
+    "subsystem": "PROTECTION_DC",
+    "properties": [
+      {
+        "name_es": "In",
+        "field_id": "PVG-083",
+        "data_type": "float",
+        "unit": "A",
+        "min": 10,
+        "max": 200
+      },
+      {
+        "name_es": "Tensión DC",
+        "field_id": "PVG-053",
+        "data_type": "float",
+        "unit": "V",
+        "min": 500,
+        "max": 1500
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Entrada DC",
+        "port_type": "DC_IN",
+        "polarity": "POSITIVE_NEGATIVE",
+        "rated_voltage": 1500,
+        "rated_current": 200,
+        "connector_standard": "Screw terminal"
+      },
+      {
+        "name_es": "Salida DC",
+        "port_type": "DC_OUT",
+        "polarity": "POSITIVE_NEGATIVE",
+        "rated_voltage": 1500,
+        "rated_current": 200,
+        "connector_standard": "Screw terminal"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 300,
+      "width_mm_max": 150,
+      "height_mm_max": 200
+    },
+    "operating_limits": [
+      {
+        "name": "In",
+        "limit_field": "PVG-083",
+        "max": 200,
+        "min": 10
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 62548",
+      "IEC 60364-7-712"
+    ],
+    "required_certificates": [
+      "IEC_62548",
+      "IEC_60364_7_712"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-006",
+      "PVG-DRW-008"
+    ],
+    "validation_rules": [
+      "in_above_isc_string",
+      "voltage_above_voc"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60364_7_712"
+    ]
+  },
+  {
+    "equipment_type_id": "PVG-FUSE-DC",
+    "name_es": "Fusible DC de string (gPV)",
+    "subsystem": "PROTECTION_DC",
+    "properties": [
+      {
+        "name_es": "In",
+        "field_id": "PVG-082",
+        "data_type": "float",
+        "unit": "A",
+        "min": 10,
+        "max": 40
+      },
+      {
+        "name_es": "Tensión DC",
+        "field_id": "PVG-053",
+        "data_type": "float",
+        "unit": "V",
+        "min": 500,
+        "max": 1500
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Entrada DC",
+        "port_type": "DC_IN",
+        "polarity": "POSITIVE",
+        "rated_voltage": 1500,
+        "rated_current": 40,
+        "connector_standard": "Fuse holder"
+      },
+      {
+        "name_es": "Salida DC",
+        "port_type": "DC_OUT",
+        "polarity": "POSITIVE",
+        "rated_voltage": 1500,
+        "rated_current": 40,
+        "connector_standard": "Fuse holder"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 100,
+      "width_mm_max": 40,
+      "height_mm_max": 100
+    },
+    "operating_limits": [
+      {
+        "name": "In",
+        "limit_field": "PVG-082",
+        "max": 40,
+        "min": 10
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 62548 sizing",
+      "IEC 60287 thermal"
+    ],
+    "required_certificates": [
+      "IEC_62548",
+      "IEC_60287_1_1"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-006",
+      "PVG-DRW-008"
+    ],
+    "validation_rules": [
+      "in_above_isc_string",
+      "fuse_class_gPV"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60287_1_1",
+      "IEC_60364_7_712"
+    ]
+  },
+  {
+    "equipment_type_id": "PVG-FUSE-AC",
+    "name_es": "Fusible AC de protección",
+    "subsystem": "PROTECTION_AC",
+    "properties": [
+      {
+        "name_es": "In",
+        "field_id": "PVG-085",
+        "data_type": "float",
+        "unit": "A",
+        "min": 10,
+        "max": 6300
+      },
+      {
+        "name_es": "Tensión AC",
+        "field_id": "PVG-073",
+        "data_type": "float",
+        "unit": "V",
+        "min": 208,
+        "max": 690
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Entrada AC",
+        "port_type": "AC_IN",
+        "polarity": "L1_L2_L3",
+        "rated_voltage": 690,
+        "rated_current": 6300,
+        "connector_standard": "Fuse holder"
+      },
+      {
+        "name_es": "Salida AC",
+        "port_type": "AC_OUT",
+        "polarity": "L1_L2_L3",
+        "rated_voltage": 690,
+        "rated_current": 6300,
+        "connector_standard": "Fuse holder"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 200,
+      "width_mm_max": 100,
+      "height_mm_max": 150
+    },
+    "operating_limits": [
+      {
+        "name": "In",
+        "limit_field": "PVG-085",
+        "max": 6300,
+        "min": 10
+      }
+    ],
+    "datasheet_requirements": [
+      "NFPA 70 / IEEE C2"
+    ],
+    "required_certificates": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-008"
+    ],
+    "validation_rules": [
+      "in_above_inverter_current",
+      "class_gG_or_aR"
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "equipment_type_id": "TRACKER_DRIVE",
+    "name_es": "Actuador del tracker",
+    "subsystem": "MECHANICAL_ELECTRICAL",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "PVG-103",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "SINGLE_LINKAGE",
+        "max": "MULTI_TORQUE_TUBE"
+      },
+      {
+        "name_es": "Voltaje",
+        "field_id": "PVG-073",
+        "data_type": "float",
+        "unit": "V",
+        "min": 24,
+        "max": 400
+      },
+      {
+        "name_es": "Stow wind",
+        "field_id": "PVG-104",
+        "data_type": "float",
+        "unit": "m/s",
+        "min": 15,
+        "max": 40
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Comando SCADA",
+        "port_type": "COM",
+        "polarity": "DIGITAL",
+        "rated_voltage": 24,
+        "rated_current": 15,
+        "connector_standard": "RJ45"
+      },
+      {
+        "name_es": "Salida mecánica",
+        "port_type": "TORQUE",
+        "polarity": "MECHANICAL",
+        "rated_voltage": 0,
+        "rated_current": 0,
+        "connector_standard": "Drive shaft"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 800,
+      "width_mm_max": 300,
+      "height_mm_max": 400
+    },
+    "operating_limits": [
+      {
+        "name": "Voltaje",
+        "limit_field": "PVG-073",
+        "max": 400,
+        "min": 24
+      }
+    ],
+    "datasheet_requirements": [
+      "Manufacturer datasheet (generic class)"
+    ],
+    "required_certificates": [
+      "IEC_62548",
+      "IEEE_2030_2"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-011",
+      "PVG-DRW-015"
+    ],
+    "validation_rules": [
+      "voltage_match_scada",
+      "drive_torque_sufficient"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "IEEE_2030_2",
+      "IEC_TS_63049"
+    ]
+  },
+  {
+    "equipment_type_id": "PVG-SCADA-GATEWAY",
+    "name_es": "Gateway SCADA",
+    "subsystem": "CONTROL",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "PVG-122",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "SCADA_RTU",
+        "max": "SCADA_IEC_61850"
+      },
+      {
+        "name_es": "Protocolo",
+        "field_id": "PVG-122",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "DNP3",
+        "max": "IEC_61850"
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Comunicación COES",
+        "port_type": "COM",
+        "polarity": "FIBER_OR_ETH",
+        "rated_voltage": 0,
+        "rated_current": 1,
+        "connector_standard": "RJ45"
+      },
+      {
+        "name_es": "Comunicación inversor",
+        "port_type": "COM",
+        "polarity": "RS485",
+        "rated_voltage": 0,
+        "rated_current": 1,
+        "connector_standard": "RJ45"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 600,
+      "width_mm_max": 400,
+      "height_mm_max": 300
+    },
+    "operating_limits": [
+      {
+        "name": "Voltaje aux",
+        "limit_field": "PVG-073",
+        "max": 240,
+        "min": 110
+      }
+    ],
+    "datasheet_requirements": [
+      "IEEE 2030.2",
+      "IEEE 1547.4",
+      "IEC 61724-1"
+    ],
+    "required_certificates": [
+      "IEEE_2030_2",
+      "IEEE_1547_4",
+      "IEC_61724_1"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-015"
+    ],
+    "validation_rules": [
+      "protocol_compatible_grid_code",
+      "data_logging_active"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEEE_1547_4",
+      "IEC_61724_1"
+    ]
+  },
+  {
+    "equipment_type_id": "STRING_BOX",
+    "name_es": "Caja de conexiones de string",
+    "subsystem": "DC_COLLECTION",
+    "properties": [
+      {
+        "name_es": "IP",
+        "field_id": "PVG-051",
+        "data_type": "enum",
+        "unit": "-",
+        "min": "IP65",
+        "max": "IP66"
+      },
+      {
+        "name_es": "Polos",
+        "field_id": "PVG-048",
+        "data_type": "int",
+        "unit": "-",
+        "min": 1,
+        "max": 32
+      },
+      {
+        "name_es": "Fusible DC",
+        "field_id": "PVG-082",
+        "data_type": "float",
+        "unit": "A",
+        "min": 10,
+        "max": 40
+      }
+    ],
+    "ports": [
+      {
+        "name_es": "Entrada string",
+        "port_type": "DC_IN",
+        "polarity": "POSITIVE_NEGATIVE",
+        "rated_voltage": 1500,
+        "rated_current": 25,
+        "connector_standard": "IEC_62894"
+      },
+      {
+        "name_es": "Salida home-run",
+        "port_type": "DC_OUT",
+        "polarity": "POSITIVE_NEGATIVE",
+        "rated_voltage": 1500,
+        "rated_current": 400,
+        "connector_standard": "Busbar"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm_max": 1000,
+      "width_mm_max": 600,
+      "height_mm_max": 400
+    },
+    "operating_limits": [
+      {
+        "name": "Tensión DC",
+        "limit_field": "PVG-053",
+        "max": 1500,
+        "min": 0
+      }
+    ],
+    "datasheet_requirements": [
+      "IEC 62817",
+      "IEC 60529 IP rating"
+    ],
+    "required_certificates": [
+      "IEC_62817",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "PVG-DRW-006",
+      "PVG-DRW-013"
+    ],
+    "validation_rules": [
+      "ip_outdoor_ok",
+      "fuse_size_ok"
+    ],
+    "source_ids": [
+      "IEC_62817",
+      "IEC_60529",
+      "IEC_62548"
+    ]
+  }
+]

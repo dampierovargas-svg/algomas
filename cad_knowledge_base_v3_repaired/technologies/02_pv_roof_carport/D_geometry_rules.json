@@ -1,0 +1,1580 @@
+[
+  {
+    "rule_id": "PVR-G-001",
+    "name_es": "Detección de pendiente de cubierta",
+    "description": "Detecta y valida pendiente de cubierta desde plano arquitectónico contra tol ±1°.",
+    "parameters": {
+      "max_slope_tolerance_deg": 1.0,
+      "min_slope_for_drainage_deg": 1.5
+    },
+    "applies_when": "always",
+    "validation_expression": "abs(measured_slope - nominal_slope) <= 1.0 AND measured_slope >= 1.5",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ],
+    "drawing_id": "PVR-DRW-001",
+    "geometry_rule_id": "PVR-G-001",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-001: required input field missing or invalid",
+      "PVR-G-001: collision between generated entities detected",
+      "PVR-G-001: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-002",
+    "name_es": "Layout del array evitando claraboyas",
+    "description": "Genera buffer de exclusión de 1.0 m alrededor de cada claraboya para evitar sombreado y acceso mantenimiento.",
+    "parameters": {
+      "skylight_buffer_m": 1.0
+    },
+    "applies_when": "PVR-007 > 0",
+    "validation_expression": "all(module_box.distance(skylight_polygon) >= 1.0)",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62548",
+      "NFPA_70_2023"
+    ],
+    "drawing_id": "PVR-DRW-002",
+    "geometry_rule_id": "PVR-G-002",
+    "applicability_expression": "PVR-007 > 0",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-002: required input field missing or invalid",
+      "PVR-G-002: collision between generated entities detected",
+      "PVR-G-002: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-003",
+    "name_es": "Layout del array evitando ductos de ventilación",
+    "description": "Genera buffer de exclusión de 0.5 m alrededor de cada ducto de ventilación.",
+    "parameters": {
+      "vent_buffer_m": 0.5
+    },
+    "applies_when": "PVR-008 > 0",
+    "validation_expression": "all(module_box.distance(vent_polygon) >= 0.5)",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "drawing_id": "PVR-DRW-002",
+    "geometry_rule_id": "PVR-G-003",
+    "applicability_expression": "PVR-008 > 0",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-003: required input field missing or invalid",
+      "PVR-G-003: collision between generated entities detected",
+      "PVR-G-003: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-004",
+    "name_es": "Layout del array evitando parapetos",
+    "description": "Genera setback mínimo desde parapeto interno o perimetral según PVR-104.",
+    "parameters": {
+      "parapet_setback_m": 1.8
+    },
+    "applies_when": "PVR-005 > 0",
+    "validation_expression": "all(module_box.distance(parapet_line) >= 1.8)",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEC_62548"
+    ],
+    "drawing_id": "PVR-DRW-001",
+    "geometry_rule_id": "PVR-G-004",
+    "applicability_expression": "PVR-005 > 0",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-004: required input field missing or invalid",
+      "PVR-G-004: collision between generated entities detected",
+      "PVR-G-004: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-005",
+    "name_es": "Cuadrícula de bloques de balast",
+    "description": "Define cuadrícula de bloques de balast con espaciamiento uniforme según uplift de viento.",
+    "parameters": {
+      "ballast_grid_spacing_x_mm": 1200,
+      "ballast_grid_spacing_y_mm": 600,
+      "min_blocks_per_module": 4
+    },
+    "applies_when": "PVR-081 contains ballasted",
+    "validation_expression": "ballast_count_per_module >= 4 AND spacing_x mod 1200 == 0",
+    "severity": "WARNING",
+    "source_ids": [
+      "IEC_62548",
+      "UL_1703"
+    ],
+    "drawing_id": "PVR-DRW-002",
+    "geometry_rule_id": "PVR-G-005",
+    "applicability_expression": "PVR-081 contains ballasted",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-005: required input field missing or invalid",
+      "PVR-G-005: collision between generated entities detected",
+      "PVR-G-005: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-006",
+    "name_es": "Layout de rieles attached",
+    "description": "Define orientación y spacing de rieles según dimensiones de módulo y tipo de riel.",
+    "parameters": {
+      "rail_spacing_along_module_mm": 1200,
+      "rail_offset_from_edge_mm": 200
+    },
+    "applies_when": "PVR-081 contains attached",
+    "validation_expression": "rail_count_per_module >= 2 AND rail_spacing <= module_length - 200",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62548",
+      "UL_1703"
+    ],
+    "drawing_id": "PVR-DRW-002",
+    "geometry_rule_id": "PVR-G-006",
+    "applicability_expression": "PVR-081 contains attached",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-006: required input field missing or invalid",
+      "PVR-G-006: collision between generated entities detected",
+      "PVR-G-006: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-007",
+    "name_es": "Layout del frame del carport",
+    "description": "Define posiciones de columnas, vigas y módulos según tipo de carport.",
+    "parameters": {
+      "cantilever_column_spacing_m": 6.0,
+      "T_frame_column_spacing_m": 6.0,
+      "Y_frame_column_spacing_m": 6.0,
+      "max_bay_span_m": 8.0
+    },
+    "applies_when": "PVR-026==true",
+    "validation_expression": "bay_span <= 8.0 AND column_count >= 2 AND top_clearance >= PVR-030",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006"
+    ],
+    "drawing_id": "PVR-DRW-004",
+    "geometry_rule_id": "PVR-G-007",
+    "applicability_expression": "PVR-026==true",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-007: required input field missing or invalid",
+      "PVR-G-007: collision between generated entities detected",
+      "PVR-G-007: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-008",
+    "name_es": "Posiciones de attachment estructural",
+    "description": "Define posiciones exactas de attachments a cubierta respetando vigas subyacentes.",
+    "parameters": {
+      "attachment_on_beam_offset_mm": 50,
+      "max_attachment_to_beam_distance_mm": 100
+    },
+    "applies_when": "PVR-081 contains attached",
+    "validation_expression": "all(attachment.distance(beam_centerline) <= 100)",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006"
+    ],
+    "drawing_id": "PVR-DRW-002",
+    "geometry_rule_id": "PVR-G-008",
+    "applicability_expression": "PVR-081 contains attached",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-008: required input field missing or invalid",
+      "PVR-G-008: collision between generated entities detected",
+      "PVR-G-008: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-009",
+    "name_es": "Gap para gestión de nieve",
+    "description": "Define gap vertical entre fila inferior y fila superior de módulos para permitir deslizamiento de nieve.",
+    "parameters": {
+      "snow_gap_vertical_mm": 200,
+      "snow_guard_present_required": true
+    },
+    "applies_when": "PVR-108 in [medium, high]",
+    "validation_expression": "snow_gap >= 200 OR snow_guard_present == true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62548",
+      "NASA_POWER"
+    ],
+    "drawing_id": "PVR-DRW-007",
+    "geometry_rule_id": "PVR-G-009",
+    "applicability_expression": "PVR-108 in [medium, high]",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-009: required input field missing or invalid",
+      "PVR-G-009: collision between generated entities detected",
+      "PVR-G-009: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-010",
+    "name_es": "Mantenimiento de drenaje",
+    "description": "Define corredores libres de módulos sobre drenes primarios y secundarios de la cubierta.",
+    "parameters": {
+      "drain_corridor_width_m": 1.0,
+      "drain_buffer_m": 0.5
+    },
+    "applies_when": "PVR-021 in [primary_inner, secondary_overflow]",
+    "validation_expression": "module_box.distance(drain) >= 0.5",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "drawing_id": "PVR-DRW-013",
+    "geometry_rule_id": "PVR-G-010",
+    "applicability_expression": "PVR-021 in [primary_inner, secondary_overflow]",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-010: required input field missing or invalid",
+      "PVR-G-010: collision between generated entities detected",
+      "PVR-G-010: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-011",
+    "name_es": "Integración del canalón (gutter)",
+    "description": "Define posición del canalón en el borde inferior del carport o cubierta inclinada.",
+    "parameters": {
+      "gutter_overhang_mm": 50,
+      "gutter_slope_pct": 0.5,
+      "min_gutter_section_mm": 150
+    },
+    "applies_when": "PVR-023==true OR PVR-026==true",
+    "validation_expression": "gutter_slope >= 0.5 AND gutter_section >= 150",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "drawing_id": "PVR-DRW-013",
+    "geometry_rule_id": "PVR-G-011",
+    "applicability_expression": "PVR-023==true OR PVR-026==true",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-011: required input field missing or invalid",
+      "PVR-G-011: collision between generated entities detected",
+      "PVR-G-011: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-012",
+    "name_es": "Ubicación del pararrayos",
+    "description": "Ubica pararrayos según método de esfera rodante IEC 62305 para cubrir pendiente el array.",
+    "parameters": {
+      "rolling_sphere_radius_m_LPL_I": 30,
+      "rolling_sphere_radius_m_LPL_II": 45,
+      "rolling_sphere_radius_m_LPL_III": 60,
+      "min_down_conductor_count": 2
+    },
+    "applies_when": "PVR-110==true",
+    "validation_expression": "every(module_box) inside protected_area(rolling_sphere)",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023"
+    ],
+    "drawing_id": "PVR-DRW-014",
+    "geometry_rule_id": "PVR-G-012",
+    "applicability_expression": "PVR-110==true",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-012: required input field missing or invalid",
+      "PVR-G-012: collision between generated entities detected",
+      "PVR-G-012: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-013",
+    "name_es": "Bond de PAT a estructura existente",
+    "description": "Define conexión equipotencial entre PAT PV y estructura metálica existente cada 30 m lineales.",
+    "parameters": {
+      "bond_max_spacing_m": 30,
+      "min_bond_cross_section_mm2": 16
+    },
+    "applies_when": "PVR-078==true",
+    "validation_expression": "bond_count >= ceil(perimeter_m / 30) AND bond_cross_section >= 16",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_60364_5_54",
+      "NFPA_70_2023",
+      "IEC_62305_3"
+    ],
+    "drawing_id": "PVR-DRW-011",
+    "geometry_rule_id": "PVR-G-013",
+    "applicability_expression": "PVR-078==true",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-013: required input field missing or invalid",
+      "PVR-G-013: collision between generated entities detected",
+      "PVR-G-013: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-014",
+    "name_es": "Corredor de egreso de incendio",
+    "description": "Define corredor de egreso de incendio de mínimo 1.2 m entre bloques PV en cubierta.",
+    "parameters": {
+      "fire_egress_corridor_m": 1.2,
+      "max_array_block_length_m": 45.7
+    },
+    "applies_when": "always",
+    "validation_expression": "every_array_block_pair: distance >= 1.2 OR block_length <= 45.7",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEC_62548"
+    ],
+    "drawing_id": "PVR-DRW-001",
+    "geometry_rule_id": "PVR-G-014",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-014: required input field missing or invalid",
+      "PVR-G-014: collision between generated entities detected",
+      "PVR-G-014: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-015",
+    "name_es": "Setback desde borde de cubierta (IFC 605.5)",
+    "description": "Define setback mínimo de 1.8 m desde todos los bordes de la cubierta hacia adentro.",
+    "parameters": {
+      "roof_edge_setback_m_low_slope": 1.8,
+      "roof_edge_setback_m_steep": 0.9
+    },
+    "applies_when": "always",
+    "validation_expression": "module_box.distance(roof_edge_polygon) >= 1.8 OR slope >= 7:12",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEC_62548"
+    ],
+    "drawing_id": "PVR-DRW-001",
+    "geometry_rule_id": "PVR-G-015",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-015: required input field missing or invalid",
+      "PVR-G-015: collision between generated entities detected",
+      "PVR-G-015: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-016",
+    "name_es": "Caminos de acceso para bomberos",
+    "description": "Define caminos de acceso transversales cada 45.7 m de array.",
+    "parameters": {
+      "fire_pathway_width_m": 1.2,
+      "max_array_block_dimension_m": 45.7
+    },
+    "applies_when": "always",
+    "validation_expression": "any_module_block_pair_distance >= 1.2 AND max_block_dim <= 45.7",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "NFPA_70_2023"
+    ],
+    "drawing_id": "PVR-DRW-016",
+    "geometry_rule_id": "PVR-G-016",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-016: required input field missing or invalid",
+      "PVR-G-016: collision between generated entities detected",
+      "PVR-G-016: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-017",
+    "name_es": "Snow guard sobre techo inclinado",
+    "description": "Define instalación de snow guard si riesgo de deslizamiento es medium o high.",
+    "parameters": {
+      "snow_guard_per_row": true,
+      "snow_guard_spacing_mm": 600
+    },
+    "applies_when": "PVR-108 in [medium, high]",
+    "validation_expression": "snow_guard_present == true AND snow_guard_per_row_count >= ceil(array_length/600)",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62548",
+      "NASA_POWER"
+    ],
+    "drawing_id": "PVR-DRW-007",
+    "geometry_rule_id": "PVR-G-017",
+    "applicability_expression": "PVR-108 in [medium, high]",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-017: required input field missing or invalid",
+      "PVR-G-017: collision between generated entities detected",
+      "PVR-G-017: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-018",
+    "name_es": "Altura libre mínima de carport",
+    "description": "Define altura libre mínima del carport para el tipo de vehículo.",
+    "parameters": {
+      "carport_min_clear_m_light": 4.0,
+      "carport_min_clear_m_truck": 5.0
+    },
+    "applies_when": "PVR-026==true",
+    "validation_expression": "PVR-030 >= 4.0 for light vehicle, >= 5.0 for truck",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ],
+    "drawing_id": "PVR-DRW-004",
+    "geometry_rule_id": "PVR-G-018",
+    "applicability_expression": "PVR-026==true",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-018: required input field missing or invalid",
+      "PVR-G-018: collision between generated entities detected",
+      "PVR-G-018: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-019",
+    "name_es": "Spacing filas Norte-Sur evitando sombreado propio",
+    "description": "Define spacing mínimo entre filas para evitar sombreado propio en solsticio de invierno.",
+    "parameters": {
+      "min_row_spacing_ratio": 2.0,
+      "winter_solstice_sun_elev_deg_min": 30
+    },
+    "applies_when": "PVR-087 > 5 OR PVR-036 > 5",
+    "validation_expression": "row_spacing >= module_height * 2.0",
+    "severity": "WARNING",
+    "source_ids": [
+      "IEC_62548",
+      "NREL_SAM_2024"
+    ],
+    "drawing_id": "PVR-DRW-002",
+    "geometry_rule_id": "PVR-G-019",
+    "applicability_expression": "PVR-087 > 5 OR PVR-036 > 5",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-019: required input field missing or invalid",
+      "PVR-G-019: collision between generated entities detected",
+      "PVR-G-019: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-020",
+    "name_es": "Buffer de escotilla de acceso a cubierta",
+    "description": "Define corredor libre de 1.2 m frente a cada escotilla de acceso a cubierta.",
+    "parameters": {
+      "hatch_corridor_width_m": 1.2,
+      "hatch_corridor_length_m": 1.5
+    },
+    "applies_when": "PVR-009 > 0",
+    "validation_expression": "module_box.distance(hatch) >= 1.2 AND corridor_length >= 1.5",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEC_62548"
+    ],
+    "drawing_id": "PVR-DRW-001",
+    "geometry_rule_id": "PVR-G-020",
+    "applicability_expression": "PVR-009 > 0",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-020: required input field missing or invalid",
+      "PVR-G-020: collision between generated entities detected",
+      "PVR-G-020: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-021",
+    "name_es": "Espaciamiento por expansión térmica del riel",
+    "description": "Define gap de expansión térmica en rieles de aluminio cada 6 m.",
+    "parameters": {
+      "thermal_expansion_gap_mm_per_6m": 6,
+      "max_continuous_rail_length_m": 6
+    },
+    "applies_when": "PVR-081 contains attached",
+    "validation_expression": "rail_segment_length <= 6 OR expansion_gap >= 6 mm",
+    "severity": "WARNING",
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006"
+    ],
+    "drawing_id": "PVR-DRW-007",
+    "geometry_rule_id": "PVR-G-021",
+    "applicability_expression": "PVR-081 contains attached",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-021: required input field missing or invalid",
+      "PVR-G-021: collision between generated entities detected",
+      "PVR-G-021: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-022",
+    "name_es": "Drenaje de cubierta del carport - gaps entre módulos",
+    "description": "Define gap entre módulos en carport para drenaje de agua de lluvia.",
+    "parameters": {
+      "carport_module_gap_min_mm": 10,
+      "carport_module_gap_max_mm": 30
+    },
+    "applies_when": "PVR-026==true",
+    "validation_expression": "module_gap >= 10 AND module_gap <= 30",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006"
+    ],
+    "drawing_id": "PVR-DRW-004",
+    "geometry_rule_id": "PVR-G-022",
+    "applicability_expression": "PVR-026==true",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-022: required input field missing or invalid",
+      "PVR-G-022: collision between generated entities detected",
+      "PVR-G-022: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-023",
+    "name_es": "Ubicación del combiner DC lejos de drenes",
+    "description": "Define posición del combiner DC al menos 0.5 m por encima del nivel de drenaje máximo y lejos de bajantes.",
+    "parameters": {
+      "combiner_height_above_roof_mm": 300,
+      "combiner_to_drain_distance_m": 1.0
+    },
+    "applies_when": "always",
+    "validation_expression": "combiner_z >= 300 AND combiner.distance(drain) >= 1.0",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60529",
+      "NFPA_70_2023"
+    ],
+    "drawing_id": "PVR-DRW-009",
+    "geometry_rule_id": "PVR-G-023",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-023: required input field missing or invalid",
+      "PVR-G-023: collision between generated entities detected",
+      "PVR-G-023: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-024",
+    "name_es": "Caja de paso AC en pared perimetral",
+    "description": "Define ubicación de caja de paso AC en muro perimetral o bajo cubierta con acceso.",
+    "parameters": {
+      "ac_box_height_mm": 1200,
+      "ac_box_clearance_mm": 600
+    },
+    "applies_when": "always",
+    "validation_expression": "ac_box_z >= 1200 AND clear_distance(ac_box) >= 600",
+    "severity": "WARNING",
+    "source_ids": [
+      "IEC_60364_7_712",
+      "NFPA_70_2023"
+    ],
+    "drawing_id": "PVR-DRW-010",
+    "geometry_rule_id": "PVR-G-024",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-024: required input field missing or invalid",
+      "PVR-G-024: collision between generated entities detected",
+      "PVR-G-024: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "PVR-G-025",
+    "name_es": "Conexión del riel al perno de tierra equipotencial",
+    "description": "Define conexión equipotencial cada 30 m lineales de riel de aluminio.",
+    "parameters": {
+      "bonding_lug_per_30m": 1,
+      "min_bonding_conductor_mm2": 10
+    },
+    "applies_when": "always",
+    "validation_expression": "bonding_lug_count >= ceil(rail_total_length / 30)",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60364_5_54",
+      "NFPA_70_2023"
+    ],
+    "drawing_id": "PVR-DRW-011",
+    "geometry_rule_id": "PVR-G-025",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVR-001",
+      "PVR-002"
+    ],
+    "required_calculation_ids": [
+      "PVR-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "PVR-G-025: required input field missing or invalid",
+      "PVR-G-025: collision between generated entities detected",
+      "PVR-G-025: clearance violation"
+    ]
+  }
+]

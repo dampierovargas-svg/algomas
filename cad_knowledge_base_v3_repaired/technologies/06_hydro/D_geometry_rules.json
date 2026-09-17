@@ -1,0 +1,1361 @@
+[
+  {
+    "geometry_rule_id": "HYD-GR-001",
+    "name_es": "Layout de presa (dam layout)",
+    "applicability_expression": "plant_classification in [MEDIA,PEQUENA]",
+    "required_field_ids": [
+      "HYD-256",
+      "HYD-257",
+      "HYD-039",
+      "HYD-040",
+      "HYD-002",
+      "HYD-003",
+      "HYD-004"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-022",
+      "HYD-C-026"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Dam axis polygon alignment along river thalweg; crest elevation above max pool level.",
+    "algorithm_pseudocode": [
+      "for each point p in dam_axis_alignment:",
+      "  set crest_elev(p) = max_pool_level + freeboard",
+      "  set foundation_elev(p) = river_bed_elev - embed",
+      "  place dam_polygon(p, crest_elev, foundation_elev)"
+    ],
+    "generated_entity_types": [
+      "DAM_AXIS_POLYLINE",
+      "DAM_CREST_LINE",
+      "DAM_UPSTREAM_FACE",
+      "DAM_DOWNSTREAM_FACE"
+    ],
+    "clearances": [
+      {
+        "name": "freeboard",
+        "value": "HYD-040",
+        "min_m": 0.5
+      },
+      {
+        "name": "crest_above_MPL",
+        "value": "HYD-039",
+        "min_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no overlap with spillway crest",
+        "error": "dam overlaps spillway"
+      },
+      {
+        "rule": "crest > maximum_pool_level + freeboard",
+        "error": "insufficient freeboard"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-004",
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_60",
+      "ICOLD_Bull_120",
+      "ISO_19111"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-001: required input field missing or invalid",
+      "HYD-GR-001: collision between generated entities detected",
+      "HYD-GR-001: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-002",
+    "name_es": "Layout de bocatoma (intake layout)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-050",
+      "HYD-051",
+      "HYD-052",
+      "HYD-053",
+      "HYD-054",
+      "HYD-055",
+      "HYD-060",
+      "HYD-061",
+      "HYD-039",
+      "HYD-004"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-009",
+      "HYD-C-023"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Intake structure layout aligned to river bank with trash rack inclined 70-80deg.",
+    "algorithm_pseudocode": [
+      "set intake_invert_elev(p) = NPL - submergence_min",
+      "place trash_rack_polygon(intake_crest, intake_invert, bar_spacing, angle)",
+      "place intake_gate(intake_crest_elev, gate_design_head, gate_type)"
+    ],
+    "generated_entity_types": [
+      "INTAKE_POLYGON",
+      "TRASH_RACK_POLYGON",
+      "INTAKE_GATE_OUTLINE"
+    ],
+    "clearances": [
+      {
+        "name": "submergence",
+        "value": "HYD-050",
+        "min_m": 0.5
+      },
+      {
+        "name": "bar_spacing",
+        "value": "HYD-052",
+        "min_mm": 5
+      },
+      {
+        "name": "angle",
+        "value": "HYD-054",
+        "min_deg": 30
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "intake_invert >= river_bed_elev - submergence",
+        "error": "intake above river bed"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-003",
+      "HYD-DRW-004"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "IEC_60193"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-002: required input field missing or invalid",
+      "HYD-GR-002: collision between generated entities detected",
+      "HYD-GR-002: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-003",
+    "name_es": "Ruta del canal de aduccion (headrace canal route)",
+    "applicability_expression": "headrace_canal_length_m>0",
+    "required_field_ids": [
+      "HYD-260",
+      "HYD-261",
+      "HYD-039",
+      "HYD-050",
+      "HYD-051",
+      "HYD-004"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-009",
+      "HYD-C-012"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Headrace alignment along contour lines, constant slope, no sharp bends.",
+    "algorithm_pseudocode": [
+      "trace alignment polyline along contour lines",
+      "set canal_invert_elev decreasing from intake to forebay",
+      "place cross-section every 10 m"
+    ],
+    "generated_entity_types": [
+      "HEADRACE_CENTERLINE",
+      "HEADRACE_CROSS_SECTION",
+      "HEADRACE_INVERT_PROFILE"
+    ],
+    "clearances": [
+      {
+        "name": "slope",
+        "min_m_per_km": 0.5
+      },
+      {
+        "name": "bend_radius",
+        "min_m": 5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "invert slope constant",
+        "error": "invert slope non-uniform"
+      },
+      {
+        "rule": "no crossing terrain",
+        "error": "canal above terrain"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-005"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "ISO_14685"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-003: required input field missing or invalid",
+      "HYD-GR-003: collision between generated entities detected",
+      "HYD-GR-003: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-004",
+    "name_es": "Ruta de tuberia forzada (penstock route)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-070",
+      "HYD-071",
+      "HYD-072",
+      "HYD-075",
+      "HYD-077",
+      "HYD-078",
+      "HYD-082",
+      "HYD-083",
+      "HYD-004"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-011",
+      "HYD-C-013",
+      "HYD-C-014",
+      "HYD-C-015",
+      "HYD-C-016"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Penstock alignment polyline Z with anchor blocks every L<=150m and expansion joints.",
+    "algorithm_pseudocode": [
+      "trace alignment polyline in 3D from forebay to powerhouse inlet",
+      "set pipe_axis_elev(p) = terrain_elev(p) + cover",
+      "place anchor_block(p) every L<=150m",
+      "place expansion_joint between anchors"
+    ],
+    "generated_entity_types": [
+      "PENSTOCK_CENTERLINE_3D",
+      "ANCHOR_BLOCK_RECT",
+      "EXPANSION_JOINT",
+      "SURGE_TANK_VERTICAL"
+    ],
+    "clearances": [
+      {
+        "name": "anchor_spacing",
+        "max_m": 150
+      },
+      {
+        "name": "cover_above_terrain",
+        "min_m": 0.5
+      },
+      {
+        "name": "minimum_bend_radius",
+        "min_m": 5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no bend radius < 5D",
+        "error": "bend too sharp"
+      },
+      {
+        "rule": "pipe_axis >= terrain + cover",
+        "error": "insufficient cover"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-006"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "ISO_14685"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-004: required input field missing or invalid",
+      "HYD-GR-004: collision between generated entities detected",
+      "HYD-GR-004: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-005",
+    "name_es": "Posicion del tanque de equilibrio (surge tank position)",
+    "applicability_expression": "surge_tank_type != NONE",
+    "required_field_ids": [
+      "HYD-078",
+      "HYD-081",
+      "HYD-082",
+      "HYD-083",
+      "HYD-071"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-015",
+      "HYD-C-016"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Surge tank placed upstream of penstock near forebay, immediately downstream of headrace.",
+    "algorithm_pseudocode": [
+      "locate surge_tank at distance L*0.3 from upstream end",
+      "place vertical cylinder of diameter D and height H",
+      "connect tee to penstock"
+    ],
+    "generated_entity_types": [
+      "SURGE_TANK_CYLINDER",
+      "SURGE_CONNECTION_TEE"
+    ],
+    "clearances": [
+      {
+        "name": "distance_from_forebay",
+        "max_m": 200
+      },
+      {
+        "name": "distance_from_powerhouse",
+        "min_m": 50
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "surge_tank not inside powerhouse",
+        "error": "surge inside powerhouse"
+      },
+      {
+        "rule": "connection elevation < maximum_pool_level",
+        "error": "surge overflow"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-006"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "ICOLD_Bull_120"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-005: required input field missing or invalid",
+      "HYD-GR-005: collision between generated entities detected",
+      "HYD-GR-005: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-006",
+    "name_es": "Layout de casa de maquinas (powerhouse layout)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-090",
+      "HYD-091",
+      "HYD-092",
+      "HYD-093",
+      "HYD-094",
+      "HYD-095",
+      "HYD-096",
+      "HYD-097",
+      "HYD-098",
+      "HYD-099",
+      "HYD-100",
+      "HYD-113",
+      "HYD-131"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-018",
+      "HYD-C-021",
+      "HYD-C-026"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Powerhouse rectangular footprint with erection bay, machine hall, and auxiliary bay.",
+    "algorithm_pseudocode": [
+      "set powerhouse_polygon(L,W) anchored at site centroid",
+      "place erection_bay on one end (min 1.3*unit_length)",
+      "place machine_hall with N unit bays (N = number of turbines)",
+      "place bridge_crane_rails along walls",
+      "set machine_floor_elev = NPL - H + 0.5"
+    ],
+    "generated_entity_types": [
+      "POWERHOUSE_RECT",
+      "ERECTION_BAY_RECT",
+      "MACHINE_HALL_RECT",
+      "AUX_BAY_RECT",
+      "CRANE_RAIL_LINES"
+    ],
+    "clearances": [
+      {
+        "name": "erection_bay_length",
+        "min_m": 1.3,
+        "factor_of_unit_length": "1.3"
+      },
+      {
+        "name": "clearance_above_turbine",
+        "min_m": 2
+      },
+      {
+        "name": "crane_hook_clear",
+        "min_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "crane span <= powerhouse_width - 1m",
+        "error": "crane too wide"
+      },
+      {
+        "rule": "no unit overlap",
+        "error": "turbine bays overlap"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-007",
+      "HYD-DRW-008"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "RNE_DS_011_2006"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-006: required input field missing or invalid",
+      "HYD-GR-006: collision between generated entities detected",
+      "HYD-GR-006: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-007",
+    "name_es": "Posicion del tubo de aspiracion (draft tube)",
+    "applicability_expression": "turbine_type in [FRANCIS,KAPLAN,PROPELLER]",
+    "required_field_ids": [
+      "HYD-116",
+      "HYD-213",
+      "HYD-214",
+      "HYD-097",
+      "HYD-098",
+      "HYD-110"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-018",
+      "HYD-C-020"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Draft tube below runner with submergence per cavitation sigma Thoma.",
+    "algorithm_pseudocode": [
+      "set draft_tube_invert_elev = tailwater_elev - submergence",
+      "place draft_tube_polygon(runner_outlet_D, draft_tube_invert)",
+      "draft_tube_centerline aligned with runner axis"
+    ],
+    "generated_entity_types": [
+      "DRAFT_TUBE_OUTLINE",
+      "DRAFT_TUBE_INVERT_LINE"
+    ],
+    "clearances": [
+      {
+        "name": "submergence",
+        "value": "HYD-214",
+        "min_m": 0.5
+      },
+      {
+        "name": "cone_angle",
+        "max_deg": 15
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "draft_tube below tailwater",
+        "error": "draft tube above tailwater"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-008",
+      "HYD-DRW-009"
+    ],
+    "source_ids": [
+      "IEC_60193",
+      "IAPWS_IF97"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-007: required input field missing or invalid",
+      "HYD-GR-007: collision between generated entities detected",
+      "HYD-GR-007: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-008",
+    "name_es": "Ruta del canal de restitucion (tailrace canal route)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-097",
+      "HYD-262",
+      "HYD-263",
+      "HYD-004"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-011",
+      "HYD-C-022"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Tailrace alignment from draft tube outlet to natural river thalweg.",
+    "algorithm_pseudocode": [
+      "trace alignment polyline from draft tube outlet to river thalweg",
+      "set canal_invert_elev decreasing from outlet to river",
+      "place cross-section every 10 m"
+    ],
+    "generated_entity_types": [
+      "TAILRACE_CENTERLINE",
+      "TAILRACE_INVERT_PROFILE"
+    ],
+    "clearances": [
+      {
+        "name": "slope",
+        "min_m_per_km": 0.5
+      },
+      {
+        "name": "bend_radius",
+        "min_m": 5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "invert slope constant",
+        "error": "slope non-uniform"
+      },
+      {
+        "rule": "draft tube outlet above tailrace invert",
+        "error": "outlet below tailrace"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-012"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "ISO_14685"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-008: required input field missing or invalid",
+      "HYD-GR-008: collision between generated entities detected",
+      "HYD-GR-008: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-009",
+    "name_es": "Posicion del aliviadero (spillway position)",
+    "applicability_expression": "plant_classification in [MEDIA,PEQUENA]",
+    "required_field_ids": [
+      "HYD-250",
+      "HYD-251",
+      "HYD-252",
+      "HYD-253",
+      "HYD-254",
+      "HYD-255",
+      "HYD-039",
+      "HYD-040",
+      "HYD-256",
+      "HYD-257",
+      "HYD-004"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-022",
+      "HYD-C-024",
+      "HYD-C-025"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Spillway aligned along dam axis or side channel; tailrace distinct from turbine tailwater.",
+    "algorithm_pseudocode": [
+      "place spillway_crest_polygon at crest_elev = normal_pool_level",
+      "place stilling_basin_polygon(length, type) downstream",
+      "verify stilling basin invert > tailwater"
+    ],
+    "generated_entity_types": [
+      "SPILLWAY_CREST_POLY",
+      "STILLING_BASIN_POLY",
+      "SPILLWAY_CHUTE_LINES"
+    ],
+    "clearances": [
+      {
+        "name": "freeboard",
+        "min_m": 0.5
+      },
+      {
+        "name": "basin_to_tailwater",
+        "min_m": 0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "spillway crest >= normal_pool_level",
+        "error": "crest below NPL"
+      },
+      {
+        "rule": "basin length >= 4.5*y2",
+        "error": "basin too short"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_60",
+      "ICOLD_Bull_120"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-009: required input field missing or invalid",
+      "HYD-GR-009: collision between generated entities detected",
+      "HYD-GR-009: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-010",
+    "name_es": "Patio de transformadores (transformer yard layout)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-160",
+      "HYD-161",
+      "HYD-167",
+      "HYD-090",
+      "HYD-091",
+      "HYD-004"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-022",
+      "HYD-C-026"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Transformer yard adjacent to powerhouse with oil containment dyke per NFPA 30.",
+    "algorithm_pseudocode": [
+      "place yard_polygon adjacent to powerhouse (within 30 m)",
+      "place transformer_pads with oil_containment_dyke (volume >= 110% oil)",
+      "route MV cable trench from yard to switchgear"
+    ],
+    "generated_entity_types": [
+      "TRANSFORMER_PAD_RECT",
+      "OIL_CONTAINMENT_DYKE",
+      "CABLE_TRENCH_LINE"
+    ],
+    "clearances": [
+      {
+        "name": "distance_to_powerhouse",
+        "max_m": 30
+      },
+      {
+        "name": "oil_containment_volume",
+        "factor_of_transformer_oil": 1.1
+      },
+      {
+        "name": "clearance_between_transformers",
+        "min_m": 3
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "oil_containment >= 110% oil",
+        "error": "insufficient oil containment"
+      },
+      {
+        "rule": "yard separate from ignition sources",
+        "error": "yard near ignition"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-011"
+    ],
+    "source_ids": [
+      "NFPA_30_2024",
+      "ICOLD_Bull_120",
+      "MINAM_DS_019_2009"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-010: required input field missing or invalid",
+      "HYD-GR-010: collision between generated entities detected",
+      "HYD-GR-010: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-011",
+    "name_es": "Switchyard layout",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-168",
+      "HYD-169",
+      "HYD-170",
+      "HYD-194",
+      "HYD-195",
+      "HYD-196",
+      "HYD-197",
+      "HYD-198",
+      "HYD-199",
+      "HYD-004"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-028"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Switchyard grid with busbars, breakers, and disconnectors on concrete pads.",
+    "algorithm_pseudocode": [
+      "define switchyard_polygon area",
+      "place busbars_along_north_edge",
+      "place breakers and disconnectors on pads",
+      "set grounding_grid_mesh inside yard"
+    ],
+    "generated_entity_types": [
+      "SWITCHYARD_POLY",
+      "BUSBAR_LINE",
+      "BREAKER_RECT",
+      "DISCONNECTOR_RECT",
+      "GROUNDING_MESH"
+    ],
+    "clearances": [
+      {
+        "name": "clearance_phase_to_phase",
+        "min_m": 1
+      },
+      {
+        "name": "clearance_to_fence",
+        "min_m": 3
+      },
+      {
+        "name": "grounding_grid_size",
+        "value": "HYD-199",
+        "min_m2": 1
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no overlap with transformer yard ignition",
+        "error": "switchyard near transformer oil"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-011"
+    ],
+    "source_ids": [
+      "IEEE_C2_2023",
+      "IEEE_80_2013"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-011: required input field missing or invalid",
+      "HYD-GR-011: collision between generated entities detected",
+      "HYD-GR-011: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-012",
+    "name_es": "Camino de acceso (road access)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-004",
+      "HYD-090",
+      "HYD-091",
+      "HYD-002",
+      "HYD-003"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Access road alignment from public road to powerhouse erection bay.",
+    "algorithm_pseudocode": [
+      "trace polyline from nearest public road to erection_bay",
+      "set road_width=6m, grade<=8%, bend_radius>=25m",
+      "place culverts every 200m"
+    ],
+    "generated_entity_types": [
+      "ROAD_CENTERLINE",
+      "ROAD_CARRIAGEWAY",
+      "CULVERT_RECT"
+    ],
+    "clearances": [
+      {
+        "name": "road_width",
+        "min_m": 6
+      },
+      {
+        "name": "grade",
+        "max_pct": 8
+      },
+      {
+        "name": "bend_radius",
+        "min_m": 25
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "road ends at erection_bay",
+        "error": "road does not reach erection bay"
+      },
+      {
+        "rule": "grade<=12%",
+        "error": "excessive grade"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-002"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-012: required input field missing or invalid",
+      "HYD-GR-012: collision between generated entities detected",
+      "HYD-GR-012: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-013",
+    "name_es": "Bandejas de cables (cable trays)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-090",
+      "HYD-091",
+      "HYD-092",
+      "HYD-160",
+      "HYD-168"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Cable tray routing from generator to switchgear inside cable gallery.",
+    "algorithm_pseudocode": [
+      "route tray_along powerhouse cable gallery",
+      "separate MV and LV trays by 0.3 m",
+      "place trays on wall brackets"
+    ],
+    "generated_entity_types": [
+      "CABLE_TRAY_LINE",
+      "CABLE_GALLERY_POLY"
+    ],
+    "clearances": [
+      {
+        "name": "separation_MV_LV",
+        "min_m": 0.3
+      },
+      {
+        "name": "tray_width",
+        "min_mm": 100
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "tray outside walkway",
+        "error": "tray blocks walkway"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-007",
+      "HYD-DRW-015"
+    ],
+    "source_ids": [
+      "IEEE_C2_2023",
+      "CNE_Utilizacion_2011"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-013: required input field missing or invalid",
+      "HYD-GR-013: collision between generated entities detected",
+      "HYD-GR-013: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-014",
+    "name_es": "Malla de tierra (grounding grid)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-198",
+      "HYD-199",
+      "HYD-090",
+      "HYD-091",
+      "HYD-092",
+      "HYD-004"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-028"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Grounding grid mesh below powerhouse and switchyard per IEEE 80.",
+    "algorithm_pseudocode": [
+      "define grid_mesh_area = powerhouse + switchyard",
+      "place parallel conductors spaced 3-7 m",
+      "bond all metallic structures to grid"
+    ],
+    "generated_entity_types": [
+      "GROUNDING_GRID_LINES",
+      "GROUNDING_ROD_POINTS"
+    ],
+    "clearances": [
+      {
+        "name": "grid_spacing",
+        "min_m": 3,
+        "max_m": 7
+      },
+      {
+        "name": "rod_depth",
+        "min_m": 2.5
+      },
+      {
+        "name": "bond_resistance",
+        "max_ohm": 0.1
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "Rg <= 5 ohm",
+        "error": "ground resistance exceeds 5 ohm"
+      },
+      {
+        "rule": "touch_voltage <= E_touch50",
+        "error": "excessive touch voltage"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-016"
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEC_60364_5_54"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-014: required input field missing or invalid",
+      "HYD-GR-014: collision between generated entities detected",
+      "HYD-GR-014: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-015",
+    "name_es": "Pararrayos (lightning rods)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-197",
+      "HYD-200",
+      "HYD-040",
+      "HYD-092",
+      "HYD-002",
+      "HYD-003",
+      "HYD-090",
+      "HYD-091"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-027"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Rolling sphere method; place air terminals so that all structures lie inside protection volume.",
+    "algorithm_pseudocode": [
+      "for each structure_polygon:",
+      "  set rolling_sphere_radius(LPL)",
+      "  place mast so that sphere tangent to mast covers structure"
+    ],
+    "generated_entity_types": [
+      "LIGHTNING_MAST_POINT",
+      "ROLLING_SPHERE_CIRCLE",
+      "PROTECTION_VOLUME"
+    ],
+    "clearances": [
+      {
+        "name": "rolling_sphere_radius",
+        "value": "LPL:30m(I),45m(II),60m(III)",
+        "min_m": 30
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "all structures within protection volume",
+        "error": "structure unprotected"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-016"
+    ],
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-015: required input field missing or invalid",
+      "HYD-GR-015: collision between generated entities detected",
+      "HYD-GR-015: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-016",
+    "name_es": "Drenaje y subdrenaje (drainage)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-098",
+      "HYD-099",
+      "HYD-182",
+      "HYD-220",
+      "HYD-222",
+      "HYD-228",
+      "HYD-097",
+      "HYD-004"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-025",
+      "HYD-C-026"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Drainage gallery along powerhouse foundation with relief wells for uplift.",
+    "algorithm_pseudocode": [
+      "place drainage_gallery along upstream foundation",
+      "place relief_wells every 5 m",
+      "route drainage_pump sump to lowest point"
+    ],
+    "generated_entity_types": [
+      "DRAINAGE_GALLERY_POLY",
+      "RELIEF_WELL_LINE",
+      "SUMP_POLY"
+    ],
+    "clearances": [
+      {
+        "name": "well_spacing",
+        "max_m": 5
+      },
+      {
+        "name": "gallery_section",
+        "min_m2": 1.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "sump below gallery invert",
+        "error": "sump above gallery"
+      },
+      {
+        "rule": "relief wells relieve uplift",
+        "error": "uplift not relieved"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-007",
+      "HYD-DRW-008"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "ISO_14685"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-016: required input field missing or invalid",
+      "HYD-GR-016: collision between generated entities detected",
+      "HYD-GR-016: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-017",
+    "name_es": "Ventilacion (ventilation)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-092",
+      "HYD-100",
+      "HYD-090",
+      "HYD-091"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Mechanical ventilation with air intakes at high elevation and outlets at low elevation.",
+    "algorithm_pseudocode": [
+      "place air_intake at upstream wall high elevation",
+      "place air_outlet at downstream wall low elevation",
+      "size duct per ACH"
+    ],
+    "generated_entity_types": [
+      "AIR_INTAKE_RECT",
+      "AIR_OUTLET_RECT",
+      "DUCT_LINE"
+    ],
+    "clearances": [
+      {
+        "name": "ACH",
+        "min_per_hour": 6
+      },
+      {
+        "name": "duct_velocity",
+        "max_m_per_s": 5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "air intake away from heat source",
+        "error": "intake near heat"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-007"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "IEC_60545"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-017: required input field missing or invalid",
+      "HYD-GR-017: collision between generated entities detected",
+      "HYD-GR-017: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-018",
+    "name_es": "Carril del puente-grua (crane rail)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-093",
+      "HYD-094",
+      "HYD-090",
+      "HYD-091",
+      "HYD-092",
+      "HYD-096"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Crane rails along powerhouse longitudinal walls; columns support rail beams.",
+    "algorithm_pseudocode": [
+      "place crane_rail_lines along both longitudinal walls",
+      "set rail_elev = machine_floor_elev + lift_height",
+      "set column_spacing per span"
+    ],
+    "generated_entity_types": [
+      "CRANE_RAIL_LINE",
+      "CRANE_COLUMN_RECT",
+      "RAIL_BEAM_RECT"
+    ],
+    "clearances": [
+      {
+        "name": "rail_to_machine_floor",
+        "min_m": 5
+      },
+      {
+        "name": "column_spacing",
+        "max_m": 6
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "crane_span <= powerhouse_width - 1m",
+        "error": "crane span too wide"
+      },
+      {
+        "rule": "hook clears stator",
+        "error": "hook below stator"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-007",
+      "HYD-DRW-008"
+    ],
+    "source_ids": [
+      "ISO_1940_1",
+      "ICOLD_Bull_120"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-018: required input field missing or invalid",
+      "HYD-GR-018: collision between generated entities detected",
+      "HYD-GR-018: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-019",
+    "name_es": "Layout de compuertas (gates layout)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "HYD-060",
+      "HYD-061",
+      "HYD-050",
+      "HYD-051",
+      "HYD-250",
+      "HYD-251",
+      "HYD-252"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Intake, spillway, and draft tube gates positions.",
+    "algorithm_pseudocode": [
+      "place intake_gate at intake_crest",
+      "place spillway_gate at spillway_crest",
+      "place draft_tube_gate downstream of runner"
+    ],
+    "generated_entity_types": [
+      "INTAKE_GATE_RECT",
+      "SPILLWAY_GATE_RECT",
+      "DRAFT_TUBE_GATE_RECT"
+    ],
+    "clearances": [
+      {
+        "name": "gate_clearance",
+        "min_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "gate hoist accessible by crane",
+        "error": "gate hoist inaccessible"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-003",
+      "HYD-DRW-013"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "IEC_60545"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-019: required input field missing or invalid",
+      "HYD-GR-019: collision between generated entities detected",
+      "HYD-GR-019: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "HYD-GR-020",
+    "name_es": "Layout del desarenador (desander layout)",
+    "applicability_expression": "sediment_d50_mm<0.5",
+    "required_field_ids": [
+      "HYD-056",
+      "HYD-057",
+      "HYD-058",
+      "HYD-059",
+      "HYD-024",
+      "HYD-050",
+      "HYD-051"
+    ],
+    "required_calculation_ids": [
+      "HYD-C-008"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Desander chamber parallel to intake; length to width ratio >= 6.",
+    "algorithm_pseudocode": [
+      "place desander_chamber_polygon(length, width)",
+      "set chamber_invert_elev = intake_invert_elev",
+      "place flushing_channel downstream"
+    ],
+    "generated_entity_types": [
+      "DESANDER_CHAMBER_POLY",
+      "FLUSHING_CHANNEL_LINE"
+    ],
+    "clearances": [
+      {
+        "name": "L_to_W_ratio",
+        "min": 6
+      },
+      {
+        "name": "velocity",
+        "value": "HYD-058",
+        "max_m_per_s": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "L >= 6*W",
+        "error": "desander too short"
+      },
+      {
+        "rule": "velocity <= 0.5 m/s",
+        "error": "excessive velocity"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-003"
+    ],
+    "source_ids": [
+      "ISO_14685",
+      "ICOLD_Bull_120"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "HYD-GR-020: required input field missing or invalid",
+      "HYD-GR-020: collision between generated entities detected",
+      "HYD-GR-020: clearance violation"
+    ]
+  }
+]

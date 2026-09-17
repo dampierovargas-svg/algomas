@@ -1,0 +1,19 @@
+{
+  "technology": "10_solar_thermal_csp",
+  "project_id": "TEST-CSP-002",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {
+    "CSP-002": "value_1",
+    "CSP-003": "value_2",
+    "CSP-004": "value_3",
+    "CSP-005": "value_4"
+  },
+  "missing_fields": [
+    "CSP-001"
+  ],
+  "drawings_to_generate": [
+    "CSP-DRW-001",
+    "CSP-DRW-002",
+    "CSP-DRW-003"
+  ]
+}

@@ -1,0 +1,454 @@
+[
+  {
+    "equipment_type_id": "WOF-",
+    "name_es": "Aerogenerador offshore",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_3_1",
+      "IEC_61400_6"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_2",
+    "name_es": "Cimentacion monopile",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_RP_C205"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_3",
+    "name_es": "Cimentacion tipo jacket",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_OS_J103",
+      "DNV_OS_J101"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_4",
+    "name_es": "Pieza de transicion (TP)",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_OS_J101"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_5",
+    "name_es": "Conexion con grout",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_OS_J101"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_6",
+    "name_es": "Cimentacion tripod",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_OS_J103",
+      "DNV_OS_J101"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_7",
+    "name_es": "Plataforma flotante semi-sumergible",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_3_2",
+      "DNV_OS_C101"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_8",
+    "name_es": "Plataforma flotante tipo spar",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_3_2",
+      "DNV_OS_C101"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_9",
+    "name_es": "Plataforma flotante TLP",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_3_2",
+      "DNV_OS_C101"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_10",
+    "name_es": "Linea de fondeo de cadena",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_OS_E301",
+      "IEC_TS_62600_10"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_11",
+    "name_es": "Linea de fondeo de cable de acero",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_OS_E301"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_12",
+    "name_es": "Linea de fondeo sintetica",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_OS_E301",
+      "IEC_TS_62600_10"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_13",
+    "name_es": "Ancla de arrastre (drag anchor)",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_OS_E301",
+      "IEC_TS_62600_10"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_14",
+    "name_es": "Ancla tipo suction pile",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_OS_J101"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_15",
+    "name_es": "Ancla de peso (deadweight)",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_OS_E301"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_16",
+    "name_es": "Cable inter-array",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "DNV_ST_0519"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_17",
+    "name_es": "Cable de exportacion estatico",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "DNV_ST_0519"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_18",
+    "name_es": "Cable de exportacion dinamico",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_ST_0519",
+      "IEC_61400_3_2"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_19",
+    "name_es": "Topside de subestacion offshore",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_21_1",
+      "DNV_OS_J103"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_20",
+    "name_es": "Cimentacion de subestacion offshore",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_OS_J103",
+      "DNV_OS_J101"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_21",
+    "name_es": "Gabinete SCADA offshore",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_25",
+      "IEC_60529"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_22",
+    "name_es": "Transpondedor AIS",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_25"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_23",
+    "name_es": "Ayudas a la navegacion",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_24",
+    "name_es": "Luces de aviacion",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_24",
+      "IEC_61400_3_1"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_25",
+    "name_es": "J-tube submarino",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_ST_0519"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_26",
+    "name_es": "Sistema de proteccion de cable",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_ST_0519"
+    ]
+  },
+  {
+    "equipment_type_id": "WOF-_27",
+    "name_es": "Proteccion contra socavacion",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_RP_C205"
+    ]
+  }
+]

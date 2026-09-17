@@ -1,0 +1,2937 @@
+[
+  {
+    "calculation_id": "BIG-CALC-001",
+    "name_es": "Potencial bioquímico de metano (BMP)",
+    "description": "Calcula el potencial bioquímico de metano a partir del ensayo de laboratorio",
+    "formula": "BMP = V_CH4_produced_m3 / m_VS_loaded_kg",
+    "variables": [
+      {
+        "name": "V_CH4_produced_m3",
+        "unit": "m3",
+        "description": "Volumen de metano producido en ensayo"
+      },
+      {
+        "name": "m_VS_loaded_kg",
+        "unit": "kg",
+        "description": "Masa de sólidos volátiles cargados al ensayo"
+      },
+      {
+        "name": "BMP",
+        "symbol": "BMP",
+        "unit": "m3 CH4/kg VS",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m3 CH4/kg VS",
+    "used_by_field_ids": [
+      "BIG-015",
+      "BIG-009",
+      "BIG-010"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "purpose": "Potencial bioquímico de metano (BMP)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "BMP = 0.35 * VS_destruction * VS_fraction"
+    ],
+    "equations_latex": [
+      "BMP = 0.35 * VS_{destruction} * VS_{fraction}"
+    ],
+    "unit_equations": [
+      {
+        "name": "BMP",
+        "value": "m3 CH4/kg VS"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "BMP",
+        "unit": "m3 CH4/kg VS",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "BMP within valid physical range",
+      "BMP > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-002",
+    "name_es": "Producción de biogás (Buswell)",
+    "description": "Estima la producción de biogás a partir de la carga de VS destruida y BMP",
+    "formula": "V_biogas_m3_d = (m_VS_loaded_kg_d * f_VS_destruido * BMP_m3_CH4_kg_VS) / y_CH4_biogas",
+    "variables": [
+      {
+        "name": "m_VS_loaded_kg_d",
+        "unit": "kg/d",
+        "description": "Masa de VS cargada por día"
+      },
+      {
+        "name": "f_VS_destruido",
+        "unit": "-",
+        "description": "Fracción VS destruida (0..1)"
+      },
+      {
+        "name": "BMP_m3_CH4_kg_VS",
+        "unit": "m3 CH4/kg VS",
+        "description": "Potencial bioquímico metano"
+      },
+      {
+        "name": "y_CH4_biogas",
+        "unit": "-",
+        "description": "Fracción volumétrica CH4 en biogás (0..1)"
+      },
+      {
+        "name": "Q_biogas",
+        "symbol": "Q_biogas",
+        "unit": "m3/day",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m3/d",
+    "used_by_field_ids": [
+      "BIG-001",
+      "BIG-002",
+      "BIG-003",
+      "BIG-004",
+      "BIG-005",
+      "BIG-008",
+      "BIG-009",
+      "BIG-010",
+      "BIG-015",
+      "BIG-016",
+      "BIG-019",
+      "BIG-030",
+      "BIG-037",
+      "BIG-089"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ],
+    "purpose": "Producción de biogás (Buswell)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_biogas = m_substrate * BMP"
+    ],
+    "equations_latex": [
+      "Q_{biogas} = m_{substrate} * BMP"
+    ],
+    "unit_equations": [
+      {
+        "name": "Q_biogas",
+        "value": "m3/day"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Q_biogas",
+        "unit": "m3/day",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_biogas within valid physical range",
+      "Q_biogas > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-003",
+    "name_es": "Remoción de DQO (COD removal)",
+    "description": "Calcula la remoción de demanda química de oxígeno del sustrato tratado",
+    "formula": "delta_COD_mg_L = COD_inlet_mg_L - COD_effluent_mg_L",
+    "variables": [
+      {
+        "name": "COD_inlet_mg_L",
+        "unit": "mg/L",
+        "description": "DQO a la entrada"
+      },
+      {
+        "name": "COD_effluent_mg_L",
+        "unit": "mg/L",
+        "description": "DQO a la salida"
+      },
+      {
+        "name": "Q_methane",
+        "symbol": "Q_methane",
+        "unit": "m3/day",
+        "type": "output"
+      }
+    ],
+    "output_unit": "mg/L",
+    "used_by_field_ids": [
+      "BIG-005",
+      "BIG-037",
+      "BIG-039",
+      "BIG-091",
+      "BIG-092"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ],
+    "purpose": "Remoción de DQO (COD removal)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_methane = Q_biogas * CH4_pct / 100"
+    ],
+    "equations_latex": [
+      "Q_{methane} = Q_{biogas} * CH4_{pct} / 100"
+    ],
+    "unit_equations": [
+      {
+        "name": "Q_methane",
+        "value": "m3/day"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Q_methane",
+        "unit": "m3/day",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_methane within valid physical range",
+      "Q_methane > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-004",
+    "name_es": "Fracción VS destruida (VS destruction)",
+    "description": "Calcula la fracción de sólidos volátiles destruidos",
+    "formula": "f_VS_destruido = (VS_inlet_kg - VS_outlet_kg) / VS_inlet_kg",
+    "variables": [
+      {
+        "name": "VS_inlet_kg",
+        "unit": "kg",
+        "description": "VS entrante"
+      },
+      {
+        "name": "VS_outlet_kg",
+        "unit": "kg",
+        "description": "VS saliente en digestato"
+      },
+      {
+        "name": "HRT",
+        "symbol": "HRT",
+        "unit": "days",
+        "type": "output"
+      }
+    ],
+    "output_unit": "-",
+    "used_by_field_ids": [
+      "BIG-009",
+      "BIG-010",
+      "BIG-028",
+      "BIG-030"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ],
+    "purpose": "Fracción VS destruida (VS destruction)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "HRT = V_digester / Q_feed"
+    ],
+    "equations_latex": [
+      "HRT = V_{digester} / Q_{feed}"
+    ],
+    "unit_equations": [
+      {
+        "name": "HRT",
+        "value": "days"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "HRT",
+        "unit": "days",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "HRT within valid physical range",
+      "HRT > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-005",
+    "name_es": "Fracción CH4 en biogás (Buswell stoichiometry)",
+    "description": "Calcula la fracción teórica de CH4 en biogás a partir de fórmula orgánica",
+    "formula": "y_CH4 = 0.5*(4n+c-2h-3d+2s) / (4n+c-2h-3d+2s + n - 0.25*c + 0.5*h + 1.5*d)",
+    "variables": [
+      {
+        "name": "n",
+        "unit": "mol C/mol",
+        "description": "moles C en fórmula CnHhOoNnSs"
+      },
+      {
+        "name": "h",
+        "unit": "mol H/mol",
+        "description": "moles H"
+      },
+      {
+        "name": "o",
+        "unit": "mol O/mol",
+        "description": "moles O"
+      },
+      {
+        "name": "d",
+        "unit": "mol N/mol",
+        "description": "moles N"
+      },
+      {
+        "name": "s",
+        "unit": "mol S/mol",
+        "description": "moles S"
+      },
+      {
+        "name": "OLR",
+        "symbol": "OLR",
+        "unit": "kg VS/m3/day",
+        "type": "output"
+      }
+    ],
+    "output_unit": "-",
+    "used_by_field_ids": [
+      "BIG-019",
+      "BIG-020",
+      "BIG-022",
+      "BIG-023",
+      "BIG-024",
+      "BIG-025"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "purpose": "Fracción CH4 en biogás (Buswell stoichiometry)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "OLR = m_VS_per_day / V_digester"
+    ],
+    "equations_latex": [
+      "OLR = m_VS_per_{day} / V_{digester}"
+    ],
+    "unit_equations": [
+      {
+        "name": "OLR",
+        "value": "kg VS/m3/day"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "OLR",
+        "unit": "kg VS/m3/day",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "OLR within valid physical range",
+      "OLR > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-006",
+    "name_es": "Calor de calefacción del digestor (digester heat duty)",
+    "description": "Calcula la potencia térmica necesaria para mantener temperatura del digestor",
+    "formula": "Q_digestor_kW = (m_feed_kg_d * cp_kJ_kgK * (T_operacion - T_entrada) / 86400) + Q_loss_kW",
+    "variables": [
+      {
+        "name": "m_feed_kg_d",
+        "unit": "kg/d",
+        "description": "Caudal másico de alimentación"
+      },
+      {
+        "name": "cp_kJ_kgK",
+        "unit": "kJ/(kg·K)",
+        "description": "Calor específico del sustrato"
+      },
+      {
+        "name": "T_operacion",
+        "unit": "°C",
+        "description": "Temperatura de operación del digestor"
+      },
+      {
+        "name": "T_entrada",
+        "unit": "°C",
+        "description": "Temperatura de entrada del sustrato"
+      },
+      {
+        "name": "Q_loss_kW",
+        "unit": "kW",
+        "description": "Pérdida térmica a ambiente"
+      },
+      {
+        "name": "Q_digester_heat",
+        "symbol": "Q_digester_heat",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kW",
+    "used_by_field_ids": [
+      "BIG-018",
+      "BIG-027",
+      "BIG-033",
+      "BIG-035",
+      "BIG-036",
+      "BIG-103"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "ISO_15547_1",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ],
+    "purpose": "Calor de calefacción del digestor (digester heat duty)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_digester_heat = U_digester * A_digester * (T_digester - T_ambient)"
+    ],
+    "equations_latex": [
+      "Q_digester_{heat} = U_{digester} * A_{digester} * (T_{digester} - T_{ambient})"
+    ],
+    "unit_equations": [
+      {
+        "name": "Q_digester_heat",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Q_digester_heat",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_digester_heat within valid physical range",
+      "Q_digester_heat > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-007",
+    "name_es": "Potencia de mezclado del digestor (mixing power)",
+    "description": "Calcula la potencia total del mezclador del digestor",
+    "formula": "P_mixer_kW = (V_util_m3 * p_specific_W_m3) / 1000",
+    "variables": [
+      {
+        "name": "V_util_m3",
+        "unit": "m3",
+        "description": "Volumen útil del digestor"
+      },
+      {
+        "name": "p_specific_W_m3",
+        "unit": "W/m3",
+        "description": "Potencia específica de mezclado"
+      },
+      {
+        "name": "Q_biogas_dryer",
+        "symbol": "Q_biogas_dryer",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kW",
+    "used_by_field_ids": [
+      "BIG-031",
+      "BIG-032",
+      "BIG-033"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "purpose": "Potencia de mezclado del digestor (mixing power)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_biogas_dryer = Q_biogas * cp_biogas * (T_in - T_out)"
+    ],
+    "equations_latex": [
+      "Q_biogas_{dryer} = Q_{biogas} * cp_{biogas} * (T_{in} - T_{out})"
+    ],
+    "unit_equations": [
+      {
+        "name": "Q_biogas_dryer",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Q_biogas_dryer",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_biogas_dryer within valid physical range",
+      "Q_biogas_dryer > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-008",
+    "name_es": "Tiempo de retención hidráulica (HRT)",
+    "description": "Calcula el HRT a partir de volumen útil y caudal de alimentación",
+    "formula": "HRT_d = V_util_m3 / Q_feed_m3_d",
+    "variables": [
+      {
+        "name": "V_util_m3",
+        "unit": "m3",
+        "description": "Volumen útil del digestor"
+      },
+      {
+        "name": "Q_feed_m3_d",
+        "unit": "m3/d",
+        "description": "Caudal de alimentación"
+      },
+      {
+        "name": "P_chp_elec",
+        "symbol": "P_chp_elec",
+        "unit": "kW",
+        "type": "output"
+      }
+    ],
+    "output_unit": "d",
+    "used_by_field_ids": [
+      "BIG-008",
+      "BIG-028",
+      "BIG-033",
+      "BIG-034"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "purpose": "Tiempo de retención hidráulica (HRT)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_chp_elec = Q_biogas * LHV_methane * eta_elec_chp"
+    ],
+    "equations_latex": [
+      "P_chp_{elec} = Q_{biogas} * LHV_{methane} * eta_elec_{chp}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_chp_elec",
+        "value": "kW"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_chp_elec",
+        "unit": "kW",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_chp_elec within valid physical range",
+      "P_chp_elec > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-009",
+    "name_es": "Carga orgánica volumétrica (OLR)",
+    "description": "Calcula la carga orgánica volumétrica (OLR) del digestor",
+    "formula": "OLR_kg_VS_m3_d = (m_VS_loaded_kg_d) / V_util_m3",
+    "variables": [
+      {
+        "name": "m_VS_loaded_kg_d",
+        "unit": "kg/d",
+        "description": "Masa de VS cargada por día"
+      },
+      {
+        "name": "V_util_m3",
+        "unit": "m3",
+        "description": "Volumen útil del digestor"
+      },
+      {
+        "name": "P_chp_thermal",
+        "symbol": "P_chp_thermal",
+        "unit": "kW",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kg VS/m3/d",
+    "used_by_field_ids": [
+      "BIG-001",
+      "BIG-002",
+      "BIG-003",
+      "BIG-004",
+      "BIG-005",
+      "BIG-008",
+      "BIG-009",
+      "BIG-010",
+      "BIG-011",
+      "BIG-029",
+      "BIG-033",
+      "BIG-034"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "purpose": "Carga orgánica volumétrica (OLR)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_chp_thermal = Q_biogas * LHV_methane * eta_thermal_chp"
+    ],
+    "equations_latex": [
+      "P_chp_{thermal} = Q_{biogas} * LHV_{methane} * eta_thermal_{chp}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_chp_thermal",
+        "value": "kW"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_chp_thermal",
+        "unit": "kW",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_chp_thermal within valid physical range",
+      "P_chp_thermal > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-010",
+    "name_es": "Rendimiento de metano (methane yield)",
+    "description": "Calcula el rendimiento específico de metano",
+    "formula": "y_CH4_m3_kg_VS = BMP_m3_CH4_kg_VS * f_VS_destruido",
+    "variables": [
+      {
+        "name": "BMP_m3_CH4_kg_VS",
+        "unit": "m3 CH4/kg VS",
+        "description": "Potencial bioquímico metano"
+      },
+      {
+        "name": "f_VS_destruido",
+        "unit": "-",
+        "description": "Fracción VS destruida"
+      },
+      {
+        "name": "V_gas_holder",
+        "symbol": "V_gas_holder",
+        "unit": "m3",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m3 CH4/kg VS",
+    "used_by_field_ids": [
+      "BIG-010",
+      "BIG-015",
+      "BIG-030"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "purpose": "Rendimiento de metano (methane yield)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_gas_holder = Q_biogas_max * t_reserve_hours / 24"
+    ],
+    "equations_latex": [
+      "V_gas_{holder} = Q_biogas_{max} * t_reserve_{hours} / 24"
+    ],
+    "unit_equations": [
+      {
+        "name": "V_gas_holder",
+        "value": "m3"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "V_gas_holder",
+        "unit": "m3",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "V_gas_holder within valid physical range",
+      "V_gas_holder > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-011",
+    "name_es": "Control de temperatura del digestor (mesofílico/termofílico)",
+    "description": "Verifica la estabilidad de temperatura del digestor",
+    "formula": "T_operacion_C in [35±2] if mesofilico else [55±3] if termofilico",
+    "variables": [
+      {
+        "name": "T_operacion_C",
+        "unit": "°C",
+        "description": "Temperatura de operación"
+      },
+      {
+        "name": "rango_mesofilico_C",
+        "unit": "°C",
+        "description": "Rango mesofílico 33-37°C"
+      },
+      {
+        "name": "rango_termofilico_C",
+        "unit": "°C",
+        "description": "Rango termofílico 52-58°C"
+      },
+      {
+        "name": "H_flare_stack",
+        "symbol": "H_flare_stack",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "output_unit": "°C",
+    "used_by_field_ids": [
+      "BIG-012",
+      "BIG-013",
+      "BIG-014",
+      "BIG-027",
+      "BIG-054",
+      "BIG-055",
+      "BIG-056",
+      "BIG-078",
+      "BIG-079",
+      "BIG-081"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "purpose": "Control de temperatura del digestor (mesofílico/termofílico)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "H_flare_stack = sqrt(Q_flare_max * dispersion_factor / LEL_methane)"
+    ],
+    "equations_latex": [
+      "H_flare_{stack} = sqrt(Q_flare_{max} * dispersion_{factor} / LEL_{methane})"
+    ],
+    "unit_equations": [
+      {
+        "name": "H_flare_stack",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "H_flare_stack",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "H_flare_stack within valid physical range",
+      "H_flare_stack > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-012",
+    "name_es": "Densidad del biogás (biogas density)",
+    "description": "Calcula la densidad del biogás a partir de su composición",
+    "formula": "rho_biogas_kg_m3 = sum(y_i * MW_i) * P / (R * T)",
+    "variables": [
+      {
+        "name": "y_i",
+        "unit": "-",
+        "description": "Fracción molar de componente i"
+      },
+      {
+        "name": "MW_i",
+        "unit": "kg/kmol",
+        "description": "Masa molar componente i"
+      },
+      {
+        "name": "P",
+        "unit": "kPa",
+        "description": "Presión absoluta"
+      },
+      {
+        "name": "T",
+        "unit": "K",
+        "description": "Temperatura absoluta"
+      },
+      {
+        "name": "R",
+        "unit": "kJ/(kmol·K)",
+        "description": "Constante universal gases"
+      },
+      {
+        "name": "Q_H2S",
+        "symbol": "Q_H2S",
+        "unit": "kg/h",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kg/m3",
+    "used_by_field_ids": [
+      "BIG-017",
+      "BIG-018",
+      "BIG-019",
+      "BIG-020",
+      "BIG-023",
+      "BIG-024",
+      "BIG-025",
+      "BIG-099",
+      "BIG-100",
+      "BIG-104"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ],
+    "purpose": "Densidad del biogás (biogas density)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_H2S = Q_biogas * H2S_ppm / 1e6"
+    ],
+    "equations_latex": [
+      "Q_{H2S} = Q_{biogas} * H2S_{ppm} / 1e6"
+    ],
+    "unit_equations": [
+      {
+        "name": "Q_H2S",
+        "value": "kg/h"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Q_H2S",
+        "unit": "kg/h",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_H2S within valid physical range",
+      "Q_H2S > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-013",
+    "name_es": "Recuperación de metano en upgrading",
+    "description": "Calcula el porcentaje de recuperación de CH4 en el upgrading",
+    "formula": "recuperacion_CH4_pct = 100 * (Q_biometano_m3_h * y_CH4_bio) / (Q_biogas_m3_h * y_CH4_biogas)",
+    "variables": [
+      {
+        "name": "Q_biometano_m3_h",
+        "unit": "m3/h",
+        "description": "Caudal de biometano"
+      },
+      {
+        "name": "y_CH4_bio",
+        "unit": "-",
+        "description": "Fracción CH4 en biometano"
+      },
+      {
+        "name": "Q_biogas_m3_h",
+        "unit": "m3/h",
+        "description": "Caudal de biogás entrada"
+      },
+      {
+        "name": "y_CH4_biogas",
+        "unit": "-",
+        "description": "Fracción CH4 en biogás"
+      },
+      {
+        "name": "Q_NH3",
+        "symbol": "Q_NH3",
+        "unit": "kg/h",
+        "type": "output"
+      }
+    ],
+    "output_unit": "%",
+    "used_by_field_ids": [
+      "BIG-019",
+      "BIG-020",
+      "BIG-022",
+      "BIG-043",
+      "BIG-045",
+      "BIG-046",
+      "BIG-047",
+      "BIG-048",
+      "BIG-099",
+      "BIG-100"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "purpose": "Recuperación de metano en upgrading",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_NH3 = Q_biogas * NH3_ppm / 1e6"
+    ],
+    "equations_latex": [
+      "Q_{NH3} = Q_{biogas} * NH3_{ppm} / 1e6"
+    ],
+    "unit_equations": [
+      {
+        "name": "Q_NH3",
+        "value": "kg/h"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Q_NH3",
+        "unit": "kg/h",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_NH3 within valid physical range",
+      "Q_NH3 > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-014",
+    "name_es": "Capacidad de remoción de CO2 (CO2 removal capacity)",
+    "description": "Calcula la capacidad de remoción de CO2 del upgrading",
+    "formula": "Q_CO2_removed_m3_h = Q_biogas_m3_h * y_CO2_biogas - Q_biometano_m3_h * y_CO2_bio",
+    "variables": [
+      {
+        "name": "Q_biogas_m3_h",
+        "unit": "m3/h",
+        "description": "Caudal biogás entrada"
+      },
+      {
+        "name": "y_CO2_biogas",
+        "unit": "-",
+        "description": "Fracción CO2 en biogás"
+      },
+      {
+        "name": "Q_biometano_m3_h",
+        "unit": "m3/h",
+        "description": "Caudal biometano"
+      },
+      {
+        "name": "y_CO2_bio",
+        "unit": "-",
+        "description": "Fracción CO2 en biometano"
+      },
+      {
+        "name": "A_silo_storage",
+        "symbol": "A_silo_storage",
+        "unit": "m2",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m3/h",
+    "used_by_field_ids": [
+      "BIG-020",
+      "BIG-043",
+      "BIG-045",
+      "BIG-046"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "purpose": "Capacidad de remoción de CO2 (CO2 removal capacity)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "A_silo_storage = V_silo * 4 / pi / D_silo"
+    ],
+    "equations_latex": [
+      "A_silo_{storage} = V_{silo} * 4 / pi / D_{silo}"
+    ],
+    "unit_equations": [
+      {
+        "name": "A_silo_storage",
+        "value": "m2"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "A_silo_storage",
+        "unit": "m2",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "A_silo_storage within valid physical range",
+      "A_silo_storage > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-015",
+    "name_es": "Carga de H2S en scrubber (S load)",
+    "description": "Calcula la carga de azufre en el scrubber de H2S",
+    "formula": "S_load_g_S_m3_d = Q_biogas_m3_d * H2S_in_ppm * MW_S / Vm * 1000 / V_bed_m3",
+    "variables": [
+      {
+        "name": "Q_biogas_m3_d",
+        "unit": "m3/d",
+        "description": "Caudal biogás"
+      },
+      {
+        "name": "H2S_in_ppm",
+        "unit": "ppm",
+        "description": "Concentración H2S entrada"
+      },
+      {
+        "name": "MW_S",
+        "unit": "g/mol",
+        "description": "Masa molar azufre"
+      },
+      {
+        "name": "Vm",
+        "unit": "m3/mol",
+        "description": "Volumen molar gas"
+      },
+      {
+        "name": "V_bed_m3",
+        "unit": "m3",
+        "description": "Volumen lecho scrubber"
+      },
+      {
+        "name": "P_mixer",
+        "symbol": "P_mixer",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "g S/m3/d",
+    "used_by_field_ids": [
+      "BIG-021",
+      "BIG-044",
+      "BIG-096",
+      "BIG-097",
+      "BIG-098"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ],
+    "purpose": "Carga de H2S en scrubber (S load)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_mixer = V_digester * P_mixer_per_m3"
+    ],
+    "equations_latex": [
+      "P_{mixer} = V_{digester} * P_mixer_per_{m3}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_mixer",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_mixer",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_mixer within valid physical range",
+      "P_mixer > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-016",
+    "name_es": "Caudal de agua del water scrubber",
+    "description": "Calcula el caudal de agua requerido en el water scrubber",
+    "formula": "Q_water_m3_h = alpha * Q_biogas_m3_h * y_CO2_biogas",
+    "variables": [
+      {
+        "name": "alpha",
+        "unit": "m3 water/m3 CO2",
+        "description": "Coeficiente de solubilidad operacional"
+      },
+      {
+        "name": "Q_biogas_m3_h",
+        "unit": "m3/h",
+        "description": "Caudal biogás"
+      },
+      {
+        "name": "y_CO2_biogas",
+        "unit": "-",
+        "description": "Fracción CO2"
+      },
+      {
+        "name": "Q_pasteur",
+        "symbol": "Q_pasteur",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m3/h",
+    "used_by_field_ids": [
+      "BIG-020",
+      "BIG-043"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ],
+    "purpose": "Caudal de agua del water scrubber",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_pasteur = m_substrate * cp_substrate * (T_pasteur - T_ambient) / t_pasteur"
+    ],
+    "equations_latex": [
+      "Q_{pasteur} = m_{substrate} * cp_{substrate} * (T_{pasteur} - T_{ambient}) / t_{pasteur}"
+    ],
+    "unit_equations": [
+      {
+        "name": "Q_pasteur",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Q_pasteur",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_pasteur within valid physical range",
+      "Q_pasteur > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-017",
+    "name_es": "Duty del reboiler del amine scrubber",
+    "description": "Calcula el duty térmico del reboiler en el amine scrubber",
+    "formula": "Q_reboiler_kW = (m_amine_kg_h * cp_amine_kJ_kgK * delta_T_reg_C) / 3600",
+    "variables": [
+      {
+        "name": "m_amine_kg_h",
+        "unit": "kg/h",
+        "description": "Caudal másico de amina circulante"
+      },
+      {
+        "name": "cp_amine_kJ_kgK",
+        "unit": "kJ/(kg·K)",
+        "description": "Calor específico amina"
+      },
+      {
+        "name": "delta_T_reg_C",
+        "unit": "°C",
+        "description": "Diferencia temperatura regenerador"
+      },
+      {
+        "name": "V_digestate_liquid",
+        "symbol": "V_digestate_liquid",
+        "unit": "m3",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kW",
+    "used_by_field_ids": [
+      "BIG-043",
+      "BIG-048"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "ISO_15547_1",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ],
+    "purpose": "Duty del reboiler del amine scrubber",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_digestate_liquid = V_digester * 0.7"
+    ],
+    "equations_latex": [
+      "V_digestate_{liquid} = V_{digester} * 0.7"
+    ],
+    "unit_equations": [
+      {
+        "name": "V_digestate_liquid",
+        "value": "m3"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "V_digestate_liquid",
+        "unit": "m3",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "V_digestate_liquid within valid physical range",
+      "V_digestate_liquid > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-018",
+    "name_es": "Selectividad de membrana (membrane selectivity)",
+    "description": "Calcula la selectividad de la membrana CO2/CH4",
+    "formula": "alpha = (P_CO2) / (P_CH4)",
+    "variables": [
+      {
+        "name": "P_CO2",
+        "unit": "Barrer",
+        "description": "Permeabilidad CO2"
+      },
+      {
+        "name": "P_CH4",
+        "unit": "Barrer",
+        "description": "Permeabilidad CH4"
+      },
+      {
+        "name": "V_digestate_solid",
+        "symbol": "V_digestate_solid",
+        "unit": "m3",
+        "type": "output"
+      }
+    ],
+    "output_unit": "-",
+    "used_by_field_ids": [
+      "BIG-043",
+      "BIG-045"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "purpose": "Selectividad de membrana (membrane selectivity)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_digestate_solid = V_digester * 0.3"
+    ],
+    "equations_latex": [
+      "V_digestate_{solid} = V_{digester} * 0.3"
+    ],
+    "unit_equations": [
+      {
+        "name": "V_digestate_solid",
+        "value": "m3"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "V_digestate_solid",
+        "unit": "m3",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "V_digestate_solid within valid physical range",
+      "V_digestate_solid > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-019",
+    "name_es": "Volumen del gasómetro (gas holder volume)",
+    "description": "Calcula el volumen necesario del gasómetro de biogás",
+    "formula": "V_gas_holder_m3 = t_storage_h * Q_biogas_m3_h / 24",
+    "variables": [
+      {
+        "name": "t_storage_h",
+        "unit": "h",
+        "description": "Tiempo de almacenamiento en horas"
+      },
+      {
+        "name": "Q_biogas_m3_h",
+        "unit": "m3/h",
+        "description": "Caudal de biogás producción"
+      },
+      {
+        "name": "N_digestate",
+        "symbol": "N_digestate",
+        "unit": "kg/m3",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m3",
+    "used_by_field_ids": [
+      "BIG-016",
+      "BIG-042",
+      "BIG-049",
+      "BIG-050",
+      "BIG-051",
+      "BIG-089",
+      "BIG-090"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "ASME_BPVC_VIII_1_2023"
+    ],
+    "purpose": "Volumen del gasómetro (gas holder volume)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "N_digestate = N_input_substrate * (1 - N_loss_pct/100)"
+    ],
+    "equations_latex": [
+      "N_{digestate} = N_input_{substrate} * (1 - N_loss_{pct}/100)"
+    ],
+    "unit_equations": [
+      {
+        "name": "N_digestate",
+        "value": "kg/m3"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "N_digestate",
+        "unit": "kg/m3",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "N_digestate within valid physical range",
+      "N_digestate > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-020",
+    "name_es": "Altura de stack de antorcha (flare stack height)",
+    "description": "Calcula la altura de stack de la antorcha por dispersión de contaminantes",
+    "formula": "h_stack_m = max(4, f(P_biogas_max, y_H2S, dispersion_limit_ambient))",
+    "variables": [
+      {
+        "name": "P_biogas_max_m3_h",
+        "unit": "m3/h",
+        "description": "Caudal máximo de biogás"
+      },
+      {
+        "name": "y_H2S",
+        "unit": "-",
+        "description": "Fracción H2S"
+      },
+      {
+        "name": "dispersion_limit_ambient",
+        "unit": "mg/m3",
+        "description": "Límite ambiental"
+      },
+      {
+        "name": "P_digestate_separator",
+        "symbol": "P_digestate_separator",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m",
+    "used_by_field_ids": [
+      "BIG-021",
+      "BIG-059",
+      "BIG-061",
+      "BIG-062",
+      "BIG-063",
+      "BIG-064",
+      "BIG-101",
+      "BIG-102",
+      "BIG-103",
+      "BIG-104"
+    ],
+    "source_ids": [
+      "API_521",
+      "API_520_1",
+      "MINAM_DS_019_2009",
+      "ISO_22790"
+    ],
+    "purpose": "Altura de stack de antorcha (flare stack height)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_digestate_separator = V_digester * 5"
+    ],
+    "equations_latex": [
+      "P_digestate_{separator} = V_{digester} * 5"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_digestate_separator",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_digestate_separator",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_digestate_separator within valid physical range",
+      "P_digestate_separator > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-021",
+    "name_es": "Eficiencia de destrucción de la antorcha",
+    "description": "Calcula la eficiencia de destrucción/remoción de CH4 de la antorcha",
+    "formula": "eta_destr_pct = 100 * (1 - (m_CH4_emitted_kg_h / m_CH4_fed_kg_h))",
+    "variables": [
+      {
+        "name": "m_CH4_emitted_kg_h",
+        "unit": "kg/h",
+        "description": "Masa de CH4 emitida"
+      },
+      {
+        "name": "m_CH4_fed_kg_h",
+        "unit": "kg/h",
+        "description": "Masa de CH4 alimentada"
+      },
+      {
+        "name": "Q_scrubber",
+        "symbol": "Q_scrubber",
+        "unit": "kg/h",
+        "type": "output"
+      }
+    ],
+    "output_unit": "%",
+    "used_by_field_ids": [
+      "BIG-019",
+      "BIG-026",
+      "BIG-061",
+      "BIG-062",
+      "BIG-063",
+      "BIG-064"
+    ],
+    "source_ids": [
+      "API_521",
+      "API_520_1",
+      "ISO_22790",
+      "MINAM_DS_019_2009"
+    ],
+    "purpose": "Eficiencia de destrucción de la antorcha",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_scrubber = Q_biogas * abs_H2S_in / abs_H2S_out * stoichiometry"
+    ],
+    "equations_latex": [
+      "Q_{scrubber} = Q_{biogas} * abs_H2S_{in} / abs_H2S_{out} * stoichiometry"
+    ],
+    "unit_equations": [
+      {
+        "name": "Q_scrubber",
+        "value": "kg/h"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Q_scrubber",
+        "unit": "kg/h",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_scrubber within valid physical range",
+      "Q_scrubber > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-022",
+    "name_es": "Emisiones de CO y NOx de la antorcha (flare emissions)",
+    "description": "Calcula las emisiones de CO y NOx de la antorcha en mg/Nm3",
+    "formula": "C_CO_NOx_mg_Nm3 = EF * V_fluegas_Nm3_h / V_fluegas_Nm3_h",
+    "variables": [
+      {
+        "name": "EF_CO",
+        "unit": "mg/Nm3",
+        "description": "Factor de emisión CO"
+      },
+      {
+        "name": "EF_NOx",
+        "unit": "mg/Nm3",
+        "description": "Factor de emisión NOx"
+      },
+      {
+        "name": "V_fluegas_Nm3_h",
+        "unit": "Nm3/h",
+        "description": "Caudal de gas combustión"
+      },
+      {
+        "name": "Q_water_scrubber",
+        "symbol": "Q_water_scrubber",
+        "unit": "L/h",
+        "type": "output"
+      }
+    ],
+    "output_unit": "mg/Nm3",
+    "used_by_field_ids": [
+      "BIG-021",
+      "BIG-024",
+      "BIG-054",
+      "BIG-055",
+      "BIG-056",
+      "BIG-057",
+      "BIG-058",
+      "BIG-059",
+      "BIG-060",
+      "BIG-061",
+      "BIG-068",
+      "BIG-069",
+      "BIG-076",
+      "BIG-077",
+      "BIG-078",
+      "BIG-079",
+      "BIG-080",
+      "BIG-081"
+    ],
+    "source_ids": [
+      "API_521",
+      "API_520_1",
+      "MINAM_DS_019_2009",
+      "ISO_22790",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "IEC_61511_1",
+      "IEC_61508_1",
+      "IEC_60079_29_1"
+    ],
+    "purpose": "Emisiones de CO y NOx de la antorcha (flare emissions)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_water_scrubber = Q_biogas * L_G_ratio"
+    ],
+    "equations_latex": [
+      "Q_water_{scrubber} = Q_{biogas} * L_G_{ratio}"
+    ],
+    "unit_equations": [
+      {
+        "name": "Q_water_scrubber",
+        "value": "L/h"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Q_water_scrubber",
+        "unit": "L/h",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_water_scrubber within valid physical range",
+      "Q_water_scrubber > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-023",
+    "name_es": "Eficiencia eléctrica del CHP",
+    "description": "Calcula la eficiencia eléctrica del motor CHP",
+    "formula": "eta_electrica_pct = 100 * P_electrica_kW / (Q_biogas_m3_h * LHV_MJ_m3 / 3.6)",
+    "variables": [
+      {
+        "name": "P_electrica_kW",
+        "unit": "kW",
+        "description": "Potencia eléctrica generada"
+      },
+      {
+        "name": "Q_biogas_m3_h",
+        "unit": "m3/h",
+        "description": "Caudal de biogás consumido"
+      },
+      {
+        "name": "LHV_MJ_m3",
+        "unit": "MJ/m3",
+        "description": "Poder calorífico inferior biogás"
+      },
+      {
+        "name": "V_TES_digestate",
+        "symbol": "V_TES_digestate",
+        "unit": "m3",
+        "type": "output"
+      }
+    ],
+    "output_unit": "%",
+    "used_by_field_ids": [
+      "BIG-016",
+      "BIG-026",
+      "BIG-065",
+      "BIG-066"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006"
+    ],
+    "purpose": "Eficiencia eléctrica del CHP",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_TES_digestate = Q_digestate_per_day * t_reserve_days"
+    ],
+    "equations_latex": [
+      "V_TES_{digestate} = Q_digestate_per_{day} * t_reserve_{days}"
+    ],
+    "unit_equations": [
+      {
+        "name": "V_TES_digestate",
+        "value": "m3"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "V_TES_digestate",
+        "unit": "m3",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "V_TES_digestate within valid physical range",
+      "V_TES_digestate > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-024",
+    "name_es": "Eficiencia térmica del CHP",
+    "description": "Calcula la eficiencia térmica del motor CHP",
+    "formula": "eta_termica_pct = 100 * P_termica_kW / (Q_biogas_m3_h * LHV_MJ_m3 / 3.6)",
+    "variables": [
+      {
+        "name": "P_termica_kW",
+        "unit": "kW",
+        "description": "Potencia térmica recuperada"
+      },
+      {
+        "name": "Q_biogas_m3_h",
+        "unit": "m3/h",
+        "description": "Caudal de biogás consumido"
+      },
+      {
+        "name": "LHV_MJ_m3",
+        "unit": "MJ/m3",
+        "description": "Poder calorífico inferior biogás"
+      },
+      {
+        "name": "R_digester_insulation",
+        "symbol": "R_digester_insulation",
+        "unit": "m2-K/W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "%",
+    "used_by_field_ids": [
+      "BIG-026",
+      "BIG-065",
+      "BIG-067",
+      "BIG-075"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "ISO_15547_1",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ],
+    "purpose": "Eficiencia térmica del CHP",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "R_digester_insulation = t_insulation / k_insulation"
+    ],
+    "equations_latex": [
+      "R_digester_{insulation} = t_{insulation} / k_{insulation}"
+    ],
+    "unit_equations": [
+      {
+        "name": "R_digester_insulation",
+        "value": "m2-K/W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "R_digester_insulation",
+        "unit": "m2-K/W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "R_digester_insulation within valid physical range",
+      "R_digester_insulation > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-025",
+    "name_es": "Eficiencia total del CHP",
+    "description": "Calcula la eficiencia total del motor CHP",
+    "formula": "eta_total_pct = eta_electrica_pct + eta_termica_pct",
+    "variables": [
+      {
+        "name": "eta_electrica_pct",
+        "unit": "%",
+        "description": "Eficiencia eléctrica"
+      },
+      {
+        "name": "eta_termica_pct",
+        "unit": "%",
+        "description": "Eficiencia térmica"
+      },
+      {
+        "name": "M_combustion_CH4",
+        "symbol": "M_combustion_CH4",
+        "unit": "kg",
+        "type": "output"
+      }
+    ],
+    "output_unit": "%",
+    "used_by_field_ids": [
+      "BIG-065",
+      "BIG-066",
+      "BIG-067"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006"
+    ],
+    "purpose": "Eficiencia total del CHP",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "M_combustion_CH4 = 0.36 * m_CH4"
+    ],
+    "equations_latex": [
+      "M_combustion_{CH4} = 0.36 * m_{CH4}"
+    ],
+    "unit_equations": [
+      {
+        "name": "M_combustion_CH4",
+        "value": "kg"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "M_combustion_CH4",
+        "unit": "kg",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "M_combustion_CH4 within valid physical range",
+      "M_combustion_CH4 > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-026",
+    "name_es": "Recuperación térmica del CHP (heat recovery)",
+    "description": "Calcula la potencia térmica total recuperable del CHP",
+    "formula": "P_termica_kW = P_electrica_kW * eta_termica / eta_electrica",
+    "variables": [
+      {
+        "name": "P_electrica_kW",
+        "unit": "kW",
+        "description": "Potencia eléctrica"
+      },
+      {
+        "name": "eta_termica",
+        "unit": "-",
+        "description": "Eficiencia térmica"
+      },
+      {
+        "name": "eta_electrica",
+        "unit": "-",
+        "description": "Eficiencia eléctrica"
+      },
+      {
+        "name": "M_combustion_CO2",
+        "symbol": "M_combustion_CO2",
+        "unit": "kg",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kW",
+    "used_by_field_ids": [
+      "BIG-066",
+      "BIG-067",
+      "BIG-074",
+      "BIG-075"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "ISO_15547_1"
+    ],
+    "purpose": "Recuperación térmica del CHP (heat recovery)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "M_combustion_CO2 = 2.75 * m_CH4"
+    ],
+    "equations_latex": [
+      "M_combustion_{CO2} = 2.75 * m_{CH4}"
+    ],
+    "unit_equations": [
+      {
+        "name": "M_combustion_CO2",
+        "value": "kg"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "M_combustion_CO2",
+        "unit": "kg",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "M_combustion_CO2 within valid physical range",
+      "M_combustion_CO2 > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-027",
+    "name_es": "Emisiones del motor CHP (NOx, CO, formaldehído per TA Luft)",
+    "description": "Calcula emisiones de NOx, CO y formaldehído del motor CHP por potencia eléctrica",
+    "formula": "emission_factor_mg_kWh = C_emission_mg_Nm3 * V_fluegas_Nm3_h / P_electrica_kW",
+    "variables": [
+      {
+        "name": "C_emission_mg_Nm3",
+        "unit": "mg/Nm3",
+        "description": "Concentración en escape"
+      },
+      {
+        "name": "V_fluegas_Nm3_h",
+        "unit": "Nm3/h",
+        "description": "Caudal de gas de escape"
+      },
+      {
+        "name": "P_electrica_kW",
+        "unit": "kW",
+        "description": "Potencia eléctrica generada"
+      },
+      {
+        "name": "P_inverter_biogas",
+        "symbol": "P_inverter_biogas",
+        "unit": "kW",
+        "type": "output"
+      }
+    ],
+    "output_unit": "mg/kWh",
+    "used_by_field_ids": [
+      "BIG-068",
+      "BIG-069",
+      "BIG-070"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "MINAM_DS_019_2009",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006"
+    ],
+    "purpose": "Emisiones del motor CHP (NOx, CO, formaldehído per TA Luft)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_inverter_biogas = P_chp_elec / 0.98"
+    ],
+    "equations_latex": [
+      "P_inverter_{biogas} = P_chp_{elec} / 0.98"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_inverter_biogas",
+        "value": "kW"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_inverter_biogas",
+        "unit": "kW",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_inverter_biogas within valid physical range",
+      "P_inverter_biogas > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-028",
+    "name_es": "Dimensionamiento de tubería de biogás (ASME B31.3)",
+    "description": "Calcula el diámetro y espesor de tubería de biogás según ASME B31.3",
+    "formula": "t_mm = (P_kPa_g * D_mm) / (2 * S * E * W * 1000) + A_mm ; check fluid velocity < v_max_m_s",
+    "variables": [
+      {
+        "name": "P_kPa_g",
+        "unit": "kPa(g)",
+        "description": "Presión interna de diseño"
+      },
+      {
+        "name": "D_mm",
+        "unit": "mm",
+        "description": "Diámetro exterior"
+      },
+      {
+        "name": "S",
+        "unit": "MPa",
+        "description": "Tensión admisible del material"
+      },
+      {
+        "name": "E",
+        "unit": "-",
+        "description": "Factor de junta"
+      },
+      {
+        "name": "W",
+        "unit": "-",
+        "description": "Factor reducción servicio"
+      },
+      {
+        "name": "A_mm",
+        "unit": "mm",
+        "description": "Margen por corrosión"
+      },
+      {
+        "name": "v_m_s",
+        "unit": "m/s",
+        "description": "Velocidad de fluido"
+      },
+      {
+        "name": "S_a_digester",
+        "symbol": "S_a_digester",
+        "unit": "dimensionless_ratio",
+        "type": "output"
+      }
+    ],
+    "output_unit": "mm / m/s",
+    "used_by_field_ids": [
+      "BIG-017",
+      "BIG-047",
+      "BIG-052",
+      "BIG-053",
+      "BIG-074",
+      "BIG-082",
+      "BIG-083",
+      "BIG-084",
+      "BIG-085",
+      "BIG-086"
+    ],
+    "source_ids": [
+      "ASME_B31_3_2022",
+      "ISO_15649"
+    ],
+    "purpose": "Dimensionamiento de tubería de biogás (ASME B31.3)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "S_a_digester = Z_site * U_site * S_soil / R_structural"
+    ],
+    "equations_latex": [
+      "S_a_{digester} = Z_{site} * U_{site} * S_{soil} / R_{structural}"
+    ],
+    "unit_equations": [
+      {
+        "name": "S_a_digester",
+        "value": "dimensionless_ratio"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "S_a_digester",
+        "unit": "dimensionless_ratio",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "S_a_digester within valid physical range",
+      "S_a_digester > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-029",
+    "name_es": "Espesor de recipiente a presión (ASME BPVC VIII-1)",
+    "description": "Calcula el espesor de pared de un recipiente a presión según ASME BPVC VIII-1",
+    "formula": "t_mm = (P_kPa_g * R_mm) / (S * E - 0.6 * P_kPa_g * 1000) + A_mm",
+    "variables": [
+      {
+        "name": "P_kPa_g",
+        "unit": "kPa(g)",
+        "description": "Presión de diseño"
+      },
+      {
+        "name": "R_mm",
+        "unit": "mm",
+        "description": "Radio interior del recipiente"
+      },
+      {
+        "name": "S",
+        "unit": "MPa",
+        "description": "Tensión admisible"
+      },
+      {
+        "name": "E",
+        "unit": "-",
+        "description": "Factor de eficiencia de junta"
+      },
+      {
+        "name": "A_mm",
+        "unit": "mm",
+        "description": "Margen de corrosión"
+      },
+      {
+        "name": "M_digester_overturning",
+        "symbol": "M_digester_overturning",
+        "unit": "Nm",
+        "type": "output"
+      }
+    ],
+    "output_unit": "mm",
+    "used_by_field_ids": [
+      "BIG-033",
+      "BIG-047",
+      "BIG-053",
+      "BIG-087",
+      "BIG-088"
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_B31_3_2022",
+      "ISO_4287"
+    ],
+    "purpose": "Espesor de recipiente a presión (ASME BPVC VIII-1)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "M_digester_overturning = F_wind * h_digester / 2"
+    ],
+    "equations_latex": [
+      "M_digester_{overturning} = F_{wind} * h_{digester} / 2"
+    ],
+    "unit_equations": [
+      {
+        "name": "M_digester_overturning",
+        "value": "Nm"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "M_digester_overturning",
+        "unit": "Nm",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "M_digester_overturning within valid physical range",
+      "M_digester_overturning > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-030",
+    "name_es": "Eficiencia del generador eléctrico",
+    "description": "Calcula la eficiencia del generador del CHP o del compresor",
+    "formula": "eta_generator_pct = 100 * P_electrica_out_kW / P_mec_in_kW",
+    "variables": [
+      {
+        "name": "P_electrica_out_kW",
+        "unit": "kW",
+        "description": "Potencia eléctrica salida"
+      },
+      {
+        "name": "P_mec_in_kW",
+        "unit": "kW",
+        "description": "Potencia mecánica entrada"
+      },
+      {
+        "name": "F_S_overturning",
+        "symbol": "F_S_overturning",
+        "unit": "dimensionless_ratio",
+        "type": "output"
+      }
+    ],
+    "output_unit": "%",
+    "used_by_field_ids": [
+      "BIG-048",
+      "BIG-052",
+      "BIG-065"
+    ],
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006",
+      "IEEE_1547_2018"
+    ],
+    "purpose": "Eficiencia del generador eléctrico",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F_S_overturning = M_resisting / M_overturning"
+    ],
+    "equations_latex": [
+      "F_S_{overturning} = M_{resisting} / M_{overturning}"
+    ],
+    "unit_equations": [
+      {
+        "name": "F_S_overturning",
+        "value": "dimensionless_ratio"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "F_S_overturning",
+        "unit": "dimensionless_ratio",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "F_S_overturning within valid physical range",
+      "F_S_overturning > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-031",
+    "name_es": "Eficiencia del transformador",
+    "description": "Calcula la eficiencia del transformador a carga nominal",
+    "formula": "eta_trafo_pct = 100 * P_out_kW / (P_out_kW + P_core_kW + P_copper_kW)",
+    "variables": [
+      {
+        "name": "P_out_kW",
+        "unit": "kW",
+        "description": "Potencia salida"
+      },
+      {
+        "name": "P_core_kW",
+        "unit": "kW",
+        "description": "Pérdidas en vacío (core)"
+      },
+      {
+        "name": "P_copper_kW",
+        "unit": "kW",
+        "description": "Pérdidas en cobre (carga)"
+      },
+      {
+        "name": "Q_pump_substrate",
+        "symbol": "Q_pump_substrate",
+        "unit": "m3/h",
+        "type": "output"
+      }
+    ],
+    "output_unit": "%",
+    "used_by_field_ids": [
+      "BIG-071",
+      "BIG-072",
+      "BIG-073",
+      "BIG-093",
+      "BIG-094",
+      "BIG-095"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_835",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006"
+    ],
+    "purpose": "Eficiencia del transformador",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_pump_substrate = V_substrate_per_hour / eta_pump"
+    ],
+    "equations_latex": [
+      "Q_pump_{substrate} = V_substrate_per_{hour} / eta_{pump}"
+    ],
+    "unit_equations": [
+      {
+        "name": "Q_pump_substrate",
+        "value": "m3/h"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Q_pump_substrate",
+        "unit": "m3/h",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_pump_substrate within valid physical range",
+      "Q_pump_substrate > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-032",
+    "name_es": "Potencia exportada al grid (power export)",
+    "description": "Calcula la potencia activa neta exportada al grid eléctrico",
+    "formula": "P_export_kW = P_chp_kW * eta_electrica * eta_generator * eta_trafo * (1 - f_aux)",
+    "variables": [
+      {
+        "name": "P_chp_kW",
+        "unit": "kW",
+        "description": "Potencia motor CHP"
+      },
+      {
+        "name": "eta_electrica",
+        "unit": "-",
+        "description": "Eficiencia eléctrica CHP"
+      },
+      {
+        "name": "eta_generator",
+        "unit": "-",
+        "description": "Eficiencia generador"
+      },
+      {
+        "name": "eta_trafo",
+        "unit": "-",
+        "description": "Eficiencia transformador"
+      },
+      {
+        "name": "f_aux",
+        "unit": "-",
+        "description": "Fracción consumo auxiliares"
+      },
+      {
+        "name": "P_pump_substrate",
+        "symbol": "P_pump_substrate",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kW",
+    "used_by_field_ids": [
+      "BIG-048",
+      "BIG-065",
+      "BIG-066",
+      "BIG-071",
+      "BIG-072",
+      "BIG-093",
+      "BIG-094"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006",
+      "IEEE_C2_2023"
+    ],
+    "purpose": "Potencia exportada al grid (power export)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_pump_substrate = rho_substrate * g * Q_pump_substrate * H_pump / eta_pump"
+    ],
+    "equations_latex": [
+      "P_pump_{substrate} = rho_{substrate} * g * Q_pump_{substrate} * H_{pump} / eta_{pump}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_pump_substrate",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_pump_substrate",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_pump_substrate within valid physical range",
+      "P_pump_substrate > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "BIG-CALC-033",
+    "name_es": "Potencia térmica exportada a red de distrito (heat export)",
+    "description": "Calcula la potencia térmica neta exportada a la red de calefacción de distrito",
+    "formula": "Q_export_kW = P_chp_kW * eta_termica * (1 - f_digestor_heat) * (1 - f_loss)",
+    "variables": [
+      {
+        "name": "P_chp_kW",
+        "unit": "kW",
+        "description": "Potencia motor CHP"
+      },
+      {
+        "name": "eta_termica",
+        "unit": "-",
+        "description": "Eficiencia térmica CHP"
+      },
+      {
+        "name": "f_digestor_heat",
+        "unit": "-",
+        "description": "Fracción usada en calefacción digestor"
+      },
+      {
+        "name": "f_loss",
+        "unit": "-",
+        "description": "Pérdidas térmicas distribución"
+      },
+      {
+        "name": "P_loss_biogas_pipe",
+        "symbol": "P_loss_biogas_pipe",
+        "unit": "Pa",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kW",
+    "used_by_field_ids": [
+      "BIG-074",
+      "BIG-075"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "ISO_15547_1",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ],
+    "purpose": "Potencia térmica exportada a red de distrito (heat export)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIG-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_loss_biogas_pipe = f * L_biogas_pipe/D * rho_biogas * v_biogas^2 / 2"
+    ],
+    "equations_latex": [
+      "P_loss_biogas_{pipe} = f * L_biogas_{pipe}/D * rho_{biogas} * v_{biogas}^2 / 2"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_loss_biogas_pipe",
+        "value": "Pa"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_loss_biogas_pipe",
+        "unit": "Pa",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_loss_biogas_pipe within valid physical range",
+      "P_loss_biogas_pipe > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  }
+]

@@ -1,0 +1,1330 @@
+[
+  {
+    "geometry_rule_id": "BESS-GR-001",
+    "name_es": "Layout del plot plan del BESS",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-055",
+      "BESS-046",
+      "BESS-044",
+      "BESS-045",
+      "BESS-128",
+      "BESS-002",
+      "BESS-003"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-010"
+    ],
+    "coordinate_space": "UTM",
+    "algorithm": "Grid arrangement",
+    "algorithm_pseudocode": [
+      "grid = create_grid(site_bounds, n_containers)",
+      "for each container: place(container, grid_pos)",
+      "ensure clearance(BESS-855_min)"
+    ],
+    "generated_entity_types": [
+      "CONTAINER",
+      "TRANSFORMER",
+      "SWITCHGEAR",
+      "ROAD",
+      "FENCE"
+    ],
+    "clearances": [
+      {
+        "entity": "CONTAINER",
+        "min_m": 7.5,
+        "ref": "PROPERTY_LINE"
+      },
+      {
+        "entity": "CONTAINER",
+        "min_m": 1.5,
+        "ref": "BUILDING"
+      },
+      {
+        "entity": "CONTAINER",
+        "min_m": 3,
+        "ref": "PROPERTY_LINE_PER NFPA 855"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "containers_overlap -> error",
+        "entity": "CONTAINER"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "PERIMETER_ROAD",
+        "cost": 1.0
+      }
+    ],
+    "tolerances": {
+      "pos_xy_mm": 5,
+      "pos_z_mm": 10
+    },
+    "failure_conditions": [
+      "Containers overlapping property line",
+      "Distances < NFPA 855"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "ISO_19111",
+      "DNV_RP_0585",
+      "ISO_5457",
+      "ISO_7200"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-002",
+    "name_es": "Implantacion del BESS",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-055",
+      "BESS-046",
+      "BESS-044",
+      "BESS-002",
+      "BESS-003",
+      "BESS-130"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-010"
+    ],
+    "coordinate_space": "UTM",
+    "algorithm": "Coordinate placement",
+    "algorithm_pseudocode": [
+      "for each entity: assign_utm(x,y,z)",
+      "verify foundations vs soil bearing"
+    ],
+    "generated_entity_types": [
+      "CONTAINER",
+      "FOUNDATION_PAD",
+      "TRANSFORMER_PAD",
+      "GROUNDING_GRID"
+    ],
+    "clearances": [
+      {
+        "entity": "FOUNDATION_PAD",
+        "min_m": 0.5,
+        "ref": "PERIMETER"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "pad_overlap -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_xy_mm": 2,
+      "pos_z_mm": 5
+    },
+    "failure_conditions": [
+      "Georef out of site bounds"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_5457",
+      "ISO_7200",
+      "NFPA_855_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-003",
+    "name_es": "Layout del contenedor",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-038",
+      "BESS-034",
+      "BESS-035",
+      "BESS-036",
+      "BESS-046",
+      "BESS-044",
+      "BESS-045",
+      "BESS-047",
+      "BESS-098",
+      "BESS-097"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-008",
+      "BESS-C-013",
+      "BESS-C-014"
+    ],
+    "coordinate_space": "LOCAL_CONTAINER",
+    "algorithm": "Rack grid inside container",
+    "algorithm_pseudocode": [
+      "grid = rack_grid(W_cont, H_cont, depth_cont)",
+      "for each rack: place(grid_pos)",
+      "reserve walkway(900 mm)"
+    ],
+    "generated_entity_types": [
+      "RACK",
+      "WALKWAY",
+      "HVAC_DUCT",
+      "FIRE_PIPING",
+      "GAS_SENSOR"
+    ],
+    "clearances": [
+      {
+        "entity": "RACK",
+        "min_mm": 900,
+        "ref": "WALKWAY"
+      },
+      {
+        "entity": "RACK",
+        "min_mm": 150,
+        "ref": "WALL"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "rack_overlap -> error"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "WALKWAY",
+        "cost": 0.5
+      }
+    ],
+    "tolerances": {
+      "pos_xy_mm": 5
+    },
+    "failure_conditions": [
+      "Walkway < 900 mm",
+      "Rack overlap"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "DNV_RP_0585",
+      "ISO_5455"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-004",
+    "name_es": "Layout del rack",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-028",
+      "BESS-024",
+      "BESS-025",
+      "BESS-026",
+      "BESS-034",
+      "BESS-035",
+      "BESS-036"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-008"
+    ],
+    "coordinate_space": "LOCAL_RACK",
+    "algorithm": "Module stack inside rack",
+    "algorithm_pseudocode": [
+      "modules = N_mod_vertical",
+      "for each module: stack(z_offset)"
+    ],
+    "generated_entity_types": [
+      "MODULE",
+      "BMS_RACK_CABINET"
+    ],
+    "clearances": [
+      {
+        "entity": "MODULE",
+        "min_mm": 10,
+        "ref": "MODULE"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "module_overlap -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_z_mm": 2
+    },
+    "failure_conditions": [
+      "Module height mismatch"
+    ],
+    "source_ids": [
+      "IEC_62933_2_1",
+      "DNV_RP_0585",
+      "ISO_5455"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-005",
+    "name_es": "Layout del modulo y celdas",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-019",
+      "BESS-013",
+      "BESS-014",
+      "BESS-015",
+      "BESS-024",
+      "BESS-025",
+      "BESS-026"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-005",
+      "BESS-C-006",
+      "BESS-C-007"
+    ],
+    "coordinate_space": "LOCAL_MODULE",
+    "algorithm": "Cell packing inside module",
+    "algorithm_pseudocode": [
+      "cells = S*P",
+      "arrange(cells, layout=grid)"
+    ],
+    "generated_entity_types": [
+      "CELL",
+      "BMS_MODULE_BOARD",
+      "BUSBAR"
+    ],
+    "clearances": [
+      {
+        "entity": "CELL",
+        "min_mm": 2,
+        "ref": "CELL"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "cell_overlap -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_xy_mm": 1
+    },
+    "failure_conditions": [
+      "Cell arrangement inconsistent with S/P"
+    ],
+    "source_ids": [
+      "IEC_62619",
+      "IEC_62660_1",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-006",
+    "name_es": "Layout del PCS",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-075",
+      "BESS-079",
+      "BESS-080",
+      "BESS-053",
+      "BESS-055"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-018"
+    ],
+    "coordinate_space": "LOCAL_CONTAINER",
+    "algorithm": "PCS placement",
+    "algorithm_pseudocode": [
+      "place_PCS_adjacent_to_DC_bus",
+      "verify_DC_cable_length <= 10 m"
+    ],
+    "generated_entity_types": [
+      "PCS",
+      "DC_BUSBAR",
+      "AC_CABLE"
+    ],
+    "clearances": [
+      {
+        "entity": "PCS",
+        "min_mm": 300,
+        "ref": "WALL"
+      },
+      {
+        "entity": "PCS",
+        "min_mm": 600,
+        "ref": "RACK"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "PCS-RACK < 600 mm -> warning"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "DC_CABLE",
+        "cost": 2.0
+      }
+    ],
+    "tolerances": {
+      "pos_xy_mm": 5
+    },
+    "failure_conditions": [
+      "DC cable > 10 m",
+      "Insufficient ventilation clearance"
+    ],
+    "source_ids": [
+      "UL_1741",
+      "IEC_62109_1",
+      "IEEE_519_2022",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-007",
+    "name_es": "Layout del transformador",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-085",
+      "BESS-083",
+      "BESS-084",
+      "BESS-087",
+      "BESS-055"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-019"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Transformer placement",
+    "algorithm_pseudocode": [
+      "place_xfr_outside_container_or_pad",
+      "verify_oil_containment_110% if oil-filled"
+    ],
+    "generated_entity_types": [
+      "TRANSFORMER",
+      "OIL_CONTAINMENT_PAD"
+    ],
+    "clearances": [
+      {
+        "entity": "TRANSFORMER",
+        "min_m": 3,
+        "ref": "BUILDING"
+      },
+      {
+        "entity": "TRANSFORMER",
+        "min_m": 5,
+        "ref": "PROPERTY_LINE"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_oil_containment -> error"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "AC_MV_CABLE",
+        "cost": 1.5
+      }
+    ],
+    "tolerances": {
+      "pos_xy_mm": 10
+    },
+    "failure_conditions": [
+      "No oil containment > 110% for oil-filled"
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_1547_2018",
+      "IEEE_C2_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-008",
+    "name_es": "Layout del switchgear",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-089",
+      "BESS-090",
+      "BESS-091",
+      "BESS-092",
+      "BESS-093",
+      "BESS-055"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-025"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Switchgear placement",
+    "algorithm_pseudocode": [
+      "place_switchgear_adjacent_xfr",
+      "verify_arc_flash_label_clearance"
+    ],
+    "generated_entity_types": [
+      "SWITCHGEAR_LV",
+      "SWITCHGEAR_MV",
+      "DISCONNECT_DC"
+    ],
+    "clearances": [
+      {
+        "entity": "SWITCHGEAR_MV",
+        "min_m": 1,
+        "ref": "WALL"
+      },
+      {
+        "entity": "SWITCHGEAR_LV",
+        "min_mm": 800,
+        "ref": "WALL"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "working clearance < 1 m -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_xy_mm": 5
+    },
+    "failure_conditions": [
+      "Working clearance violation"
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023",
+      "IEEE_80_2013",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-009",
+    "name_es": "Ruteo de ductos HVAC",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-094",
+      "BESS-095",
+      "BESS-098",
+      "BESS-044",
+      "BESS-045",
+      "BESS-046",
+      "BESS-047"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-014"
+    ],
+    "coordinate_space": "LOCAL_CONTAINER",
+    "algorithm": "Duct routing",
+    "algorithm_pseudocode": [
+      "route_ducts(W_cont, L_cont)",
+      "size_ducts_per_ACH"
+    ],
+    "generated_entity_types": [
+      "HVAC_DUCT",
+      "HVAC_FAN",
+      "HVAC_LOUVER"
+    ],
+    "clearances": [
+      {
+        "entity": "HVAC_DUCT",
+        "min_mm": 100,
+        "ref": "CEILING"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "duct_crossing_electrical -> warning"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "HVAC_DUCT",
+        "cost": 1.0
+      }
+    ],
+    "tolerances": {
+      "pos_mm": 5
+    },
+    "failure_conditions": [
+      "Duct cross-section insufficient"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "DNV_RP_0585",
+      "ISO_10628",
+      "ISO_14617"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-010",
+    "name_es": "Ruteo de piping de supresion de incendio",
+    "applicability_expression": "technology == '12_bess' AND BESS-042 IN ('SPRINKLER_NFPA_13','WATER_MIST')",
+    "required_field_ids": [
+      "BESS-042",
+      "BESS-099",
+      "BESS-100",
+      "BESS-101",
+      "BESS-103",
+      "BESS-044",
+      "BESS-045",
+      "BESS-046"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-016",
+      "BESS-C-030"
+    ],
+    "coordinate_space": "LOCAL_CONTAINER",
+    "algorithm": "Fire piping routing",
+    "algorithm_pseudocode": [
+      "route_piping_loop(container)",
+      "verify_density_per_NFPA_13"
+    ],
+    "generated_entity_types": [
+      "FIRE_PIPING",
+      "SPRINKLER_HEAD",
+      "WATER_MIST_NOZZLE"
+    ],
+    "clearances": [
+      {
+        "entity": "FIRE_PIPING",
+        "min_mm": 50,
+        "ref": "CEILING"
+      },
+      {
+        "entity": "SPRINKLER_HEAD",
+        "max_m": 3.7,
+        "ref": "SPRINKLER_HEAD"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no slope drain -> warning"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "FIRE_PIPING",
+        "cost": 1.2
+      }
+    ],
+    "tolerances": {
+      "pos_mm": 5
+    },
+    "failure_conditions": [
+      "Density < NFPA 13 design"
+    ],
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_15_2022",
+      "NFPA_20_2022",
+      "NFPA_855_2023",
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-011",
+    "name_es": "Posicion de detectores de gas",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-105",
+      "BESS-106",
+      "BESS-107",
+      "BESS-108",
+      "BESS-044",
+      "BESS-045",
+      "BESS-046"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-027",
+      "BESS-C-028"
+    ],
+    "coordinate_space": "LOCAL_CONTAINER",
+    "algorithm": "Gas detector placement",
+    "algorithm_pseudocode": [
+      "place_H2_high (H2 rises, near ceiling)",
+      "place_CO_low (CO descends, near floor)",
+      "place_smoke per NFPA 72 spacing"
+    ],
+    "generated_entity_types": [
+      "GAS_SENSOR_H2",
+      "GAS_SENSOR_CO",
+      "SMOKE_DETECTOR"
+    ],
+    "clearances": [
+      {
+        "entity": "GAS_SENSOR_H2",
+        "max_m": 0.3,
+        "ref": "CEILING"
+      },
+      {
+        "entity": "GAS_SENSOR_CO",
+        "max_m": 0.3,
+        "ref": "FLOOR"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "coverage > 75 m2 per detector -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_mm": 50
+    },
+    "failure_conditions": [
+      "Insufficient coverage"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "IEC_60079_29_1",
+      "IEC_60079_10_1",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-012",
+    "name_es": "Grid de tierra (malla)",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-114",
+      "BESS-115",
+      "BESS-116"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-020"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Grounding grid layout",
+    "algorithm_pseudocode": [
+      "grid_size = compute_grid_size(R_target, rho_soil)",
+      "place_conductors(grid_size, spacing=3 m)"
+    ],
+    "generated_entity_types": [
+      "GROUNDING_GRID",
+      "GROUND_ROD",
+      "EQUIPOT_BONDING"
+    ],
+    "clearances": [
+      {
+        "entity": "GROUNDING_GRID",
+        "min_m": 0.8,
+        "ref": "FOUNDATION"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "grid_step_potential > IEEE 80 limits -> error"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "GROUNDING",
+        "cost": 0.5
+      }
+    ],
+    "tolerances": {
+      "pos_xy_mm": 20
+    },
+    "failure_conditions": [
+      "R_g > 5 ohm"
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_142",
+      "IEC_60364_5_54",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-013",
+    "name_es": "Posicion de pararrayos (rolling sphere)",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-117",
+      "BESS-118",
+      "BESS-119",
+      "BESS-045"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-020"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Rolling sphere method",
+    "algorithm_pseudocode": [
+      "sphere_radius = f(LPL) (30 m LPL I, 45 m II, 60 m III)",
+      "place_air_terminals(sphere_coverage)"
+    ],
+    "generated_entity_types": [
+      "AIR_TERMINAL",
+      "DOWN_CONDUCTOR",
+      "LIGHTNING_COUNTER"
+    ],
+    "clearances": [
+      {
+        "entity": "AIR_TERMINAL",
+        "max_m": 25,
+        "ref": "AIR_TERMINAL (LPL III)"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "sphere uncoverage > 0% -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_xy_mm": 50
+    },
+    "failure_conditions": [
+      "Coverage < 100%"
+    ],
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023",
+      "IEEE_80_2013"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-014",
+    "name_es": "Cable trays LV AC",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-089",
+      "BESS-075",
+      "BESS-055"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-019"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Tray routing",
+    "algorithm_pseudocode": [
+      "route_tray_LV_AC(PCS->XFR->switchgear->MV)",
+      "size_per_ampacity_NEC"
+    ],
+    "generated_entity_types": [
+      "CABLE_TRAY_LV_AC",
+      "LV_AC_CABLE"
+    ],
+    "clearances": [
+      {
+        "entity": "CABLE_TRAY_LV_AC",
+        "min_mm": 300,
+        "ref": "DC_TRAY"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "LV tray crossing DC tray < 90 deg -> error"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "CABLE_TRAY_LV_AC",
+        "cost": 1.0
+      }
+    ],
+    "tolerances": {
+      "pos_mm": 10
+    },
+    "failure_conditions": [
+      "Ampacity < NEC Table"
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023",
+      "IEEE_835",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-015",
+    "name_es": "Cable trays MV AC",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-090",
+      "BESS-085",
+      "BESS-055"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-019"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Tray routing",
+    "algorithm_pseudocode": [
+      "route_tray_MV_AC(switchgear_MV->substation)",
+      "size_per_ampacity"
+    ],
+    "generated_entity_types": [
+      "CABLE_TRAY_MV_AC",
+      "MV_AC_CABLE"
+    ],
+    "clearances": [
+      {
+        "entity": "CABLE_TRAY_MV_AC",
+        "min_mm": 300,
+        "ref": "LV_TRAY"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "MV near LV < 300 mm -> error"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "CABLE_TRAY_MV_AC",
+        "cost": 1.5
+      }
+    ],
+    "tolerances": {
+      "pos_mm": 10
+    },
+    "failure_conditions": [
+      "Ampacity insufficient"
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023",
+      "IEEE_835",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-016",
+    "name_es": "Cable trays DC",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-091",
+      "BESS-029",
+      "BESS-079",
+      "BESS-055"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-008",
+      "BESS-C-018"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "DC cable tray routing",
+    "algorithm_pseudocode": [
+      "route_DC_tray(rack->PCS)",
+      "verify_disconnect_isolatable"
+    ],
+    "generated_entity_types": [
+      "CABLE_TRAY_DC",
+      "DC_CABLE",
+      "DC_DISCONNECT"
+    ],
+    "clearances": [
+      {
+        "entity": "CABLE_TRAY_DC",
+        "min_mm": 300,
+        "ref": "AC_TRAY"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "DC tray parallel AC > 3 m -> error"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "CABLE_TRAY_DC",
+        "cost": 1.2
+      }
+    ],
+    "tolerances": {
+      "pos_mm": 10
+    },
+    "failure_conditions": [
+      "DC cable crossing AC tray parallel"
+    ],
+    "source_ids": [
+      "UL_1741",
+      "IEC_62109_1",
+      "NFPA_70_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-017",
+    "name_es": "Cable trays de control",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-131",
+      "BESS-132",
+      "BESS-133",
+      "BESS-134",
+      "BESS-138",
+      "BESS-140"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-025",
+      "BESS-C-031"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Control cable routing",
+    "algorithm_pseudocode": [
+      "route_control_tray(SCADA cabinets)",
+      "separate > 300 mm from power"
+    ],
+    "generated_entity_types": [
+      "CABLE_TRAY_CONTROL",
+      "CONTROL_CABLE"
+    ],
+    "clearances": [
+      {
+        "entity": "CABLE_TRAY_CONTROL",
+        "min_mm": 300,
+        "ref": "POWER_TRAY"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "control parallel power < 300 mm -> error"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "CABLE_TRAY_CONTROL",
+        "cost": 1.0
+      }
+    ],
+    "tolerances": {
+      "pos_mm": 10
+    },
+    "failure_conditions": [
+      "Control cable near power"
+    ],
+    "source_ids": [
+      "IEC_61508_1",
+      "IEEE_2030_2",
+      "DNV_RP_0585",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-018",
+    "name_es": "Walkway y egress",
+    "applicability_expression": "technology == '12_bess' AND BESS-047 == 'WALK_IN'",
+    "required_field_ids": [
+      "BESS-047",
+      "BESS-046",
+      "BESS-044",
+      "BESS-098",
+      "BESS-097"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-013",
+      "BESS-C-014"
+    ],
+    "coordinate_space": "LOCAL_CONTAINER",
+    "algorithm": "Walkway and egress",
+    "algorithm_pseudocode": [
+      "walkway_min = 900 mm (NFPA 855)",
+      "two_means_egress per NFPA 101"
+    ],
+    "generated_entity_types": [
+      "WALKWAY",
+      "EGRESS_DOOR",
+      "EMERGENCY_LIGHT"
+    ],
+    "clearances": [
+      {
+        "entity": "WALKWAY",
+        "min_mm": 900,
+        "ref": "RACK"
+      },
+      {
+        "entity": "EGRESS_DOOR",
+        "min_m": 1.5,
+        "ref": "WALKWAY"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "single egress -> warning"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_mm": 10
+    },
+    "failure_conditions": [
+      "Walkway < 900 mm"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "DNV_RP_0585",
+      "ISO_5457"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-019",
+    "name_es": "Distancias de separacion NFPA 855",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-046",
+      "BESS-044",
+      "BESS-045",
+      "BESS-055",
+      "BESS-039"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-027"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Separation distances",
+    "algorithm_pseudocode": [
+      "d_building >= 1.5 m (or fire barrier)",
+      "d_property_line >= 3 m",
+      "d_hazard >= 7.5 m"
+    ],
+    "generated_entity_types": [
+      "CONTAINER",
+      "FIRE_BARRIER",
+      "PERIMETER_FENCE"
+    ],
+    "clearances": [
+      {
+        "entity": "CONTAINER",
+        "min_m": 1.5,
+        "ref": "BUILDING"
+      },
+      {
+        "entity": "CONTAINER",
+        "min_m": 3.0,
+        "ref": "PROPERTY_LINE"
+      },
+      {
+        "entity": "CONTAINER",
+        "min_m": 7.5,
+        "ref": "HAZARD"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "distance < NFPA 855 -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.1
+    },
+    "failure_conditions": [
+      "Distance violation"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "DNV_RP_0585",
+      "ISO_5457"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-020",
+    "name_es": "Cerca perimetral",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-055",
+      "BESS-119",
+      "BESS-135",
+      "BESS-118"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-027",
+      "BESS-C-025"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Perimeter fence layout",
+    "algorithm_pseudocode": [
+      "fence_offset = 5 m from BESS",
+      "add_security_sensors"
+    ],
+    "generated_entity_types": [
+      "PERIMETER_FENCE",
+      "SECURITY_CAMERA",
+      "ACCESS_GATE"
+    ],
+    "clearances": [
+      {
+        "entity": "PERIMETER_FENCE",
+        "min_m": 3,
+        "ref": "PROPERTY_LINE"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "fence inside container -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.05
+    },
+    "failure_conditions": [
+      "Fence inside container"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "DNV_RP_0585",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-021",
+    "name_es": "Loop de agua contra incendio",
+    "applicability_expression": "technology == '12_bess' AND BESS-042 IN ('SPRINKLER_NFPA_13','WATER_MIST')",
+    "required_field_ids": [
+      "BESS-101",
+      "BESS-102",
+      "BESS-099",
+      "BESS-100",
+      "BESS-042",
+      "BESS-055"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-030"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Fire water loop routing",
+    "algorithm_pseudocode": [
+      "loop_dia = compute_dia(Q_demand, v<=3 m/s)",
+      "size_per_hydraulic"
+    ],
+    "generated_entity_types": [
+      "FIRE_WATER_LOOP",
+      "FIRE_PUMP",
+      "FIRE_WATER_TANK",
+      "HYDRANT"
+    ],
+    "clearances": [
+      {
+        "entity": "FIRE_WATER_LOOP",
+        "min_m": 1,
+        "ref": "FOUNDATION"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "dead_end > 50 m -> error"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "FIRE_WATER",
+        "cost": 1.5
+      }
+    ],
+    "tolerances": {
+      "pos_mm": 50
+    },
+    "failure_conditions": [
+      "Fire water tank capacity < 90 min"
+    ],
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_20_2022",
+      "NFPA_15_2022",
+      "ASME_B31_3_2022",
+      "NFPA_855_2023"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-022",
+    "name_es": "Drenaje y contencion de derrame",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-111",
+      "BESS-112",
+      "BESS-113",
+      "BESS-046",
+      "BESS-044",
+      "BESS-045",
+      "BESS-055"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-027",
+      "BESS-C-028"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Drainage and containment",
+    "algorithm_pseudocode": [
+      "slope_to_sump(min 1% grade)",
+      "sump_capacity >= 110% electrolyte"
+    ],
+    "generated_entity_types": [
+      "DRAINAGE_TRENCH",
+      "SPILL_SUMP",
+      "OIL_WATER_SEPARATOR"
+    ],
+    "clearances": [
+      {
+        "entity": "SPILL_SUMP",
+        "min_m": 1,
+        "ref": "CONTAINER"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no sump for BESS > 80 kWh -> error"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "DRAINAGE",
+        "cost": 0.8
+      }
+    ],
+    "tolerances": {
+      "pos_mm": 20
+    },
+    "failure_conditions": [
+      "Sump capacity insufficient"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "MINAM_DS_019_2009",
+      "DNV_RP_0585",
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "geometry_rule_id": "BESS-GR-023",
+    "name_es": "Detalles de fundacion",
+    "applicability_expression": "technology == '12_bess'",
+    "required_field_ids": [
+      "BESS-130",
+      "BESS-033",
+      "BESS-038",
+      "BESS-055",
+      "BESS-044",
+      "BESS-045"
+    ],
+    "required_calculation_ids": [
+      "BESS-C-010"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Foundation sizing",
+    "algorithm_pseudocode": [
+      "bearing = total_mass / pad_area",
+      "verify bearing < soil_capacity"
+    ],
+    "generated_entity_types": [
+      "FOUNDATION_PAD",
+      "ANCHOR_BOLT",
+      "REBAR"
+    ],
+    "clearances": [
+      {
+        "entity": "FOUNDATION_PAD",
+        "min_m": 0.3,
+        "ref": "SOIL"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "bearing > soil_capacity -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_mm": 10
+    },
+    "failure_conditions": [
+      "Bearing capacity insufficient"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "DNV_RP_0585",
+      "ISO_5457"
+    ]
+  }
+]

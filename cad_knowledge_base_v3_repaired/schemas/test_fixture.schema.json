@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/test_fixture.schema.json",
+  "title": "Fixture de prueba",
+  "description": "Datos de entrada controlados para pruebas de validación y mutación",
+  "type": "object",
+  "required": [
+    "fixture_id",
+    "test_type",
+    "technology",
+    "inputs"
+  ],
+  "properties": {
+    "fixture_id": {
+      "type": "string",
+      "pattern": "^FIX-[A-Z]{3,6}-\\d{4}-[A-Z]+$"
+    },
+    "test_type": {
+      "type": "string",
+      "enum": ["valid", "invalid_ref", "missing_mandatory", "mutation_generic_formula", "mutation_generic_geometry", "mutation_qa_constant", "mutation_invalid_field", "mutation_invalid_source", "mutation_invalid_symbol", "mutation_missing_policy", "mutation_broken_geometry", "mutation_invalid_layer", "mutation_formula_misuse", "mutation_render_bounds", "mutation_encoding"]
+    },
+    "technology": {
+      "type": "string",
+      "enum": ["01_pv_ground", "02_pv_roof_carport", "03_pv_floating", "04_wind_onshore", "05_wind_offshore", "06_hydro", "07_biomass", "08_biogas", "09_geothermal", "10_solar_thermal_csp", "11_marine", "12_bess", "13_hydrogen", "14_hybrid_microgrid"]
+    },
+    "description": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "object",
+      "description": "Campos de entrada para la prueba"
+    },
+    "expected_result": {
+      "type": "object",
+      "properties": {
+        "validation_pass": {"type": "boolean"},
+        "expected_error_codes": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "expected_warnings": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "mutation_details": {
+      "type": "object",
+      "properties": {
+        "target_file": {"type": "string"},
+        "modification_type": {"type": "string"},
+        "original_value": {},
+        "mutated_value": {}
+      }
+    }
+  },
+  "additionalProperties": false
+}

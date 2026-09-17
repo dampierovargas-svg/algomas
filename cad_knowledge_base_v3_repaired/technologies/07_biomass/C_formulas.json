@@ -1,0 +1,1910 @@
+[
+  {
+    "calculation_id": "BIO-C-002",
+    "name_es": "Combustion stoichiometry",
+    "purpose": "Mass balance of combustion reaction",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004",
+      "BIO-005",
+      "BIO-006",
+      "BIO-007"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "stoichiometric_air = (11.51*C + 34.3*(H - O/8) + 4.31*S) / 0.232",
+      "actual_air = stoichiometric_air * (1 + excess_air_ratio)"
+    ],
+    "equations_latex": [
+      "\\text{stoich}_{air} = \\frac{11.51\\cdot C + 34.3\\cdot (H - O/8) + 4.31\\cdot S}{0.232}"
+    ],
+    "variables": [
+      {
+        "name": "stoichiometric_air",
+        "unit": "kg_air/kg_fuel"
+      },
+      {
+        "name": "C",
+        "unit": "kg/kg"
+      },
+      {
+        "name": "H",
+        "unit": "kg/kg"
+      },
+      {
+        "name": "O",
+        "unit": "kg/kg"
+      },
+      {
+        "name": "S",
+        "unit": "kg/kg"
+      },
+      {
+        "name": "excess_air_ratio",
+        "unit": "dimensionless_ratio"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "stoichiometric_air",
+        "value": "kg_air/kg_fuel"
+      }
+    ],
+    "numerical_method": "Direct calculation",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "excess_air_ratio >= 1.1 and <= 2.0"
+    ],
+    "outputs": [
+      {
+        "name": "stoichiometric_air",
+        "unit": "kg_air/kg_fuel"
+      },
+      {
+        "name": "actual_air",
+        "unit": "kg_air/kg_fuel"
+      }
+    ],
+    "acceptance_rules": [
+      "stoichiometric_air > 3 and < 10 (typical biomass)"
+    ],
+    "failure_modes": [
+      "Negative values if H < O/8"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-006"
+    ],
+    "source_ids": [
+      "ASME_PTC_10",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-003",
+    "name_es": "Flue gas mass flow",
+    "purpose": "Mass balance",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_fg = m_fuel * (1 + actual_air + moisture)"
+    ],
+    "equations_latex": [
+      "\\dot{m}_{fg} = \\dot{m}_{fuel} \\cdot (1 + \\text{actual\\_air} + W)"
+    ],
+    "variables": [
+      {
+        "name": "m_fg",
+        "unit": "kg/s"
+      },
+      {
+        "name": "m_fuel",
+        "unit": "kg/s"
+      },
+      {
+        "name": "actual_air",
+        "unit": "kg/kg"
+      },
+      {
+        "name": "moisture",
+        "unit": "kg/kg"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "mass_flow",
+        "value": "kg/s = kg/s * dimensionless"
+      }
+    ],
+    "numerical_method": "Direct calculation",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "m_fg > 0"
+    ],
+    "outputs": [
+      {
+        "name": "flue_gas_mass_flow_kg_s",
+        "unit": "kg/s"
+      }
+    ],
+    "acceptance_rules": [
+      "m_fg > 0 and reasonable"
+    ],
+    "failure_modes": [
+      "Negative mass flow"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-006",
+      "BIO-DRW-012"
+    ],
+    "source_ids": [
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-004",
+    "name_es": "Flue gas enthalpy",
+    "purpose": "Sensible enthalpy",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "H_fg = m_fg * cp_fg * (T_fg - T_amb)",
+      "H_fg_loss = H_fg / (m_fuel * LHV) * 100"
+    ],
+    "equations_latex": [
+      "H_{fg} = \\dot{m}_{fg} \\cdot c_{p,fg} \\cdot (T_{fg} - T_{amb})"
+    ],
+    "variables": [
+      {
+        "name": "H_fg",
+        "unit": "kW"
+      },
+      {
+        "name": "m_fg",
+        "unit": "kg/s"
+      },
+      {
+        "name": "cp_fg",
+        "unit": "kJ/kg/K"
+      },
+      {
+        "name": "T_fg",
+        "unit": "C"
+      },
+      {
+        "name": "T_amb",
+        "unit": "C"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "enthalpy",
+        "value": "kW = kg/s * kJ/kg/K * K"
+      }
+    ],
+    "numerical_method": "Direct calculation",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "cp_fg ~ 1.1 kJ/kg/K dry flue gas"
+    ],
+    "outputs": [
+      {
+        "name": "flue_gas_enthalpy_kw",
+        "unit": "kW"
+      },
+      {
+        "name": "flue_gas_enthalpy_loss_pct",
+        "unit": "percent"
+      }
+    ],
+    "acceptance_rules": [
+      "H_fg_loss < 25% (typical)"
+    ],
+    "failure_modes": [
+      "Wrong cp selection"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-006",
+      "BIO-DRW-012"
+    ],
+    "source_ids": [
+      "ASME_PTC_10",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-005",
+    "name_es": "Steam cycle Rankine efficiency",
+    "purpose": "Thermodynamic efficiency",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004",
+      "BIO-005"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "η_rankine = (W_turbine - W_pump) / Q_in",
+      "W_turbine = m_steam * (h1 - h2) + m_reheat * (h3 - h4)",
+      "Q_in = m_steam * (h1 - h_f) + m_reheat * (h3 - h2)"
+    ],
+    "equations_latex": [
+      "\\eta_R = \\frac{W_{t} - W_{p}}{Q_{in}}"
+    ],
+    "variables": [
+      {
+        "name": "η_rankine",
+        "unit": "dimensionless_ratio"
+      },
+      {
+        "name": "W_turbine",
+        "unit": "kW"
+      },
+      {
+        "name": "m_steam",
+        "unit": "kg/s"
+      },
+      {
+        "name": "h1",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "h2",
+        "unit": "kJ/kg"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "efficiency",
+        "value": "dimensionless"
+      }
+    ],
+    "numerical_method": "Steam tables IAPWS-IF97",
+    "iteration_limits": {
+      "max_iter": 10
+    },
+    "validity_limits": [
+      "η_rankine > 0.25 and < 0.5"
+    ],
+    "outputs": [
+      {
+        "name": "rankine_efficiency",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "η > 25% for subcritical",
+      "η > 35% for supercritical"
+    ],
+    "failure_modes": [
+      "Wrong steam properties"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-013",
+      "BIO-DRW-007"
+    ],
+    "source_ids": [
+      "IAPWS_IF97",
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-006",
+    "name_es": "Turbine cycle heat rate",
+    "purpose": "Heat rate calculation",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "HR = 3600 / η_cycle * 1000",
+      "HR_Btu_kWh = HR * 0.9478"
+    ],
+    "equations_latex": [
+      "\\text{HR} = \\frac{3600}{\\eta_{cycle}}"
+    ],
+    "variables": [
+      {
+        "name": "HR",
+        "unit": "kJ/kWh"
+      },
+      {
+        "name": "η_cycle",
+        "unit": "dimensionless_ratio"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "heat_rate",
+        "value": "kJ/kWh"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "HR > 8000 for small",
+      "HR < 12000 typical biomass"
+    ],
+    "outputs": [
+      {
+        "name": "heat_rate_kj_kwh",
+        "unit": "kJ/kWh"
+      }
+    ],
+    "acceptance_rules": [
+      "HR reasonable"
+    ],
+    "failure_modes": [
+      "Unrealistic HR"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-013"
+    ],
+    "source_ids": [
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-007",
+    "name_es": "Generator output",
+    "purpose": "Electrical power",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_gen = P_turbine * η_turbine * η_generator"
+    ],
+    "equations_latex": [
+      "P_{gen} = P_{t} \\cdot \\eta_t \\cdot \\eta_g"
+    ],
+    "variables": [
+      {
+        "name": "P_gen",
+        "unit": "MWe"
+      },
+      {
+        "name": "P_turbine",
+        "unit": "MW"
+      },
+      {
+        "name": "η_turbine",
+        "unit": "dimensionless_ratio"
+      },
+      {
+        "name": "η_generator",
+        "unit": "dimensionless_ratio"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "power",
+        "value": "MWe = MW * dimensionless * dimensionless"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "P_gen > 0"
+    ],
+    "outputs": [
+      {
+        "name": "generator_output_mwe",
+        "unit": "MWe"
+      }
+    ],
+    "acceptance_rules": [
+      "P_gen matches design"
+    ],
+    "failure_modes": [
+      "Efficiency not in 0-1"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-013",
+      "BIO-DRW-014"
+    ],
+    "source_ids": [
+      "IEC_60034",
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-008",
+    "name_es": "Turbine efficiency",
+    "purpose": "Turbine performance",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004",
+      "BIO-005"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "η_turbine = (h1 - h2) / (h1 - h2_isentropic)"
+    ],
+    "equations_latex": [
+      "\\eta_t = \\frac{h_1 - h_2}{h_1 - h_{2,is}}"
+    ],
+    "variables": [
+      {
+        "name": "η_turbine",
+        "unit": "dimensionless_ratio"
+      },
+      {
+        "name": "h1",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "h2",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "h2_is",
+        "unit": "kJ/kg"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "efficiency",
+        "value": "dimensionless"
+      }
+    ],
+    "numerical_method": "Steam tables",
+    "iteration_limits": {
+      "max_iter": 5
+    },
+    "validity_limits": [
+      "η_turbine > 0.7 and < 0.95"
+    ],
+    "outputs": [
+      {
+        "name": "turbine_efficiency",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "η_turbine > 75%"
+    ],
+    "failure_modes": [
+      "Isentropic efficiency wrong"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-013"
+    ],
+    "source_ids": [
+      "IAPWS_IF97",
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-009",
+    "name_es": "Condenser duty",
+    "purpose": "Condenser performance",
+    "applicability_expression": "turbine_type == condensing",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004",
+      "BIO-005"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_cond = m_steam * (h_steam - h_cond)",
+      "Q_cond = m_cw * cp_w * (T_out - T_in)"
+    ],
+    "equations_latex": [
+      "Q_c = \\dot{m}_s (h_s - h_c) = \\dot{m}_{cw} c_p (T_{out} - T_{in})"
+    ],
+    "variables": [
+      {
+        "name": "Q_cond",
+        "unit": "kW"
+      },
+      {
+        "name": "m_steam",
+        "unit": "kg/s"
+      },
+      {
+        "name": "h_steam",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "h_cond",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "m_cw",
+        "unit": "kg/s"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "heat_duty",
+        "value": "kW = kg/s * kJ/kg"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "Q_cond > 0"
+    ],
+    "outputs": [
+      {
+        "name": "condenser_duty_kw",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_cond matches mass balance"
+    ],
+    "failure_modes": [
+      "Cooling water flow mismatch"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-013"
+    ],
+    "source_ids": [
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-010",
+    "name_es": "Cooling tower sizing",
+    "purpose": "Merkel method",
+    "applicability_expression": "cooling_type==wet_tower",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "KaV/L = beta * (h_w - h_a) / (T_w2 - T_w1)",
+      "Approach = T_cold - T_wb",
+      "Range = T_hot - T_cold"
+    ],
+    "equations_latex": [
+      "\\text{KaV/L} = \\beta \\cdot (h_w - h_a) / (T_{w2} - T_{w1})"
+    ],
+    "variables": [
+      {
+        "name": "KaV/L",
+        "unit": "dimensionless_ratio"
+      },
+      {
+        "name": "approach",
+        "unit": "C"
+      },
+      {
+        "name": "range",
+        "unit": "C"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "tower_size",
+        "value": "m3 = kW / kW/m3"
+      }
+    ],
+    "numerical_method": "Iterative Merkel",
+    "iteration_limits": {
+      "max_iter": 50
+    },
+    "validity_limits": [
+      "Approach > 3C",
+      "Range > 5C"
+    ],
+    "outputs": [
+      {
+        "name": "cooling_tower_volume_m3",
+        "unit": "m3"
+      }
+    ],
+    "acceptance_rules": [
+      "Approach > 3C"
+    ],
+    "failure_modes": [
+      "Low range or impossible"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-013"
+    ],
+    "source_ids": [
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-011",
+    "name_es": "ESP sizing",
+    "purpose": "ESP capacity",
+    "applicability_expression": "fgt_system==ESP",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "SCA = V_gas / (drift_velocity * A * 3600)",
+      "Deutsch: η = 1 - exp(-w * A / Q)"
+    ],
+    "equations_latex": [
+      "\\eta = 1 - \\exp(-w \\cdot A / Q)"
+    ],
+    "variables": [
+      {
+        "name": "SCA",
+        "unit": "m/m/s"
+      },
+      {
+        "name": "w",
+        "unit": "m/s"
+      },
+      {
+        "name": "A",
+        "unit": "m2"
+      },
+      {
+        "name": "Q",
+        "unit": "m3/s"
+      },
+      {
+        "name": "η",
+        "unit": "dimensionless_ratio"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "area",
+        "value": "m2 = m3/s / (m/s)"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "η > 99% for ESP",
+      "A > 50 m2"
+    ],
+    "outputs": [
+      {
+        "name": "esp_collection_area_m2",
+        "unit": "m2"
+      }
+    ],
+    "acceptance_rules": [
+      "η > 99%"
+    ],
+    "failure_modes": [
+      "Particle size too small"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-012"
+    ],
+    "source_ids": [
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-012",
+    "name_es": "Bag filter sizing",
+    "purpose": "Filtration area",
+    "applicability_expression": "fgt_system==bag_filter",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "A_filter = Q / ACR"
+    ],
+    "equations_latex": [
+      "A_f = Q / \\text{ACR}"
+    ],
+    "variables": [
+      {
+        "name": "A_filter",
+        "unit": "m2"
+      },
+      {
+        "name": "Q",
+        "unit": "m3/min"
+      },
+      {
+        "name": "ACR",
+        "unit": "m3/min/m2"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "area",
+        "value": "m2 = m3/min / (m3/min/m2)"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "ACR > 0.8 and < 1.5 m/min"
+    ],
+    "outputs": [
+      {
+        "name": "bag_filter_area_m2",
+        "unit": "m2"
+      }
+    ],
+    "acceptance_rules": [
+      "ACR in range"
+    ],
+    "failure_modes": [
+      "High ACR causes high pressure drop"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-012"
+    ],
+    "source_ids": [
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-013",
+    "name_es": "SCR ammonia flow",
+    "purpose": "Reagent flow",
+    "applicability_expression": "fgt_system==SCR",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_NH3 = NOx * Q * NSR * M_NH3 / M_NOx"
+    ],
+    "equations_latex": [
+      "\\dot{m}_{NH_3} = [NO_x] \\cdot Q \\cdot NSR \\cdot M_{NH_3} / M_{NO_x}"
+    ],
+    "variables": [
+      {
+        "name": "m_NH3",
+        "unit": "kg/h"
+      },
+      {
+        "name": "NOx",
+        "unit": "mg/Nm3"
+      },
+      {
+        "name": "Q",
+        "unit": "Nm3/h"
+      },
+      {
+        "name": "NSR",
+        "unit": "dimensionless_ratio"
+      },
+      {
+        "name": "M_NH3",
+        "unit": "g/mol"
+      },
+      {
+        "name": "M_NOx",
+        "unit": "g/mol"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "ammonia_flow",
+        "value": "kg/h = mg/Nm3 * Nm3/h * dimensionless * g/mol / g/mol"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "NSR 0.8-1.0"
+    ],
+    "outputs": [
+      {
+        "name": "scr_ammonia_flow_kg_h",
+        "unit": "kg/h"
+      }
+    ],
+    "acceptance_rules": [
+      "NSR < 1.0"
+    ],
+    "failure_modes": [
+      "NSR > 1.5 means ammonia slip"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-012"
+    ],
+    "source_ids": [
+      "NFPA_497_2024"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-014",
+    "name_es": "SNCR urea flow",
+    "purpose": "Reagent flow",
+    "applicability_expression": "fgt_system==SNCR",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_urea = NOx * Q * 0.5 * M_urea / (2 * M_NOx)"
+    ],
+    "equations_latex": [
+      "\\dot{m}_{urea} = NO_x \\cdot Q \\cdot 0.5 \\cdot M_{urea} / (2 \\cdot M_{NO_x})"
+    ],
+    "variables": [
+      {
+        "name": "m_urea",
+        "unit": "kg/h"
+      },
+      {
+        "name": "M_urea",
+        "unit": "g/mol"
+      },
+      {
+        "name": "M_NOx",
+        "unit": "g/mol"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "urea_flow",
+        "value": "kg/h"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "SNCR eff 30-70%"
+    ],
+    "outputs": [
+      {
+        "name": "sncr_urea_flow_kg_h",
+        "unit": "kg/h"
+      }
+    ],
+    "acceptance_rules": [
+      "Eff < 70%"
+    ],
+    "failure_modes": [
+      "Eff > 80% unrealistic"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-012"
+    ],
+    "source_ids": [
+      "NFPA_497_2024"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-015",
+    "name_es": "FGD limestone flow",
+    "purpose": "Reagent flow",
+    "applicability_expression": "fgt_system contains FGD",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_limestone = SO2 * Q * M_CaCO3 / M_SO2"
+    ],
+    "equations_latex": [
+      "\\dot{m}_{CaCO_3} = [SO_2] \\cdot Q \\cdot M_{CaCO_3} / M_{SO_2}"
+    ],
+    "variables": [
+      {
+        "name": "m_limestone",
+        "unit": "kg/h"
+      },
+      {
+        "name": "M_CaCO3",
+        "unit": "g/mol"
+      },
+      {
+        "name": "M_SO2",
+        "unit": "g/mol"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "limestone_flow",
+        "value": "kg/h"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "Limestone purity > 90%"
+    ],
+    "outputs": [
+      {
+        "name": "fgd_limestone_flow_kg_h",
+        "unit": "kg/h"
+      }
+    ],
+    "acceptance_rules": [
+      "FGD eff > 90%"
+    ],
+    "failure_modes": [
+      "Low purity affects stoichiometry"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-012"
+    ],
+    "source_ids": [
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-016",
+    "name_es": "Ash generation rate",
+    "purpose": "Ash mass balance",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_ash = m_fuel * (1 - moisture) * ash_pct"
+    ],
+    "equations_latex": [
+      "\\dot{m}_{ash} = \\dot{m}_{fuel} \\cdot (1 - W) \\cdot A"
+    ],
+    "variables": [
+      {
+        "name": "m_ash",
+        "unit": "kg/h"
+      },
+      {
+        "name": "m_fuel",
+        "unit": "kg/h"
+      },
+      {
+        "name": "W",
+        "unit": "fraction"
+      },
+      {
+        "name": "A",
+        "unit": "fraction"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "ash_rate",
+        "value": "kg/h = kg/h * fraction * fraction"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "m_ash > 0"
+    ],
+    "outputs": [
+      {
+        "name": "ash_generation_rate_kg_h",
+        "unit": "kg/h"
+      }
+    ],
+    "acceptance_rules": [
+      "Match boiler spec"
+    ],
+    "failure_modes": [
+      "Negative rate"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-011"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-017",
+    "name_es": "BFW pump power",
+    "purpose": "Pump sizing",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_pump = m_water * g * H / η_pump",
+      "H = (P_steam - P_deaerator) / (ρ * g)"
+    ],
+    "equations_latex": [
+      "P_p = \\dot{m} g H / \\eta_p"
+    ],
+    "variables": [
+      {
+        "name": "P_pump",
+        "unit": "kW"
+      },
+      {
+        "name": "m_water",
+        "unit": "kg/s"
+      },
+      {
+        "name": "g",
+        "unit": "m/s2"
+      },
+      {
+        "name": "H",
+        "unit": "m"
+      },
+      {
+        "name": "η_pump",
+        "unit": "dimensionless_ratio"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "pump_power",
+        "value": "kW = kg/s * m/s2 * m / dimensionless / 1000"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "η_pump > 0.6"
+    ],
+    "outputs": [
+      {
+        "name": "bfw_pump_power_kw",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      "Power matches pump curve"
+    ],
+    "failure_modes": [
+      "Low efficiency"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-008"
+    ],
+    "source_ids": [
+      "API_610_2024"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-018",
+    "name_es": "Deaerator heat duty",
+    "purpose": "Steam for deaerator",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_d = m_water * (h_water_out - h_water_in)",
+      "m_steam = Q_d / (h_steam - h_water_out)"
+    ],
+    "equations_latex": [
+      "Q_d = \\dot{m}_w (h_{out} - h_{in})"
+    ],
+    "variables": [
+      {
+        "name": "Q_d",
+        "unit": "kW"
+      },
+      {
+        "name": "m_water",
+        "unit": "kg/s"
+      },
+      {
+        "name": "h_out",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "h_in",
+        "unit": "kJ/kg"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "heat_duty",
+        "value": "kW = kg/s * kJ/kg"
+      }
+    ],
+    "numerical_method": "Steam tables",
+    "iteration_limits": {
+      "max_iter": 5
+    },
+    "validity_limits": [
+      "Q_d > 0"
+    ],
+    "outputs": [
+      {
+        "name": "deaerator_heat_duty_kw",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      "Match design"
+    ],
+    "failure_modes": [
+      "Low steam flow"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-008"
+    ],
+    "source_ids": [
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-019",
+    "name_es": "HCl emission",
+    "purpose": "Acid gas emission",
+    "applicability_expression": "ultimate_chlorine_daf_pct > 0.05",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "HCl_mol = Cl_mol",
+      "m_HCl = HCl_mol * M_HCl"
+    ],
+    "equations_latex": [
+      "[HCl] = \\frac{\\dot{m}_{HCl}}{\\dot{V}_{fg, dry, 11% O2}}"
+    ],
+    "variables": [
+      {
+        "name": "HCl",
+        "unit": "mg/Nm3"
+      },
+      {
+        "name": "Cl_mol",
+        "unit": "mol/s"
+      },
+      {
+        "name": "M_HCl",
+        "unit": "g/mol"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "hcl_concentration",
+        "value": "mg/Nm3"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "HCl < 100 mg/Nm3 typical"
+    ],
+    "outputs": [
+      {
+        "name": "hcl_emission_mg_nm3",
+        "unit": "mg/Nm3"
+      }
+    ],
+    "acceptance_rules": [
+      "Below regulatory limit"
+    ],
+    "failure_modes": [
+      "Wrong Cl%"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-012"
+    ],
+    "source_ids": [
+      "NIST_WEBBOOK"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-020",
+    "name_es": "Stack height (dispersion)",
+    "purpose": "Stack sizing per Gaussian",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004",
+      "BIO-005",
+      "BIO-006"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "h_eff = h_physical + Δh (Briggs plume rise)",
+      "C_max = Q * (no plume rise) / (u * σ_y * σ_z * 2π)"
+    ],
+    "equations_latex": [
+      "C = \\frac{Q}{2\\pi u \\sigma_y \\sigma_z} \\exp(-\\frac{H^2}{2\\sigma_z^2})"
+    ],
+    "variables": [
+      {
+        "name": "C",
+        "unit": "ug/m3"
+      },
+      {
+        "name": "Q",
+        "unit": "g/s"
+      },
+      {
+        "name": "u",
+        "unit": "m/s"
+      },
+      {
+        "name": "σ_y",
+        "unit": "m"
+      },
+      {
+        "name": "σ_z",
+        "unit": "m"
+      },
+      {
+        "name": "H",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "stack_height",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Gaussian dispersion",
+    "iteration_limits": {
+      "max_iter": 10
+    },
+    "validity_limits": [
+      "C < regulatory limit"
+    ],
+    "outputs": [
+      {
+        "name": "stack_height_m",
+        "unit": "m"
+      },
+      {
+        "name": "plume_rise_m",
+        "unit": "m"
+      },
+      {
+        "name": "ground_level_concentration_ug_m3",
+        "unit": "ug/m3"
+      }
+    ],
+    "acceptance_rules": [
+      "C < NAAQS/ECA at receptor"
+    ],
+    "failure_modes": [
+      "Plume rise wrong"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-012"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-021",
+    "name_es": "Storage silo capacity",
+    "purpose": "Silo sizing",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V = (m_fuel * 86400 * days) / BD"
+    ],
+    "equations_latex": [
+      "V = \\frac{\\dot{m} \\cdot 86400 \\cdot D}{BD}"
+    ],
+    "variables": [
+      {
+        "name": "V",
+        "unit": "m3"
+      },
+      {
+        "name": "m_fuel",
+        "unit": "kg/s"
+      },
+      {
+        "name": "days",
+        "unit": "days"
+      },
+      {
+        "name": "BD",
+        "unit": "kg/m3"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "volume",
+        "value": "m3 = kg/s * s * days / (kg/m3)"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "V > 0"
+    ],
+    "outputs": [
+      {
+        "name": "fuel_storage_silo_capacity_m3",
+        "unit": "m3"
+      }
+    ],
+    "acceptance_rules": [
+      "Match design"
+    ],
+    "failure_modes": [
+      "Negative V"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-003"
+    ],
+    "source_ids": [
+      "NFPA_664"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-022",
+    "name_es": "Economizer duty",
+    "purpose": "Heat duty",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_eco = m_water * (h_water_out - h_water_in)",
+      "LMTD = ((T_g_in - T_w_out) - (T_g_out - T_w_in)) / ln((T_g_in - T_w_out) / (T_g_out - T_w_in))"
+    ],
+    "equations_latex": [
+      "Q = \\dot{m} (h_{out} - h_{in}) = U \\cdot A \\cdot \\text{LMTD}"
+    ],
+    "variables": [
+      {
+        "name": "Q_eco",
+        "unit": "kW"
+      },
+      {
+        "name": "m_water",
+        "unit": "kg/s"
+      },
+      {
+        "name": "LMTD",
+        "unit": "C"
+      },
+      {
+        "name": "U",
+        "unit": "W/m2/K"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "heat_duty",
+        "value": "kW = kg/s * kJ/kg"
+      }
+    ],
+    "numerical_method": "Steam tables + LMTD",
+    "iteration_limits": {
+      "max_iter": 5
+    },
+    "validity_limits": [
+      "Q > 0"
+    ],
+    "outputs": [
+      {
+        "name": "economizer_duty_kw",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      "Match design"
+    ],
+    "failure_modes": [
+      "Low LMTD"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-006"
+    ],
+    "source_ids": [
+      "IAPWS_IF97",
+      "ISO_15547_1"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-023",
+    "name_es": "FD/ID fan power",
+    "purpose": "Fan sizing",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_fan = Q_air * ΔP / η_fan"
+    ],
+    "equations_latex": [
+      "P_f = \\frac{Q \\Delta P}{\\eta_f}"
+    ],
+    "variables": [
+      {
+        "name": "P_fan",
+        "unit": "W"
+      },
+      {
+        "name": "Q",
+        "unit": "m3/s"
+      },
+      {
+        "name": "ΔP",
+        "unit": "Pa"
+      },
+      {
+        "name": "η_fan",
+        "unit": "dimensionless_ratio"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "fan_power",
+        "value": "W = m3/s * Pa / dimensionless"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "η_fan > 0.6"
+    ],
+    "outputs": [
+      {
+        "name": "fd_fan_power_kw",
+        "unit": "kW"
+      },
+      {
+        "name": "id_fan_power_kw",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      "Match fan curve"
+    ],
+    "failure_modes": [
+      "Low efficiency"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-006"
+    ],
+    "source_ids": [
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-024",
+    "name_es": "Safety/Hazop/SIL",
+    "purpose": "Safety system sizing",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003",
+      "BIO-004"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "SIL verification: PFD_avg < SIL_target",
+      "ESD response time < process safety time"
+    ],
+    "equations_latex": [
+      "\\text{PFD}_{avg} \\leq 10^{-n} \\text{ for SIL} \\, n"
+    ],
+    "variables": [
+      {
+        "name": "PFD_avg",
+        "unit": "1/h"
+      },
+      {
+        "name": "SIL_target",
+        "unit": "SIL1-4"
+      },
+      {
+        "name": "ESD_response_time",
+        "unit": "s"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "SIL_achieved",
+        "value": "SIL1-4"
+      }
+    ],
+    "numerical_method": "LOPA + Reliability block diagram",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "SIL achieved >= SIL target"
+    ],
+    "outputs": [
+      {
+        "name": "sil_achieved",
+        "unit": "various_units"
+      },
+      {
+        "name": "esd_response_time",
+        "unit": "s"
+      }
+    ],
+    "acceptance_rules": [
+      "SIL achieved >= SIL target"
+    ],
+    "failure_modes": [
+      "ESD response > safety time"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61508_1"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-025",
+    "name_es": "Boiler drum thickness",
+    "purpose": "ASME BPVC",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "t = P*R / (S*E - 0.6*P) + corrosion_allowance"
+    ],
+    "equations_latex": [
+      "t = \\frac{P R}{S E - 0.6 P} + CA"
+    ],
+    "variables": [
+      {
+        "name": "t",
+        "unit": "mm"
+      },
+      {
+        "name": "P",
+        "unit": "MPa"
+      },
+      {
+        "name": "R",
+        "unit": "mm"
+      },
+      {
+        "name": "S",
+        "unit": "MPa"
+      },
+      {
+        "name": "E",
+        "unit": "dimensionless_ratio"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "thickness",
+        "value": "mm = MPa * mm / (MPa * dimensionless - MPa)"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "t > 0 and < 200 mm"
+    ],
+    "outputs": [
+      {
+        "name": "boiler_drum_thickness_mm",
+        "unit": "mm"
+      }
+    ],
+    "acceptance_rules": [
+      "ASME BPVC Sec VIII Div 1 satisfied"
+    ],
+    "failure_modes": [
+      "Pressure too high"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-005"
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-026",
+    "name_es": "Pipe wall thickness",
+    "purpose": "ASME B31.1",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "t = P*D / (2*(S*E + W*P) + 2*A*P) + corrosion_allowance",
+      "t_ma = t * (1 + A_excess)"
+    ],
+    "equations_latex": [
+      "t = \\frac{P D}{2(S E + W P + 2 A P)} + CA"
+    ],
+    "variables": [
+      {
+        "name": "t",
+        "unit": "mm"
+      },
+      {
+        "name": "P",
+        "unit": "MPa"
+      },
+      {
+        "name": "D",
+        "unit": "mm"
+      },
+      {
+        "name": "S",
+        "unit": "MPa"
+      },
+      {
+        "name": "E",
+        "unit": "dimensionless_ratio"
+      },
+      {
+        "name": "W",
+        "unit": "kg"
+      },
+      {
+        "name": "A",
+        "unit": "dimensionless_ratio"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "thickness",
+        "value": "mm = MPa * mm / (MPa * dimensionless)"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "t > 0 and < 50 mm"
+    ],
+    "outputs": [
+      {
+        "name": "pipe_wall_thickness_mm",
+        "unit": "mm"
+      }
+    ],
+    "acceptance_rules": [
+      "ASME B31.1 satisfied"
+    ],
+    "failure_modes": [
+      "Pressure too high"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-007"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-027",
+    "name_es": "Blowdown rate",
+    "purpose": "Water treatment",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "BD = (TDS_fw - TDS_steam) / (TDS_bw - TDS_fw)"
+    ],
+    "equations_latex": [
+      "\\text{BD} = \\frac{\\text{TDS}_{fw} - \\text{TDS}_{st}}{\\text{TDS}_{bw} - \\text{TDS}_{fw}}"
+    ],
+    "variables": [
+      {
+        "name": "BD",
+        "unit": "fraction"
+      },
+      {
+        "name": "TDS_fw",
+        "unit": "ppm"
+      },
+      {
+        "name": "TDS_st",
+        "unit": "ppm"
+      },
+      {
+        "name": "TDS_bw",
+        "unit": "ppm"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "blowdown_rate",
+        "value": "fraction"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "BD 1-10%"
+    ],
+    "outputs": [
+      {
+        "name": "blowdown_rate_pct",
+        "unit": "percent"
+      }
+    ],
+    "acceptance_rules": [
+      "BD < 10%"
+    ],
+    "failure_modes": [
+      "BD > 20% indicates feedwater issue"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-008"
+    ],
+    "source_ids": [
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "calculation_id": "BIO-C-028",
+    "name_es": "Conveyor capacity",
+    "purpose": "Material handling",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_conveyor = m_fuel * 3600 / BD",
+      "length = Q / (cross_section * velocity)"
+    ],
+    "equations_latex": [
+      "Q = \\dot{m} \\cdot 3600 / BD"
+    ],
+    "variables": [
+      {
+        "name": "Q",
+        "unit": "m3/h"
+      },
+      {
+        "name": "m_fuel",
+        "unit": "kg/s"
+      },
+      {
+        "name": "BD",
+        "unit": "kg/m3"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "capacity",
+        "value": "m3/h = kg/s * s/h / (kg/m3)"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "Q > m_fuel * 1.5"
+    ],
+    "outputs": [
+      {
+        "name": "conveyor_capacity_ton_h",
+        "unit": "ton/h"
+      }
+    ],
+    "acceptance_rules": [
+      "Match design + 20% margin"
+    ],
+    "failure_modes": [
+      "Insufficient capacity"
+    ],
+    "drawing_impacts": [
+      "BIO-DRW-010"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ]
+  }
+]

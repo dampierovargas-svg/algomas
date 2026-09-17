@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/field.schema.json",
+  "title": "Campo de dato de proyecto",
+  "description": "Definición de campo extraído y normalizado de documentos de proyecto",
+  "type": "object",
+  "required": [
+    "field_id",
+    "name_es",
+    "data_type",
+    "unit",
+    "discipline",
+    "mandatory_policy"
+  ],
+  "properties": {
+    "field_id": {
+      "type": "string",
+      "pattern": "^FLD-[A-Z]{3,6}-\\d{4}$",
+      "description": "ID único: FLD-DISCIPLINA-NUM"
+    },
+    "name_es": {
+      "type": "string",
+      "minLength": 5
+    },
+    "name_en": {
+      "type": "string",
+      "minLength": 5
+    },
+    "description": {
+      "type": "string"
+    },
+    "data_type": {
+      "type": "string",
+      "enum": ["number", "string", "boolean", "date", "enum", "array_number", "array_string", "coordinate_2d", "coordinate_3d"]
+    },
+    "unit": {
+      "type": "string",
+      "enum": [
+        "m", "mm", "km", "cm",
+        "m2", "mm2", "ha",
+        "m3", "L", "gal",
+        "kg", "t", "lb",
+        "s", "min", "h", "day", "year",
+        "Hz", "rpm",
+        "V", "kV", "A", "kA", "W", "kW", "MW", "GW", "VA", "kVA", "MVA", "var", "kvar", "Mvar",
+        "ohm", "pct",
+        "Pa", "kPa", "MPa", "bar", "psi", "atm",
+        "C", "K", "F",
+        "J", "kJ", "MJ", "Wh", "kWh", "MWh", "GWh", "TWh", "Btu",
+        "N", "kN", "MN",
+        "deg", "rad", "grad",
+        "m_s", "km_h", "kn",
+        "kg_m3", "g_L",
+        "W_m2", "kWh_m2_day",
+        "m_s2", "gal",
+        "dimensionless", "ratio", "index"
+      ]
+    },
+    "discipline": {
+      "type": "string",
+      "enum": ["ELEC", "CIVIL", "STR", "MECH", "HYD", "PROC", "INST", "SAFETY", "FIRE", "GEO", "ENV", "GEN"]
+    },
+    "domain_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["pv", "wind", "hydro", "biomass", "biogas", "geothermal", "csp", "marine", "bess", "hydrogen", "hybrid"]
+      },
+      "uniqueItems": true
+    },
+    "mandatory_policy": {
+      "type": "string",
+      "enum": ["project_mandatory", "technology_mandatory", "conditional_blocking", "prohibited_assume", "optional"]
+    },
+    "blocking_if_missing": {
+      "type": "boolean",
+      "default": false
+    },
+    "valid_range": {
+      "type": "object",
+      "properties": {
+        "min": {"type": "number"},
+        "max": {"type": "number"},
+        "exclusive_min": {"type": "boolean", "default": false},
+        "exclusive_max": {"type": "boolean", "default": false}
+      }
+    },
+    "valid_set": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "default_value": {},
+    "extraction_patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "document_type": {"type": "string"},
+          "regex": {"type": "string"},
+          "group_index": {"type": "integer"}
+        }
+      }
+    },
+    "transformations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Transformaciones aplicables: uppercase, lowercase, trim, to_number, to_boolean, date_parse, unit_convert"
+    },
+    "related_calculations": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "IDs de cálculos que usan este campo como input"
+    },
+    "related_drawings": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "IDs de planos que requieren este campo"
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Fuentes normativas que exigen este campo"
+    }
+  },
+  "additionalProperties": false
+}

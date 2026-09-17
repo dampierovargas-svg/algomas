@@ -1,0 +1,2595 @@
+[
+  {
+    "calculation_id": "GEO-C-001",
+    "name_es": "Temperatura de reservorio - Geotermómetro Na-K (Fournier)",
+    "purpose": "Estimar la temperatura del reservorio a partir de la relación Na/K del fluido.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-014",
+      "GEO-015"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "T_NaK = (933 / (log10(Na/K) + 0.702)) - 273.15"
+    ],
+    "equations_latex": [
+      "T_{NaK} = \\frac{933}{\\log_{10}(Na/K) + 0.702} - 273.15"
+    ],
+    "variables": [
+      {
+        "name": "Concentración de sodio",
+        "symbol": "Na",
+        "unit": "mg/L"
+      },
+      {
+        "name": "Concentración de potasio",
+        "symbol": "K",
+        "unit": "mg/L"
+      },
+      {
+        "name": "Temperatura estimada",
+        "symbol": "T_NaK",
+        "unit": "degC"
+      }
+    ],
+    "unit_equations": [
+      "1 mg/L Na,K equivalente; resultado en degC"
+    ],
+    "references": [
+      "IAPWS_IF97;ISO_6107_1;ISO_14685"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "T_NaK",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-001: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-001: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-002",
+    "name_es": "Temperatura de reservorio - Geotermómetro de sílice (Fournier)",
+    "purpose": "Estimar la temperatura del reservorio usando la concentración de sílice disuelta.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-021"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "T_SiO2 = (1522 / (5.75 - log10(SiO2))) - 273.15"
+    ],
+    "equations_latex": [
+      "T_{SiO2} = \\frac{1522}{5.75 - \\log_{10}(SiO2)} - 273.15"
+    ],
+    "variables": [
+      {
+        "name": "Concentración de sílice",
+        "symbol": "SiO2",
+        "unit": "mg/L"
+      },
+      {
+        "name": "Temperatura estimada",
+        "symbol": "T_SiO2",
+        "unit": "degC"
+      }
+    ],
+    "unit_equations": [
+      "Resultado en degC; usa sílice como cuarzo"
+    ],
+    "references": [
+      "IAPWS_IF97;ISO_6107_1;ISO_14685"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "T_SiO2",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-002: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-002: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-003",
+    "name_es": "Clasificación Piper del fluido geotérmico",
+    "purpose": "Clasificar la química del fluido mediante el diagrama de Piper a partir de iones mayores.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-014",
+      "GEO-015",
+      "GEO-016",
+      "GEO-017",
+      "GEO-018",
+      "GEO-019",
+      "GEO-020",
+      "GEO-021"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "piper_cation = (Ca_eq/sum_cat)*100; piper_anion = (Cl_eq/sum_an)*100; type = classify(piper_cation, piper_anion)"
+    ],
+    "equations_latex": [
+      "\\%Ca^{eq} = \\frac{Ca/20.04}{\\sum cat_{eq}} \\cdot 100"
+    ],
+    "variables": [
+      {
+        "name": "Equivalente de calcio",
+        "symbol": "Ca_eq",
+        "unit": "meq/L"
+      },
+      {
+        "name": "Equivalente de cloruro",
+        "symbol": "Cl_eq",
+        "unit": "meq/L"
+      },
+      {
+        "name": "Suma de cationes equivalentes",
+        "symbol": "sum_cat",
+        "unit": "meq/L"
+      },
+      {
+        "name": "Suma de aniones equivalentes",
+        "symbol": "sum_an",
+        "unit": "meq/L"
+      },
+      {
+        "name": "Tipo Piper",
+        "symbol": "type",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "Conversión a meq/L por valencia y peso atómico"
+    ],
+    "references": [
+      "ISO_6107_1;MINAM_DS_019_2009;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "piper_cation",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-003: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-003: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-004",
+    "name_es": "Flujo másico total y entalpía bifásica del pozo",
+    "purpose": "Calcular el flujo másico y entalpía bifásica del pozo productor.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-026",
+      "GEO-103",
+      "GEO-031",
+      "GEO-032",
+      "GEO-057"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_total = N_wells * m_well; h_total = h_steam*x + h_brine*(1-x); x = (h_reservoir - h_brine)/(h_steam - h_brine)"
+    ],
+    "equations_latex": [
+      "m_{total} = N_{wells} \\cdot m_{well};\\ x = \\frac{h_{reservoir} - h_{brine}}{h_{steam} - h_{brine}}"
+    ],
+    "variables": [
+      {
+        "name": "Número de pozos",
+        "symbol": "N_wells",
+        "unit": "-"
+      },
+      {
+        "name": "Flujo por pozo",
+        "symbol": "m_well",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Flujo total",
+        "symbol": "m_total",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Entalpía de reservorio",
+        "symbol": "h_reservoir",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Entalpía de vapor",
+        "symbol": "h_steam",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Entalpía de salmuera",
+        "symbol": "h_brine",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Calidad de vapor",
+        "symbol": "x",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "Entalpías vía IAPWS-IF97 según P,T de cabezal"
+    ],
+    "references": [
+      "IAPWS_IF97;ISO_6107_1;ISO_14685;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "m_total",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-004: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-004: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-005",
+    "name_es": "Caída de presión bifásica - Beggs-Brill",
+    "purpose": "Calcular la caída de presión en tubería bifásica gathering por Beggs-Brill.",
+    "applicability_expression": "gathering_two_phase_flow == true",
+    "input_field_ids": [
+      "GEO-036",
+      "GEO-037",
+      "GEO-038",
+      "GEO-103"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "dP = (f_tp * rho_L * v_m^2 / (2*D)) * L * (1 + Eo*sin(theta)) + rho_tp*g*sin(theta)*L"
+    ],
+    "equations_latex": [
+      "\\Delta P = \\frac{f_{tp} \\rho_L v_m^2}{2D}L(1 + E_o \\sin\\theta) + \\rho_{tp}gL\\sin\\theta"
+    ],
+    "variables": [
+      {
+        "name": "Factor de fricción bifásico",
+        "symbol": "f_tp",
+        "unit": "-"
+      },
+      {
+        "name": "Densidad líquido",
+        "symbol": "rho_L",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Velocidad de mezcla",
+        "symbol": "v_m",
+        "unit": "m/s"
+      },
+      {
+        "name": "Diámetro interno",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "Longitud",
+        "symbol": "L",
+        "unit": "m"
+      },
+      {
+        "name": "Ángulo de inclinación",
+        "symbol": "theta",
+        "unit": "deg"
+      },
+      {
+        "name": "Densidad bifásica",
+        "symbol": "rho_tp",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Caída de presión",
+        "symbol": "dP",
+        "unit": "Pa"
+      }
+    ],
+    "unit_equations": [
+      "1 Pa = 0.01 mbar"
+    ],
+    "references": [
+      "ASME_B31_3_2022;API_1104_2021;ASME_BPVC_VIII_1_2023;IAPWS_IF97;ISO_6107_1;ISO_14685"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "dP",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-005: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-005: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-006",
+    "name_es": "Caída de presión bifásica - Mukherjee-Brill",
+    "purpose": "Validar la caída de presión bifásica con correlación Mukherjee-Brill.",
+    "applicability_expression": "gathering_two_phase_flow == true",
+    "input_field_ids": [
+      "GEO-036",
+      "GEO-037",
+      "GEO-038",
+      "GEO-103"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "dP_MB = (f_tp*rho_m*v_m^2/(2*D))*L + rho_m*g*sin(theta)*L"
+    ],
+    "equations_latex": [
+      "\\Delta P_{MB} = \\frac{f_{tp}\\rho_m v_m^2}{2D}L + \\rho_m gL\\sin\\theta"
+    ],
+    "variables": [
+      {
+        "name": "Factor de fricción",
+        "symbol": "f_tp",
+        "unit": "-"
+      },
+      {
+        "name": "Densidad de mezcla",
+        "symbol": "rho_m",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Velocidad de mezcla",
+        "symbol": "v_m",
+        "unit": "m/s"
+      },
+      {
+        "name": "Diámetro",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "Longitud",
+        "symbol": "L",
+        "unit": "m"
+      },
+      {
+        "name": "Caída de presión",
+        "symbol": "dP_MB",
+        "unit": "Pa"
+      }
+    ],
+    "unit_equations": [
+      "Comparar resultado con GEO-C-005 (diferencia < 20%)"
+    ],
+    "references": [
+      "ASME_B31_3_2022;API_1104_2021;ASME_BPVC_VIII_1_2023;IAPWS_IF97;ISO_6107_1;ISO_14685"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "dP_MB",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-006: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-006: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-007",
+    "name_es": "Dimensionamiento de separador bifásico (diámetro y longitud)",
+    "purpose": "Calcular diámetro y longitud del separador bifásico por criterio de velocidad crítica.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-040",
+      "GEO-041",
+      "GEO-042",
+      "GEO-043",
+      "GEO-103",
+      "GEO-048"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_terminal = K_s*(g*sigma*(rho_L - rho_V)/rho_V^2)^0.25; D = sqrt(4*Q_v/(pi*V_terminal)); L = L_residence*v_L"
+    ],
+    "equations_latex": [
+      "V_t = K_s\\sqrt[4]{g\\sigma(\\rho_L-\\rho_V)/\\rho_V^2};\\ D = \\sqrt{\\frac{4Q_v}{\\pi V_t}}"
+    ],
+    "variables": [
+      {
+        "name": "Velocidad terminal",
+        "symbol": "V_terminal",
+        "unit": "m/s"
+      },
+      {
+        "name": "Constante Souders-Brown",
+        "symbol": "K_s",
+        "unit": "m/s"
+      },
+      {
+        "name": "Tensión superficial",
+        "symbol": "sigma",
+        "unit": "N/m"
+      },
+      {
+        "name": "Densidad líquida",
+        "symbol": "rho_L",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Densidad vapor",
+        "symbol": "rho_V",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Caudal volumétrico gas",
+        "symbol": "Q_v",
+        "unit": "m3/s"
+      },
+      {
+        "name": "Diámetro",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "Longitud",
+        "symbol": "L",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "Residencia >= 5 s según ASME BPVC VIII-1"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;ASME_B31_3_2022;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "V_terminal",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-007: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-007: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-008",
+    "name_es": "Velocidad admisible en separador (terminal)",
+    "purpose": "Calcular velocidad crítica de separación para validar sizing.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-038",
+      "GEO-040",
+      "GEO-041"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_adm = K_s*((g*(rho_L-rho_V)*sigma)/rho_V^2)^0.25"
+    ],
+    "equations_latex": [
+      "V_{adm} = K_s \\left(\\frac{g(\\rho_L - \\rho_V)\\sigma}{\\rho_V^2}\\right)^{0.25}"
+    ],
+    "variables": [
+      {
+        "name": "Constante Souders-Brown",
+        "symbol": "K_s",
+        "unit": "m/s"
+      },
+      {
+        "name": "Tensión superficial",
+        "symbol": "sigma",
+        "unit": "N/m"
+      },
+      {
+        "name": "Densidad líquida",
+        "symbol": "rho_L",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Densidad vapor",
+        "symbol": "rho_V",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Velocidad admisible",
+        "symbol": "V_adm",
+        "unit": "m/s"
+      }
+    ],
+    "unit_equations": [
+      "Velocidad real < V_adm"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;ASME_B31_3_2022;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "V_adm",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-008: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-008: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-009",
+    "name_es": "Dimensionamiento de flash vessel",
+    "purpose": "Calcular diámetro y volumen del flash vessel según presiones HP/LP.",
+    "applicability_expression": "plant_type contains flash",
+    "input_field_ids": [
+      "GEO-044",
+      "GEO-045",
+      "GEO-046",
+      "GEO-047",
+      "GEO-103"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "D_flash = sqrt(4*Q_v_flash/(pi*V_flash)); L_flash = (m_brine/residence_vol); V_flash = K_flash*( )"
+    ],
+    "equations_latex": [
+      "D_{flash} = \\sqrt{\\frac{4Q_{v,flash}}{\\pi V_{flash}}}"
+    ],
+    "variables": [
+      {
+        "name": "Caudal volumétrico de vapor flash",
+        "symbol": "Q_v_flash",
+        "unit": "m3/s"
+      },
+      {
+        "name": "Velocidad admisible flash",
+        "symbol": "V_flash",
+        "unit": "m/s"
+      },
+      {
+        "name": "Diámetro del flash vessel",
+        "symbol": "D_flash",
+        "unit": "m"
+      },
+      {
+        "name": "Longitud del flash vessel",
+        "symbol": "L_flash",
+        "unit": "m"
+      },
+      {
+        "name": "Flujo de salmuera",
+        "symbol": "m_brine",
+        "unit": "kg/s"
+      }
+    ],
+    "unit_equations": [
+      "Flash vessel sizing per ASME BPVC VIII-1"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "D_flash",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-009: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-009: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-010",
+    "name_es": "Capacidad de demister (scrubber)",
+    "purpose": "Calcular la capacidad másica del demister para retener gotas.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-048",
+      "GEO-049",
+      "GEO-050"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_demister = rho_V * A_demister * V_demister * eff_demister"
+    ],
+    "equations_latex": [
+      "\\dot m_{demister} = \\rho_V A_{demister} V_{demister} \\eta_{demister}"
+    ],
+    "variables": [
+      {
+        "name": "Densidad vapor",
+        "symbol": "rho_V",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Área del demister",
+        "symbol": "A_demister",
+        "unit": "m2"
+      },
+      {
+        "name": "Velocidad a través demister",
+        "symbol": "V_demister",
+        "unit": "m/s"
+      },
+      {
+        "name": "Eficiencia del demister",
+        "symbol": "eff_demister",
+        "unit": "-"
+      },
+      {
+        "name": "Capacidad másica",
+        "symbol": "m_demister",
+        "unit": "kg/s"
+      }
+    ],
+    "unit_equations": [
+      "m_demister <= 0.95 * m_vapor; eff >= 0.995"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;ASME_B31_3_2022;IAPWS_IF97;ASME_B31_1_2022;ASME_BPVC_VIII_1_2023"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "m_demister",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-010: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-010: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-011",
+    "name_es": "Flujo másico de vapor a turbina",
+    "purpose": "Calcular el flujo másico de vapor seco enviado a la turbina.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-026",
+      "GEO-103",
+      "GEO-057",
+      "GEO-060"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_steam = x * m_total; x = (h_reservoir - h_brine)/(h_steam - h_brine)"
+    ],
+    "equations_latex": [
+      "\\dot m_{steam} = x \\cdot \\dot m_{total}"
+    ],
+    "variables": [
+      {
+        "name": "Calidad de vapor",
+        "symbol": "x",
+        "unit": "-"
+      },
+      {
+        "name": "Flujo total",
+        "symbol": "m_total",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Flujo de vapor",
+        "symbol": "m_steam",
+        "unit": "kg/s"
+      }
+    ],
+    "unit_equations": [
+      "Calidad según entalpía IAPWS-IF97"
+    ],
+    "references": [
+      "IAPWS_IF97;ISO_6107_1;ISO_14685;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "m_steam",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-011: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-011: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-012",
+    "name_es": "Flujo másico de salmuera a reinyección",
+    "purpose": "Calcular el flujo másico de salmuera enviado a reinyección.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-026",
+      "GEO-103",
+      "GEO-057"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_brine = (1 - x) * m_total"
+    ],
+    "equations_latex": [
+      "\\dot m_{brine} = (1 - x) \\dot m_{total}"
+    ],
+    "variables": [
+      {
+        "name": "Calidad de vapor",
+        "symbol": "x",
+        "unit": "-"
+      },
+      {
+        "name": "Flujo total",
+        "symbol": "m_total",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Flujo de salmuera",
+        "symbol": "m_brine",
+        "unit": "kg/s"
+      }
+    ],
+    "unit_equations": [
+      "m_brine = m_total - m_steam"
+    ],
+    "references": [
+      "IAPWS_IF97;ISO_6107_1;ISO_14685;ASME_B31_3_2022;API_1104_2021;MINAM_DS_019_2009;ISO_14685"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "m_brine",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-012: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-012: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-013",
+    "name_es": "Flujo másico de gases no condensables (NCG)",
+    "purpose": "Calcular el flujo másico de NCG extraído del condensador.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-022",
+      "GEO-023",
+      "GEO-024",
+      "GEO-025",
+      "GEO-026",
+      "GEO-103"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_NCG = (f_CO2 + f_H2S + f_NH3 + f_CH4) * m_vapor_total"
+    ],
+    "equations_latex": [
+      "\\dot m_{NCG} = (f_{CO2} + f_{H2S} + f_{NH3} + f_{CH4}) \\dot m_{vapor,total}"
+    ],
+    "variables": [
+      {
+        "name": "Fracción másica CO2",
+        "symbol": "f_CO2",
+        "unit": "-"
+      },
+      {
+        "name": "Fracción másica H2S",
+        "symbol": "f_H2S",
+        "unit": "-"
+      },
+      {
+        "name": "Fracción másica NH3",
+        "symbol": "f_NH3",
+        "unit": "-"
+      },
+      {
+        "name": "Fracción másica CH4",
+        "symbol": "f_CH4",
+        "unit": "-"
+      },
+      {
+        "name": "Flujo másico de vapor total",
+        "symbol": "m_vapor_total",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Flujo másico NCG",
+        "symbol": "m_NCG",
+        "unit": "kg/s"
+      }
+    ],
+    "unit_equations": [
+      "Suma de fracciones ≤ 0.30"
+    ],
+    "references": [
+      "ASME_PTC_10;API_521;ASME_B31_1_2022;ISO_6107_1;MINAM_DS_019_2009;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "m_NCG",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-013: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-013: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-014",
+    "name_es": "Potencia de turbina de vapor (Rankine)",
+    "purpose": "Calcular la potencia generada por la turbina de vapor condensante.",
+    "applicability_expression": "plant_type in [dry_steam,single_flash,double_flash,flash_binary_hybrid]",
+    "input_field_ids": [
+      "GEO-060",
+      "GEO-061",
+      "GEO-062",
+      "GEO-063",
+      "GEO-064",
+      "GEO-103"
+    ],
+    "derived_input_ids": [
+      "GEO-C-011"
+    ],
+    "equations_ascii": [
+      "W_turbine = m_steam * (h_in - h_out_s) * eta_isentropic; h_out_s = h(P_out, s_in)"
+    ],
+    "equations_latex": [
+      "\\dot W_{turb} = \\dot m_{steam}(h_{in} - h_{out,s})\\eta_{is}"
+    ],
+    "variables": [
+      {
+        "name": "Flujo de vapor",
+        "symbol": "m_steam",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Entalpía de entrada",
+        "symbol": "h_in",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Entalpía isoentrópica de salida",
+        "symbol": "h_out_s",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Eficiencia isoentrópica",
+        "symbol": "eta_isentropic",
+        "unit": "-"
+      },
+      {
+        "name": "Potencia",
+        "symbol": "W_turbine",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      "1 kW = 0.001 MW; h vía IAPWS-IF97"
+    ],
+    "references": [
+      "ASME_PTC_10;IAPWS_IF97;ISO_1940_1;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "W_turbine",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-014: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-014: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-015",
+    "name_es": "Duty del condensador principal",
+    "purpose": "Calcular el calor rechazado en el condensador principal.",
+    "applicability_expression": "plant_type in [dry_steam,single_flash,double_flash,flash_binary_hybrid]",
+    "input_field_ids": [
+      "GEO-065",
+      "GEO-066",
+      "GEO-067",
+      "GEO-069",
+      "GEO-103"
+    ],
+    "derived_input_ids": [
+      "GEO-C-011",
+      "GEO-C-013"
+    ],
+    "equations_ascii": [
+      "Q_cond = m_steam * (h_exhaust - h_liquid_cond) + m_NCG * h_NCG"
+    ],
+    "equations_latex": [
+      "\\dot Q_{cond} = \\dot m_{steam}(h_{exhaust} - h_{l,cond}) + \\dot m_{NCG} h_{NCG}"
+    ],
+    "variables": [
+      {
+        "name": "Flujo de vapor",
+        "symbol": "m_steam",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Entalpía de escape",
+        "symbol": "h_exhaust",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Entalpía líquido condensado",
+        "symbol": "h_liquid_cond",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Flujo NCG",
+        "symbol": "m_NCG",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Entalpía NCG",
+        "symbol": "h_NCG",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Duty del condensador",
+        "symbol": "Q_cond",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      "Q_cond en kW, convertir a MW /1e3"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;IAPWS_IF97;ASME_B31_1_2022;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Q_cond",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-015: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-015: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-016",
+    "name_es": "Consumo de vapor motriz del eyector de NCG",
+    "purpose": "Calcular el consumo de vapor motriz del eyector de NCG.",
+    "applicability_expression": "NCG_extraction_type contains ejector",
+    "input_field_ids": [
+      "GEO-070",
+      "GEO-071",
+      "GEO-072",
+      "GEO-103"
+    ],
+    "derived_input_ids": [
+      "GEO-C-013"
+    ],
+    "equations_ascii": [
+      "m_motive = R_ejector * m_NCG; R_ejector = f(P_discharge/P_suction, T_motive)"
+    ],
+    "equations_latex": [
+      "\\dot m_{motive} = R_{ejector} \\dot m_{NCG}"
+    ],
+    "variables": [
+      {
+        "name": "Razón de arrastre del eyector",
+        "symbol": "R_ejector",
+        "unit": "kg_motriz/kg_NCG"
+      },
+      {
+        "name": "Flujo NCG",
+        "symbol": "m_NCG",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Flujo vapor motriz",
+        "symbol": "m_motive",
+        "unit": "kg/s"
+      }
+    ],
+    "unit_equations": [
+      "Típico R_ejector 0.5-5"
+    ],
+    "references": [
+      "ASME_PTC_10;API_521;ASME_B31_1_2022;ASME_PTC_10;IAPWS_IF97;ISO_1940_1"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "m_motive",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-016: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-016: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-017",
+    "name_es": "Índice de saturación de sílice (AMI)",
+    "purpose": "Calcular el índice de saturación de sílice amorfa (Amorphous Silica Saturation Index).",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-021",
+      "GEO-032",
+      "GEO-100"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "log10(SiO2_eq) = (-731/log10(T_K)) + 5.88; AMI = log10(SiO2_actual) - log10(SiO2_eq)"
+    ],
+    "equations_latex": [
+      "\\log_{10}(SiO2_{eq}) = -\\frac{731}{\\log_{10}(T_K)} + 5.88;\\ AMI = \\log_{10}(SiO2) - \\log_{10}(SiO2_{eq})"
+    ],
+    "variables": [
+      {
+        "name": "Concentración sílice actual",
+        "symbol": "SiO2_actual",
+        "unit": "mg/L"
+      },
+      {
+        "name": "Concentración sílice equilibrio",
+        "symbol": "SiO2_eq",
+        "unit": "mg/L"
+      },
+      {
+        "name": "Temperatura Kelvin",
+        "symbol": "T_K",
+        "unit": "K"
+      },
+      {
+        "name": "Índice AMI",
+        "symbol": "AMI",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "AMI > 0 indica tendencia a scaling de sílice"
+    ],
+    "references": [
+      "IAPWS_IF97;ASME_B31_3_2022;MINAM_DS_019_2009;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "geo_017_result",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-017: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-017: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-018",
+    "name_es": "Índice de saturación de Langelier (LSI) para calcite",
+    "purpose": "Calcular el LSI para evaluar tendencia a scaling de calcita.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-009",
+      "GEO-016",
+      "GEO-019",
+      "GEO-021",
+      "GEO-032"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "pHs = (9.3 + A + B) - (C + D); LSI = pH_actual - pHs"
+    ],
+    "equations_latex": [
+      "pH_s = (9.3 + A + B) - (C + D);\\ LSI = pH - pH_s"
+    ],
+    "variables": [
+      {
+        "name": "TDS factor A",
+        "symbol": "A",
+        "unit": "-"
+      },
+      {
+        "name": "Temperatura factor B",
+        "symbol": "B",
+        "unit": "-"
+      },
+      {
+        "name": "Dureza cálcica factor C",
+        "symbol": "C",
+        "unit": "-"
+      },
+      {
+        "name": "Alcalinidad factor D",
+        "symbol": "D",
+        "unit": "-"
+      },
+      {
+        "name": "pH de saturación",
+        "symbol": "pHs",
+        "unit": "-"
+      },
+      {
+        "name": "pH actual",
+        "symbol": "pH_actual",
+        "unit": "-"
+      },
+      {
+        "name": "Índice LSI",
+        "symbol": "LSI",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "LSI > 0 indica tendencia a calcite; LSI < 0 indica corrosión"
+    ],
+    "references": [
+      "IAPWS_IF97;ASME_B31_3_2022;MINAM_DS_019_2009"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "pHs",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-018: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-018: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-019",
+    "name_es": "Concentración de H2S en la chimenea de vente",
+    "purpose": "Calcular la concentración de H2S en el venteo de NCG.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-023",
+      "GEO-074",
+      "GEO-075",
+      "GEO-077",
+      "GEO-079"
+    ],
+    "derived_input_ids": [
+      "GEO-C-013"
+    ],
+    "equations_ascii": [
+      "C_H2S_vent = (m_NCG * f_H2S * (1 - eta_abatement)) / V_vent_NTP"
+    ],
+    "equations_latex": [
+      "C_{H2S,vent} = \\frac{\\dot m_{NCG} f_{H2S}(1 - \\eta_{abate})}{V_{vent,NTP}}"
+    ],
+    "variables": [
+      {
+        "name": "Flujo NCG",
+        "symbol": "m_NCG",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Fracción H2S",
+        "symbol": "f_H2S",
+        "unit": "-"
+      },
+      {
+        "name": "Eficiencia de abatimiento",
+        "symbol": "eta_abatement",
+        "unit": "-"
+      },
+      {
+        "name": "Caudal volumétrico vente NTP",
+        "symbol": "V_vent_NTP",
+        "unit": "Nm3/s"
+      },
+      {
+        "name": "Concentración H2S en vente",
+        "symbol": "C_H2S_vent",
+        "unit": "mg/Nm3"
+      }
+    ],
+    "unit_equations": [
+      "Conversión mg/Nm3"
+    ],
+    "references": [
+      "MINEM_DS_032_2003;MINAM_DS_019_2009;API_521;MINAM_DS_019_2009;MINEM_DS_032_2003"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "C_H2S_vent",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-019: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-019: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-020",
+    "name_es": "Eficiencia de remoción de H2S del sistema de abatimiento",
+    "purpose": "Calcular la eficiencia efectiva de remoción de H2S.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-074",
+      "GEO-075",
+      "GEO-076",
+      "GEO-077"
+    ],
+    "derived_input_ids": [
+      "GEO-C-019"
+    ],
+    "equations_ascii": [
+      "eta_H2S = (m_H2S_in - m_H2S_out) / m_H2S_in * 100"
+    ],
+    "equations_latex": [
+      "\\eta_{H2S} = \\frac{m_{in} - m_{out}}{m_{in}} \\cdot 100"
+    ],
+    "variables": [
+      {
+        "name": "Masa de H2S a la entrada",
+        "symbol": "m_H2S_in",
+        "unit": "kg/h"
+      },
+      {
+        "name": "Masa de H2S a la salida",
+        "symbol": "m_H2S_out",
+        "unit": "kg/h"
+      },
+      {
+        "name": "Eficiencia de remoción",
+        "symbol": "eta_H2S",
+        "unit": "%"
+      }
+    ],
+    "unit_equations": [
+      "eta_H2S >= 99%"
+    ],
+    "references": [
+      "MINEM_DS_032_2003;MINAM_DS_019_2009;API_521;MINAM_DS_019_2009;MINEM_DS_032_2003"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "eta_H2S",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-020: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-020: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-021",
+    "name_es": "Tasa de vente de CO2",
+    "purpose": "Calcular la tasa de vente de CO2 (kg/h) al ambiente.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-022",
+      "GEO-079"
+    ],
+    "derived_input_ids": [
+      "GEO-C-013"
+    ],
+    "equations_ascii": [
+      "m_CO2_vent = m_NCG * f_CO2 * 3600"
+    ],
+    "equations_latex": [
+      "\\dot m_{CO2,vent} = \\dot m_{NCG} f_{CO2} \\cdot 3600"
+    ],
+    "variables": [
+      {
+        "name": "Flujo NCG",
+        "symbol": "m_NCG",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Fracción CO2",
+        "symbol": "f_CO2",
+        "unit": "-"
+      },
+      {
+        "name": "Tasa de vente de CO2",
+        "symbol": "m_CO2_vent",
+        "unit": "kg/h"
+      }
+    ],
+    "unit_equations": [
+      "Conversión kg/s -> kg/h multiplicando por 3600"
+    ],
+    "references": [
+      "ASME_PTC_10;API_521;ASME_B31_1_2022;MINAM_DS_019_2009;MINEM_DS_032_2003"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "m_CO2_vent",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-021: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-021: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-022",
+    "name_es": "Tasa de emisión de mercurio",
+    "purpose": "Calcular la tasa de emisión de mercurio al ambiente (kg/día).",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-088",
+      "GEO-079"
+    ],
+    "derived_input_ids": [
+      "GEO-C-013"
+    ],
+    "equations_ascii": [
+      "m_Hg_emission = C_Hg_fluid * m_total_fluid * 86400 / 1e9"
+    ],
+    "equations_latex": [
+      "\\dot m_{Hg} = C_{Hg} \\dot m_{fluid} \\cdot 86400 / 1e9"
+    ],
+    "variables": [
+      {
+        "name": "Concentración de Hg en fluido",
+        "symbol": "C_Hg_fluid",
+        "unit": "ppb"
+      },
+      {
+        "name": "Flujo másico total",
+        "symbol": "m_total_fluid",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Tasa de emisión de Hg",
+        "symbol": "m_Hg_emission",
+        "unit": "kg/d"
+      }
+    ],
+    "unit_equations": [
+      "ppb = microg/kg; convertir a kg/d"
+    ],
+    "references": [
+      "MINAM_DS_019_2009;MINEM_DS_032_2003;ISO_6107_1;MINAM_DS_019_2009;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "m_Hg_emission",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-022: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-022: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-023",
+    "name_es": "Presión de reinyección de salmuera",
+    "purpose": "Calcular la presión de reinyección necesaria en cabeza de pozo.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-099",
+      "GEO-100",
+      "GEO-101",
+      "GEO-102",
+      "GEO-104",
+      "GEO-008"
+    ],
+    "derived_input_ids": [
+      "GEO-C-012"
+    ],
+    "equations_ascii": [
+      "P_reinj = P_reservoir + rho_brine*g*Delta_h_inj + f*L/D*rho*v^2/2"
+    ],
+    "equations_latex": [
+      "P_{reinj} = P_{reservoir} + \\rho g \\Delta h + \\frac{fL}{D}\\frac{\\rho v^2}{2}"
+    ],
+    "variables": [
+      {
+        "name": "Presión de reservorio",
+        "symbol": "P_reservoir",
+        "unit": "bar"
+      },
+      {
+        "name": "Densidad de salmuera",
+        "symbol": "rho_brine",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Diferencia de altura",
+        "symbol": "Delta_h_inj",
+        "unit": "m"
+      },
+      {
+        "name": "Factor de fricción",
+        "symbol": "f",
+        "unit": "-"
+      },
+      {
+        "name": "Longitud pozo",
+        "symbol": "L",
+        "unit": "m"
+      },
+      {
+        "name": "Diámetro",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "Velocidad",
+        "symbol": "v",
+        "unit": "m/s"
+      },
+      {
+        "name": "Presión de reinyección",
+        "symbol": "P_reinj",
+        "unit": "bar"
+      }
+    ],
+    "unit_equations": [
+      "P_reinj < presión de fractura del reservorio"
+    ],
+    "references": [
+      "ASME_B31_3_2022;API_1104_2021;MINAM_DS_019_2009;ISO_14685;IAPWS_IF97;ISO_6107_1;ISO_14685"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_reinj",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-023: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-023: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-024",
+    "name_es": "Flujo másico del fluido de trabajo ORC",
+    "purpose": "Calcular el flujo másico del fluido orgánico del ciclo ORC.",
+    "applicability_expression": "plant_type contains binary",
+    "input_field_ids": [
+      "GEO-090",
+      "GEO-091",
+      "GEO-092",
+      "GEO-095"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_wf = Q_vaporizer / (h_wf_vapor - h_wf_liquid)"
+    ],
+    "equations_latex": [
+      "\\dot m_{wf} = \\frac{\\dot Q_{vap}}{h_{wf,v} - h_{wf,l}}"
+    ],
+    "variables": [
+      {
+        "name": "Duty del vaporizador",
+        "symbol": "Q_vaporizer",
+        "unit": "kW"
+      },
+      {
+        "name": "Entalpía vapor fluido de trabajo",
+        "symbol": "h_wf_vapor",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Entalpía líquido fluido de trabajo",
+        "symbol": "h_wf_liquid",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Flujo másico fluido de trabajo",
+        "symbol": "m_wf",
+        "unit": "kg/s"
+      }
+    ],
+    "unit_equations": [
+      "Propiedades del fluido orgánico según tablas REFPROP/ASHRAE"
+    ],
+    "references": [
+      "ISO_15547_1;ASME_BPVC_VIII_1_2023;ASME_PTC_10;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "m_wf",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-024: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-024: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-025",
+    "name_es": "Duty del vaporizador ORC",
+    "purpose": "Calcular el calor absorbido por el fluido orgánico en el vaporizador ORC.",
+    "applicability_expression": "plant_type contains binary",
+    "input_field_ids": [
+      "GEO-090",
+      "GEO-091",
+      "GEO-092",
+      "GEO-103",
+      "GEO-032"
+    ],
+    "derived_input_ids": [
+      "GEO-C-011"
+    ],
+    "equations_ascii": [
+      "Q_vap = m_brine * Cp_brine * (T_brine_in - T_brine_out)"
+    ],
+    "equations_latex": [
+      "\\dot Q_{vap} = \\dot m_{brine} C_{p,brine}(T_{in} - T_{out})"
+    ],
+    "variables": [
+      {
+        "name": "Flujo de salmuera",
+        "symbol": "m_brine",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Calor específico salmuera",
+        "symbol": "Cp_brine",
+        "unit": "kJ/kg-K"
+      },
+      {
+        "name": "Temperatura entrada salmuera",
+        "symbol": "T_brine_in",
+        "unit": "degC"
+      },
+      {
+        "name": "Temperatura salida salmuera",
+        "symbol": "T_brine_out",
+        "unit": "degC"
+      },
+      {
+        "name": "Duty del vaporizador",
+        "symbol": "Q_vap",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      "Pinch mínimo 5-10 K en vaporizador"
+    ],
+    "references": [
+      "ISO_15547_1;ASME_BPVC_VIII_1_2023;ASME_PTC_10;IAPWS_IF97;ASME_B31_1_2022;ASME_BPVC_VIII_1_2023;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Q_vap",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-025: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-025: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-026",
+    "name_es": "Duty del condensador ORC / ACC",
+    "purpose": "Calcular el calor rechazado en el condensador del ciclo ORC.",
+    "applicability_expression": "plant_type contains binary",
+    "input_field_ids": [
+      "GEO-090",
+      "GEO-093",
+      "GEO-097",
+      "GEO-096",
+      "GEO-098"
+    ],
+    "derived_input_ids": [
+      "GEO-C-024",
+      "GEO-C-025"
+    ],
+    "equations_ascii": [
+      "Q_cond_orc = m_wf * (h_wf_turbine_out - h_wf_condenser_out)"
+    ],
+    "equations_latex": [
+      "\\dot Q_{cond,orc} = \\dot m_{wf}(h_{wf,to} - h_{wf,co})"
+    ],
+    "variables": [
+      {
+        "name": "Flujo másico fluido de trabajo",
+        "symbol": "m_wf",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Entalpía salida turbina ORC",
+        "symbol": "h_wf_turbine_out",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Entalpía salida condensador ORC",
+        "symbol": "h_wf_condenser_out",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Duty del condensador ORC",
+        "symbol": "Q_cond_orc",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      "Q_cond_orc = Q_vap - W_turbine_orc"
+    ],
+    "references": [
+      "ISO_15547_1;ASME_BPVC_VIII_1_2023;ASME_PTC_10;IAPWS_IF97"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Q_cond_orc",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-026: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-026: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-027",
+    "name_es": "Eficiencia térmica del ciclo ORC (Rankine orgánico)",
+    "purpose": "Calcular la eficiencia térmica de primer principio del ciclo ORC.",
+    "applicability_expression": "plant_type contains binary",
+    "input_field_ids": [
+      "GEO-058",
+      "GEO-090",
+      "GEO-091",
+      "GEO-092",
+      "GEO-093",
+      "GEO-094",
+      "GEO-095"
+    ],
+    "derived_input_ids": [
+      "GEO-C-024",
+      "GEO-C-025",
+      "GEO-C-026"
+    ],
+    "equations_ascii": [
+      "eta_orc = W_net / Q_vaporizer * 100; W_net = W_turbine - W_pump - W_fans"
+    ],
+    "equations_latex": [
+      "\\eta_{orc} = \\frac{\\dot W_{net}}{\\dot Q_{vap}} \\cdot 100"
+    ],
+    "variables": [
+      {
+        "name": "Potencia neta ORC",
+        "symbol": "W_net",
+        "unit": "kW"
+      },
+      {
+        "name": "Potencia turbina ORC",
+        "symbol": "W_turbine",
+        "unit": "kW"
+      },
+      {
+        "name": "Potencia bomba fluido",
+        "symbol": "W_pump",
+        "unit": "kW"
+      },
+      {
+        "name": "Potencia fans ACC",
+        "symbol": "W_fans",
+        "unit": "kW"
+      },
+      {
+        "name": "Duty del vaporizador",
+        "symbol": "Q_vaporizer",
+        "unit": "kW"
+      },
+      {
+        "name": "Eficiencia ORC",
+        "symbol": "eta_orc",
+        "unit": "%"
+      }
+    ],
+    "unit_equations": [
+      "eta_orc típicamente 8-25%"
+    ],
+    "references": [
+      "ISO_15547_1;ASME_BPVC_VIII_1_2023;ASME_PTC_10;IAPWS_IF97;IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_043_2006;CNE_2011"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "eta_orc",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-027: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-027: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-028",
+    "name_es": "Espesor de pared - tubería de vapor (ASME B31.1)",
+    "purpose": "Calcular el espesor mínimo de pared de tubería de vapor per ASME B31.1.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-051",
+      "GEO-052",
+      "GEO-053"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "t = (P*D)/(2*(S*E + 0.6*P)) + A; t >= t_min_code"
+    ],
+    "equations_latex": [
+      "t = \\frac{PD}{2(SE + 0.6P)} + A"
+    ],
+    "variables": [
+      {
+        "name": "Presión interna de diseño",
+        "symbol": "P",
+        "unit": "bar"
+      },
+      {
+        "name": "Diámetro externo",
+        "symbol": "D",
+        "unit": "mm"
+      },
+      {
+        "name": "Esfuerzo admisible",
+        "symbol": "S",
+        "unit": "MPa"
+      },
+      {
+        "name": "Factor de calidad",
+        "symbol": "E",
+        "unit": "-"
+      },
+      {
+        "name": "Margen de corrosión",
+        "symbol": "A",
+        "unit": "mm"
+      },
+      {
+        "name": "Espesor de pared",
+        "symbol": "t",
+        "unit": "mm"
+      }
+    ],
+    "unit_equations": [
+      "Conversión 1 bar = 0.1 MPa; validar t_min B31.1"
+    ],
+    "references": [
+      "ASME_B31_1_2022;ASME_BPVC_VIII_1_2023"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "t",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-028: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-028: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-029",
+    "name_es": "Espesor de pared - tubería de salmuera (ASME B31.3)",
+    "purpose": "Calcular el espesor mínimo de pared de tubería de salmuera per ASME B31.3.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-054",
+      "GEO-055",
+      "GEO-056"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "t = (P*D)/(2*(S*E*W + 0.6*P)) + A"
+    ],
+    "equations_latex": [
+      "t = \\frac{PD}{2(SEW + 0.6P)} + A"
+    ],
+    "variables": [
+      {
+        "name": "Presión interna",
+        "symbol": "P",
+        "unit": "bar"
+      },
+      {
+        "name": "Diámetro externo",
+        "symbol": "D",
+        "unit": "mm"
+      },
+      {
+        "name": "Esfuerzo admisible",
+        "symbol": "S",
+        "unit": "MPa"
+      },
+      {
+        "name": "Factor de calidad",
+        "symbol": "E",
+        "unit": "-"
+      },
+      {
+        "name": "Factor de reducción de servicio",
+        "symbol": "W",
+        "unit": "-"
+      },
+      {
+        "name": "Margen de corrosión",
+        "symbol": "A",
+        "unit": "mm"
+      },
+      {
+        "name": "Espesor de pared",
+        "symbol": "t",
+        "unit": "mm"
+      }
+    ],
+    "unit_equations": [
+      "Validar t_min B31.3 y reducir por corrosión"
+    ],
+    "references": [
+      "ASME_B31_3_2022;ASME_BPVC_VIII_1_2023"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "t",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-029: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-029: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-030",
+    "name_es": "Diseño mecánico del revestidor de pozo (casing)",
+    "purpose": "Calcular el espesor de pared y resistencia del revestidor según cargas internas/externas.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-028",
+      "GEO-029",
+      "GEO-030",
+      "GEO-008",
+      "GEO-013",
+      "GEO-011",
+      "GEO-012"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "t_casing = (P_burst*D)/(2*S_y) + corrosion; check_collapse = P_external <= P_collapse_rating"
+    ],
+    "equations_latex": [
+      "t_{casing} = \\frac{P_{burst}D}{2S_y} + c;\\ P_{col} \\leq P_{collapse,rating}"
+    ],
+    "variables": [
+      {
+        "name": "Presión interna burst",
+        "symbol": "P_burst",
+        "unit": "bar"
+      },
+      {
+        "name": "Diámetro externo",
+        "symbol": "D",
+        "unit": "mm"
+      },
+      {
+        "name": "Esfuerzo fluencia",
+        "symbol": "S_y",
+        "unit": "MPa"
+      },
+      {
+        "name": "Margen corrosión",
+        "symbol": "corrosion",
+        "unit": "mm"
+      },
+      {
+        "name": "Presión externa colapso",
+        "symbol": "P_external",
+        "unit": "bar"
+      },
+      {
+        "name": "Rating de colapso",
+        "symbol": "P_collapse_rating",
+        "unit": "bar"
+      },
+      {
+        "name": "Espesor casing",
+        "symbol": "t_casing",
+        "unit": "mm"
+      }
+    ],
+    "unit_equations": [
+      "Validar burst, collapse, tension, compression"
+    ],
+    "references": [
+      "API_1104_2021;ASME_BPVC_VIII_1_2023;ISO_14685;MINEM_DS_032_2003;ASME_BPVC_VIII_1_2023;API_520_1;API_521;ASME_B31_3_2022"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "t_casing",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-030: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-030: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-031",
+    "name_es": "Potencia de bomba sumergible (binary)",
+    "purpose": "Calcular la potencia eléctrica de la bomba sumergible en pozos binary.",
+    "applicability_expression": "plant_type contains binary",
+    "input_field_ids": [
+      "GEO-105",
+      "GEO-103",
+      "GEO-008",
+      "GEO-099"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_pump = (rho_fluid*g*Q_v*H_pump)/(eta_pump*eta_motor)"
+    ],
+    "equations_latex": [
+      "P_{pump} = \\frac{\\rho g Q H}{\\eta_p \\eta_m}"
+    ],
+    "variables": [
+      {
+        "name": "Densidad del fluido",
+        "symbol": "rho_fluid",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Aceleración de gravedad",
+        "symbol": "g",
+        "unit": "m/s2"
+      },
+      {
+        "name": "Caudal volumétrico",
+        "symbol": "Q_v",
+        "unit": "m3/s"
+      },
+      {
+        "name": "Carga hidráulica",
+        "symbol": "H_pump",
+        "unit": "m"
+      },
+      {
+        "name": "Eficiencia bomba",
+        "symbol": "eta_pump",
+        "unit": "-"
+      },
+      {
+        "name": "Eficiencia motor",
+        "symbol": "eta_motor",
+        "unit": "-"
+      },
+      {
+        "name": "Potencia",
+        "symbol": "P_pump",
+        "unit": "W"
+      }
+    ],
+    "unit_equations": [
+      "1 W = 0.001 kW; validar NPSH"
+    ],
+    "references": [
+      "API_1104_2021;ASME_BPVC_VIII_1_2023;ISO_14685;MINEM_DS_032_2003;IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_043_2006;CNE_2011"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_pump",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-031: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-031: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-032",
+    "name_es": "Capacidad del tanque de agua contra incendio",
+    "purpose": "Calcular la capacidad mínima del tanque de agua contra incendio según NFPA 20.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-114",
+      "GEO-115",
+      "GEO-116",
+      "GEO-117"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_tank = max(demand_density * area_fire * duration_min, min_code_volume)"
+    ],
+    "equations_latex": [
+      "V_{tank} = \\max(\\rho_{water} Q_{fire} t_{fire}, V_{min,NFPA20})"
+    ],
+    "variables": [
+      {
+        "name": "Densidad de diseño",
+        "symbol": "demand_density",
+        "unit": "mm/min"
+      },
+      {
+        "name": "Área de protección",
+        "symbol": "area_fire",
+        "unit": "m2"
+      },
+      {
+        "name": "Duración de fuego",
+        "symbol": "duration_min",
+        "unit": "min"
+      },
+      {
+        "name": "Volumen mínimo NFPA 20",
+        "symbol": "min_code_volume",
+        "unit": "m3"
+      },
+      {
+        "name": "Volumen del tanque",
+        "symbol": "V_tank",
+        "unit": "m3"
+      }
+    ],
+    "unit_equations": [
+      "Volumen agua NFPA 20 >= 1.5 h de demanda"
+    ],
+    "references": [
+      "NFPA_13_2022;NFPA_15_2022;NFPA_20_2022;NFPA_497_2024;NFPA_30_2024;MINEM_DS_032_2003"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "V_tank",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-032: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-032: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "GEO-C-033",
+    "name_es": "Resistencia de malla de tierra (IEEE 80)",
+    "purpose": "Calcular la resistencia de la malla de tierra según IEEE 80.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "GEO-001",
+      "GEO-002",
+      "GEO-003",
+      "GEO-110",
+      "GEO-005"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "R_grid = rho_soil * (1/Lt + 1/(sqrt(pi*A_grid)))"
+    ],
+    "equations_latex": [
+      "R_g = \\rho_s \\left(\\frac{1}{L_t} + \\frac{1}{\\sqrt{\\pi A_g}}\\right)"
+    ],
+    "variables": [
+      {
+        "name": "Resistividad del suelo",
+        "symbol": "rho_soil",
+        "unit": "ohm*m"
+      },
+      {
+        "name": "Longitud total conductor enterrado",
+        "symbol": "Lt",
+        "unit": "m"
+      },
+      {
+        "name": "Área de la malla",
+        "symbol": "A_grid",
+        "unit": "m2"
+      },
+      {
+        "name": "Resistencia de la malla",
+        "symbol": "R_grid",
+        "unit": "ohm"
+      }
+    ],
+    "unit_equations": [
+      "R_grid < 1 ohm típico"
+    ],
+    "references": [
+      "IEEE_80_2013;IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_043_2006;CNE_2011"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "R_grid",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "GEO-C-033: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "GEO-C-033: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  }
+]

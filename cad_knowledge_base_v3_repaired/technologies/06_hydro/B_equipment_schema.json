@@ -1,0 +1,1534 @@
+[
+  {
+    "equipment_type_id": "INTAKE_STRUCTURE",
+    "name_es": "Estructura de captacion (bocatoma)",
+    "subsystem": "CIVIL_INTAKE",
+    "properties": [
+      {
+        "name_es": "Cota cresta",
+        "field_id": "HYD-050",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 5000
+      },
+      {
+        "name_es": "Cota fondo",
+        "field_id": "HYD-051",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 5000
+      },
+      {
+        "name_es": "Velocidad de aproximacion",
+        "field_id": "HYD-055",
+        "data_type": "float",
+        "unit": "m/s",
+        "min": 0.3,
+        "max": 1.5
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "DESANDER",
+    "name_es": "Desarenador",
+    "subsystem": "CIVIL_INTAKE",
+    "properties": [
+      {
+        "name_es": "Longitud",
+        "field_id": "HYD-056",
+        "data_type": "float",
+        "unit": "m",
+        "min": 5,
+        "max": 100
+      },
+      {
+        "name_es": "Ancho",
+        "field_id": "HYD-057",
+        "data_type": "float",
+        "unit": "m",
+        "min": 1,
+        "max": 50
+      },
+      {
+        "name_es": "Velocidad",
+        "field_id": "HYD-058",
+        "data_type": "float",
+        "unit": "m/s",
+        "min": 0.05,
+        "max": 0.5
+      },
+      {
+        "name_es": "Velocidad sedimentacion",
+        "field_id": "HYD-059",
+        "data_type": "float",
+        "unit": "m/s",
+        "min": 0.0001,
+        "max": 0.5
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TRASH_RACK",
+    "name_es": "Rejilla de desbroce",
+    "subsystem": "CIVIL_INTAKE",
+    "properties": [
+      {
+        "name_es": "Separacion libre",
+        "field_id": "HYD-052",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 5,
+        "max": 200
+      },
+      {
+        "name_es": "Diametro barra",
+        "field_id": "HYD-053",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 5,
+        "max": 50
+      },
+      {
+        "name_es": "Angulo de inclinacion",
+        "field_id": "HYD-054",
+        "data_type": "float",
+        "unit": "deg",
+        "min": 30,
+        "max": 90
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GATE_RADIAL",
+    "name_es": "Compuerta radial",
+    "subsystem": "CIVIL_INTAKE",
+    "properties": [
+      {
+        "name_es": "Carga de diseño",
+        "field_id": "HYD-061",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 300
+      },
+      {
+        "name_es": "Tipo",
+        "field_id": "HYD-060",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GATE_SLIDE",
+    "name_es": "Compuerta deslizante",
+    "subsystem": "CIVIL_INTAKE",
+    "properties": [
+      {
+        "name_es": "Carga de diseño",
+        "field_id": "HYD-061",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 300
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GATE_VERTICAL_LIFT",
+    "name_es": "Compuerta de levantamiento vertical",
+    "subsystem": "CIVIL_INTAKE",
+    "properties": [
+      {
+        "name_es": "Carga de diseño",
+        "field_id": "HYD-061",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 300
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "PENSTOCK_STEEL",
+    "name_es": "Tuberia forzada de acero",
+    "subsystem": "HYDRAULIC_CONDUIT",
+    "properties": [
+      {
+        "name_es": "Diametro interno",
+        "field_id": "HYD-070",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.05,
+        "max": 12
+      },
+      {
+        "name_es": "Longitud",
+        "field_id": "HYD-071",
+        "data_type": "float",
+        "unit": "m",
+        "min": 1,
+        "max": 10000
+      },
+      {
+        "name_es": "Material",
+        "field_id": "HYD-072",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Fluencia",
+        "field_id": "HYD-073",
+        "data_type": "float",
+        "unit": "MPa",
+        "min": 150,
+        "max": 500
+      },
+      {
+        "name_es": "Traccion",
+        "field_id": "HYD-074",
+        "data_type": "float",
+        "unit": "MPa",
+        "min": 300,
+        "max": 700
+      },
+      {
+        "name_es": "Presion de diseño",
+        "field_id": "HYD-075",
+        "data_type": "float",
+        "unit": "MPa",
+        "min": 0.05,
+        "max": 30
+      },
+      {
+        "name_es": "Presion de prueba",
+        "field_id": "HYD-076",
+        "data_type": "float",
+        "unit": "MPa",
+        "min": 0.05,
+        "max": 40
+      },
+      {
+        "name_es": "Espesor de pared",
+        "field_id": "HYD-077",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 2,
+        "max": 80
+      },
+      {
+        "name_es": "Margen corrosion",
+        "field_id": "HYD-079",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 0,
+        "max": 5
+      },
+      {
+        "name_es": "Eficiencia junta",
+        "field_id": "HYD-080",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0.7,
+        "max": 1.0
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "SURGE_TANK",
+    "name_es": "Tanque de equilibrio",
+    "subsystem": "HYDRAULIC_CONDUIT",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "HYD-081",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Diametro",
+        "field_id": "HYD-082",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.5,
+        "max": 30
+      },
+      {
+        "name_es": "Altura",
+        "field_id": "HYD-083",
+        "data_type": "float",
+        "unit": "m",
+        "min": 1,
+        "max": 200
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "SURGE_SHAFT",
+    "name_es": "Chimenea de equilibrio",
+    "subsystem": "HYDRAULIC_CONDUIT",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "HYD-081",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Diametro",
+        "field_id": "HYD-082",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.5,
+        "max": 30
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "HEADRACE_CANAL",
+    "name_es": "Canal de aduccion",
+    "subsystem": "CIVIL_CONDUIT",
+    "properties": [
+      {
+        "name_es": "Longitud",
+        "field_id": "HYD-260",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 20000
+      },
+      {
+        "name_es": "Area transversal",
+        "field_id": "HYD-261",
+        "data_type": "float",
+        "unit": "m2",
+        "min": 0.1,
+        "max": 500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TAILRACE_CANAL",
+    "name_es": "Canal de restitucion",
+    "subsystem": "CIVIL_CONDUIT",
+    "properties": [
+      {
+        "name_es": "Longitud",
+        "field_id": "HYD-262",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 5000
+      },
+      {
+        "name_es": "Velocidad media",
+        "field_id": "HYD-263",
+        "data_type": "float",
+        "unit": "m/s",
+        "min": 0.1,
+        "max": 5
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TURBINE_PELTON",
+    "name_es": "Turbina Pelton",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Salto de referencia",
+        "field_id": "HYD-111",
+        "data_type": "float",
+        "unit": "m",
+        "min": 50,
+        "max": 2000
+      },
+      {
+        "name_es": "Caudal de referencia",
+        "field_id": "HYD-112",
+        "data_type": "float",
+        "unit": "m3/s",
+        "min": 0.01,
+        "max": 50
+      },
+      {
+        "name_es": "Potencia nominal",
+        "field_id": "HYD-113",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 1,
+        "max": 500000
+      },
+      {
+        "name_es": "Velocidad sincronica",
+        "field_id": "HYD-114",
+        "data_type": "float",
+        "unit": "rpm",
+        "min": 150,
+        "max": 1500
+      },
+      {
+        "name_es": "Diametro rodete",
+        "field_id": "HYD-116",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.3,
+        "max": 6
+      },
+      {
+        "name_es": "Diametro de chorro",
+        "field_id": "HYD-123",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.01,
+        "max": 1
+      },
+      {
+        "name_es": "Numero de cucharas",
+        "field_id": "HYD-124",
+        "data_type": "integer",
+        "unit": "-",
+        "min": 5,
+        "max": 50
+      },
+      {
+        "name_es": "Eficiencia pico",
+        "field_id": "HYD-118",
+        "data_type": "float",
+        "unit": "%",
+        "min": 80,
+        "max": 93
+      },
+      {
+        "name_es": "Velocidad especifica",
+        "field_id": "HYD-122",
+        "data_type": "float",
+        "unit": "-",
+        "min": 5,
+        "max": 70
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TURBINE_FRANCIS",
+    "name_es": "Turbina Francis",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Salto de referencia",
+        "field_id": "HYD-111",
+        "data_type": "float",
+        "unit": "m",
+        "min": 10,
+        "max": 700
+      },
+      {
+        "name_es": "Caudal de referencia",
+        "field_id": "HYD-112",
+        "data_type": "float",
+        "unit": "m3/s",
+        "min": 0.05,
+        "max": 500
+      },
+      {
+        "name_es": "Potencia nominal",
+        "field_id": "HYD-113",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 50,
+        "max": 1000000
+      },
+      {
+        "name_es": "Velocidad sincronica",
+        "field_id": "HYD-114",
+        "data_type": "float",
+        "unit": "rpm",
+        "min": 75,
+        "max": 1500
+      },
+      {
+        "name_es": "Diametro rodete",
+        "field_id": "HYD-116",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.3,
+        "max": 10
+      },
+      {
+        "name_es": "Diametro entrada",
+        "field_id": "HYD-117",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.3,
+        "max": 10
+      },
+      {
+        "name_es": "Eficiencia pico",
+        "field_id": "HYD-118",
+        "data_type": "float",
+        "unit": "%",
+        "min": 85,
+        "max": 96
+      },
+      {
+        "name_es": "Sigma Thoma planta",
+        "field_id": "HYD-120",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0,
+        "max": 2
+      },
+      {
+        "name_es": "NPSH disponible",
+        "field_id": "HYD-210",
+        "data_type": "float",
+        "unit": "m",
+        "min": -10,
+        "max": 500
+      },
+      {
+        "name_es": "Velocidad especifica",
+        "field_id": "HYD-122",
+        "data_type": "float",
+        "unit": "-",
+        "min": 50,
+        "max": 400
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TURBINE_KAPLAN",
+    "name_es": "Turbina Kaplan",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Salto de referencia",
+        "field_id": "HYD-111",
+        "data_type": "float",
+        "unit": "m",
+        "min": 2,
+        "max": 80
+      },
+      {
+        "name_es": "Caudal de referencia",
+        "field_id": "HYD-112",
+        "data_type": "float",
+        "unit": "m3/s",
+        "min": 1,
+        "max": 1000
+      },
+      {
+        "name_es": "Potencia nominal",
+        "field_id": "HYD-113",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 50,
+        "max": 200000
+      },
+      {
+        "name_es": "Velocidad sincronica",
+        "field_id": "HYD-114",
+        "data_type": "float",
+        "unit": "rpm",
+        "min": 50,
+        "max": 1000
+      },
+      {
+        "name_es": "Diametro rodete",
+        "field_id": "HYD-116",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.5,
+        "max": 12
+      },
+      {
+        "name_es": "Eficiencia pico",
+        "field_id": "HYD-118",
+        "data_type": "float",
+        "unit": "%",
+        "min": 80,
+        "max": 95
+      },
+      {
+        "name_es": "Sigma Thoma planta",
+        "field_id": "HYD-120",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0,
+        "max": 2
+      },
+      {
+        "name_es": "Velocidad especifica",
+        "field_id": "HYD-122",
+        "data_type": "float",
+        "unit": "-",
+        "min": 300,
+        "max": 1000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TURBINE_TURGO",
+    "name_es": "Turbina Turgo",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Salto de referencia",
+        "field_id": "HYD-111",
+        "data_type": "float",
+        "unit": "m",
+        "min": 50,
+        "max": 800
+      },
+      {
+        "name_es": "Caudal de referencia",
+        "field_id": "HYD-112",
+        "data_type": "float",
+        "unit": "m3/s",
+        "min": 0.05,
+        "max": 10
+      },
+      {
+        "name_es": "Diametro de chorro",
+        "field_id": "HYD-123",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.01,
+        "max": 0.5
+      },
+      {
+        "name_es": "Eficiencia pico",
+        "field_id": "HYD-118",
+        "data_type": "float",
+        "unit": "%",
+        "min": 80,
+        "max": 92
+      },
+      {
+        "name_es": "Velocidad especifica",
+        "field_id": "HYD-122",
+        "data_type": "float",
+        "unit": "-",
+        "min": 20,
+        "max": 120
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "SCROLL_CASE",
+    "name_es": "Espiral o caja espiral (Francis/Kaplan)",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Diametro de entrada",
+        "field_id": "HYD-117",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.3,
+        "max": 12
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "RUNNER",
+    "name_es": "Rodete",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Diametro rodete",
+        "field_id": "HYD-116",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.05,
+        "max": 12
+      },
+      {
+        "name_es": "Diametro entrada",
+        "field_id": "HYD-117",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.05,
+        "max": 12
+      },
+      {
+        "name_es": "Velocidad sincronica",
+        "field_id": "HYD-114",
+        "data_type": "float",
+        "unit": "rpm",
+        "min": 50,
+        "max": 1500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "DRAFT_TUBE",
+    "name_es": "Tubo de aspiracion",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "HYD-213",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Sumergencia",
+        "field_id": "HYD-214",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 30
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GENERATOR_SYNCHRONOUS",
+    "name_es": "Generador sincrono",
+    "subsystem": "ELECTRICAL_GENERATION",
+    "properties": [
+      {
+        "name_es": "Potencia nominal",
+        "field_id": "HYD-131",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 1,
+        "max": 1000000
+      },
+      {
+        "name_es": "Tension nominal",
+        "field_id": "HYD-132",
+        "data_type": "float",
+        "unit": "V",
+        "min": 100,
+        "max": 35000
+      },
+      {
+        "name_es": "Frecuencia nominal",
+        "field_id": "HYD-133",
+        "data_type": "float",
+        "unit": "Hz",
+        "min": 50,
+        "max": 60
+      },
+      {
+        "name_es": "Factor de potencia",
+        "field_id": "HYD-134",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0.7,
+        "max": 1.0
+      },
+      {
+        "name_es": "Eficiencia",
+        "field_id": "HYD-135",
+        "data_type": "float",
+        "unit": "%",
+        "min": 80,
+        "max": 99
+      },
+      {
+        "name_es": "Velocidad nominal",
+        "field_id": "HYD-136",
+        "data_type": "float",
+        "unit": "rpm",
+        "min": 50,
+        "max": 1500
+      },
+      {
+        "name_es": "Inercia",
+        "field_id": "HYD-137",
+        "data_type": "float",
+        "unit": "kg*m2",
+        "min": 10,
+        "max": 10000000
+      },
+      {
+        "name_es": "X'd transitoria",
+        "field_id": "HYD-138",
+        "data_type": "float",
+        "unit": "pu",
+        "min": 0.05,
+        "max": 0.5
+      },
+      {
+        "name_es": "Xd sincrona",
+        "field_id": "HYD-139",
+        "data_type": "float",
+        "unit": "pu",
+        "min": 0.6,
+        "max": 2.5
+      },
+      {
+        "name_es": "Clase de aislamiento",
+        "field_id": "HYD-140",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GENERATOR_ASYNCHRONOUS",
+    "name_es": "Generador asincrono",
+    "subsystem": "ELECTRICAL_GENERATION",
+    "properties": [
+      {
+        "name_es": "Potencia nominal",
+        "field_id": "HYD-131",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 1,
+        "max": 100000
+      },
+      {
+        "name_es": "Tension nominal",
+        "field_id": "HYD-132",
+        "data_type": "float",
+        "unit": "V",
+        "min": 100,
+        "max": 1000
+      },
+      {
+        "name_es": "Frecuencia nominal",
+        "field_id": "HYD-133",
+        "data_type": "float",
+        "unit": "Hz",
+        "min": 50,
+        "max": 60
+      },
+      {
+        "name_es": "Velocidad nominal",
+        "field_id": "HYD-136",
+        "data_type": "float",
+        "unit": "rpm",
+        "min": 500,
+        "max": 1800
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GOVERNOR",
+    "name_es": "Regulador de velocidad",
+    "subsystem": "CONTROL",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "HYD-150",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Tiempo de respuesta",
+        "field_id": "HYD-151",
+        "data_type": "float",
+        "unit": "s",
+        "min": 0.05,
+        "max": 30
+      },
+      {
+        "name_es": "Presion de aceite",
+        "field_id": "HYD-152",
+        "data_type": "float",
+        "unit": "MPa",
+        "min": 2,
+        "max": 40
+      },
+      {
+        "name_es": "Tiempo cierre",
+        "field_id": "HYD-085",
+        "data_type": "float",
+        "unit": "s",
+        "min": 1,
+        "max": 60
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "EXCITATION_SYSTEM",
+    "name_es": "Sistema de excitacion",
+    "subsystem": "CONTROL",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "HYD-153",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Tension nominal campo",
+        "field_id": "HYD-154",
+        "data_type": "float",
+        "unit": "V",
+        "min": 10,
+        "max": 1000
+      },
+      {
+        "name_es": "Tiempo respuesta AVR",
+        "field_id": "HYD-155",
+        "data_type": "float",
+        "unit": "s",
+        "min": 0.005,
+        "max": 5
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "HYD-POWER-TRANSFORMER",
+    "name_es": "Transformador principal de potencia",
+    "subsystem": "ELECTRICAL_TRANSMISSION",
+    "properties": [
+      {
+        "name_es": "Potencia nominal",
+        "field_id": "HYD-160",
+        "data_type": "float",
+        "unit": "kVA",
+        "min": 5,
+        "max": 1000000
+      },
+      {
+        "name_es": "Tension alta",
+        "field_id": "HYD-161",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 1,
+        "max": 765
+      },
+      {
+        "name_es": "Tension baja",
+        "field_id": "HYD-162",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 0.1,
+        "max": 35
+      },
+      {
+        "name_es": "Grupo vector",
+        "field_id": "HYD-163",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Impedancia",
+        "field_id": "HYD-164",
+        "data_type": "float",
+        "unit": "%",
+        "min": 3,
+        "max": 15
+      },
+      {
+        "name_es": "Perdidas en vacio",
+        "field_id": "HYD-165",
+        "data_type": "float",
+        "unit": "W",
+        "min": 10,
+        "max": 500000
+      },
+      {
+        "name_es": "Perdidas en carga",
+        "field_id": "HYD-166",
+        "data_type": "float",
+        "unit": "W",
+        "min": 100,
+        "max": 2000000
+      },
+      {
+        "name_es": "Volumen aceite",
+        "field_id": "HYD-167",
+        "data_type": "float",
+        "unit": "L",
+        "min": 10,
+        "max": 100000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "AUXILIARY_TRANSFORMER",
+    "name_es": "Transformador de servicios auxiliares",
+    "subsystem": "ELECTRICAL_TRANSMISSION",
+    "properties": [
+      {
+        "name_es": "Tension de servicio",
+        "field_id": "HYD-185",
+        "data_type": "float",
+        "unit": "V",
+        "min": 110,
+        "max": 1000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "HYD-SWITCHGEAR",
+    "name_es": "Switchgear / interruptor principal",
+    "subsystem": "ELECTRICAL_PROTECTION",
+    "properties": [
+      {
+        "name_es": "Corriente nominal",
+        "field_id": "HYD-194",
+        "data_type": "float",
+        "unit": "A",
+        "min": 100,
+        "max": 40000
+      },
+      {
+        "name_es": "Tension nominal",
+        "field_id": "HYD-195",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 0.6,
+        "max": 765
+      },
+      {
+        "name_es": "Capacidad de interrupcion",
+        "field_id": "HYD-196",
+        "data_type": "float",
+        "unit": "kA",
+        "min": 5,
+        "max": 80
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "PROTECTION_RELAY",
+    "name_es": "Relay de proteccion",
+    "subsystem": "ELECTRICAL_PROTECTION",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "HYD-192",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Funciones ANSI",
+        "field_id": "HYD-193",
+        "data_type": "string",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "EARTHING",
+    "name_es": "Malla de tierra",
+    "subsystem": "ELECTRICAL_GROUNDING",
+    "properties": [
+      {
+        "name_es": "Resistencia",
+        "field_id": "HYD-198",
+        "data_type": "float",
+        "unit": "ohm",
+        "min": 0.1,
+        "max": 50
+      },
+      {
+        "name_es": "Area",
+        "field_id": "HYD-199",
+        "data_type": "float",
+        "unit": "m2",
+        "min": 1,
+        "max": 100000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "SPILLWAY_OGEE",
+    "name_es": "Aliviadero tipo Ogee",
+    "subsystem": "CIVIL_SPILLWAY",
+    "properties": [
+      {
+        "name_es": "Carga de diseño",
+        "field_id": "HYD-251",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 30
+      },
+      {
+        "name_es": "Longitud de creta",
+        "field_id": "HYD-252",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.5,
+        "max": 500
+      },
+      {
+        "name_es": "Capacidad",
+        "field_id": "HYD-253",
+        "data_type": "float",
+        "unit": "m3/s",
+        "min": 0,
+        "max": 200000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "SPILLWAY_SIPHON",
+    "name_es": "Aliviadero sifon",
+    "subsystem": "CIVIL_SPILLWAY",
+    "properties": [
+      {
+        "name_es": "Carga de diseño",
+        "field_id": "HYD-251",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 30
+      },
+      {
+        "name_es": "Capacidad",
+        "field_id": "HYD-253",
+        "data_type": "float",
+        "unit": "m3/s",
+        "min": 0,
+        "max": 5000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "STILLING_BASIN",
+    "name_es": "Cuenco amortiguador",
+    "subsystem": "CIVIL_SPILLWAY",
+    "properties": [
+      {
+        "name_es": "Longitud",
+        "field_id": "HYD-254",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 200
+      },
+      {
+        "name_es": "Tipo",
+        "field_id": "HYD-255",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TRANSFORMER_YARD",
+    "name_es": "Patio de transformadores",
+    "subsystem": "CIVIL_OUTDOOR",
+    "properties": [
+      {
+        "name_es": "Volumen aceite",
+        "field_id": "HYD-167",
+        "data_type": "float",
+        "unit": "L",
+        "min": 10,
+        "max": 100000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BRIDGE_CRANE",
+    "name_es": "Puente-grua",
+    "subsystem": "MECHANICAL_HANDLING",
+    "properties": [
+      {
+        "name_es": "Capacidad",
+        "field_id": "HYD-093",
+        "data_type": "float",
+        "unit": "ton",
+        "min": 1,
+        "max": 500
+      },
+      {
+        "name_es": "Luz",
+        "field_id": "HYD-094",
+        "data_type": "float",
+        "unit": "m",
+        "min": 2,
+        "max": 40
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "HOISTING_EQUIPMENT",
+    "name_es": "Equipo de izaje (winches, polipastos)",
+    "subsystem": "MECHANICAL_HANDLING",
+    "properties": [
+      {
+        "name_es": "Capacidad",
+        "field_id": "HYD-093",
+        "data_type": "float",
+        "unit": "ton",
+        "min": 0.5,
+        "max": 50
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "FIRE_PROTECTION",
+    "name_es": "Sistema de proteccion contra incendios",
+    "subsystem": "SAFETY",
+    "properties": [
+      {
+        "name_es": "Volumen aceite transformador",
+        "field_id": "HYD-167",
+        "data_type": "float",
+        "unit": "L",
+        "min": 10,
+        "max": 100000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "DAM_GRAVITY",
+    "name_es": "Presa de gravedad",
+    "subsystem": "CIVIL_DAM",
+    "properties": [
+      {
+        "name_es": "Altura",
+        "field_id": "HYD-256",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 300
+      },
+      {
+        "name_es": "Tipo",
+        "field_id": "HYD-257",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "SPILLWAY_GATE",
+    "name_es": "Compuerta de aliviadero",
+    "subsystem": "CIVIL_SPILLWAY",
+    "properties": [
+      {
+        "name_es": "Tipo",
+        "field_id": "HYD-060",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Carga de diseño",
+        "field_id": "HYD-061",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 100
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  }
+]

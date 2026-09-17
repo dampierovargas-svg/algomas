@@ -1,0 +1,1320 @@
+[
+  {
+    "rule_id": "BESS-QA-001",
+    "name_es": "Capacidad BESS coincide con nameplate",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "|E_BESS_calc - BESS-048| / BESS-048 <= 0.03",
+    "severity": "BLOCKED",
+    "message_template": "La capacidad calculada {E_BESS_calc} MWh difiere de nameplate {BESS-048} MWh en mas de 3%.",
+    "required_evidence": [
+      "C_formula_output",
+      "A_field_BESS-048"
+    ],
+    "affected_fields": [
+      "BESS-048",
+      "BESS-055",
+      "BESS-039"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-003",
+      "BESS-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62933_1",
+      "IEC_62933_2_1",
+      "UL_9540",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-002",
+    "name_es": "Potencia BESS coincide con nameplate",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "|P_BESS_calc - BESS-049| / BESS-049 <= 0.03",
+    "severity": "BLOCKED",
+    "message_template": "La potencia calculada {P_BESS_calc} MW difiere de nameplate {BESS-049} MW en mas de 3%.",
+    "required_evidence": [
+      "C_formula_output",
+      "A_field_BESS-049"
+    ],
+    "affected_fields": [
+      "BESS-049",
+      "BESS-055",
+      "BESS-040"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62933_1",
+      "IEC_62933_2_1",
+      "UL_9540",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-003",
+    "name_es": "Duracion BESS >= proyecto",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-050 >= E_BESS/P_BESS - 0.1 AND BESS-050 <= E_BESS/P_BESS + 0.1",
+    "severity": "BLOCKED",
+    "message_template": "La duracion {BESS-050} h no coincide con E/P={E/P} h.",
+    "required_evidence": [
+      "A_field_BESS-050",
+      "A_field_BESS-048",
+      "A_field_BESS-049"
+    ],
+    "affected_fields": [
+      "BESS-048",
+      "BESS-049",
+      "BESS-050"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62933_1",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-004",
+    "name_es": "DC/AC ratio en rango 0.5-2.5",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-053 >= 0.5 AND BESS-053 <= 2.5",
+    "severity": "BLOCKED",
+    "message_template": "DC/AC ratio {BESS-053} fuera de rango 0.5-2.5.",
+    "required_evidence": [
+      "A_field_BESS-053"
+    ],
+    "affected_fields": [
+      "BESS-053",
+      "BESS-075"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-005",
+    "name_es": "C-rate continuo < 1C",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-051 <= 1.0",
+    "severity": "BLOCKED",
+    "message_template": "C-rate continuo {BESS-051} excede 1C (recomendado IEC 62933).",
+    "required_evidence": [
+      "A_field_BESS-051"
+    ],
+    "affected_fields": [
+      "BESS-051",
+      "BESS-048",
+      "BESS-049"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62933_2_1",
+      "IEC_62660_2",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-006",
+    "name_es": "C-rate pico < 2C",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-052 <= 2.0",
+    "severity": "HUMAN_REVIEW",
+    "message_template": "C-rate pico {BESS-052} excede 2C.",
+    "required_evidence": [
+      "A_field_BESS-052"
+    ],
+    "affected_fields": [
+      "BESS-052"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-007"
+    ],
+    "override_allowed": true,
+    "override_role": "BATTERY_ENGINEER",
+    "source_ids": [
+      "IEC_62660_2",
+      "IEC_62619",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-007",
+    "name_es": "DOD <= 90%",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-057 <= 90.0",
+    "severity": "BLOCKED",
+    "message_template": "DOD {BESS-057} excede 90% (acelera degradacion).",
+    "required_evidence": [
+      "A_field_BESS-057"
+    ],
+    "affected_fields": [
+      "BESS-057",
+      "BESS-064",
+      "BESS-065"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62660_2",
+      "IEC_62619",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-008",
+    "name_es": "Temperatura operativa rack 0-50 degC",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-037 >= 0 AND BESS-037 <= 50",
+    "severity": "BLOCKED",
+    "message_template": "Temperatura operativa rack {BESS-037} degC fuera de 0-50 degC.",
+    "required_evidence": [
+      "A_field_BESS-037"
+    ],
+    "affected_fields": [
+      "BESS-037",
+      "BESS-005",
+      "BESS-006"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-004",
+      "BESS-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62660_2",
+      "IEC_62619",
+      "NFPA_855_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-009",
+    "name_es": "HVAC capacidad >= disipacion termica",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-094 >= Q_HVAC_calc",
+    "severity": "BLOCKED",
+    "message_template": "HVAC capacidad {BESS-094} kW < disipacion calculada {Q_HVAC_calc} kW.",
+    "required_evidence": [
+      "C_formula_output",
+      "A_field_BESS-094"
+    ],
+    "affected_fields": [
+      "BESS-094",
+      "BESS-041",
+      "BESS-005",
+      "BESS-006"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-011",
+      "BESS-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_855_2023",
+      "DNV_RP_0585",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-010",
+    "name_es": "Tension rack <= 1500 V DC",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-029 <= 1500",
+    "severity": "BLOCKED",
+    "message_template": "Tension DC rack {BESS-029} V excede 1500 V (IEC 62933-2-1).",
+    "required_evidence": [
+      "A_field_BESS-029"
+    ],
+    "affected_fields": [
+      "BESS-029",
+      "BESS-091",
+      "BESS-079"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-004",
+      "BESS-DRW-006",
+      "BESS-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62933_2_1",
+      "IEC_62619",
+      "UL_9540",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-011",
+    "name_es": "Tension disconnect DC >= Vnom rack",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-091 >= BESS-029",
+    "severity": "BLOCKED",
+    "message_template": "Tension disconnect DC {BESS-091} V < Vnom rack {BESS-029} V.",
+    "required_evidence": [
+      "A_field_BESS-091",
+      "A_field_BESS-029"
+    ],
+    "affected_fields": [
+      "BESS-091",
+      "BESS-029"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-006",
+      "BESS-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "UL_1741",
+      "IEC_62109_1",
+      "NFPA_70_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-012",
+    "name_es": "Capacidad interruptiva breaker AC >= SCC",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-092 >= I_SCC_calc",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad interruptiva AC {BESS-092} kA < I_SCC {I_SCC_calc} kA.",
+    "required_evidence": [
+      "C_formula_output",
+      "A_field_BESS-092"
+    ],
+    "affected_fields": [
+      "BESS-092",
+      "BESS-085",
+      "BESS-086"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "NFPA_70_2023",
+      "IEEE_C2_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-013",
+    "name_es": "IEEE 1547 compliance",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-077 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "PCS no cumple IEEE 1547-2018.",
+    "required_evidence": [
+      "Certificate_IEEE_1547"
+    ],
+    "affected_fields": [
+      "BESS-077"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "UL_1741"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-014",
+    "name_es": "Resistencia malla tierra <= 1 ohm",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-114 <= 1.0",
+    "severity": "BLOCKED",
+    "message_template": "Resistencia malla tierra {BESS-114} ohm > 1 ohm IEEE 80.",
+    "required_evidence": [
+      "A_field_BESS-114",
+      "Soil_resistivity_study"
+    ],
+    "affected_fields": [
+      "BESS-114",
+      "BESS-115",
+      "BESS-116"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-008"
+    ],
+    "override_allowed": true,
+    "override_role": "ELECTRICAL_ENGINEER",
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_142",
+      "IEC_60364_5_54",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-015",
+    "name_es": "NFPA 855 hazard mitigation analysis",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "HMA == TRUE",
+    "severity": "BLOCKED",
+    "message_template": "Hazard mitigation analysis NFPA 855 incompleto.",
+    "required_evidence": [
+      "HMA_report"
+    ],
+    "affected_fields": [
+      "BESS-042",
+      "BESS-099",
+      "BESS-105",
+      "BESS-109",
+      "BESS-110",
+      "BESS-111",
+      "BESS-112"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-009",
+      "BESS-DRW-010",
+      "BESS-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_855_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-016",
+    "name_es": "UL 9540A test report",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-109 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "No se dispone reporte UL 9540A para la unidad de instalacion.",
+    "required_evidence": [
+      "UL_9540A_report"
+    ],
+    "affected_fields": [
+      "BESS-109",
+      "BESS-110",
+      "BESS-042"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-009",
+      "BESS-DRW-014",
+      "BESS-DRW-017"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "UL_9540A",
+      "UL_9540",
+      "NFPA_855_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-017",
+    "name_es": "UL 1973 cell safety",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "Cell_certified_UL_1973 == TRUE",
+    "severity": "BLOCKED",
+    "message_template": "Celdas no certificadas UL 1973.",
+    "required_evidence": [
+      "UL_1973_certificate"
+    ],
+    "affected_fields": [
+      "BESS-007",
+      "BESS-008",
+      "BESS-009",
+      "BESS-010",
+      "BESS-011"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "UL_1973",
+      "UL_9540",
+      "IEC_62619",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-018",
+    "name_es": "NFPA 13 sprinkler compliance",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess' AND BESS-042 == 'SPRINKLER_NFPA_13'",
+    "assertion_expression": "BESS-104 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "Sprinklers NFPA 13 no cumplen.",
+    "required_evidence": [
+      "NFPA_13_design_report"
+    ],
+    "affected_fields": [
+      "BESS-104",
+      "BESS-101",
+      "BESS-102"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_855_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-019",
+    "name_es": "IEC 62619 cell safety",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "Cell_certified_IEC_62619 == TRUE",
+    "severity": "BLOCKED",
+    "message_template": "Celdas no certificadas IEC 62619.",
+    "required_evidence": [
+      "IEC_62619_certificate"
+    ],
+    "affected_fields": [
+      "BESS-007",
+      "BESS-008",
+      "BESS-012",
+      "BESS-017"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62619",
+      "IEC_62933_2_1",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-020",
+    "name_es": "H2 alarm <= 1% LFL (400 ppm)",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-108 <= 4000",
+    "severity": "BLOCKED",
+    "message_template": "Nivel de alarma H2 {BESS-108} ppm > 4000 ppm (1% LFL).",
+    "required_evidence": [
+      "A_field_BESS-108"
+    ],
+    "affected_fields": [
+      "BESS-108",
+      "BESS-105"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-010",
+      "BESS-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60079_29_1",
+      "IEC_60079_10_1",
+      "NFPA_855_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-021",
+    "name_es": "IEEE 2030.2 interoperability",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "interop == TRUE",
+    "severity": "BLOCKED",
+    "message_template": "No cumple interoperabilidad IEEE 2030.2.",
+    "required_evidence": [
+      "Protocol_stack"
+    ],
+    "affected_fields": [
+      "BESS-131",
+      "BESS-132",
+      "BESS-133"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-012",
+      "BESS-DRW-013",
+      "BESS-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEEE_1547_2018",
+      "IEC_61508_1",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-022",
+    "name_es": "IEEE 519 harmonics THD <= 5%",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-082 <= 5.0",
+    "severity": "BLOCKED",
+    "message_template": "THD {BESS-082}% > 5% IEEE 519.",
+    "required_evidence": [
+      "IEEE_519_test_report"
+    ],
+    "affected_fields": [
+      "BESS-082",
+      "BESS-075"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-007"
+    ],
+    "override_allowed": true,
+    "override_role": "ELECTRICAL_ENGINEER",
+    "source_ids": [
+      "IEEE_519_2022",
+      "IEEE_1547_2018",
+      "UL_1741"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-023",
+    "name_es": "Transformer losses <= 1.5% Sn",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-088 / (BESS-085/1000) <= 0.015",
+    "severity": "WARNING",
+    "message_template": "Perdidas transformador {BESS-088} kW > 1.5% Sn.",
+    "required_evidence": [
+      "Datasheet_xfr"
+    ],
+    "affected_fields": [
+      "BESS-088",
+      "BESS-085"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-007"
+    ],
+    "override_allowed": true,
+    "override_role": "ELECTRICAL_ENGINEER",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-024",
+    "name_es": "COES NCO ramp rate compliance",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-069 <= COES_ramp_rate_max",
+    "severity": "BLOCKED",
+    "message_template": "Ramp rate {BESS-069}%MW/min excede COES NCO.",
+    "required_evidence": [
+      "COES_connection_agreement"
+    ],
+    "affected_fields": [
+      "BESS-069",
+      "BESS-049"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "COES_NCO_2019",
+      "COES_Proyectos_Conexion",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-025",
+    "name_es": "IEEE 80 step & touch potential",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "E_step <= E_step_limit AND E_touch <= E_touch_limit",
+    "severity": "BLOCKED",
+    "message_template": "Step/touch potential excede IEEE 80.",
+    "required_evidence": [
+      "Grounding_study_IEEE_80"
+    ],
+    "affected_fields": [
+      "BESS-114",
+      "BESS-115",
+      "BESS-116"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_142",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-026",
+    "name_es": "NFPA 855 separation distances",
+    "category": "GEOMETRIC",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "d_building >= 1.5 AND d_property_line >= 3 AND d_hazard >= 7.5",
+    "severity": "BLOCKED",
+    "message_template": "Distancias NFPA 855 incumplidas: d_building={d_building} m, d_property={d_property} m, d_hazard={d_hazard} m.",
+    "required_evidence": [
+      "Plot_plan_with_distances"
+    ],
+    "affected_fields": [
+      "BESS-046",
+      "BESS-044",
+      "BESS-055"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_855_2023",
+      "DNV_RP_0585",
+      "ISO_5457"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-027",
+    "name_es": "IEC 62305 LPL defined",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-117 IN ('I','II','III','IV')",
+    "severity": "BLOCKED",
+    "message_template": "LPL IEC 62305 no definido.",
+    "required_evidence": [
+      "Lightning_protection_study"
+    ],
+    "affected_fields": [
+      "BESS-117",
+      "BESS-118",
+      "BESS-119"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-008",
+      "BESS-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-028",
+    "name_es": "NFPA 780 lightning protection",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-118 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "No cumple NFPA 780 proteccion contra rayo.",
+    "required_evidence": [
+      "Lightning_protection_design"
+    ],
+    "affected_fields": [
+      "BESS-118",
+      "BESS-117",
+      "BESS-119"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_780_2023",
+      "IEC_62305_1",
+      "IEC_62305_3"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-029",
+    "name_es": "DNV-RP-0585 BESS recommended practice",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "DNV_RP_0585_checklist_complete == TRUE",
+    "severity": "BLOCKED",
+    "message_template": "Checklist DNV-RP-0585 BESS incompleto.",
+    "required_evidence": [
+      "DNV_RP_0585_checklist"
+    ],
+    "affected_fields": [
+      "BESS-042",
+      "BESS-094",
+      "BESS-114",
+      "BESS-117",
+      "BESS-119",
+      "BESS-109",
+      "BESS-131",
+      "BESS-135"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-009",
+      "BESS-DRW-013",
+      "BESS-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-030",
+    "name_es": "Walkway >= 900 mm",
+    "category": "GEOMETRIC",
+    "applicability_expression": "technology == '12_bess' AND BESS-047 == 'WALK_IN'",
+    "assertion_expression": "walkway_width >= 900",
+    "severity": "BLOCKED",
+    "message_template": "Walkway {walkway_width} mm < 900 mm NFPA 855.",
+    "required_evidence": [
+      "Drawing_BESS-DRW-003"
+    ],
+    "affected_fields": [
+      "BESS-047",
+      "BESS-046",
+      "BESS-044"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-003",
+      "BESS-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_855_2023",
+      "DNV_RP_0585",
+      "ISO_5457"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-031",
+    "name_es": "Spill containment present",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-111 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "Sin contencion de derrame (NFPA 855 / MINAM DS 019).",
+    "required_evidence": [
+      "Civil_design"
+    ],
+    "affected_fields": [
+      "BESS-111",
+      "BESS-112",
+      "BESS-113"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-003",
+      "BESS-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_855_2023",
+      "MINAM_DS_019_2009",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-032",
+    "name_es": "Secondary containment for > 80 kWh",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess' AND BESS-048 >= 0.08",
+    "assertion_expression": "BESS-112 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "BESS > 80 kWh sin contencion secundaria NFPA 855.",
+    "required_evidence": [
+      "Civil_design"
+    ],
+    "affected_fields": [
+      "BESS-112",
+      "BESS-111",
+      "BESS-048"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-003",
+      "BESS-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_855_2023",
+      "MINAM_DS_019_2009",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-033",
+    "name_es": "Cell chemistry supported",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-007 IN ('LFP','NMC','NCA','LCO','LTO')",
+    "severity": "BLOCKED",
+    "message_template": "Quimica de celda {BESS-007} no soportada.",
+    "required_evidence": [
+      "Datasheet_cell"
+    ],
+    "affected_fields": [
+      "BESS-007"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62619",
+      "IEC_62660_1",
+      "UL_1973",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-034",
+    "name_es": "SCADA sample rate >= 1 Hz",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-133 >= 1.0",
+    "severity": "BLOCKED",
+    "message_template": "Tasa de muestreo SCADA {BESS-133} Hz < 1 Hz.",
+    "required_evidence": [
+      "SCADA_datasheet"
+    ],
+    "affected_fields": [
+      "BESS-133",
+      "BESS-131",
+      "BESS-132"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-012",
+      "BESS-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-035",
+    "name_es": "Cybersecurity zones 1-4 defined",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-135 IN (1,2,3,4)",
+    "severity": "BLOCKED",
+    "message_template": "Zonas de cyberseguridad {BESS-135} no definidas (1-4).",
+    "required_evidence": [
+      "Cybersecurity_architecture"
+    ],
+    "affected_fields": [
+      "BESS-135",
+      "BESS-136",
+      "BESS-137"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-013",
+      "BESS-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_RP_0585",
+      "IEEE_1547_2018",
+      "IEC_61508_1",
+      "IEC_62368_1"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-036",
+    "name_es": "MFA on SCADA",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-136 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "SCADA sin MFA.",
+    "required_evidence": [
+      "Cybersecurity_architecture"
+    ],
+    "affected_fields": [
+      "BESS-136"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-013",
+      "BESS-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_RP_0585",
+      "IEEE_1547_2018",
+      "IEC_61508_1"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-037",
+    "name_es": "IDS in SCADA",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-137 == 'YES'",
+    "severity": "HUMAN_REVIEW",
+    "message_template": "SCADA sin IDS.",
+    "required_evidence": [
+      "Cybersecurity_architecture"
+    ],
+    "affected_fields": [
+      "BESS-137"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-013",
+      "BESS-DRW-016"
+    ],
+    "override_allowed": true,
+    "override_role": "IT_SECURITY_ENGINEER",
+    "source_ids": [
+      "DNV_RP_0585",
+      "IEEE_1547_2018",
+      "IEC_61508_1"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-038",
+    "name_es": "Soil bearing verified",
+    "category": "GEOMETRIC",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "soil_bearing_capacity >= bearing_calc",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad de carga del suelo < carga aplicada.",
+    "required_evidence": [
+      "Geotechnical_study"
+    ],
+    "affected_fields": [
+      "BESS-130",
+      "BESS-033",
+      "BESS-055"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-015"
+    ],
+    "override_allowed": true,
+    "override_role": "CIVIL_ENGINEER",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "DNV_RP_0585",
+      "ISO_5457"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-039",
+    "name_es": "Lat/Lon within Peru (if project in Peru)",
+    "category": "TOPOLOGIC",
+    "applicability_expression": "technology == '12_bess' AND jurisdiction == 'PE'",
+    "assertion_expression": "BESS-002 IN [-18.341,-0.05] AND BESS-003 IN [-81.328,-68.675]",
+    "severity": "WARNING",
+    "message_template": "Coordenadas fuera de Peru (lat={BESS-002}, lon={BESS-003}).",
+    "required_evidence": [
+      "Topographic_study"
+    ],
+    "affected_fields": [
+      "BESS-002",
+      "BESS-003"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-002"
+    ],
+    "override_allowed": true,
+    "override_role": "PROJECT_MANAGER",
+    "source_ids": [
+      "ISO_19111",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-040",
+    "name_es": "Recyclability >= 50%",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-144 >= 50.0",
+    "severity": "WARNING",
+    "message_template": "Reciclabilidad {BESS-144}% < 50% MINAM.",
+    "required_evidence": [
+      "Environmental_report"
+    ],
+    "affected_fields": [
+      "BESS-144",
+      "BESS-145"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-017"
+    ],
+    "override_allowed": true,
+    "override_role": "ENVIRONMENTAL_ENGINEER",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "MINEM_DS_013_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-041",
+    "name_es": "Take-back program",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-145 == 'YES'",
+    "severity": "WARNING",
+    "message_template": "Sin programa take-back / segunda vida.",
+    "required_evidence": [
+      "Contract_take_back"
+    ],
+    "affected_fields": [
+      "BESS-145"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-017"
+    ],
+    "override_allowed": true,
+    "override_role": "ENVIRONMENTAL_ENGINEER",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "MINEM_DS_013_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-042",
+    "name_es": "Warranty years >= 5",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-141 >= 5.0",
+    "severity": "WARNING",
+    "message_template": "Garantia {BESS-141} anos < 5 anos.",
+    "required_evidence": [
+      "Contract_warranty"
+    ],
+    "affected_fields": [
+      "BESS-141",
+      "BESS-142"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-001"
+    ],
+    "override_allowed": true,
+    "override_role": "PROJECT_MANAGER",
+    "source_ids": [
+      "IEC_62619",
+      "UL_9540",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-043",
+    "name_es": "Cycles warranty >= 4000 (LFP)",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '12_bess' AND BESS-007 == 'LFP'",
+    "assertion_expression": "BESS-142 >= 4000",
+    "severity": "WARNING",
+    "message_template": "Ciclos garantizados {BESS-142} < 4000 (LFP).",
+    "required_evidence": [
+      "Contract_warranty"
+    ],
+    "affected_fields": [
+      "BESS-142",
+      "BESS-007"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-007"
+    ],
+    "override_allowed": true,
+    "override_role": "BATTERY_ENGINEER",
+    "source_ids": [
+      "IEC_62619",
+      "UL_9540",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-044",
+    "name_es": "As-built georef coordinates match design",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "technology == '12_bess' AND stage == 'AS_BUILT'",
+    "assertion_expression": "|lat_asbuilt - BESS-002| < 1e-4 AND |lon_asbuilt - BESS-003| < 1e-4",
+    "severity": "BLOCKED",
+    "message_template": "Coordenadas as-built no coinciden con diseno.",
+    "required_evidence": [
+      "As-built_survey"
+    ],
+    "affected_fields": [
+      "BESS-002",
+      "BESS-003"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-017"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111",
+      "ISO_5457",
+      "ISO_7200",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-045",
+    "name_es": "UL 9540A propagation time > 0",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess'",
+    "assertion_expression": "BESS-110 > 0",
+    "severity": "BLOCKED",
+    "message_template": "Tiempo de propagacion UL 9540A {BESS-110} s invalido.",
+    "required_evidence": [
+      "UL_9540A_report"
+    ],
+    "affected_fields": [
+      "BESS-110",
+      "BESS-109"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-009",
+      "BESS-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "UL_9540A",
+      "UL_9540",
+      "NFPA_855_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-046",
+    "name_es": "Fire water reserve >= 90 min",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess' AND BESS-042 IN ('SPRINKLER_NFPA_13','WATER_MIST')",
+    "assertion_expression": "BESS-102 * 1000 / BESS-101 >= 90",
+    "severity": "BLOCKED",
+    "message_template": "Reserva agua contra incendio {BESS-102} m3 < 90 min * demanda.",
+    "required_evidence": [
+      "Fire_water_calculation"
+    ],
+    "affected_fields": [
+      "BESS-101",
+      "BESS-102",
+      "BESS-042"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_20_2022",
+      "NFPA_855_2023",
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "rule_id": "BESS-QA-047",
+    "name_es": "Discharge time clean agent <= 10 s",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '12_bess' AND BESS-042 == 'CLEAN_AGENT_NOVEC_1230'",
+    "assertion_expression": "BESS-103 <= 10",
+    "severity": "BLOCKED",
+    "message_template": "Tiempo de descarga agente limpio {BESS-103} s > 10 s NFPA 855.",
+    "required_evidence": [
+      "Fire_system_design"
+    ],
+    "affected_fields": [
+      "BESS-103",
+      "BESS-042",
+      "BESS-099"
+    ],
+    "affected_drawings": [
+      "BESS-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_855_2023",
+      "DNV_RP_0585"
+    ]
+  }
+]

@@ -1,0 +1,1172 @@
+[
+  {
+    "geometry_rule_id": "H2-GR-001",
+    "name_es": "Electrolyzer skid layout",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-002",
+      "H2-003"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {'tolerance_mm': 10}"
+    ],
+    "generated_entity_types": [
+      "polyline",
+      "rectangle"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "tolerance_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-001: required input field missing or invalid",
+      "H2-GR-001: collision between generated entities detected",
+      "H2-GR-001: clearance violation"
+    ],
+    "source_ids": [
+      "IEC_62282_2"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-002",
+    "name_es": "Electrolyzer hall layout",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-002",
+      "H2-003",
+      "H2-011"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_clearance_m": 1
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-002: required input field missing or invalid",
+      "H2-GR-002: collision between generated entities detected",
+      "H2-GR-002: clearance violation"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-003",
+    "name_es": "Water treatment area",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-018",
+      "H2-019",
+      "H2-020"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-003: required input field missing or invalid",
+      "H2-GR-003: collision between generated entities detected",
+      "H2-GR-003: clearance violation"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-004",
+    "name_es": "Compression area",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-021",
+      "H2-022",
+      "H2-024"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-004: required input field missing or invalid",
+      "H2-GR-004: collision between generated entities detected",
+      "H2-GR-004: clearance violation"
+    ],
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-005",
+    "name_es": "Storage area",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-033",
+      "H2-034",
+      "H2-035"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "circle"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-005: required input field missing or invalid",
+      "H2-GR-005: collision between generated entities detected",
+      "H2-GR-005: clearance violation"
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-006",
+    "name_es": "Tube trailer loading bay",
+    "applicability_expression": "storage_type == tube_trailer",
+    "required_field_ids": [
+      "H2-001",
+      "H2-002"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-006: required input field missing or invalid",
+      "H2-GR-006: collision between generated entities detected",
+      "H2-GR-006: clearance violation"
+    ],
+    "source_ids": [
+      "NFPA_853_2023"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-007",
+    "name_es": "NH3 synthesis area",
+    "applicability_expression": "storage_type == ammonia_carrier",
+    "required_field_ids": [
+      "H2-040"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-007: required input field missing or invalid",
+      "H2-GR-007: collision between generated entities detected",
+      "H2-GR-007: clearance violation"
+    ],
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-008",
+    "name_es": "LOHC area",
+    "applicability_expression": "storage_type == LOHC",
+    "required_field_ids": [
+      "H2-001",
+      "H2-002"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-008: required input field missing or invalid",
+      "H2-GR-008: collision between generated entities detected",
+      "H2-GR-008: clearance violation"
+    ],
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-009",
+    "name_es": "Methanol synthesis area",
+    "applicability_expression": "storage_type == methanol",
+    "required_field_ids": [
+      "H2-001",
+      "H2-002"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-009: required input field missing or invalid",
+      "H2-GR-009: collision between generated entities detected",
+      "H2-GR-009: clearance violation"
+    ],
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-010",
+    "name_es": "Vent stack position",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-055",
+      "H2-056"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "line",
+      "circle"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-010: required input field missing or invalid",
+      "H2-GR-010: collision between generated entities detected",
+      "H2-GR-010: clearance violation"
+    ],
+    "source_ids": [
+      "API_521"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-011",
+    "name_es": "Flare position",
+    "applicability_expression": "flare_type != null",
+    "required_field_ids": [
+      "H2-057",
+      "H2-058"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_clearance_to_property_m": 30
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-011: required input field missing or invalid",
+      "H2-GR-011: collision between generated entities detected",
+      "H2-GR-011: clearance violation"
+    ],
+    "source_ids": [
+      "API_521"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-012",
+    "name_es": "ESD cabinet position",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-059"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-012: required input field missing or invalid",
+      "H2-GR-012: collision between generated entities detected",
+      "H2-GR-012: clearance violation"
+    ],
+    "source_ids": [
+      "IEC_61511_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-013",
+    "name_es": "H2 sensor cabinet positions",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-053",
+      "H2-054"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "circle",
+      "text"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-013: required input field missing or invalid",
+      "H2-GR-013: collision between generated entities detected",
+      "H2-GR-013: clearance violation"
+    ],
+    "source_ids": [
+      "IEC_60079_29_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-014",
+    "name_es": "Control room",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-001",
+      "H2-002"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-014: required input field missing or invalid",
+      "H2-GR-014: collision between generated entities detected",
+      "H2-GR-014: clearance violation"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-015",
+    "name_es": "Transformer yard",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-066"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-015: required input field missing or invalid",
+      "H2-GR-015: collision between generated entities detected",
+      "H2-GR-015: clearance violation"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-016",
+    "name_es": "Rectifier yard",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-064",
+      "H2-065"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-016: required input field missing or invalid",
+      "H2-GR-016: collision between generated entities detected",
+      "H2-GR-016: clearance violation"
+    ],
+    "source_ids": [
+      "IEC_62282_8_201"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-017",
+    "name_es": "Switchgear",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-001",
+      "H2-002"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-017: required input field missing or invalid",
+      "H2-GR-017: collision between generated entities detected",
+      "H2-GR-017: clearance violation"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-018",
+    "name_es": "Area classification Zone 1/2 polygon",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-049",
+      "H2-050",
+      "H2-051"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "polygon",
+      "hatch"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-018: required input field missing or invalid",
+      "H2-GR-018: collision between generated entities detected",
+      "H2-GR-018: clearance violation"
+    ],
+    "source_ids": [
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-019",
+    "name_es": "Fence",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-001",
+      "H2-002"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-019: required input field missing or invalid",
+      "H2-GR-019: collision between generated entities detected",
+      "H2-GR-019: clearance violation"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-020",
+    "name_es": "Fire water loop",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-072"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "line",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-020: required input field missing or invalid",
+      "H2-GR-020: collision between generated entities detected",
+      "H2-GR-020: clearance violation"
+    ],
+    "source_ids": [
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-021",
+    "name_es": "Drainage",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-001",
+      "H2-002"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "line",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-021: required input field missing or invalid",
+      "H2-GR-021: collision between generated entities detected",
+      "H2-GR-021: clearance violation"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-022",
+    "name_es": "Safety shower positions",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-001",
+      "H2-002"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "circle",
+      "line"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-022: required input field missing or invalid",
+      "H2-GR-022: collision between generated entities detected",
+      "H2-GR-022: clearance violation"
+    ],
+    "source_ids": [
+      "NFPA_853_2023"
+    ]
+  },
+  {
+    "geometry_rule_id": "H2-GR-023",
+    "name_es": "Explosion venting area",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "H2-001",
+      "H2-002"
+    ],
+    "required_calculation_ids": [
+      "H2-C-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "H2-GR-023: required input field missing or invalid",
+      "H2-GR-023: collision between generated entities detected",
+      "H2-GR-023: clearance violation"
+    ],
+    "source_ids": [
+      "NFPA_68"
+    ]
+  }
+]

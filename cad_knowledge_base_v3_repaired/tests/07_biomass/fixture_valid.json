@@ -1,0 +1,17 @@
+{
+  "technology": "07_biomass",
+  "project_id": "TEST-BIO-001",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {
+    "BIO-001": "value_0",
+    "BIO-002": "value_1",
+    "BIO-003": "value_2",
+    "BIO-004": "value_3",
+    "BIO-005": "value_4"
+  },
+  "drawings_to_generate": [
+    "BIO-DRW-001",
+    "BIO-DRW-002",
+    "BIO-DRW-003"
+  ]
+}

@@ -1,0 +1,490 @@
+[
+  {
+    "geometry_rule_id": "GR-COM-001",
+    "name_es": "Generación de polígono de límite del sitio",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PRJ_070",
+      "PRJ_071",
+      "PRJ_072"
+    ],
+    "required_calculation_ids": [
+      "C-COM-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "boundary_polygon_from_vertices",
+    "algorithm_pseudocode": [
+      "INPUT: boundary_polygon_wkt (PRJ_070), usable_area_m2 (PRJ_071)",
+      "COORD_SPACE: PLANT (UTM coordinates in m)",
+      "ORIGIN: site_centroid (PRJ_052, PRJ_053)",
+      "1. Parse WKT POLYGON from PRJ_070 to extract vertices list [(x_i, y_i), etc.]",
+      "2. Verify polygon is closed: vertices[0] == vertices[-1] (add closing vertex if missing)",
+      "3. Verify no self-intersection: check all edge pairs for intersection",
+      "4. Compute polygon area via shoelace (C-COM-002)",
+      "5. Compare computed area vs usable_area_m2 (PRJ_071); difference must be < 1%",
+      "6. Generate DXF entities: LWPOLYLINE with vertices, closed=True",
+      "7. Generate SVG path: M x0 y0 L x1 y1 etc. Z",
+      "8. Output entities: [LWPOLYLINE, TEXT (label)]",
+      "TOLERANCES: position_tolerance = 10 mm (UTM precision)",
+      "COLLISION: polygon must not self-intersect",
+      "FAILURE: if self-intersection detected, raise error"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "HATCH"
+    ],
+    "clearances": [
+      {
+        "min_distance_to_property_line_m": 5.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_self_intersection",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 10,
+      "area_pct": 1
+    },
+    "failure_conditions": [
+      "polygon self-intersects",
+      "computed area differs from declared by > 1%",
+      "fewer than 3 unique vertices",
+      "polygon not closed"
+    ],
+    "source_ids": [
+      "ISO_19111"
+    ]
+  },
+  {
+    "geometry_rule_id": "GR-COM-002",
+    "name_es": "Disposición de implantación del sitio (plot plan)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PRJ_070",
+      "PRJ_071",
+      "PRJ_073",
+      "PRJ_074",
+      "PRJ_075"
+    ],
+    "required_calculation_ids": [
+      "C-COM-002",
+      "C-COM-003"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "site_implantation_grid_layout",
+    "algorithm_pseudocode": [
+      "INPUT: boundary (PRJ_070), usable_area (PRJ_071), exclusions (PRJ_073), setback (PRJ_074)",
+      "COORD_SPACE: PLANT (UTM m, x=easting, y=northing)",
+      "ORIGIN: site_centroid (PRJ_052, PRJ_053) as local origin",
+      "1. Compute boundary polygon (GR-COM-001)",
+      "2. Compute exclusion zones as MULTIPOLYGON (PRJ_073)",
+      "3. Compute setback buffer: boundary.parallel_offset(-setback_distance)  # inward buffer",
+      "4. Build Voronoi diagram of equipment positions (if defined)",
+      "5. Place equipment pads in available areas (not in exclusions or setback)",
+      "6. Generate DXF entities: LWPOLYLINE (boundary), HATCH (exclusions), CIRCLE (equipment pads)",
+      "7. Generate SVG with same entities",
+      "8. Output entities: [LWPOLYLINE, HATCH, CIRCLE, TEXT]",
+      "TOLERANCES: position_tolerance = 50 mm (industrial precision)",
+      "CLEARANCES: setback >= PRJ_074 value, exclusion zones respected",
+      "COLLISION: equipment pads must not overlap each other or exclusions"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "HATCH",
+      "CIRCLE",
+      "TEXT",
+      "INSERT"
+    ],
+    "clearances": [
+      {
+        "min_distance_to_property_line_m": 5.0
+      },
+      {
+        "min_distance_between_equipments_m": 1.5
+      },
+      {
+        "min_distance_to_exclusion_zone_m": 0.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_equipment_overlap",
+        "severity": "BLOCKED"
+      },
+      {
+        "rule": "no_equipment_in_exclusion",
+        "severity": "BLOCKED"
+      },
+      {
+        "rule": "respect_setback",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [
+      {
+        "cost_per_meter": 1.0,
+        "context": "cable trench routing"
+      }
+    ],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "boundary polygon invalid",
+      "setback exceeds usable area",
+      "no room for equipment after exclusions",
+      "collision between equipment pads"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "geometry_rule_id": "GR-COM-003",
+    "name_es": "Disposición de cimentaciones según Meyerhof",
+    "applicability_expression": "foundation_type in ['strip','spread','raft']",
+    "required_field_ids": [
+      "PRJ_092",
+      "PRJ_093",
+      "PRJ_094",
+      "PRJ_095",
+      "PRJ_096",
+      "PRJ_097"
+    ],
+    "required_calculation_ids": [
+      "C-COM-005"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "foundation_footprint_sizing",
+    "algorithm_pseudocode": [
+      "INPUT: friction_angle (PRJ_092), bearing_capacity (PRJ_092), cohesion (PRJ_094), groundwater (PRJ_096)",
+      "COORD_SPACE: PLANT (m)",
+      "1. Compute allowable bearing capacity q_a per C-COM-005",
+      "2. For each footing i with load P_i:",
+      "   area_i = P_i / q_a  # m2",
+      "   B_i = sqrt(area_i)  # assume square footing",
+      "3. Verify footing depth D > frost depth (typical 0.6 m for Peru)",
+      "4. Verify groundwater below footing base: D < groundwater_depth",
+      "5. For each footing generate DXF:",
+      "   - RECTANGLE (x_i - B/2, y_i - B/2) to (x_i + B/2, y_i + B/2)",
+      "   - HATCH (CONCRETE pattern)",
+      "   - TEXT with footing ID and dimensions",
+      "6. Generate section view as ARC + LINE for excavation profile",
+      "7. Output entities: [RECTANGLE, HATCH, TEXT, LINE]",
+      "TOLERANCES: position_mm = 25, dimension_mm = 5",
+      "CLEARANCES: min_distance_between_footings = 2.5 * B (avoid stress overlap)",
+      "COLLISION: footing stress bulbs must not overlap significantly"
+    ],
+    "generated_entity_types": [
+      "RECTANGLE",
+      "HATCH",
+      "TEXT",
+      "LINE",
+      "ARC"
+    ],
+    "clearances": [
+      {
+        "min_distance_between_footings_m": 2.5,
+        "context": "stress bulb overlap"
+      },
+      {
+        "min_distance_to_groundwater_m": 0.5,
+        "context": "below footing base"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_footing_overlap",
+        "severity": "BLOCKED"
+      },
+      {
+        "rule": "groundwater_below_footing",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 25,
+      "dimension_mm": 5,
+      "depth_mm": 10
+    },
+    "failure_conditions": [
+      "q_a < 100 kPa (insufficient bearing capacity)",
+      "groundwater above footing base",
+      "active fault within 5 km",
+      "liquefaction susceptibility confirmed"
+    ],
+    "source_ids": [
+      "ISO_14685",
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "geometry_rule_id": "GR-COM-004",
+    "name_es": "Generación de diagrama unifilar (SLD)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PRJ_111",
+      "PRJ_112",
+      "PRJ_113",
+      "PRJ_114",
+      "PRJ_120",
+      "PRJ_124",
+      "PRJ_125"
+    ],
+    "required_calculation_ids": [
+      "C-COM-007",
+      "C-COM-008"
+    ],
+    "coordinate_space": "SCHEMATIC",
+    "algorithm": "single_line_diagram_layout",
+    "algorithm_pseudocode": [
+      "INPUT: grid_voltage (PRJ_111), capacity (PRJ_120), transformer_count (PRJ_125), short_circuit (PRJ_113)",
+      "COORD_SPACE: SCHEMATIC (paper space, mm)",
+      "ORIGIN: top-left of drawing (0, 0) with y increasing downward",
+      "1. Determine number of voltage levels (LV, MV, HV)",
+      "2. Place PCC point at top of diagram",
+      "3. Place utility source symbol above PCC",
+      "4. Place main breaker (SYM-ELEC-001) below PCC",
+      "5. Place transformer symbol (SYM-ELEC-004) per PRJ_125",
+      "6. Place inverter symbols (SYM-ELEC-011) if applicable",
+      "7. Place surge arresters (SYM-ELEC-006) at HV and MV",
+      "8. Place grounding symbol (SYM-ELEC-007) at each transformer neutral",
+      "9. Connect with vertical lines (line to line, line to neutral)",
+      "10. Add labels: voltage level, capacity, breaker ID",
+      "11. Generate DXF: LINE, CIRCLE (transformer), POLYLINE (breaker), TEXT",
+      "12. Output entities: [LINE, CIRCLE, POLYLINE, TEXT]",
+      "TOLERANCES: symbol_position_mm = 5",
+      "CLEARANCES: min_text_to_line_mm = 1.5",
+      "FAILURE: missing voltage level or transformer count"
+    ],
+    "generated_entity_types": [
+      "LINE",
+      "CIRCLE",
+      "POLYLINE",
+      "TEXT",
+      "ARC"
+    ],
+    "clearances": [
+      {
+        "min_text_to_line_mm": 1.5,
+        "context": "legibility"
+      },
+      {
+        "min_symbol_spacing_mm": 10,
+        "context": "clarity"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_symbol_overlap",
+        "severity": "BLOCKED"
+      },
+      {
+        "rule": "no_line_intersection",
+        "severity": "WARNING"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "symbol_position_mm": 5,
+      "line_lineweight_mm": 0.35
+    },
+    "failure_conditions": [
+      "missing grid voltage",
+      "transformer count = 0",
+      "short circuit capacity not declared",
+      "X/R ratio not declared"
+    ],
+    "source_ids": [
+      "IEC_60617",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "geometry_rule_id": "GR-COM-005",
+    "name_es": "Disposición de sistema contra incendios",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PRJ_130",
+      "PRJ_131",
+      "PRJ_133",
+      "PRJ_134",
+      "PRJ_135",
+      "PRJ_136",
+      "PRJ_076"
+    ],
+    "required_calculation_ids": [
+      "C-COM-010"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "fire_protection_loop_layout",
+    "algorithm_pseudocode": [
+      "INPUT: fire_protection_basis (PRJ_130), hazardous_areas (PRJ_131), fire_water_demand (PRJ_136)",
+      "COORD_SPACE: PLANT (UTM m)",
+      "1. Compute fire water demand Q (C-COM-010)",
+      "2. Determine fire water tank location: near property line for truck access",
+      "3. Lay out fire water main: loop around perimeter of plant",
+      "4. Place hydrants at corners and midpoints of loop, spacing per NFPA 13 (typical 60 m)",
+      "5. Place sprinklers in process areas per hazard class",
+      "6. Place fire pumps (1 electric + 1 diesel) per NFPA 20",
+      "7. Place detection sensors per area classification",
+      "8. Generate DXF: LINE (main), CIRCLE (hydrants), INSERT (sprinkler symbols), HATCH (hazard zones)",
+      "9. Output entities: [LINE, CIRCLE, INSERT, HATCH, TEXT]",
+      "TOLERANCES: position_mm = 50",
+      "CLEARANCES: hydrant spacing <= 60 m, hydrant to hazard <= 45 m",
+      "COLLISION: hydrants must not overlap equipment"
+    ],
+    "generated_entity_types": [
+      "LINE",
+      "CIRCLE",
+      "INSERT",
+      "HATCH",
+      "TEXT"
+    ],
+    "clearances": [
+      {
+        "max_hydrant_spacing_m": 60,
+        "context": "NFPA 13"
+      },
+      {
+        "max_hydrant_to_hazard_m": 45,
+        "context": "NFPA 13"
+      },
+      {
+        "min_tank_to_property_line_m": 3.0,
+        "context": "NFPA 22"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_hydrant_in_equipment_zone",
+        "severity": "BLOCKED"
+      },
+      {
+        "rule": "fire_loop_alarmed",
+        "severity": "WARNING"
+      }
+    ],
+    "routing_costs": [
+      {
+        "cost_per_meter": 50,
+        "context": "fire water pipe cost USD/m"
+      }
+    ],
+    "tolerances": {
+      "position_mm": 50,
+      "pipe_diameter_mm": 1
+    },
+    "failure_conditions": [
+      "fire water demand not calculated",
+      "no hazardous areas declared",
+      "hydrant spacing > 60 m",
+      "no fire pump redundancy"
+    ],
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_20_2022"
+    ]
+  },
+  {
+    "geometry_rule_id": "GR-COM-006",
+    "name_es": "Disposición de arquitectura SCADA y comunicaciones",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PRJ_150",
+      "PRJ_151",
+      "PRJ_152",
+      "PRJ_153",
+      "PRJ_154",
+      "PRJ_155"
+    ],
+    "required_calculation_ids": [
+      "C-COM-011"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "scada_network_topology_layout",
+    "algorithm_pseudocode": [
+      "INPUT: scada_architecture (PRJ_150), comm_protocol (PRJ_151), rtu_count (PRJ_152), control_room (PRJ_153)",
+      "COORD_SPACE: PLANT (UTM m) + LOGICAL (network topology)",
+      "1. Determine architecture: centralized, distributed, hierarchical, or cloud-hybrid",
+      "2. Place control room building at safe location (off-site if remote_both)",
+      "3. Place RTUs in each process area per IEC 61400-25 / IEC 60870-5-104",
+      "4. Lay out communication backbone: ring topology for redundancy",
+      "5. Place fiber optic cables in trenches (share with electrical trenches if possible)",
+      "6. Place cybersecurity zones per IEC 62443:",
+      "   - Zone 4: corporate network",
+      "   - Zone 3: SCADA DMZ",
+      "   - Zone 2: control network",
+      "   - Zone 1: field devices",
+      "7. Place firewalls between zones",
+      "8. Generate DXF: LINE (cables), RECTANGLE (RTUs, cabinets), POLYLINE (network topology)",
+      "9. Output entities: [LINE, RECTANGLE, POLYLINE, TEXT, INSERT]",
+      "TOLERANCES: position_mm = 100",
+      "CLEARANCES: RTU to high voltage > 5 m",
+      "COLLISION: no fiber cable crossing high voltage cable"
+    ],
+    "generated_entity_types": [
+      "LINE",
+      "RECTANGLE",
+      "POLYLINE",
+      "TEXT",
+      "INSERT"
+    ],
+    "clearances": [
+      {
+        "min_distance_rt_to_hv_m": 5.0,
+        "context": "EMI"
+      },
+      {
+        "min_distance_rt_to_fire_hydrant_m": 1.0,
+        "context": "water spray"
+      },
+      {
+        "min_cyber_zone_separation_m": 0,
+        "context": "logical separation via firewall"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_fiber_crossing_hv",
+        "severity": "BLOCKED"
+      },
+      {
+        "rule": "redundant_path_required",
+        "severity": "BLOCKED"
+      },
+      {
+        "rule": "firewall_between_zones",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [
+      {
+        "cost_per_meter": 30,
+        "context": "fiber optic cable USD/m"
+      }
+    ],
+    "tolerances": {
+      "position_mm": 100,
+      "bandwidth_tolerance_pct": 10
+    },
+    "failure_conditions": [
+      "no redundancy in communication",
+      "no firewall between zones",
+      "RTU exposed to EMI",
+      "no protocol specified"
+    ],
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61400_25"
+    ]
+  }
+]

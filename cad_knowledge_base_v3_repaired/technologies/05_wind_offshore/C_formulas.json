@@ -1,0 +1,2808 @@
+[
+  {
+    "calculation_id": "WOF-CALC-001",
+    "name_es": "Altura de ola extrema Hs 50 anos (Gumbel/Weibull)",
+    "discipline": "METOCEAN",
+    "formula": "Hs_50 = mu_Hs + (1/alpha_Hs) * (-ln(-ln(1-1/50)))",
+    "variables": [
+      {
+        "symbol": "Hs_50",
+        "name": "Altura significativa 50 anos",
+        "unit": "m"
+      },
+      {
+        "symbol": "mu_Hs",
+        "name": "Media anual maxima Hs",
+        "unit": "m"
+      },
+      {
+        "symbol": "alpha_Hs",
+        "name": "Pendiente Gumbel",
+        "unit": "1/m"
+      },
+      {
+        "name": "Hs_extreme_50yr",
+        "symbol": "Hs_extreme_50yr",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-013"
+    ],
+    "outputs": [
+      {
+        "name": "Hs_extreme_50yr",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "IEC_61400_3_1"
+    ],
+    "purpose": "Altura de ola extrema Hs 50 anos (Gumbel/Weibull)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Hs_extreme_50yr = mean_Hs + 2.05 * sigma_Hs_Gumbel"
+    ],
+    "equations_latex": [
+      "Hs_extreme_{50yr} = mean_{Hs} + 2.05 * sigma_Hs_{Gumbel}"
+    ],
+    "unit_equations": [
+      {
+        "name": "Hs_extreme_50yr",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "Hs_extreme_50yr within valid physical range",
+      "Hs_extreme_50yr > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-002",
+    "name_es": "Distribucion de periodo pico Tp asociado a Hs (JONSWAP)",
+    "discipline": "METOCEAN",
+    "formula": "Tp = a + b*Hs^c (parametros ajustados)",
+    "variables": [
+      {
+        "symbol": "Tp",
+        "name": "Periodo pico",
+        "unit": "s"
+      },
+      {
+        "symbol": "Hs",
+        "name": "Altura significativa",
+        "unit": "m"
+      },
+      {
+        "name": "Tp_distribution",
+        "symbol": "Tp_distribution",
+        "unit": "s",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-013",
+      "WOF-015"
+    ],
+    "outputs": [
+      {
+        "name": "Tp_distribution",
+        "unit": "s",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_RP_C205"
+    ],
+    "purpose": "Distribucion de periodo pico Tp asociado a Hs (JONSWAP)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Tp_distribution = mean_Tp + sigma_Tp * random_normal()"
+    ],
+    "equations_latex": [
+      "Tp_{distribution} = mean_{Tp} + sigma_{Tp} * random_{normal}()"
+    ],
+    "unit_equations": [
+      {
+        "name": "Tp_distribution",
+        "value": "s"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "Tp_distribution within valid physical range",
+      "Tp_distribution > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-003",
+    "name_es": "Cinematica de ola (Stokes 5to orden)",
+    "discipline": "METOCEAN",
+    "formula": "u(z,t) = sum_{n=1..5} (n*omega*eps_n*cosh(n*k*(z+e))/sinh(n*k*e))*cos(n*theta)",
+    "variables": [
+      {
+        "symbol": "u",
+        "name": "Velocidad horizontal de particula",
+        "unit": "m/s"
+      },
+      {
+        "symbol": "omega",
+        "name": "Frecuencia angular",
+        "unit": "rad/s"
+      },
+      {
+        "symbol": "k",
+        "name": "Numero de onda",
+        "unit": "1/m"
+      },
+      {
+        "symbol": "z",
+        "name": "Profundidad desde superficie",
+        "unit": "m"
+      },
+      {
+        "name": "F_wave_morison",
+        "symbol": "F_wave_morison",
+        "unit": "N/m",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-013",
+      "WOF-015"
+    ],
+    "outputs": [
+      {
+        "name": "F_wave_morison",
+        "unit": "N/m",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_RP_C205"
+    ],
+    "purpose": "Cinematica de ola (Stokes 5to orden)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F_wave_morison = C_d * 0.5 * rho_water * D * v_wave^2 + C_m * rho_water * pi * D^2/4 * dv/dt"
+    ],
+    "equations_latex": [
+      "F_wave_{morison} = C_{d} * 0.5 * rho_{water} * D * v_{wave}^2 + C_{m} * rho_{water} * pi * D^{2}/4 * dv/dt"
+    ],
+    "unit_equations": [
+      {
+        "name": "F_wave_morison",
+        "value": "N/m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "F_wave_morison within valid physical range",
+      "F_wave_morison > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-004",
+    "name_es": "Carga de corriente y oleaje sobre pilar (Morison)",
+    "discipline": "HYDRODYNAMICS",
+    "formula": "F = rho*Cd*D*u*|u| + rho*Cm*pi*D^2/4*du/dt + rho*Di*Cm_i*du/dt (inercia)",
+    "variables": [
+      {
+        "symbol": "F",
+        "name": "Fuerza por unidad de longitud",
+        "unit": "N/m"
+      },
+      {
+        "symbol": "rho",
+        "name": "Densidad agua mar",
+        "unit": "kg/m3"
+      },
+      {
+        "symbol": "Cd",
+        "name": "Coef de arrastre",
+        "unit": "-"
+      },
+      {
+        "symbol": "Cm",
+        "name": "Coef de inercia",
+        "unit": "-"
+      },
+      {
+        "symbol": "D",
+        "name": "Diametro del pilar",
+        "unit": "m"
+      },
+      {
+        "symbol": "u",
+        "name": "Velocidad de particula",
+        "unit": "m/s"
+      },
+      {
+        "name": "F_fatigue_monopile",
+        "symbol": "F_fatigue_monopile",
+        "unit": "MPa",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-010",
+      "WOF-014",
+      "WOF-020",
+      "WOF-051"
+    ],
+    "outputs": [
+      {
+        "name": "F_fatigue_monopile",
+        "unit": "MPa",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_OS_J101",
+      "IEC_61400_3_1"
+    ],
+    "purpose": "Carga de corriente y oleaje sobre pilar (Morison)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F_fatigue_monopile = sum(stress_range_i^m * n_cycles_i) for i in stress_blocks"
+    ],
+    "equations_latex": [
+      "F_fatigue_{monopile} = sum(stress_range_{i}^m * n_cycles_{i}) for i in stress_{blocks}"
+    ],
+    "unit_equations": [
+      {
+        "name": "F_fatigue_monopile",
+        "value": "MPa"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "F_fatigue_monopile within valid physical range",
+      "F_fatigue_monopile > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-005",
+    "name_es": "Carga de viento sobre WT a altura de buje (IEC 61400-3-1)",
+    "discipline": "WIND_LOADS",
+    "formula": "F_w = 0.5*rho_air*V_hub^2*Cf*A_ref",
+    "variables": [
+      {
+        "symbol": "F_w",
+        "name": "Fuerza de viento",
+        "unit": "N"
+      },
+      {
+        "symbol": "rho_air",
+        "name": "Densidad del aire",
+        "unit": "kg/m3"
+      },
+      {
+        "symbol": "V_hub",
+        "name": "Velocidad de viento a altura de buje",
+        "unit": "m/s"
+      },
+      {
+        "symbol": "Cf",
+        "name": "Coef de forma",
+        "unit": "-"
+      },
+      {
+        "symbol": "A_ref",
+        "name": "Area de referencia",
+        "unit": "m2"
+      },
+      {
+        "name": "f_natural_monopile",
+        "symbol": "f_natural_monopile",
+        "unit": "Hz",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-017",
+      "WOF-027",
+      "WOF-041",
+      "WOF-042"
+    ],
+    "outputs": [
+      {
+        "name": "f_natural_monopile",
+        "unit": "Hz",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "IEC_61400_3_1",
+      "IEC_61400_1",
+      "DNV_RP_C205"
+    ],
+    "purpose": "Carga de viento sobre WT a altura de buje (IEC 61400-3-1)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "f_natural_monopile = (1/2/pi) * sqrt(K_soil/M_eff)"
+    ],
+    "equations_latex": [
+      "f_natural_{monopile} = (1/2/pi) * sqrt(K_{soil}/M_{eff})"
+    ],
+    "unit_equations": [
+      {
+        "name": "f_natural_monopile",
+        "value": "Hz"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "f_natural_monopile within valid physical range",
+      "f_natural_monopile > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-006",
+    "name_es": "Empuje aerodinamico del rotor WT (thrust)",
+    "discipline": "WIND_LOADS",
+    "formula": "T = 0.5*rho_air*A_rotor*V_hub^2*C_T",
+    "variables": [
+      {
+        "symbol": "T",
+        "name": "Empuje del rotor",
+        "unit": "N"
+      },
+      {
+        "symbol": "rho_air",
+        "name": "Densidad del aire",
+        "unit": "kg/m3"
+      },
+      {
+        "symbol": "A_rotor",
+        "name": "Area barrida",
+        "unit": "m2"
+      },
+      {
+        "symbol": "C_T",
+        "name": "Coef de empuje",
+        "unit": "-"
+      },
+      {
+        "name": "K_soil",
+        "symbol": "K_soil",
+        "unit": "N/m",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-017",
+      "WOF-027",
+      "WOF-040",
+      "WOF-041"
+    ],
+    "outputs": [
+      {
+        "name": "K_soil",
+        "unit": "N/m",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "IEC_61400_3_1",
+      "IEC_61400_1"
+    ],
+    "purpose": "Empuje aerodinamico del rotor WT (thrust)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "K_soil = k_h * D * L_embedded / 4"
+    ],
+    "equations_latex": [
+      "K_{soil} = k_{h} * D * L_{embedded} / 4"
+    ],
+    "unit_equations": [
+      {
+        "name": "K_soil",
+        "value": "N/m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "K_soil within valid physical range",
+      "K_soil > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-007",
+    "name_es": "Fatiga del monopile (curva S-N DNV-B1)",
+    "discipline": "FATIGUE",
+    "formula": "log10(N) = log10(K) - m*log10(S)",
+    "variables": [
+      {
+        "symbol": "N",
+        "name": "Ciclos a fallo",
+        "unit": "cyc"
+      },
+      {
+        "symbol": "S",
+        "name": "Rango de tension",
+        "unit": "MPa"
+      },
+      {
+        "symbol": "K",
+        "name": "Constante S-N",
+        "unit": "MPa^m"
+      },
+      {
+        "symbol": "m",
+        "name": "Pendiente S-N",
+        "unit": "-"
+      },
+      {
+        "name": "M_extreme_monopile",
+        "symbol": "M_extreme_monopile",
+        "unit": "Nm",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-013",
+      "WOF-014",
+      "WOF-015",
+      "WOF-051",
+      "WOF-053",
+      "WOF-064"
+    ],
+    "outputs": [
+      {
+        "name": "M_extreme_monopile",
+        "unit": "Nm",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_RP_C205",
+      "IEC_61400_3_1"
+    ],
+    "purpose": "Fatiga del monopile (curva S-N DNV-B1)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "M_extreme_monopile = F_wave * h_hub + M_wind_thrust"
+    ],
+    "equations_latex": [
+      "M_extreme_{monopile} = F_{wave} * h_{hub} + M_wind_{thrust}"
+    ],
+    "unit_equations": [
+      {
+        "name": "M_extreme_monopile",
+        "value": "Nm"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "M_extreme_monopile within valid physical range",
+      "M_extreme_monopile > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-008",
+    "name_es": "Fatiga del jacket (curva T DNV)",
+    "discipline": "FATIGUE",
+    "formula": "log10(N) = log10(K_T) - m_T*log10(S)",
+    "variables": [
+      {
+        "symbol": "N",
+        "name": "Ciclos a fallo",
+        "unit": "cyc"
+      },
+      {
+        "symbol": "S",
+        "name": "Rango de tension",
+        "unit": "MPa"
+      },
+      {
+        "symbol": "K_T",
+        "name": "Constante curva T",
+        "unit": "MPa^m"
+      },
+      {
+        "symbol": "m_T",
+        "name": "Pendiente curva T",
+        "unit": "-"
+      },
+      {
+        "name": "sigma_max_monopile",
+        "symbol": "sigma_max_monopile",
+        "unit": "Pa",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-057",
+      "WOF-058",
+      "WOF-059",
+      "WOF-013",
+      "WOF-064"
+    ],
+    "outputs": [
+      {
+        "name": "sigma_max_monopile",
+        "unit": "Pa",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_C101",
+      "DNV_OS_J103"
+    ],
+    "purpose": "Fatiga del jacket (curva T DNV)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "sigma_max_monopile = M_extreme / (pi * D^2 * t / 4)"
+    ],
+    "equations_latex": [
+      "sigma_max_{monopile} = M_{extreme} / (pi * D^{2} * t / 4)"
+    ],
+    "unit_equations": [
+      {
+        "name": "sigma_max_monopile",
+        "value": "Pa"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "sigma_max_monopile within valid physical range",
+      "sigma_max_monopile > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-009",
+    "name_es": "Frecuencia natural del monopile (diagrama Campbell)",
+    "discipline": "STRUCTURAL",
+    "formula": "f_n = (1/(2*pi)) * sqrt(K_lat / M_eff)",
+    "variables": [
+      {
+        "symbol": "f_n",
+        "name": "Frecuencia natural",
+        "unit": "Hz"
+      },
+      {
+        "symbol": "K_lat",
+        "name": "Rigidez lateral efectiva",
+        "unit": "N/m"
+      },
+      {
+        "symbol": "M_eff",
+        "name": "Masa modal efectiva",
+        "unit": "kg"
+      },
+      {
+        "name": "F_mooring_quasi",
+        "symbol": "F_mooring_quasi",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-043",
+      "WOF-044",
+      "WOF-045",
+      "WOF-051",
+      "WOF-053",
+      "WOF-052"
+    ],
+    "outputs": [
+      {
+        "name": "F_mooring_quasi",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "IEC_61400_6"
+    ],
+    "purpose": "Frecuencia natural del monopile (diagrama Campbell)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F_mooring_quasi = sum(F_i * cos(theta_i) for i in mooring_lines)"
+    ],
+    "equations_latex": [
+      "F_mooring_{quasi} = sum(F_{i} * cos(theta_{i}) for i in mooring_{lines})"
+    ],
+    "unit_equations": [
+      {
+        "name": "F_mooring_quasi",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "F_mooring_quasi within valid physical range",
+      "F_mooring_quasi > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-010",
+    "name_es": "Rigidez lateral del monopile (p-y integrado)",
+    "discipline": "GEOTECHNICAL",
+    "formula": "K_lat = integral_0^L (p(y)/y) dy",
+    "variables": [
+      {
+        "symbol": "K_lat",
+        "name": "Rigidez lateral",
+        "unit": "N/m"
+      },
+      {
+        "symbol": "p",
+        "name": "Resistencia lateral del suelo por unidad longitud",
+        "unit": "N/m"
+      },
+      {
+        "symbol": "y",
+        "name": "Desplazamiento lateral",
+        "unit": "m"
+      },
+      {
+        "symbol": "L",
+        "name": "Longitud empotrada",
+        "unit": "m"
+      },
+      {
+        "name": "SF_anchor",
+        "symbol": "SF_anchor",
+        "unit": "dimensionless_ratio",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-030",
+      "WOF-031",
+      "WOF-032",
+      "WOF-052",
+      "WOF-035"
+    ],
+    "outputs": [
+      {
+        "name": "SF_anchor",
+        "unit": "dimensionless_ratio",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_RP_C205"
+    ],
+    "purpose": "Rigidez lateral del monopile (p-y integrado)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "SF_anchor = F_anchor_capacity / F_design"
+    ],
+    "equations_latex": [
+      "SF_{anchor} = F_anchor_{capacity} / F_{design}"
+    ],
+    "unit_equations": [
+      {
+        "name": "SF_anchor",
+        "value": "dimensionless_ratio"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "SF_anchor within valid physical range",
+      "SF_anchor > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-011",
+    "name_es": "Interaccion suelo-estructura (curvas p-y)",
+    "discipline": "GEOTECHNICAL",
+    "formula": "p = A*p_u * tanh(K*z*y / (A*p_u))",
+    "variables": [
+      {
+        "symbol": "p",
+        "name": "Resistencia lateral del suelo",
+        "unit": "N/m"
+      },
+      {
+        "symbol": "p_u",
+        "name": "Resistencia lateral ultima",
+        "unit": "N/m"
+      },
+      {
+        "symbol": "K",
+        "name": "Modulo subgradiente",
+        "unit": "kN/m3"
+      },
+      {
+        "symbol": "z",
+        "name": "Profundidad",
+        "unit": "m"
+      },
+      {
+        "symbol": "y",
+        "name": "Desplazamiento lateral",
+        "unit": "m"
+      },
+      {
+        "name": "GM_metacentric",
+        "symbol": "GM_metacentric",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-030",
+      "WOF-031",
+      "WOF-032",
+      "WOF-033",
+      "WOF-035"
+    ],
+    "outputs": [
+      {
+        "name": "GM_metacentric",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_J101"
+    ],
+    "purpose": "Interaccion suelo-estructura (curvas p-y)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "GM_metacentric = BM - BG"
+    ],
+    "equations_latex": [
+      "GM_{metacentric} = BM - BG"
+    ],
+    "unit_equations": [
+      {
+        "name": "GM_metacentric",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "GM_metacentric within valid physical range",
+      "GM_metacentric > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-012",
+    "name_es": "Tension de linea de fondeo cuasi-estatica (catenaria)",
+    "discipline": "MOORING",
+    "formula": "T = sqrt(H_top^2 + V_top^2); H_top = w*L_h_eff; V_top = w*L_v + F_pretension",
+    "variables": [
+      {
+        "symbol": "T",
+        "name": "Tension total",
+        "unit": "N"
+      },
+      {
+        "symbol": "H_top",
+        "name": "Componente horizontal",
+        "unit": "N"
+      },
+      {
+        "symbol": "V_top",
+        "name": "Componente vertical",
+        "unit": "N"
+      },
+      {
+        "symbol": "w",
+        "name": "Peso sumergido por unidad",
+        "unit": "N/m"
+      },
+      {
+        "symbol": "F_pretension",
+        "name": "Pretension",
+        "unit": "N"
+      },
+      {
+        "name": "GZ_stability",
+        "symbol": "GZ_stability",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-080",
+      "WOF-081",
+      "WOF-082",
+      "WOF-083",
+      "WOF-084"
+    ],
+    "outputs": [
+      {
+        "name": "GZ_stability",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "IEC_TS_62600_10",
+      "IEC_61400_3_2"
+    ],
+    "purpose": "Tension de linea de fondeo cuasi-estatica (catenaria)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "GZ_stability = GM * sin(theta)"
+    ],
+    "equations_latex": [
+      "GZ_{stability} = GM * sin(theta)"
+    ],
+    "unit_equations": [
+      {
+        "name": "GZ_stability",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "GZ_stability within valid physical range",
+      "GZ_stability > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-013",
+    "name_es": "Fatiga de linea de fondeo (Miner acumulado)",
+    "discipline": "MOORING",
+    "formula": "D = sum_i (n_i / N_i) <= 1.0",
+    "variables": [
+      {
+        "symbol": "D",
+        "name": "Dano acumulado de Miner",
+        "unit": "-"
+      },
+      {
+        "symbol": "n_i",
+        "name": "Ciclos en bin i",
+        "unit": "cyc"
+      },
+      {
+        "symbol": "N_i",
+        "name": "Ciclos a fallo bin i",
+        "unit": "cyc"
+      },
+      {
+        "name": "theta_max",
+        "symbol": "theta_max",
+        "unit": "degree",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-013",
+      "WOF-015",
+      "WOF-080",
+      "WOF-081",
+      "WOF-082",
+      "WOF-086"
+    ],
+    "outputs": [
+      {
+        "name": "theta_max",
+        "unit": "degree",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "purpose": "Fatiga de linea de fondeo (Miner acumulado)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "theta_max = arctan(GM_max/GZ_min)"
+    ],
+    "equations_latex": [
+      "theta_{max} = arctan(GM_{max}/GZ_{min})"
+    ],
+    "unit_equations": [
+      {
+        "name": "theta_max",
+        "value": "degree"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "theta_max within valid physical range",
+      "theta_max > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-014",
+    "name_es": "Capacidad de retencion de ancla de arrastre (drag anchor)",
+    "discipline": "MOORING",
+    "formula": "H_drag = N_q * gamma * B * L * sin(delta) + W_anchor*cos(alpha)",
+    "variables": [
+      {
+        "symbol": "H_drag",
+        "name": "Capacidad de retencion",
+        "unit": "N"
+      },
+      {
+        "symbol": "N_q",
+        "name": "Factor de capacidad",
+        "unit": "-"
+      },
+      {
+        "symbol": "gamma",
+        "name": "Peso unitario sumergido",
+        "unit": "N/m3"
+      },
+      {
+        "symbol": "B",
+        "name": "Ancho del fluke",
+        "unit": "m"
+      },
+      {
+        "symbol": "L",
+        "name": "Longitud del fluke",
+        "unit": "m"
+      },
+      {
+        "symbol": "W_anchor",
+        "name": "Peso del ancla",
+        "unit": "N"
+      },
+      {
+        "name": "A_cable_dyn",
+        "symbol": "A_cable_dyn",
+        "unit": "mm2",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-030",
+      "WOF-031",
+      "WOF-032",
+      "WOF-092",
+      "WOF-094"
+    ],
+    "outputs": [
+      {
+        "name": "A_cable_dyn",
+        "unit": "mm2",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "IEC_TS_62600_10"
+    ],
+    "purpose": "Capacidad de retencion de ancla de arrastre (drag anchor)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "A_cable_dyn = sqrt(2 * P_loss / (3 * rho_conductor * L * J_max^2))"
+    ],
+    "equations_latex": [
+      "A_cable_{dyn} = sqrt(2 * P_{loss} / (3 * rho_{conductor} * L * J_{max}^2))"
+    ],
+    "unit_equations": [
+      {
+        "name": "A_cable_dyn",
+        "value": "mm2"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "A_cable_dyn within valid physical range",
+      "A_cable_dyn > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-015",
+    "name_es": "Capacidad de suction pile",
+    "discipline": "GEOTECHNICAL",
+    "formula": "H_suction = alpha*pi*D*L + W_pile*sf_soil + N_gamma*gamma*D*L^2/2",
+    "variables": [
+      {
+        "symbol": "H_suction",
+        "name": "Capacidad lateral",
+        "unit": "N"
+      },
+      {
+        "symbol": "alpha",
+        "name": "Adhesion pared",
+        "unit": "Pa"
+      },
+      {
+        "symbol": "D",
+        "name": "Diametro",
+        "unit": "m"
+      },
+      {
+        "symbol": "L",
+        "name": "Penetracion",
+        "unit": "m"
+      },
+      {
+        "symbol": "W_pile",
+        "name": "Peso sumergido pile",
+        "unit": "N"
+      },
+      {
+        "name": "P_loss_dyn",
+        "symbol": "P_loss_dyn",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-031",
+      "WOF-032",
+      "WOF-091",
+      "WOF-092",
+      "WOF-095"
+    ],
+    "outputs": [
+      {
+        "name": "P_loss_dyn",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_OS_J101"
+    ],
+    "purpose": "Capacidad de suction pile",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_loss_dyn = 3 * I_cable^2 * rho_conductor * L / A_cable"
+    ],
+    "equations_latex": [
+      "P_loss_{dyn} = 3 * I_{cable}^2 * rho_{conductor} * L / A_{cable}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_loss_dyn",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "P_loss_dyn within valid physical range",
+      "P_loss_dyn > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-016",
+    "name_es": "Capacidad de ancla de peso (deadweight)",
+    "discipline": "MOORING",
+    "formula": "H_dead = mu*(W_submerged - U) + A_p*Su_passive",
+    "variables": [
+      {
+        "symbol": "H_dead",
+        "name": "Capacidad de retencion",
+        "unit": "N"
+      },
+      {
+        "symbol": "mu",
+        "name": "Coef de friccion suelo-base",
+        "unit": "-"
+      },
+      {
+        "symbol": "W_submerged",
+        "name": "Peso sumergido del ancla",
+        "unit": "N"
+      },
+      {
+        "symbol": "U",
+        "name": "Empuje hidrostatico",
+        "unit": "N"
+      },
+      {
+        "symbol": "A_p",
+        "name": "Area de presion pasiva",
+        "unit": "m2"
+      },
+      {
+        "symbol": "Su_passive",
+        "name": "Resistencia no drenada pasiva",
+        "unit": "Pa"
+      },
+      {
+        "name": "L_scour",
+        "symbol": "L_scour",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-030",
+      "WOF-031",
+      "WOF-032",
+      "WOF-092"
+    ],
+    "outputs": [
+      {
+        "name": "L_scour",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "purpose": "Capacidad de ancla de peso (deadweight)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "L_scour = 0.04 * D_pile * (v_current/sqrt(g*D_pile))^2"
+    ],
+    "equations_latex": [
+      "L_{scour} = 0.04 * D_{pile} * (v_{current}/sqrt(g*D_{pile}))^2"
+    ],
+    "unit_equations": [
+      {
+        "name": "L_scour",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "L_scour within valid physical range",
+      "L_scour > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-017",
+    "name_es": "Estabilidad de plataforma flotante (GM)",
+    "discipline": "NAVAL",
+    "formula": "GM = KB + BM - KG; BM = I_waterplane / V_displaced",
+    "variables": [
+      {
+        "symbol": "GM",
+        "name": "Altura metacentrica",
+        "unit": "m"
+      },
+      {
+        "symbol": "KB",
+        "name": "Centro de carena a flotacion",
+        "unit": "m"
+      },
+      {
+        "symbol": "BM",
+        "name": "Radio metacentrico",
+        "unit": "m"
+      },
+      {
+        "symbol": "KG",
+        "name": "Centro de gravedad a flotacion",
+        "unit": "m"
+      },
+      {
+        "symbol": "I_waterplane",
+        "name": "Momento de inercia del plano de flotacion",
+        "unit": "m4"
+      },
+      {
+        "symbol": "V_displaced",
+        "name": "Volumen desplazado",
+        "unit": "m3"
+      },
+      {
+        "name": "d_scour_depth",
+        "symbol": "d_scour_depth",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-070",
+      "WOF-071",
+      "WOF-072",
+      "WOF-073",
+      "WOF-074"
+    ],
+    "outputs": [
+      {
+        "name": "d_scour_depth",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_C101",
+      "IEC_61400_3_2"
+    ],
+    "purpose": "Estabilidad de plataforma flotante (GM)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "d_scour_depth = 0.3 * D_pile"
+    ],
+    "equations_latex": [
+      "d_scour_{depth} = 0.3 * D_{pile}"
+    ],
+    "unit_equations": [
+      {
+        "name": "d_scour_depth",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "d_scour_depth within valid physical range",
+      "d_scour_depth > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-018",
+    "name_es": "Curva GZ de estabilidad flotante",
+    "discipline": "NAVAL",
+    "formula": "GZ(theta) = KN(theta) - KG*sin(theta)",
+    "variables": [
+      {
+        "symbol": "GZ",
+        "name": "Brazo adrizante",
+        "unit": "m"
+      },
+      {
+        "symbol": "KN",
+        "name": "Brazo de estabilidad forma",
+        "unit": "m"
+      },
+      {
+        "symbol": "KG",
+        "name": "Centro de gravedad a K",
+        "unit": "m"
+      },
+      {
+        "symbol": "theta",
+        "name": "Angulo de escora",
+        "unit": "rad"
+      },
+      {
+        "name": "M_grouted",
+        "symbol": "M_grouted",
+        "unit": "Nm",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-070",
+      "WOF-072",
+      "WOF-073",
+      "WOF-074",
+      "WOF-075",
+      "WOF-076"
+    ],
+    "outputs": [
+      {
+        "name": "M_grouted",
+        "unit": "Nm",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_C101",
+      "IEC_61400_3_2"
+    ],
+    "purpose": "Curva GZ de estabilidad flotante",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "M_grouted = (pi/4) * (D_out^2 - D_in^2) * f_grout"
+    ],
+    "equations_latex": [
+      "M_{grouted} = (pi/4) * (D_{out}^2 - D_{in}^2) * f_{grout}"
+    ],
+    "unit_equations": [
+      {
+        "name": "M_grouted",
+        "value": "Nm"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "M_grouted within valid physical range",
+      "M_grouted > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-019",
+    "name_es": "Ampacidad de cable submarino (IEC 60287)",
+    "discipline": "ELECTRICAL",
+    "formula": "I = sqrt((DeltaT - W_d*(T1+T2+T3)) / (R*T1 + R*(1+lambda1)*T2 + R*(1+lambda1+lambda2)*T3))",
+    "variables": [
+      {
+        "symbol": "I",
+        "name": "Capacidad de corriente",
+        "unit": "A"
+      },
+      {
+        "symbol": "DeltaT",
+        "name": "Sobreetemperatura maxima",
+        "unit": "K"
+      },
+      {
+        "symbol": "W_d",
+        "name": "Perdidas dielectricas por unidad",
+        "unit": "W/m"
+      },
+      {
+        "symbol": "R",
+        "name": "Resistencia AC por unidad",
+        "unit": "ohm/m"
+      },
+      {
+        "symbol": "T1,T2,T3",
+        "name": "Resistencias termicas",
+        "unit": "K*m/W"
+      },
+      {
+        "symbol": "lambda1,lambda2",
+        "name": "Factores de perdidas de armadura y pantalla",
+        "unit": "-"
+      },
+      {
+        "name": "eta_Cp_aero",
+        "symbol": "eta_Cp_aero",
+        "unit": "dimensionless_ratio",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-100",
+      "WOF-101",
+      "WOF-104",
+      "WOF-105",
+      "WOF-110",
+      "WOF-112"
+    ],
+    "outputs": [
+      {
+        "name": "eta_Cp_aero",
+        "unit": "dimensionless_ratio",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_835",
+      "DNV_ST_0519"
+    ],
+    "purpose": "Ampacidad de cable submarino (IEC 60287)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "eta_Cp_aero = P_mech / P_wind"
+    ],
+    "equations_latex": [
+      "eta_Cp_{aero} = P_{mech} / P_{wind}"
+    ],
+    "unit_equations": [
+      {
+        "name": "eta_Cp_aero",
+        "value": "dimensionless_ratio"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "eta_Cp_aero within valid physical range",
+      "eta_Cp_aero > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-020",
+    "name_es": "Fatiga de cable dinamico VIV cross-flow",
+    "discipline": "VIV",
+    "formula": "D_cf = sum_i (n_i / N_cf_i)",
+    "variables": [
+      {
+        "symbol": "D_cf",
+        "name": "Dano de Miner VIV cross-flow",
+        "unit": "-"
+      },
+      {
+        "symbol": "n_i",
+        "name": "Ciclos bin i",
+        "unit": "cyc"
+      },
+      {
+        "symbol": "N_cf_i",
+        "name": "Ciclos a fallo bin i",
+        "unit": "cyc"
+      },
+      {
+        "name": "A_rotor_offshore",
+        "symbol": "A_rotor_offshore",
+        "unit": "m2",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-013",
+      "WOF-015",
+      "WOF-020",
+      "WOF-077",
+      "WOF-107"
+    ],
+    "outputs": [
+      {
+        "name": "A_rotor_offshore",
+        "unit": "m2",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_ST_0519"
+    ],
+    "purpose": "Fatiga de cable dinamico VIV cross-flow",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "A_rotor_offshore = P_rated / (0.5 * rho_air * v_rated^3 * Cp_max)"
+    ],
+    "equations_latex": [
+      "A_rotor_{offshore} = P_{rated} / (0.5 * rho_{air} * v_{rated}^3 * Cp_{max})"
+    ],
+    "unit_equations": [
+      {
+        "name": "A_rotor_offshore",
+        "value": "m2"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "A_rotor_offshore within valid physical range",
+      "A_rotor_offshore > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-021",
+    "name_es": "Fatiga de cable dinamico VIV in-line",
+    "discipline": "VIV",
+    "formula": "D_il = sum_i (n_i / N_il_i)",
+    "variables": [
+      {
+        "symbol": "D_il",
+        "name": "Dano de Miner VIV in-line",
+        "unit": "-"
+      },
+      {
+        "symbol": "n_i",
+        "name": "Ciclos bin i",
+        "unit": "cyc"
+      },
+      {
+        "symbol": "N_il_i",
+        "name": "Ciclos a fallo bin i",
+        "unit": "cyc"
+      },
+      {
+        "name": "D_rotor_offshore",
+        "symbol": "D_rotor_offshore",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-013",
+      "WOF-015",
+      "WOF-020",
+      "WOF-077",
+      "WOF-107"
+    ],
+    "outputs": [
+      {
+        "name": "D_rotor_offshore",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_ST_0519"
+    ],
+    "purpose": "Fatiga de cable dinamico VIV in-line",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "D_rotor_offshore = 2 * sqrt(A_rotor_offshore / pi)"
+    ],
+    "equations_latex": [
+      "D_rotor_{offshore} = 2 * sqrt(A_rotor_{offshore} / pi)"
+    ],
+    "unit_equations": [
+      {
+        "name": "D_rotor_offshore",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "D_rotor_offshore within valid physical range",
+      "D_rotor_offshore > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-022",
+    "name_es": "Profundidad de enterramiento de cable",
+    "discipline": "ELECTRICAL",
+    "formula": "d_burial = max(d_minimo_normativa, d_proteccion_ancla, d_navegacion)",
+    "variables": [
+      {
+        "symbol": "d_burial",
+        "name": "Profundidad de enterramiento",
+        "unit": "m"
+      },
+      {
+        "symbol": "d_minimo_normativa",
+        "name": "Minimo normativo (1 m)",
+        "unit": "m"
+      },
+      {
+        "symbol": "d_proteccion_ancla",
+        "name": "Profundidad por penetracion de ancla",
+        "unit": "m"
+      },
+      {
+        "symbol": "d_navegacion",
+        "name": "Penetracion de arte de pesca",
+        "unit": "m"
+      },
+      {
+        "name": "L_inter_array",
+        "symbol": "L_inter_array",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-108",
+      "WOF-109",
+      "WOF-135",
+      "WOF-137"
+    ],
+    "outputs": [
+      {
+        "name": "L_inter_array",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_ST_0519",
+      "DNV_RP_J202"
+    ],
+    "purpose": "Profundidad de enterramiento de cable",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "L_inter_array = sqrt((x1-x2)^2 + (y1-y2)^2) + slack_factor"
+    ],
+    "equations_latex": [
+      "L_inter_{array} = sqrt((x1-x2)^2 + (y1-y2)^2) + slack_{factor}"
+    ],
+    "unit_equations": [
+      {
+        "name": "L_inter_array",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "L_inter_array within valid physical range",
+      "L_inter_array > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-023",
+    "name_es": "Prediccion de profundidad de socavacion (Soulsby)",
+    "discipline": "GEOTECHNICAL",
+    "formula": "S = D*K_s * (1 - exp(-alpha*(U/U_c)^2)); S_eq = D*K_eq",
+    "variables": [
+      {
+        "symbol": "S",
+        "name": "Profundidad de socavacion",
+        "unit": "m"
+      },
+      {
+        "symbol": "D",
+        "name": "Diametro del pilar",
+        "unit": "m"
+      },
+      {
+        "symbol": "K_s",
+        "name": "Coeficiente de socavacion",
+        "unit": "-"
+      },
+      {
+        "symbol": "U",
+        "name": "Velocidad de corriente",
+        "unit": "m/s"
+      },
+      {
+        "symbol": "U_c",
+        "name": "Velocidad critica",
+        "unit": "m/s"
+      },
+      {
+        "symbol": "K_eq",
+        "name": "Coef equilibrio",
+        "unit": "-"
+      },
+      {
+        "name": "L_export_cable",
+        "symbol": "L_export_cable",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-020",
+      "WOF-025",
+      "WOF-051",
+      "WOF-062",
+      "WOF-063"
+    ],
+    "outputs": [
+      {
+        "name": "L_export_cable",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_RP_C205"
+    ],
+    "purpose": "Prediccion de profundidad de socavacion (Soulsby)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "L_export_cable = sqrt((x_pcc-x_offshore)^2 + (y_pcc-y_offshore)^2)"
+    ],
+    "equations_latex": [
+      "L_export_{cable} = sqrt((x_{pcc}-x_{offshore})^2 + (y_{pcc}-y_{offshore})^2)"
+    ],
+    "unit_equations": [
+      {
+        "name": "L_export_cable",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "L_export_cable within valid physical range",
+      "L_export_cable > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-024",
+    "name_es": "Capacidad de conexion con grout (load transfer)",
+    "discipline": "STRUCTURAL",
+    "formula": "P_ult = pi*D_outer*L_g * tau_avg * f_shear_key",
+    "variables": [
+      {
+        "symbol": "P_ult",
+        "name": "Capacidad ultima",
+        "unit": "N"
+      },
+      {
+        "symbol": "D_outer",
+        "name": "Diametro exterior del pile",
+        "unit": "m"
+      },
+      {
+        "symbol": "L_g",
+        "name": "Longitud del grout",
+        "unit": "m"
+      },
+      {
+        "symbol": "tau_avg",
+        "name": "Cortante medio grout-pile",
+        "unit": "Pa"
+      },
+      {
+        "symbol": "f_shear_key",
+        "name": "Factor de llaves de cortante",
+        "unit": "-"
+      },
+      {
+        "name": "A_inter_array",
+        "symbol": "A_inter_array",
+        "unit": "mm2",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-051",
+      "WOF-054",
+      "WOF-055",
+      "WOF-056",
+      "WOF-127"
+    ],
+    "outputs": [
+      {
+        "name": "A_inter_array",
+        "unit": "mm2",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_J101"
+    ],
+    "purpose": "Capacidad de conexion con grout (load transfer)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "A_inter_array = I_string / J_max_subsea"
+    ],
+    "equations_latex": [
+      "A_inter_{array} = I_{string} / J_max_{subsea}"
+    ],
+    "unit_equations": [
+      {
+        "name": "A_inter_array",
+        "value": "mm2"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "A_inter_array within valid physical range",
+      "A_inter_array > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-025",
+    "name_es": "Perdidas del convertidor HVDC",
+    "discipline": "ELECTRICAL",
+    "formula": "P_loss = P_DC * (1 - eta_conv) + P_aux + P_valve_cooling",
+    "variables": [
+      {
+        "symbol": "P_loss",
+        "name": "Perdidas totales",
+        "unit": "W"
+      },
+      {
+        "symbol": "P_DC",
+        "name": "Potencia DC transmitida",
+        "unit": "W"
+      },
+      {
+        "symbol": "eta_conv",
+        "name": "Eficiencia del convertidor",
+        "unit": "-"
+      },
+      {
+        "symbol": "P_aux",
+        "name": "Servicios auxiliares",
+        "unit": "W"
+      },
+      {
+        "name": "P_loss_inter",
+        "symbol": "P_loss_inter",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-104",
+      "WOF-107",
+      "WOF-112",
+      "WOF-113",
+      "WOF-114"
+    ],
+    "outputs": [
+      {
+        "name": "P_loss_inter",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "IEC_61400_27_1",
+      "IEEE_1547_2018"
+    ],
+    "purpose": "Perdidas del convertidor HVDC",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_loss_inter = 3 * I_inter_array^2 * rho_copper * L_inter_array / A_inter_array"
+    ],
+    "equations_latex": [
+      "P_loss_{inter} = 3 * I_inter_{array}^2 * rho_{copper} * L_inter_{array} / A_inter_{array}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_loss_inter",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "P_loss_inter within valid physical range",
+      "P_loss_inter > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-026",
+    "name_es": "Carga por crecimiento marino (marine growth)",
+    "discipline": "HYDRODYNAMICS",
+    "formula": "F_MG = rho_mg * g * V_MG + rho_seawater * Cd * D_eff * u*|u| (incremento)",
+    "variables": [
+      {
+        "symbol": "F_MG",
+        "name": "Fuerza adicional por crecimiento",
+        "unit": "N/m"
+      },
+      {
+        "symbol": "rho_mg",
+        "name": "Densidad crecimiento marino",
+        "unit": "kg/m3"
+      },
+      {
+        "symbol": "V_MG",
+        "name": "Volumen crecimiento por longitud",
+        "unit": "m3/m"
+      },
+      {
+        "symbol": "D_eff",
+        "name": "Diametro efectivo con crecimiento",
+        "unit": "m"
+      },
+      {
+        "name": "Q_demobil",
+        "symbol": "Q_demobil",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-020",
+      "WOF-024",
+      "WOF-051",
+      "WOF-053"
+    ],
+    "outputs": [
+      {
+        "name": "Q_demobil",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_OS_J101"
+    ],
+    "purpose": "Carga por crecimiento marino (marine growth)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_demobil = V_displaced * rho_water * g"
+    ],
+    "equations_latex": [
+      "Q_{demobil} = V_{displaced} * rho_{water} * g"
+    ],
+    "unit_equations": [
+      {
+        "name": "Q_demobil",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "Q_demobil within valid physical range",
+      "Q_demobil > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-027",
+    "name_es": "Plan de desmantelamiento (decommissioning)",
+    "discipline": "ENVIRONMENTAL",
+    "formula": "Plan = f(dismantling_method, transport_disposal, residual_risk, habitat_restoration)",
+    "variables": [
+      {
+        "symbol": "Plan",
+        "name": "Plan de desmantelamiento",
+        "unit": "document"
+      },
+      {
+        "symbol": "dismantling_method",
+        "name": "Metodo de desmantelamiento",
+        "unit": "enum"
+      },
+      {
+        "symbol": "transport_disposal",
+        "name": "Ruta y destino de residuos",
+        "unit": "enum"
+      },
+      {
+        "name": "P_anchor_drag",
+        "symbol": "P_anchor_drag",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-133",
+      "WOF-130",
+      "WOF-131",
+      "WOF-132"
+    ],
+    "outputs": [
+      {
+        "name": "P_anchor_drag",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "purpose": "Plan de desmantelamiento (decommissioning)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_anchor_drag = mu_soil * W_anchor"
+    ],
+    "equations_latex": [
+      "P_anchor_{drag} = mu_{soil} * W_{anchor}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_anchor_drag",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "P_anchor_drag within valid physical range",
+      "P_anchor_drag > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-028",
+    "name_es": "Energia anual neta (AEP) y perdidas",
+    "discipline": "ENERGY",
+    "formula": "AEP_net = sum_t (P(t)) * 8760 * (1 - L_array - L_avail - L_grid - L_aux)",
+    "variables": [
+      {
+        "symbol": "AEP_net",
+        "name": "Energia anual neta",
+        "unit": "MWh/yr"
+      },
+      {
+        "symbol": "P(t)",
+        "name": "Potencia horaria",
+        "unit": "MW"
+      },
+      {
+        "symbol": "L_array",
+        "name": "Perdidas wake array",
+        "unit": "-"
+      },
+      {
+        "symbol": "L_avail",
+        "name": "Perdidas de disponibilidad",
+        "unit": "-"
+      },
+      {
+        "symbol": "L_grid",
+        "name": "Perdidas de grid curtailment",
+        "unit": "-"
+      },
+      {
+        "name": "V_anchor_drag",
+        "symbol": "V_anchor_drag",
+        "unit": "m3",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003",
+      "WOF-040",
+      "WOF-041",
+      "WOF-046",
+      "WOF-120",
+      "WOF-124",
+      "WOF-135",
+      "WOF-140",
+      "WOF-146"
+    ],
+    "outputs": [
+      {
+        "name": "V_anchor_drag",
+        "unit": "m3",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "IEC_61400_12_1",
+      "IEC_61400_15_1",
+      "IRENA_OFFSHORE_2023"
+    ],
+    "purpose": "Energia anual neta (AEP) y perdidas",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_anchor_drag = (P_anchor_drag / (rho_soil * mu_soil * g)) * SF"
+    ],
+    "equations_latex": [
+      "V_anchor_{drag} = (P_anchor_{drag} / (rho_{soil} * mu_{soil} * g)) * SF"
+    ],
+    "unit_equations": [
+      {
+        "name": "V_anchor_drag",
+        "value": "m3"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "V_anchor_drag within valid physical range",
+      "V_anchor_drag > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-029",
+    "name_es": "Penetracion del monopile (resistencia lateral ultima)",
+    "discipline": "GEOTECHNICAL",
+    "formula": "L_pile = max(L_ultimate_lateral, L_driving_stop_criteria); L_ultimate = sqrt(M_ult / (k*p_y_ref))",
+    "variables": [
+      {
+        "symbol": "L_pile",
+        "name": "Penetracion final del monopile",
+        "unit": "m"
+      },
+      {
+        "symbol": "M_ult",
+        "name": "Momento ultimo en cabeza",
+        "unit": "N*m"
+      },
+      {
+        "symbol": "k",
+        "name": "Modulo de reaccion subgradiente",
+        "unit": "kN/m4"
+      },
+      {
+        "symbol": "p_y_ref",
+        "name": "Resistencia de referencia",
+        "unit": "N/m"
+      },
+      {
+        "name": "T_moor_line",
+        "symbol": "T_moor_line",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-030",
+      "WOF-031",
+      "WOF-032",
+      "WOF-052",
+      "WOF-125"
+    ],
+    "outputs": [
+      {
+        "name": "T_moor_line",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_RP_C205"
+    ],
+    "purpose": "Penetracion del monopile (resistencia lateral ultima)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "T_moor_line = F_horizontal / cos(theta_moor)"
+    ],
+    "equations_latex": [
+      "T_moor_{line} = F_{horizontal} / cos(theta_{moor})"
+    ],
+    "unit_equations": [
+      {
+        "name": "T_moor_line",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "T_moor_line within valid physical range",
+      "T_moor_line > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WOF-CALC-030",
+    "name_es": "Capacidad de conexion grouted de TP (ULTS)",
+    "discipline": "STRUCTURAL",
+    "formula": "M_ult_grout = pi*D_outer^2/4 * L_g * tau_shear_key * gamma_grout",
+    "variables": [
+      {
+        "symbol": "M_ult_grout",
+        "name": "Momento ultimo transferido",
+        "unit": "N*m"
+      },
+      {
+        "symbol": "D_outer",
+        "name": "Diametro exterior del pile",
+        "unit": "m"
+      },
+      {
+        "symbol": "L_g",
+        "name": "Longitud del grout",
+        "unit": "m"
+      },
+      {
+        "symbol": "tau_shear_key",
+        "name": "Cortante con llaves",
+        "unit": "Pa"
+      },
+      {
+        "symbol": "gamma_grout",
+        "name": "Factor parcial de material",
+        "unit": "-"
+      },
+      {
+        "name": "sigma_moor",
+        "symbol": "sigma_moor",
+        "unit": "Pa",
+        "type": "output"
+      }
+    ],
+    "inputs": [
+      "WOF-051",
+      "WOF-054",
+      "WOF-055",
+      "WOF-056"
+    ],
+    "outputs": [
+      {
+        "name": "sigma_moor",
+        "unit": "Pa",
+        "type": "number"
+      }
+    ],
+    "source_ids": [
+      "DNV_OS_J101"
+    ],
+    "purpose": "Capacidad de conexion grouted de TP (ULTS)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WOF-001",
+      "WOF-002",
+      "WOF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "sigma_moor = T_moor_line / (pi * d_chain^2 / 4)"
+    ],
+    "equations_latex": [
+      "sigma_{moor} = T_moor_{line} / (pi * d_{chain}^2 / 4)"
+    ],
+    "unit_equations": [
+      {
+        "name": "sigma_moor",
+        "value": "Pa"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "acceptance_rules": [
+      "sigma_moor within valid physical range",
+      "sigma_moor > 0 for positive quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  }
+]

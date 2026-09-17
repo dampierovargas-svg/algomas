@@ -1,0 +1,361 @@
+[
+  {
+    "equipment_type_id": "PVR-",
+    "name_es": "Módulo fotovoltaico de cubierta",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61215_1",
+      "IEC_61730_1",
+      "IEC_61730_2",
+      "UL_1703",
+      "UL_61730"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_2",
+    "name_es": "Módulo bifacial de carport",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61215_1",
+      "IEC_TS_62804_1",
+      "IEC_61730_1"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_3",
+    "name_es": "Inversor de string",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62109_2",
+      "IEC_62894",
+      "UL_1741",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_4",
+    "name_es": "Microinversor",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62109_2",
+      "UL_1741",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_5",
+    "name_es": "Optimizador de módulo",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62548",
+      "UL_1741"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_6",
+    "name_es": "Caja combinadora DC",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_62548",
+      "IEC_61643_11",
+      "IEC_60529"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_7",
+    "name_es": "Caja combinadora AC",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60364_7_712",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_8",
+    "name_es": "Transformador de aislamiento / elevador",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_60364_7_712",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_9",
+    "name_es": "Estructura balastada de cubierta",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_62548",
+      "UL_1703",
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_10",
+    "name_es": "Estructura anclada a cubierta",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_62548",
+      "UL_1703",
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_11",
+    "name_es": "Estructura de carport PV",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_12",
+    "name_es": "Perno de anclaje",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEEE_80_2013",
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_13",
+    "name_es": "Bloque de balast",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_14",
+    "name_es": "Flashing de cubierta",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_15",
+    "name_es": "Sellante de perforaciones",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_16",
+    "name_es": "Canalón (gutter) para carport/cubierta",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_17",
+    "name_es": "Pararrayos (lightning rod / air terminal)",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_18",
+    "name_es": "Protector contra sobretensiones (SPD)",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61643_11",
+      "IEC_62305_3",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_19",
+    "name_es": "Electrodo de puesta a tierra",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_60364_5_54",
+      "IEEE_80_2013",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "equipment_type_id": "PVR-_20",
+    "name_es": "Dispositivo de apagado rápido (rapid shutdown)",
+    "subsystem": "",
+    "properties": [],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEC_62548",
+      "UL_1741"
+    ]
+  }
+]

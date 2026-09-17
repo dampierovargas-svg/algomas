@@ -1,0 +1,2976 @@
+[
+  {
+    "calculation_id": "PVF-CAL-001",
+    "name_es": "Calculo de empuje (buoyancy)",
+    "description": "Empuje neto del flotador considerando el peso del modulo + flotador + conectores + nieve + carga operativa.",
+    "formula_latex": "F_b = \\rho_w \\cdot g \\cdot V_{sub} - (W_{mod} + W_{flt} + W_{conn} + W_{op})",
+    "variables": [
+      {
+        "name": "F_b",
+        "symbol": "F_b",
+        "unit": "N",
+        "description": "Empuje neto residual"
+      },
+      {
+        "name": "rho_w",
+        "symbol": "\\rho_w",
+        "unit": "kg/m3",
+        "description": "Densidad del agua (1000 dulce, 1025 salada)"
+      },
+      {
+        "name": "g",
+        "symbol": "g",
+        "unit": "m/s2",
+        "description": "Aceleracion gravitacional 9.81"
+      },
+      {
+        "name": "V_sub",
+        "symbol": "V_{sub}",
+        "unit": "m3",
+        "description": "Volumen sumergido del flotador"
+      },
+      {
+        "name": "W_mod",
+        "symbol": "W_{mod}",
+        "unit": "N",
+        "description": "Peso del modulo FV"
+      },
+      {
+        "name": "W_flt",
+        "symbol": "W_{flt}",
+        "unit": "N",
+        "description": "Peso del flotador"
+      },
+      {
+        "name": "W_conn",
+        "symbol": "W_{conn}",
+        "unit": "N",
+        "description": "Peso de conectores y accesorios"
+      },
+      {
+        "name": "W_op",
+        "symbol": "W_{op}",
+        "unit": "N",
+        "description": "Carga operativa (nieve + persona de servicio 1.2 kN)"
+      },
+      {
+        "name": "F_buoyancy",
+        "symbol": "F_buoyancy",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "output_unit": "N",
+    "used_by_fields": [
+      "PVF-036",
+      "PVF-035"
+    ],
+    "source_ids": [
+      "DNV_OS_C101",
+      "ASTM_D638"
+    ],
+    "purpose": "Calculo de empuje (buoyancy)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F_buoyancy = rho_water * V_displaced * g"
+    ],
+    "equations_latex": [
+      "F_{buoyancy} = rho_{water} * V_{displaced} * g"
+    ],
+    "unit_equations": [
+      {
+        "name": "F_buoyancy",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "F_buoyancy",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "F_buoyancy within valid physical range",
+      "F_buoyancy > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-002",
+    "name_es": "Tension de linea de fondeo (mooring line tension)",
+    "description": "Tension maxima en la linea de fondeo por combinacion de cargas ambientales segun DNV-OS-E301.",
+    "formula_latex": "T_{line} = \\sqrt{(T_{wind} + T_{current})^2 + T_{wave}^2} + T_{pretension}",
+    "variables": [
+      {
+        "name": "T_line",
+        "symbol": "T_{line}",
+        "unit": "N",
+        "description": "Tension de diseno en la linea"
+      },
+      {
+        "name": "T_wind",
+        "symbol": "T_{wind}",
+        "unit": "N",
+        "description": "Tension por carga de viento"
+      },
+      {
+        "name": "T_current",
+        "symbol": "T_{current}",
+        "unit": "N",
+        "description": "Tension por corriente"
+      },
+      {
+        "name": "T_wave",
+        "symbol": "T_{wave}",
+        "unit": "N",
+        "description": "Tension por oleaje"
+      },
+      {
+        "name": "T_pretension",
+        "symbol": "T_{pretension}",
+        "unit": "N",
+        "description": "Pretension aplicada"
+      },
+      {
+        "name": "F_mooring_tension",
+        "symbol": "F_mooring_tension",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "output_unit": "N",
+    "used_by_fields": [
+      "PVF-033",
+      "PVF-034",
+      "PVF-049",
+      "PVF-050",
+      "PVF-051"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_RP_C205"
+    ],
+    "purpose": "Tension de linea de fondeo (mooring line tension)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F_mooring_tension = F_drag + F_inertia + F_current"
+    ],
+    "equations_latex": [
+      "F_mooring_{tension} = F_{drag} + F_{inertia} + F_{current}"
+    ],
+    "unit_equations": [
+      {
+        "name": "F_mooring_tension",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "F_mooring_tension",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "F_mooring_tension within valid physical range",
+      "F_mooring_tension > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-003",
+    "name_es": "Capacidad de retencion del ancla (anchor holding capacity)",
+    "description": "Capacidad de retencion admisible de anclas de fondeo en sedimento del sitio.",
+    "formula_latex": "H_{cap} = \\alpha \\cdot W_{anchor} + \\beta \\cdot A_{embed} \\cdot S_u",
+    "variables": [
+      {
+        "name": "H_cap",
+        "symbol": "H_{cap}",
+        "unit": "N",
+        "description": "Capacidad de retencion admisible"
+      },
+      {
+        "name": "alpha",
+        "symbol": "\\alpha",
+        "unit": "-",
+        "description": "Coeficiente de friccion suelo-ancla"
+      },
+      {
+        "name": "W_anchor",
+        "symbol": "W_{anchor}",
+        "unit": "N",
+        "description": "Peso efectivo del ancla sumergida"
+      },
+      {
+        "name": "beta",
+        "symbol": "\\beta",
+        "unit": "-",
+        "description": "Factor de forma del ancla"
+      },
+      {
+        "name": "A_embed",
+        "symbol": "A_{embed}",
+        "unit": "m2",
+        "description": "Area embebida del ancla"
+      },
+      {
+        "name": "S_u",
+        "symbol": "S_u",
+        "unit": "Pa",
+        "description": "Cohesion no drenada del sedimento"
+      },
+      {
+        "name": "F_anchor",
+        "symbol": "F_anchor",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "output_unit": "N",
+    "used_by_fields": [
+      "PVF-052",
+      "PVF-053"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "ISO_14685"
+    ],
+    "purpose": "Capacidad de retencion del ancla (anchor holding capacity)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F_anchor = F_mooring_tension * SF"
+    ],
+    "equations_latex": [
+      "F_{anchor} = F_mooring_{tension} * SF"
+    ],
+    "unit_equations": [
+      {
+        "name": "F_anchor",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "F_anchor",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "F_anchor within valid physical range",
+      "F_anchor > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-004",
+    "name_es": "Borde libre del flotador (freeboard)",
+    "description": "Borde libre de diseno del flotador bajo carga operativa y ambiental.",
+    "formula_latex": "f_b = f_{design} - \\Delta f_{wave} - \\Delta f_{heel}",
+    "variables": [
+      {
+        "name": "f_b",
+        "symbol": "f_b",
+        "unit": "mm",
+        "description": "Borde libre efectivo"
+      },
+      {
+        "name": "f_design",
+        "symbol": "f_{design}",
+        "unit": "mm",
+        "description": "Borde libre geométrico nominal"
+      },
+      {
+        "name": "Delta_f_wave",
+        "symbol": "\\Delta f_{wave}",
+        "unit": "mm",
+        "description": "Reduccion por oleaje"
+      },
+      {
+        "name": "Delta_f_heel",
+        "symbol": "\\Delta f_{heel}",
+        "unit": "mm",
+        "description": "Reduccion por escora"
+      },
+      {
+        "name": "H_freeboard",
+        "symbol": "H_freeboard",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "output_unit": "mm",
+    "used_by_fields": [
+      "PVF-038",
+      "PVF-001",
+      "PVF-011",
+      "PVF-012",
+      "PVF-013",
+      "PVF-014"
+    ],
+    "source_ids": [
+      "DNV_OS_C101",
+      "DNV_OS_E301"
+    ],
+    "purpose": "Borde libre del flotador (freeboard)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "H_freeboard = (F_buoyancy - W_total) / (rho_water * g * A_float)"
+    ],
+    "equations_latex": [
+      "H_{freeboard} = (F_{buoyancy} - W_{total}) / (rho_{water} * g * A_{float})"
+    ],
+    "unit_equations": [
+      {
+        "name": "H_freeboard",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "H_freeboard",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "H_freeboard within valid physical range",
+      "H_freeboard > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-005",
+    "name_es": "Carga de viento sobre flotador (wind load on float)",
+    "description": "Empuje del viento sobre el area expuesta del modulo + flotador segun DNV-RP-C205.",
+    "formula_latex": "F_w = 0.5 \\cdot \\rho_a \\cdot C_d \\cdot A_{exp} \\cdot V_{10}^2",
+    "variables": [
+      {
+        "name": "F_w",
+        "symbol": "F_w",
+        "unit": "N",
+        "description": "Fuerza de viento"
+      },
+      {
+        "name": "rho_a",
+        "symbol": "\\rho_a",
+        "unit": "kg/m3",
+        "description": "Densidad del aire 1.225"
+      },
+      {
+        "name": "C_d",
+        "symbol": "C_d",
+        "unit": "-",
+        "description": "Coeficiente de arrastre"
+      },
+      {
+        "name": "A_exp",
+        "symbol": "A_{exp}",
+        "unit": "m2",
+        "description": "Area expuesta al viento"
+      },
+      {
+        "name": "V_10",
+        "symbol": "V_{10}",
+        "unit": "m/s",
+        "description": "Velocidad del viento a 10 m"
+      },
+      {
+        "name": "M_wave",
+        "symbol": "M_wave",
+        "unit": "Nm/m",
+        "type": "output"
+      }
+    ],
+    "output_unit": "N",
+    "used_by_fields": [
+      "PVF-017",
+      "PVF-016",
+      "PVF-018"
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "IEC_61400_1"
+    ],
+    "purpose": "Carga de viento sobre flotador (wind load on float)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "M_wave = rho_water * g * Hs^2 * L_wavelength / 16  # per unit width"
+    ],
+    "equations_latex": [
+      "M_{wave} = rho_{water} * g * Hs^{2} * L_{wavelength} / 16  # per unit width"
+    ],
+    "unit_equations": [
+      {
+        "name": "M_wave",
+        "value": "Nm/m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "M_wave",
+        "unit": "Nm/m",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "M_wave within valid physical range",
+      "M_wave > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-006",
+    "name_es": "Carga de oleaje (Morison)",
+    "description": "Fuerza de ola sobre el flotador mediante ecuacion de Morison (inercial + arrastre).",
+    "formula_latex": "F = \\rho_w \\cdot C_m \\cdot V_{sub} \\cdot \\dot{u} + 0.5 \\cdot \\rho_w \\cdot C_d \\cdot A_{exp} \\cdot |u| \\cdot u",
+    "variables": [
+      {
+        "name": "F",
+        "symbol": "F",
+        "unit": "N",
+        "description": "Fuerza de ola total"
+      },
+      {
+        "name": "rho_w",
+        "symbol": "\\rho_w",
+        "unit": "kg/m3",
+        "description": "Densidad del agua"
+      },
+      {
+        "name": "C_m",
+        "symbol": "C_m",
+        "unit": "-",
+        "description": "Coeficiente de masa inercial"
+      },
+      {
+        "name": "V_sub",
+        "symbol": "V_{sub}",
+        "unit": "m3",
+        "description": "Volumen sumergido"
+      },
+      {
+        "name": "u_dot",
+        "symbol": "\\dot{u}",
+        "unit": "m/s2",
+        "description": "Aceleracion de la particula de agua"
+      },
+      {
+        "name": "C_d",
+        "symbol": "C_d",
+        "unit": "-",
+        "description": "Coeficiente de arrastre"
+      },
+      {
+        "name": "A_exp",
+        "symbol": "A_{exp}",
+        "unit": "m2",
+        "description": "Area proyectada"
+      },
+      {
+        "name": "u",
+        "symbol": "u",
+        "unit": "m/s",
+        "description": "Velocidad de la particula de agua"
+      },
+      {
+        "name": "F_current",
+        "symbol": "F_current",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "output_unit": "N",
+    "used_by_fields": [
+      "PVF-014",
+      "PVF-015",
+      "PVF-016"
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_OS_E301"
+    ],
+    "purpose": "Carga de oleaje (Morison)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F_current = 0.5 * rho_water * C_d * A_submerged * v_current^2"
+    ],
+    "equations_latex": [
+      "F_{current} = 0.5 * rho_{water} * C_{d} * A_{submerged} * v_{current}^2"
+    ],
+    "unit_equations": [
+      {
+        "name": "F_current",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "F_current",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "F_current within valid physical range",
+      "F_current > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-007",
+    "name_es": "Carga de corriente sobre flotador",
+    "description": "Fuerza de corriente sobre el area sumergida del flotador.",
+    "formula_latex": "F_c = 0.5 \\cdot \\rho_w \\cdot C_d \\cdot A_{sub} \\cdot V_c^2",
+    "variables": [
+      {
+        "name": "F_c",
+        "symbol": "F_c",
+        "unit": "N",
+        "description": "Fuerza de corriente"
+      },
+      {
+        "name": "rho_w",
+        "symbol": "\\rho_w",
+        "unit": "kg/m3",
+        "description": "Densidad del agua"
+      },
+      {
+        "name": "C_d",
+        "symbol": "C_d",
+        "unit": "-",
+        "description": "Coeficiente de arrastre"
+      },
+      {
+        "name": "A_sub",
+        "symbol": "A_{sub}",
+        "unit": "m2",
+        "description": "Area sumergida proyectada"
+      },
+      {
+        "name": "V_c",
+        "symbol": "V_c",
+        "unit": "m/s",
+        "description": "Velocidad de corriente"
+      },
+      {
+        "name": "F_wind_float",
+        "symbol": "F_wind_float",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "output_unit": "N",
+    "used_by_fields": [
+      "PVF-019",
+      "PVF-020"
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_OS_E301"
+    ],
+    "purpose": "Carga de corriente sobre flotador",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F_wind_float = 0.5 * rho_air * C_d * A_exposed * v_wind^2"
+    ],
+    "equations_latex": [
+      "F_wind_{float} = 0.5 * rho_{air} * C_{d} * A_{exposed} * v_{wind}^2"
+    ],
+    "unit_equations": [
+      {
+        "name": "F_wind_float",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "F_wind_float",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "F_wind_float within valid physical range",
+      "F_wind_float > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-008",
+    "name_es": "Carga de hielo sobre flotador (ice load)",
+    "description": "Carga horizontal por empuje de hielo sobre el flotador segun DNV-OS-E301.",
+    "formula_latex": "F_{ice} = \\sigma_c \\cdot t_{ice} \\cdot D_{eff} \\cdot k_{contact}",
+    "variables": [
+      {
+        "name": "F_ice",
+        "symbol": "F_{ice}",
+        "unit": "N",
+        "description": "Fuerza horizontal de hielo"
+      },
+      {
+        "name": "sigma_c",
+        "symbol": "\\sigma_c",
+        "unit": "Pa",
+        "description": "Esfuerzo de compresion del hielo"
+      },
+      {
+        "name": "t_ice",
+        "symbol": "t_{ice}",
+        "unit": "m",
+        "description": "Espesor del hielo"
+      },
+      {
+        "name": "D_eff",
+        "symbol": "D_{eff}",
+        "unit": "m",
+        "description": "Ancho efectivo de contacto"
+      },
+      {
+        "name": "k_contact",
+        "symbol": "k_{contact}",
+        "unit": "-",
+        "description": "Factor de contacto (0.4 a 1.0)"
+      },
+      {
+        "name": "F_ice",
+        "symbol": "F_ice",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "output_unit": "N",
+    "used_by_fields": [
+      "PVF-026",
+      "PVF-027"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_RP_C205"
+    ],
+    "purpose": "Carga de hielo sobre flotador (ice load)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F_ice = sigma_ice * t_ice * L_contact"
+    ],
+    "equations_latex": [
+      "F_{ice} = sigma_{ice} * t_{ice} * L_{contact}"
+    ],
+    "unit_equations": [
+      {
+        "name": "F_ice",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "F_ice",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "F_ice within valid physical range",
+      "F_ice > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-009",
+    "name_es": "Efecto de albedo sobre bifacial",
+    "description": "Ganancia de generacion del modulo bifacial por albedo de la superficie de agua.",
+    "formula_latex": "E_{bif} = E_{mono} \\cdot (1 + \\phi_{bif} \\cdot \\alpha_{water} \\cdot G_{rear})",
+    "variables": [
+      {
+        "name": "E_bif",
+        "symbol": "E_{bif}",
+        "unit": "kWh",
+        "description": "Energia generada por bifacial"
+      },
+      {
+        "name": "E_mono",
+        "symbol": "E_{mono}",
+        "unit": "kWh",
+        "description": "Energia equivalente monofacial"
+      },
+      {
+        "name": "phi_bif",
+        "symbol": "\\phi_{bif}",
+        "unit": "-",
+        "description": "Factor de bifacialidad (0.65-0.90)"
+      },
+      {
+        "name": "alpha_water",
+        "symbol": "\\alpha_{water}",
+        "unit": "-",
+        "description": "Albedo de la superficie de agua"
+      },
+      {
+        "name": "G_rear",
+        "symbol": "G_{rear}",
+        "unit": "W/m2",
+        "description": "Irradiancia efectiva en cara trasera"
+      },
+      {
+        "name": "E_bifacial_gain",
+        "symbol": "E_bifacial_gain",
+        "unit": "percent",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kWh",
+    "used_by_fields": [
+      "PVF-039",
+      "PVF-061",
+      "PVF-065"
+    ],
+    "source_ids": [
+      "IEC_62938",
+      "ASTM_C1549",
+      "NREL_PVWatts"
+    ],
+    "purpose": "Efecto de albedo sobre bifacial",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "E_bifacial_gain = G_rear / G_front * bifacial_factor * 100"
+    ],
+    "equations_latex": [
+      "E_bifacial_{gain} = G_{rear} / G_{front} * bifacial_{factor} * 100"
+    ],
+    "unit_equations": [
+      {
+        "name": "E_bifacial_gain",
+        "value": "percent"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "E_bifacial_gain",
+        "unit": "percent",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "E_bifacial_gain within valid physical range",
+      "E_bifacial_gain > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-010",
+    "name_es": "Reduccion de evaporacion por cobertura flotante",
+    "description": "Estimacion de reduccion de evaporacion del embalse por cobertura flotante.",
+    "formula_latex": "\\Delta E_{evap} = E_{pan} \\cdot A_{covered} \\cdot k_{pan} \\cdot (1 - f_{gap})",
+    "variables": [
+      {
+        "name": "Delta_E_evap",
+        "symbol": "\\Delta E_{evap}",
+        "unit": "mm/year",
+        "description": "Reduccion de evaporacion"
+      },
+      {
+        "name": "E_pan",
+        "symbol": "E_{pan}",
+        "unit": "mm/year",
+        "description": "Evaporacion de tanque"
+      },
+      {
+        "name": "A_covered",
+        "symbol": "A_{covered}",
+        "unit": "m2",
+        "description": "Area cubierta por floats"
+      },
+      {
+        "name": "k_pan",
+        "symbol": "k_{pan}",
+        "unit": "-",
+        "description": "Coeficiente de tanque (0.7-0.85)"
+      },
+      {
+        "name": "f_gap",
+        "symbol": "f_{gap}",
+        "unit": "-",
+        "description": "Fraccion de gap entre floats (0-0.10)"
+      },
+      {
+        "name": "Delta_E_evap",
+        "symbol": "Delta_E_evap",
+        "unit": "m3/year",
+        "type": "output"
+      }
+    ],
+    "output_unit": "mm/year",
+    "used_by_fields": [
+      "PVF-060",
+      "PVF-007"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "MINAM_DS_019_2009"
+    ],
+    "purpose": "Reduccion de evaporacion por cobertura flotante",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Delta_E_evap = A_water_surface * evap_rate * 365"
+    ],
+    "equations_latex": [
+      "Delta_E_{evap} = A_water_{surface} * evap_{rate} * 365"
+    ],
+    "unit_equations": [
+      {
+        "name": "Delta_E_evap",
+        "value": "m3/year"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Delta_E_evap",
+        "unit": "m3/year",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "Delta_E_evap within valid physical range",
+      "Delta_E_evap > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-011",
+    "name_es": "Enfriamiento por agua (water cooling - cell temperature)",
+    "description": "Reduccion de la temperatura de celula por contacto termico con el agua.",
+    "formula_latex": "T_{cell,water} = T_{air} + \\frac{NOCT - 20}{800} \\cdot G - \\Delta T_{water}",
+    "variables": [
+      {
+        "name": "T_cell_water",
+        "symbol": "T_{cell,water}",
+        "unit": "C",
+        "description": "Temperatura de celula sobre agua"
+      },
+      {
+        "name": "T_air",
+        "symbol": "T_{air}",
+        "unit": "C",
+        "description": "Temperatura ambiente"
+      },
+      {
+        "name": "NOCT",
+        "symbol": "NOCT",
+        "unit": "C",
+        "description": "Nominal Operating Cell Temp"
+      },
+      {
+        "name": "G",
+        "symbol": "G",
+        "unit": "W/m2",
+        "description": "Irradiancia efectiva"
+      },
+      {
+        "name": "Delta_T_water",
+        "symbol": "\\Delta T_{water}",
+        "unit": "C",
+        "description": "Reduccion por enfriamiento (5-15 C)"
+      },
+      {
+        "name": "L_mooring",
+        "symbol": "L_mooring",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "output_unit": "C",
+    "used_by_fields": [
+      "PVF-062",
+      "PVF-063"
+    ],
+    "source_ids": [
+      "NREL_SAM_2024",
+      "IEC_61724_1",
+      "IEC_60904_3"
+    ],
+    "purpose": "Enfriamiento por agua (water cooling - cell temperature)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "L_mooring = sqrt((x2-x1)^2 + (y2-y1)^2 + (z2-z1)^2)"
+    ],
+    "equations_latex": [
+      "L_{mooring} = sqrt((x2-x1)^2 + (y2-y1)^2 + (z2-z1)^2)"
+    ],
+    "unit_equations": [
+      {
+        "name": "L_mooring",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "L_mooring",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "L_mooring within valid physical range",
+      "L_mooring > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-012",
+    "name_es": "Temperatura de modulo sobre agua",
+    "description": "Temperatura operativa del modulo flotante considerando viento y enfriamiento por agua.",
+    "formula_latex": "T_{mod,water} = T_{air} + G \\cdot \\exp(-a \\cdot v_w - b \\cdot \\Delta T_{air\\\\_water})",
+    "variables": [
+      {
+        "name": "T_mod_water",
+        "symbol": "T_{mod,water}",
+        "unit": "C",
+        "description": "Temperatura de modulo flotante"
+      },
+      {
+        "name": "T_air",
+        "symbol": "T_{air}",
+        "unit": "C",
+        "description": "Temperatura ambiente"
+      },
+      {
+        "name": "G",
+        "symbol": "G",
+        "unit": "W/m2",
+        "description": "Irradiancia"
+      },
+      {
+        "name": "a",
+        "symbol": "a",
+        "unit": "-",
+        "description": "Constante empirica viento"
+      },
+      {
+        "name": "v_w",
+        "symbol": "v_w",
+        "unit": "m/s",
+        "description": "Velocidad de viento"
+      },
+      {
+        "name": "b",
+        "symbol": "b",
+        "unit": "-",
+        "description": "Constante empirica agua"
+      },
+      {
+        "name": "Delta_T_air_water",
+        "symbol": "\\Delta T_{air\\_water}",
+        "unit": "C",
+        "description": "Diferencia temperatura aire-agua"
+      },
+      {
+        "name": "T_mooring",
+        "symbol": "T_mooring",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "output_unit": "C",
+    "used_by_fields": [
+      "PVF-062"
+    ],
+    "source_ids": [
+      "NREL_SAM_2024",
+      "IEC_61724_1"
+    ],
+    "purpose": "Temperatura de modulo sobre agua",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "T_mooring = F_horizontal / cos(theta_mooring)"
+    ],
+    "equations_latex": [
+      "T_{mooring} = F_{horizontal} / cos(theta_{mooring})"
+    ],
+    "unit_equations": [
+      {
+        "name": "T_mooring",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "T_mooring",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "T_mooring within valid physical range",
+      "T_mooring > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-013",
+    "name_es": "Tension de cable por deriva (cable tension due to drift)",
+    "description": "Tension mecanica en el cable submarino por deriva del arreglo flotante.",
+    "formula_latex": "T_{cable} = \\sqrt{(F_w + F_c)^2 + (k_{spring} \\cdot \\delta_{drift})^2}",
+    "variables": [
+      {
+        "name": "T_cable",
+        "symbol": "T_{cable}",
+        "unit": "N",
+        "description": "Tension mecanica del cable"
+      },
+      {
+        "name": "F_w",
+        "symbol": "F_w",
+        "unit": "N",
+        "description": "Carga de viento"
+      },
+      {
+        "name": "F_c",
+        "symbol": "F_c",
+        "unit": "N",
+        "description": "Carga de corriente"
+      },
+      {
+        "name": "k_spring",
+        "symbol": "k_{spring}",
+        "unit": "N/m",
+        "description": "Rigidez del tramo de cable"
+      },
+      {
+        "name": "delta_drift",
+        "symbol": "\\delta_{drift}",
+        "unit": "m",
+        "description": "Deriva del arreglo"
+      },
+      {
+        "name": "W_anchor",
+        "symbol": "W_anchor",
+        "unit": "kg",
+        "type": "output"
+      }
+    ],
+    "output_unit": "N",
+    "used_by_fields": [
+      "PVF-011",
+      "PVF-012",
+      "PVF-013",
+      "PVF-046",
+      "PVF-047"
+    ],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_835"
+    ],
+    "purpose": "Tension de cable por deriva (cable tension due to drift)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "W_anchor = F_anchor / (g * mu_soil)"
+    ],
+    "equations_latex": [
+      "W_{anchor} = F_{anchor} / (g * mu_{soil})"
+    ],
+    "unit_equations": [
+      {
+        "name": "W_anchor",
+        "value": "kg"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "W_anchor",
+        "unit": "kg",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "W_anchor within valid physical range",
+      "W_anchor > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-014",
+    "name_es": "Ampacidad de cable submarino (subsea cable ampacity in water)",
+    "description": "Ampacidad del cable submarino segun IEC 60287 con temperatura del agua.",
+    "formula_latex": "I_{amp} = \\sqrt{\\frac{\\Delta T_{max} - T_{water}}{R_{ac}(T) \\cdot R_{th,ins} + R_{th,armor}}}",
+    "variables": [
+      {
+        "name": "I_amp",
+        "symbol": "I_{amp}",
+        "unit": "A",
+        "description": "Ampacidad del cable"
+      },
+      {
+        "name": "Delta_T_max",
+        "symbol": "\\Delta T_{max}",
+        "unit": "C",
+        "description": "Temperatura maxima del conductor"
+      },
+      {
+        "name": "T_water",
+        "symbol": "T_{water}",
+        "unit": "C",
+        "description": "Temperatura del agua"
+      },
+      {
+        "name": "R_ac_T",
+        "symbol": "R_{ac}(T)",
+        "unit": "ohm/m",
+        "description": "Resistencia AC corregida por temperatura"
+      },
+      {
+        "name": "R_th_ins",
+        "symbol": "R_{th,ins}",
+        "unit": "K.m/W",
+        "description": "Resistencia termica del aislamiento"
+      },
+      {
+        "name": "R_th_armor",
+        "symbol": "R_{th,armor}",
+        "unit": "K.m/W",
+        "description": "Resistencia termica de la armadura"
+      },
+      {
+        "name": "V_anchor_cylinder",
+        "symbol": "V_anchor_cylinder",
+        "unit": "m3",
+        "type": "output"
+      }
+    ],
+    "output_unit": "A",
+    "used_by_fields": [
+      "PVF-046",
+      "PVF-047"
+    ],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_835"
+    ],
+    "purpose": "Ampacidad de cable submarino (subsea cable ampacity in water)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_anchor_cylinder = pi * r_anchor^2 * h_anchor"
+    ],
+    "equations_latex": [
+      "V_anchor_{cylinder} = pi * r_{anchor}^2 * h_{anchor}"
+    ],
+    "unit_equations": [
+      {
+        "name": "V_anchor_cylinder",
+        "value": "m3"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "V_anchor_cylinder",
+        "unit": "m3",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "V_anchor_cylinder within valid physical range",
+      "V_anchor_cylinder > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-015",
+    "name_es": "Proteccion catodica de anclas de acero",
+    "description": "Corriente requerida de proteccion catodica para anclas de acero sumergidas segun DNV-RP-C205.",
+    "formula_latex": "I_{cp} = A_{steel} \\cdot i_{prot} \\cdot f_{env}",
+    "variables": [
+      {
+        "name": "I_cp",
+        "symbol": "I_{cp}",
+        "unit": "A",
+        "description": "Corriente de proteccion catodica"
+      },
+      {
+        "name": "A_steel",
+        "symbol": "A_{steel}",
+        "unit": "m2",
+        "description": "Area de acero expuesto al agua"
+      },
+      {
+        "name": "i_prot",
+        "symbol": "i_{prot}",
+        "unit": "A/m2",
+        "description": "Densidad de corriente de proteccion"
+      },
+      {
+        "name": "f_env",
+        "symbol": "f_{env}",
+        "unit": "-",
+        "description": "Factor ambiental (salinidad, temperatura)"
+      },
+      {
+        "name": "M_walkway",
+        "symbol": "M_walkway",
+        "unit": "kg",
+        "type": "output"
+      }
+    ],
+    "output_unit": "A",
+    "used_by_fields": [
+      "PVF-021",
+      "PVF-023",
+      "PVF-024",
+      "PVF-069",
+      "PVF-070"
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_OS_E301"
+    ],
+    "purpose": "Proteccion catodica de anclas de acero",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "M_walkway = rho_walkway * V_walkway * g"
+    ],
+    "equations_latex": [
+      "M_{walkway} = rho_{walkway} * V_{walkway} * g"
+    ],
+    "unit_equations": [
+      {
+        "name": "M_walkway",
+        "value": "kg"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "M_walkway",
+        "unit": "kg",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "M_walkway within valid physical range",
+      "M_walkway > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-016",
+    "name_es": "Capacidad de extraccion del ancla (anchor pull-out)",
+    "description": "Capacidad de extraccion vertical de anclas tipo pile o screw en sedimento del sitio.",
+    "formula_latex": "Q_{pull} = \\pi \\cdot D \\cdot L \\cdot \\tau_{shaft} + N_c \\cdot A_{tip} \\cdot S_u",
+    "variables": [
+      {
+        "name": "Q_pull",
+        "symbol": "Q_{pull}",
+        "unit": "N",
+        "description": "Resistencia a extraccion"
+      },
+      {
+        "name": "D",
+        "symbol": "D",
+        "unit": "m",
+        "description": "Diametro del pile"
+      },
+      {
+        "name": "L",
+        "symbol": "L",
+        "unit": "m",
+        "description": "Longitud embebida"
+      },
+      {
+        "name": "tau_shaft",
+        "symbol": "\\tau_{shaft}",
+        "unit": "Pa",
+        "description": "Friccion lateral del sedimento"
+      },
+      {
+        "name": "N_c",
+        "symbol": "N_c",
+        "unit": "-",
+        "description": "Factor de capacidad de punta (9 a 14)"
+      },
+      {
+        "name": "A_tip",
+        "symbol": "A_{tip}",
+        "unit": "m2",
+        "description": "Area de la punta"
+      },
+      {
+        "name": "S_u",
+        "symbol": "S_u",
+        "unit": "Pa",
+        "description": "Cohesion no drenada"
+      },
+      {
+        "name": "I_walkway",
+        "symbol": "I_walkway",
+        "unit": "kg*m2",
+        "type": "output"
+      }
+    ],
+    "output_unit": "N",
+    "used_by_fields": [
+      "PVF-005",
+      "PVF-006",
+      "PVF-052",
+      "PVF-053",
+      "PVF-030",
+      "PVF-031"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "ISO_14685"
+    ],
+    "purpose": "Capacidad de extraccion del ancla (anchor pull-out)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "I_walkway = M_walkway * L_walkway / 12"
+    ],
+    "equations_latex": [
+      "I_{walkway} = M_{walkway} * L_{walkway} / 12"
+    ],
+    "unit_equations": [
+      {
+        "name": "I_walkway",
+        "value": "kg*m2"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "I_walkway",
+        "unit": "kg*m2",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "I_walkway within valid physical range",
+      "I_walkway > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-017",
+    "name_es": "Fatiga en linea de fondeo (mooring fatigue)",
+    "description": "Dano por fatiga acumulado en la linea de fondeo segun DNV-OS-E301 (Miner).",
+    "formula_latex": "D_{fat} = \\sum_{i} \\frac{n_i}{N_i}",
+    "variables": [
+      {
+        "name": "D_fat",
+        "symbol": "D_{fat}",
+        "unit": "-",
+        "description": "Indice de dano por fatiga (debe ser <1)"
+      },
+      {
+        "name": "n_i",
+        "symbol": "n_i",
+        "unit": "cycles",
+        "description": "Numero de ciclos a la amplitud i"
+      },
+      {
+        "name": "N_i",
+        "symbol": "N_i",
+        "unit": "cycles",
+        "description": "Ciclos a falla a la amplitud i (curva S-N)"
+      },
+      {
+        "name": "delta_walkway",
+        "symbol": "delta_walkway",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "output_unit": "-",
+    "used_by_fields": [
+      "PVF-014",
+      "PVF-017",
+      "PVF-033",
+      "PVF-034",
+      "PVF-049",
+      "PVF-050",
+      "PVF-051"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_RP_C205"
+    ],
+    "purpose": "Fatiga en linea de fondeo (mooring fatigue)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "delta_walkway = F_person * L_walkway^3 / (3 * E * I_walkway)"
+    ],
+    "equations_latex": [
+      "delta_{walkway} = F_{person} * L_{walkway}^3 / (3 * E * I_{walkway})"
+    ],
+    "unit_equations": [
+      {
+        "name": "delta_walkway",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "delta_walkway",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "delta_walkway within valid physical range",
+      "delta_walkway > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-018",
+    "name_es": "Deflexion de pasarela (walkway deflection)",
+    "description": "Deflexion maxima de la pasarela bajo carga viva y собственной peso.",
+    "formula_latex": "\\delta_{max} = \\frac{5 \\cdot q \\cdot L^4}{384 \\cdot E \\cdot I}",
+    "variables": [
+      {
+        "name": "delta_max",
+        "symbol": "\\delta_{max}",
+        "unit": "mm",
+        "description": "Deflexion maxima"
+      },
+      {
+        "name": "q",
+        "symbol": "q",
+        "unit": "N/m",
+        "description": "Carga distribuida viva + propia"
+      },
+      {
+        "name": "L",
+        "symbol": "L",
+        "unit": "m",
+        "description": "Luz del tramo"
+      },
+      {
+        "name": "E",
+        "symbol": "E",
+        "unit": "Pa",
+        "description": "Modulo elastico del material"
+      },
+      {
+        "name": "I",
+        "symbol": "I",
+        "unit": "m4",
+        "description": "Momento de inercia del tablero"
+      },
+      {
+        "name": "V_subsea_cable",
+        "symbol": "V_subsea_cable",
+        "unit": "V",
+        "type": "output"
+      }
+    ],
+    "output_unit": "mm",
+    "used_by_fields": [
+      "PVF-002",
+      "PVF-054"
+    ],
+    "source_ids": [
+      "ISO_5455",
+      "ISO_5457"
+    ],
+    "purpose": "Deflexion de pasarela (walkway deflection)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_subsea_cable = I_rated / J_max_cable"
+    ],
+    "equations_latex": [
+      "V_subsea_{cable} = I_{rated} / J_max_{cable}"
+    ],
+    "unit_equations": [
+      {
+        "name": "V_subsea_cable",
+        "value": "V"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "V_subsea_cable",
+        "unit": "V",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "V_subsea_cable within valid physical range",
+      "V_subsea_cable > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-019",
+    "name_es": "Indice de impacto ambiental (environmental impact index)",
+    "description": "Indice agregado de impacto ambiental del proyecto FV flotante sobre el cuerpo de agua.",
+    "formula_latex": "I_{env} = \\sum_{j} w_j \\cdot S_j",
+    "variables": [
+      {
+        "name": "I_env",
+        "symbol": "I_{env}",
+        "unit": "-",
+        "description": "Indice agregado 0-100"
+      },
+      {
+        "name": "w_j",
+        "symbol": "w_j",
+        "unit": "-",
+        "description": "Peso del indicador j"
+      },
+      {
+        "name": "S_j",
+        "symbol": "S_j",
+        "unit": "-",
+        "description": "Score normalizado del indicador j (0-1)"
+      },
+      {
+        "name": "I_subsea_cable",
+        "symbol": "I_subsea_cable",
+        "unit": "A",
+        "type": "output"
+      }
+    ],
+    "output_unit": "-",
+    "used_by_fields": [
+      "PVF-005",
+      "PVF-010",
+      "PVF-058",
+      "PVF-059"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "ISO_6107_1"
+    ],
+    "purpose": "Indice de impacto ambiental (environmental impact index)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "I_subsea_cable = P_rated / (sqrt(3) * V_subsea_cable * PF)"
+    ],
+    "equations_latex": [
+      "I_subsea_{cable} = P_{rated} / (sqrt(3) * V_subsea_{cable} * PF)"
+    ],
+    "unit_equations": [
+      {
+        "name": "I_subsea_cable",
+        "value": "A"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "I_subsea_cable",
+        "unit": "A",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "I_subsea_cable within valid physical range",
+      "I_subsea_cable > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-020",
+    "name_es": "Reduccion de oxigeno disuelto (dissolved oxygen reduction)",
+    "description": "Estimacion de la reduccion de oxigeno disuelto del cuerpo de agua por cobertura flotante.",
+    "formula_latex": "\\Delta DO = k_{reareation} \\cdot A_{covered} / A_{total} \\cdot DO_{sat}",
+    "variables": [
+      {
+        "name": "Delta_DO",
+        "symbol": "\\Delta DO",
+        "unit": "mg/L",
+        "description": "Reduccion de oxigeno disuelto"
+      },
+      {
+        "name": "k_reareation",
+        "symbol": "k_{reareation}",
+        "unit": "1/day",
+        "description": "Coeficiente de reaireacion superficial"
+      },
+      {
+        "name": "A_covered",
+        "symbol": "A_{covered}",
+        "unit": "m2",
+        "description": "Area cubierta"
+      },
+      {
+        "name": "A_total",
+        "symbol": "A_{total}",
+        "unit": "m2",
+        "description": "Area total del cuerpo"
+      },
+      {
+        "name": "DO_sat",
+        "symbol": "DO_{sat}",
+        "unit": "mg/L",
+        "description": "Oxigeno disuelto de saturacion"
+      },
+      {
+        "name": "R_subsea_cable",
+        "symbol": "R_subsea_cable",
+        "unit": "ohm",
+        "type": "output"
+      }
+    ],
+    "output_unit": "mg/L",
+    "used_by_fields": [
+      "PVF-021",
+      "PVF-022",
+      "PVF-025"
+    ],
+    "source_ids": [
+      "ISO_6107_1",
+      "MINAM_DS_019_2009"
+    ],
+    "purpose": "Reduccion de oxigeno disuelto (dissolved oxygen reduction)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "R_subsea_cable = rho_conductor * L_cable / A_cable"
+    ],
+    "equations_latex": [
+      "R_subsea_{cable} = rho_{conductor} * L_{cable} / A_{cable}"
+    ],
+    "unit_equations": [
+      {
+        "name": "R_subsea_cable",
+        "value": "ohm"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "R_subsea_cable",
+        "unit": "ohm",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "R_subsea_cable within valid physical range",
+      "R_subsea_cable > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-021",
+    "name_es": "Impacto de cobertura de algas sobre rendimiento (algal coverage yield loss)",
+    "description": "Perdida de rendimiento por cobertura parcial de algas sobre el modulo FV.",
+    "formula_latex": "\\Delta P_{algae} = P_{rated} \\cdot f_{shade} \\cdot \\frac{A_{algae}}{A_{mod}}",
+    "variables": [
+      {
+        "name": "Delta_P_algae",
+        "symbol": "\\Delta P_{algae}",
+        "unit": "W",
+        "description": "Perdida de potencia por algas"
+      },
+      {
+        "name": "P_rated",
+        "symbol": "P_{rated}",
+        "unit": "W",
+        "description": "Potencia nominal del modulo"
+      },
+      {
+        "name": "f_shade",
+        "symbol": "f_{shade}",
+        "unit": "-",
+        "description": "Factor de sombra lineal"
+      },
+      {
+        "name": "A_algae",
+        "symbol": "A_{algae}",
+        "unit": "m2",
+        "description": "Area cubierta por algas"
+      },
+      {
+        "name": "A_mod",
+        "symbol": "A_{mod}",
+        "unit": "m2",
+        "description": "Area del modulo"
+      },
+      {
+        "name": "P_loss_subsea",
+        "symbol": "P_loss_subsea",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "W",
+    "used_by_fields": [
+      "PVF-059",
+      "PVF-023"
+    ],
+    "source_ids": [
+      "IEC_TS_62804_1",
+      "ISO_6107_1"
+    ],
+    "purpose": "Impacto de cobertura de algas sobre rendimiento (algal coverage yield loss)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_loss_subsea = 3 * I_subsea_cable^2 * R_subsea_cable"
+    ],
+    "equations_latex": [
+      "P_loss_{subsea} = 3 * I_subsea_{cable}^2 * R_subsea_{cable}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_loss_subsea",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_loss_subsea",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_loss_subsea within valid physical range",
+      "P_loss_subsea > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-022",
+    "name_es": "Densidad de layout del arreglo (array layout density)",
+    "description": "Densidad de potencia por area de agua ocupada por el arreglo flotante.",
+    "formula_latex": "D_{PV} = \\frac{P_{DC,total}}{A_{water\\\\_occupied}} = \\frac{N_{mod} \\cdot P_{mod}}{N_{strings} \\cdot N_{mod} \\cdot (W + pitch) \\cdot L}",
+    "variables": [
+      {
+        "name": "D_PV",
+        "symbol": "D_{PV}",
+        "unit": "W/m2",
+        "description": "Densidad de potencia del arreglo"
+      },
+      {
+        "name": "P_DC_total",
+        "symbol": "P_{DC,total}",
+        "unit": "W",
+        "description": "Potencia DC total del arreglo"
+      },
+      {
+        "name": "A_water_occupied",
+        "symbol": "A_{water\\_occupied}",
+        "unit": "m2",
+        "description": "Area de agua ocupada"
+      },
+      {
+        "name": "N_mod",
+        "symbol": "N_{mod}",
+        "unit": "-",
+        "description": "Numero de modulos por string"
+      },
+      {
+        "name": "P_mod",
+        "symbol": "P_{mod}",
+        "unit": "W",
+        "description": "Potencia nominal del modulo"
+      },
+      {
+        "name": "N_strings",
+        "unit": "-",
+        "description": "Numero de strings",
+        "symbol": "N_{strings}"
+      },
+      {
+        "name": "W",
+        "symbol": "W",
+        "unit": "m",
+        "description": "Ancho del modulo"
+      },
+      {
+        "name": "pitch",
+        "symbol": "pitch",
+        "unit": "m",
+        "description": "Paso entre filas"
+      },
+      {
+        "name": "L",
+        "symbol": "L",
+        "unit": "m",
+        "description": "Largo del modulo"
+      },
+      {
+        "name": "V_drop_subsea",
+        "symbol": "V_drop_subsea",
+        "unit": "V",
+        "type": "output"
+      }
+    ],
+    "output_unit": "W/m2",
+    "used_by_fields": [
+      "PVF-002",
+      "PVF-003",
+      "PVF-007",
+      "PVF-064",
+      "PVF-065",
+      "PVF-066",
+      "PVF-029"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "NREL_PVWatts"
+    ],
+    "purpose": "Densidad de layout del arreglo (array layout density)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_drop_subsea = sqrt(3) * I_subsea_cable * R_subsea_cable"
+    ],
+    "equations_latex": [
+      "V_drop_{subsea} = sqrt(3) * I_subsea_{cable} * R_subsea_{cable}"
+    ],
+    "unit_equations": [
+      {
+        "name": "V_drop_subsea",
+        "value": "V"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "V_drop_subsea",
+        "unit": "V",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "V_drop_subsea within valid physical range",
+      "V_drop_subsea > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-023",
+    "name_es": "Tamano de string (string sizing)",
+    "description": "Numero maximo de modulos en serie por string segun IEC 62548.",
+    "formula_latex": "N_{series} = \\\\min\\\\left(\\\\left\\\\lfloor \\\\frac{V_{max,inv}}{V_{oc}(T_{min})} \\\\right\\\\rfloor, \\\\left\\\\lfloor \\\\frac{I_{sc,total}}{I_{mp,inv}} \\\\right\\\\rfloor\\\\right)",
+    "variables": [
+      {
+        "name": "N_series",
+        "symbol": "N_{series}",
+        "unit": "modules",
+        "description": "Numero de modulos en serie por string"
+      },
+      {
+        "name": "V_max_inv",
+        "symbol": "V_{max,inv}",
+        "unit": "V",
+        "description": "Tension maxima de entrada del inverter"
+      },
+      {
+        "name": "V_oc_Tmin",
+        "symbol": "V_{oc}(T_{min})",
+        "unit": "V",
+        "description": "Voc del modulo a la minima temperatura"
+      },
+      {
+        "name": "I_sc_total",
+        "symbol": "I_{sc,total}",
+        "unit": "A",
+        "description": "Isc total del string paralelo"
+      },
+      {
+        "name": "I_mp_inv",
+        "symbol": "I_{mp,inv}",
+        "unit": "A",
+        "description": "Corriente MPPT max del inverter"
+      },
+      {
+        "name": "M_anchor_drag",
+        "symbol": "M_anchor_drag",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "output_unit": "modules",
+    "used_by_fields": [
+      "PVF-039",
+      "PVF-040",
+      "PVF-041",
+      "PVF-042",
+      "PVF-067"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "IEC_62894"
+    ],
+    "purpose": "Tamano de string (string sizing)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "M_anchor_drag = mu_soil * W_anchor"
+    ],
+    "equations_latex": [
+      "M_anchor_{drag} = mu_{soil} * W_{anchor}"
+    ],
+    "unit_equations": [
+      {
+        "name": "M_anchor_drag",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "M_anchor_drag",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "M_anchor_drag within valid physical range",
+      "M_anchor_drag > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-024",
+    "name_es": "Curva de eficiencia del inverter (inverter efficiency curve)",
+    "description": "Eficiencia del inverter para una carga parcial dada segun IEC 62894.",
+    "formula_latex": "\\\\eta_{inv} = \\\\frac{P_{AC}}{P_{DC}} = \\\\eta_{max} - k_{1}(1 - l) - k_{2}(1 - l)^2",
+    "variables": [
+      {
+        "name": "eta_inv",
+        "symbol": "\\eta_{inv}",
+        "unit": "-",
+        "description": "Eficiencia del inverter"
+      },
+      {
+        "name": "P_AC",
+        "symbol": "P_{AC}",
+        "unit": "W",
+        "description": "Salida AC"
+      },
+      {
+        "name": "P_DC",
+        "symbol": "P_{DC}",
+        "unit": "W",
+        "description": "Entrada DC"
+      },
+      {
+        "name": "eta_max",
+        "symbol": "\\eta_{max}",
+        "unit": "-",
+        "description": "Eficiencia pico"
+      },
+      {
+        "name": "k1",
+        "symbol": "k_1",
+        "unit": "-",
+        "description": "Coeficiente empirico lineal"
+      },
+      {
+        "name": "k2",
+        "symbol": "k_2",
+        "unit": "-",
+        "description": "Coeficiente empirico cuadratico"
+      },
+      {
+        "name": "l",
+        "symbol": "l",
+        "unit": "-",
+        "description": "Factor de carga P_DC/P_DC_rated"
+      },
+      {
+        "name": "F_scour",
+        "symbol": "F_scour",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "output_unit": "-",
+    "used_by_fields": [
+      "PVF-043",
+      "PVF-044",
+      "PVF-045",
+      "PVF-048"
+    ],
+    "source_ids": [
+      "IEC_62894",
+      "IEC_62817",
+      "IEEE_1547_2018"
+    ],
+    "purpose": "Curva de eficiencia del inverter (inverter efficiency curve)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F_scour = rho_water * v_current^2 * D_pile * L_pile"
+    ],
+    "equations_latex": [
+      "F_{scour} = rho_{water} * v_{current}^2 * D_{pile} * L_{pile}"
+    ],
+    "unit_equations": [
+      {
+        "name": "F_scour",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "F_scour",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "F_scour within valid physical range",
+      "F_scour > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-025",
+    "name_es": "Resistencia de puesta a tierra (grounding resistance)",
+    "description": "Resistencia de la puesta a tierra del sistema FV flotante segun IEEE 80.",
+    "formula_latex": "R_g = \\\\rho_{soil} \\\\cdot \\\\left[ \\\\frac{1}{L_{rod}} + \\\\frac{2 \\\\cdot L_{rod}}{\\\\pi \\\\cdot d \\\\cdot (1 + \\\\sqrt{1 + 4 \\\\cdot h / L_{rod}})} \\\\right]",
+    "variables": [
+      {
+        "name": "R_g",
+        "symbol": "R_g",
+        "unit": "ohm",
+        "description": "Resistencia de puesta a tierra"
+      },
+      {
+        "name": "rho_soil",
+        "symbol": "\\rho_{soil}",
+        "unit": "ohm.m",
+        "description": "Resistividad del suelo"
+      },
+      {
+        "name": "L_rod",
+        "symbol": "L_{rod}",
+        "unit": "m",
+        "description": "Longitud de la barra"
+      },
+      {
+        "name": "d",
+        "symbol": "d",
+        "unit": "m",
+        "description": "Diametro de la barra"
+      },
+      {
+        "name": "h",
+        "symbol": "h",
+        "unit": "m",
+        "description": "Profundidad de enterramiento"
+      },
+      {
+        "name": "H_scour_depth",
+        "symbol": "H_scour_depth",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "output_unit": "ohm",
+    "used_by_fields": [
+      "PVF-068",
+      "PVF-031"
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_142",
+      "IEC_60364_5_54"
+    ],
+    "purpose": "Resistencia de puesta a tierra (grounding resistance)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "H_scour_depth = 0.04 * D_pile * (v_current/sqrt(g*D_pile))^2"
+    ],
+    "equations_latex": [
+      "H_scour_{depth} = 0.04 * D_{pile} * (v_{current}/sqrt(g*D_{pile}))^2"
+    ],
+    "unit_equations": [
+      {
+        "name": "H_scour_depth",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "H_scour_depth",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "H_scour_depth within valid physical range",
+      "H_scour_depth > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-026",
+    "name_es": "Ahorro de volumen de agua por reduccion de evaporacion",
+    "description": "Volumen anual de agua preservado por la cobertura flotante del embalse.",
+    "formula_latex": "V_{saved} = \\\\Delta E_{evap} \\\\cdot A_{covered} \\\\cdot 10^{-3}",
+    "variables": [
+      {
+        "name": "V_saved",
+        "symbol": "V_{saved}",
+        "unit": "m3/year",
+        "description": "Volumen ahorrado anualmente"
+      },
+      {
+        "name": "Delta_E_evap",
+        "symbol": "\\Delta E_{evap}",
+        "unit": "mm/year",
+        "description": "Reduccion de evaporacion"
+      },
+      {
+        "name": "A_covered",
+        "symbol": "A_{covered}",
+        "unit": "m2",
+        "description": "Area cubierta por floats"
+      },
+      {
+        "name": "T_mooring_period",
+        "symbol": "T_mooring_period",
+        "unit": "s",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m3/year",
+    "used_by_fields": [
+      "PVF-007",
+      "PVF-008",
+      "PVF-060"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "MINAM_DS_019_2009"
+    ],
+    "purpose": "Ahorro de volumen de agua por reduccion de evaporacion",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "T_mooring_period = 2 * pi * sqrt(M_total/K_mooring)"
+    ],
+    "equations_latex": [
+      "T_mooring_{period} = 2 * pi * sqrt(M_{total}/K_{mooring})"
+    ],
+    "unit_equations": [
+      {
+        "name": "T_mooring_period",
+        "value": "s"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "T_mooring_period",
+        "unit": "s",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "T_mooring_period within valid physical range",
+      "T_mooring_period > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-027",
+    "name_es": "Carga de hielo por aplastamiento (ice crushing load)",
+    "description": "Carga de aplastamiento del hielo sobre la cara del flotador segun DNV-OS-E301.",
+    "formula_latex": "F_{crush} = p_{ice} \\\\cdot A_{contact}",
+    "variables": [
+      {
+        "name": "F_crush",
+        "symbol": "F_{crush}",
+        "unit": "N",
+        "description": "Fuerza de aplastamiento"
+      },
+      {
+        "name": "p_ice",
+        "symbol": "p_{ice}",
+        "unit": "Pa",
+        "description": "Presion de aplastamiento del hielo"
+      },
+      {
+        "name": "A_contact",
+        "symbol": "A_{contact}",
+        "unit": "m2",
+        "description": "Area de contacto efectiva"
+      },
+      {
+        "name": "V_float_drift",
+        "symbol": "V_float_drift",
+        "unit": "m/s",
+        "type": "output"
+      }
+    ],
+    "output_unit": "N",
+    "used_by_fields": [
+      "PVF-026",
+      "PVF-027"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_RP_C205"
+    ],
+    "purpose": "Carga de hielo por aplastamiento (ice crushing load)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_float_drift = F_current / (M_total * omega)"
+    ],
+    "equations_latex": [
+      "V_float_{drift} = F_{current} / (M_{total} * omega)"
+    ],
+    "unit_equations": [
+      {
+        "name": "V_float_drift",
+        "value": "m/s"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "V_float_drift",
+        "unit": "m/s",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "V_float_drift within valid physical range",
+      "V_float_drift > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-028",
+    "name_es": "Degradacion UV del flotador (UV degradation)",
+    "description": "Tasa de degradacion UV del material del flotador segun ASTM D638 acelerado.",
+    "formula_latex": "D_{UV}(t) = 1 - \\\\exp\\\\left(-k_{UV} \\\\cdot I_{UV} \\\\cdot t\\\\right)",
+    "variables": [
+      {
+        "name": "D_UV_t",
+        "symbol": "D_{UV}(t)",
+        "unit": "-",
+        "description": "Fraccion de degradacion (0-1)"
+      },
+      {
+        "name": "k_UV",
+        "symbol": "k_{UV}",
+        "unit": "1/(W.h/m2)",
+        "description": "Constante de degradacion del material"
+      },
+      {
+        "name": "I_UV",
+        "symbol": "I_{UV}",
+        "unit": "W/m2",
+        "description": "Irradiancia UV efectiva"
+      },
+      {
+        "name": "t",
+        "symbol": "t",
+        "unit": "hours",
+        "description": "Tiempo de exposicion"
+      },
+      {
+        "name": "A_walkway_min",
+        "symbol": "A_walkway_min",
+        "unit": "m2",
+        "type": "output"
+      }
+    ],
+    "output_unit": "-",
+    "used_by_fields": [
+      "PVF-035",
+      "PVF-037"
+    ],
+    "source_ids": [
+      "ASTM_D638",
+      "NASA_POWER"
+    ],
+    "purpose": "Degradacion UV del flotador (UV degradation)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "A_walkway_min = 0.6 * L_walkway"
+    ],
+    "equations_latex": [
+      "A_walkway_{min} = 0.6 * L_{walkway}"
+    ],
+    "unit_equations": [
+      {
+        "name": "A_walkway_min",
+        "value": "m2"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "A_walkway_min",
+        "unit": "m2",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "A_walkway_min within valid physical range",
+      "A_walkway_min > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVF-CAL-029",
+    "name_es": "Dimensionamiento de equipos de seguridad (safety equipment sizing)",
+    "description": "Numero minimo de estaciones de salvavidas, luces de navegacion y rutas de evacuacion en funcion del area del arreglo.",
+    "formula_latex": "N_{safety} = \\\\left\\\\lceil \\\\frac{A_{array}}{A_{per\\\\_unit}} \\\\right\\\\rceil \\\\quad \\\\text{con}\\\\ A_{per\\\\_unit} = 500\\\\,m^2 \\\\text{(salvavidas)},\\\\ 200\\\\,m^2 \\\\text{(luces)},\\\\ 5000\\\\,m^2 \\\\text{(egress)}",
+    "variables": [
+      {
+        "name": "N_safety",
+        "symbol": "N_{safety}",
+        "unit": "stations|lights|routes",
+        "description": "Numero minimo de equipos de seguridad"
+      },
+      {
+        "name": "A_array",
+        "symbol": "A_{array}",
+        "unit": "m2",
+        "description": "Area total del arreglo flotante"
+      },
+      {
+        "name": "A_per_unit",
+        "symbol": "A_{per\\_unit}",
+        "unit": "m2",
+        "description": "Area servida por cada equipo (500/200/5000 m2)"
+      },
+      {
+        "name": "L_cable_route",
+        "symbol": "L_cable_route",
+        "unit": "m",
+        "type": "output"
+      }
+    ],
+    "output_unit": "stations|lights|routes",
+    "used_by_fields": [
+      "PVF-055",
+      "PVF-056",
+      "PVF-057"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "NFPA_70_2023",
+      "DNV_OS_E301"
+    ],
+    "purpose": "Dimensionamiento de equipos de seguridad (safety equipment sizing)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVF-001",
+      "PVF-002",
+      "PVF-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "L_cable_route = sqrt((x_shore-x_float)^2 + (y_shore-y_float)^2)"
+    ],
+    "equations_latex": [
+      "L_cable_{route} = sqrt((x_{shore}-x_{float})^2 + (y_{shore}-y_{float})^2)"
+    ],
+    "unit_equations": [
+      {
+        "name": "L_cable_route",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "L_cable_route",
+        "unit": "m",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "L_cable_route within valid physical range",
+      "L_cable_route > 0 for positive-definite quantities",
+      "no division by zero"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability",
+      "missing required input"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  }
+]

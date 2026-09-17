@@ -1,0 +1,2108 @@
+[
+  {
+    "equipment_type_id": "BIO-EQ-001",
+    "name_es": "Caldera grate",
+    "subsystem": "boiler",
+    "properties": [
+      {
+        "name": "grate_type",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "combustion_temperature_c",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "steam_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "steam_temperature_c",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-002",
+    "name_es": "Caldera BFB",
+    "subsystem": "boiler",
+    "properties": [
+      {
+        "name": "bubbling_velocity_ms",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "bed_temperature_c",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "steam_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-003",
+    "name_es": "Caldera CFBC",
+    "subsystem": "boiler",
+    "properties": [
+      {
+        "name": "circulation_velocity_ms",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "bed_temperature_c",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "steam_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": " limestone_flow_kg_h",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-004",
+    "name_es": "Gasificador",
+    "subsystem": "boiler",
+    "properties": [
+      {
+        "name": "gasifier_type",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "temperature_c",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "syngas_lhv_kj_nm3",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "CGE_pct",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "CCE_pct",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-005",
+    "name_es": "Turbina condensante",
+    "subsystem": "turbine",
+    "properties": [
+      {
+        "name": "rated_power_mwe",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "inlet_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "inlet_temperature_c",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "exhaust_pressure_kpa",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-006",
+    "name_es": "Turbina de extracción",
+    "subsystem": "turbine",
+    "properties": [
+      {
+        "name": "rated_power_mwe",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "extraction_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "extraction_flow_kg_s",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-007",
+    "name_es": "Turbina back-pressure",
+    "subsystem": "turbine",
+    "properties": [
+      {
+        "name": "rated_power_mwe",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "exhaust_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-008",
+    "name_es": "Generador síncrono",
+    "subsystem": "generator",
+    "properties": [
+      {
+        "name": "rated_power_kva",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "voltage_v",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "frequency_hz",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "power_factor",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-009",
+    "name_es": "Condensador",
+    "subsystem": "condenser",
+    "properties": [
+      {
+        "name": "duty_kw",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "cooling_water_flow_m3_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "vacuum_kpa",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "condensate_temperature_c",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-010",
+    "name_es": "Deaerator",
+    "subsystem": "auxiliary",
+    "properties": [
+      {
+        "name": "heat_duty_kw",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "working_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "tank_capacity_m3",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-011",
+    "name_es": "Bomba BFW",
+    "subsystem": "pump",
+    "properties": [
+      {
+        "name": "rated_flow_m3_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "rated_head_m",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "rated_power_kw",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-012",
+    "name_es": "Economizador",
+    "subsystem": "heat_exchanger",
+    "properties": [
+      {
+        "name": "duty_kw",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "heat_transfer_area_m2",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "inlet_water_temperature_c",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "outlet_water_temperature_c",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-013",
+    "name_es": "Precalentador de aire",
+    "subsystem": "heat_exchanger",
+    "properties": [
+      {
+        "name": "duty_kw",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "heat_transfer_area_m2",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "inlet_air_temperature_c",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "outlet_air_temperature_c",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-014",
+    "name_es": "Ventilador FD",
+    "subsystem": "fan",
+    "properties": [
+      {
+        "name": "rated_flow_m3_s",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "rated_pressure_kpa",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "rated_power_kw",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-015",
+    "name_es": "Ventilador ID",
+    "subsystem": "fan",
+    "properties": [
+      {
+        "name": "rated_flow_m3_s",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "rated_pressure_kpa",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "rated_power_kw",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-016",
+    "name_es": "ESP",
+    "subsystem": "emission_control",
+    "properties": [
+      {
+        "name": "collection_area_m2",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "power_kw",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "number_of_fields",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-017",
+    "name_es": "Bag filter",
+    "subsystem": "emission_control",
+    "properties": [
+      {
+        "name": "filter_area_m2",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "air_to_cloth_ratio",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "number_of_bags",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-018",
+    "name_es": "FGD wet",
+    "subsystem": "emission_control",
+    "properties": [
+      {
+        "name": "limestone_flow_kg_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "liquid_to_gas_ratio",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "absorber_diameter_m",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-019",
+    "name_es": "FGD spray dryer",
+    "subsystem": "emission_control",
+    "properties": [
+      {
+        "name": "slurry_flow_l_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "outlet_temperature_c",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-020",
+    "name_es": "SCR",
+    "subsystem": "emission_control",
+    "properties": [
+      {
+        "name": "ammonia_flow_kg_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "catalyst_volume_m3",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "operating_temperature_c",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-021",
+    "name_es": "SNCR",
+    "subsystem": "emission_control",
+    "properties": [
+      {
+        "name": "urea_flow_kg_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "injection_temperature_c",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-022",
+    "name_es": "ACI",
+    "subsystem": "emission_control",
+    "properties": [
+      {
+        "name": "activated_carbon_flow_kg_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-023",
+    "name_es": "Ash handling",
+    "subsystem": "ash_handling",
+    "properties": [
+      {
+        "name": "capacity_ton_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "conveyor_type",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "storage_silo_capacity_m3",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-024",
+    "name_es": "Fuel storage silo",
+    "subsystem": "storage",
+    "properties": [
+      {
+        "name": "capacity_m3",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "number_of_silos",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "discharge_capacity_ton_h",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-025",
+    "name_es": "Fuel feeding system",
+    "subsystem": "material_handling",
+    "properties": [
+      {
+        "name": "capacity_ton_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "conveyor_type",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "redundancy",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-026",
+    "name_es": "Stacker reclaimer",
+    "subsystem": "material_handling",
+    "properties": [
+      {
+        "name": "capacity_ton_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "boom_length_m",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "stockpile_volume_m3",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-027",
+    "name_es": "Bridge crane",
+    "subsystem": "material_handling",
+    "properties": [
+      {
+        "name": "rated_capacity_ton",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "span_m",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "lifting_height_m",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-028",
+    "name_es": "Stack",
+    "subsystem": "auxiliary",
+    "properties": [
+      {
+        "name": "height_m",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "diameter_m",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "material",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "exit_velocity_m_s",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-029",
+    "name_es": "Flare",
+    "subsystem": "auxiliary",
+    "properties": [
+      {
+        "name": "rated_capacity_kg_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "height_m",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "enclosed",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "destruction_efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-030",
+    "name_es": "Water treatment",
+    "subsystem": "auxiliary",
+    "properties": [
+      {
+        "name": "capacity_m3_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "treatment_type",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "TDS_outlet_ppm",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-031",
+    "name_es": "Cooling tower",
+    "subsystem": "cooling",
+    "properties": [
+      {
+        "name": "duty_kw",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "flow_m3_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "approach_c",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "drift_eliminator_pct",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIO-EQ-032",
+    "name_es": "ACC",
+    "subsystem": "cooling",
+    "properties": [
+      {
+        "name": "duty_kw",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "fan_count",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "fan_diameter_m",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "noise_db_a",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "ASME_PTC",
+      "IEC_60529"
+    ],
+    "drawing_representations": [
+      "BIO-DRW-006",
+      "BIO-DRW-013"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10",
+      "ASME_B31_1_2022"
+    ]
+  }
+]

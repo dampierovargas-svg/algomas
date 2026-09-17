@@ -1,0 +1,1403 @@
+[
+  {
+    "geometry_rule_id": "BIO-GR-001",
+    "name_es": "Boiler layout",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-005",
+      "BIO-C-006"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {'tolerance_mm': 10}"
+    ],
+    "generated_entity_types": [
+      "polyline",
+      "hatch"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "tolerance_mm": 10
+    },
+    "failure_conditions": [
+      "BIO-GR-001: required input field missing or invalid",
+      "BIO-GR-001: collision between generated entities detected",
+      "BIO-GR-001: clearance violation"
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-002",
+    "name_es": "Fuel storage area",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-019",
+      "BIO-020"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "polyline",
+      "circle"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIO-GR-002: required input field missing or invalid",
+      "BIO-GR-002: collision between generated entities detected",
+      "BIO-GR-002: clearance violation"
+    ],
+    "source_ids": [
+      "NFPA_664"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-003",
+    "name_es": "Fuel feeding routes",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-015",
+      "BIO-080"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-028"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "polyline",
+      "line"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIO-GR-003: required input field missing or invalid",
+      "BIO-GR-003: collision between generated entities detected",
+      "BIO-GR-003: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-004",
+    "name_es": "Conveyor routes",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-015",
+      "BIO-080"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-028"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "polyline",
+      "line"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIO-GR-004: required input field missing or invalid",
+      "BIO-GR-004: collision between generated entities detected",
+      "BIO-GR-004: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-005",
+    "name_es": "Ash handling routes",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-056",
+      "BIO-057",
+      "BIO-058"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "polyline",
+      "line"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIO-GR-005: required input field missing or invalid",
+      "BIO-GR-005: collision between generated entities detected",
+      "BIO-GR-005: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_22790"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-006",
+    "name_es": "Main steam piping",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-022",
+      "BIO-023",
+      "BIO-059"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-005",
+      "BIO-C-006",
+      "BIO-C-026"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "line",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_clearance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "ASME_B31_1_2023"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-007",
+    "name_es": "Reheat steam piping",
+    "applicability_expression": "boiler_has_reheat == true",
+    "required_field_ids": [
+      "BIO-024",
+      "BIO-025"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-005"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "line",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_clearance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "ASME_B31_1_2023"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-008",
+    "name_es": "Extraction steam piping",
+    "applicability_expression": "turbine_type == extraction",
+    "required_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "line",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "ASME_B31_1_2023"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-009",
+    "name_es": "BFW piping",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-060"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-017"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "line",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "ASME_B31_1_2023"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-010",
+    "name_es": "Condensate piping",
+    "applicability_expression": "turbine_type == condensing",
+    "required_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "line",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "ASME_B31_1_2023"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-011",
+    "name_es": "Flue gas ductwork",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-030",
+      "BIO-031"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-004"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "polyline",
+      "hatch"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "ASME_PTC_10"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-012",
+    "name_es": "ESP layout",
+    "applicability_expression": "fgt_system==ESP",
+    "required_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "NFPA_13_2022"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-013",
+    "name_es": "Bag filter layout",
+    "applicability_expression": "fgt_system==bag_filter",
+    "required_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "NFPA_13_2022"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-014",
+    "name_es": "FGD layout",
+    "applicability_expression": "fgt_system contains FGD",
+    "required_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "NFPA_13_2022"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-015",
+    "name_es": "SCR layout",
+    "applicability_expression": "fgt_system==SCR",
+    "required_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "NFPA_497_2024"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-016",
+    "name_es": "Turbine-generator pedestal",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-032",
+      "BIO-033"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "polyline",
+      "hatch"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "RNE_DS_011_2006"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-017",
+    "name_es": "Condenser layout",
+    "applicability_expression": "turbine_type == condensing",
+    "required_field_ids": [
+      "BIO-037"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "ASME_PTC_10"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-018",
+    "name_es": "BFW pump layout",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-060"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "API_610_2024"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-019",
+    "name_es": "Stack position",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-067",
+      "BIO-068"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-020"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "line",
+      "circle"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MINAM_DS_019_2009"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-020",
+    "name_es": "Water treatment area",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-066"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MINAM_DS_019_2009"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-021",
+    "name_es": "Cooling tower layout",
+    "applicability_expression": "cooling_type==wet_tower OR cooling_type==hybrid",
+    "required_field_ids": [
+      "BIO-039"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_clearance_to_building_m": 15
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "NFPA_13_2022"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-022",
+    "name_es": "ACC layout",
+    "applicability_expression": "cooling_type==ACC",
+    "required_field_ids": [
+      "BIO-038"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "NFPA_13_2022"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-023",
+    "name_es": "Control room",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "RNE_DS_011_2006"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-024",
+    "name_es": "Switchgear",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "IEEE_1547_2018"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-025",
+    "name_es": "Transformer yard",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "rectangle",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "IEEE_1547_2018"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-026",
+    "name_es": "Fence",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "RNE_DS_011_2006"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-027",
+    "name_es": "Fire water loop",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-076"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "line",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "NFPA_13_2022"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "BIO-GR-028",
+    "name_es": "Drainage",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIO-001",
+      "BIO-002"
+    ],
+    "required_calculation_ids": [
+      "BIO-C-002"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: PLANT",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "line",
+      "polyline"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "RNE_DS_011_2006"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  }
+]

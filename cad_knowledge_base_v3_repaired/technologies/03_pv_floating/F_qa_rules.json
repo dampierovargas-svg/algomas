@@ -1,0 +1,1475 @@
+[
+  {
+    "qa_rule_id": "PVF-QA-001",
+    "name_es": "Margen de empuje positivo",
+    "rule_logic": "buoyancy >= 1.30 * (W_mod + W_flt + W_conn + W_op)",
+    "applies_to_fields": [
+      "PVF-036"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FLT"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_OS_C101",
+      "ASTM_D638"
+    ],
+    "rule_id": "PVF-QA-001",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-001 (Margen de empuje positivo): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-001_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-002",
+    "name_es": "Borde libre minimo",
+    "rule_logic": "freeboard_effective >= 100 mm bajo carga operativa",
+    "applies_to_fields": [
+      "PVF-038"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FLT"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_OS_C101",
+      "DNV_OS_E301"
+    ],
+    "rule_id": "PVF-QA-002",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-002 (Borde libre minimo): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-002_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-003",
+    "name_es": "Factor de seguridad de linea de fondeo >= 1.5",
+    "rule_logic": "MBL / T_line_design >= 1.5 (DNV-OS-E301)",
+    "applies_to_fields": [
+      "PVF-050",
+      "PVF-051",
+      "PVF-033"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-MOL"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "rule_id": "PVF-QA-003",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-003 (Factor de seguridad de linea de fondeo >= 1.5): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-003_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-004",
+    "name_es": "Capacidad del ancla >= tension de diseno",
+    "rule_logic": "anchor_holding_capacity_kN >= 1.5 * T_line_design",
+    "applies_to_fields": [
+      "PVF-053",
+      "PVF-033"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-ANC",
+      "PVF-EQ-ONC"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "rule_id": "PVF-QA-004",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-004 (Capacidad del ancla >= tension de diseno): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-004_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-005",
+    "name_es": "Material del flotador certificado UV",
+    "rule_logic": "UV stability test ASTM D638 >= 25 yr service life",
+    "applies_to_fields": [
+      "PVF-035",
+      "PVF-037"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FLT"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "ASTM_D638",
+      "IEC_TS_63049"
+    ],
+    "rule_id": "PVF-QA-005",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-005 (Material del flotador certificado UV): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-005_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-006",
+    "name_es": "Cable submarino rating de tension >= Vdc_max",
+    "rule_logic": "cable_voltage_rating >= 1.20 * dc_system_voltage_max_V",
+    "applies_to_fields": [
+      "PVF-046",
+      "PVF-047",
+      "PVF-067"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-SBC"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEC_62548"
+    ],
+    "rule_id": "PVF-QA-006",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-006 (Cable submarino rating de tension >= Vdc_max): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-006_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-007",
+    "name_es": "Presencia de luces de navegacion",
+    "rule_logic": "navigation_lights_count >= 4 y posicionadas perimetralmente",
+    "applies_to_fields": [
+      "PVF-056"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-NLT"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_OS_E301",
+      "NFPA_780_2023"
+    ],
+    "rule_id": "PVF-QA-007",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-007 (Presencia de luces de navegacion): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-007_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-008",
+    "name_es": "Ancho minimo de pasarela 0.6 m",
+    "rule_logic": "walkway_width_mm >= 600",
+    "applies_to_fields": [
+      "PVF-054"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-WLK"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "ISO_5455",
+      "NFPA_70_2023"
+    ],
+    "rule_id": "PVF-QA-008",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-008 (Ancho minimo de pasarela 0.6 m): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-008_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-009",
+    "name_es": "Estaciones de salvavidas distribuidas",
+    "rule_logic": "life_jacket_stations_count >= 1 per 500 m2 de area de arreglo",
+    "applies_to_fields": [
+      "PVF-055"
+    ],
+    "applies_to_equipment": [],
+    "severity": "INFO",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "NFPA_70_2023"
+    ],
+    "rule_id": "PVF-QA-009",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-009 (Estaciones de salvavidas distribuidas): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-009_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-010",
+    "name_es": "Cumplimiento ambiental aprobado",
+    "rule_logic": "fish_impact_assessment_status in [EIA_approved,monitoring_active]",
+    "applies_to_fields": [
+      "PVF-058"
+    ],
+    "applies_to_equipment": [],
+    "severity": "INFO",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "MIMP_Ambiental_GLA"
+    ],
+    "rule_id": "PVF-QA-010",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-010 (Cumplimiento ambiental aprobado): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-010_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-011",
+    "name_es": "Capacidad de carga de hielo verificada",
+    "rule_logic": "if ice_thickness_max_mm > 0 then float_design_verified_for_ice_load",
+    "applies_to_fields": [
+      "PVF-026",
+      "PVF-027"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FLT",
+      "PVF-EQ-MOL"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_RP_C205"
+    ],
+    "rule_id": "PVF-QA-011",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-011 (Capacidad de carga de hielo verificada): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-011_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-012",
+    "name_es": "Plan de monitoreo de calidad de agua",
+    "rule_logic": "water_quality_monitoring_plan_active == true",
+    "applies_to_fields": [
+      "PVF-021",
+      "PVF-022",
+      "PVF-025"
+    ],
+    "applies_to_equipment": [],
+    "severity": "INFO",
+    "source_ids": [
+      "ISO_6107_1",
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "PVF-QA-012",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-012 (Plan de monitoreo de calidad de agua): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-012_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-013",
+    "name_es": "Cumplimiento de seguridad de navegacion",
+    "rule_logic": "navigation_exclusion_zone_m >= 10 m and marked with buoys",
+    "applies_to_fields": [
+      "PVF-028",
+      "PVF-029"
+    ],
+    "applies_to_equipment": [],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_OS_E301",
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "PVF-QA-013",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-013 (Cumplimiento de seguridad de navegacion): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-013_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-014",
+    "name_es": "Clasificacion de sedimento requerida",
+    "rule_logic": "sediment_type defined and compatible with anchor_type",
+    "applies_to_fields": [
+      "PVF-005",
+      "PVF-006",
+      "PVF-052"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-ANC"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "ISO_14685",
+      "DNV_OS_E301"
+    ],
+    "rule_id": "PVF-QA-014",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-014 (Clasificacion de sedimento requerida): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-014_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-015",
+    "name_es": "Redundancia de lineas de fondeo",
+    "rule_logic": "N_anchors >= 4 and any single line loss keeps SF >= 1.0",
+    "applies_to_fields": [
+      "PVF-032",
+      "PVF-052"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-MOL",
+      "PVF-EQ-ANC"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "rule_id": "PVF-QA-015",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-015 (Redundancia de lineas de fondeo): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-015_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-016",
+    "name_es": "Permiso ambiental aprobado",
+    "rule_logic": "EIA_certificate_issued == true",
+    "applies_to_fields": [
+      "PVF-058"
+    ],
+    "applies_to_equipment": [],
+    "severity": "INFO",
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "PVF-QA-016",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-016 (Permiso ambiental aprobado): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-016_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-017",
+    "name_es": "Diseno de string segun IEC 62548",
+    "rule_logic": "string_voltage_max_V <= inverter_Vmax and >= inverter_Vmppt_min",
+    "applies_to_fields": [
+      "PVF-041",
+      "PVF-042",
+      "PVF-067"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FMOD"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "rule_id": "PVF-QA-017",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-017 (Diseno de string segun IEC 62548): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-017_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-018",
+    "name_es": "Interconexion a red segun IEEE 1547",
+    "rule_logic": "inverter_IEEE1547_certified == true and grid_code_compliance == true",
+    "applies_to_fields": [
+      "PVF-044",
+      "PVF-048"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FIP",
+      "PVF-EQ-FTP"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "COES_Proyectos_Conexion"
+    ],
+    "rule_id": "PVF-QA-018",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-018 (Interconexion a red segun IEEE 1547): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-018_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-019",
+    "name_es": "Diseno de fondeo segun DNV-OS-E301",
+    "rule_logic": "mooring_design_report_signed_by_competent_engineer == true",
+    "applies_to_fields": [
+      "PVF-032",
+      "PVF-033",
+      "PVF-034",
+      "PVF-050",
+      "PVF-051"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-MOL",
+      "PVF-EQ-ANC"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "rule_id": "PVF-QA-019",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-019 (Diseno de fondeo segun DNV-OS-E301): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-019_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-020",
+    "name_es": "Estructura flotante segun DNV-OS-C101",
+    "rule_logic": "floating_structure_stability_including_damage_condition_verified == true",
+    "applies_to_fields": [
+      "PVF-035",
+      "PVF-038"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FLT"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_OS_C101"
+    ],
+    "rule_id": "PVF-QA-020",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-020 (Estructura flotante segun DNV-OS-C101): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-020_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-021",
+    "name_es": "Cargas ambientales segun DNV-RP-C205",
+    "rule_logic": "met_ocean_report_signed_by_competent_engineer == true",
+    "applies_to_fields": [
+      "PVF-014",
+      "PVF-015",
+      "PVF-016",
+      "PVF-017",
+      "PVF-018",
+      "PVF-019",
+      "PVF-020"
+    ],
+    "applies_to_equipment": [],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_RP_C205"
+    ],
+    "rule_id": "PVF-QA-021",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-021 (Cargas ambientales segun DNV-RP-C205): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-021_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-022",
+    "name_es": "Seguridad de inversor segun IEC 62109",
+    "rule_logic": "inverter_IEC_62109_certified == true",
+    "applies_to_fields": [
+      "PVF-044"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FIP"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62109_2"
+    ],
+    "rule_id": "PVF-QA-022",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-022 (Seguridad de inversor segun IEC 62109): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-022_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-023",
+    "name_es": "Calificacion de modulo segun IEC 61215",
+    "rule_logic": "module_IEC_61215_certified == true",
+    "applies_to_fields": [
+      "PVF-039",
+      "PVF-040"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FMOD"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_61215_1"
+    ],
+    "rule_id": "PVF-QA-023",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-023 (Calificacion de modulo segun IEC 61215): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-023_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-024",
+    "name_es": "Seguridad electrica de modulo segun IEC 61730",
+    "rule_logic": "module_IEC_61730_class_II_certified == true",
+    "applies_to_fields": [
+      "PVF-039"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FMOD"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_61730_1",
+      "IEC_61730_2"
+    ],
+    "rule_id": "PVF-QA-024",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-024 (Seguridad electrica de modulo segun IEC 61730): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-024_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-025",
+    "name_es": "Resistencia PID segun IEC TS 62804",
+    "rule_logic": "module_PID_resistance_tested == true (salt-water variant if salinity > 0.5 ppt)",
+    "applies_to_fields": [
+      "PVF-039",
+      "PVF-021"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FMOD"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_TS_62804_1"
+    ],
+    "rule_id": "PVF-QA-025",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-025 (Resistencia PID segun IEC TS 62804): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-025_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-026",
+    "name_es": "Proteccion contra rayos segun NFPA 780",
+    "rule_logic": "lightning_protection_system_installed == true and bonded to grounding",
+    "applies_to_fields": [
+      "PVF-068",
+      "PVF-056"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-NLT"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "NFPA_780_2023"
+    ],
+    "rule_id": "PVF-QA-026",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-026 (Proteccion contra rayos segun NFPA 780): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-026_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-027",
+    "name_es": "Proteccion contra rayos segun IEC 62305",
+    "rule_logic": "LPS_class_IV_minimum_installed == true",
+    "applies_to_fields": [
+      "PVF-068"
+    ],
+    "applies_to_equipment": [],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3"
+    ],
+    "rule_id": "PVF-QA-027",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-027 (Proteccion contra rayos segun IEC 62305): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-027_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-028",
+    "name_es": "Resistencia de puesta a tierra <= 5 ohm",
+    "rule_logic": "grounding_resistance_ohm <= 5 (IEEE 80 threshold)",
+    "applies_to_fields": [
+      "PVF-068"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-ONC"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_142"
+    ],
+    "rule_id": "PVF-QA-028",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-028 (Resistencia de puesta a tierra <= 5 ohm): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-028_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-029",
+    "name_es": "Puesta a tierra del arreglo segun IEC 60364-7-712",
+    "rule_logic": "array_earthing_per_IEC_60364_7_712 == true",
+    "applies_to_fields": [
+      "PVF-068"
+    ],
+    "applies_to_equipment": [],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_60364_7_712",
+      "IEC_60364_5_54"
+    ],
+    "rule_id": "PVF-QA-029",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-029 (Puesta a tierra del arreglo segun IEC 60364-7-712): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-029_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-030",
+    "name_es": "Proteccion contra sobretension segun IEC 61643-11",
+    "rule_logic": "SPD_type_II_DC_installed == true and I_imp >= 10 kA",
+    "applies_to_fields": [
+      "PVF-067",
+      "PVF-046"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FDC"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_61643_11"
+    ],
+    "rule_id": "PVF-QA-030",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-030 (Proteccion contra sobretension segun IEC 61643-11): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-030_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-031",
+    "name_es": "Conector de flotador estanco IP67",
+    "rule_logic": "float_connector_IP_rating >= IP67 (IEC 60529)",
+    "applies_to_fields": [
+      "PVF-035"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FCT"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_60529"
+    ],
+    "rule_id": "PVF-QA-031",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-031 (Conector de flotador estanco IP67): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-031_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-032",
+    "name_es": "Proteccion catodica de anclas de acero",
+    "rule_logic": "if anchor_type contains pile then cathodic_protection_installed == true",
+    "applies_to_fields": [
+      "PVF-052",
+      "PVF-069",
+      "PVF-070"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-ANC",
+      "PVF-EQ-ONC"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_OS_E301"
+    ],
+    "rule_id": "PVF-QA-032",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-032 (Proteccion catodica de anclas de acero): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-032_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-033",
+    "name_es": "Evaluacion de impacto ictico realizada",
+    "rule_logic": "fish_impact_assessment_done == true and mitigation_plan_signed == true",
+    "applies_to_fields": [
+      "PVF-058"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FSH"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "ISO_6107_1"
+    ],
+    "rule_id": "PVF-QA-033",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-033 (Evaluacion de impacto ictico realizada): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-033_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-034",
+    "name_es": "Linea base de oxigeno disuelto registrada",
+    "rule_logic": "dissolved_oxygen_mg_l baseline >= 4 mg/L or mitigation_plan_required",
+    "applies_to_fields": [
+      "PVF-025"
+    ],
+    "applies_to_equipment": [],
+    "severity": "INFO",
+    "source_ids": [
+      "ISO_6107_1",
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "PVF-QA-034",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-034 (Linea base de oxigeno disuelto registrada): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-034_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-035",
+    "name_es": "Espaciamiento de layout verificado",
+    "rule_logic": "array_spacing_m >= 0.5 * module_length and pitch >= 3 * module_height / tan(min_sun_elevation)",
+    "applies_to_fields": [
+      "PVF-064",
+      "PVF-066",
+      "PVF-065"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FMOD",
+      "PVF-EQ-FLT"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_62548",
+      "NREL_PVWatts"
+    ],
+    "rule_id": "PVF-QA-035",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-035 (Espaciamiento de layout verificado): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-035_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-036",
+    "name_es": "Tension de string dentro de limites del inverter",
+    "rule_logic": "inverter_Vmppt_min <= string_voltage_max_V <= inverter_Vmax * 0.9",
+    "applies_to_fields": [
+      "PVF-042",
+      "PVF-043"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FIP"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_62548",
+      "IEC_62894"
+    ],
+    "rule_id": "PVF-QA-036",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-036 (Tension de string dentro de limites del inverter): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-036_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-037",
+    "name_es": "Numero de MPPT >= numero de strings orientados distintos",
+    "rule_logic": "mppt_channels_count >= distinct_string_orientations",
+    "applies_to_fields": [
+      "PVF-043",
+      "PVF-041"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FIP"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_62894",
+      "IEC_62817"
+    ],
+    "rule_id": "PVF-QA-037",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-037 (Numero de MPPT >= numero de strings orientados distintos): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-037_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-038",
+    "name_es": "Angulo de inclinacion de modulo en rango",
+    "rule_logic": "0 <= module_tilt_angle_deg <= 35 (above 35 wind loads unacceptable)",
+    "applies_to_fields": [
+      "PVF-065"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FMOD"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_62548",
+      "NREL_PVWatts"
+    ],
+    "rule_id": "PVF-QA-038",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-038 (Angulo de inclinacion de modulo en rango): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-038_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-039",
+    "name_es": "Rutas de evacuacion de emergencia >= 2",
+    "rule_logic": "emergency_egress_routes_count >= 2 and separated by >= 30 m",
+    "applies_to_fields": [
+      "PVF-057"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-WLK"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "NFPA_70_2023"
+    ],
+    "rule_id": "PVF-QA-039",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-039 (Rutas de evacuacion de emergencia >= 2): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-039_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-040",
+    "name_es": "Proteccion contra corrosion certificada",
+    "rule_logic": "corrosion_protection_method != none when steel submerged",
+    "applies_to_fields": [
+      "PVF-070",
+      "PVF-052"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-ANC",
+      "PVF-EQ-ONC",
+      "PVF-EQ-MOL"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_OS_E301"
+    ],
+    "rule_id": "PVF-QA-040",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-040 (Proteccion contra corrosion certificada): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-040_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-041",
+    "name_es": "Deflexion de pasarela dentro de limite",
+    "rule_logic": "walkway_deflection_max <= L / 250 (ISO 5455)",
+    "applies_to_fields": [
+      "PVF-054"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-WLK"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "ISO_5455",
+      "ISO_5457"
+    ],
+    "rule_id": "PVF-QA-041",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-041 (Deflexion de pasarela dentro de limite): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-041_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-042",
+    "name_es": "Degradacion UV del flotador verificada",
+    "rule_logic": "UV_degradation_after_25yr <= 10% of original tensile strength",
+    "applies_to_fields": [
+      "PVF-035",
+      "PVF-037"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FLT"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "ASTM_D638",
+      "NASA_POWER"
+    ],
+    "rule_id": "PVF-QA-042",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-042 (Degradacion UV del flotador verificada): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-042_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-043",
+    "name_es": "Ampacity de cable submarino verificada",
+    "rule_logic": "subsea_cable_ampacity_water >= 1.25 * design_current",
+    "applies_to_fields": [
+      "PVF-046",
+      "PVF-047"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-SBC"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_835"
+    ],
+    "rule_id": "PVF-QA-043",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-043 (Ampacity de cable submarino verificada): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-043_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-044",
+    "name_es": "Fatiga de fondeo - dano acumulado < 1",
+    "rule_logic": "D_fat <= 1.0 for design life 25 yr (DNV-OS-E301)",
+    "applies_to_fields": [
+      "PVF-050",
+      "PVF-051",
+      "PVF-014",
+      "PVF-017"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-MOL"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "rule_id": "PVF-QA-044",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-044 (Fatiga de fondeo - dano acumulado < 1): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-044_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-045",
+    "name_es": "Cumplimiento de ROM de red (COES NCO)",
+    "rule_logic": "grid_connection_compliance_per_COES_NCO == true",
+    "applies_to_fields": [
+      "PVF-044",
+      "PVF-048"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FIP",
+      "PVF-EQ-FTP"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "COES_NCO_2019",
+      "COES_Proyectos_Conexion"
+    ],
+    "rule_id": "PVF-QA-045",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-045 (Cumplimiento de ROM de red (COES NCO)): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-045_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-046",
+    "name_es": "Riesgo de algas mitigado",
+    "rule_logic": "if algal_growth_risk_level == high then anti-fouling_coating_applied == true",
+    "applies_to_fields": [
+      "PVF-059",
+      "PVF-035"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FLT",
+      "PVF-EQ-FMOD"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "ISO_6107_1",
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "PVF-QA-046",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-046 (Riesgo de algas mitigado): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-046_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-047",
+    "name_es": "Indice de impacto ambiental dentro de limite",
+    "rule_logic": "I_env <= 40 (threshold for project approval)",
+    "applies_to_fields": [
+      "PVF-058",
+      "PVF-059"
+    ],
+    "applies_to_equipment": [],
+    "severity": "INFO",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "ISO_6107_1"
+    ],
+    "rule_id": "PVF-QA-047",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-047 (Indice de impacto ambiental dentro de limite): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-047_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-048",
+    "name_es": "Reducion de evaporacion cumplida",
+    "rule_logic": "if reservoir_purpose in [irrigation,drinking_water,hydropower] then evaporation_reduction_achieved >= 0.8 * target",
+    "applies_to_fields": [
+      "PVF-060",
+      "PVF-010"
+    ],
+    "applies_to_equipment": [],
+    "severity": "INFO",
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "PVF-QA-048",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-048 (Reducion de evaporacion cumplida): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-048_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-049",
+    "name_es": "Ruido audible de inverter flotante bajo limite",
+    "rule_logic": "noise_at_shore <= 55 dBA during daytime",
+    "applies_to_fields": [
+      "PVF-044",
+      "PVF-045"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FIP"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "NFPA_70_2023"
+    ],
+    "rule_id": "PVF-QA-049",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-049 (Ruido audible de inverter flotante bajo limite): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-049_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "PVF-QA-050",
+    "name_es": "IEC 62894 datasheet de inverter disponible",
+    "rule_logic": "inverter_IEC_62894_datasheet_signed == true",
+    "applies_to_fields": [
+      "PVF-044"
+    ],
+    "applies_to_equipment": [
+      "PVF-EQ-FIP"
+    ],
+    "severity": "INFO",
+    "source_ids": [
+      "IEC_62894",
+      "IEC_62817"
+    ],
+    "rule_id": "PVF-QA-050",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "true",
+    "message_template": "Regla PVF-QA-050 (IEC 62894 datasheet de inverter disponible): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "PVF-QA-050_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  }
+]

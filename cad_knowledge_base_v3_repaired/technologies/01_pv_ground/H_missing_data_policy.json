@@ -1,0 +1,1650 @@
+[
+  {
+    "field_id": "PVG-001",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "topographic_survey",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "PVG-C-001"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-001",
+      "PVG-DRW-002",
+      "PVG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "PVG-002",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "topographic_survey",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "PVG-C-001"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-001",
+      "PVG-DRW-002",
+      "PVG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "PVG-003",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "topographic_survey",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "PVG-C-004",
+      "PVG-C-019"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-001"
+    ]
+  },
+  {
+    "field_id": "PVG-004",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "site_or_country_report",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "PVG-C-001",
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-001"
+    ]
+  },
+  {
+    "field_id": "PVG-005",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "site_plan_or_property_deed",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-001",
+      "PVG-DRW-002"
+    ]
+  },
+  {
+    "field_id": "PVG-007",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "geotechnical_report",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "PVG-C-028",
+      "PVG-C-030"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "PVG-008",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "geotechnical_or_corrosion_report",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "PVG-C-028"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "PVG-009",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "site_plan",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-002"
+    ]
+  },
+  {
+    "field_id": "PVG-010",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "design_or_access_report",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-002"
+    ]
+  },
+  {
+    "field_id": "PVG-011",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "solar_resource_report",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-001",
+      "PVG-C-002",
+      "PVG-C-023",
+      "PVG-C-025"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-001",
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-012",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "solar_resource_report",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-001",
+      "PVG-C-002",
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-001"
+    ]
+  },
+  {
+    "field_id": "PVG-013",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "solar_resource_report",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-001",
+      "PVG-C-002",
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-001"
+    ]
+  },
+  {
+    "field_id": "PVG-014",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "solar_resource_report",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-004",
+      "PVG-C-019"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-014",
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-015",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "historical_weather_data",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-007"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-016",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "historical_weather_data",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-006",
+      "PVG-C-019"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-017",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "meteorological_report",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-004"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-014",
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-019",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "soiling_study",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-018",
+      "PVG-C-023",
+      "PVG-C-025"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-022",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio meteorológico o carta de rugosidad",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVG-023",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "interconnection_study",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-013",
+      "PVG-C-027"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-024",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "interconnection_study",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-025"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-025",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "interconnection_study",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-027"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-026",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "interconnection_study",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-027"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-028",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "grid_code",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-029",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "interconnection_study",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-008",
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-030",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "interconnection_study",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-031",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-005",
+      "PVG-C-021"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-010",
+      "PVG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "PVG-032",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-005",
+      "PVG-C-010",
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-005",
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-033",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-006"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-005"
+    ]
+  },
+  {
+    "field_id": "PVG-034",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-008"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-005"
+    ]
+  },
+  {
+    "field_id": "PVG-035",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-007"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-005"
+    ]
+  },
+  {
+    "field_id": "PVG-036",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-009"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-005"
+    ]
+  },
+  {
+    "field_id": "PVG-037",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-007"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-005"
+    ]
+  },
+  {
+    "field_id": "PVG-038",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-005",
+      "PVG-C-019"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "PVG-039",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-009"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-005"
+    ]
+  },
+  {
+    "field_id": "PVG-040",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-017"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-010",
+      "PVG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "PVG-041",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-017"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-010",
+      "PVG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "PVG-043",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "PVG-045",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet_or_iam_report",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-003",
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-046",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-017",
+      "PVG-C-020"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "PVG-050",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "design_report",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-GR-002"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-004",
+      "PVG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "PVG-051",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "string_box_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "PVG-052",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "inverter_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-010",
+      "PVG-C-011"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-008",
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-053",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "inverter_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-007"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-005",
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-054",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "inverter_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-006",
+      "PVG-C-016"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-005",
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-055",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "inverter_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-006",
+      "PVG-C-011"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-005",
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-056",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "inverter_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-010",
+      "PVG-C-016"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-005"
+    ]
+  },
+  {
+    "field_id": "PVG-057",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "inverter_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-008",
+      "PVG-C-014"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-005",
+      "PVG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "PVG-058",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "inverter_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-009"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-005",
+      "PVG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "PVG-059",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "inverter_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-010",
+      "PVG-C-011",
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-007",
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-061",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "inverter_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-023",
+      "PVG-C-025"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-062",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "inverter_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-023",
+      "PVG-C-025"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-064",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "electrical_design_or_cable_catalog",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-012",
+      "PVG-C-014"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-006",
+      "PVG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "PVG-066",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "cable_catalog",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-012"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "PVG-069",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "electrical_design_or_cable_catalog",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-012",
+      "PVG-C-014"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-006",
+      "PVG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "PVG-070",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "electrical_design_or_cable_catalog",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-013",
+      "PVG-C-015"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-007",
+      "PVG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "PVG-073",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "electrical_design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-013",
+      "PVG-C-015"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-007",
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-074",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "electrical_design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-013",
+      "PVG-C-027"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-007",
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-075",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "electrical_design_or_cable_catalog",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-013",
+      "PVG-C-015"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-007",
+      "PVG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "PVG-076",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "cable_catalog",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-013",
+      "PVG-C-015"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-007",
+      "PVG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "PVG-077",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "transformer_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-013",
+      "PVG-C-027"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-007",
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-078",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "transformer_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-013",
+      "PVG-C-027"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-007",
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-079",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "transformer_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-013",
+      "PVG-C-027"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-007",
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-080",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "transformer_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-027"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-081",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "transformer_datasheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-027"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-082",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "protection_design_or_fuse_catalog",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-014",
+      "PVG-C-009"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-006",
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-083",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "protection_design_or_breaker_catalog",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-014",
+      "PVG-C-009"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-006",
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-084",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "protection_design_or_spd_catalog",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-008",
+      "PVG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "PVG-085",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "protection_design_or_breaker_catalog",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-015",
+      "PVG-C-027"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-086",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "protection_design_or_spd_catalog",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-008",
+      "PVG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "PVG-087",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "protection_design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-027"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-089",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "lightning_protection_design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "PVG-091",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "grounding_design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-028"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "PVG-094",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "grounding_design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-028"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "PVG-095",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "design_report",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "PVG-C-001",
+      "PVG-C-017"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-004",
+      "PVG-DRW-010",
+      "PVG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "PVG-097",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "design_report",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "PVG-C-001",
+      "PVG-C-017"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-004",
+      "PVG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "PVG-098",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "design_report",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-010",
+      "PVG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "PVG-099",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "structure_detail",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "PVG-100",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "structure_detail",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "PVG-101",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "tracker_datasheet",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "PVG-C-029"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "PVG-103",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "tracker_datasheet",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "PVG-104",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "tracker_datasheet",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "PVG-C-029"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "PVG-105",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "foundation_design",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "PVG-106",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "foundation_design",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "PVG-107",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "foundation_detail",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "PVG-108",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "foundation_design",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "PVG-110",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "trench_design",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "PVG-111",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "trench_design",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "PVG-112",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "conduit_design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "PVG-115",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "design_report",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-004",
+      "PVG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "PVG-120",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "ppa",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "PVG-C-022",
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-121",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "module_datasheet_or_lid_report",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-021",
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-122",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "control_design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-124",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "safety_design",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "PVG-125",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "protection_design",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-008",
+      "PVG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "PVG-126",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "protection_design",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [],
+    "blocked_drawings": [
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-096",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "PVG-C-001",
+      "PVG-C-017"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-010",
+      "PVG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "PVG-006",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio topográfico",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "PVG-C-028"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-001",
+      "PVG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "PVG-018",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "TMY NSRDB MERRA-2 o medidas de campo",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-001",
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-020",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Levantamiento solarimétrico con horizonte digital",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-017"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-004",
+      "PVG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "PVG-021",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Código de construcción local o IEC 62938",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "PVG-C-030"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-010",
+      "PVG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "PVG-027",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de flujo de carga",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVG-044",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Datasheet del fabricante",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-001",
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-014",
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-063",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Configuración firmware del inversor",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-011",
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-088",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de protecciones",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-023"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-008",
+      "PVG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "PVG-102",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Configuración del SCADA",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-029"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "PVG-109",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de cimentaciones",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "PVG-C-028"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "PVG-127",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "PVG-C-020",
+      "PVG-C-021"
+    ],
+    "blocked_drawings": [
+      "PVG-DRW-015"
+    ]
+  }
+]

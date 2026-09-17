@@ -1,0 +1,2070 @@
+[
+  {
+    "equipment_type_id": "H2-EQ-001",
+    "name_es": "Electrolizador AEL",
+    "subsystem": "electrolyzer",
+    "properties": [
+      {
+        "name": "stack_count",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "cell_voltage_v",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "current_density_a_cm2",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "energy_consumption_kwh_kg_h2",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-002",
+    "name_es": "Electrolizador PEM",
+    "subsystem": "electrolyzer",
+    "properties": [
+      {
+        "name": "stack_count",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "cell_voltage_v",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "current_density_a_cm2",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "pt_loading_mg_cm2",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-003",
+    "name_es": "Electrolizador SOEC",
+    "subsystem": "electrolyzer",
+    "properties": [
+      {
+        "name": "stack_count",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "cell_voltage_v",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "operating_temperature_c",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-004",
+    "name_es": "Electrolizador AEM",
+    "subsystem": "electrolyzer",
+    "properties": [
+      {
+        "name": "stack_count",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "cell_voltage_v",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "current_density_a_cm2",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-005",
+    "name_es": "Rectificador DC",
+    "subsystem": "rectifier",
+    "properties": [
+      {
+        "name": "rated_power_kw",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "dc_voltage_v",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "dc_current_a",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-006",
+    "name_es": "Transformador",
+    "subsystem": "transformer",
+    "properties": [
+      {
+        "name": "rated_power_kva",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "primary_voltage_kv",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "secondary_voltage_v",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-007",
+    "name_es": "Bomba BFW",
+    "subsystem": "pump",
+    "properties": [
+      {
+        "name": "rated_flow_m3_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "rated_head_m",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "rated_power_kw",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-008",
+    "name_es": "Tratamiento de agua (RO/EDI)",
+    "subsystem": "water_treatment",
+    "properties": [
+      {
+        "name": "capacity_m3_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "TDS_outlet_ppm",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "treatment_type",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-009",
+    "name_es": "Compresor reciprocante",
+    "subsystem": "compressor",
+    "properties": [
+      {
+        "name": "rated_power_kw",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "discharge_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "stages",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "isothermal_efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-010",
+    "name_es": "Compresor de diafragma",
+    "subsystem": "compressor",
+    "properties": [
+      {
+        "name": "rated_power_kw",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "discharge_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "displacement_m3_h",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-011",
+    "name_es": "Compresor de tornillo",
+    "subsystem": "compressor",
+    "properties": [
+      {
+        "name": "rated_power_kw",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "discharge_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "stages",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-012",
+    "name_es": "Compresor ionic liquid",
+    "subsystem": "compressor",
+    "properties": [
+      {
+        "name": "rated_power_kw",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "discharge_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "ionic_liquid_type",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-013",
+    "name_es": "Secador desiccant",
+    "subsystem": "dryer",
+    "properties": [
+      {
+        "name": "capacity_nm3_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "dew_point_c",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "regeneration_method",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-014",
+    "name_es": "Secador refrigeration",
+    "subsystem": "dryer",
+    "properties": [
+      {
+        "name": "capacity_nm3_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "dew_point_c",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "cooling_power_kw",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-015",
+    "name_es": "Secador membrane",
+    "subsystem": "dryer",
+    "properties": [
+      {
+        "name": "capacity_nm3_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "dew_point_c",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "selectivity",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-016",
+    "name_es": "Cilindro H2 Tipo I",
+    "subsystem": "storage",
+    "properties": [
+      {
+        "name": "volume_L",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "design_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "material",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-017",
+    "name_es": "Cilindro H2 Tipo IV",
+    "subsystem": "storage",
+    "properties": [
+      {
+        "name": "volume_L",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "design_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "liner_material",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "composite_material",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-018",
+    "name_es": "Tube trailer",
+    "subsystem": "transport",
+    "properties": [
+      {
+        "name": "capacity_kg",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "number_of_tubes",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "max_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-019",
+    "name_es": "Tanque LH2",
+    "subsystem": "storage",
+    "properties": [
+      {
+        "name": "volume_m3",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "boil_off_pct_day",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "design_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-020",
+    "name_es": "Planta síntesis NH3",
+    "subsystem": "process",
+    "properties": [
+      {
+        "name": "capacity_ton_d",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "synthesis_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "synthesis_temperature_c",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-021",
+    "name_es": "Almacenamiento NH3",
+    "subsystem": "storage",
+    "properties": [
+      {
+        "name": "volume_m3",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "design_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "material",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-022",
+    "name_es": "LOHC reactor",
+    "subsystem": "process",
+    "properties": [
+      {
+        "name": "capacity_ton_d",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "hydrogenation_efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "dehydrogenation_efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-023",
+    "name_es": "Planta síntesis metanol",
+    "subsystem": "process",
+    "properties": [
+      {
+        "name": "capacity_ton_d",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "synthesis_pressure_bar",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "synthesis_temperature_c",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-024",
+    "name_es": "Vent stack",
+    "subsystem": "auxiliary",
+    "properties": [
+      {
+        "name": "height_m",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "diameter_m",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "exit_velocity_m_s",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-025",
+    "name_es": "Antorcha enclosed",
+    "subsystem": "auxiliary",
+    "properties": [
+      {
+        "name": "rated_capacity_kg_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "height_m",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "destruction_efficiency_pct",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-026",
+    "name_es": "Antorcha open",
+    "subsystem": "auxiliary",
+    "properties": [
+      {
+        "name": "rated_capacity_kg_h",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "height_m",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "radiation_at_property_line_kw_m2",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-027",
+    "name_es": "Gabinete detección H2",
+    "subsystem": "safety",
+    "properties": [
+      {
+        "name": "sensor_count",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "setpoint_pct_lel",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "logic_solver",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-028",
+    "name_es": "Gabinete ESD",
+    "subsystem": "safety",
+    "properties": [
+      {
+        "name": "sif_count",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "sil_target",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "response_time_ms",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-029",
+    "name_es": "Switchgear AC",
+    "subsystem": "electrical",
+    "properties": [
+      {
+        "name": "rated_current_a",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "rated_voltage_v",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "ip_rating",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-030",
+    "name_es": "Switchgear DC",
+    "subsystem": "electrical",
+    "properties": [
+      {
+        "name": "rated_current_a",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "rated_voltage_v",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "ip_rating",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-031",
+    "name_es": "SCADA gateway",
+    "subsystem": "control",
+    "properties": [
+      {
+        "name": "protocol",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "redundancy",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "cybersecurity_zone",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "equipment_type_id": "H2-EQ-032",
+    "name_es": "Cabinet intrumentación",
+    "subsystem": "control",
+    "properties": [
+      {
+        "name": "point_count",
+        "type": "number",
+        "unit": "-"
+      },
+      {
+        "name": "panel_type",
+        "type": "number",
+        "unit": "-"
+      }
+    ],
+    "ports": [
+      {
+        "id": "IN",
+        "type": "PROCESS"
+      },
+      {
+        "id": "OUT",
+        "type": "PROCESS"
+      }
+    ],
+    "geometric_envelope": {
+      "length_mm": null,
+      "width_mm": null,
+      "height_mm": null
+    },
+    "operating_limits": [],
+    "datasheet_requirements": [
+      "mechanical",
+      "process",
+      "electrical"
+    ],
+    "required_certificates": [
+      "ASME_BPVC",
+      "IEC_60079",
+      "IEC_61511"
+    ],
+    "drawing_representations": [
+      "H2-DRW-003",
+      "H2-DRW-007"
+    ],
+    "validation_rules": [
+      {
+        "rule": "pressure < design",
+        "severity": "BLOCKED"
+      }
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "ASME_B31_3_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1"
+    ]
+  }
+]

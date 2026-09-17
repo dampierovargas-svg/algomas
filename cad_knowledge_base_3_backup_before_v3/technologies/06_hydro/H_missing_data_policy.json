@@ -1,0 +1,2877 @@
+[
+  {
+    "field_id": "HYD-001",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-001",
+    "required_document": "Project charter",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "HYD-C-001",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-002"
+    ]
+  },
+  {
+    "field_id": "HYD-002",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-001",
+    "required_document": "Geodetic survey report",
+    "responsible_role": "GEODESIST",
+    "blocked_calculations": [
+      "HYD-C-001",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-001",
+      "HYD-DRW-002"
+    ]
+  },
+  {
+    "field_id": "HYD-003",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-001",
+    "required_document": "Geodetic survey report",
+    "responsible_role": "GEODESIST",
+    "blocked_calculations": [
+      "HYD-C-001",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-001",
+      "HYD-DRW-002"
+    ]
+  },
+  {
+    "field_id": "HYD-004",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-001",
+    "required_document": "Concession map",
+    "responsible_role": "GEODESIST",
+    "blocked_calculations": [
+      "HYD-C-001"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-002"
+    ]
+  },
+  {
+    "field_id": "HYD-005",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-001",
+    "required_document": "Concession resolution",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "HYD-C-001",
+      "HYD-C-018"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-002"
+    ]
+  },
+  {
+    "field_id": "HYD-006",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-018",
+    "required_document": "Generation concession",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "HYD-C-018",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-002",
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-010",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-001",
+    "required_document": "Hydrological study report",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-001",
+      "HYD-C-002",
+      "HYD-C-003"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-001"
+    ]
+  },
+  {
+    "field_id": "HYD-011",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-001",
+    "required_document": "Hydrometeorological study",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-001",
+      "HYD-C-004"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-001"
+    ]
+  },
+  {
+    "field_id": "HYD-012",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-001",
+    "required_document": "Hydrological balance",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-001",
+      "HYD-C-004"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-001"
+    ]
+  },
+  {
+    "field_id": "HYD-013",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-004",
+    "required_document": "Hydrological study",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-004",
+      "HYD-C-005",
+      "HYD-C-018"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-001",
+      "HYD-DRW-005"
+    ]
+  },
+  {
+    "field_id": "HYD-014",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-005",
+    "required_document": "Flow duration curve",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-005"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-005"
+    ]
+  },
+  {
+    "field_id": "HYD-015",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-005",
+    "required_document": "Flow duration curve",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-005",
+      "HYD-C-006"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-005"
+    ]
+  },
+  {
+    "field_id": "HYD-016",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-005",
+    "required_document": "Hydrological study",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-005",
+      "HYD-C-006"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-005"
+    ]
+  },
+  {
+    "field_id": "HYD-017",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-006",
+    "required_document": "ANA resolution",
+    "responsible_role": "ENVIRONMENTAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-006"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-001",
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-018",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-001",
+    "required_document": "Hydrological study",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-001",
+      "HYD-C-002"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ]
+  },
+  {
+    "field_id": "HYD-019",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-001",
+    "required_document": "Hydrological study",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-001",
+      "HYD-C-002"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ]
+  },
+  {
+    "field_id": "HYD-020",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-001",
+    "required_document": "Hydrological study",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-001",
+      "HYD-C-003"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ]
+  },
+  {
+    "field_id": "HYD-021",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-003",
+    "required_document": "PMF study",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-003"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-013"
+    ]
+  },
+  {
+    "field_id": "HYD-022",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-007",
+    "required_document": "Sediment study",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-007",
+      "HYD-C-008"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-023",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-007",
+    "required_document": "Sediment study",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-007"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-024",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-007",
+    "required_document": "Granulometric test",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-007",
+      "HYD-C-008"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-030",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-009",
+    "required_document": "Topographic survey",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-009",
+      "HYD-C-010"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-005",
+      "HYD-DRW-006",
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-031",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-009",
+    "required_document": "Hydraulic calculation memo",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-009",
+      "HYD-C-010",
+      "HYD-C-011"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006",
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-032",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-011",
+    "required_document": "Hydraulic calc",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-011",
+      "HYD-C-012"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-033",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-011",
+    "required_document": "Darcy-Weisbach",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-011",
+      "HYD-C-012"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-034",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-011",
+    "required_document": "K entrance",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-011"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-035",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-011",
+    "required_document": "K exit",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-011"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-007"
+    ]
+  },
+  {
+    "field_id": "HYD-036",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-011",
+    "required_document": "K bend",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-011"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-037",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-011",
+    "required_document": "K valve",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-011"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-038",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-009",
+    "required_document": "Hydrological study",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-009",
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008",
+      "HYD-DRW-012"
+    ]
+  },
+  {
+    "field_id": "HYD-039",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-009",
+    "required_document": "Operation rules",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-009",
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-004",
+      "HYD-DRW-013"
+    ]
+  },
+  {
+    "field_id": "HYD-040",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Operation rules",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-022",
+      "HYD-C-020"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-004",
+      "HYD-DRW-013"
+    ]
+  },
+  {
+    "field_id": "HYD-050",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-009",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-009"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003",
+      "HYD-DRW-004"
+    ]
+  },
+  {
+    "field_id": "HYD-051",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-009",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-009"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003",
+      "HYD-DRW-004"
+    ]
+  },
+  {
+    "field_id": "HYD-052",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-023",
+    "required_document": "Mechanical drawings",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-023"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-053",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-023",
+    "required_document": "Mechanical drawings",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-023"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-054",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-023",
+    "required_document": "Mechanical drawings",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-023"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-055",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-023",
+    "required_document": "Hydraulic calc",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-023"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-056",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-008",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-008"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-057",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-008",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-008"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-058",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-008",
+    "required_document": "Hydraulic calc",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-008"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-059",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-008",
+    "required_document": "Stokes/Camp",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-008"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-060",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-023",
+    "required_document": "Mechanical drawings",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-023",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-061",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-023",
+    "required_document": "Mechanical drawings",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-023"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-003"
+    ]
+  },
+  {
+    "field_id": "HYD-070",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-011",
+    "required_document": "Mechanical drawings",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-011",
+      "HYD-C-013",
+      "HYD-C-014"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-071",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-011",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-011",
+      "HYD-C-013"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-072",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-013",
+    "required_document": "Material specification",
+    "responsible_role": "MATERIALS_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-013",
+      "HYD-C-014"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-073",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-013",
+    "required_document": "ASTM test",
+    "responsible_role": "MATERIALS_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-013",
+      "HYD-C-014"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-074",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-013",
+    "required_document": "ASTM test",
+    "responsible_role": "MATERIALS_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-013"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-075",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-013",
+    "required_document": "Stress calculation memo",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-013",
+      "HYD-C-014",
+      "HYD-C-015"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-076",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-013",
+    "required_document": "ASME test",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-013"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-077",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-013",
+    "required_document": "Stress calculation memo",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-013",
+      "HYD-C-014"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-078",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Civil alignment drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-079",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-013",
+    "required_document": "Corrosion specification",
+    "responsible_role": "MATERIALS_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-013"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-080",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-013",
+    "required_document": "Weld spec",
+    "responsible_role": "MATERIALS_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-013"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-081",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-015",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-015",
+      "HYD-C-016"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-082",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-015",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-015"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-083",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-015",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-015"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-084",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-015",
+    "required_document": "Surge calc",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-015",
+      "HYD-C-016"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-085",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-015",
+    "required_document": "Governor specification",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-015",
+      "HYD-C-016",
+      "HYD-C-024"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009",
+      "HYD-DRW-015"
+    ]
+  },
+  {
+    "field_id": "HYD-086",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-015",
+    "required_document": "Allievi",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-015"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-090",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-007",
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-091",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-007",
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-092",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-093",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Mechanical drawings",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-007",
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-094",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Mechanical drawings",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-007"
+    ]
+  },
+  {
+    "field_id": "HYD-095",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-022",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-096",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-007",
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-097",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-022",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008",
+      "HYD-DRW-012"
+    ]
+  },
+  {
+    "field_id": "HYD-098",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-022",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008",
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-099",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Civil drawings",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-022",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-100",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Ventilation calc",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-007"
+    ]
+  },
+  {
+    "field_id": "HYD-110",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-017",
+    "required_document": "Mechanical selection",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-017",
+      "HYD-C-018",
+      "HYD-C-019"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-002",
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-111",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-018",
+    "required_document": "Turbine data sheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-018",
+      "HYD-C-019"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-112",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-018",
+    "required_document": "Turbine data sheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-018",
+      "HYD-C-019"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-113",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-018",
+    "required_document": "Turbine data sheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-018",
+      "HYD-C-019"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009",
+      "HYD-DRW-010"
+    ]
+  },
+  {
+    "field_id": "HYD-114",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-018",
+    "required_document": "Turbine data sheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-018",
+      "HYD-C-019"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009",
+      "HYD-DRW-010"
+    ]
+  },
+  {
+    "field_id": "HYD-115",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-018",
+    "required_document": "Turbine data sheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-018"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009",
+      "HYD-DRW-010"
+    ]
+  },
+  {
+    "field_id": "HYD-116",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-018",
+    "required_document": "Turbine data sheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-018"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-117",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-018",
+    "required_document": "Turbine data sheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-018"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-118",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-019",
+    "required_document": "Turbine hill curve",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-019"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-119",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-019",
+    "required_document": "Turbine hill curve",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-019"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-120",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-020",
+    "required_document": "Cavitation calc",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-020"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008",
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-121",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-020",
+    "required_document": "Model test report",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-020"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-122",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-018",
+    "required_document": "Turbine data sheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-018",
+      "HYD-C-019"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-123",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-018",
+    "required_document": "Turbine data sheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-018"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-124",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-018",
+    "required_document": "Turbine data sheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-018"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-125",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-020",
+    "required_document": "Cavitation calc",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-020",
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008",
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-130",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Generator data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021",
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-010",
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-131",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Generator data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-010",
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-132",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Generator data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021",
+      "HYD-C-025"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-010",
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-133",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Generator data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-134",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Generator data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-135",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Generator data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-010"
+    ]
+  },
+  {
+    "field_id": "HYD-136",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Generator data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-010"
+    ]
+  },
+  {
+    "field_id": "HYD-137",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Generator data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021",
+      "HYD-C-016"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-010"
+    ]
+  },
+  {
+    "field_id": "HYD-138",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Generator data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-139",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Generator data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-140",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Generator data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-010"
+    ]
+  },
+  {
+    "field_id": "HYD-150",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-024",
+    "required_document": "Governor data sheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-024"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009",
+      "HYD-DRW-015"
+    ]
+  },
+  {
+    "field_id": "HYD-151",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-024",
+    "required_document": "Governor data sheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-024",
+      "HYD-C-016"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009",
+      "HYD-DRW-015"
+    ]
+  },
+  {
+    "field_id": "HYD-152",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-024",
+    "required_document": "Governor data sheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-024"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-015"
+    ]
+  },
+  {
+    "field_id": "HYD-153",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Excitation data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021",
+      "HYD-C-024"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-010",
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-154",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Excitation data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-010"
+    ]
+  },
+  {
+    "field_id": "HYD-155",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "AVR data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021",
+      "HYD-C-024"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-010",
+      "HYD-DRW-015"
+    ]
+  },
+  {
+    "field_id": "HYD-160",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Transformer data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021",
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-161",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Transformer data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021",
+      "HYD-C-025"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-162",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Transformer data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-163",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Transformer data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-164",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Transformer data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-165",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Transformer test",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-166",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Transformer test",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-167",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Transformer data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-168",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-025",
+    "required_document": "Grid connection study",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-025"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-169",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-025",
+    "required_document": "Transmission design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-025"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-170",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-025",
+    "required_document": "Transmission design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-025"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-180",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Compressor data sheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-015"
+    ]
+  },
+  {
+    "field_id": "HYD-181",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Cooling calc",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-021",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-007",
+      "HYD-DRW-010"
+    ]
+  },
+  {
+    "field_id": "HYD-182",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Pump data sheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-007"
+    ]
+  },
+  {
+    "field_id": "HYD-183",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Oil spec",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-007"
+    ]
+  },
+  {
+    "field_id": "HYD-184",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Auxiliary load balance",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011",
+      "HYD-DRW-015"
+    ]
+  },
+  {
+    "field_id": "HYD-185",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Auxiliary design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-190",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-024",
+    "required_document": "Control architecture",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-024",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-015"
+    ]
+  },
+  {
+    "field_id": "HYD-191",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "SCADA architecture",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-015"
+    ]
+  },
+  {
+    "field_id": "HYD-192",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-024",
+    "required_document": "Protection scheme",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-024"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011",
+      "HYD-DRW-015"
+    ]
+  },
+  {
+    "field_id": "HYD-193",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-024",
+    "required_document": "Protection scheme",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-024"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-194",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Breaker data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021",
+      "HYD-C-025"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-195",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Breaker data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021",
+      "HYD-C-025"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-196",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-021",
+    "required_document": "Breaker data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-197",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-025",
+    "required_document": "Arrester data sheet",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-025"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011",
+      "HYD-DRW-016"
+    ]
+  },
+  {
+    "field_id": "HYD-198",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Grounding calc",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-016"
+    ]
+  },
+  {
+    "field_id": "HYD-199",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-026",
+    "required_document": "Grounding calc",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-016"
+    ]
+  },
+  {
+    "field_id": "HYD-200",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-025",
+    "required_document": "Lightning study",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "HYD-C-025",
+      "HYD-C-027"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-016"
+    ]
+  },
+  {
+    "field_id": "HYD-210",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-020",
+    "required_document": "Cavitation calc",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-020",
+      "HYD-C-021"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008",
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-211",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-020",
+    "required_document": "Model test report",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-020"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-212",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-020",
+    "required_document": "Cavitation calc",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-020"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-213",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-018",
+    "required_document": "Turbine data sheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-018",
+      "HYD-C-020"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-214",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-020",
+    "required_document": "Cavitation calc",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-020"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008",
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-215",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-020",
+    "required_document": "Site meteorological",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "HYD-C-020"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008",
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-220",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Geotechnical study",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-022",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-221",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Geotechnical study",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-022",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-222",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Geotechnical study",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-223",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Geotechnical test",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-224",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Geotechnical test",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-225",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Geotechnical test",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-226",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Geotechnical study",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-022",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-227",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Civil drawings",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-022",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-228",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-229",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Geotechnical test",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-230",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Stability calc",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-240",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-023",
+    "required_document": "Seismic study",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-023"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-241",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-023",
+    "required_document": "Seismic study",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-023"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-242",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-023",
+    "required_document": "Seismic study",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-023"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-243",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-023",
+    "required_document": "Seismic code",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-023"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-244",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-023",
+    "required_document": "Seismic code",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-023"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-245",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-023",
+    "required_document": "Slope stability",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-023"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008"
+    ]
+  },
+  {
+    "field_id": "HYD-250",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-024",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-024"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ]
+  },
+  {
+    "field_id": "HYD-251",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-024",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-024"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ]
+  },
+  {
+    "field_id": "HYD-252",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-024",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-024"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ]
+  },
+  {
+    "field_id": "HYD-253",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-024",
+    "required_document": "Hydraulic calc",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-024"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ]
+  },
+  {
+    "field_id": "HYD-254",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-025",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-025"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-014"
+    ]
+  },
+  {
+    "field_id": "HYD-255",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-025",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-025"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-014"
+    ]
+  },
+  {
+    "field_id": "HYD-256",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-004",
+      "HYD-DRW-013"
+    ]
+  },
+  {
+    "field_id": "HYD-257",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-022"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-004",
+      "HYD-DRW-013"
+    ]
+  },
+  {
+    "field_id": "HYD-260",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-011",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-011",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-005"
+    ]
+  },
+  {
+    "field_id": "HYD-261",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-011",
+    "required_document": "Hydraulic calc",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-011",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-005"
+    ]
+  },
+  {
+    "field_id": "HYD-262",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "HYD-C-022",
+    "required_document": "Civil drawings",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "HYD-C-022",
+      "HYD-C-026"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-012"
+    ]
+  },
+  {
+    "field_id": "HYD-263",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "HYD-C-011",
+    "required_document": "Hydraulic calc",
+    "responsible_role": "LEAD_ENGINEER_HYDRO",
+    "blocked_calculations": [
+      "HYD-C-011"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-012"
+    ]
+  },
+  {
+    "field_id": "HYD-171",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Site survey",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-002",
+      "HYD-C-003"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-001"
+    ]
+  },
+  {
+    "field_id": "HYD-172",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hydraulic calc",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-002",
+      "HYD-C-003"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-001"
+    ]
+  },
+  {
+    "field_id": "HYD-173",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Turbine datasheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-005",
+      "HYD-C-006"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-008",
+      "HYD-DRW-009"
+    ]
+  },
+  {
+    "field_id": "HYD-174",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Penstock specification",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-002",
+      "HYD-C-003"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-175",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Penstock specification",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-002",
+      "HYD-C-003"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-176",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Condenser specification",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-005"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-013"
+    ]
+  },
+  {
+    "field_id": "HYD-177",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Generator spec",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-005"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-013"
+    ]
+  },
+  {
+    "field_id": "HYD-178",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Plant specification",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-005"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-001"
+    ]
+  },
+  {
+    "field_id": "HYD-179",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Geotechnical report",
+    "responsible_role": "GEOTECH_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-007"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006",
+      "HYD-DRW-007"
+    ]
+  },
+  {
+    "field_id": "HYD-300",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Geotechnical report",
+    "responsible_role": "GEOTECH_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-007"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006",
+      "HYD-DRW-007"
+    ]
+  },
+  {
+    "field_id": "HYD-301",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "INGEMMET fault map",
+    "responsible_role": "GEOTECH_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-007"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-006"
+    ]
+  },
+  {
+    "field_id": "HYD-302",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-008"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-303",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "HYD-C-008"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-011"
+    ]
+  },
+  {
+    "field_id": "HYD-304",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Sediment study",
+    "responsible_role": "HYDROLOGIST",
+    "blocked_calculations": [
+      "HYD-C-001"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-001"
+    ]
+  },
+  {
+    "field_id": "HYD-305",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "ANA permit",
+    "responsible_role": "ENVIRONMENTAL_LEAD",
+    "blocked_calculations": [
+      "HYD-C-001"
+    ],
+    "blocked_drawings": [
+      "HYD-DRW-001"
+    ]
+  }
+]

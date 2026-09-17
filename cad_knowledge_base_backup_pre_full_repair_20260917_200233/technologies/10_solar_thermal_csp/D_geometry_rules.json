@@ -1,0 +1,1358 @@
+[
+  {
+    "geometry_rule_id": "CSP-GR-001",
+    "name_es": "Layout del campo de heliostatos (SolarPILOT)",
+    "applicability_expression": "plant_type == tower_heliostat",
+    "required_field_ids": [
+      "CSP-001",
+      "CSP-002",
+      "CSP-003",
+      "CSP-005",
+      "CSP-029",
+      "CSP-030",
+      "CSP-031",
+      "CSP-034",
+      "CSP-035",
+      "CSP-093"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-028",
+      "CSP-C-029"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Disposición del campo de heliostatos según layout óptimo SolarPILOT",
+    "algorithm_pseudocode": [
+      "for each heliostat h in field:",
+      "  place_heliostat(h.position, h.height, h.width)",
+      "  assert clearance(h, neighbor) >= min_clearance",
+      "  assert slope(h.foundation) < 3%"
+    ],
+    "generated_entity_types": [
+      "HELIOSTAT_POLYGON",
+      "PEDESTAL_POINT",
+      "MIRROR_POLYGON"
+    ],
+    "clearances": [
+      {
+        "name": "heliostat_to_heliostat",
+        "min_m": 3.0
+      },
+      {
+        "name": "heliostat_to_fence",
+        "min_m": 5.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no overlap",
+        "error": "heliostat overlap"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.1,
+      "height": 0.01
+    },
+    "failure_conditions": [
+      "slope > 3%",
+      "foundation_capacity < 100 kPa"
+    ],
+    "references": [
+      "NREL_SAM_2024;NREL_TES_CSP;ASTM_C1549",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-002",
+    "name_es": "Posición de la torre receptora (receiver tower)",
+    "applicability_expression": "plant_type == tower_heliostat",
+    "required_field_ids": [
+      "CSP-001",
+      "CSP-002",
+      "CSP-093",
+      "CSP-094",
+      "CSP-117",
+      "CSP-118",
+      "CSP-026",
+      "CSP-041",
+      "CSP-042"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-029"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ubicación de la torre en el centroide óptico del campo de heliostatos",
+    "algorithm_pseudocode": [
+      "compute_centroid(heliostat_positions)",
+      "  place_tower(centroid)",
+      "  assert distance(tower, fence) >= 30 m"
+    ],
+    "generated_entity_types": [
+      "TOWER_RECT",
+      "FOUNDATION_POLYGON",
+      "RECEIVER_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "tower_to_heliostat",
+        "min_m": 10
+      },
+      {
+        "name": "tower_to_fence",
+        "min_m": 30
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "tower at centroid",
+        "error": "misplaced tower"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.05
+    },
+    "failure_conditions": [
+      "PGA > 1.5",
+      "bearing_capacity < 200 kPa"
+    ],
+    "references": [
+      "MINAM_DS_019_2009;ISO_14685;ANSI_Y14_5",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-003",
+    "name_es": "Filas de colectores parabólicos (parabolic trough)",
+    "applicability_expression": "plant_type == parabolic_trough",
+    "required_field_ids": [
+      "CSP-001",
+      "CSP-002",
+      "CSP-003",
+      "CSP-005",
+      "CSP-103",
+      "CSP-104",
+      "CSP-020",
+      "CSP-013"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-026"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Disposición de filas paralelas de colectores parabólicos con row spacing óptimo",
+    "algorithm_pseudocode": [
+      "for each loop L in field:",
+      "  place_row(L.position, L.length, aperture)",
+      "  assert row_spacing >= shading_threshold",
+      "  assert row_alignment N-S"
+    ],
+    "generated_entity_types": [
+      "TROUGH_ROW_POLYLINE",
+      "COLLECTOR_POLYGON",
+      "PIER_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "row_to_row",
+        "min_m": 7.0
+      },
+      {
+        "name": "loop_to_fence",
+        "min_m": 5.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no row overlap",
+        "error": "row overlap"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.05,
+      "alignment": 0.5
+    },
+    "failure_conditions": [
+      "row_spacing < 5 m",
+      "wind_speed > 50 m/s design"
+    ],
+    "references": [
+      "NREL_SAM_2024;NREL_TES_CSP;ASTM_C1549",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-004",
+    "name_es": "Layout de campo de discos parabólicos (dish farm)",
+    "applicability_expression": "plant_type == parabolic_dish",
+    "required_field_ids": [
+      "CSP-001",
+      "CSP-002",
+      "CSP-005",
+      "CSP-026",
+      "CSP-033",
+      "CSP-029"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-010",
+      "CSP-C-011"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Disposición de discos parabólicos con seguimiento 2 ejes y spacing por sombreado",
+    "algorithm_pseudocode": [
+      "for each dish D in field:",
+      "  place_dish(D.position, D.area)",
+      "  assert clearance(D, neighbor) >= sqrt(area) * 1.4"
+    ],
+    "generated_entity_types": [
+      "DISH_POLYGON",
+      "STIRLING_ENGINE_POINT",
+      "PIER_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "dish_to_dish",
+        "min_m": 7.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no shading overlap",
+        "error": "shading overlap"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.05
+    },
+    "failure_conditions": [
+      "CR < 100",
+      "tracking_error > 5 mrad"
+    ],
+    "references": [
+      "NREL_SAM_2024;NREL_TES_CSP;ASTM_C1549",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-005",
+    "name_es": "Layout de reflectores lineales Fresnel",
+    "applicability_expression": "plant_type == linear_fresnel",
+    "required_field_ids": [
+      "CSP-001",
+      "CSP-002",
+      "CSP-005",
+      "CSP-103",
+      "CSP-104",
+      "CSP-021"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-026"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Disposición de reflectores lineales Fresnel con receptor elevado",
+    "algorithm_pseudocode": [
+      "for each reflector R in field:",
+      "  place_reflector(R.position, R.length, R.width)",
+      "  assert end-loss factor > 0.5",
+      "  place elevated_receiver(above reflectors)"
+    ],
+    "generated_entity_types": [
+      "FRESNEL_REFLECTOR_POLYGON",
+      "ELEVATED_RECEIVER_LINE",
+      "PIER_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "reflector_to_reflector",
+        "min_m": 1.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no overlap",
+        "error": "reflector overlap"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.05
+    },
+    "failure_conditions": [
+      "end_loss < 0.5"
+    ],
+    "references": [
+      "NREL_SAM_2024;NREL_TES_CSP;ASTM_C1549",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-006",
+    "name_es": "Posición de tanques de TES (hot / cold / thermocline)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-054",
+      "CSP-055",
+      "CSP-056",
+      "CSP-057",
+      "CSP-058",
+      "CSP-052",
+      "CSP-051",
+      "CSP-117"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-014",
+      "CSP-C-015"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación de tanques TES con berms de contención y dique perimetral",
+    "algorithm_pseudocode": [
+      "place_tes_tank(hot) and place_tes_tank(cold)",
+      "  assert containment_volume >= 1.1 * tank_volume",
+      "  assert distance(tanks, fence) >= 10 m"
+    ],
+    "generated_entity_types": [
+      "TES_TANK_CIRCLE",
+      "CONTAINMENT_BERM"
+    ],
+    "clearances": [
+      {
+        "name": "tank_to_tank",
+        "min_m": 5.0
+      },
+      {
+        "name": "tank_to_fence",
+        "min_m": 10.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "containment present",
+        "error": "no containment"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.1
+    },
+    "failure_conditions": [
+      "no containment"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;NREL_TES_CSP;NREL_SAM_2024",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-007",
+    "name_es": "Posición del generador de vapor (SG: econ/evap/SH/RH)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-059",
+      "CSP-060",
+      "CSP-061",
+      "CSP-062",
+      "CSP-063",
+      "CSP-075"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-017",
+      "CSP-C-019"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación del SG cerca de la turbina con acceso para mantenimiento",
+    "algorithm_pseudocode": [
+      "place_SG(econ, evap, SH, RH) on skid",
+      "  assert crane_access(>5 t)",
+      "  assert distance(SG, turbine) < 30 m"
+    ],
+    "generated_entity_types": [
+      "SG_RECT",
+      "SKID_POLYGON"
+    ],
+    "clearances": [
+      {
+        "name": "SG_to_turbine",
+        "min_m": 5,
+        "max_m": 30
+      },
+      {
+        "name": "crane_access",
+        "min_m": 3.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "crane coverage",
+        "error": "no crane access"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.05
+    },
+    "failure_conditions": [
+      "SG far from turbine"
+    ],
+    "references": [
+      "ISO_15547_1;ASME_BPVC_VIII_1_2023;IAPWS_IF97",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-008",
+    "name_es": "Layout del turbine hall (edificio de turbina)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-066",
+      "CSP-067",
+      "CSP-068",
+      "CSP-069",
+      "CSP-078",
+      "CSP-079",
+      "CSP-097",
+      "CSP-093"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-017",
+      "CSP-C-018",
+      "CSP-C-019"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Layout del turbine hall con bridge crane y aislamiento sísmico",
+    "algorithm_pseudocode": [
+      "place_turbine_hall(area)",
+      "  place_bridge_crane(span, capacity)",
+      "  assert crane_clearance >= 2 m above turbine"
+    ],
+    "generated_entity_types": [
+      "TURBINE_HALL_RECT",
+      "CRANE_RAIL",
+      "TURBINE_RECT",
+      "GENERATOR_RECT"
+    ],
+    "clearances": [
+      {
+        "name": "turbine_to_wall",
+        "min_m": 3.0
+      },
+      {
+        "name": "crane_clearance",
+        "min_m": 2.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "crane covers TG",
+        "error": "no crane coverage"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.02
+    },
+    "failure_conditions": [
+      "crane_capacity < 40 t"
+    ],
+    "references": [
+      "MINAM_DS_019_2009;ISO_5457;NFPA_70_2023",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-009",
+    "name_es": "Posición del condensador principal",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-070",
+      "CSP-071",
+      "CSP-072",
+      "CSP-064",
+      "CSP-065"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-020"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación del condensador al pie de la turbina de vapor",
+    "algorithm_pseudocode": [
+      "place_condenser(turbine_base)",
+      "  assert alignment(turbine_shaft, condenser)",
+      "  assert height(condenser) < 8 m"
+    ],
+    "generated_entity_types": [
+      "CONDENSER_RECT",
+      "COOLING_WATER_NOZZLE"
+    ],
+    "clearances": [
+      {
+        "name": "condenser_to_turbine",
+        "min_m": 2.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "aligned with turbine shaft",
+        "error": "misalignment"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.02
+    },
+    "failure_conditions": [
+      "misalignment > 1 deg"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;IAPWS_IF97;ASME_B31_1_2022",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-010",
+    "name_es": "Layout del ACC (Air Cooled Condenser)",
+    "applicability_expression": "condenser_type == air_cooled_ACC",
+    "required_field_ids": [
+      "CSP-070",
+      "CSP-071",
+      "CSP-073",
+      "CSP-013",
+      "CSP-011",
+      "CSP-012"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-022"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Layout del ACC con fans orientados según viento dominante",
+    "algorithm_pseudocode": [
+      "place_ACC_array(area, n_fans)",
+      "  orient_fans_perpendicular_to_wind",
+      "  assert ACC not blocked by buildings"
+    ],
+    "generated_entity_types": [
+      "ACC_RECT",
+      "FAN_CIRCLE",
+      "DUCT_RECT"
+    ],
+    "clearances": [
+      {
+        "name": "ACC_to_building",
+        "min_m": 10.0
+      },
+      {
+        "name": "ACC_to_fence",
+        "min_m": 5.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no airflow obstruction",
+        "error": "airflow blocked"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.1
+    },
+    "failure_conditions": [
+      "ACC upwind blocked"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;IAPWS_IF97;ASME_B31_1_2022",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-011",
+    "name_es": "Layout de la cooling tower (wet)",
+    "applicability_expression": "condenser_type == wet_surface",
+    "required_field_ids": [
+      "CSP-119",
+      "CSP-116",
+      "CSP-115",
+      "CSP-013",
+      "CSP-011",
+      "CSP-012",
+      "CSP-003"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-021"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación de la cooling tower con predominio de viento y drift eliminators",
+    "algorithm_pseudocode": [
+      "place_cooling_tower(plant_corner, downwind)",
+      "  assert distance(tower, substation) >= 30 m",
+      "  assert drift_eliminator_efficiency >= 99.5%"
+    ],
+    "generated_entity_types": [
+      "COOLING_TOWER_RECT",
+      "DRIFT_FAN"
+    ],
+    "clearances": [
+      {
+        "name": "tower_to_substation",
+        "min_m": 30.0
+      },
+      {
+        "name": "tower_to_fence",
+        "min_m": 10.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "not upwind of substation",
+        "error": "drift contamination"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.1
+    },
+    "failure_conditions": [
+      "drift < 99%"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;IAPWS_IF97;ASME_B31_1_2022",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-012",
+    "name_es": "Patio de transformadores",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-080",
+      "CSP-081",
+      "CSP-082",
+      "CSP-005",
+      "CSP-109"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-032"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación de patio de transformadores con malla de tierra dedicada y oil containment",
+    "algorithm_pseudocode": [
+      "place_transformer_yard(boundary)",
+      "  assert step_voltage < 65 V",
+      "  assert touch_voltage < 230 V",
+      "  assert oil_containment_volume >= 1.1 * oil_volume"
+    ],
+    "generated_entity_types": [
+      "TRANSFORMER_RECT",
+      "GROUNDING_GRID",
+      "OIL_CONTAINMENT"
+    ],
+    "clearances": [
+      {
+        "name": "transformer_to_wall",
+        "min_m": 3.0
+      },
+      {
+        "name": "oil_containment_factor",
+        "min_factor": 1.1
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "oil containment present",
+        "error": "oil spill risk"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.05
+    },
+    "failure_conditions": [
+      "no oil containment"
+    ],
+    "references": [
+      "IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_013_2019;CNE_2011",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-013",
+    "name_es": "Ruteo del header principal del HTF (ASME B31.1)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-074",
+      "CSP-075",
+      "CSP-076",
+      "CSP-052",
+      "CSP-051",
+      "CSP-046"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-031",
+      "CSP-C-032",
+      "CSP-C-023",
+      "CSP-C-024"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ruteo del header principal del HTF con expansion loops y soportes ASME B31.1",
+    "algorithm_pseudocode": [
+      "route_header(solar_field_outlet, SG_inlet)",
+      "  place expansion_loops every 30 m",
+      "  assert support_spacing per ASME B31.1",
+      "  place steam_tracing for freeze protection"
+    ],
+    "generated_entity_types": [
+      "HTF_HEADER_POLYLINE",
+      "EXPANSION_LOOP",
+      "SUPPORT_POINT",
+      "TRACING_LINE"
+    ],
+    "clearances": [
+      {
+        "name": "header_to_structures",
+        "min_m": 0.5
+      },
+      {
+        "name": "expansion_loop_spacing",
+        "max_m": 30
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "expansion loops present",
+        "error": "thermal expansion risk"
+      },
+      {
+        "rule": "no liquid traps",
+        "error": "HTF accumulation"
+      }
+    ],
+    "routing_costs": [
+      {
+        "name": "pipe_cost_per_m",
+        "cost": 150
+      }
+    ],
+    "tolerances": {
+      "position": 0.05,
+      "slope": 0.005
+    },
+    "failure_conditions": [
+      "no expansion loops",
+      "no freeze protection"
+    ],
+    "references": [
+      "ASME_B31_1_2022;ASME_BPVC_VIII_1_2023;NIST_WEBBOOK",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-014",
+    "name_es": "Ruteo de sub-headers / branches del HTF",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-074",
+      "CSP-075",
+      "CSP-076",
+      "CSP-046",
+      "CSP-103",
+      "CSP-029"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-031"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ruteo de sub-headers del HTF hacia cada lazo / heliostato",
+    "algorithm_pseudocode": [
+      "for each loop L in field:",
+      "  branch_from_header(L, diameter_decrement)",
+      "  assert isolation_valve(L)",
+      "  assert slope(L) >= 0.5%"
+    ],
+    "generated_entity_types": [
+      "HTF_SUBHEADER_POLYLINE",
+      "HTF_BRANCH_POLYLINE",
+      "ISOLATION_VALVE"
+    ],
+    "clearances": [
+      {
+        "name": "subheader_to_subheader",
+        "min_m": 0.3
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no liquid traps",
+        "error": "HTF accumulation"
+      }
+    ],
+    "routing_costs": [
+      {
+        "name": "pipe_cost_per_m",
+        "cost": 100
+      }
+    ],
+    "tolerances": {
+      "position": 0.05,
+      "slope": 0.005
+    },
+    "failure_conditions": [
+      "no isolation valves"
+    ],
+    "references": [
+      "ASME_B31_1_2022;ASME_BPVC_VIII_1_2023;NIST_WEBBOOK",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-015",
+    "name_es": "Ruteo del tracing de protección de congelamiento (steam tracing)",
+    "applicability_expression": "HTF_type contains salt OR HTF_type contains oil",
+    "required_field_ids": [
+      "CSP-112",
+      "CSP-113",
+      "CSP-114",
+      "CSP-050",
+      "CSP-011",
+      "CSP-074",
+      "CSP-075"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-024"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ruteo de steam tracing paralelo a la tubería de HTF para freeze protection",
+    "algorithm_pseudocode": [
+      "for each HTF pipe segment S:",
+      "  if T_amb < T_freeze + 10:",
+      "    place steam_tracing(S, capacity)",
+      "  assert tracing insulation",
+      "  place N2 blanket on expansion tank"
+    ],
+    "generated_entity_types": [
+      "TRACING_LINE_POLYLINE",
+      "INSULATION_LAYER",
+      "N2_CONNECTION"
+    ],
+    "clearances": [
+      {
+        "name": "tracing_to_pipe",
+        "max_m": 0.05
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "tracing parallel to HTF pipe",
+        "error": "misaligned tracing"
+      }
+    ],
+    "routing_costs": [
+      {
+        "name": "tracing_cost_per_m",
+        "cost": 50
+      }
+    ],
+    "tolerances": {
+      "position": 0.02
+    },
+    "failure_conditions": [
+      "T_amb > T_freeze + 10 AND HTF contains salt"
+    ],
+    "references": [
+      "ASME_B31_1_2022;NIST_WEBBOOK;IAPWS_IF97;NREL_TES_CSP",
+      "NREL_TES_CSP"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-016",
+    "name_es": "Caminos para lavado de espejos (mirror washing roads)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-001",
+      "CSP-002",
+      "CSP-005",
+      "CSP-100",
+      "CSP-101",
+      "CSP-102",
+      "CSP-029",
+      "CSP-034"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-025"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ruteo de caminos internos para camiones / robots de lavado de espejos",
+    "algorithm_pseudocode": [
+      "for each heliostat_row:",
+      "  place_washing_road(along_row, width=4 m)",
+      "  assert turning_radius >= 12 m",
+      "  connect_to_water_supply"
+    ],
+    "generated_entity_types": [
+      "WASHING_ROAD_POLYLINE",
+      "TURNING_RADIUS_ARC",
+      "WATER_SUPPLY_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "road_to_heliostat",
+        "min_m": 1.0
+      },
+      {
+        "name": "road_width",
+        "min_m": 4.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "road reaches each heliostat row",
+        "error": "no access"
+      }
+    ],
+    "routing_costs": [
+      {
+        "name": "road_cost_per_m",
+        "cost": 80
+      }
+    ],
+    "tolerances": {
+      "position": 0.1,
+      "slope_pct": 8
+    },
+    "failure_conditions": [
+      "road_width < 4 m",
+      "slope > 8%"
+    ],
+    "references": [
+      "MINAM_DS_019_2009;NREL_SAM_2024;ASTM_C1549",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-017",
+    "name_es": "Ruteo de cables eléctricos MV y control",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-080",
+      "CSP-081",
+      "CSP-082",
+      "CSP-078",
+      "CSP-079",
+      "CSP-120",
+      "CSP-097",
+      "CSP-099"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-032"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ruteo de cables MV y de control en zanjas con separación IEEE 835",
+    "algorithm_pseudocode": [
+      "for each MV_cable C in routes:",
+      "  place_cable_trench(C.route)",
+      "  assert separation(MV, control) >= 0.3 m",
+      "  assert burial_depth >= 0.8 m"
+    ],
+    "generated_entity_types": [
+      "CABLE_TRENCH_POLYLINE",
+      "MV_CABLE_LINE",
+      "CONTROL_CABLE_LINE"
+    ],
+    "clearances": [
+      {
+        "name": "MV_to_control",
+        "min_m": 0.3
+      },
+      {
+        "name": "burial_depth",
+        "min_m": 0.8
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "separation MV-control",
+        "error": "EMI risk"
+      }
+    ],
+    "routing_costs": [
+      {
+        "name": "trench_cost_per_m",
+        "cost": 60
+      }
+    ],
+    "tolerances": {
+      "position": 0.05,
+      "depth": 0.05
+    },
+    "failure_conditions": [
+      "depth < 0.8 m"
+    ],
+    "references": [
+      "IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_013_2019;CNE_2011",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-018",
+    "name_es": "Cuarto de control (control room)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-099",
+      "CSP-096",
+      "CSP-089",
+      "CSP-090",
+      "CSP-091",
+      "CSP-092"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-001"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación del cuarto de control con vista al campo solar y alejado de hazards",
+    "algorithm_pseudocode": [
+      "place_control_room(area)",
+      "  assert distance(HTF_piping) >= 15 m",
+      "  assert distance(transformer) >= 10 m",
+      "  assert distance(fire_water_tank) >= 5 m"
+    ],
+    "generated_entity_types": [
+      "CONTROL_ROOM_RECT",
+      "DCS_CABINET_RECT",
+      "OPERATOR_DESK"
+    ],
+    "clearances": [
+      {
+        "name": "control_to_HTF_piping",
+        "min_m": 15.0
+      },
+      {
+        "name": "control_to_transformer",
+        "min_m": 10.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "away from hazards",
+        "error": "too close to hazard"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.05
+    },
+    "failure_conditions": [
+      "distance to HTF < 15 m"
+    ],
+    "references": [
+      "MINAM_DS_019_2009;ISO_5457;NFPA_70_2023",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-019",
+    "name_es": "Taller de mantenimiento (maintenance shop)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-098",
+      "CSP-029",
+      "CSP-030",
+      "CSP-031",
+      "CSP-095"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-001"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación del taller de mantenimiento cerca del campo solar con acceso para camiones",
+    "algorithm_pseudocode": [
+      "place_maintenance_shop(area)",
+      "  assert crane_capacity >= 5 t",
+      "  assert access_road_width >= 6 m"
+    ],
+    "generated_entity_types": [
+      "MAINTENANCE_SHOP_RECT",
+      "BRIDGE_CRANE_RAIL",
+      "ACCESS_DOOR"
+    ],
+    "clearances": [
+      {
+        "name": "shop_to_fence",
+        "min_m": 5.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "crane capacity present",
+        "error": "no crane"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.05
+    },
+    "failure_conditions": [
+      "no crane access"
+    ],
+    "references": [
+      "MINAM_DS_019_2009;ISO_5457;NFPA_70_2023",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-020",
+    "name_es": "Cerramiento perimetral (perimeter fence)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-005",
+      "CSP-001",
+      "CSP-002",
+      "CSP-108",
+      "CSP-082"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Cerramiento perimetral con portones de acceso y malla anti-intrusión",
+    "algorithm_pseudocode": [
+      "offset polygon(boundary, -3 m)",
+      "  place_fence_polygon",
+      "  place access_gates at access points",
+      "  assert fence_height >= 2.5 m"
+    ],
+    "generated_entity_types": [
+      "FENCE_POLYLINE",
+      "ACCESS_GATE",
+      "SECURITY_CAMERA_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "fence_offset_from_boundary",
+        "min_m": 3.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no equipment inside fence offset",
+        "error": "equipment clash"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position": 0.1
+    },
+    "failure_conditions": [
+      "fence_height < 2.5 m"
+    ],
+    "references": [
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1",
+      "MINAM_DS_019_2009;MINEM_DS_032_2003"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-021",
+    "name_es": "Lazo de agua contra incendio (fire water loop)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-085",
+      "CSP-086",
+      "CSP-088",
+      "CSP-083",
+      "CSP-084",
+      "CSP-097",
+      "CSP-098",
+      "CSP-099"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-001"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Lazo de agua contra incendio con hidrantes y rociadores según NFPA 13/15/20",
+    "algorithm_pseudocode": [
+      "route_fire_water_loop(perimeter)",
+      "  place_hydrants every 60 m",
+      "  assert hydrant_coverage >= 1.0",
+      "  connect_to_fire_water_tank"
+    ],
+    "generated_entity_types": [
+      "FIRE_WATER_LOOP_POLYLINE",
+      "HYDRANT_POINT",
+      "SPRINKLER_LINE"
+    ],
+    "clearances": [
+      {
+        "name": "hydrant_to_hydrant",
+        "max_m": 60.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "hydrant coverage 100%",
+        "error": "no coverage"
+      }
+    ],
+    "routing_costs": [
+      {
+        "name": "pipe_cost_per_m",
+        "cost": 120
+      }
+    ],
+    "tolerances": {
+      "position": 0.1
+    },
+    "failure_conditions": [
+      "hydrant_coverage < 1.0"
+    ],
+    "references": [
+      "NFPA_30_2024;NFPA_13_2022;NFPA_15_2022;NFPA_20_2022;NFPA_497_2024;NFPA_780_2023;NFPA_853_2023;NFPA_70_2023",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "CSP-GR-022",
+    "name_es": "Ruteo del return del HTF (cold header back to field)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "CSP-074",
+      "CSP-075",
+      "CSP-076",
+      "CSP-051",
+      "CSP-052",
+      "CSP-046",
+      "CSP-055",
+      "CSP-056"
+    ],
+    "required_calculation_ids": [
+      "CSP-C-031",
+      "CSP-C-024"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ruteo del header de retorno del HTF desde SG/TES hacia el campo solar",
+    "algorithm_pseudocode": [
+      "route_return_header(SG_outlet, solar_field_inlet)",
+      "  assert slope >= 0.5% to drain",
+      "  place steam_tracing if HTF contains salt",
+      "  place isolation_valve at field inlet"
+    ],
+    "generated_entity_types": [
+      "RETURN_HEADER_POLYLINE",
+      "DRAIN_VALVE",
+      "ISOLATION_VALVE"
+    ],
+    "clearances": [
+      {
+        "name": "return_to_supply_header",
+        "min_m": 0.3
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no liquid traps",
+        "error": "HTF accumulation"
+      }
+    ],
+    "routing_costs": [
+      {
+        "name": "pipe_cost_per_m",
+        "cost": 150
+      }
+    ],
+    "tolerances": {
+      "position": 0.05,
+      "slope": 0.005
+    },
+    "failure_conditions": [
+      "no freeze protection for salt HTF"
+    ],
+    "references": [
+      "ASME_B31_1_2022;ASME_BPVC_VIII_1_2023;NIST_WEBBOOK",
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  }
+]

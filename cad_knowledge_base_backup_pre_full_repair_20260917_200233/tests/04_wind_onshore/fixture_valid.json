@@ -1,0 +1,17 @@
+{
+  "technology": "04_wind_onshore",
+  "project_id": "TEST-WON-001",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {
+    "WON-001": "value_0",
+    "WON-002": "value_1",
+    "WON-003": "value_2",
+    "WON-004": "value_3",
+    "WON-005": "value_4"
+  },
+  "drawings_to_generate": [
+    "WON-DRW-001",
+    "WON-DRW-002",
+    "WON-DRW-003"
+  ]
+}

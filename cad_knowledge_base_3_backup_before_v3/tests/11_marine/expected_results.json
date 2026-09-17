@@ -1,0 +1,29 @@
+{
+  "fixture_valid.json": {
+    "expected_validation_status": "PASS",
+    "expected_blocked_calculations": [],
+    "expected_blocked_drawings": [],
+    "expected_release_recommendation": "READY_FOR_GENERATION"
+  },
+  "fixture_missing_mandatory.json": {
+    "expected_validation_status": "FAIL",
+    "expected_missing_fields": [
+      "MAR-001"
+    ],
+    "expected_blocked_calculations": [
+      "*"
+    ],
+    "expected_blocked_drawings": [
+      "*"
+    ],
+    "expected_release_recommendation": "BLOCKED",
+    "expected_missing_data_policy_triggered": true
+  },
+  "fixture_invalid_ref.json": {
+    "expected_validation_status": "FAIL",
+    "expected_broken_references": [
+      "INVALID-DRW-999"
+    ],
+    "expected_release_recommendation": "BLOCKED"
+  }
+}

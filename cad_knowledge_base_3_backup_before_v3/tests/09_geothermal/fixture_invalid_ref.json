@@ -1,0 +1,15 @@
+{
+  "technology": "09_geothermal",
+  "project_id": "TEST-GEO-003",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {
+    "GEO-001": "value_0",
+    "GEO-002": "value_1",
+    "GEO-003": "value_2",
+    "GEO-004": "value_3",
+    "GEO-005": "value_4"
+  },
+  "drawings_to_generate": [
+    "INVALID-DRW-999"
+  ]
+}

@@ -1,0 +1,3089 @@
+[
+  {
+    "calculation_id": "WON-CALC-001",
+    "name_es": "Ajuste Weibull por máxima verosimilitud (k, c)",
+    "description": "Estima parámetros Weibull k y c a partir de series de velocidad de viento",
+    "formula": "k_hat = argmax_k ( sum_i ln(V_i) * (1 - (V_i/c)^k) ) ; c = ( (1/N) * sum_i V_i^k )^(1/k)",
+    "variables": [
+      {
+        "name": "V_i",
+        "unit": "m/s",
+        "description": "Velocidad de viento i-ésima"
+      },
+      {
+        "name": "N",
+        "unit": "-",
+        "description": "Número de muestras"
+      },
+      {
+        "name": "k",
+        "unit": "-",
+        "description": "Parámetro de forma Weibull"
+      },
+      {
+        "name": "c",
+        "unit": "m/s",
+        "description": "Parámetro de escala Weibull"
+      },
+      {
+        "name": "v_hub",
+        "symbol": "v_hub",
+        "unit": "m/s",
+        "type": "output"
+      }
+    ],
+    "output_unit": "k=-;c=m/s",
+    "used_by_field_ids": [
+      "WON-011",
+      "WON-012",
+      "WON-003"
+    ],
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NREL_TP_5000_87434"
+    ],
+    "purpose": "Ajuste Weibull por máxima verosimilitud (k, c)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "v_hub = v_ref * (h_hub / h_ref) ^ alpha"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 * (\\1_\\2 / \\1_\\2) ^ alpha"
+    ],
+    "unit_equations": [
+      {
+        "name": "v_hub",
+        "value": "m/s"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "v_hub",
+        "unit": "m/s",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-001: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-001: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-002",
+    "name_es": "PDF/CDF Weibull",
+    "description": "Funciones de densidad y distribución acumulada Weibull",
+    "formula": "f(V) = (k/c)*(V/c)^(k-1)*exp(-(V/c)^k) ; F(V) = 1 - exp(-(V/c)^k)",
+    "variables": [
+      {
+        "name": "V",
+        "unit": "m/s",
+        "description": "Velocidad de viento"
+      },
+      {
+        "name": "k",
+        "unit": "-",
+        "description": "Parámetro de forma"
+      },
+      {
+        "name": "c",
+        "unit": "m/s",
+        "description": "Parámetro de escala"
+      },
+      {
+        "name": "P_air",
+        "symbol": "P_air",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "f(V)=1/(m/s);F(V)=-",
+    "used_by_field_ids": [
+      "WON-011",
+      "WON-012"
+    ],
+    "source_ids": [
+      "IEC_61400_12_1"
+    ],
+    "purpose": "PDF/CDF Weibull",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_air = 0.5 * rho_air * A_rotor * v^3"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  0.5 * \\1_\\2 * \\1_\\2 * v^{3}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_air",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_air",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-002: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-002: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-003",
+    "name_es": "Extrapolación vertical por ley de potencia con alpha",
+    "description": "Extrapola velocidad de viento entre alturas con exponente alpha",
+    "formula": "V2 = V1 * (h2/h1)^alpha",
+    "variables": [
+      {
+        "name": "V1",
+        "unit": "m/s",
+        "description": "Velocidad a altura h1"
+      },
+      {
+        "name": "h1",
+        "unit": "m",
+        "description": "Altura de referencia"
+      },
+      {
+        "name": "h2",
+        "unit": "m",
+        "description": "Altura objetivo"
+      },
+      {
+        "name": "alpha",
+        "unit": "-",
+        "description": "Exponente de shear"
+      },
+      {
+        "name": "V2",
+        "unit": "m/s",
+        "description": "Velocidad extrapolada a h2"
+      },
+      {
+        "name": "P_turbine",
+        "symbol": "P_turbine",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m/s",
+    "used_by_field_ids": [
+      "WON-014",
+      "WON-001",
+      "WON-072"
+    ],
+    "source_ids": [
+      "IEC_61400_12_1",
+      "IEC_61400_15_1"
+    ],
+    "purpose": "Extrapolación vertical por ley de potencia con alpha",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_turbine = P_air * Cp"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 * Cp"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_turbine",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_turbine",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-003: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-003: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-004",
+    "name_es": "Intensidad de turbulencia TI",
+    "description": "TI = sigma_V / V_media para bin de 10 min",
+    "formula": "TI = sigma_V / V_mean",
+    "variables": [
+      {
+        "name": "sigma_V",
+        "unit": "m/s",
+        "description": "Desviación estándar de velocidad"
+      },
+      {
+        "name": "V_mean",
+        "unit": "m/s",
+        "description": "Velocidad media 10 min"
+      },
+      {
+        "name": "TI",
+        "unit": "-",
+        "description": "Intensidad de turbulencia"
+      },
+      {
+        "name": "AEP",
+        "symbol": "AEP",
+        "unit": "MWh/year",
+        "type": "output"
+      }
+    ],
+    "output_unit": "-",
+    "used_by_field_ids": [
+      "WON-013"
+    ],
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_13"
+    ],
+    "purpose": "Intensidad de turbulencia TI",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "AEP = sum(P_turbine(t) for t in 8760) * availability"
+    ],
+    "equations_latex": [
+      "AEP  =  sum(\\1_\\2(t) for t in 8760) * availability"
+    ],
+    "unit_equations": [
+      {
+        "name": "AEP",
+        "value": "MWh/year"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "AEP",
+        "unit": "MWh/year",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-004: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-004: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-005",
+    "name_es": "AEP bruto por integración de curva de potencia",
+    "description": "Integración 8760 horas de P(V)*f(V)",
+    "formula": "AEP_gross = 8760 * sum_i P(V_i) * f(V_i) * delta_V * rho_site/rho_ref",
+    "variables": [
+      {
+        "name": "P(V_i)",
+        "unit": "kW",
+        "description": "Potencia a velocidad V_i"
+      },
+      {
+        "name": "f(V_i)",
+        "unit": "1/(m/s)",
+        "description": "PDF Weibull a V_i"
+      },
+      {
+        "name": "delta_V",
+        "unit": "m/s",
+        "description": "Ancho de bin de velocidad"
+      },
+      {
+        "name": "rho_site",
+        "unit": "kg/m3",
+        "description": "Densidad de aire del sitio"
+      },
+      {
+        "name": "rho_ref",
+        "unit": "kg/m3",
+        "description": "Densidad de referencia 1.225"
+      },
+      {
+        "name": "AEP_gross",
+        "unit": "kWh",
+        "description": "Energía bruta anual"
+      },
+      {
+        "name": "wake_loss_pct",
+        "symbol": "wake_loss_pct",
+        "unit": "percent",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kWh",
+    "used_by_field_ids": [
+      "WON-060",
+      "WON-076",
+      "WON-017",
+      "WON-010",
+      "WON-011",
+      "WON-012"
+    ],
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "purpose": "AEP bruto por integración de curva de potencia",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "wake_loss = 1 - (P_with_wake / P_without_wake)"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  1 - (\\1_\\2 / \\1_\\2)"
+    ],
+    "unit_equations": [
+      {
+        "name": "wake_loss_pct",
+        "value": "percent"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "wake_loss_pct",
+        "unit": "percent",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-005: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-005: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-006",
+    "name_es": "AEP neto tras pérdidas",
+    "description": "AEP_neto = AEP_gross * (1 - L_wake)*(1-L_elec)*(1-L_avail)*(1-L_ambient)*(1-L_other)",
+    "formula": "AEP_net = AEP_gross * prod_j (1 - L_j/100)",
+    "variables": [
+      {
+        "name": "AEP_gross",
+        "unit": "kWh",
+        "description": "Energía bruta anual"
+      },
+      {
+        "name": "L_j",
+        "unit": "%",
+        "description": "Pérdida de categoría j"
+      },
+      {
+        "name": "AEP_net",
+        "unit": "kWh",
+        "description": "Energía neta anual"
+      },
+      {
+        "name": "P_wave",
+        "symbol": "P_wave",
+        "unit": "m3/s",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kWh",
+    "used_by_field_ids": [
+      "WON-061",
+      "WON-060",
+      "WON-051",
+      "WON-062",
+      "WON-063",
+      "WON-064"
+    ],
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "purpose": "AEP neto tras pérdidas",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_wave = (1/(2*pi)) * integral(v^3 * f(v) dv)"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  (1/(2*pi)) * integral(v^{3} * f(v) dv)"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_wave",
+        "value": "m3/s"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_wave",
+        "unit": "m3/s",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-006: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-006: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-007",
+    "name_es": "Factor de capacidad CF",
+    "description": "CF = AEP_neto / (P_nominal * 8760)",
+    "formula": "CF = AEP_net / (P_rated_total * 8760)",
+    "variables": [
+      {
+        "name": "AEP_net",
+        "unit": "kWh",
+        "description": "Energía neta anual"
+      },
+      {
+        "name": "P_rated_total",
+        "unit": "kW",
+        "description": "Potencia nominal total"
+      },
+      {
+        "name": "CF",
+        "unit": "-",
+        "description": "Factor de capacidad"
+      },
+      {
+        "name": "TI",
+        "symbol": "TI",
+        "unit": "dimensionless_ratio",
+        "type": "output"
+      }
+    ],
+    "output_unit": "-",
+    "used_by_field_ids": [
+      "WON-066",
+      "WON-061",
+      "WON-065"
+    ],
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "purpose": "Factor de capacidad CF",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "turbulence_intensity = sigma_v / mean_v"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 / \\1_\\2"
+    ],
+    "unit_equations": [
+      {
+        "name": "TI",
+        "value": "dimensionless"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "TI",
+        "unit": "various_units",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-007: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-007: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-008",
+    "name_es": "Pérdida por estela modelo Jensen",
+    "description": "Modelo Jensen de estela lineal con coeficiente de expansión k_wake",
+    "formula": "V_wake(x) = V_0 * (1 - (1-sqrt(1-C_T)) * (D/(D+2*k_wake*x))^2)",
+    "variables": [
+      {
+        "name": "V_0",
+        "unit": "m/s",
+        "description": "Velocidad libre"
+      },
+      {
+        "name": "C_T",
+        "unit": "-",
+        "description": "Coeficiente de empuje"
+      },
+      {
+        "name": "D",
+        "unit": "m",
+        "description": "Diámetro de rotor"
+      },
+      {
+        "name": "k_wake",
+        "unit": "-",
+        "description": "Coef. de expansión de estela"
+      },
+      {
+        "name": "x",
+        "unit": "m",
+        "description": "Distancia aguas abajo"
+      },
+      {
+        "name": "V_wake",
+        "unit": "m/s",
+        "description": "Velocidad en estela"
+      },
+      {
+        "name": "v_hub",
+        "symbol": "v_hub",
+        "unit": "m/s",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m/s",
+    "used_by_field_ids": [
+      "WON-051",
+      "WON-052",
+      "WON-053",
+      "WON-050",
+      "WON-077"
+    ],
+    "source_ids": [
+      "IEC_61400_15_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "purpose": "Pérdida por estela modelo Jensen",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "v_hub = v_ref * (h_hub / h_ref) ^ alpha"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 * (\\1_\\2 / \\1_\\2) ^ alpha"
+    ],
+    "unit_equations": [
+      {
+        "name": "v_hub",
+        "value": "m/s"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "v_hub",
+        "unit": "m/s",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-008: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-008: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-009",
+    "name_es": "Pérdida por estela modelo Bastankhiah/Gaucher",
+    "description": "Modelo de estela gaussiana para parques eólicos",
+    "formula": "delta_V/V = (1 - sqrt(1-C_T)) * (D/(D+2*k*sigma*x))^2 con sigma=beta*I/alpha",
+    "variables": [
+      {
+        "name": "C_T",
+        "unit": "-",
+        "description": "Coeficiente de empuje"
+      },
+      {
+        "name": "D",
+        "unit": "m",
+        "description": "Diámetro de rotor"
+      },
+      {
+        "name": "k",
+        "unit": "-",
+        "description": "Constante de decaimiento"
+      },
+      {
+        "name": "I",
+        "unit": "-",
+        "description": "Intensidad de turbulencia"
+      },
+      {
+        "name": "alpha",
+        "unit": "-",
+        "description": "Constante de shear"
+      },
+      {
+        "name": "x",
+        "unit": "m",
+        "description": "Distancia aguas abajo"
+      },
+      {
+        "name": "P_air",
+        "symbol": "P_air",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m/s",
+    "used_by_field_ids": [
+      "WON-051",
+      "WON-077"
+    ],
+    "source_ids": [
+      "IEC_61400_15_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "purpose": "Pérdida por estela modelo Bastankhiah/Gaucher",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_air = 0.5 * rho_air * A_rotor * v^3"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  0.5 * \\1_\\2 * \\1_\\2 * v^{3}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_air",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_air",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-009: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-009: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-010",
+    "name_es": "Pérdida por estela modelo Ainslie (CFD)",
+    "description": "Modelo parabólico Ainslie para estela turbulenta",
+    "formula": "Solucionar dU/dx = f(U, nu_t, sigma_V) con eddy viscosity model",
+    "variables": [
+      {
+        "name": "U",
+        "unit": "m/s",
+        "description": "Velocidad en estela"
+      },
+      {
+        "name": "x",
+        "unit": "m",
+        "description": "Distancia aguas abajo"
+      },
+      {
+        "name": "nu_t",
+        "unit": "m2/s",
+        "description": "Viscosidad turbulenta"
+      },
+      {
+        "name": "sigma_V",
+        "unit": "m/s",
+        "description": "Desv. estándar velocidad"
+      },
+      {
+        "name": "P_turbine",
+        "symbol": "P_turbine",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m/s",
+    "used_by_field_ids": [
+      "WON-051",
+      "WON-077"
+    ],
+    "source_ids": [
+      "IEC_61400_15_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "purpose": "Pérdida por estela modelo Ainslie (CFD)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_turbine = P_air * Cp"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 * Cp"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_turbine",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_turbine",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-010: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-010: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-011",
+    "name_es": "Pérdida por estela modelo EWTSII",
+    "description": "Modelo EWTSII para estela múltiple",
+    "formula": "V_wake = V_0 * prod_j (1 - deltaV_j) con superposición por suma cuadrática",
+    "variables": [
+      {
+        "name": "V_0",
+        "unit": "m/s",
+        "description": "Velocidad libre"
+      },
+      {
+        "name": "deltaV_j",
+        "unit": "-",
+        "description": "Déficit de estela del turbine j"
+      },
+      {
+        "name": "V_wake",
+        "unit": "m/s",
+        "description": "Velocidad combinada en estela"
+      },
+      {
+        "name": "AEP",
+        "symbol": "AEP",
+        "unit": "MWh/year",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m/s",
+    "used_by_field_ids": [
+      "WON-051",
+      "WON-077"
+    ],
+    "source_ids": [
+      "IEC_61400_15_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "purpose": "Pérdida por estela modelo EWTSII",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "AEP = sum(P_turbine(t) for t in 8760) * availability"
+    ],
+    "equations_latex": [
+      "AEP  =  sum(\\1_\\2(t) for t in 8760) * availability"
+    ],
+    "unit_equations": [
+      {
+        "name": "AEP",
+        "value": "MWh/year"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "AEP",
+        "unit": "MWh/year",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-011: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-011: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-012",
+    "name_es": "Pérdidas eléctricas del colector",
+    "description": "Suma de pérdidas I2R en cables + pérdidas en transformadores WT y subestación",
+    "formula": "P_loss = sum_i 3*I_i^2*R_i*L_i + sum_t P_core_t + P_copper_t",
+    "variables": [
+      {
+        "name": "I_i",
+        "unit": "A",
+        "description": "Corriente en tramo i"
+      },
+      {
+        "name": "R_i",
+        "unit": "ohm/km",
+        "description": "Resistencia por km"
+      },
+      {
+        "name": "L_i",
+        "unit": "km",
+        "description": "Longitud tramo i"
+      },
+      {
+        "name": "P_core_t",
+        "unit": "W",
+        "description": "Pérdidas en hierro del trafos t"
+      },
+      {
+        "name": "P_copper_t",
+        "unit": "W",
+        "description": "Pérdidas en cobre del trafos t"
+      },
+      {
+        "name": "wake_loss_pct",
+        "symbol": "wake_loss_pct",
+        "unit": "percent",
+        "type": "output"
+      }
+    ],
+    "output_unit": "W",
+    "used_by_field_ids": [
+      "WON-062",
+      "WON-140",
+      "WON-141",
+      "WON-144"
+    ],
+    "source_ids": [
+      "IEC_61400_21_1",
+      "IEEE_1547_2018",
+      "IEEE_835"
+    ],
+    "purpose": "Pérdidas eléctricas del colector",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "wake_loss = 1 - (P_with_wake / P_without_wake)"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  1 - (\\1_\\2 / \\1_\\2)"
+    ],
+    "unit_equations": [
+      {
+        "name": "wake_loss_pct",
+        "value": "percent"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "wake_loss_pct",
+        "unit": "percent",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-012: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-012: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-013",
+    "name_es": "Disponibilidad técnica del parque",
+    "description": "Availability = (T_total - T_down)/T_total",
+    "formula": "Availability = 1 - (T_down / T_total)",
+    "variables": [
+      {
+        "name": "T_total",
+        "unit": "h",
+        "description": "Tiempo total en período"
+      },
+      {
+        "name": "T_down",
+        "unit": "h",
+        "description": "Tiempo de indisponibilidad"
+      },
+      {
+        "name": "P_wave",
+        "symbol": "P_wave",
+        "unit": "m3/s",
+        "type": "output"
+      }
+    ],
+    "output_unit": "-",
+    "used_by_field_ids": [
+      "WON-063",
+      "WON-142"
+    ],
+    "source_ids": [
+      "IEC_61400_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "purpose": "Disponibilidad técnica del parque",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_wave = (1/(2*pi)) * integral(v^3 * f(v) dv)"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  (1/(2*pi)) * integral(v^{3} * f(v) dv)"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_wave",
+        "value": "m3/s"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_wave",
+        "unit": "m3/s",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-013: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-013: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-014",
+    "name_es": "Pérdida por baja temperatura",
+    "description": "Pérdida de producción por baja temperatura ambiente en electrónica de potencia",
+    "formula": "L_T = sum_{t: T(t)<T_min_op} P_av(t) * dt",
+    "variables": [
+      {
+        "name": "T(t)",
+        "unit": "°C",
+        "description": "Temperatura ambiente horaria"
+      },
+      {
+        "name": "T_min_op",
+        "unit": "°C",
+        "description": "Temperatura mínima de operación"
+      },
+      {
+        "name": "P_av(t)",
+        "unit": "kW",
+        "description": "Potencia disponible a tiempo t"
+      },
+      {
+        "name": "dt",
+        "unit": "h",
+        "description": "Resolución temporal"
+      },
+      {
+        "name": "TI",
+        "symbol": "TI",
+        "unit": "dimensionless_ratio",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kWh",
+    "used_by_field_ids": [
+      "WON-064",
+      "WON-030",
+      "WON-031"
+    ],
+    "source_ids": [
+      "IEC_61400_1",
+      "NASA_POWER"
+    ],
+    "purpose": "Pérdida por baja temperatura",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "turbulence_intensity = sigma_v / mean_v"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 / \\1_\\2"
+    ],
+    "unit_equations": [
+      {
+        "name": "TI",
+        "value": "dimensionless"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "TI",
+        "unit": "various_units",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-014: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-014: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-015",
+    "name_es": "Pérdida por icing",
+    "description": "Pérdida de producción por icing (acumulación de hielo en palas)",
+    "formula": "L_ice = sum_{t: icing(t)==true} P_av(t) * dt * severity_factor",
+    "variables": [
+      {
+        "name": "icing(t)",
+        "unit": "-",
+        "description": "Indicador horario de icing"
+      },
+      {
+        "name": "P_av(t)",
+        "unit": "kW",
+        "description": "Potencia disponible"
+      },
+      {
+        "name": "dt",
+        "unit": "h",
+        "description": "Resolución temporal"
+      },
+      {
+        "name": "severity_factor",
+        "unit": "-",
+        "description": "Factor 0-1 de severidad de icing"
+      },
+      {
+        "name": "v_hub",
+        "symbol": "v_hub",
+        "unit": "m/s",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kWh",
+    "used_by_field_ids": [
+      "WON-064",
+      "WON-034"
+    ],
+    "source_ids": [
+      "IEC_61400_1",
+      "NASA_POWER"
+    ],
+    "purpose": "Pérdida por icing",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "v_hub = v_ref * (h_hub / h_ref) ^ alpha"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 * (\\1_\\2 / \\1_\\2) ^ alpha"
+    ],
+    "unit_equations": [
+      {
+        "name": "v_hub",
+        "value": "m/s"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "v_hub",
+        "unit": "m/s",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-015: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-015: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-016",
+    "name_es": "Shadow flicker - fórmula reguladora",
+    "description": "Cálculo de horas anuales de flicker en receptor con ángulo solar",
+    "formula": "SF = sum_t ( sun_visible(t) AND (theta_sun(t) in [rotor seen]) ) * dt",
+    "variables": [
+      {
+        "name": "sun_visible(t)",
+        "unit": "-",
+        "description": "Indicador de sol visible en receptor"
+      },
+      {
+        "name": "theta_sun(t)",
+        "unit": "°",
+        "description": "Ángulo azimutal solar en tiempo t"
+      },
+      {
+        "name": "rotor seen",
+        "unit": "-",
+        "description": "Geometría rotor-receptor-sol"
+      },
+      {
+        "name": "dt",
+        "unit": "min",
+        "description": "Resolución temporal"
+      },
+      {
+        "name": "P_air",
+        "symbol": "P_air",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "h",
+    "used_by_field_ids": [
+      "WON-160",
+      "WON-161"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "NREL_TP_5000_87434"
+    ],
+    "purpose": "Shadow flicker - fórmula reguladora",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_air = 0.5 * rho_air * A_rotor * v^3"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  0.5 * \\1_\\2 * \\1_\\2 * v^{3}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_air",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_air",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-016: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-016: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-017",
+    "name_es": "Predicción de ruido en receptor (ISO 9613-2 / IEC 61400-11)",
+    "description": "Nivel de presión sonora en receptor considerando atenuación geométrica, atmosférica y barreras",
+    "formula": "Lp = Lw + 10*log10(D0/D) - A_atm - A_gr - A_bar - A_misc",
+    "variables": [
+      {
+        "name": "Lw",
+        "unit": "dBA",
+        "description": "Nivel de potencia sonora aparente"
+      },
+      {
+        "name": "D0",
+        "unit": "m",
+        "description": "Distancia de referencia (1 m)"
+      },
+      {
+        "name": "D",
+        "unit": "m",
+        "description": "Distancia turbina-receptor"
+      },
+      {
+        "name": "A_atm",
+        "unit": "dB",
+        "description": "Atenuación atmosférica"
+      },
+      {
+        "name": "A_gr",
+        "unit": "dB",
+        "description": "Atenuación por suelo"
+      },
+      {
+        "name": "A_bar",
+        "unit": "dB",
+        "description": "Atenuación por barrera"
+      },
+      {
+        "name": "A_misc",
+        "unit": "dB",
+        "description": "Otras atenuaciones"
+      },
+      {
+        "name": "Lp",
+        "unit": "dBA",
+        "description": "Nivel de presión en receptor"
+      },
+      {
+        "name": "P_turbine",
+        "symbol": "P_turbine",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "dBA",
+    "used_by_field_ids": [
+      "WON-078",
+      "WON-150",
+      "WON-151",
+      "WON-152"
+    ],
+    "source_ids": [
+      "IEC_61400_11",
+      "IEC_61400_14"
+    ],
+    "purpose": "Predicción de ruido en receptor (ISO 9613-2 / IEC 61400-11)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_turbine = P_air * Cp"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 * Cp"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_turbine",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_turbine",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-017: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-017: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-018",
+    "name_es": "Presión de contacto en cimentación raft",
+    "description": "Verificación de presión de contacto bajo combined loading",
+    "formula": "q_max = (N + W_tower)/A + M/S ; q_max <= q_adm",
+    "variables": [
+      {
+        "name": "N",
+        "unit": "kN",
+        "description": "Carga vertical de torre"
+      },
+      {
+        "name": "W_tower",
+        "unit": "kN",
+        "description": "Peso propio de cimentación"
+      },
+      {
+        "name": "A",
+        "unit": "m2",
+        "description": "Área en planta"
+      },
+      {
+        "name": "M",
+        "unit": "kN·m",
+        "description": "Momento en base"
+      },
+      {
+        "name": "S",
+        "unit": "m3",
+        "description": "Módulo de sección"
+      },
+      {
+        "name": "q_adm",
+        "unit": "kPa",
+        "description": "Capacidad admisible del suelo"
+      },
+      {
+        "name": "AEP",
+        "symbol": "AEP",
+        "unit": "MWh/year",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kPa",
+    "used_by_field_ids": [
+      "WON-101",
+      "WON-102",
+      "WON-103",
+      "WON-104",
+      "WON-092",
+      "WON-093"
+    ],
+    "source_ids": [
+      "IEC_61400_6",
+      "ISO_14685",
+      "RNE_DS_011_2006"
+    ],
+    "purpose": "Presión de contacto en cimentación raft",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "AEP = sum(P_turbine(t) for t in 8760) * availability"
+    ],
+    "equations_latex": [
+      "AEP  =  sum(\\1_\\2(t) for t in 8760) * availability"
+    ],
+    "unit_equations": [
+      {
+        "name": "AEP",
+        "value": "MWh/year"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "AEP",
+        "unit": "MWh/year",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-018: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-018: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-019",
+    "name_es": "Capacidad axial de pilote individual",
+    "description": "Capacidad axial = resistencia por fuste + resistencia por punta",
+    "formula": "R_c = R_s + R_b = sum_i (c_i * f_si * pi * D_i * L_i) + (c_b * q_b * A_b)",
+    "variables": [
+      {
+        "name": "c_i",
+        "unit": "-",
+        "description": "Coeficiente de fuste en estrato i"
+      },
+      {
+        "name": "f_si",
+        "unit": "kPa",
+        "description": "Fricción lateral estrato i"
+      },
+      {
+        "name": "D_i",
+        "unit": "m",
+        "description": "Diámetro del pilote en estrato i"
+      },
+      {
+        "name": "L_i",
+        "unit": "m",
+        "description": "Longitud en estrato i"
+      },
+      {
+        "name": "c_b",
+        "unit": "-",
+        "description": "Coeficiente de base"
+      },
+      {
+        "name": "q_b",
+        "unit": "kPa",
+        "description": "Resistencia de punta"
+      },
+      {
+        "name": "A_b",
+        "unit": "m2",
+        "description": "Área de base"
+      },
+      {
+        "name": "wake_loss_pct",
+        "symbol": "wake_loss_pct",
+        "unit": "percent",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kN",
+    "used_by_field_ids": [
+      "WON-105",
+      "WON-100"
+    ],
+    "source_ids": [
+      "ISO_14685",
+      "IEC_61400_6"
+    ],
+    "purpose": "Capacidad axial de pilote individual",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "wake_loss = 1 - (P_with_wake / P_without_wake)"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  1 - (\\1_\\2 / \\1_\\2)"
+    ],
+    "unit_equations": [
+      {
+        "name": "wake_loss_pct",
+        "value": "percent"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "wake_loss_pct",
+        "unit": "percent",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-019: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-019: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-020",
+    "name_es": "Deflexión en tope de torre",
+    "description": "Deflexión horizontal en tope de torre bajo carga extrema",
+    "formula": "delta = (F_h * H^3)/(3*E*I_eff) * f_shape",
+    "variables": [
+      {
+        "name": "F_h",
+        "unit": "kN",
+        "description": "Fuerza horizontal en tope"
+      },
+      {
+        "name": "H",
+        "unit": "m",
+        "description": "Altura de torre"
+      },
+      {
+        "name": "E",
+        "unit": "MPa",
+        "description": "Módulo de elasticidad del acero"
+      },
+      {
+        "name": "I_eff",
+        "unit": "m4",
+        "description": "Momento de inercia efectivo"
+      },
+      {
+        "name": "f_shape",
+        "unit": "-",
+        "description": "Factor de forma"
+      },
+      {
+        "name": "P_wave",
+        "symbol": "P_wave",
+        "unit": "m3/s",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m",
+    "used_by_field_ids": [
+      "WON-090",
+      "WON-092",
+      "WON-093"
+    ],
+    "source_ids": [
+      "IEC_61400_6",
+      "IEC_61400_1"
+    ],
+    "purpose": "Deflexión en tope de torre",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_wave = (1/(2*pi)) * integral(v^3 * f(v) dv)"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  (1/(2*pi)) * integral(v^{3} * f(v) dv)"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_wave",
+        "value": "m3/s"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_wave",
+        "unit": "m3/s",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-020: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-020: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-021",
+    "name_es": "Carga extrema en base de torre (DLC 6.x estilo DTU 440)",
+    "description": "Carga extrema 50 años en base combinando empuje rotor + arrastre torre",
+    "formula": "M_ext = F_rotor * (H_hub - H_base) + 0.5 * q_50 * C_D * D_tower * H_hub^2",
+    "variables": [
+      {
+        "name": "F_rotor",
+        "unit": "kN",
+        "description": "Empuje extremo del rotor"
+      },
+      {
+        "name": "H_hub",
+        "unit": "m",
+        "description": "Altura de buje"
+      },
+      {
+        "name": "H_base",
+        "unit": "m",
+        "description": "Altura de base"
+      },
+      {
+        "name": "q_50",
+        "unit": "kPa",
+        "description": "Presión dinámica 50yr"
+      },
+      {
+        "name": "C_D",
+        "unit": "-",
+        "description": "Coef. de arrastre de torre"
+      },
+      {
+        "name": "D_tower",
+        "unit": "m",
+        "description": "Diámetro de torre"
+      },
+      {
+        "name": "TI",
+        "symbol": "TI",
+        "unit": "dimensionless_ratio",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kN·m",
+    "used_by_field_ids": [
+      "WON-016",
+      "WON-093",
+      "WON-020",
+      "WON-079",
+      "WON-170"
+    ],
+    "source_ids": [
+      "IEC_61400_1",
+      "DNV_RP_C205"
+    ],
+    "purpose": "Carga extrema en base de torre (DLC 6.x estilo DTU 440)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "turbulence_intensity = sigma_v / mean_v"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 / \\1_\\2"
+    ],
+    "unit_equations": [
+      {
+        "name": "TI",
+        "value": "dimensionless"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "TI",
+        "unit": "various_units",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-021: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-021: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-022",
+    "name_es": "Daño por fatiga (Miner) en componentes Mx, My, Mz",
+    "description": "Suma lineal de daño por bins de ciclos (rainflow counting) con S-N curve",
+    "formula": "D = sum_i (n_i / N_i)  ; N_i = (S_i/S_ref)^(-m) * N_ref",
+    "variables": [
+      {
+        "name": "n_i",
+        "unit": "ciclos",
+        "description": "Número de ciclos en bin i"
+      },
+      {
+        "name": "N_i",
+        "unit": "ciclos",
+        "description": "Ciclos a fallo en bin i"
+      },
+      {
+        "name": "S_i",
+        "unit": "MPa",
+        "description": "Amplitud de tensión en bin i"
+      },
+      {
+        "name": "S_ref",
+        "unit": "MPa",
+        "description": "Tensión de referencia S-N"
+      },
+      {
+        "name": "m",
+        "unit": "-",
+        "description": "Pendiente S-N"
+      },
+      {
+        "name": "N_ref",
+        "unit": "ciclos",
+        "description": "Ciclos de referencia S-N"
+      },
+      {
+        "name": "D",
+        "unit": "-",
+        "description": "Daño acumulado"
+      },
+      {
+        "name": "v_hub",
+        "symbol": "v_hub",
+        "unit": "m/s",
+        "type": "output"
+      }
+    ],
+    "output_unit": "-",
+    "used_by_field_ids": [
+      "WON-013",
+      "WON-032",
+      "WON-035",
+      "WON-080"
+    ],
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_13"
+    ],
+    "purpose": "Daño por fatiga (Miner) en componentes Mx, My, Mz",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "v_hub = v_ref * (h_hub / h_ref) ^ alpha"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 * (\\1_\\2 / \\1_\\2) ^ alpha"
+    ],
+    "unit_equations": [
+      {
+        "name": "v_hub",
+        "value": "m/s"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "v_hub",
+        "unit": "m/s",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-022: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-022: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-023",
+    "name_es": "Holgura de punta de pala a torre (tip clearance)",
+    "description": "Distancia mínima entre punta de pala y superficie exterior de torre",
+    "formula": "d_clear = sqrt( (R_rotor + e_overhang)^2 + (H_hub - H_top_tower - delta_tower)^2 ) - R_rotor - r_tower_top",
+    "variables": [
+      {
+        "name": "R_rotor",
+        "unit": "m",
+        "description": "Radio del rotor"
+      },
+      {
+        "name": "e_overhang",
+        "unit": "m",
+        "description": "Voladizo del buje"
+      },
+      {
+        "name": "H_hub",
+        "unit": "m",
+        "description": "Altura de buje"
+      },
+      {
+        "name": "H_top_tower",
+        "unit": "m",
+        "description": "Altura tope de torre"
+      },
+      {
+        "name": "delta_tower",
+        "unit": "m",
+        "description": "Deflexión de torre"
+      },
+      {
+        "name": "r_tower_top",
+        "unit": "m",
+        "description": "Radio tope de torre"
+      },
+      {
+        "name": "P_air",
+        "symbol": "P_air",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m",
+    "used_by_field_ids": [
+      "WON-071",
+      "WON-072",
+      "WON-092"
+    ],
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_6"
+    ],
+    "purpose": "Holgura de punta de pala a torre (tip clearance)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_air = 0.5 * rho_air * A_rotor * v^3"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  0.5 * \\1_\\2 * \\1_\\2 * v^{3}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_air",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_air",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-023: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-023: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-024",
+    "name_es": "Frecuencia natural de torre (Campbell diagram)",
+    "description": "Frecuencia fundamental de torre fija con masa en tope",
+    "formula": "f_1 = (1/(2*pi)) * sqrt( (3*E*I_eff)/(m_top*H^3 + m_tower*H^3/4) )",
+    "variables": [
+      {
+        "name": "E",
+        "unit": "MPa",
+        "description": "Módulo de elasticidad acero"
+      },
+      {
+        "name": "I_eff",
+        "unit": "m4",
+        "description": "Inercia efectiva"
+      },
+      {
+        "name": "m_top",
+        "unit": "kg",
+        "description": "Masa de rotor y nacelle"
+      },
+      {
+        "name": "m_tower",
+        "unit": "kg",
+        "description": "Masa de torre"
+      },
+      {
+        "name": "H",
+        "unit": "m",
+        "description": "Altura de torre"
+      },
+      {
+        "name": "P_turbine",
+        "symbol": "P_turbine",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "Hz",
+    "used_by_field_ids": [
+      "WON-094",
+      "WON-081",
+      "WON-072"
+    ],
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_6"
+    ],
+    "purpose": "Frecuencia natural de torre (Campbell diagram)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_turbine = P_air * Cp"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 * Cp"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_turbine",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_turbine",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-024: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-024: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-025",
+    "name_es": "Capacidad portante del pad de grúa",
+    "description": "Verificación de capacidad portante del pad de grúa bajo carga de outigger",
+    "formula": "q_pad = F_outrigger / A_outrigger ; q_pad <= q_adm_pad * FoS",
+    "variables": [
+      {
+        "name": "F_outrigger",
+        "unit": "kN",
+        "description": "Carga por outrigger de grúa"
+      },
+      {
+        "name": "A_outrigger",
+        "unit": "m2",
+        "description": "Área del outrigger"
+      },
+      {
+        "name": "q_adm_pad",
+        "unit": "kPa",
+        "description": "Capacidad admisible del pad"
+      },
+      {
+        "name": "FoS",
+        "unit": "-",
+        "description": "Factor de seguridad"
+      },
+      {
+        "name": "AEP",
+        "symbol": "AEP",
+        "unit": "MWh/year",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kPa",
+    "used_by_field_ids": [
+      "WON-130",
+      "WON-132",
+      "WON-133",
+      "WON-112"
+    ],
+    "source_ids": [
+      "ISO_14685",
+      "RNE_DS_011_2006"
+    ],
+    "purpose": "Capacidad portante del pad de grúa",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "AEP = sum(P_turbine(t) for t in 8760) * availability"
+    ],
+    "equations_latex": [
+      "AEP  =  sum(\\1_\\2(t) for t in 8760) * availability"
+    ],
+    "unit_equations": [
+      {
+        "name": "AEP",
+        "value": "MWh/year"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "AEP",
+        "unit": "MWh/year",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-025: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-025: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-026",
+    "name_es": "Curva vertical de camino (parámetros K y L)",
+    "description": "Cálculo de longitud mínima de curva vertical en función de pendiente y velocidad",
+    "formula": "L_min = max( (|g1 - g2| * S_sight^2)/(200*(sqrt(h1) + sqrt(h2))^2), 0.6*V_design )",
+    "variables": [
+      {
+        "name": "g1",
+        "unit": "%",
+        "description": "Pendiente entrada"
+      },
+      {
+        "name": "g2",
+        "unit": "%",
+        "description": "Pendiente salida"
+      },
+      {
+        "name": "S_sight",
+        "unit": "m",
+        "description": "Distancia de visibilidad"
+      },
+      {
+        "name": "h1",
+        "unit": "m",
+        "description": "Altura de ojo del conductor"
+      },
+      {
+        "name": "h2",
+        "unit": "m",
+        "description": "Altura de objeto"
+      },
+      {
+        "name": "V_design",
+        "unit": "km/h",
+        "description": "Velocidad de diseño"
+      },
+      {
+        "name": "wake_loss_pct",
+        "symbol": "wake_loss_pct",
+        "unit": "percent",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m",
+    "used_by_field_ids": [
+      "WON-110",
+      "WON-114",
+      "WON-120"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "NREL_TP_5000_87434"
+    ],
+    "purpose": "Curva vertical de camino (parámetros K y L)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "wake_loss = 1 - (P_with_wake / P_without_wake)"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  1 - (\\1_\\2 / \\1_\\2)"
+    ],
+    "unit_equations": [
+      {
+        "name": "wake_loss_pct",
+        "value": "percent"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "wake_loss_pct",
+        "unit": "percent",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-026: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-026: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-027",
+    "name_es": "Radio mínimo de curva horizontal",
+    "description": "Radio mínimo de curva horizontal en función de velocidad y peralte",
+    "formula": "R_min = V_design^2 / (127 * (e + f_side))",
+    "variables": [
+      {
+        "name": "V_design",
+        "unit": "km/h",
+        "description": "Velocidad de diseño"
+      },
+      {
+        "name": "e",
+        "unit": "-",
+        "description": "Peralte (tangente)"
+      },
+      {
+        "name": "f_side",
+        "unit": "-",
+        "description": "Coef. de fricción lateral"
+      },
+      {
+        "name": "P_wave",
+        "symbol": "P_wave",
+        "unit": "m3/s",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m",
+    "used_by_field_ids": [
+      "WON-111",
+      "WON-113",
+      "WON-122"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "purpose": "Radio mínimo de curva horizontal",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_wave = (1/(2*pi)) * integral(v^3 * f(v) dv)"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  (1/(2*pi)) * integral(v^{3} * f(v) dv)"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_wave",
+        "value": "m3/s"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_wave",
+        "unit": "m3/s",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-027: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-027: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-028",
+    "name_es": "Dimensionamiento de cable colector por ampacidad",
+    "description": "Sección de cable por ampacidad y corriente de cortocircuito",
+    "formula": "I_min = P_wt_total / (sqrt(3) * V_nom * cos_phi * n_cables) ; S_cable = I_min / J_max",
+    "variables": [
+      {
+        "name": "P_wt_total",
+        "unit": "kW",
+        "description": "Potencia total de WT en circuito"
+      },
+      {
+        "name": "V_nom",
+        "unit": "kV",
+        "description": "Tensión nominal del circuito"
+      },
+      {
+        "name": "cos_phi",
+        "unit": "-",
+        "description": "Factor de potencia"
+      },
+      {
+        "name": "n_cables",
+        "unit": "-",
+        "description": "Número de cables paralelos"
+      },
+      {
+        "name": "I_min",
+        "unit": "A",
+        "description": "Corriente mínima"
+      },
+      {
+        "name": "J_max",
+        "unit": "A/mm2",
+        "description": "Densidad de corriente admisible"
+      },
+      {
+        "name": "TI",
+        "symbol": "TI",
+        "unit": "dimensionless_ratio",
+        "type": "output"
+      }
+    ],
+    "output_unit": "mm2",
+    "used_by_field_ids": [
+      "WON-140",
+      "WON-141",
+      "WON-144"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_835"
+    ],
+    "purpose": "Dimensionamiento de cable colector por ampacidad",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "turbulence_intensity = sigma_v / mean_v"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 / \\1_\\2"
+    ],
+    "unit_equations": [
+      {
+        "name": "TI",
+        "value": "dimensionless"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "TI",
+        "unit": "various_units",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-028: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-028: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-029",
+    "name_es": "Caída de tensión en circuito colector",
+    "description": "Caída de tensión porcentual en circuito colector MV",
+    "formula": "delta_V/V = (P*L) / (V_nom^2 * cos_phi) * (R + jX) * 100",
+    "variables": [
+      {
+        "name": "P",
+        "unit": "kW",
+        "description": "Potencia transmitida"
+      },
+      {
+        "name": "L",
+        "unit": "km",
+        "description": "Longitud del tramo"
+      },
+      {
+        "name": "V_nom",
+        "unit": "V",
+        "description": "Tensión nominal"
+      },
+      {
+        "name": "cos_phi",
+        "unit": "-",
+        "description": "Factor de potencia"
+      },
+      {
+        "name": "R",
+        "unit": "ohm/km",
+        "description": "Resistencia por km"
+      },
+      {
+        "name": "X",
+        "unit": "ohm/km",
+        "description": "Reactancia por km"
+      },
+      {
+        "name": "v_hub",
+        "symbol": "v_hub",
+        "unit": "m/s",
+        "type": "output"
+      }
+    ],
+    "output_unit": "%",
+    "used_by_field_ids": [
+      "WON-140",
+      "WON-141"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_835"
+    ],
+    "purpose": "Caída de tensión en circuito colector",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "v_hub = v_ref * (h_hub / h_ref) ^ alpha"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 * (\\1_\\2 / \\1_\\2) ^ alpha"
+    ],
+    "unit_equations": [
+      {
+        "name": "v_hub",
+        "value": "m/s"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "v_hub",
+        "unit": "m/s",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-029: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-029: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-030",
+    "name_es": "Resistencia de puesta a tierra de turbina",
+    "description": "Resistencia equivalente de malla de tierra de WT",
+    "formula": "R_g = rho_soil * (0.5 + ln(2*pi*L)/(L)) simplificado",
+    "variables": [
+      {
+        "name": "rho_soil",
+        "unit": "ohm·m",
+        "description": "Resistividad del suelo"
+      },
+      {
+        "name": "L",
+        "unit": "m",
+        "description": "Longitud total del electrodo enterrado"
+      },
+      {
+        "name": "P_air",
+        "symbol": "P_air",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "ohm",
+    "used_by_field_ids": [
+      "WON-079",
+      "WON-100"
+    ],
+    "source_ids": [
+      "IEC_61400_24",
+      "IEC_60364_5_54",
+      "IEEE_80_2013"
+    ],
+    "purpose": "Resistencia de puesta a tierra de turbina",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_air = 0.5 * rho_air * A_rotor * v^3"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  0.5 * \\1_\\2 * \\1_\\2 * v^{3}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_air",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_air",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-030: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-030: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-031",
+    "name_es": "Malla de tierra de subestación (IEEE 80)",
+    "description": "Cálculo de malla de tierra según IEEE 80: GPR, E_step, E_touch",
+    "formula": "R_grid = rho_soil * (pi/(4*A) + 1/L_total) ; GPR = I_fault * R_grid ; E_touch < E_touch_50",
+    "variables": [
+      {
+        "name": "rho_soil",
+        "unit": "ohm·m",
+        "description": "Resistividad del suelo"
+      },
+      {
+        "name": "A",
+        "unit": "m2",
+        "description": "Área de malla"
+      },
+      {
+        "name": "L_total",
+        "unit": "m",
+        "description": "Longitud total de conductores"
+      },
+      {
+        "name": "I_fault",
+        "unit": "A",
+        "description": "Corriente de falla"
+      },
+      {
+        "name": "GPR",
+        "unit": "V",
+        "description": "Ground potential rise"
+      },
+      {
+        "name": "E_touch",
+        "unit": "V",
+        "description": "Tensión de contacto"
+      },
+      {
+        "name": "E_touch_50",
+        "unit": "V",
+        "description": "Tensión de contacto tolerable 50 kg"
+      },
+      {
+        "name": "P_turbine",
+        "symbol": "P_turbine",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "output_unit": "ohm",
+    "used_by_field_ids": [
+      "WON-143"
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEC_60364_5_54"
+    ],
+    "purpose": "Malla de tierra de subestación (IEEE 80)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_turbine = P_air * Cp"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 * Cp"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_turbine",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_turbine",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-031: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-031: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-032",
+    "name_es": "Clase de protección contra rayos LPS (IEC 61400-24)",
+    "description": "Selección de LPS en función de Ng y LPL",
+    "formula": "Nd = Ng * (C1+C2+C3+C4) * C5 ; LPL = (Nd >= Nd_ref) ? LPL_I : (Nd >=  ) ? LPL_II :  ",
+    "variables": [
+      {
+        "name": "Ng",
+        "unit": "1/(km2·año)",
+        "description": "Densidad de rayos a tierra"
+      },
+      {
+        "name": "C1",
+        "unit": "-",
+        "description": "Coef. de entorno"
+      },
+      {
+        "name": "C2",
+        "unit": "-",
+        "description": "Coef. de estructura"
+      },
+      {
+        "name": "C3",
+        "unit": "-",
+        "description": "Coef. de contenido"
+      },
+      {
+        "name": "C4",
+        "unit": "-",
+        "description": "Coef. de uso"
+      },
+      {
+        "name": "C5",
+        "unit": "-",
+        "description": "Coef. de consecuencias"
+      },
+      {
+        "name": "AEP",
+        "symbol": "AEP",
+        "unit": "MWh/year",
+        "type": "output"
+      }
+    ],
+    "output_unit": "-",
+    "used_by_field_ids": [
+      "WON-079"
+    ],
+    "source_ids": [
+      "IEC_61400_24",
+      "IEC_62305_1"
+    ],
+    "purpose": "Clase de protección contra rayos LPS (IEC 61400-24)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "AEP = sum(P_turbine(t) for t in 8760) * availability"
+    ],
+    "equations_latex": [
+      "AEP  =  sum(\\1_\\2(t) for t in 8760) * availability"
+    ],
+    "unit_equations": [
+      {
+        "name": "AEP",
+        "value": "MWh/year"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "AEP",
+        "unit": "MWh/year",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-032: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-032: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-033",
+    "name_es": "Frecuencia direccional en 12 sectores",
+    "description": "Tabla de frecuencias relativas por sector de 30°",
+    "formula": "F_dir[s] = (count of V in sector s) / (total count) * 100",
+    "variables": [
+      {
+        "name": "V",
+        "unit": "m/s",
+        "description": "Muestras de velocidad"
+      },
+      {
+        "name": "s",
+        "unit": "-",
+        "description": "Sector 1..12"
+      },
+      {
+        "name": "wake_loss_pct",
+        "symbol": "wake_loss_pct",
+        "unit": "percent",
+        "type": "output"
+      }
+    ],
+    "output_unit": "%",
+    "used_by_field_ids": [
+      "WON-015"
+    ],
+    "source_ids": [
+      "IEC_61400_12_1"
+    ],
+    "purpose": "Frecuencia direccional en 12 sectores",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "wake_loss = 1 - (P_with_wake / P_without_wake)"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  1 - (\\1_\\2 / \\1_\\2)"
+    ],
+    "unit_equations": [
+      {
+        "name": "wake_loss_pct",
+        "value": "percent"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "wake_loss_pct",
+        "unit": "percent",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-033: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-033: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-034",
+    "name_es": "Velocidad extrema 50 años (Gumbel)",
+    "description": "Ajuste Gumbel a velocidades máximas anuales para retorno 50 años",
+    "formula": "V_50 = mu + sigma * (-ln(-ln(1-1/T)))",
+    "variables": [
+      {
+        "name": "mu",
+        "unit": "m/s",
+        "description": "Media de máximos anuales"
+      },
+      {
+        "name": "sigma",
+        "unit": "m/s",
+        "description": "Desv. estándar de máximos anuales"
+      },
+      {
+        "name": "T",
+        "unit": "años",
+        "description": "Período de retorno 50"
+      },
+      {
+        "name": "P_wave",
+        "symbol": "P_wave",
+        "unit": "m3/s",
+        "type": "output"
+      }
+    ],
+    "output_unit": "m/s",
+    "used_by_field_ids": [
+      "WON-016",
+      "WON-020"
+    ],
+    "source_ids": [
+      "IEC_61400_1",
+      "DNV_RP_C205"
+    ],
+    "purpose": "Velocidad extrema 50 años (Gumbel)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_wave = (1/(2*pi)) * integral(v^3 * f(v) dv)"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  (1/(2*pi)) * integral(v^{3} * f(v) dv)"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_wave",
+        "value": "m3/s"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_wave",
+        "unit": "m3/s",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-034: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-034: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "WON-CALC-035",
+    "name_es": "Cálculo de densidad de aire a altura de buje",
+    "description": "Densidad de aire a partir de presión y temperatura atmosféricas",
+    "formula": "rho = P_abs / (R_spec * T_K)",
+    "variables": [
+      {
+        "name": "P_abs",
+        "unit": "Pa",
+        "description": "Presión atmosférica absoluta"
+      },
+      {
+        "name": "R_spec",
+        "unit": "J/(kg·K)",
+        "description": "Constante específica aire 287.05"
+      },
+      {
+        "name": "T_K",
+        "unit": "K",
+        "description": "Temperatura absoluta"
+      },
+      {
+        "name": "TI",
+        "symbol": "TI",
+        "unit": "dimensionless_ratio",
+        "type": "output"
+      }
+    ],
+    "output_unit": "kg/m3",
+    "used_by_field_ids": [
+      "WON-017",
+      "WON-002"
+    ],
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NASA_POWER"
+    ],
+    "purpose": "Cálculo de densidad de aire a altura de buje",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "WON-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "turbulence_intensity = sigma_v / mean_v"
+    ],
+    "equations_latex": [
+      "\\1_\\2  =  \\1_\\2 / \\1_\\2"
+    ],
+    "unit_equations": [
+      {
+        "name": "TI",
+        "value": "dimensionless"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "TI",
+        "unit": "various_units",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "WON-CALC-035: output within design tolerance (e.g., +/- 10% of nominal)"
+    ],
+    "failure_modes": [
+      "WON-CALC-035: input values outside valid physical range (e.g., temperature > 60C, pressure > design limit)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  }
+]

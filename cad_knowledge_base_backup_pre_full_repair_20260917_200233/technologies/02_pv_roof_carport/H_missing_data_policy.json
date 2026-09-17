@@ -1,0 +1,2595 @@
+[
+  {
+    "field_id": "PVR-001",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-002",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006",
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-003",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "NREL_PVWatts"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-004",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "NFPA_70_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-005",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-007",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "NFPA_70_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-008",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-009",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-010",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-011",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-012",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-013",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "DNV_RP_C205",
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-014",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-015",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "NASA_POWER"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-016",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-017",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "NASA_POWER",
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-019",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-020",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-021",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-023",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-025",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-026",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-027",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-028",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-029",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-030",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-031",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-032",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "GEOTECHNICAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEEE_80_2013"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-033",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEEE_80_2013",
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-034",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEEE_80_2013",
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-035",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-036",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-037",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-038",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-039",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_61215_1",
+      "IEC_61730_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-040",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_61215_1",
+      "IEC_60904_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-041",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_60904_1",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-042",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_60904_1",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-043",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_60904_1",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-044",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_60904_1",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-046",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_61215_1",
+      "IEC_61730_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-047",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_61215_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-048",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_61215_1",
+      "IEC_61730_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-049",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_TS_62804_1",
+      "IEC_60904_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-050",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_TS_62804_1",
+      "NREL_SAM_2024"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-051",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "NASA_POWER",
+      "NSRDB_NREL"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-052",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_60904_1",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-053",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_60904_1",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-055",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "IEC_TS_63209"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-056",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62109_2",
+      "UL_1741"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-057",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62894"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-058",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-059",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62109_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-060",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-061",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-062",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62109_1",
+      "IEEE_1547_2018"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-064",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-065",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-066",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-067",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62109_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-069",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-070",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "IEEE_835"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-071",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_60287_1_1",
+      "NFPA_70_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-072",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_60364_7_712",
+      "NFPA_70_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-073",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "IEC_61643_11"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-074",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "IEC_61643_11"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-075",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEC_60364_7_712"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-076",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_61643_11",
+      "IEC_62305_3"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-077",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEC_60364_5_54",
+      "IEEE_80_2013"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-078",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_60364_5_54",
+      "IEC_62305_3",
+      "NFPA_70_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-079",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_60364_5_54",
+      "IEEE_80_2013"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-081",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "UL_1703"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-082",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-083",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-084",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "UL_1703"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-085",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-086",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-087",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-088",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-090",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-091",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "ISO_9806",
+      "ASHRAE_93",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-092",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "MECHANICAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "ISO_9806",
+      "ASHRAE_93"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-093",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "MECHANICAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "ISO_9806",
+      "ASHRAE_93"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-094",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_61215_1",
+      "ISO_9806"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-095",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "MECHANICAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "ISO_9806",
+      "ASHRAE_93"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-096",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "NREL_SAM_2024"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-097",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "NREL_SAM_2024"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-098",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "NASA_POWER"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-099",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "NREL_SAM_2024"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-100",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "NREL_SAM_2024"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-101",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_ENGINEER_USE_DESIGN_VALUE",
+    "fallback_allowed": true,
+    "fallback_value": null,
+    "fallback_conditions": [
+      "design_memo_provided",
+      "engineer_signoff"
+    ],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "NREL_PVWatts",
+      "ASTM_E2848",
+      "IEC_61724_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-103",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "NSRDB_NREL",
+      "NASA_POWER"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-104",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-105",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-106",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "NFPA_70_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-108",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548",
+      "NASA_POWER"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-109",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_action": "REQUEST_FROM_OWNER",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "STRUCTURAL_ENGINEER",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62548"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-110",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_action": "REQUEST_FROM_OWNER_AND_BLOCK",
+    "fallback_allowed": false,
+    "fallback_value": null,
+    "fallback_conditions": [],
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "escalation_path": "PROJECT_MANAGER -> TECHNICAL_DIRECTOR -> OWNER",
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "PVR-102",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Inverter datasheet",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-006"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-005",
+      "PVR-DRW-006"
+    ]
+  },
+  {
+    "field_id": "PVR-107",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-008"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVR-300",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Structural capacity study",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-001"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-002",
+      "PVR-DRW-007"
+    ]
+  },
+  {
+    "field_id": "PVR-301",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Wind load study",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-002"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-002",
+      "PVR-DRW-007"
+    ]
+  },
+  {
+    "field_id": "PVR-302",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Snow load study",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-002"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-002",
+      "PVR-DRW-007"
+    ]
+  },
+  {
+    "field_id": "PVR-303",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Anchor test report",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-002"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-002",
+      "PVR-DRW-012"
+    ]
+  },
+  {
+    "field_id": "PVR-304",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ballast specification",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-003"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-002"
+    ]
+  },
+  {
+    "field_id": "PVR-305",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Module datasheet",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-002"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-005",
+      "PVR-DRW-006"
+    ]
+  },
+  {
+    "field_id": "PVR-306",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Inverter datasheet",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-006"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-005",
+      "PVR-DRW-006"
+    ]
+  },
+  {
+    "field_id": "PVR-307",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Inverter datasheet",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-006"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-005"
+    ]
+  },
+  {
+    "field_id": "PVR-308",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Module datasheet",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-002"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-005"
+    ]
+  },
+  {
+    "field_id": "PVR-309",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "String sizing calc",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-002"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-005"
+    ]
+  },
+  {
+    "field_id": "PVR-310",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Battery datasheet",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-002"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-005"
+    ]
+  },
+  {
+    "field_id": "PVR-311",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-008"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVR-312",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-008"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "PVR-313",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Roof survey",
+    "responsible_role": "CIVIL_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-002"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-002",
+      "PVR-DRW-007"
+    ]
+  },
+  {
+    "field_id": "PVR-314",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Roof specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "PVR-C-002"
+    ],
+    "blocked_drawings": [
+      "PVR-DRW-002",
+      "PVR-DRW-007"
+    ]
+  }
+]

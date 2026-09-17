@@ -1,0 +1,1467 @@
+[
+  {
+    "rule_id": "WOF-GEO-001",
+    "name_es": "Cuadricula de micrositing offshore",
+    "description": "Malla regular o alineada de WT respetando separacion minima 7D",
+    "geometry_type": "POINT_GRID",
+    "parameters": {
+      "min_spacing_D": 7,
+      "rotation_deg": 0
+    },
+    "conditional_expression": "always",
+    "validation_expression": "for every WT pair: dist >= 7*rotor_diameter_m",
+    "source_ids": [
+      "IEC_61400_3_1",
+      "DNV_OS_J101"
+    ],
+    "geometry_rule_id": "WOF-GEO-001",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-001: required input field missing or invalid",
+      "WOF-GEO-001: collision between generated entities detected",
+      "WOF-GEO-001: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-002",
+    "name_es": "Trazado de cable inter-array",
+    "description": "Polilinea entre WT y OSS minimizando longitud y cruces",
+    "geometry_type": "POLYLINE",
+    "parameters": {
+      "max_crossings": 0,
+      "min_bend_radius_m": 50
+    },
+    "conditional_expression": "always",
+    "validation_expression": "len(crossings)==0 AND min_bend_radius>=50",
+    "source_ids": [
+      "DNV_ST_0519"
+    ],
+    "geometry_rule_id": "WOF-GEO-002",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-002: required input field missing or invalid",
+      "WOF-GEO-002: collision between generated entities detected",
+      "WOF-GEO-002: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-003",
+    "name_es": "Trazado de cable de exportacion",
+    "description": "Polilinea desde OSS a landfall evitando exclusiones",
+    "geometry_type": "POLYLINE",
+    "parameters": {
+      "min_distance_to_exclusion_m": 500,
+      "max_crossings_with_other": 0
+    },
+    "conditional_expression": "always",
+    "validation_expression": "distance_to_exclusion>=500",
+    "source_ids": [
+      "DNV_ST_0519"
+    ],
+    "geometry_rule_id": "WOF-GEO-003",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-003: required input field missing or invalid",
+      "WOF-GEO-003: collision between generated entities detected",
+      "WOF-GEO-003: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-004",
+    "name_es": "Seccion de landfall (HDD o trench)",
+    "description": "Trazado dirigido desde profundidad -X hasta transicion terrestre",
+    "geometry_type": "PROFILE",
+    "parameters": {
+      "min_depth_below_beach_m": 3,
+      "entry_angle_deg_max": 15
+    },
+    "conditional_expression": "always",
+    "validation_expression": "min_cover_below_beach>=3",
+    "source_ids": [
+      "DNV_ST_0519",
+      "DNV_RP_J202"
+    ],
+    "geometry_rule_id": "WOF-GEO-004",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-004: required input field missing or invalid",
+      "WOF-GEO-004: collision between generated entities detected",
+      "WOF-GEO-004: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-005",
+    "name_es": "Posicion de la subestacion offshore",
+    "description": "Punto central al cluster de WT minimizando longitudes inter-array",
+    "geometry_type": "POINT",
+    "parameters": {
+      "distance_to_WT_max_m": 15000
+    },
+    "conditional_expression": "always",
+    "validation_expression": "max(dist(OSS,WT))<=15000",
+    "source_ids": [
+      "DNV_OS_J103"
+    ],
+    "geometry_rule_id": "WOF-GEO-005",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-005: required input field missing or invalid",
+      "WOF-GEO-005: collision between generated entities detected",
+      "WOF-GEO-005: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-006",
+    "name_es": "Area del puerto base",
+    "description": "Poligono de area del puerto y zonas de carga",
+    "geometry_type": "POLYGON",
+    "parameters": {
+      "min_quay_length_m": 200,
+      "min_laydown_m2": 50000
+    },
+    "conditional_expression": "always",
+    "validation_expression": "quay_length>=200 AND laydown_area>=50000",
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "geometry_rule_id": "WOF-GEO-006",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-006: required input field missing or invalid",
+      "WOF-GEO-006: collision between generated entities detected",
+      "WOF-GEO-006: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-007",
+    "name_es": "Ruta de transporte port-to-site",
+    "description": "Ruta maritima desde puerto hasta sitio evitando navlines",
+    "geometry_type": "POLYLINE",
+    "parameters": {
+      "min_distance_to_hazard_m": 1000
+    },
+    "conditional_expression": "always",
+    "validation_expression": "min_distance_to_hazard>=1000",
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "geometry_rule_id": "WOF-GEO-007",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-007: required input field missing or invalid",
+      "WOF-GEO-007: collision between generated entities detected",
+      "WOF-GEO-007: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-008",
+    "name_es": "Poligono de proteccion contra socavacion",
+    "description": "Anillo circular alrededor de cimentacion",
+    "geometry_type": "POLYGON",
+    "parameters": {
+      "radius_outer_m": 25,
+      "radius_inner_m": 5
+    },
+    "conditional_expression": "scour_protection_type != NONE",
+    "validation_expression": "r_outer>=25 AND r_inner>=5",
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_RP_C205"
+    ],
+    "geometry_rule_id": "WOF-GEO-008",
+    "applicability_expression": "scour_protection_type != NONE",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-008: required input field missing or invalid",
+      "WOF-GEO-008: collision between generated entities detected",
+      "WOF-GEO-008: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-009",
+    "name_es": "Posiciones de anclas",
+    "description": "Puntos de anclaje separados angularmente",
+    "geometry_type": "POINT",
+    "parameters": {
+      "min_spacing_angle_deg": 30
+    },
+    "conditional_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "validation_expression": "min_angular_spacing>=30",
+    "source_ids": [
+      "DNV_OS_E301",
+      "IEC_TS_62600_10"
+    ],
+    "geometry_rule_id": "WOF-GEO-009",
+    "applicability_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-009: required input field missing or invalid",
+      "WOF-GEO-009: collision between generated entities detected",
+      "WOF-GEO-009: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-010",
+    "name_es": "Poligono de lineas de fondeo",
+    "description": "Area Swept por las lineas de fondeo",
+    "geometry_type": "POLYGON",
+    "parameters": {
+      "safety_buffer_m": 50
+    },
+    "conditional_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "validation_expression": "safety_buffer>=50",
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "geometry_rule_id": "WOF-GEO-010",
+    "applicability_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-010: required input field missing or invalid",
+      "WOF-GEO-010: collision between generated entities detected",
+      "WOF-GEO-010: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-011",
+    "name_es": "Zona de exclusion de seguridad",
+    "description": "Zona de seguridad alrededor de WT y OSS",
+    "geometry_type": "POLYGON",
+    "parameters": {
+      "radius_WT_m": 500,
+      "radius_OSS_m": 500
+    },
+    "conditional_expression": "always",
+    "validation_expression": "r>=500",
+    "source_ids": [
+      "IEC_61400_3_1",
+      "IRENA_OFFSHORE_2023"
+    ],
+    "geometry_rule_id": "WOF-GEO-011",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-011: required input field missing or invalid",
+      "WOF-GEO-011: collision between generated entities detected",
+      "WOF-GEO-011: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-012",
+    "name_es": "Zona de exclusion ambiental",
+    "description": "Poligonos ambientales excluidos del sitio",
+    "geometry_type": "MULTIPOLYGON",
+    "parameters": {
+      "min_distance_to_WT_m": 1000
+    },
+    "conditional_expression": "always",
+    "validation_expression": "min_dist_to_WT>=1000",
+    "source_ids": [
+      "IRENA_OFFSHORE_2023",
+      "ISO_19111"
+    ],
+    "geometry_rule_id": "WOF-GEO-012",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-012: required input field missing or invalid",
+      "WOF-GEO-012: collision between generated entities detected",
+      "WOF-GEO-012: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-013",
+    "name_es": "Zona de exclusion de navegacion",
+    "description": "Exclusion a partir de lineas de navegacion",
+    "geometry_type": "POLYGON",
+    "parameters": {
+      "min_distance_to_lane_m": 1000
+    },
+    "conditional_expression": "always",
+    "validation_expression": "min_dist>=1000",
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "geometry_rule_id": "WOF-GEO-013",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-013: required input field missing or invalid",
+      "WOF-GEO-013: collision between generated entities detected",
+      "WOF-GEO-013: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-014",
+    "name_es": "Ruta de pre-lay survey",
+    "description": "Polilinea de relevamiento batimetrico y geofisico",
+    "geometry_type": "POLYLINE",
+    "parameters": {
+      "line_spacing_m": 100
+    },
+    "conditional_expression": "always",
+    "validation_expression": "line_spacing<=100",
+    "source_ids": [
+      "DNV_ST_0519"
+    ],
+    "geometry_rule_id": "WOF-GEO-014",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-014: required input field missing or invalid",
+      "WOF-GEO-014: collision between generated entities detected",
+      "WOF-GEO-014: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-015",
+    "name_es": "Ruta de shore crossing",
+    "description": "Trazado de cruce de playa y dunas",
+    "geometry_type": "PROFILE",
+    "parameters": {
+      "max_slope_pct": 15
+    },
+    "conditional_expression": "always",
+    "validation_expression": "slope<=15",
+    "source_ids": [
+      "DNV_ST_0519",
+      "DNV_RP_J202"
+    ],
+    "geometry_rule_id": "WOF-GEO-015",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-015: required input field missing or invalid",
+      "WOF-GEO-015: collision between generated entities detected",
+      "WOF-GEO-015: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-016",
+    "name_es": "Layout subestacion onshore AC",
+    "description": "Disposicion de equipos en S/S onshore",
+    "geometry_type": "POLYGON",
+    "parameters": {
+      "min_cable_length_m": 50,
+      "min_separation_bays_m": 8
+    },
+    "conditional_expression": "oss_hvac_or_hvdc==HVAC",
+    "validation_expression": "separation>=8",
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_1547_2018"
+    ],
+    "geometry_rule_id": "WOF-GEO-016",
+    "applicability_expression": "oss_hvac_or_hvdc==HVAC",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-016: required input field missing or invalid",
+      "WOF-GEO-016: collision between generated entities detected",
+      "WOF-GEO-016: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-017",
+    "name_es": "Layout subestacion onshore HVDC",
+    "description": "Disposicion de convertidor HVDC en S/S onshore",
+    "geometry_type": "POLYGON",
+    "parameters": {
+      "min_converter_area_m2": 1000,
+      "min_fire_wall_m": 6
+    },
+    "conditional_expression": "oss_hvac_or_hvdc==HVDC",
+    "validation_expression": "area>=1000",
+    "source_ids": [
+      "IEC_61400_27_1"
+    ],
+    "geometry_rule_id": "WOF-GEO-017",
+    "applicability_expression": "oss_hvac_or_hvdc==HVDC",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-017: required input field missing or invalid",
+      "WOF-GEO-017: collision between generated entities detected",
+      "WOF-GEO-017: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-018",
+    "name_es": "Ruta inter-field cable",
+    "description": "Cable entre clusters OSS distintas",
+    "geometry_type": "POLYLINE",
+    "parameters": {
+      "min_bend_radius_m": 100
+    },
+    "conditional_expression": "oss_topside_mass_t > 0",
+    "validation_expression": "bend_radius>=100",
+    "source_ids": [
+      "DNV_ST_0519"
+    ],
+    "geometry_rule_id": "WOF-GEO-018",
+    "applicability_expression": "oss_topside_mass_t > 0",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-018: required input field missing or invalid",
+      "WOF-GEO-018: collision between generated entities detected",
+      "WOF-GEO-018: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-019",
+    "name_es": "Corredor de navegacion",
+    "description": "Pasaje maritima en torno al parque",
+    "geometry_type": "POLYGON",
+    "parameters": {
+      "min_width_m": 1000
+    },
+    "conditional_expression": "always",
+    "validation_expression": "width>=1000",
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "geometry_rule_id": "WOF-GEO-019",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-019: required input field missing or invalid",
+      "WOF-GEO-019: collision between generated entities detected",
+      "WOF-GEO-019: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-020",
+    "name_es": "Zona de avoidance de fondeo",
+    "description": "Zona prohibida para anclas de paso",
+    "geometry_type": "POLYGON",
+    "parameters": {
+      "min_separation_to_cable_m": 500
+    },
+    "conditional_expression": "always",
+    "validation_expression": "min_sep_to_cable>=500",
+    "source_ids": [
+      "DNV_ST_0519",
+      "IRENA_OFFSHORE_2023"
+    ],
+    "geometry_rule_id": "WOF-GEO-020",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-020: required input field missing or invalid",
+      "WOF-GEO-020: collision between generated entities detected",
+      "WOF-GEO-020: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-021",
+    "name_es": "Poligono de contornos batimetricos",
+    "description": "Curvas de nivel batimetricas",
+    "geometry_type": "CONTOUR",
+    "parameters": {
+      "interval_m": 1
+    },
+    "conditional_expression": "always",
+    "validation_expression": "interval>=1",
+    "source_ids": [
+      "DNV_RP_C205",
+      "ISO_19111"
+    ],
+    "geometry_rule_id": "WOF-GEO-021",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-021: required input field missing or invalid",
+      "WOF-GEO-021: collision between generated entities detected",
+      "WOF-GEO-021: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-022",
+    "name_es": "Alineacion del arreglo de WT offshore",
+    "description": "Eje de orientacion del parque optimizado por rosa de vientos",
+    "geometry_type": "LINE",
+    "parameters": {
+      "orientation_deg": 0,
+      "row_spacing_D": 7,
+      "col_spacing_D": 10
+    },
+    "conditional_expression": "always",
+    "validation_expression": "row_spacing>=7*D AND col_spacing>=10*D",
+    "source_ids": [
+      "IEC_61400_3_1",
+      "IEC_61400_12_1"
+    ],
+    "geometry_rule_id": "WOF-GEO-022",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-022: required input field missing or invalid",
+      "WOF-GEO-022: collision between generated entities detected",
+      "WOF-GEO-022: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-023",
+    "name_es": "Trazado de cable dinamico (flotante)",
+    "description": "Polilinea tridimensional con configuracion lazy/steep wave",
+    "geometry_type": "PROFILE_3D",
+    "parameters": {
+      "min_bend_radius_m": 5,
+      "max_surge_m": 30
+    },
+    "conditional_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "validation_expression": "bend_radius>=5",
+    "source_ids": [
+      "DNV_ST_0519",
+      "IEC_61400_3_2"
+    ],
+    "geometry_rule_id": "WOF-GEO-023",
+    "applicability_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-023: required input field missing or invalid",
+      "WOF-GEO-023: collision between generated entities detected",
+      "WOF-GEO-023: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WOF-GEO-024",
+    "name_es": "Disposicion del jetty y boat landing",
+    "description": "Plataforma de acceso en OSS",
+    "geometry_type": "POLYGON",
+    "parameters": {
+      "min_dock_length_m": 15,
+      "min_draft_m": 3
+    },
+    "conditional_expression": "oss_topside_mass_t>0",
+    "validation_expression": "dock>=15",
+    "source_ids": [
+      "DNV_OS_J103"
+    ],
+    "geometry_rule_id": "WOF-GEO-024",
+    "applicability_expression": "oss_topside_mass_t>0",
+    "required_field_ids": [
+      "WOF-001",
+      "WOF-002"
+    ],
+    "required_calculation_ids": [
+      "WOF-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WOF-GEO-024: required input field missing or invalid",
+      "WOF-GEO-024: collision between generated entities detected",
+      "WOF-GEO-024: clearance violation"
+    ]
+  }
+]

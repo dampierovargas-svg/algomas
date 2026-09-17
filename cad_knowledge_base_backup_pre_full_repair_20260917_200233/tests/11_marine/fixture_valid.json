@@ -1,0 +1,17 @@
+{
+  "technology": "11_marine",
+  "project_id": "TEST-MAR-001",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {
+    "MAR-001": "value_0",
+    "MAR-002": "value_1",
+    "MAR-003": "value_2",
+    "MAR-004": "value_3",
+    "MAR-005": "value_4"
+  },
+  "drawings_to_generate": [
+    "MAR-DRW-001",
+    "MAR-DRW-002",
+    "MAR-DRW-003"
+  ]
+}

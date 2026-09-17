@@ -1,0 +1,2192 @@
+[
+  {
+    "calculation_id": "BESS-C-001",
+    "name_es": "Tension de celda (OCV vs SOC)",
+    "purpose": "Estima la tension de circuito abierto de la celda como funcion de SOC, T y quimica.",
+    "applicability_expression": "technology == '12_bess' AND BESS-007 IS NOT NULL",
+    "input_field_ids": [
+      "BESS-007",
+      "BESS-009",
+      "BESS-010",
+      "BESS-011",
+      "BESS-064",
+      "BESS-065"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_oc(SOC,T) = a0 + a1*SOC + a2*T + a3*SOC*T (LFP)",
+      "V_oc(SOC) = Vnom + (Vmax - Vmin)*(SOC - 0.5) (NMC lineal)"
+    ],
+    "equations_latex": [
+      "V_{oc}(SOC,T) = a_0 + a_1 SOC + a_2 T + a_3 SOC T",
+      "V_{oc}(SOC) = V_{nom} + (V_{max}-V_{min})(SOC - 0.5)"
+    ],
+    "variables": [
+      {
+        "name": "SOC",
+        "unit": "-"
+      },
+      {
+        "name": "T",
+        "unit": "degC"
+      },
+      {
+        "name": "Vnom",
+        "unit": "V"
+      }
+    ],
+    "unit_equations": [
+      "V_oc [V] = a0 [-] + a1 [1] SOC [-] + a2 [V/degC] T [degC] + a3 [V] SOC*T [-][degC]"
+    ],
+    "numerical_method": "Piecewise empirical OCV curve lookup",
+    "iteration_limits": {
+      "max_iter": 50,
+      "tolerance_V": 0.005
+    },
+    "validity_limits": [
+      "SOC en [0,1]",
+      "T en [-20,55] degC",
+      "V_oc en [Vmin,Vmax]"
+    ],
+    "outputs": [
+      {
+        "name": "V_oc",
+        "unit": "V",
+        "min": 1.5,
+        "max": 4.4
+      }
+    ],
+    "acceptance_rules": [
+      "|V_oc_estimado - V_oc_datasheet| < 50 mV"
+    ],
+    "failure_modes": [
+      "Datos OCV fuera de rango -> reintegrar curva"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ],
+    "source_ids": [
+      "IEC_62660_1",
+      "IEC_62619",
+      "IEC_62897",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-002",
+    "name_es": "Estimacion de SOC (coulomb counting + voltage + Kalman)",
+    "purpose": "Estima SOC por fusion de coulomb counting y voltage + filtro de Kalman extendido (EKF).",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-008",
+      "BESS-009",
+      "BESS-064",
+      "BESS-065",
+      "BESS-012"
+    ],
+    "derived_input_ids": [
+      "BESS-C-001"
+    ],
+    "equations_ascii": [
+      "SOC(t+dt) = SOC(t) - I*C_rate^(-1) dt",
+      "SOC_v = f^-1(V_oc)",
+      "SOC = w1*SOC_c + (1-w1)*SOC_v (Kalman gain K)"
+    ],
+    "equations_latex": [
+      "SOC(t+dt) = SOC(t) - \\frac{I}{C_n} \\, dt",
+      "SOC_v = f^{-1}(V_{oc})",
+      "SOC = K \\cdot SOC_v + (1-K) \\cdot SOC_c"
+    ],
+    "variables": [
+      {
+        "name": "I",
+        "unit": "A"
+      },
+      {
+        "name": "C_n",
+        "unit": "Ah"
+      },
+      {
+        "name": "dt",
+        "unit": "s"
+      }
+    ],
+    "unit_equations": [
+      "SOC [-] = SOC[-] - I [A] dt [s] / (C_n [Ah] * 3600 [s/h])"
+    ],
+    "numerical_method": "Extended Kalman Filter with Q=1e-4, R=1e-3",
+    "iteration_limits": {
+      "max_iter": 2000,
+      "tolerance_SOC": 0.01
+    },
+    "validity_limits": [
+      "|I| <= 5*C_n",
+      "T en [-20,55] degC"
+    ],
+    "outputs": [
+      {
+        "name": "SOC",
+        "unit": "-",
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "acceptance_rules": [
+      "|SOC - SOC_medido| < 2%"
+    ],
+    "failure_modes": [
+      "Calibracion offset, deriva integrador > 5%"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-005",
+      "BESS-DRW-012"
+    ],
+    "source_ids": [
+      "IEC_62933_2_1",
+      "IEC_62619",
+      "DNV_RP_0585",
+      "IEC_62897"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-003",
+    "name_es": "Capacidad residual (fade por ciclo y calendario)",
+    "purpose": "Estima la capacidad residual Ah despues de ciclado y envejecimiento calendario.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-008",
+      "BESS-017",
+      "BESS-070",
+      "BESS-142",
+      "BESS-059"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "C_res = C_n * (1 - fade_cyc*N_eq - fade_cal*t)",
+      "fade_cyc = k1*DOD^k2*sqrt(N_eq) (semi-empirico)"
+    ],
+    "equations_latex": [
+      "C_{res} = C_n (1 - \\alpha_c N_{eq} - \\alpha_c t)",
+      "\\alpha_c = k_1 DOD^{k_2} \\sqrt{N_{eq}}"
+    ],
+    "variables": [
+      {
+        "name": "DOD",
+        "unit": "-"
+      },
+      {
+        "name": "N_eq",
+        "unit": "cyc"
+      },
+      {
+        "name": "t",
+        "unit": "year"
+      }
+    ],
+    "unit_equations": [
+      "C_res [Ah] = C_n [Ah] * (1 - alpha_c [1/cyc] * N_eq [cyc] - alpha_cal [1/year] * t [year])"
+    ],
+    "numerical_method": "Semi-empirical model",
+    "iteration_limits": {
+      "max_iter": 100,
+      "tolerance_Ah": 0.5
+    },
+    "validity_limits": [
+      "N_eq <= 15000",
+      "t <= 25 year"
+    ],
+    "outputs": [
+      {
+        "name": "C_res",
+        "unit": "Ah",
+        "min": 60.0,
+        "max": 100
+      }
+    ],
+    "acceptance_rules": [
+      "C_res >= 0.6*C_n a EOL"
+    ],
+    "failure_modes": [
+      "Parametros de fade fuera de rango"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-005",
+      "BESS-DRW-007"
+    ],
+    "source_ids": [
+      "IEC_62660_2",
+      "IEC_62619",
+      "UL_9540A",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-004",
+    "name_es": "SOH (capacity fade + resistance)",
+    "purpose": "Calcula State of Health combinando fade de capacidad y aumento de resistencia.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-008",
+      "BESS-012",
+      "BESS-066"
+    ],
+    "derived_input_ids": [
+      "BESS-C-003"
+    ],
+    "equations_ascii": [
+      "SOH_cap = C_res / C_n",
+      "SOH_res = R_init / R_now",
+      "SOH = 0.5*(SOH_cap + SOH_res)"
+    ],
+    "equations_latex": [
+      "SOH_{cap} = \\frac{C_{res}}{C_n}",
+      "SOH_{res} = \\frac{R_{init}}{R_{now}}",
+      "SOH = 0.5(SOH_{cap} + SOH_{res})"
+    ],
+    "variables": [
+      {
+        "name": "C_res",
+        "unit": "Ah"
+      },
+      {
+        "name": "R_now",
+        "unit": "mOhm"
+      }
+    ],
+    "unit_equations": [
+      "SOH [-] = 0.5 * (C_res [Ah] / C_n [Ah] + R_init [mOhm] / R_now [mOhm])"
+    ],
+    "numerical_method": "Linear weighted",
+    "iteration_limits": {
+      "max_iter": 10,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "C_res <= C_n",
+      "R_now >= R_init"
+    ],
+    "outputs": [
+      {
+        "name": "SOH",
+        "unit": "-",
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "acceptance_rules": [
+      "SOH >= SOH_minimo (BESS-066)"
+    ],
+    "failure_modes": [
+      "SOH < 0.6 -> reemplazo"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-005",
+      "BESS-DRW-012",
+      "BESS-DRW-013"
+    ],
+    "source_ids": [
+      "IEC_62933_2_1",
+      "IEC_62619",
+      "UL_9540A",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-005",
+    "name_es": "Modelo geometrico de celda y modulo",
+    "purpose": "Calcula volumen, area superficial y densidad de celda/modulo.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-013",
+      "BESS-014",
+      "BESS-015",
+      "BESS-016",
+      "BESS-024",
+      "BESS-025",
+      "BESS-026",
+      "BESS-022"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_cell = W*H*D",
+      "A_cell = 2*(W*H + W*D + H*D)",
+      "rho_cell = mass / V_cell"
+    ],
+    "equations_latex": [
+      "V_{cell} = W H D",
+      "A_{cell} = 2(WH + WD + HD)",
+      "\\rho_{cell} = m / V_{cell}"
+    ],
+    "variables": [
+      {
+        "name": "W",
+        "unit": "mm"
+      },
+      {
+        "name": "H",
+        "unit": "mm"
+      },
+      {
+        "name": "D",
+        "unit": "mm"
+      }
+    ],
+    "unit_equations": [
+      "V_cell [mm3] = W [mm] * H [mm] * D [mm]",
+      "rho_cell [kg/m3] = mass [kg] / (V_cell [mm3] / 1e9)"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0
+    },
+    "validity_limits": [
+      "Dimensiones positivas"
+    ],
+    "outputs": [
+      {
+        "name": "V_cell",
+        "unit": "mm3"
+      },
+      {
+        "name": "A_cell",
+        "unit": "mm2"
+      },
+      {
+        "name": "rho_cell",
+        "unit": "kg/m3"
+      }
+    ],
+    "acceptance_rules": [
+      "rho_cell en [1500,2500]"
+    ],
+    "failure_modes": [
+      "Dimensiones negativas"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-005"
+    ],
+    "source_ids": [
+      "IEC_62619",
+      "DNV_RP_0585",
+      "ISO_129_1"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-006",
+    "name_es": "Configuracion serie/paralelo del modulo",
+    "purpose": "Determina numero de celdas en serie (S) y paralelo (P) por modulo a partir de Vnom y capacidad.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-019",
+      "BESS-008",
+      "BESS-009",
+      "BESS-020",
+      "BESS-021"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "S = round(Vnom_modulo / Vnom_celda)",
+      "P = round(E_modulo_kWh*1000 / (S * Vnom_celda * Ah_celda))"
+    ],
+    "equations_latex": [
+      "S = \\mathrm{round}(V_{nom,mod}/V_{nom,cell})",
+      "P = \\mathrm{round}(E_{mod}\\cdot 1000 / (S V_{nom,cell} A h))"
+    ],
+    "variables": [
+      {
+        "name": "Vnom_mod",
+        "unit": "V"
+      },
+      {
+        "name": "Vnom_cell",
+        "unit": "V"
+      },
+      {
+        "name": "Ah",
+        "unit": "Ah"
+      }
+    ],
+    "unit_equations": [
+      "S [-] = Vnom_modulo [V] / Vnom_celda [V]",
+      "P [-] = (E_modulo [Wh] / (S [-] * Vnom_celda [V] * Ah_celda [Ah]))"
+    ],
+    "numerical_method": "Integer rounding",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0
+    },
+    "validity_limits": [
+      "Vnom_modulo multiple de Vnom_celda"
+    ],
+    "outputs": [
+      {
+        "name": "S",
+        "unit": "-"
+      },
+      {
+        "name": "P",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "S*Vnom_celda within 2% of Vnom_modulo"
+    ],
+    "failure_modes": [
+      "Inconsistencia S/P"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ],
+    "source_ids": [
+      "IEC_62660_1",
+      "IEC_62933_2_1",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-007",
+    "name_es": "Capacidad de modulo (kWh)",
+    "purpose": "Calcula capacidad energetica del modulo.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-019",
+      "BESS-008",
+      "BESS-009",
+      "BESS-021"
+    ],
+    "derived_input_ids": [
+      "BESS-C-006"
+    ],
+    "equations_ascii": [
+      "E_mod = S * P * Ah * Vnom / 1000"
+    ],
+    "equations_latex": [
+      "E_{mod} = \\frac{S P A_h V_{nom}}{1000}"
+    ],
+    "variables": [
+      {
+        "name": "S",
+        "unit": "-"
+      },
+      {
+        "name": "P",
+        "unit": "-"
+      },
+      {
+        "name": "Ah",
+        "unit": "Ah"
+      }
+    ],
+    "unit_equations": [
+      "E_mod [kWh] = S [-] * P [-] * Ah [Ah] * Vnom [V] / 1000"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "S,P > 0"
+    ],
+    "outputs": [
+      {
+        "name": "E_mod",
+        "unit": "kWh"
+      }
+    ],
+    "acceptance_rules": [
+      "|E_mod - BESS-021| < 5%"
+    ],
+    "failure_modes": [
+      "Discrepancia > 5%"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ],
+    "source_ids": [
+      "IEC_62933_2_1",
+      "IEC_62619",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-008",
+    "name_es": "Capacidad de rack (kWh y Vnom)",
+    "purpose": "Calcula capacidad y tension del rack a partir de modulos en serie.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-028",
+      "BESS-020",
+      "BESS-021",
+      "BESS-029",
+      "BESS-030"
+    ],
+    "derived_input_ids": [
+      "BESS-C-007"
+    ],
+    "equations_ascii": [
+      "E_rack = N_mod * E_mod",
+      "Vnom_rack = N_mod * Vnom_mod",
+      "I_rack = E_rack*1000 / Vnom_rack / 1h"
+    ],
+    "equations_latex": [
+      "E_{rack} = N_{mod} E_{mod}",
+      "V_{nom,rack} = N_{mod} V_{nom,mod}",
+      "I_{rack} = \\frac{E_{rack} 1000}{V_{nom,rack} \\cdot 1h}"
+    ],
+    "variables": [
+      {
+        "name": "N_mod",
+        "unit": "-"
+      },
+      {
+        "name": "E_mod",
+        "unit": "kWh"
+      }
+    ],
+    "unit_equations": [
+      "E_rack [kWh] = N_mod [-] * E_mod [kWh]",
+      "Vnom_rack [V] = N_mod [-] * Vnom_mod [V]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "Vnom_rack <= 1500 V"
+    ],
+    "outputs": [
+      {
+        "name": "E_rack",
+        "unit": "kWh"
+      },
+      {
+        "name": "Vnom_rack",
+        "unit": "V"
+      }
+    ],
+    "acceptance_rules": [
+      "Vnom_rack <= 1500 V per IEC 62933-2-1"
+    ],
+    "failure_modes": [
+      "Vnom_rack > 1500 V viola IEC 62933-2-1"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-004",
+      "BESS-DRW-006"
+    ],
+    "source_ids": [
+      "IEC_62933_2_1",
+      "IEC_62619",
+      "UL_9540",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-009",
+    "name_es": "Capacidad de contenedor (MWh y MW)",
+    "purpose": "Agrega racks para obtener capacidad de contenedor en MWh y MW.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-038",
+      "BESS-030",
+      "BESS-039",
+      "BESS-040"
+    ],
+    "derived_input_ids": [
+      "BESS-C-008"
+    ],
+    "equations_ascii": [
+      "E_cont = N_rack * E_rack / 1000",
+      "P_cont = N_rack * P_rack"
+    ],
+    "equations_latex": [
+      "E_{cont} = N_{rack} E_{rack} / 1000",
+      "P_{cont} = N_{rack} P_{rack}"
+    ],
+    "variables": [
+      {
+        "name": "N_rack",
+        "unit": "-"
+      },
+      {
+        "name": "E_rack",
+        "unit": "kWh"
+      }
+    ],
+    "unit_equations": [
+      "E_cont [MWh] = N_rack [-] * E_rack [kWh] / 1000",
+      "P_cont [MW] = N_rack [-] * P_rack [kW] / 1000"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "N_rack > 0"
+    ],
+    "outputs": [
+      {
+        "name": "E_cont",
+        "unit": "MWh"
+      },
+      {
+        "name": "P_cont",
+        "unit": "MW"
+      }
+    ],
+    "acceptance_rules": [
+      "|E_cont - BESS-039| < 5%",
+      "|P_cont - BESS-040| < 5%"
+    ],
+    "failure_modes": [
+      "Discrepancia > 5%"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-003",
+      "BESS-DRW-006"
+    ],
+    "source_ids": [
+      "IEC_62933_2_1",
+      "UL_9540",
+      "NFPA_855_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-010",
+    "name_es": "Capacidad del BESS (MWh y MW agregado)",
+    "purpose": "Suma contenedores para capacidad total del BESS.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-055",
+      "BESS-039",
+      "BESS-040",
+      "BESS-048",
+      "BESS-049"
+    ],
+    "derived_input_ids": [
+      "BESS-C-009"
+    ],
+    "equations_ascii": [
+      "E_BESS = N_cont * E_cont",
+      "P_BESS = N_cont * P_cont"
+    ],
+    "equations_latex": [
+      "E_{BESS} = N_{cont} E_{cont}",
+      "P_{BESS} = N_{cont} P_{cont}"
+    ],
+    "variables": [
+      {
+        "name": "N_cont",
+        "unit": "-"
+      },
+      {
+        "name": "E_cont",
+        "unit": "MWh"
+      }
+    ],
+    "unit_equations": [
+      "E_BESS [MWh] = N_cont [-] * E_cont [MWh]",
+      "P_BESS [MW] = N_cont [-] * P_cont [MW]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "N_cont > 0"
+    ],
+    "outputs": [
+      {
+        "name": "E_BESS",
+        "unit": "MWh"
+      },
+      {
+        "name": "P_BESS",
+        "unit": "MW"
+      }
+    ],
+    "acceptance_rules": [
+      "|E_BESS - BESS-048| < 3%",
+      "|P_BESS - BESS-049| < 3%"
+    ],
+    "failure_modes": [
+      "Discrepancia > 3%"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-001",
+      "BESS-DRW-003",
+      "BESS-DRW-007"
+    ],
+    "source_ids": [
+      "IEC_62933_1",
+      "IEC_62933_2_1",
+      "NFPA_855_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-011",
+    "name_es": "C-rate y duracion del BESS",
+    "purpose": "Calcula C-rate y duracion a partir de potencia y energia.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-048",
+      "BESS-049",
+      "BESS-050",
+      "BESS-051",
+      "BESS-052"
+    ],
+    "derived_input_ids": [
+      "BESS-C-010"
+    ],
+    "equations_ascii": [
+      "C_rate = P_BESS / E_BESS",
+      "Duration = E_BESS / P_BESS",
+      "P_inst_max = C_peak * E_BESS"
+    ],
+    "equations_latex": [
+      "C_{rate} = P/E",
+      "T_{dur} = E/P",
+      "P_{max} = C_{peak} E"
+    ],
+    "variables": [
+      {
+        "name": "E_BESS",
+        "unit": "MWh"
+      },
+      {
+        "name": "P_BESS",
+        "unit": "MW"
+      }
+    ],
+    "unit_equations": [
+      "C_rate [1/h] = P_BESS [MW] / E_BESS [MWh]",
+      "Duration [h] = E_BESS [MWh] / P_BESS [MW]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "C_rate <= 2 continuous",
+      "C_peak <= 10"
+    ],
+    "outputs": [
+      {
+        "name": "C_rate",
+        "unit": "1/h"
+      },
+      {
+        "name": "Duration",
+        "unit": "h"
+      },
+      {
+        "name": "P_max",
+        "unit": "MW"
+      }
+    ],
+    "acceptance_rules": [
+      "C_rate <= BESS-051",
+      "C_rate <= BESS-052 for 15 min"
+    ],
+    "failure_modes": [
+      "C-rate fuera de rango"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-007"
+    ],
+    "source_ids": [
+      "IEC_62933_2_1",
+      "NFPA_855_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-012",
+    "name_es": "DOD de operacion y energia util",
+    "purpose": "Calcula DOD operacional y energia util considerando limites SOC.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-057",
+      "BESS-064",
+      "BESS-065",
+      "BESS-048"
+    ],
+    "derived_input_ids": [
+      "BESS-C-011"
+    ],
+    "equations_ascii": [
+      "DOD = SOC_max - SOC_min",
+      "E_util = E_BESS * DOD"
+    ],
+    "equations_latex": [
+      "DOD = SOC_{max} - SOC_{min}",
+      "E_{util} = E_{BESS} DOD"
+    ],
+    "variables": [
+      {
+        "name": "SOC_max",
+        "unit": "-"
+      },
+      {
+        "name": "SOC_min",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "DOD [-] = SOC_max [-] - SOC_min [-]",
+      "E_util [MWh] = E_BESS [MWh] * DOD [-]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "DOD en [0.5,0.95]"
+    ],
+    "outputs": [
+      {
+        "name": "DOD",
+        "unit": "-"
+      },
+      {
+        "name": "E_util",
+        "unit": "MWh"
+      }
+    ],
+    "acceptance_rules": [
+      "DOD <= 0.9 (recomendado)"
+    ],
+    "failure_modes": [
+      "DOD > 0.9 reduce vida"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-007",
+      "BESS-DRW-012"
+    ],
+    "source_ids": [
+      "IEC_62933_2_1",
+      "IEC_62660_2",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-013",
+    "name_es": "Modelo termico de celda (generacion de calor)",
+    "purpose": "Calcula calor generado por celda por efecto Joule y entropia.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-008",
+      "BESS-012",
+      "BESS-017",
+      "BESS-005",
+      "BESS-006",
+      "BESS-018"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_gen = I^2 * R + I * T * dU/dT",
+      "Q_cool = h * A * (T - T_amb)"
+    ],
+    "equations_latex": [
+      "Q_{gen} = I^2 R + I T \\frac{\\partial U}{\\partial T}",
+      "Q_{cool} = h A (T - T_{amb})"
+    ],
+    "variables": [
+      {
+        "name": "I",
+        "unit": "A"
+      },
+      {
+        "name": "R",
+        "unit": "ohm"
+      },
+      {
+        "name": "h",
+        "unit": "W/m2/K"
+      }
+    ],
+    "unit_equations": [
+      "Q_gen [W] = I^2 [A2] * R [ohm] + I [A] * T [K] * dUdT [V/K]",
+      "Q_cool [W] = h [W/m2/K] * A [m2] * (T - T_amb) [K]"
+    ],
+    "numerical_method": "Finite difference (explicit Euler)",
+    "iteration_limits": {
+      "max_iter": 3600,
+      "tolerance_K": 0.5
+    },
+    "validity_limits": [
+      "T <= 60 degC",
+      "T_amb en [-20,55]"
+    ],
+    "outputs": [
+      {
+        "name": "Q_gen",
+        "unit": "W"
+      },
+      {
+        "name": "T",
+        "unit": "degC"
+      }
+    ],
+    "acceptance_rules": [
+      "T <= BESS-037 (max rack temp)"
+    ],
+    "failure_modes": [
+      "T > 60 degC runaway"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-005",
+      "BESS-DRW-011"
+    ],
+    "source_ids": [
+      "IEC_62660_2",
+      "IEC_62619",
+      "DNV_RP_0585",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-014",
+    "name_es": "Sizing de HVAC (sensible + latent)",
+    "purpose": "Dimensiona HVAC considerando calor sensible del BESS y carga latente.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-094",
+      "BESS-095",
+      "BESS-096",
+      "BESS-041",
+      "BESS-005",
+      "BESS-006"
+    ],
+    "derived_input_ids": [
+      "BESS-C-013"
+    ],
+    "equations_ascii": [
+      "Q_sens = sum(Q_gen_racks) + Q_PCS_losses",
+      "Q_lat = m_dot_air * (w_in - w_out) * h_fg",
+      "Q_HVAC = Q_sens + Q_lat"
+    ],
+    "equations_latex": [
+      "Q_{sens} = \\sum Q_{gen} + Q_{PCS}",
+      "Q_{lat} = \\dot{m}_{air}(w_{in}-w_{out}) h_{fg}",
+      "Q_{HVAC} = Q_{sens} + Q_{lat}"
+    ],
+    "variables": [
+      {
+        "name": "Q_sens",
+        "unit": "W"
+      },
+      {
+        "name": "Q_lat",
+        "unit": "W"
+      }
+    ],
+    "unit_equations": [
+      "Q_HVAC [W] = Q_sens [W] + Q_lat [W]",
+      "Q_sens [W] = sum(Q_gen [W]) + Q_PCS [W]"
+    ],
+    "numerical_method": "Direct + psychrometric IAPWS",
+    "iteration_limits": {
+      "max_iter": 50,
+      "tolerance_W": 50
+    },
+    "validity_limits": [
+      "T_setpoint en [10,35] degC",
+      "RH en [10,100]%"
+    ],
+    "outputs": [
+      {
+        "name": "Q_HVAC",
+        "unit": "W"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_HVAC <= BESS-094 (capacidad instalada)"
+    ],
+    "failure_modes": [
+      "Q_HVAC > BESS-094 -> sobrecalentamiento"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-011",
+      "BESS-DRW-003"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "DNV_RP_0585",
+      "IAPWS_IF97",
+      "ISO_10628"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-015",
+    "name_es": "Envejecimiento calendario (Arrhenius)",
+    "purpose": "Modela envejecimiento calendario con ecuacion de Arrhenius.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-059",
+      "BESS-096",
+      "BESS-141",
+      "BESS-005",
+      "BESS-006"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "fade_cal = A * exp(-Ea/(R*T)) * sqrt(t)",
+      "Ea = 30000 J/mol (LFP), 45000 (NMC)"
+    ],
+    "equations_latex": [
+      "\\alpha_{cal} = A \\exp(-E_a/RT) \\sqrt{t}",
+      "E_a = 30{,}000 \\, \\mathrm{J/mol}"
+    ],
+    "variables": [
+      {
+        "name": "T",
+        "unit": "K"
+      },
+      {
+        "name": "t",
+        "unit": "year"
+      }
+    ],
+    "unit_equations": [
+      "fade_cal [1/year^0.5] = A [1/year^0.5] * exp(-Ea [J/mol] / (R [J/mol/K] * T [K])) * sqrt(t [year])"
+    ],
+    "numerical_method": "Arrhenius integration",
+    "iteration_limits": {
+      "max_iter": 100,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "T en [273,330] K",
+      "t <= 25 year"
+    ],
+    "outputs": [
+      {
+        "name": "fade_cal",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "fade_cal a EOL <= 0.4"
+    ],
+    "failure_modes": [
+      "T > 60 degC invalida Arrhenius"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-011",
+      "BESS-DRW-007"
+    ],
+    "source_ids": [
+      "IEC_62660_2",
+      "IEC_62619",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-016",
+    "name_es": "Envejecimiento por ciclado (rainflow)",
+    "purpose": "Cuenta ciclos equivalentes con algoritmo rainflow.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-070",
+      "BESS-057",
+      "BESS-142"
+    ],
+    "derived_input_ids": [
+      "BESS-C-012"
+    ],
+    "equations_ascii": [
+      "N_eq = sum(n_i * (DOD_i/DOD_ref)^k)",
+      "k = 1.8 (LFP) / 1.5 (NMC)"
+    ],
+    "equations_latex": [
+      "N_{eq} = \\sum_i n_i \\left(\\frac{DOD_i}{DOD_{ref}}\\right)^k"
+    ],
+    "variables": [
+      {
+        "name": "n_i",
+        "unit": "cyc"
+      },
+      {
+        "name": "DOD_i",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "N_eq [cyc] = sum_i (n_i [cyc] * (DOD_i [-] / DOD_ref [-])^k [-])"
+    ],
+    "numerical_method": "Rainflow counting (ASTM E1049)",
+    "iteration_limits": {
+      "max_iter": 10000,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "DOD_i en (0,1]"
+    ],
+    "outputs": [
+      {
+        "name": "N_eq",
+        "unit": "cyc"
+      }
+    ],
+    "acceptance_rules": [
+      "N_eq <= BESS-142 (ciclos garantizados)"
+    ],
+    "failure_modes": [
+      "Excede ciclos garantizados"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ],
+    "source_ids": [
+      "IEC_62660_2",
+      "IEC_62619",
+      "UL_9540A",
+      "DNV_RP_0585",
+      "ASTM_E1036"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-017",
+    "name_es": "Modelo de degradacion semi-empirico",
+    "purpose": "Combina fade calendario y ciclado en un modelo semi-empirico.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-059",
+      "BESS-070",
+      "BESS-057"
+    ],
+    "derived_input_ids": [
+      "BESS-C-015",
+      "BESS-C-016"
+    ],
+    "equations_ascii": [
+      "Fade_total = fade_cal + fade_cyc - fade_cal*fade_cyc",
+      "C_res = C_n * (1 - Fade_total)"
+    ],
+    "equations_latex": [
+      "F_{tot} = F_{cal} + F_{cyc} - F_{cal}F_{cyc}",
+      "C_{res} = C_n (1 - F_{tot})"
+    ],
+    "variables": [
+      {
+        "name": "fade_cal",
+        "unit": "-"
+      },
+      {
+        "name": "fade_cyc",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "Fade_total [-] = fade_cal [-] + fade_cyc [-] - fade_cal [-] * fade_cyc [-]"
+    ],
+    "numerical_method": "Semi-empirical",
+    "iteration_limits": {
+      "max_iter": 100,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "Fade_total < 1"
+    ],
+    "outputs": [
+      {
+        "name": "Fade_total",
+        "unit": "-"
+      },
+      {
+        "name": "C_res",
+        "unit": "Ah"
+      }
+    ],
+    "acceptance_rules": [
+      "C_res/C_n >= 0.6 a EOL"
+    ],
+    "failure_modes": [
+      "Modelo no lineal fuera de dominio"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-013"
+    ],
+    "source_ids": [
+      "IEC_62660_2",
+      "IEC_62619",
+      "UL_9540A",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-018",
+    "name_es": "Eficiencia del PCS y perdidas",
+    "purpose": "Calcula eficiencia del PCS y sus perdidas a carga nominal.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-075",
+      "BESS-076",
+      "BESS-080",
+      "BESS-081",
+      "BESS-053"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_loss_PCS = P_ac * (1/eta - 1)",
+      "P_dc = P_ac / eta"
+    ],
+    "equations_latex": [
+      "P_{loss} = P_{ac}(1/\\eta - 1)",
+      "P_{dc} = P_{ac}/\\eta"
+    ],
+    "variables": [
+      {
+        "name": "P_ac",
+        "unit": "kW"
+      },
+      {
+        "name": "eta",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "P_loss_PCS [kW] = P_ac [kW] * (1/eta [-] - 1)",
+      "P_dc [kW] = P_ac [kW] / eta [-]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "eta en [0.9,0.995]"
+    ],
+    "outputs": [
+      {
+        "name": "P_loss_PCS",
+        "unit": "kW"
+      },
+      {
+        "name": "P_dc",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      "P_loss_PCS <= 2% * P_ac a 98% eta"
+    ],
+    "failure_modes": [
+      "eta < 95% reduce RTE"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-007"
+    ],
+    "source_ids": [
+      "UL_1741",
+      "IEC_62109_1",
+      "IEC_62894",
+      "IEEE_519_2022"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-019",
+    "name_es": "Perdidas del transformador (load + no-load)",
+    "purpose": "Calcula perdidas totales del transformador a carga nominal.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-085",
+      "BESS-086",
+      "BESS-088",
+      "BESS-083",
+      "BESS-084"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_loss_xfr = P_no_load + P_load * (S/S_n)^2",
+      "eta_xfr = P_out / (P_out + P_loss)"
+    ],
+    "equations_latex": [
+      "P_{loss} = P_{nl} + P_{ll}(S/S_n)^2",
+      "\\eta_{xfr} = \\frac{P_{out}}{P_{out}+P_{loss}}"
+    ],
+    "variables": [
+      {
+        "name": "P_nl",
+        "unit": "kW"
+      },
+      {
+        "name": "P_ll",
+        "unit": "kW"
+      },
+      {
+        "name": "S",
+        "unit": "kVA"
+      }
+    ],
+    "unit_equations": [
+      "P_loss_xfr [kW] = P_nl [kW] + P_ll [kW] * (S [kVA] / S_n [kVA])^2",
+      "eta_xfr [-] = P_out [kW] / (P_out [kW] + P_loss [kW])"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "S/S_n en [0,1.2]"
+    ],
+    "outputs": [
+      {
+        "name": "P_loss_xfr",
+        "unit": "kW"
+      },
+      {
+        "name": "eta_xfr",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "P_loss_xfr <= 1.5% de S_n"
+    ],
+    "failure_modes": [
+      "Perdidas exceden datasheet"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-007"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023",
+      "NFPA_70_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-020",
+    "name_es": "Resistencia de malla de tierra (IEEE 80)",
+    "purpose": "Calcula resistencia de malla de tierra segun IEEE 80 (Sverak).",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-114",
+      "BESS-115",
+      "BESS-116"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "R_g = rho * (sqrt(pi/L^2 + 1/A) - 1) + rho/(2*pi*L)*(ln(1+L/(2*sqrt(A/pi))))",
+      "R_g = rho*(1+A*0.5/A) (formula simplificada Sverak)"
+    ],
+    "equations_latex": [
+      "R_g = \\rho\\left(\\sqrt{\\frac{\\pi}{L^2} + \\frac{1}{A}} - 1\\right) + \\frac{\\rho}{2\\pi L}\\ln\\left(1+\\frac{L}{2\\sqrt{A/\\pi}}\\right)"
+    ],
+    "variables": [
+      {
+        "name": "rho",
+        "unit": "ohm*m"
+      },
+      {
+        "name": "L",
+        "unit": "m"
+      },
+      {
+        "name": "A",
+        "unit": "m2"
+      }
+    ],
+    "unit_equations": [
+      "R_g [ohm] = rho [ohm*m] * (sqrt(pi [1]/L^2 [m2] + 1 [1]/A [m2]) - 1 [1]) + rho [ohm*m] / (2*pi [1] * L [m]) * ln(1 + L [m] / (2*sqrt(A [m2]/pi [1]))) [1]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 10,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "A > 0",
+      "L > 0"
+    ],
+    "outputs": [
+      {
+        "name": "R_g",
+        "unit": "ohm"
+      }
+    ],
+    "acceptance_rules": [
+      "R_g <= 1 ohm (IEEE 80 recomendado)"
+    ],
+    "failure_modes": [
+      "R_g > 5 ohm requiere jab adicionales"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-008"
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_142",
+      "IEC_60364_5_54",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-021",
+    "name_es": "Tiempo de respuesta PFR/FFR",
+    "purpose": "Calcula tiempo de respuesta activa a evento de frecuencia.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-071",
+      "BESS-072",
+      "BESS-075",
+      "BESS-120",
+      "BESS-121"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "t_resp = t_sensing + t_PCS + t_BMS",
+      "t_FFR_req = 1s (COES NCO)"
+    ],
+    "equations_latex": [
+      "t_{resp} = t_{sens} + t_{PCS} + t_{BMS}",
+      "t_{FFR} \\le 1 \\, \\mathrm{s}"
+    ],
+    "variables": [
+      {
+        "name": "t_sensing",
+        "unit": "ms"
+      },
+      {
+        "name": "t_PCS",
+        "unit": "ms"
+      }
+    ],
+    "unit_equations": [
+      "t_resp [ms] = t_sensing [ms] + t_PCS [ms] + t_BMS [ms]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 1
+    },
+    "validity_limits": [
+      "t_resp > 0"
+    ],
+    "outputs": [
+      {
+        "name": "t_resp",
+        "unit": "ms"
+      }
+    ],
+    "acceptance_rules": [
+      "t_resp <= 1000 ms (FFR)",
+      "t_resp <= 5000 ms (PFR)"
+    ],
+    "failure_modes": [
+      "No cumple FFR"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-022",
+    "name_es": "Ramp rate limiting",
+    "purpose": "Limita ramp rate del EMS segun contrato COES.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-069",
+      "BESS-049",
+      "BESS-068"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "dP/dt_max = min(contrato, PCS_ramp_rate)",
+      "P_out(t+dt) = P_out(t) + clip(dP_req, -dP_max*dt, +dP_max*dt)"
+    ],
+    "equations_latex": [
+      "\\frac{dP}{dt}_{max} = \\min(contrato, PCS)",
+      "P_{out}(t+dt) = P_{out}(t) + \\mathrm{clip}(dP, -dP_{max}dt, +dP_{max}dt)"
+    ],
+    "variables": [
+      {
+        "name": "dP_max",
+        "unit": "MW/min"
+      },
+      {
+        "name": "dt",
+        "unit": "s"
+      }
+    ],
+    "unit_equations": [
+      "dP/dt [MW/min] = min(contrato [MW/min], PCS [MW/min])"
+    ],
+    "numerical_method": "Clipping + low-pass filter",
+    "iteration_limits": {
+      "max_iter": 1000,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "dP_max > 0"
+    ],
+    "outputs": [
+      {
+        "name": "P_out_limited",
+        "unit": "MW"
+      }
+    ],
+    "acceptance_rules": [
+      "|dP/dt| <= BESS-069"
+    ],
+    "failure_modes": [
+      "Viola contrato COES"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "COES_NCO_2019",
+      "COES_Proyectos_Conexion",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-023",
+    "name_es": "Secuencia de black start",
+    "purpose": "Calcula secuencia y tiempo de black start.",
+    "applicability_expression": "technology == '12_bess' AND BESS-126 == 'YES'",
+    "input_field_ids": [
+      "BESS-126",
+      "BESS-049",
+      "BESS-078",
+      "BESS-040",
+      "BESS-068"
+    ],
+    "derived_input_ids": [
+      "BESS-C-024"
+    ],
+    "equations_ascii": [
+      "t_bs = t_close_breaker + t_PCS_sync + t_load_pickup",
+      "P_bs_max = 0.5 * P_BESS (limit)"
+    ],
+    "equations_latex": [
+      "t_{bs} = t_{br} + t_{PCS,sync} + t_{load}",
+      "P_{bs,max} = 0.5 P_{BESS}"
+    ],
+    "variables": [
+      {
+        "name": "t_br",
+        "unit": "s"
+      },
+      {
+        "name": "t_PCS_sync",
+        "unit": "s"
+      }
+    ],
+    "unit_equations": [
+      "t_bs [s] = t_br [s] + t_PCS_sync [s] + t_load [s]"
+    ],
+    "numerical_method": "Sequential timer",
+    "iteration_limits": {
+      "max_iter": 10,
+      "tolerance": 0.5
+    },
+    "validity_limits": [
+      "Grid-forming mode required"
+    ],
+    "outputs": [
+      {
+        "name": "t_bs",
+        "unit": "s"
+      },
+      {
+        "name": "P_bs_max",
+        "unit": "MW"
+      }
+    ],
+    "acceptance_rules": [
+      "t_bs <= 5 min (IEEE 1547.4)"
+    ],
+    "failure_modes": [
+      "No cumple IEEE 1547.4"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-024",
+    "name_es": "Agregacion VPP",
+    "purpose": "Calcula capacidad agregada del VPP.",
+    "applicability_expression": "technology == '12_bess' AND BESS-074 == 'YES'",
+    "input_field_ids": [
+      "BESS-074",
+      "BESS-127",
+      "BESS-048",
+      "BESS-049"
+    ],
+    "derived_input_ids": [
+      "BESS-C-010"
+    ],
+    "equations_ascii": [
+      "E_VPP = sum(E_i)",
+      "P_VPP = sum(P_i)",
+      "P_VPP_max = P_VPP * alpha (alpha=0.9)"
+    ],
+    "equations_latex": [
+      "E_{VPP} = \\sum E_i",
+      "P_{VPP} = \\sum P_i",
+      "P_{VPP,max} = \\alpha P_{VPP}"
+    ],
+    "variables": [
+      {
+        "name": "E_i",
+        "unit": "MWh"
+      },
+      {
+        "name": "P_i",
+        "unit": "MW"
+      },
+      {
+        "name": "alpha",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "E_VPP [MWh] = sum(E_i [MWh])",
+      "P_VPP [MW] = sum(P_i [MW])"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "alpha en [0.8,1]"
+    ],
+    "outputs": [
+      {
+        "name": "E_VPP",
+        "unit": "MWh"
+      },
+      {
+        "name": "P_VPP",
+        "unit": "MW"
+      }
+    ],
+    "acceptance_rules": [
+      "P_VPP_max <= sum(P_i)"
+    ],
+    "failure_modes": [
+      "Sobreagregacion > 100%"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-013"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-025",
+    "name_es": "Disponibilidad de servicios IEEE 1547",
+    "purpose": "Evalua disponibilidad de servicios segun IEEE 1547-2018 (categoria II).",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-077",
+      "BESS-078",
+      "BESS-120",
+      "BESS-121",
+      "BESS-122",
+      "BESS-124",
+      "BESS-125",
+      "BESS-126",
+      "BESS-075",
+      "BESS-082"
+    ],
+    "derived_input_ids": [
+      "BESS-C-021"
+    ],
+    "equations_ascii": [
+      "cat = II if (PFR AND IR AND FFR) else III",
+      "A_serv = sum(weights*services_enabled)/sum(weights)"
+    ],
+    "equations_latex": [
+      "cat = \\begin{cases} II & \\text{PFR\\&IR\\&FFR} \\\\ III & \\text{otherwise}\\end{cases}",
+      "A_{serv} = \\frac{\\sum w_i s_i}{\\sum w_i}"
+    ],
+    "variables": [
+      {
+        "name": "w_i",
+        "unit": "-"
+      },
+      {
+        "name": "s_i",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "A_serv [-] = sum(w_i [-] * s_i [-]) / sum(w_i [-])"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "IEEE 1547 cat I/II/III"
+    ],
+    "outputs": [
+      {
+        "name": "cat",
+        "unit": "-"
+      },
+      {
+        "name": "A_serv",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "cat == II if BESS-077==YES"
+    ],
+    "failure_modes": [
+      "No cumple IEEE 1547 cat II"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "IEEE_2030_2",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-026",
+    "name_es": "Capacidad firming (duracion)",
+    "purpose": "Calcula duracion de capacity firming sobre perfil renovable.",
+    "applicability_expression": "technology == '12_bess' AND BESS-123 == 'YES'",
+    "input_field_ids": [
+      "BESS-123",
+      "BESS-073",
+      "BESS-048",
+      "BESS-049"
+    ],
+    "derived_input_ids": [
+      "BESS-C-010",
+      "BESS-C-012"
+    ],
+    "equations_ascii": [
+      "P_ren(t) - P_target = P_bess(t)",
+      "T_firming = E_util / |P_ren - P_target|"
+    ],
+    "equations_latex": [
+      "P_{ren}(t) - P_{target} = P_{bess}(t)",
+      "T_{firming} = E_{util}/|P_{ren}-P_{target}|"
+    ],
+    "variables": [
+      {
+        "name": "P_ren",
+        "unit": "MW"
+      },
+      {
+        "name": "P_target",
+        "unit": "MW"
+      }
+    ],
+    "unit_equations": [
+      "T_firming [h] = E_util [MWh] / |P_ren [MW] - P_target [MW]|"
+    ],
+    "numerical_method": "Time-series integration",
+    "iteration_limits": {
+      "max_iter": 8760,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "P_target <= P_ren_max"
+    ],
+    "outputs": [
+      {
+        "name": "T_firming",
+        "unit": "h"
+      }
+    ],
+    "acceptance_rules": [
+      "T_firming >= BESS-050 (design duration)"
+    ],
+    "failure_modes": [
+      "Insuficiente energia"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_2030_2",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-027",
+    "name_es": "Analisis de hazard mitigation NFPA 855",
+    "purpose": "Hazard mitigation analysis segun NFPA 855 (separaciones, supresion, gas detection).",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-042",
+      "BESS-099",
+      "BESS-100",
+      "BESS-105",
+      "BESS-106",
+      "BESS-107",
+      "BESS-108",
+      "BESS-109",
+      "BESS-110",
+      "BESS-111",
+      "BESS-112"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "HMA = check_suppression AND check_gas AND check_UL9540A AND check_containment AND check_separation",
+      "separation_min = 1.5 m building, 3 m property, 7.5 m hazard"
+    ],
+    "equations_latex": [
+      "HMA = \\bigwedge_i c_i",
+      "d_{min} = \\begin{cases} 1.5\\,m & \\text{building} \\\\ 3\\,m & \\text{property} \\\\ 7.5\\,m & \\text{hazard}\\end{cases}"
+    ],
+    "variables": [
+      {
+        "name": "c_i",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "HMA [-] = AND(c_i [-])"
+    ],
+    "numerical_method": "Boolean check",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0
+    },
+    "validity_limits": [
+      "NFPA 855 applies"
+    ],
+    "outputs": [
+      {
+        "name": "HMA",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "HMA == TRUE"
+    ],
+    "failure_modes": [
+      "No cumple NFPA 855"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-009",
+      "BESS-DRW-010",
+      "BESS-DRW-014"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "UL_9540A",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-028",
+    "name_es": "Prueba de propagacion UL 9540A",
+    "purpose": "Verifica reporte UL 9540A y propagacion entre celdas.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-109",
+      "BESS-110",
+      "BESS-042",
+      "BESS-105",
+      "BESS-106",
+      "BESS-107"
+    ],
+    "derived_input_ids": [
+      "BESS-C-027"
+    ],
+    "equations_ascii": [
+      "pass = (BESS-109 == YES) AND (BESS-110 > 0) AND (no propagation to adjacent)"
+    ],
+    "equations_latex": [
+      "pass = (UL\\,9540A == \\mathrm{YES}) \\wedge (t_{prop} > 0)"
+    ],
+    "variables": [
+      {
+        "name": "t_prop",
+        "unit": "s"
+      }
+    ],
+    "unit_equations": [
+      "pass [-] = (BESS-109 [-]) AND (BESS-110 [s] > 0)"
+    ],
+    "numerical_method": "Boolean check",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0
+    },
+    "validity_limits": [
+      "UL 9540A test report available"
+    ],
+    "outputs": [
+      {
+        "name": "pass",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "pass == TRUE"
+    ],
+    "failure_modes": [
+      "No UL 9540A -> NFPA 855 HMA fails"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-009",
+      "BESS-DRW-014"
+    ],
+    "source_ids": [
+      "UL_9540A",
+      "UL_9540",
+      "NFPA_855_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-029",
+    "name_es": "Sizing de explosion venting (NFPA 68/69 via NFPA 855)",
+    "purpose": "Calcula area de venteo de explosion segun NFPA 855 / 68 (referenciado).",
+    "applicability_expression": "technology == '12_bess' AND BESS-047 == 'WALK_IN'",
+    "input_field_ids": [
+      "BESS-047",
+      "BESS-046",
+      "BESS-044",
+      "BESS-045",
+      "BESS-108",
+      "BESS-105"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "A_vent = (C*A_container)/(P_red^0.5) (NFPA 68 simplified)",
+      "A_vent >= 0.05 m2 per m3 volumen"
+    ],
+    "equations_latex": [
+      "A_{vent} = \\frac{C A_{cont}}{P_{red}^{0.5}}",
+      "A_{vent} \\ge 0.05\\,\\mathrm{m^2/m^3}"
+    ],
+    "variables": [
+      {
+        "name": "A_cont",
+        "unit": "m3"
+      },
+      {
+        "name": "P_red",
+        "unit": "bar"
+      }
+    ],
+    "unit_equations": [
+      "A_vent [m2] = C [-] * A_cont [m3] / sqrt(P_red [bar])",
+      "A_vent [m2] >= 0.05 [m2/m3] * A_cont [m3]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 10,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "Walk-in containers"
+    ],
+    "outputs": [
+      {
+        "name": "A_vent",
+        "unit": "m2"
+      }
+    ],
+    "acceptance_rules": [
+      "A_vent >= A_min (NFPA 855)"
+    ],
+    "failure_modes": [
+      "Venteo insuficiente"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-009",
+      "BESS-DRW-014"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "IEC_60079_0",
+      "IEC_60079_10_1",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-030",
+    "name_es": "Demanda de agua contra incendio (NFPA 13/15/20)",
+    "purpose": "Calcula demanda y reserva de agua para supresion de incendio.",
+    "applicability_expression": "technology == '12_bess' AND BESS-042 == 'SPRINKLER_NFPA_13' OR BESS-042 == 'WATER_MIST'",
+    "input_field_ids": [
+      "BESS-042",
+      "BESS-101",
+      "BESS-102",
+      "BESS-046",
+      "BESS-044",
+      "BESS-045",
+      "BESS-038"
+    ],
+    "derived_input_ids": [
+      "BESS-C-016"
+    ],
+    "equations_ascii": [
+      "Q_demand = density * area * 1.5 (hose) [NFPA 13]",
+      "V_reserva = Q_demand * duration (>= 90 min)"
+    ],
+    "equations_latex": [
+      "Q_{dem} = \\rho_w A 1.5",
+      "V_{res} = Q_{dem} t"
+    ],
+    "variables": [
+      {
+        "name": "density",
+        "unit": "mm/min"
+      },
+      {
+        "name": "area",
+        "unit": "m2"
+      }
+    ],
+    "unit_equations": [
+      "Q_demand [L/min] = density [mm/min] * area [m2] * 1.5 [-]",
+      "V_reserva [L] = Q_demand [L/min] * duration [min]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 5,
+      "tolerance": 1
+    },
+    "validity_limits": [
+      "NFPA 13/15 design area"
+    ],
+    "outputs": [
+      {
+        "name": "Q_demand",
+        "unit": "L/min"
+      },
+      {
+        "name": "V_reserva",
+        "unit": "L"
+      }
+    ],
+    "acceptance_rules": [
+      "V_reserva >= 90 min * Q_demand"
+    ],
+    "failure_modes": [
+      "Reserva insuficiente"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-009",
+      "BESS-DRW-001"
+    ],
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_15_2022",
+      "NFPA_20_2022",
+      "NFPA_855_2023",
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "calculation_id": "BESS-C-031",
+    "name_es": "Interoperabilidad IEEE 2030.2",
+    "purpose": "Verifica interoperabilidad de BESS con servicios de red segun IEEE 2030.2.",
+    "applicability_expression": "technology == '12_bess'",
+    "input_field_ids": [
+      "BESS-131",
+      "BESS-132",
+      "BESS-133",
+      "BESS-077",
+      "BESS-120",
+      "BESS-121",
+      "BESS-122"
+    ],
+    "derived_input_ids": [
+      "BESS-C-025"
+    ],
+    "equations_ascii": [
+      "interop = (protocolo_IEC61850 OR Modbus_TCP OR DNP3 OR IEC60870) AND (t_sample >= 1 Hz)"
+    ],
+    "equations_latex": [
+      "interop = (IEC61850 \\vee Modbus \\vee DNP3 \\vee IEC60870) \\wedge (f_s \\ge 1)"
+    ],
+    "variables": [
+      {
+        "name": "protocolos",
+        "unit": "-"
+      },
+      {
+        "name": "f_s",
+        "unit": "Hz"
+      }
+    ],
+    "unit_equations": [
+      "interop [-] = protocolos [-] AND (f_s [Hz] >= 1)"
+    ],
+    "numerical_method": "Boolean check",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0
+    },
+    "validity_limits": [
+      "IEEE 2030.2 scope"
+    ],
+    "outputs": [
+      {
+        "name": "interop",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "interop == TRUE"
+    ],
+    "failure_modes": [
+      "No cumple IEEE 2030.2"
+    ],
+    "drawing_impacts": [
+      "BESS-DRW-013",
+      "BESS-DRW-016"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEEE_1547_2018",
+      "IEC_61508_1",
+      "DNV_RP_0585"
+    ]
+  }
+]

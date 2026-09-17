@@ -1,0 +1,19 @@
+{
+  "technology": "02_pv_roof_carport",
+  "project_id": "TEST-PVR-002",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {
+    "PVR-002": "value_1",
+    "PVR-003": "value_2",
+    "PVR-004": "value_3",
+    "PVR-007": "value_4"
+  },
+  "missing_fields": [
+    "PVR-001"
+  ],
+  "drawings_to_generate": [
+    "PVR-DRW-001",
+    "PVR-DRW-002",
+    "PVR-DRW-003"
+  ]
+}

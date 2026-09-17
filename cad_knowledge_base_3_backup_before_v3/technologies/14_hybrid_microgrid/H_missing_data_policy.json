@@ -1,0 +1,2369 @@
+[
+  {
+    "field_id": "MG-001",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Ficha de proyecto / contrato",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-026",
+      "MG-C-030"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-001",
+      "MG-DRW-002"
+    ]
+  },
+  {
+    "field_id": "MG-002",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio topografico / GPS",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-038",
+      "MG-C-036"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-001",
+      "MG-DRW-002",
+      "MG-DRW-017"
+    ]
+  },
+  {
+    "field_id": "MG-003",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio topografico / GPS",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-038",
+      "MG-C-036"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-001",
+      "MG-DRW-002",
+      "MG-DRW-017"
+    ]
+  },
+  {
+    "field_id": "MG-004",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria descriptiva / contrato",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-024",
+      "MG-C-026"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-004",
+      "MG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MG-005",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio geotecnico / NTE-060",
+    "responsible_role": "CIVIL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-038",
+      "MG-C-036"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-001",
+      "MG-DRW-002",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-006",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio meteorologico (NASA POWER / DNV)",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-033",
+      "MG-C-008"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MG-007",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio meteorologico",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-033",
+      "MG-C-008"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MG-008",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de emplazamiento",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-038"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-001",
+      "MG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MG-009",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Contrato / ficha de proyecto",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-038",
+      "MG-C-036"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-001",
+      "MG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "MG-010",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio geoelectrico / IEEE 80",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-036",
+      "MG-C-037"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "MG-011",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de recurso solar (NASA POWER / DNV)",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-005"
+    ]
+  },
+  {
+    "field_id": "MG-012",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de recurso eolico",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "MG-013",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio hidrologico / ICOLD",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MG-014",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio hidrologico",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MG-015",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de biomasa / contrato de suministro",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "MG-016",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Analisis de laboratorio / NIST WebBook",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "MG-017",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de biogas",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "MG-018",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de recursos",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-007",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MG-019",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio geotermico / IGA",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "MG-020",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio geotermico",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "MG-022",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio meteorologico",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-033",
+      "MG-C-008"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MG-023",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda / SCADA",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-001",
+      "MG-C-002",
+      "MG-C-013"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-024",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-002",
+      "MG-C-003",
+      "MG-C-013"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-025",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-003"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-026",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-005",
+      "MG-C-006"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-027",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-006"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-028",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-006",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-029",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de criticidad de carga",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-013",
+      "MG-C-008"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-030",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda / DR",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-013",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-031",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria EMS / contrato de servicios",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-013",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-032",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda / SCADA",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-001",
+      "MG-C-002",
+      "MG-C-003",
+      "MG-C-004"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-033",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-005"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-034",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-006"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-035",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-006",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-036",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-001",
+      "MG-C-013"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MG-037",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de mercado / contrato",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-006",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MG-038",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-033",
+      "MG-C-034"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MG-039",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-033",
+      "MG-C-034"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MG-040",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de demanda",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-013",
+      "MG-C-012"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-041",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-042",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-043",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-044",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria EMS / COES NCO",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-013"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-045",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-015"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-046",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-047",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-048",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-049",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-050",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-051",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria EMS / COES NCO",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-014",
+      "MG-C-015",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-052",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-008",
+      "MG-C-009",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-006",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-053",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de confiabilidad",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-026"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-054",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de confiabilidad",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-027"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-055",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de confiabilidad",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-028"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-056",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de confiabilidad",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-029"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-057",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de confiabilidad",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-030"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-058",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de confiabilidad / datasheet",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-029",
+      "MG-C-030"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-059",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de confiabilidad",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-029",
+      "MG-C-030"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-060",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria descriptiva",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-022",
+      "MG-C-024"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-004",
+      "MG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MG-061",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria EMS / datasheet",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-022",
+      "MG-C-019"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-004",
+      "MG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MG-062",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet PCS / memoria",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-022",
+      "MG-C-019"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-004",
+      "MG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MG-063",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de operacion isla",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-008",
+      "MG-C-009",
+      "MG-C-022"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-004"
+    ]
+  },
+  {
+    "field_id": "MG-064",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria / contrato",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-026",
+      "MG-C-015"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-065",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de operacion",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-015",
+      "MG-C-026"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-066",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de operacion",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-015",
+      "MG-C-026"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-067",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de operacion",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-015",
+      "MG-C-026"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-068",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet / memoria",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-015",
+      "MG-C-026"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-069",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica / datasheet PCS",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-019",
+      "MG-C-016",
+      "MG-C-018"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-005",
+      "MG-DRW-006",
+      "MG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MG-070",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-020",
+      "MG-C-017"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-005",
+      "MG-DRW-006",
+      "MG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MG-071",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica / datasheet PCS",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-017",
+      "MG-C-018"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-072",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet PCS",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-018",
+      "MG-C-016"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-073",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet PCS",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-016",
+      "MG-C-017"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-074",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet PCS",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-016",
+      "MG-C-015"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-075",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria / contrato de servicios",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-015",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-076",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de estabilidad",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-015",
+      "MG-C-017"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-077",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de estabilidad",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-033",
+      "MG-C-034"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-078",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de estabilidad",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-015",
+      "MG-C-016"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-079",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de estabilidad",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-016",
+      "MG-C-018"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-080",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria / contrato",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-014",
+      "MG-C-015"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-081",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria / contrato",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-014",
+      "MG-C-015"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-082",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria / contrato",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-033",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-083",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de protecciones",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-021"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-084",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de protecciones / datasheet",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-021"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-085",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de protecciones",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-022",
+      "MG-C-023",
+      "MG-C-024"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-086",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de protecciones",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-022",
+      "MG-C-023"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-087",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de protecciones",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-021"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-088",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de protecciones",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-022"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-089",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de protecciones",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-023"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-090",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet de breakers / memoria",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-021",
+      "MG-C-035"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-091",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de sincronizacion",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-025"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-004",
+      "MG-DRW-010",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-092",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de sincronizacion",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-025"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-004",
+      "MG-DRW-010",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-093",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de sincronizacion",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-025"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-004",
+      "MG-DRW-010",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-094",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet SCADA / EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MG-095",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet SCADA",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MG-096",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet SCADA / EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MG-097",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet SCADA",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MG-098",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de comunicaciones",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MG-099",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de cyberseguridad",
+    "responsible_role": "IT_SECURITY_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "MG-100",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de cyberseguridad",
+    "responsible_role": "IT_SECURITY_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "MG-101",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica / datasheet",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-005"
+    ]
+  },
+  {
+    "field_id": "MG-102",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-008",
+      "MG-C-009",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "MG-103",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-008",
+      "MG-C-009",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "MG-104",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "MG-105",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MG-106",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "MG-107",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-004",
+      "MG-C-007",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "MG-109",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-034",
+      "MG-C-035",
+      "MG-C-025"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-004"
+    ]
+  },
+  {
+    "field_id": "MG-110",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-034",
+      "MG-C-035",
+      "MG-C-041"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-004"
+    ]
+  },
+  {
+    "field_id": "MG-111",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-035",
+      "MG-C-041",
+      "MG-C-025"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-004",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-112",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-025",
+      "MG-C-022",
+      "MG-C-034"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-004",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-113",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-034",
+      "MG-C-035",
+      "MG-C-041"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-004"
+    ]
+  },
+  {
+    "field_id": "MG-114",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-015",
+      "MG-C-017",
+      "MG-C-019"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-004"
+    ]
+  },
+  {
+    "field_id": "MG-115",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Contrato de conexion",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MG-119",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Contrato de servicios / COES NCO",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-014",
+      "MG-C-015",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-120",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Contrato de servicios",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-015",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-121",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Contrato / memoria EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-012",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-122",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Contrato / memoria",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-013",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-123",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Contrato / memoria",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-007",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-124",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Contrato / memoria",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-013"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-125",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Contrato / memoria",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-033",
+      "MG-C-034",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MG-126",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de medicion",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-034",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MG-127",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de medicion",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-128",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Datasheet medidor",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-034",
+      "MG-C-007"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MG-129",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de almacenamiento",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-008",
+      "MG-C-009",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "MG-133",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria / contrato",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-007",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-134",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria / contrato",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-007",
+      "MG-C-008",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-135",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria / contrato",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MG-C-007",
+      "MG-C-010"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-136",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de cyberseguridad",
+    "responsible_role": "IT_SECURITY_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "MG-137",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de cyberseguridad",
+    "responsible_role": "IT_SECURITY_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "MG-138",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de cyberseguridad",
+    "responsible_role": "IT_SECURITY_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "MG-139",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria SCADA",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MG-140",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de calidad de potencia",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-031",
+      "MG-C-032"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-141",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-033",
+      "MG-C-034"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-142",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de calidad de potencia",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-031",
+      "MG-C-032"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-143",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de calidad de potencia",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-031",
+      "MG-C-032"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MG-144",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Estudio de malla de tierra / IEEE 80",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-036",
+      "MG-C-037"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "MG-145",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria electrica / IEC 60364-5-54",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-036",
+      "MG-C-037"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "MG-147",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de proteccion contra rayo",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-038",
+      "MG-C-036"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "MG-148",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MG-GR-000",
+    "required_document": "Memoria de proteccion contra rayo",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MG-C-038",
+      "MG-C-036"
+    ],
+    "blocked_drawings": [
+      "MG-DRW-013",
+      "MG-DRW-001"
+    ]
+  }
+]

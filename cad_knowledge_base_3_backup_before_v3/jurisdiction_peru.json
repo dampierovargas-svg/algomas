@@ -1,0 +1,830 @@
+[
+  {
+    "jurisdiction_rule_id": "JUR-PE-001",
+    "authority": "MVCS",
+    "document_code": "RNE NTE-030",
+    "edition_year": 2006,
+    "topic": "Condiciones de habitabilidad",
+    "applies_to": [
+      "CIVIL",
+      "ARC"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir con áreas mínimas de ambientes según uso",
+    "parameters": {
+      "min_room_area_m2": 6,
+      "min_ceiling_height_m": 2.4
+    },
+    "evidence_required": [
+      "RNE compliance checklist"
+    ],
+    "affected_calculations": [
+      "C-COM-005"
+    ],
+    "affected_drawings": [
+      "DRW-COM-001",
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-002",
+    "authority": "MVCS",
+    "document_code": "RNE NTE-060",
+    "edition_year": 2006,
+    "topic": "Seguridad estructural sismo",
+    "applies_to": [
+      "STR"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Diseño sísmico según NTE-060, factores Z, S, U, R",
+    "parameters": {
+      "zone_Z_min": 0.1,
+      "zone_Z_max": 0.45,
+      "importance_U_residential": 1.0,
+      "importance_U_essential": 1.5,
+      "ductility_R_default": 6.0
+    },
+    "evidence_required": [
+      "Seismic calculation memory",
+      "Soil study"
+    ],
+    "affected_calculations": [
+      "C-COM-004"
+    ],
+    "affected_drawings": [
+      "DRW-COM-003"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-003",
+    "authority": "MVCS",
+    "document_code": "RNE NTE-090",
+    "edition_year": 2006,
+    "topic": "Cimentaciones",
+    "applies_to": [
+      "STR",
+      "CIVIL",
+      "GEOT"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Capacidad portante verificada con estudio geotécnico",
+    "parameters": {
+      "min_safety_factor_bearing": 3.0,
+      "min_safety_factor_sliding": 1.5,
+      "min_safety_factor_overturning": 1.5
+    },
+    "evidence_required": [
+      "Geotechnical report",
+      "Foundation calculation memory"
+    ],
+    "affected_calculations": [
+      "C-COM-004"
+    ],
+    "affected_drawings": [
+      "DRW-COM-003"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "MINEM_DS_043_2006"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-004",
+    "authority": "MVCS",
+    "document_code": "RNE NTE-110",
+    "edition_year": 2006,
+    "topic": "Instalaciones eléctricas interiores",
+    "applies_to": [
+      "ELEC"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir con CNE Utilización y RNE NTE-110",
+    "parameters": {
+      "max_outlet_spacing_m": 3.0,
+      "min_outlet_count_per_room": 1
+    },
+    "evidence_required": [
+      "Electrical design memory",
+      "CNE compliance checklist"
+    ],
+    "affected_calculations": [
+      "C-COM-008"
+    ],
+    "affected_drawings": [
+      "DRW-COM-004"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "CNE_Utilizacion_2011"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-010",
+    "authority": "MINEM",
+    "document_code": "CNE Suministro 2011",
+    "edition_year": 2011,
+    "topic": "Conexión al SEIN",
+    "applies_to": [
+      "ELEC"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Cumplir requisitos técnicos de conexión al SEIN según CNE Suministro",
+    "parameters": {
+      "min_pcc_voltage_kv": 0.4,
+      "max_pcc_voltage_kv": 500,
+      "frequency_hz": 60,
+      "max_harmonic_thd_pct": 5.0
+    },
+    "evidence_required": [
+      "Grid connection study",
+      "COES approval letter",
+      "OSINERGMIN PR-17 dossier"
+    ],
+    "affected_calculations": [
+      "C-COM-007",
+      "C-COM-008"
+    ],
+    "affected_drawings": [
+      "DRW-COM-004",
+      "DRW-COM-006"
+    ],
+    "source_ids": [
+      "CNE_2011",
+      "OSINERGMIN_PR_17",
+      "COES_NCO_2019"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-011",
+    "authority": "MINEM",
+    "document_code": "D.S. 013-2019-EM",
+    "edition_year": 2019,
+    "topic": "Generación distribuida",
+    "applies_to": [
+      "ELEC",
+      "PV_GROUND",
+      "PV_ROOF_CARPORT",
+      "PV_FLOATING",
+      "BESS",
+      "HYBRID_MICROGRID"
+    ],
+    "project_stage": [
+      "FEASIBILITY",
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir requisitos de GD según D.S. 013-2019-EM",
+    "parameters": {
+      "max_gd_capacity_kw": 10000,
+      "net_metering_allowed_until_kw": 200,
+      "schematic_review_required": true
+    },
+    "evidence_required": [
+      "DGD registration",
+      "OSINERGMIN approval",
+      "Single line diagram"
+    ],
+    "affected_calculations": [
+      "C-COM-007"
+    ],
+    "affected_drawings": [
+      "DRW-COM-004"
+    ],
+    "source_ids": [
+      "MINEM_DS_013_2019",
+      "MINEM_RM_037_2006"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-012",
+    "authority": "MINEM",
+    "document_code": "D.S. 043-2006-EM",
+    "edition_year": 2006,
+    "topic": "Seguridad eléctrica",
+    "applies_to": [
+      "ELEC",
+      "SAFE"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING",
+      "CONSTRUCTION",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Cumplir reglamento de seguridad para actividades de electricidad",
+    "parameters": {
+      "min_grounding_resistance_ohm": 5.0,
+      "earthing_test_required_annual": true,
+      "ppe_category_min": 2
+    },
+    "evidence_required": [
+      "Earthing test report",
+      "PPE compliance log",
+      "Safety plan"
+    ],
+    "affected_calculations": [
+      "C-COM-009"
+    ],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "MINEM_DS_043_2006"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-013",
+    "authority": "OSINERGMIN",
+    "document_code": "PR-19",
+    "edition_year": 2023,
+    "topic": "Calidad de potencia",
+    "applies_to": [
+      "ELEC"
+    ],
+    "project_stage": [
+      "COMMISSIONING",
+      "AS_BUILT"
+    ],
+    "requirement_expression": "Cumplir PR-19 para calidad de potencia en conexión SEIN",
+    "parameters": {
+      "max_voltage_deviation_pct": 5.0,
+      "max_frequency_deviation_hz": 0.5,
+      "max_flicker_plt": 1.0
+    },
+    "evidence_required": [
+      "Power quality test report",
+      "OSINERGMIN PR-19 compliance dossier"
+    ],
+    "affected_calculations": [
+      "C-COM-007"
+    ],
+    "affected_drawings": [
+      "DRW-COM-006"
+    ],
+    "source_ids": [
+      "OSINERGMIN_PR_19",
+      "COES_NCO_2019"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-014",
+    "authority": "COES",
+    "document_code": "NCO 2019",
+    "edition_year": 2019,
+    "topic": "Operación en paralelo",
+    "applies_to": [
+      "ELEC",
+      "BESS",
+      "HYBRID_MICROGRID"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Cumplir procedimientos técnicos del Código de Operación",
+    "parameters": {
+      "min_frequency_response_hz": 59.5,
+      "max_frequency_response_hz": 60.5,
+      "response_time_ms": 500
+    },
+    "evidence_required": [
+      "COES pre-op study",
+      "Commissioning test report"
+    ],
+    "affected_calculations": [
+      "C-COM-007",
+      "C-COM-008"
+    ],
+    "affected_drawings": [
+      "DRW-COM-004",
+      "DRW-COM-006"
+    ],
+    "source_ids": [
+      "COES_NCO_2019",
+      "COES_Proyectos_Conexion"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-020",
+    "authority": "MINAM",
+    "document_code": "D.S. 019-2009-MINAM",
+    "edition_year": 2009,
+    "topic": "EIA Sistema SEIA",
+    "applies_to": [
+      "ENV",
+      "ALL"
+    ],
+    "project_stage": [
+      "FEASIBILITY",
+      "BASIC_ENGINEERING"
+    ],
+    "requirement_expression": "Clasificar proyecto según SEIA y obtener EIA aprobado",
+    "parameters": {
+      "category_I_required_above_mw": 50,
+      "category_II_required_above_mw": 5,
+      "category_III_required_below_mw": 5
+    },
+    "evidence_required": [
+      "EIA classification letter",
+      "EIA approved certificate",
+      "Public participation record"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "MIMP_Ambiental_GLA"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-021",
+    "authority": "MINAM",
+    "document_code": "Ley 28611",
+    "edition_year": 2005,
+    "topic": "Ley General del Ambiente",
+    "applies_to": [
+      "ENV",
+      "ALL"
+    ],
+    "project_stage": [
+      "FEASIBILITY",
+      "BASIC_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir LGA en todas las etapas del proyecto",
+    "parameters": {
+      "environmental_liability_required": true,
+      "environmental_monitoring_required": true
+    },
+    "evidence_required": [
+      "Environmental compliance plan"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [],
+    "source_ids": [
+      "MIMP_Ambiental_GLA"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-022",
+    "authority": "SERNANP",
+    "document_code": "D.S. 007-2016-MINAM",
+    "edition_year": 2016,
+    "topic": "Áreas Naturales Protegidas",
+    "applies_to": [
+      "ENV",
+      "ALL"
+    ],
+    "project_stage": [
+      "FEASIBILITY"
+    ],
+    "requirement_expression": "Verificar no superposición con ANP; si la hay, obtener permiso",
+    "parameters": {
+      "min_distance_anp_km": 0,
+      "anp_buffer_zone_m": 1000
+    },
+    "evidence_required": [
+      "ANP overlap study",
+      "SERNANP opinion"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "SERNANP_DS_007_2016"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-023",
+    "authority": "SERFOR",
+    "document_code": "D.S. 020-2015-MINAGRI",
+    "edition_year": 2015,
+    "topic": "Forestal",
+    "applies_to": [
+      "ENV",
+      "ALL"
+    ],
+    "project_stage": [
+      "FEASIBILITY",
+      "BASIC_ENGINEERING"
+    ],
+    "requirement_expression": "Obtener permiso de uso forestal si afecta bosques",
+    "parameters": {
+      "reforestation_ratio_min": 2.0,
+      "permit_required_above_ha": 1.0
+    },
+    "evidence_required": [
+      "Forest inventory",
+      "Reforestation plan",
+      "SERFOR permit"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "SERFOR_DS_020_2015"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-030",
+    "authority": "MINEM",
+    "document_code": "D.S. 032-2003-EM",
+    "edition_year": 2003,
+    "topic": "Seguridad hidrocarburos",
+    "applies_to": [
+      "BIOGAS",
+      "BIOMASS",
+      "HYDROGEN",
+      "GEOTHERMAL",
+      "SAFE"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING",
+      "CONSTRUCTION",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Cumplir reglamento de seguridad para actividades de hidrocarburos",
+    "parameters": {
+      "HAZOP_required": true,
+      "SIL_study_required": true,
+      "ESD_required": true,
+      "gas_detection_required": true
+    },
+    "evidence_required": [
+      "HAZOP report",
+      "SIL study",
+      "ESD philosophy",
+      "Detection layout drawings"
+    ],
+    "affected_calculations": [
+      "C-COM-009"
+    ],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-040",
+    "authority": "ANA",
+    "document_code": "Ley 29338",
+    "edition_year": 2009,
+    "topic": "Ley de Recursos Hídricos",
+    "applies_to": [
+      "HYDRO",
+      "GEOTHERMAL",
+      "BESS",
+      "CSP",
+      "HYDROGEN",
+      "BIOMASS",
+      "BIOGAS"
+    ],
+    "project_stage": [
+      "FEASIBILITY",
+      "BASIC_ENGINEERING"
+    ],
+    "requirement_expression": "Obtener permiso de uso de agua de ANA",
+    "parameters": {
+      "ecological_flow_required": true,
+      "water_use_license_required": true
+    },
+    "evidence_required": [
+      "Hydrological study",
+      "Ecological flow study",
+      "ANA water permit"
+    ],
+    "affected_calculations": [
+      "C-COM-006"
+    ],
+    "affected_drawings": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-050",
+    "authority": "MINCUL",
+    "document_code": "Ley 28296",
+    "edition_year": 2004,
+    "topic": "Patrimonio cultural",
+    "applies_to": [
+      "ENV",
+      "ALL"
+    ],
+    "project_stage": [
+      "FEASIBILITY",
+      "BASIC_ENGINEERING"
+    ],
+    "requirement_expression": "Realizar evaluación arqueológica si área lo requiere",
+    "parameters": {
+      "CIP_required_above_ha": 10,
+      "evaluation_required_within_archaeological_zone": true
+    },
+    "evidence_required": [
+      "Archaeological evaluation report",
+      "CIP certificate (if applicable)"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-060",
+    "authority": "SENCICO",
+    "document_code": "NTE-060",
+    "edition_year": 2018,
+    "topic": "Diseño sísmico",
+    "applies_to": [
+      "STR",
+      "CIVIL"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Aplicar NTE-060 con zonificación sísmica peruana",
+    "parameters": {
+      "zone_Z_values": [
+        0.1,
+        0.15,
+        0.25,
+        0.35,
+        0.45
+      ],
+      "soil_types": [
+        "S0",
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "importance_factors": {
+        "A": 1.5,
+        "B": 1.3,
+        "C": 1.0
+      },
+      "reduction_factors_R": {
+        "concrete_special": 8,
+        "concrete_intermediate": 6,
+        "steel_special": 9,
+        "masonry": 3
+      }
+    },
+    "evidence_required": [
+      "Seismic calculation memory",
+      "Soil type study"
+    ],
+    "affected_calculations": [
+      "C-COM-004"
+    ],
+    "affected_drawings": [
+      "DRW-COM-003"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-070",
+    "authority": "COES",
+    "document_code": "Procedimiento Comunicaciones",
+    "edition_year": 2024,
+    "topic": "SCADA y comunicaciones",
+    "applies_to": [
+      "COMM",
+      "ELEC",
+      "BESS",
+      "HYBRID_MICROGRID"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Cumplir requisitos de comunicaciones SCADA con COES",
+    "parameters": {
+      "min_availability_pct": 99.9,
+      "redundant_comm_channel_required": true,
+      "protocol_required": "IEC_60870-5-104 OR IEC_61850"
+    },
+    "evidence_required": [
+      "SCADA architecture design",
+      "Communication link test report"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-006"
+    ],
+    "source_ids": [
+      "COES_NCO_2019"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-080",
+    "authority": "INDECI",
+    "document_code": "NP-008",
+    "edition_year": 2021,
+    "topic": "Norma Nacional de Bomberos",
+    "applies_to": [
+      "FIRE",
+      "SAFE",
+      "ALL"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir NP-008 para sistemas contra incendios",
+    "parameters": {
+      "min_water_reserve_m3": 50,
+      "min_pump_capacity_m3_h": 90,
+      "fire_detector_required": true
+    },
+    "evidence_required": [
+      "Fire protection design memory",
+      "Hydraulic calculation",
+      "INDECI opinion"
+    ],
+    "affected_calculations": [
+      "C-COM-009"
+    ],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-090",
+    "authority": "Municipality",
+    "document_code": "Zonificación local",
+    "edition_year": 2024,
+    "topic": "Uso de suelo",
+    "applies_to": [
+      "CIVIL",
+      "ENV",
+      "ALL"
+    ],
+    "project_stage": [
+      "FEASIBILITY",
+      "BASIC_ENGINEERING"
+    ],
+    "requirement_expression": "Verificar zonificación municipal para uso industrial/energético",
+    "parameters": {
+      "setback_industrial_m": 50,
+      "setback_residential_m": 100,
+      "max_height_m": 30
+    },
+    "evidence_required": [
+      "Zoning certificate",
+      "Municipal license"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-100",
+    "authority": "INGEMMET",
+    "document_code": "Catálogo Minero",
+    "edition_year": 2024,
+    "topic": "Concesiones mineras",
+    "applies_to": [
+      "CIVIL",
+      "ENV",
+      "ALL"
+    ],
+    "project_stage": [
+      "FEASIBILITY"
+    ],
+    "requirement_expression": "Verificar superposición con concesiones mineras",
+    "parameters": {
+      "min_distance_to_mining_concession_m": 0,
+      "ingemmet_report_required": true
+    },
+    "evidence_required": [
+      "INGEMMET concession overlap report"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-110",
+    "authority": "CORPAC",
+    "document_code": "Ley 27261",
+    "edition_year": 2000,
+    "topic": "Aeronáutica civil",
+    "applies_to": [
+      "CIVIL",
+      "ENV",
+      "WIND_ONSHORE",
+      "WIND_OFFSHORE",
+      "PV_GROUND",
+      "PV_FLOATING",
+      "CSP",
+      "SOLAR_THERMAL"
+    ],
+    "project_stage": [
+      "FEASIBILITY",
+      "BASIC_ENGINEERING"
+    ],
+    "requirement_expression": "Obtener opinión CORPAC si proyecto está cerca de aeropuertos",
+    "parameters": {
+      "min_distance_airport_km": 8,
+      "min_distance_helipad_km": 3,
+      "aviation_obstruction_study_required_within_15km": true,
+      "max_structure_height_m_near_airport": 45
+    },
+    "evidence_required": [
+      "CORPAC opinion",
+      "Aviation obstruction study"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-PE-120",
+    "authority": "MTPE",
+    "document_code": "D.S. 009-2005-TR",
+    "edition_year": 2005,
+    "topic": "Seguridad y salud ocupacional",
+    "applies_to": [
+      "SAFE",
+      "ALL"
+    ],
+    "project_stage": [
+      "CONSTRUCTION",
+      "COMMISSIONING",
+      "AS_BUILT"
+    ],
+    "requirement_expression": "Implementar SGSST según D.S. 009-2005-TR",
+    "parameters": {
+      "occupational_risk_assessment_required": true,
+      "emergency_action_plan_required": true,
+      "first_aid_kit_required": true,
+      "min_training_hours_annual": 8
+    },
+    "evidence_required": [
+      "Occupational risk assessment",
+      "Emergency action plan",
+      "Training records"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "MINEM_DS_043_2006"
+    ]
+  }
+]

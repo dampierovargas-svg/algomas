@@ -1,0 +1,214 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="4200" viewBox="0 0 1200 4200">
+  <title>Atlas de Símbolos - MECH</title>
+  <rect x="20" y="20" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="25" y="35" font-size="10" font-family="Arial">SYM-PV-006</text>
+  <text x="25" y="50" font-size="8" font-family="Arial"/>
+  <text x="25" y="65" font-size="8" font-family="Arial">MECH</text>
+  <rect x="45" y="70" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="120" y="20" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="125" y="35" font-size="10" font-family="Arial">SYM-PV-014</text>
+  <text x="125" y="50" font-size="8" font-family="Arial"/>
+  <text x="125" y="65" font-size="8" font-family="Arial">MECH</text>
+  <rect x="145" y="70" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="220" y="20" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="225" y="35" font-size="10" font-family="Arial">SYM-WIND-001</text>
+  <text x="225" y="50" font-size="8" font-family="Arial"/>
+  <text x="225" y="65" font-size="8" font-family="Arial">MECH</text>
+  <rect x="245" y="70" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="320" y="20" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="325" y="35" font-size="10" font-family="Arial">SYM-HYD-007</text>
+  <text x="325" y="50" font-size="8" font-family="Arial"/>
+  <text x="325" y="65" font-size="8" font-family="Arial">MECH</text>
+  <rect x="345" y="70" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="420" y="20" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="425" y="35" font-size="10" font-family="Arial">SYM-HYD-008</text>
+  <text x="425" y="50" font-size="8" font-family="Arial"/>
+  <text x="425" y="65" font-size="8" font-family="Arial">MECH</text>
+  <rect x="445" y="70" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="520" y="20" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="525" y="35" font-size="10" font-family="Arial">SYM-HYD-009</text>
+  <text x="525" y="50" font-size="8" font-family="Arial"/>
+  <text x="525" y="65" font-size="8" font-family="Arial">MECH</text>
+  <rect x="545" y="70" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="620" y="20" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="625" y="35" font-size="10" font-family="Arial">SYM-CSP-001</text>
+  <text x="625" y="50" font-size="8" font-family="Arial"/>
+  <text x="625" y="65" font-size="8" font-family="Arial">MECH</text>
+  <rect x="645" y="70" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="720" y="20" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="725" y="35" font-size="10" font-family="Arial">SYM-CSP-002</text>
+  <text x="725" y="50" font-size="8" font-family="Arial"/>
+  <text x="725" y="65" font-size="8" font-family="Arial">MECH</text>
+  <rect x="745" y="70" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="820" y="20" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="825" y="35" font-size="10" font-family="Arial">SYM-CSP-003</text>
+  <text x="825" y="50" font-size="8" font-family="Arial"/>
+  <text x="825" y="65" font-size="8" font-family="Arial">MECH</text>
+  <rect x="845" y="70" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="920" y="20" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="925" y="35" font-size="10" font-family="Arial">SYM-BESS-004</text>
+  <text x="925" y="50" font-size="8" font-family="Arial"/>
+  <text x="925" y="65" font-size="8" font-family="Arial">MECH</text>
+  <rect x="945" y="70" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="20" y="100" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="25" y="115" font-size="10" font-family="Arial">SYM-CSP-BREAKER</text>
+  <text x="25" y="130" font-size="8" font-family="Arial"/>
+  <text x="25" y="145" font-size="8" font-family="Arial">MECH</text>
+  <rect x="45" y="150" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="120" y="100" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="125" y="115" font-size="10" font-family="Arial">SYM-CSP-CONDENSER</text>
+  <text x="125" y="130" font-size="8" font-family="Arial"/>
+  <text x="125" y="145" font-size="8" font-family="Arial">MECH</text>
+  <rect x="145" y="150" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="220" y="100" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="225" y="115" font-size="10" font-family="Arial">SYM-CSP-CRANE</text>
+  <text x="225" y="130" font-size="8" font-family="Arial"/>
+  <text x="225" y="145" font-size="8" font-family="Arial">MECH</text>
+  <rect x="245" y="150" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="320" y="100" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="325" y="115" font-size="10" font-family="Arial">SYM-CSP-CT</text>
+  <text x="325" y="130" font-size="8" font-family="Arial"/>
+  <text x="325" y="145" font-size="8" font-family="Arial">MECH</text>
+  <rect x="345" y="150" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="420" y="100" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="425" y="115" font-size="10" font-family="Arial">SYM-CSP-DETECTOR</text>
+  <text x="425" y="130" font-size="8" font-family="Arial"/>
+  <text x="425" y="145" font-size="8" font-family="Arial">MECH</text>
+  <rect x="445" y="150" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="520" y="100" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="525" y="115" font-size="10" font-family="Arial">SYM-CSP-DNI</text>
+  <text x="525" y="130" font-size="8" font-family="Arial"/>
+  <text x="525" y="145" font-size="8" font-family="Arial">MECH</text>
+  <rect x="545" y="150" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="620" y="100" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="625" y="115" font-size="10" font-family="Arial">SYM-CSP-EQUIPOT-BOND</text>
+  <text x="625" y="130" font-size="8" font-family="Arial"/>
+  <text x="625" y="145" font-size="8" font-family="Arial">MECH</text>
+  <rect x="645" y="150" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="720" y="100" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="725" y="115" font-size="10" font-family="Arial">SYM-CSP-FENCE</text>
+  <text x="725" y="130" font-size="8" font-family="Arial"/>
+  <text x="725" y="145" font-size="8" font-family="Arial">MECH</text>
+  <rect x="745" y="150" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="820" y="100" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="825" y="115" font-size="10" font-family="Arial">SYM-CSP-FIRE-ALARM</text>
+  <text x="825" y="130" font-size="8" font-family="Arial"/>
+  <text x="825" y="145" font-size="8" font-family="Arial">MECH</text>
+  <rect x="845" y="150" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="920" y="100" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="925" y="115" font-size="10" font-family="Arial">SYM-CSP-FOUNDATION</text>
+  <text x="925" y="130" font-size="8" font-family="Arial"/>
+  <text x="925" y="145" font-size="8" font-family="Arial">MECH</text>
+  <rect x="945" y="150" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="20" y="180" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="25" y="195" font-size="10" font-family="Arial">SYM-CSP-GENERATOR</text>
+  <text x="25" y="210" font-size="8" font-family="Arial"/>
+  <text x="25" y="225" font-size="8" font-family="Arial">MECH</text>
+  <rect x="45" y="230" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="120" y="180" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="125" y="195" font-size="10" font-family="Arial">SYM-CSP-GROUND-CONDU</text>
+  <text x="125" y="210" font-size="8" font-family="Arial"/>
+  <text x="125" y="225" font-size="8" font-family="Arial">MECH</text>
+  <rect x="145" y="230" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="220" y="180" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="225" y="195" font-size="10" font-family="Arial">SYM-CSP-HCE</text>
+  <text x="225" y="210" font-size="8" font-family="Arial"/>
+  <text x="225" y="225" font-size="8" font-family="Arial">MECH</text>
+  <rect x="245" y="230" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="320" y="180" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="325" y="195" font-size="10" font-family="Arial">SYM-CSP-HELIOSTAT</text>
+  <text x="325" y="210" font-size="8" font-family="Arial"/>
+  <text x="325" y="225" font-size="8" font-family="Arial">MECH</text>
+  <rect x="345" y="230" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="420" y="180" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="425" y="195" font-size="10" font-family="Arial">SYM-CSP-PEDESTAL</text>
+  <text x="425" y="210" font-size="8" font-family="Arial"/>
+  <text x="425" y="225" font-size="8" font-family="Arial">MECH</text>
+  <rect x="445" y="230" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="520" y="180" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="525" y="195" font-size="10" font-family="Arial">SYM-CSP-PLC</text>
+  <text x="525" y="210" font-size="8" font-family="Arial"/>
+  <text x="525" y="225" font-size="8" font-family="Arial">MECH</text>
+  <rect x="545" y="230" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="620" y="180" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="625" y="195" font-size="10" font-family="Arial">SYM-CSP-PT</text>
+  <text x="625" y="210" font-size="8" font-family="Arial"/>
+  <text x="625" y="225" font-size="8" font-family="Arial">MECH</text>
+  <rect x="645" y="230" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="720" y="180" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="725" y="195" font-size="10" font-family="Arial">SYM-CSP-RECEIVER</text>
+  <text x="725" y="210" font-size="8" font-family="Arial"/>
+  <text x="725" y="225" font-size="8" font-family="Arial">MECH</text>
+  <rect x="745" y="230" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="820" y="180" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="825" y="195" font-size="10" font-family="Arial">SYM-CSP-ROD</text>
+  <text x="825" y="210" font-size="8" font-family="Arial"/>
+  <text x="825" y="225" font-size="8" font-family="Arial">MECH</text>
+  <rect x="845" y="230" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="920" y="180" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="925" y="195" font-size="10" font-family="Arial">SYM-CSP-RTU</text>
+  <text x="925" y="210" font-size="8" font-family="Arial"/>
+  <text x="925" y="225" font-size="8" font-family="Arial">MECH</text>
+  <rect x="945" y="230" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="20" y="260" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="25" y="275" font-size="10" font-family="Arial">SYM-CSP-SCADA</text>
+  <text x="25" y="290" font-size="8" font-family="Arial"/>
+  <text x="25" y="305" font-size="8" font-family="Arial">MECH</text>
+  <rect x="45" y="310" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="120" y="260" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="125" y="275" font-size="10" font-family="Arial">SYM-CSP-SPRINKLER</text>
+  <text x="125" y="290" font-size="8" font-family="Arial"/>
+  <text x="125" y="305" font-size="8" font-family="Arial">MECH</text>
+  <rect x="145" y="310" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="220" y="260" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="225" y="275" font-size="10" font-family="Arial">SYM-CSP-TOWER</text>
+  <text x="225" y="290" font-size="8" font-family="Arial"/>
+  <text x="225" y="305" font-size="8" font-family="Arial">MECH</text>
+  <rect x="245" y="310" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="320" y="260" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="325" y="275" font-size="10" font-family="Arial">SYM-CSP-TRANSFORMER</text>
+  <text x="325" y="290" font-size="8" font-family="Arial"/>
+  <text x="325" y="305" font-size="8" font-family="Arial">MECH</text>
+  <rect x="345" y="310" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="420" y="260" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="425" y="275" font-size="10" font-family="Arial">SYM-CSP-TROUGH</text>
+  <text x="425" y="290" font-size="8" font-family="Arial"/>
+  <text x="425" y="305" font-size="8" font-family="Arial">MECH</text>
+  <rect x="445" y="310" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="520" y="260" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="525" y="275" font-size="10" font-family="Arial">SYM-CSP-TURBINE</text>
+  <text x="525" y="290" font-size="8" font-family="Arial"/>
+  <text x="525" y="305" font-size="8" font-family="Arial">MECH</text>
+  <rect x="545" y="310" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="620" y="260" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="625" y="275" font-size="10" font-family="Arial">SYM-CSP-WASHING-ROBO</text>
+  <text x="625" y="290" font-size="8" font-family="Arial"/>
+  <text x="625" y="305" font-size="8" font-family="Arial">MECH</text>
+  <rect x="645" y="310" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="720" y="260" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="725" y="275" font-size="10" font-family="Arial">SYM-CSP-WASHING-TRUC</text>
+  <text x="725" y="290" font-size="8" font-family="Arial"/>
+  <text x="725" y="305" font-size="8" font-family="Arial">MECH</text>
+  <rect x="745" y="310" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="820" y="260" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="825" y="275" font-size="10" font-family="Arial">HYDRO_TURBINE_SYMBOL</text>
+  <text x="825" y="290" font-size="8" font-family="Arial"/>
+  <text x="825" y="305" font-size="8" font-family="Arial">MECH</text>
+  <rect x="845" y="310" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="920" y="260" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="925" y="275" font-size="10" font-family="Arial">WIND_TURBINE_SYMBOL</text>
+  <text x="925" y="290" font-size="8" font-family="Arial"/>
+  <text x="925" y="305" font-size="8" font-family="Arial">MECH</text>
+  <rect x="945" y="310" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="20" y="340" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="25" y="355" font-size="10" font-family="Arial">WIND_SYMBOL</text>
+  <text x="25" y="370" font-size="8" font-family="Arial"/>
+  <text x="25" y="385" font-size="8" font-family="Arial">MECH</text>
+  <rect x="45" y="390" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="120" y="340" width="95" height="75" fill="#f0f0f0" stroke="#999999" stroke-width="1"/>
+  <text x="125" y="355" font-size="10" font-family="Arial">WIND_TURBINE_SYMBOL</text>
+  <text x="125" y="370" font-size="8" font-family="Arial"/>
+  <text x="125" y="385" font-size="8" font-family="Arial">MECH</text>
+  <rect x="145" y="390" width="40" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+</svg>

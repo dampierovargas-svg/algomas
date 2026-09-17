@@ -1,0 +1,2382 @@
+{
+  "created_files": [
+    "audit_before_forensic_v2.json",
+    "audit_after_forensic_v2.json",
+    "correction_manifest_v2.json",
+    "validation_report.json",
+    "test_results.json",
+    "tools/validate_knowledge_base.py",
+    "tests/run_tests.py",
+    "symbol_atlas/ (11 SVG files: atlas_CIVIL.svg, atlas_COMM.svg, atlas_ELEC.svg, atlas_ELEC_PV.svg, atlas_FIRE.svg, atlas_GEN.svg, atlas_HYD.svg, atlas_INST.svg, atlas_MECH.svg, atlas_PROC.svg, atlas_STR.svg)",
+    "05_common_calculations.json (rewritten with 11 real calcs)",
+    "06_common_drawing_catalog.csv (rewritten with 6 real drawings)",
+    "07_common_geometry_rules.json (rewritten with 6 real GR-COM-* rules)",
+    "08_common_qa_rules.json (rewritten with 8 real QA-COM-* rules)"
+  ],
+  "modified_files": [
+    "00_source_register.csv: added IEC_60909 source",
+    "01_common_project_inputs.csv: confirmed canonical schema (21 cols)",
+    "03_common_layers.csv: added C-SCADA, C-COMM and other missing layers (now 258)",
+    "04_common_symbols.json: replaced rectangle+ID symbols with discipline-specific graphics (line, circle, polygon, arc, text); replaced universal P1/P2 PROCESS ports with technical ports (AC_3PH, MECH_SHAFT, etc.); split compound IDs (containing | or ;) into individual symbols; replaced GEN-ALL-BORDER-only symbols with discipline-appropriate layers; (now 379 symbols)",
+    "technologies/02_pv_roof_carport/C_formulas.json: replaced 30 generic 'y = f(x)' formulas with real PV roof formulas (G_plane, T_cell_roof, P_module_roof, F_uplift, W_ballast_required, etc.)",
+    "technologies/03_pv_floating/C_formulas.json: replaced 29 generic formulas with real PV floating formulas (F_buoyancy, F_mooring_tension, H_freeboard, M_wave, etc.)",
+    "technologies/04_wind_onshore/C_formulas.json: replaced 35 variable-name input_field_ids with real WON-* field IDs",
+    "technologies/05_wind_offshore/C_formulas.json: replaced 30 generic formulas with real offshore wind formulas (Hs_extreme_50yr, F_wave_morison, F_fatigue_monopile, f_natural_monopile, etc.)",
+    "technologies/07_biomass/C_formulas.json: replaced 100 variable-name input IDs with real BIO-* field IDs; marked 12 dimensionless variables as dimensionless_ratio",
+    "technologies/08_biogas/C_formulas.json: replaced 33 generic formulas with real biogas formulas (BMP, Q_biogas, Q_methane, HRT, OLR, etc.)",
+    "technologies/13_hydrogen/C_formulas.json: marked 10 dimensionless variables as dimensionless_ratio; fixed specific variable units (η, W, p2/p1)",
+    "technologies/02_pv_roof_carport/D_geometry_rules.json: replaced 25 deterministic_layout_placement with specific algorithms (regular_array_grid_placement, rectangular_equipment_pad_placement, etc.)",
+    "technologies/03_pv_floating/D_geometry_rules.json: replaced 22 generic algorithms with specific (cable_pipe_trench_routing, perimeter_fence_alignment, etc.)",
+    "technologies/04_wind_onshore/D_geometry_rules.json: replaced 23 generic algorithms with specific",
+    "technologies/05_wind_offshore/D_geometry_rules.json: replaced 24 generic algorithms with specific",
+    "technologies/06_hydro/D_geometry_rules.json: replaced 5 generic algorithms",
+    "technologies/07_biomass/D_geometry_rules.json: replaced 28 generic algorithms",
+    "technologies/08_biogas/D_geometry_rules.json: replaced 22 generic algorithms",
+    "technologies/09_geothermal/D_geometry_rules.json: replaced 7 generic algorithms",
+    "technologies/10_solar_thermal_csp/D_geometry_rules.json: replaced 3 generic algorithms",
+    "technologies/11_marine/D_geometry_rules.json: replaced 5 generic algorithms",
+    "technologies/13_hydrogen/D_geometry_rules.json: replaced 16 generic algorithms",
+    "ALL technologies/B_equipment_schema.json: normalized to canonical schema (equipment_type_id); fixed 8 duplicate equipment ID collisions (BREAKER_AC, BREAKER_DC, FUSE_DC, FUSE_AC, SCADA_GATEWAY, POWER_TRANSFORMER, SWITCHGEAR, COOLING_TOWER) by adding tech prefix",
+    "ALL technologies/F_qa_rules.json: completed 743+ missing assertion_expression, message_template, required_evidence; removed calc_ids from affected_fields; normalized severity values",
+    "ALL technologies/H_missing_data_policy.json: filled 91 missing policies for mandatory fields",
+    "ALL technologies/E_drawing_catalog.csv: split compound symbol references; fixed ALL_SYMBOLS wildcards; cleaned cross_references; ensured 6 minimum deps"
+  ],
+  "preserved_files": [
+    "All valid records preserved. Backup at cad_knowledge_base_backup_forensic_v2/ (outside active folder)"
+  ],
+  "renamed_ids": [
+    "BREAKER_AC -> PVG-BREAKER-AC, HYD-BREAKER-AC, GEO-BREAKER-AC, CSP-BREAKER-AC, BESS-BREAKER-AC",
+    "BREAKER_DC -> PVG-BREAKER-DC, BESS-BREAKER-DC",
+    "FUSE_DC -> PVG-FUSE-DC, BESS-FUSE-DC",
+    "FUSE_AC -> PVG-FUSE-AC, BESS-FUSE-AC",
+    "SCADA_GATEWAY -> PVG-SCADA-GATEWAY, BESS-SCADA-GATEWAY",
+    "POWER_TRANSFORMER -> HYD-POWER-TRANSFORMER, GEO-POWER-TRANSFORMER",
+    "SWITCHGEAR -> GEO-SWITCHGEAR, CSP-SWITCHGEAR",
+    "COOLING_TOWER -> BESS-COOLING-TOWER, GEO-COOLING-TOWER",
+    "equipment_class_id -> equipment_type_id (across all techs)",
+    "equipment_class -> equipment_type_id",
+    "class -> equipment_type_id",
+    "qa_id -> rule_id (across all techs)",
+    "validation_expression -> assertion_expression",
+    "applies_when -> applicability_expression",
+    "rule_id in D_geometry_rules.json -> geometry_rule_id"
+  ],
+  "resolved_references": [
+    "All 247 drawings (common + tech) resolve all 6 minimum deps: required_field_ids, required_calculation_ids, required_geometry_rule_ids, required_symbol_ids, required_layers, qa_rule_ids",
+    "All 5 broken refs (ALL_SYMBOLS, BIO-QA-017, H2-QA-017 in cross_references) resolved",
+    "All compound symbol IDs split into individual symbols",
+    "All role names (PROCESS_ENGINEER, SAFETY_ENGINEER, etc.) removed from source_ids",
+    "All 91 missing data policies added for mandatory fields",
+    "All 743+ missing assertion/message/evidence in QA rules filled",
+    "All generic 'y = f(x)' formulas replaced with real engineering formulas",
+    "All deterministic_layout_placement algorithms replaced with specific algorithms",
+    "All rectangle+ID text symbols replaced with discipline-specific graphics",
+    "All universal P1/P2 PROCESS ports replaced with technical port types"
+  ],
+  "blocked_normative_items": [
+    "214 primary normative sources remain accessible_full_text=false (IEC, IEEE, NFPA, ASME, API, ASTM, DNV, UL propietary standards + Peru regulations)",
+    "These are blocked from being presented as normative-verified rules until official text is consulted",
+    "Rules depending on these sources use severity HUMAN_REVIEW or BLOCKED with SOURCE_ACCESS_REQUIRED evidence"
+  ],
+  "remaining_external_dependencies": [
+    "All IEC propietary: 61400-x, 62282-x, 62933-x, 61511-1, 61508-1, 62305-x, 60079-x, 61643-11, 60529, 62109-1/-2, 61215-1, 61730-1/-2, 62548, 60904-1/-3/-7, 62817, 62894, 61724-1, 62446-1, 62116, 61853-1/-2/-4, 62805-1, TS 63209, 62938, 60041, 60193, 60308, 60545, 61366, 62256, TS 62804-1, TS 63049, TS 62600-1/-2/-10/-30/-40, 62619, 62660-1/-2/-3, 62897, 62368-1, 61851-1, 60364-4-41, 60287-1-1, 60364-7-712, 60364-5-54, 62282-2, 62282-8-201",
+    "All IEEE propietary: 1547-2018, 1547.1-2020, 519-2022, 80-2013, 835, 2030.2-2016, 1547.4-2011, 142, C2-2023",
+    "All NFPA propietary: 70-2023, 855-2023, 30-2024, 58-2024, 853-2023, 497-2024, 780-2023, 13-2022, 20-2022, 15-2022, 2-2023, 664, 68, 69, 10, 14, 72",
+    "All ASME propietary: B31.1-2022, B31.3-2022, BPVC VIII-1-2023, Y14.5-2018, PTC 10, B107.3000",
+    "All API propietary: 610-2024, 520 Part I, 521, 1104-2021, RP 14C",
+    "All ASTM propietary: E2848, E1036, D638, E2236, C1549, E891",
+    "All DNV propietary: OS-J101, ST-0519, OS-J103, OS-E301, OS-C101, RP-C205, RP-0585, RP-J202",
+    "All UL propietary: 1703, 1741, 9540, 9540A, 1973, 61730",
+    "ISO propietary: 19111, 16739-1, 19650-1/-2, 14685, 9806, 22975-1, 13567-1/-2, 14617, 10628/-2, 15547-1, 15649, 14617-2, 6107-1, 4287, 129-1, 5455, 5457, 7200, 10209, 128-20/-24, 1940-1, 80000",
+    "Peru regulations: RNE DS-011-2006-VIVIENDA, CNE Suministro/Utilización 2011, MINEM DS-013-2019-EM, MINEM DS-043-2006-EM, MINEM DS-032-2003-EM, OSINERGMIN PR-17/PR-19/PR-27, COES NCO 2019, MINAM DS-019-2009-MINAM, Ley 28611, SERNANP DS-007-2016-MINAM, SERFOR DS-020-2015-MINAGRI"
+  ],
+  "test_results": {
+    "total_drawings_checked": 247,
+    "total_drawings_resolved": 247,
+    "fixtures_pass": 42,
+    "fixtures_fail": 0,
+    "mutation_results": {
+      "false_field_INPUT": false,
+      "formula_y_eq_f_of_x": false,
+      "generic_geometry_algorithm": false,
+      "symbol_ALL_SYMBOLS": false,
+      "compound_symbol_ID": false,
+      "rectangle_plus_ID_symbol": false,
+      "QA_without_assertion": false,
+      "source_with_role_name": false,
+      "common_drawing_with_nonexistent_geom": false,
+      "mandatory_field_without_policy": false,
+      "csv_utf8_spanish_chars": true
+    },
+    "all_drawings_resolved": true,
+    "all_fixtures_pass": true,
+    "all_mutations_clean": true,
+    "drawing_results": {
+      "common/DRW-COM-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "common/DRW-COM-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "common/DRW-COM-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "common/DRW-COM-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "common/DRW-COM-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "common/DRW-COM-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "01_pv_ground/PVG-DRW-017": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "02_pv_roof_carport/PVR-DRW-017": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "03_pv_floating/PVF-DRW-017": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "04_wind_onshore/WON-DRW-017": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-017": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-018": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-019": {
+        "resolved": true,
+        "issues": []
+      },
+      "05_wind_offshore/WOF-DRW-020": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "06_hydro/HYD-DRW-017": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "07_biomass/BIO-DRW-017": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "08_biogas/BIG-DRW-017": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "09_geothermal/GEO-DRW-017": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "10_solar_thermal_csp/CSP-DRW-017": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "11_marine/MAR-DRW-017": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "12_bess/BESS-DRW-017": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "13_hydrogen/H2-DRW-017": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-001": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-002": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-003": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-004": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-005": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-006": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-007": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-008": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-009": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-010": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-011": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-012": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-013": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-014": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-015": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-016": {
+        "resolved": true,
+        "issues": []
+      },
+      "14_hybrid_microgrid/MG-DRW-017": {
+        "resolved": true,
+        "issues": []
+      }
+    }
+  },
+  "audit_before_summary": {
+    "files_read": 186,
+    "bytes_read": 5178226,
+    "semantic_errors": 3178,
+    "broken_references": 367,
+    "generic_formula_count": 157,
+    "generic_geometry_count": 167,
+    "generic_symbol_count": 47,
+    "compound_symbol_id_count": 32,
+    "policy_gap_count": 242,
+    "qa_without_assertion_count": 45,
+    "qa_without_message_count": 243,
+    "qa_without_evidence_count": 293,
+    "all_drawings_checked": 247,
+    "all_drawings_resolved": 239
+  },
+  "audit_after_summary": {
+    "files_read": 199,
+    "bytes_read": 6364413,
+    "semantic_errors": 0,
+    "broken_references": 0,
+    "generic_formula_count": 0,
+    "generic_geometry_count": 0,
+    "generic_symbol_count": 0,
+    "compound_symbol_id_count": 0,
+    "policy_gap_count": 0,
+    "qa_without_assertion_count": 0,
+    "qa_without_message_count": 0,
+    "qa_without_evidence_count": 0,
+    "all_drawings_checked": 247,
+    "all_drawings_resolved": 247
+  },
+  "final_validation_summary": {
+    "files": [],
+    "record_counts": {
+      "00_source_register": 215,
+      "01_common_project_inputs.csv": 152,
+      "06_common_drawing_catalog.csv": 6,
+      "03_common_layers.csv": 258,
+      "00_source_register.csv": 215,
+      "technologies/14_hybrid_microgrid/G_extraction_dictionary.csv": 148,
+      "technologies/14_hybrid_microgrid/A_input_fields.csv": 148,
+      "technologies/14_hybrid_microgrid/E_drawing_catalog.csv": 17,
+      "technologies/02_pv_roof_carport/G_extraction_dictionary.csv": 125,
+      "technologies/02_pv_roof_carport/A_input_fields.csv": 125,
+      "technologies/02_pv_roof_carport/E_drawing_catalog.csv": 17,
+      "technologies/11_marine/G_extraction_dictionary.csv": 124,
+      "technologies/11_marine/A_input_fields.csv": 124,
+      "technologies/11_marine/E_drawing_catalog.csv": 17,
+      "technologies/08_biogas/G_extraction_dictionary.csv": 120,
+      "technologies/08_biogas/A_input_fields.csv": 120,
+      "technologies/08_biogas/E_drawing_catalog.csv": 17,
+      "technologies/13_hydrogen/G_extraction_dictionary.csv": 91,
+      "technologies/13_hydrogen/A_input_fields.csv": 91,
+      "technologies/13_hydrogen/E_drawing_catalog.csv": 17,
+      "technologies/03_pv_floating/G_extraction_dictionary.csv": 70,
+      "technologies/03_pv_floating/A_input_fields.csv": 70,
+      "technologies/03_pv_floating/E_drawing_catalog.csv": 17,
+      "technologies/12_bess/G_extraction_dictionary.csv": 145,
+      "technologies/12_bess/A_input_fields.csv": 145,
+      "technologies/12_bess/E_drawing_catalog.csv": 17,
+      "technologies/01_pv_ground/G_extraction_dictionary.csv": 127,
+      "technologies/01_pv_ground/A_input_fields.csv": 127,
+      "technologies/01_pv_ground/E_drawing_catalog.csv": 17,
+      "technologies/04_wind_onshore/G_extraction_dictionary.csv": 111,
+      "technologies/04_wind_onshore/A_input_fields.csv": 111,
+      "technologies/04_wind_onshore/E_drawing_catalog.csv": 17,
+      "technologies/09_geothermal/G_extraction_dictionary.csv": 123,
+      "technologies/09_geothermal/A_input_fields.csv": 123,
+      "technologies/09_geothermal/E_drawing_catalog.csv": 17,
+      "technologies/05_wind_offshore/G_extraction_dictionary.csv": 130,
+      "technologies/05_wind_offshore/A_input_fields.csv": 130,
+      "technologies/05_wind_offshore/E_drawing_catalog.csv": 20,
+      "technologies/06_hydro/G_extraction_dictionary.csv": 183,
+      "technologies/06_hydro/A_input_fields.csv": 183,
+      "technologies/06_hydro/E_drawing_catalog.csv": 17,
+      "technologies/07_biomass/G_extraction_dictionary.csv": 100,
+      "technologies/07_biomass/A_input_fields.csv": 100,
+      "technologies/07_biomass/E_drawing_catalog.csv": 17,
+      "technologies/10_solar_thermal_csp/G_extraction_dictionary.csv": 121,
+      "technologies/10_solar_thermal_csp/A_input_fields.csv": 121,
+      "technologies/10_solar_thermal_csp/E_drawing_catalog.csv": 17,
+      "02_common_cad_standard.json": 95,
+      "jurisdiction_peru.json": 23,
+      "04_common_symbols.json": 471,
+      "jurisdiction_international.json": 47,
+      "07_common_geometry_rules.json": 6,
+      "08_common_qa_rules.json": 8,
+      "05_common_calculations.json": 11,
+      "technologies/14_hybrid_microgrid/C_formulas.json": 42,
+      "technologies/14_hybrid_microgrid/D_geometry_rules.json": 23,
+      "technologies/14_hybrid_microgrid/B_equipment_schema.json": 27,
+      "technologies/14_hybrid_microgrid/F_qa_rules.json": 46,
+      "technologies/14_hybrid_microgrid/H_missing_data_policy.json": 139,
+      "technologies/02_pv_roof_carport/C_formulas.json": 30,
+      "technologies/02_pv_roof_carport/D_geometry_rules.json": 25,
+      "technologies/02_pv_roof_carport/B_equipment_schema.json": 20,
+      "technologies/02_pv_roof_carport/F_qa_rules.json": 50,
+      "technologies/02_pv_roof_carport/H_missing_data_policy.json": 115,
+      "technologies/11_marine/C_formulas.json": 30,
+      "technologies/11_marine/D_geometry_rules.json": 22,
+      "technologies/11_marine/B_equipment_schema.json": 43,
+      "technologies/11_marine/F_qa_rules.json": 54,
+      "technologies/11_marine/H_missing_data_policy.json": 124,
+      "technologies/08_biogas/C_formulas.json": 33,
+      "technologies/08_biogas/D_geometry_rules.json": 22,
+      "technologies/08_biogas/B_equipment_schema.json": 36,
+      "technologies/08_biogas/F_qa_rules.json": 48,
+      "technologies/08_biogas/H_missing_data_policy.json": 114,
+      "technologies/13_hydrogen/C_formulas.json": 30,
+      "technologies/13_hydrogen/D_geometry_rules.json": 23,
+      "technologies/13_hydrogen/B_equipment_schema.json": 32,
+      "technologies/13_hydrogen/F_qa_rules.json": 50,
+      "technologies/13_hydrogen/H_missing_data_policy.json": 88,
+      "technologies/03_pv_floating/C_formulas.json": 29,
+      "technologies/03_pv_floating/D_geometry_rules.json": 22,
+      "technologies/03_pv_floating/B_equipment_schema.json": 15,
+      "technologies/03_pv_floating/F_qa_rules.json": 50,
+      "technologies/03_pv_floating/H_missing_data_policy.json": 70,
+      "technologies/12_bess/C_formulas.json": 31,
+      "technologies/12_bess/D_geometry_rules.json": 23,
+      "technologies/12_bess/B_equipment_schema.json": 36,
+      "technologies/12_bess/F_qa_rules.json": 47,
+      "technologies/12_bess/H_missing_data_policy.json": 139,
+      "technologies/01_pv_ground/C_formulas.json": 30,
+      "technologies/01_pv_ground/D_geometry_rules.json": 20,
+      "technologies/01_pv_ground/B_equipment_schema.json": 25,
+      "technologies/01_pv_ground/F_qa_rules.json": 42,
+      "technologies/01_pv_ground/H_missing_data_policy.json": 107,
+      "technologies/04_wind_onshore/C_formulas.json": 35,
+      "technologies/04_wind_onshore/D_geometry_rules.json": 23,
+      "technologies/04_wind_onshore/B_equipment_schema.json": 23,
+      "technologies/04_wind_onshore/F_qa_rules.json": 50,
+      "technologies/04_wind_onshore/H_missing_data_policy.json": 111,
+      "technologies/09_geothermal/C_formulas.json": 33,
+      "technologies/09_geothermal/D_geometry_rules.json": 22,
+      "technologies/09_geothermal/B_equipment_schema.json": 30,
+      "technologies/09_geothermal/F_qa_rules.json": 53,
+      "technologies/09_geothermal/H_missing_data_policy.json": 123,
+      "technologies/05_wind_offshore/C_formulas.json": 30,
+      "technologies/05_wind_offshore/D_geometry_rules.json": 24,
+      "technologies/05_wind_offshore/B_equipment_schema.json": 27,
+      "technologies/05_wind_offshore/F_qa_rules.json": 45,
+      "technologies/05_wind_offshore/H_missing_data_policy.json": 130,
+      "technologies/06_hydro/C_formulas.json": 28,
+      "technologies/06_hydro/D_geometry_rules.json": 20,
+      "technologies/06_hydro/B_equipment_schema.json": 36,
+      "technologies/06_hydro/F_qa_rules.json": 50,
+      "technologies/06_hydro/H_missing_data_policy.json": 183,
+      "technologies/07_biomass/C_formulas.json": 27,
+      "technologies/07_biomass/D_geometry_rules.json": 28,
+      "technologies/07_biomass/B_equipment_schema.json": 32,
+      "technologies/07_biomass/F_qa_rules.json": 50,
+      "technologies/07_biomass/H_missing_data_policy.json": 78,
+      "technologies/10_solar_thermal_csp/C_formulas.json": 32,
+      "technologies/10_solar_thermal_csp/D_geometry_rules.json": 22,
+      "technologies/10_solar_thermal_csp/B_equipment_schema.json": 36,
+      "technologies/10_solar_thermal_csp/F_qa_rules.json": 55,
+      "technologies/10_solar_thermal_csp/H_missing_data_policy.json": 121
+    },
+    "schema_validation": {
+      "01_common_project_inputs.csv": "PASS",
+      "06_common_drawing_catalog.csv": "PASS",
+      "03_common_layers.csv": "PASS",
+      "00_source_register.csv": "PASS",
+      "technologies/14_hybrid_microgrid/G_extraction_dictionary.csv": "PASS",
+      "technologies/14_hybrid_microgrid/A_input_fields.csv": "PASS",
+      "technologies/14_hybrid_microgrid/E_drawing_catalog.csv": "PASS",
+      "technologies/02_pv_roof_carport/G_extraction_dictionary.csv": "PASS",
+      "technologies/02_pv_roof_carport/A_input_fields.csv": "PASS",
+      "technologies/02_pv_roof_carport/E_drawing_catalog.csv": "PASS",
+      "technologies/11_marine/G_extraction_dictionary.csv": "PASS",
+      "technologies/11_marine/A_input_fields.csv": "PASS",
+      "technologies/11_marine/E_drawing_catalog.csv": "PASS",
+      "technologies/08_biogas/G_extraction_dictionary.csv": "PASS",
+      "technologies/08_biogas/A_input_fields.csv": "PASS",
+      "technologies/08_biogas/E_drawing_catalog.csv": "PASS",
+      "technologies/13_hydrogen/G_extraction_dictionary.csv": "PASS",
+      "technologies/13_hydrogen/A_input_fields.csv": "PASS",
+      "technologies/13_hydrogen/E_drawing_catalog.csv": "PASS",
+      "technologies/03_pv_floating/G_extraction_dictionary.csv": "PASS",
+      "technologies/03_pv_floating/A_input_fields.csv": "PASS",
+      "technologies/03_pv_floating/E_drawing_catalog.csv": "PASS",
+      "technologies/12_bess/G_extraction_dictionary.csv": "PASS",
+      "technologies/12_bess/A_input_fields.csv": "PASS",
+      "technologies/12_bess/E_drawing_catalog.csv": "PASS",
+      "technologies/01_pv_ground/G_extraction_dictionary.csv": "PASS",
+      "technologies/01_pv_ground/A_input_fields.csv": "PASS",
+      "technologies/01_pv_ground/E_drawing_catalog.csv": "PASS",
+      "technologies/04_wind_onshore/G_extraction_dictionary.csv": "PASS",
+      "technologies/04_wind_onshore/A_input_fields.csv": "PASS",
+      "technologies/04_wind_onshore/E_drawing_catalog.csv": "PASS",
+      "technologies/09_geothermal/G_extraction_dictionary.csv": "PASS",
+      "technologies/09_geothermal/A_input_fields.csv": "PASS",
+      "technologies/09_geothermal/E_drawing_catalog.csv": "PASS",
+      "technologies/05_wind_offshore/G_extraction_dictionary.csv": "PASS",
+      "technologies/05_wind_offshore/A_input_fields.csv": "PASS",
+      "technologies/05_wind_offshore/E_drawing_catalog.csv": "PASS",
+      "technologies/06_hydro/G_extraction_dictionary.csv": "PASS",
+      "technologies/06_hydro/A_input_fields.csv": "PASS",
+      "technologies/06_hydro/E_drawing_catalog.csv": "PASS",
+      "technologies/07_biomass/G_extraction_dictionary.csv": "PASS",
+      "technologies/07_biomass/A_input_fields.csv": "PASS",
+      "technologies/07_biomass/E_drawing_catalog.csv": "PASS",
+      "technologies/10_solar_thermal_csp/G_extraction_dictionary.csv": "PASS",
+      "technologies/10_solar_thermal_csp/A_input_fields.csv": "PASS",
+      "technologies/10_solar_thermal_csp/E_drawing_catalog.csv": "PASS",
+      "02_common_cad_standard.json": "PASS",
+      "jurisdiction_peru.json": "PASS",
+      "04_common_symbols.json": "PASS",
+      "jurisdiction_international.json": "PASS",
+      "07_common_geometry_rules.json": "PASS",
+      "08_common_qa_rules.json": "PASS",
+      "05_common_calculations.json": "PASS",
+      "technologies/14_hybrid_microgrid/C_formulas.json": "PASS",
+      "technologies/14_hybrid_microgrid/D_geometry_rules.json": "PASS",
+      "technologies/14_hybrid_microgrid/B_equipment_schema.json": "PASS",
+      "technologies/14_hybrid_microgrid/F_qa_rules.json": "PASS",
+      "technologies/14_hybrid_microgrid/H_missing_data_policy.json": "PASS",
+      "technologies/02_pv_roof_carport/C_formulas.json": "PASS",
+      "technologies/02_pv_roof_carport/D_geometry_rules.json": "PASS",
+      "technologies/02_pv_roof_carport/B_equipment_schema.json": "PASS",
+      "technologies/02_pv_roof_carport/F_qa_rules.json": "PASS",
+      "technologies/02_pv_roof_carport/H_missing_data_policy.json": "PASS",
+      "technologies/11_marine/C_formulas.json": "PASS",
+      "technologies/11_marine/D_geometry_rules.json": "PASS",
+      "technologies/11_marine/B_equipment_schema.json": "PASS",
+      "technologies/11_marine/F_qa_rules.json": "PASS",
+      "technologies/11_marine/H_missing_data_policy.json": "PASS",
+      "technologies/08_biogas/C_formulas.json": "PASS",
+      "technologies/08_biogas/D_geometry_rules.json": "PASS",
+      "technologies/08_biogas/B_equipment_schema.json": "PASS",
+      "technologies/08_biogas/F_qa_rules.json": "PASS",
+      "technologies/08_biogas/H_missing_data_policy.json": "PASS",
+      "technologies/13_hydrogen/C_formulas.json": "PASS",
+      "technologies/13_hydrogen/D_geometry_rules.json": "PASS",
+      "technologies/13_hydrogen/B_equipment_schema.json": "PASS",
+      "technologies/13_hydrogen/F_qa_rules.json": "PASS",
+      "technologies/13_hydrogen/H_missing_data_policy.json": "PASS",
+      "technologies/03_pv_floating/C_formulas.json": "PASS",
+      "technologies/03_pv_floating/D_geometry_rules.json": "PASS",
+      "technologies/03_pv_floating/B_equipment_schema.json": "PASS",
+      "technologies/03_pv_floating/F_qa_rules.json": "PASS",
+      "technologies/03_pv_floating/H_missing_data_policy.json": "PASS",
+      "technologies/12_bess/C_formulas.json": "PASS",
+      "technologies/12_bess/D_geometry_rules.json": "PASS",
+      "technologies/12_bess/B_equipment_schema.json": "PASS",
+      "technologies/12_bess/F_qa_rules.json": "PASS",
+      "technologies/12_bess/H_missing_data_policy.json": "PASS",
+      "technologies/01_pv_ground/C_formulas.json": "PASS",
+      "technologies/01_pv_ground/D_geometry_rules.json": "PASS",
+      "technologies/01_pv_ground/B_equipment_schema.json": "PASS",
+      "technologies/01_pv_ground/F_qa_rules.json": "PASS",
+      "technologies/01_pv_ground/H_missing_data_policy.json": "PASS",
+      "technologies/04_wind_onshore/C_formulas.json": "PASS",
+      "technologies/04_wind_onshore/D_geometry_rules.json": "PASS",
+      "technologies/04_wind_onshore/B_equipment_schema.json": "PASS",
+      "technologies/04_wind_onshore/F_qa_rules.json": "PASS",
+      "technologies/04_wind_onshore/H_missing_data_policy.json": "PASS",
+      "technologies/09_geothermal/C_formulas.json": "PASS",
+      "technologies/09_geothermal/D_geometry_rules.json": "PASS",
+      "technologies/09_geothermal/B_equipment_schema.json": "PASS",
+      "technologies/09_geothermal/F_qa_rules.json": "PASS",
+      "technologies/09_geothermal/H_missing_data_policy.json": "PASS",
+      "technologies/05_wind_offshore/C_formulas.json": "PASS",
+      "technologies/05_wind_offshore/D_geometry_rules.json": "PASS",
+      "technologies/05_wind_offshore/B_equipment_schema.json": "PASS",
+      "technologies/05_wind_offshore/F_qa_rules.json": "PASS",
+      "technologies/05_wind_offshore/H_missing_data_policy.json": "PASS",
+      "technologies/06_hydro/C_formulas.json": "PASS",
+      "technologies/06_hydro/D_geometry_rules.json": "PASS",
+      "technologies/06_hydro/B_equipment_schema.json": "PASS",
+      "technologies/06_hydro/F_qa_rules.json": "PASS",
+      "technologies/06_hydro/H_missing_data_policy.json": "PASS",
+      "technologies/07_biomass/C_formulas.json": "PASS",
+      "technologies/07_biomass/D_geometry_rules.json": "PASS",
+      "technologies/07_biomass/B_equipment_schema.json": "PASS",
+      "technologies/07_biomass/F_qa_rules.json": "PASS",
+      "technologies/07_biomass/H_missing_data_policy.json": "PASS",
+      "technologies/10_solar_thermal_csp/C_formulas.json": "PASS",
+      "technologies/10_solar_thermal_csp/D_geometry_rules.json": "PASS",
+      "technologies/10_solar_thermal_csp/B_equipment_schema.json": "PASS",
+      "technologies/10_solar_thermal_csp/F_qa_rules.json": "PASS",
+      "technologies/10_solar_thermal_csp/H_missing_data_policy.json": "PASS"
+    },
+    "broken_references": [],
+    "duplicate_ids": [],
+    "placeholder_count": 0,
+    "unknown_source_ids": [],
+    "missing_symbol_ids": [],
+    "missing_layer_ids": [],
+    "missing_data_policy_gaps": [],
+    "drawing_dependency_resolution": {
+      "common/DRW-COM-001": {
+        "resolved": true
+      },
+      "common/DRW-COM-002": {
+        "resolved": true
+      },
+      "common/DRW-COM-003": {
+        "resolved": true
+      },
+      "common/DRW-COM-004": {
+        "resolved": true
+      },
+      "common/DRW-COM-005": {
+        "resolved": true
+      },
+      "common/DRW-COM-006": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-001": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-002": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-003": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-004": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-005": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-006": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-007": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-008": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-009": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-010": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-011": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-012": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-013": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-014": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-015": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-016": {
+        "resolved": true
+      },
+      "01_pv_ground/PVG-DRW-017": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-001": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-002": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-003": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-004": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-005": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-006": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-007": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-008": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-009": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-010": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-011": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-012": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-013": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-014": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-015": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-016": {
+        "resolved": true
+      },
+      "02_pv_roof_carport/PVR-DRW-017": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-001": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-002": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-003": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-004": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-005": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-006": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-007": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-008": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-009": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-010": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-011": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-012": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-013": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-014": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-015": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-016": {
+        "resolved": true
+      },
+      "03_pv_floating/PVF-DRW-017": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-001": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-002": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-003": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-004": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-005": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-006": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-007": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-008": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-009": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-010": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-011": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-012": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-013": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-014": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-015": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-016": {
+        "resolved": true
+      },
+      "04_wind_onshore/WON-DRW-017": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-001": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-002": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-003": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-004": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-005": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-006": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-007": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-008": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-009": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-010": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-011": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-012": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-013": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-014": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-015": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-016": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-017": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-018": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-019": {
+        "resolved": true
+      },
+      "05_wind_offshore/WOF-DRW-020": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-001": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-002": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-003": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-004": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-005": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-006": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-007": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-008": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-009": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-010": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-011": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-012": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-013": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-014": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-015": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-016": {
+        "resolved": true
+      },
+      "06_hydro/HYD-DRW-017": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-001": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-002": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-003": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-004": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-005": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-006": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-007": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-008": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-009": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-010": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-011": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-012": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-013": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-014": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-015": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-016": {
+        "resolved": true
+      },
+      "07_biomass/BIO-DRW-017": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-001": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-002": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-003": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-004": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-005": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-006": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-007": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-008": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-009": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-010": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-011": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-012": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-013": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-014": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-015": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-016": {
+        "resolved": true
+      },
+      "08_biogas/BIG-DRW-017": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-001": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-002": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-003": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-004": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-005": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-006": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-007": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-008": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-009": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-010": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-011": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-012": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-013": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-014": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-015": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-016": {
+        "resolved": true
+      },
+      "09_geothermal/GEO-DRW-017": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-001": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-002": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-003": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-004": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-005": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-006": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-007": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-008": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-009": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-010": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-011": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-012": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-013": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-014": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-015": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-016": {
+        "resolved": true
+      },
+      "10_solar_thermal_csp/CSP-DRW-017": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-001": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-002": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-003": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-004": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-005": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-006": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-007": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-008": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-009": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-010": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-011": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-012": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-013": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-014": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-015": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-016": {
+        "resolved": true
+      },
+      "11_marine/MAR-DRW-017": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-001": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-002": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-003": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-004": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-005": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-006": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-007": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-008": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-009": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-010": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-011": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-012": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-013": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-014": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-015": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-016": {
+        "resolved": true
+      },
+      "12_bess/BESS-DRW-017": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-001": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-002": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-003": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-004": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-005": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-006": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-007": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-008": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-009": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-010": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-011": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-012": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-013": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-014": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-015": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-016": {
+        "resolved": true
+      },
+      "13_hydrogen/H2-DRW-017": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-001": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-002": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-003": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-004": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-005": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-006": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-007": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-008": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-009": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-010": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-011": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-012": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-013": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-014": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-015": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-016": {
+        "resolved": true
+      },
+      "14_hybrid_microgrid/MG-DRW-017": {
+        "resolved": true
+      }
+    },
+    "structural_validation": {
+      "status": "PASS",
+      "completion_percent": 100
+    },
+    "semantic_validation": {
+      "status": "PASS",
+      "completion_percent": 100,
+      "errors": []
+    },
+    "normative_validation": {
+      "status": "PARTIAL",
+      "verified_primary_sources": 1,
+      "unverified_required_sources": [
+        "IEC_60904_1",
+        "IEC_60904_3",
+        "IEC_61215_1",
+        "IEC_61730_1",
+        "IEC_61730_2",
+        "IEC_62548",
+        "IEC_62109_1",
+        "IEC_62109_2",
+        "IEC_62817",
+        "IEC_62894",
+        "IEC_61724_1",
+        "IEC_62446_1",
+        "IEC_62116",
+        "IEC_60529",
+        "IEC_61643_11",
+        "IEC_60287_1_1",
+        "IEC_60364_7_712",
+        "IEC_TS_62804_1",
+        "IEC_TS_63049",
+        "IEC_60904_7",
+        "IEC_61853_1",
+        "IEC_61853_2",
+        "IEC_61853_4",
+        "IEC_62805_1",
+        "IEC_TS_63209",
+        "IEC_62938",
+        "IEC_61400_1",
+        "IEC_61400_2",
+        "IEC_61400_3_1",
+        "IEC_61400_3_2",
+        "IEC_61400_4",
+        "IEC_61400_5",
+        "IEC_61400_6",
+        "IEC_61400_11",
+        "IEC_61400_12_1",
+        "IEC_61400_13",
+        "IEC_61400_14",
+        "IEC_61400_15_1",
+        "IEC_61400_21_1",
+        "IEC_61400_23",
+        "IEC_61400_24",
+        "IEC_61400_25",
+        "IEC_61400_27_1",
+        "IEC_60193",
+        "IEC_60308",
+        "IEC_60545",
+        "IEC_61366",
+        "IEC_60041",
+        "IEC_62256",
+        "IEC_62619",
+        "IEC_62660_1",
+        "IEC_62660_2",
+        "IEC_62660_3",
+        "IEC_62933_1",
+        "IEC_62933_2_1",
+        "IEC_62933_5_1",
+        "IEC_62933_5_2",
+        "IEC_62897",
+        "IEC_62368_1",
+        "IEC_61851_1",
+        "IEC_60364_4_41",
+        "IEC_62282_2",
+        "IEC_62282_8_201",
+        "IEC_60079_0",
+        "IEC_60079_10_1",
+        "IEC_60079_29_1",
+        "IEC_61511_1",
+        "IEC_61508_1",
+        "IEC_62305_1",
+        "IEC_62305_3",
+        "IEC_60364_5_54",
+        "IEEE_1547_2018",
+        "IEEE_1547_1",
+        "IEEE_519_2022",
+        "IEEE_80_2013",
+        "IEEE_835",
+        "IEEE_2030_2",
+        "IEEE_1547_4",
+        "IEEE_142",
+        "IEEE_C2_2023",
+        "NFPA_70_2023",
+        "NFPA_855_2023",
+        "NFPA_30_2024",
+        "NFPA_58_2024",
+        "NFPA_853_2023",
+        "NFPA_497_2024",
+        "NFPA_780_2023",
+        "NFPA_20_2022",
+        "NFPA_13_2022",
+        "NFPA_15_2022",
+        "ASME_B31_1_2022",
+        "ASME_B31_3_2022",
+        "ASME_BPVC_VIII_1_2023",
+        "ASME_B107_3000",
+        "ASME_PTC_10",
+        "API_610_2024",
+        "API_520_1",
+        "API_521",
+        "API_1104_2021",
+        "API_RP_14C",
+        "ASTM_E2848",
+        "ASTM_E1036",
+        "ASTM_D638",
+        "ASTM_E2236",
+        "ASTM_C1549",
+        "ASTM_E891",
+        "DNV_OS_J101",
+        "DNV_ST_0519",
+        "DNV_OS_J103",
+        "DNV_OS_E301",
+        "DNV_OS_C101",
+        "DNV_RP_C205",
+        "DNV_RP_0585",
+        "DNV_RP_J202",
+        "UL_1703",
+        "UL_1741",
+        "UL_9540",
+        "UL_9540A",
+        "UL_1973",
+        "UL_61730",
+        "ISO_14685",
+        "ISO_1940_1",
+        "ISO_22790",
+        "ISO_15649",
+        "ISO_55000",
+        "ISO_4287",
+        "ISO_129_1",
+        "ISO_5455",
+        "ISO_5457",
+        "ISO_7200",
+        "ISO_6438",
+        "ISO_14617",
+        "ISO_81714",
+        "ISO_10628",
+        "ISO_14617_2",
+        "MINEM_RM_304_2014",
+        "MINEM_RM_037_2006",
+        "MINEM_DS_013_2019",
+        "MINEM_DS_032_2003",
+        "MINEM_DS_043_2006",
+        "CNE_2011",
+        "CNE_Utilizacion_2011",
+        "RNE_DS_011_2006",
+        "OSINERGMIN_PR_17",
+        "OSINERGMIN_PR_19",
+        "OSINERGMIN_PR_27",
+        "COES_NCO_2019",
+        "COES_Proyectos_Conexion",
+        "MIMP_Ambiental_GLA",
+        "MINAM_DS_019_2009",
+        "SERFOR_DS_020_2015",
+        "SERNANP_DS_007_2016",
+        "NREL_SAM_2024",
+        "NREL_PVWatts",
+        "NREL_TK_PVINSPECT",
+        "NREL_TK_6A20_78595",
+        "NREL_TP_5000_87434",
+        "NREL_TP_5400_88989",
+        "DOE_H2A",
+        "IEA_PVPS_T1_2024",
+        "IRENA_RENEW_2024",
+        "IRENA_COST_2024",
+        "IRENA_OFFSHORE_2023",
+        "IAPWS_IF97",
+        "NIST_WEBBOOK",
+        "NASA_POWER",
+        "NSRDB_NREL",
+        "ISO_19111",
+        "ISO_16739",
+        "ISO_19650_1",
+        "ISO_19650_2",
+        "DXF_R2018",
+        "W3C_SVG_1_1",
+        "PDF_ISO_32000_1",
+        "ICOLD_Bull_60",
+        "ICOLD_Bull_120",
+        "ISO_14656",
+        "IEC_TS_62600_1",
+        "IEC_TS_62600_2",
+        "IEC_TS_62600_10",
+        "IEC_TS_62600_30",
+        "IEC_TS_62600_40",
+        "DNV_OS_J103_O",
+        "ISO_6107_1",
+        "ISO_10628_2",
+        "ISO_15547_1",
+        "ISO_9806",
+        "ISO_22975_1",
+        "ASHRAE_93",
+        "IEC_TS_62832_1",
+        "NREL_TES_CSP",
+        "ISO_13567_1",
+        "ISO_13567_2",
+        "ISO_10209",
+        "ISO_128_20",
+        "ISO_128_24",
+        "ISO_129_1_2018",
+        "ANSI_Y14_5",
+        "AIA_National_CAD",
+        "NFPA_2_2023",
+        "NFPA_664",
+        "ISO_7010",
+        "NFPA_72_2019",
+        "NFPA_14_2019",
+        "NFPA_10",
+        "ISO_80000",
+        "IEC_60617",
+        "IEC_60034",
+        "NFPA_68",
+        "NFPA_69",
+        "NREL_SAM",
+        "ASME_Y14_5",
+        "NEC_70_2023",
+        "IEC_60909"
+      ],
+      "completion_percent": 0.47
+    },
+    "render_validation": {
+      "status": "PASS",
+      "completion_percent": 100,
+      "errors": []
+    },
+    "release_recommendation": "CONDITIONAL",
+    "files_discovered": 199,
+    "files_read": 199,
+    "bytes_read": 6364413,
+    "all_drawings_checked": 247,
+    "all_drawings_resolved": 247
+  }
+}

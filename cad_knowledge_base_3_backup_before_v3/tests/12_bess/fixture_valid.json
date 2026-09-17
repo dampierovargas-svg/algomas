@@ -1,0 +1,17 @@
+{
+  "technology": "12_bess",
+  "project_id": "TEST-BESS-001",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {
+    "BESS-001": "value_0",
+    "BESS-002": "value_1",
+    "BESS-003": "value_2",
+    "BESS-004": "value_3",
+    "BESS-005": "value_4"
+  },
+  "drawings_to_generate": [
+    "BESS-DRW-001",
+    "BESS-DRW-002",
+    "BESS-DRW-003"
+  ]
+}

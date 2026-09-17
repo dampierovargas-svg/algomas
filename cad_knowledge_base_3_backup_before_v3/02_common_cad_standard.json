@@ -1,0 +1,2009 @@
+[
+  {
+    "rule_id": "CAD-001",
+    "applies_to": [
+      "sheet",
+      "plot"
+    ],
+    "parameters": {
+      "A0_width_mm": 841,
+      "A0_height_mm": 1189,
+      "A1_width_mm": 594,
+      "A1_height_mm": 841,
+      "A2_width_mm": 420,
+      "A2_height_mm": 594,
+      "A3_width_mm": 297,
+      "A3_height_mm": 420,
+      "A4_width_mm": 210,
+      "A4_height_mm": 297
+    },
+    "conditional_expression": "always",
+    "validation_expression": "sheet.format in ['A0','A1','A2','A3','A4'] AND sheet.width_mm == parameters[sheet.format+'_width_mm'] AND sheet.height_mm == parameters[sheet.format+'_height_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_5457",
+      "ISO_7200"
+    ]
+  },
+  {
+    "rule_id": "CAD-002",
+    "applies_to": [
+      "sheet",
+      "plot"
+    ],
+    "parameters": {
+      "A0_x_margin_mm": 20,
+      "A1_x_margin_mm": 20,
+      "A2_x_margin_mm": 10,
+      "A3_x_margin_mm": 10,
+      "A4_x_margin_mm": 10,
+      "y_top_margin_mm": 10,
+      "y_bottom_margin_mm": 10
+    },
+    "conditional_expression": "always",
+    "validation_expression": "sheet.margin_left_mm == parameters[sheet.format+'_x_margin_mm'] AND sheet.margin_right_mm == parameters[sheet.format+'_x_margin_mm'] AND sheet.margin_top_mm == parameters['y_top_margin_mm'] AND sheet.margin_bottom_mm == parameters['y_bottom_margin_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_5457"
+    ]
+  },
+  {
+    "rule_id": "CAD-003",
+    "applies_to": [
+      "sheet"
+    ],
+    "parameters": {
+      "min_usable_area_pct": 80
+    },
+    "conditional_expression": "always",
+    "validation_expression": "(sheet.usable_area_mm2 / sheet.total_area_mm2) * 100 >= parameters['min_usable_area_pct']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_5457"
+    ]
+  },
+  {
+    "rule_id": "CAD-004",
+    "applies_to": [
+      "sheet"
+    ],
+    "parameters": {
+      "border_line_mm": 1.5,
+      "border_color_aci": 7,
+      "border_linetype": "CONTINUOUS"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "sheet.border.lineweight_mm == parameters['border_line_mm'] AND sheet.border.color_aci == parameters['border_color_aci'] AND sheet.border.linetype == parameters['border_linetype']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_5457",
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-010",
+    "applies_to": [
+      "title_block"
+    ],
+    "parameters": {
+      "min_title_block_width_mm": 180,
+      "max_title_block_height_mm": 63,
+      "fields": [
+        "project_id",
+        "project_name",
+        "drawing_id",
+        "title",
+        "scale",
+        "sheet_format",
+        "revision",
+        "date",
+        "designer",
+        "reviewer",
+        "approver",
+        "cip_designer",
+        "cip_reviewer",
+        "cip_approver",
+        "sheet_number",
+        "total_sheets",
+        "north_arrow",
+        "legend",
+        "crs_epsg",
+        "datum_vertical",
+        "drawing_units"
+      ]
+    },
+    "conditional_expression": "always",
+    "validation_expression": "title_block.width_mm >= parameters['min_title_block_width_mm'] AND title_block.height_mm <= parameters['max_title_block_height_mm'] AND all(f in title_block.fields for f in parameters['fields'])",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_7200"
+    ]
+  },
+  {
+    "rule_id": "CAD-011",
+    "applies_to": [
+      "title_block"
+    ],
+    "parameters": {
+      "field_label_height_mm": 2.5,
+      "field_value_height_mm": 3.5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "title_block.field_label_text_height_mm == parameters['field_label_height_mm'] AND title_block.field_value_text_height_mm == parameters['field_value_height_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_7200",
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-012",
+    "applies_to": [
+      "title_block"
+    ],
+    "parameters": {
+      "revision_block_rows_min": 4,
+      "revision_block_col_width_mm": 25
+    },
+    "conditional_expression": "always",
+    "validation_expression": "title_block.revision_block.rows >= parameters['revision_block_rows_min'] AND title_block.revision_block.col_width_mm == parameters['revision_block_col_width_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_7200"
+    ]
+  },
+  {
+    "rule_id": "CAD-013",
+    "applies_to": [
+      "title_block"
+    ],
+    "parameters": {
+      "required_signatures": [
+        "designer",
+        "reviewer",
+        "approver"
+      ],
+      "signature_field_height_mm": 10
+    },
+    "conditional_expression": "stage >= BASIC_ENGINEERING",
+    "validation_expression": "all(s in title_block.signatures for s in parameters['required_signatures']) AND title_block.signature_field_height_mm == parameters['signature_field_height_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_7200",
+      "ISO_19650_2"
+    ]
+  },
+  {
+    "rule_id": "CAD-014",
+    "applies_to": [
+      "title_block"
+    ],
+    "parameters": {
+      "logo_max_height_mm": 15,
+      "logo_max_width_mm": 40
+    },
+    "conditional_expression": "always",
+    "validation_expression": "title_block.logo.height_mm <= parameters['logo_max_height_mm'] AND title_block.logo.width_mm <= parameters['logo_max_width_mm']",
+    "severity": "INFO",
+    "source_ids": [
+      "ISO_7200"
+    ]
+  },
+  {
+    "rule_id": "CAD-020",
+    "applies_to": [
+      "viewport",
+      "scale"
+    ],
+    "parameters": {
+      "allowed_scales": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        25,
+        50,
+        75,
+        100,
+        125,
+        150,
+        200,
+        250,
+        500,
+        750,
+        1000,
+        1250,
+        1500,
+        2000,
+        2500,
+        5000
+      ],
+      "allowed_ratios": [
+        "1:1",
+        "1:2",
+        "1:5",
+        "1:10",
+        "1:20",
+        "1:25",
+        "1:50",
+        "1:75",
+        "1:100",
+        "1:125",
+        "1:150",
+        "1:200",
+        "1:250",
+        "1:500",
+        "1:750",
+        "1:1000",
+        "1:1250",
+        "1:1500",
+        "1:2000",
+        "1:2500",
+        "1:5000"
+      ]
+    },
+    "conditional_expression": "always",
+    "validation_expression": "viewport.scale in parameters['allowed_ratios']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_5455",
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-021",
+    "applies_to": [
+      "viewport"
+    ],
+    "parameters": {
+      "detail_scale_min": 1,
+      "detail_scale_max": 20,
+      "layout_scale_min": 100,
+      "layout_scale_max": 5000
+    },
+    "conditional_expression": "drawing_type == 'DETAIL'",
+    "validation_expression": "int(viewport.scale.split(':')[1]) >= parameters['detail_scale_min'] AND int(viewport.scale.split(':')[1]) <= parameters['detail_scale_max']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_5455"
+    ]
+  },
+  {
+    "rule_id": "CAD-022",
+    "applies_to": [
+      "viewport"
+    ],
+    "parameters": {
+      "layout_scale_min": 100,
+      "layout_scale_max": 5000
+    },
+    "conditional_expression": "drawing_type == 'LAYOUT' OR drawing_type == 'IMPLANTATION'",
+    "validation_expression": "int(viewport.scale.split(':')[1]) >= parameters['layout_scale_min'] AND int(viewport.scale.split(':')[1]) <= parameters['layout_scale_max']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_5455"
+    ]
+  },
+  {
+    "rule_id": "CAD-023",
+    "applies_to": [
+      "viewport"
+    ],
+    "parameters": {
+      "location_scale_min": 500,
+      "location_scale_max": 50000
+    },
+    "conditional_expression": "drawing_type == 'LOCATION' OR drawing_type == 'UBICACION'",
+    "validation_expression": "int(viewport.scale.split(':')[1]) >= parameters['location_scale_min'] AND int(viewport.scale.split(':')[1]) <= parameters['location_scale_max']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_5455"
+    ]
+  },
+  {
+    "rule_id": "CAD-024",
+    "applies_to": [
+      "viewport"
+    ],
+    "parameters": {
+      "scale_text_height_mm": 3.5,
+      "scale_text_format": "1:N"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "viewport.scale_label.text_height_mm == parameters['scale_text_height_mm'] AND viewport.scale_label.matches(parameters['scale_text_format'])",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-030",
+    "applies_to": [
+      "text"
+    ],
+    "parameters": {
+      "title_text_height_mm": 7,
+      "subtitle_text_height_mm": 5,
+      "section_text_height_mm": 5,
+      "body_text_height_mm": 3.5,
+      "annotation_text_height_mm": 2.5,
+      "dimension_text_height_mm": 2.5,
+      "table_text_height_mm": 2.5,
+      "note_text_height_mm": 2.5,
+      "min_text_height_mm": 2.0
+    },
+    "conditional_expression": "always",
+    "validation_expression": "text.height_mm >= parameters['min_text_height_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1",
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-031",
+    "applies_to": [
+      "text"
+    ],
+    "parameters": {
+      "title_height_mm": 7,
+      "subtitle_height_mm": 5
+    },
+    "conditional_expression": "text.role == 'TITLE' OR text.role == 'SUBTITLE'",
+    "validation_expression": "(text.role == 'TITLE' AND text.height_mm == parameters['title_height_mm']) OR (text.role == 'SUBTITLE' AND text.height_mm == parameters['subtitle_height_mm'])",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-032",
+    "applies_to": [
+      "text"
+    ],
+    "parameters": {
+      "min_printed_height_mm": 1.8,
+      "min_ratio_to_sheet": 0.005
+    },
+    "conditional_expression": "always",
+    "validation_expression": "text.printed_height_mm >= parameters['min_printed_height_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-033",
+    "applies_to": [
+      "text"
+    ],
+    "parameters": {
+      "annotation_offset_mm": 1.5,
+      "leader_arrow_size_mm": 2.5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "text.annotation_offset_mm >= parameters['annotation_offset_mm'] AND text.leader_arrow_size_mm == parameters['leader_arrow_size_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-034",
+    "applies_to": [
+      "text"
+    ],
+    "parameters": {
+      "allowed_fonts": [
+        "Arial",
+        "Helvetica",
+        "Romans",
+        "ISOCP",
+        "Simplex"
+      ]
+    },
+    "conditional_expression": "always",
+    "validation_expression": "text.font_name in parameters['allowed_fonts']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-040",
+    "applies_to": [
+      "line"
+    ],
+    "parameters": {
+      "lineweight_families_mm": [
+        0.13,
+        0.18,
+        0.25,
+        0.35,
+        0.5,
+        0.7,
+        1.0,
+        1.4,
+        2.0
+      ]
+    },
+    "conditional_expression": "always",
+    "validation_expression": "line.lineweight_mm in parameters['lineweight_families_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-041",
+    "applies_to": [
+      "line"
+    ],
+    "parameters": {
+      "object_line_mm": 0.5,
+      "hidden_line_mm": 0.25,
+      "center_line_mm": 0.18,
+      "phantom_line_mm": 0.18,
+      "cut_line_mm": 0.7,
+      "dimension_line_mm": 0.18,
+      "section_line_mm": 0.5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "(line.role=='OBJECT' AND line.lineweight_mm==parameters['object_line_mm']) OR (line.role=='HIDDEN' AND line.lineweight_mm==parameters['hidden_line_mm']) OR (line.role=='CENTER' AND line.lineweight_mm==parameters['center_line_mm']) OR (line.role=='PHANTOM' AND line.lineweight_mm==parameters['phantom_line_mm']) OR (line.role=='CUT' AND line.lineweight_mm==parameters['cut_line_mm']) OR (line.role=='DIMENSION' AND line.lineweight_mm==parameters['dimension_line_mm']) OR (line.role=='SECTION' AND line.lineweight_mm==parameters['section_line_mm'])",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-042",
+    "applies_to": [
+      "line"
+    ],
+    "parameters": {
+      "min_visible_lineweight_mm": 0.13,
+      "max_lineweight_mm": 2.0
+    },
+    "conditional_expression": "always",
+    "validation_expression": "line.lineweight_mm >= parameters['min_visible_lineweight_mm'] AND line.lineweight_mm <= parameters['max_lineweight_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-043",
+    "applies_to": [
+      "line"
+    ],
+    "parameters": {
+      "ratio_object_to_hidden": 2.0
+    },
+    "conditional_expression": "always",
+    "validation_expression": "line.lineweight_mm_for_role['OBJECT'] / line.lineweight_mm_for_role['HIDDEN'] >= parameters['ratio_object_to_hidden']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-050",
+    "applies_to": [
+      "line"
+    ],
+    "parameters": {
+      "linetypes": [
+        "CONTINUOUS",
+        "DASHED",
+        "DASHDOT",
+        "CENTER",
+        "PHANTOM",
+        "DOT",
+        "HIDDEN",
+        "BORDER",
+        "DIVIDE"
+      ]
+    },
+    "conditional_expression": "always",
+    "validation_expression": "line.linetype in parameters['linetypes']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-051",
+    "applies_to": [
+      "line"
+    ],
+    "parameters": {
+      "dash_pattern_scale_min": 1.0,
+      "dash_pattern_scale_max": 100.0,
+      "default_scale_factor": 1.0
+    },
+    "conditional_expression": "always",
+    "validation_expression": "line.ltscale >= parameters['dash_pattern_scale_min'] AND line.ltscale <= parameters['dash_pattern_scale_max']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-052",
+    "applies_to": [
+      "line"
+    ],
+    "parameters": {
+      "hidden_pattern": "__ __ __",
+      "center_pattern": "____ . ____",
+      "phantom_pattern": "____ __ __ ____"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "(line.linetype=='HIDDEN' AND line.pattern == parameters['hidden_pattern']) OR (line.linetype=='CENTER' AND line.pattern == parameters['center_pattern']) OR (line.linetype=='PHANTOM' AND line.pattern == parameters['phantom_pattern'])",
+    "severity": "INFO",
+    "source_ids": [
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-060",
+    "applies_to": [
+      "dimension"
+    ],
+    "parameters": {
+      "text_height_mm": 2.5,
+      "arrow_size_mm": 2.5,
+      "extension_line_offset_mm": 1.0,
+      "extension_line_overshoot_mm": 2.5,
+      "dim_line_gap_mm": 0.6,
+      "decimal_places_default": 3,
+      "angular_decimal_places": 0
+    },
+    "conditional_expression": "always",
+    "validation_expression": "dim.text_height_mm == parameters['text_height_mm'] AND dim.arrow_size_mm == parameters['arrow_size_mm'] AND dim.extension_line_offset_mm == parameters['extension_line_offset_mm'] AND dim.extension_line_overshoot_mm == parameters['extension_line_overshoot_mm'] AND dim.line_gap_mm == parameters['dim_line_gap_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1",
+      "ANSI_Y14_5"
+    ]
+  },
+  {
+    "rule_id": "CAD-061",
+    "applies_to": [
+      "dimension"
+    ],
+    "parameters": {
+      "linear_tolerance_mm": 0.1,
+      "angular_tolerance_deg": 0.5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "abs(dim.measured_value - dim.displayed_value) <= parameters['linear_tolerance_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-062",
+    "applies_to": [
+      "dimension"
+    ],
+    "parameters": {
+      "arrow_types": [
+        "CLOSED_FILLED",
+        "CLOSED_BLANK",
+        "OPEN",
+        "OBLIQUE",
+        "ARCHITECTURAL_TICK",
+        "DOT"
+      ],
+      "default_arrow": "CLOSED_FILLED"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "dim.arrow_type in parameters['arrow_types']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1",
+      "ASME_Y14_5"
+    ]
+  },
+  {
+    "rule_id": "CAD-063",
+    "applies_to": [
+      "dimension"
+    ],
+    "parameters": {
+      "tolerance_format": "LIMITS|PLUS_MINUS|BILATERAL"
+    },
+    "conditional_expression": "has_tolerances == true",
+    "validation_expression": "dim.tolerance_format in parameters['tolerance_format']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ANSI_Y14_5",
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-070",
+    "applies_to": [
+      "leader",
+      "callout"
+    ],
+    "parameters": {
+      "leader_arrow_size_mm": 2.5,
+      "leader_text_offset_mm": 1.0,
+      "leader_min_segments": 1,
+      "leader_max_bends": 2,
+      "callout_circle_diameter_mm": 10,
+      "elevation_marker_diameter_mm": 3
+    },
+    "conditional_expression": "always",
+    "validation_expression": "leader.arrow_size_mm == parameters['leader_arrow_size_mm'] AND leader.text_offset_mm == parameters['leader_text_offset_mm'] AND leader.bends <= parameters['leader_max_bends']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-071",
+    "applies_to": [
+      "elevation"
+    ],
+    "parameters": {
+      "marker_diameter_mm": 3,
+      "text_offset_mm": 2,
+      "precision_mm": 0.01
+    },
+    "conditional_expression": "always",
+    "validation_expression": "elevation.marker_diameter_mm == parameters['marker_diameter_mm'] AND elevation.precision_mm <= parameters['precision_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-072",
+    "applies_to": [
+      "section"
+    ],
+    "parameters": {
+      "section_arrow_size_mm": 5,
+      "section_text_height_mm": 3.5,
+      "direction_letters": [
+        "N",
+        "S",
+        "E",
+        "W",
+        "NW",
+        "NE",
+        "SW",
+        "SE"
+      ]
+    },
+    "conditional_expression": "always",
+    "validation_expression": "section.arrow_size_mm == parameters['section_arrow_size_mm'] AND section.text_height_mm == parameters['section_text_height_mm'] AND section.direction in parameters['direction_letters']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-073",
+    "applies_to": [
+      "detail"
+    ],
+    "parameters": {
+      "callout_circle_diameter_mm": 10,
+      "callout_text_height_mm": 3.5,
+      "callout_number_format": "D-NNN"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "detail.callout_circle_diameter_mm == parameters['callout_circle_diameter_mm'] AND detail.callout_text_height_mm == parameters['callout_text_height_mm'] AND detail.callout_id.matches(parameters['callout_number_format'])",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-080",
+    "applies_to": [
+      "model_space"
+    ],
+    "parameters": {
+      "units_default": "mm",
+      "coordinate_system": "WORLD",
+      "origin_locked": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "model.units == parameters['units_default'] AND model.coordinate_system == parameters['coordinate_system']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_13567_1",
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-081",
+    "applies_to": [
+      "paper_space"
+    ],
+    "parameters": {
+      "max_viewports_per_sheet": 8,
+      "min_viewports_per_sheet": 1
+    },
+    "conditional_expression": "always",
+    "validation_expression": "paper.viewports_count >= parameters['min_viewports_per_sheet'] AND paper.viewports_count <= parameters['max_viewports_per_sheet']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_5457",
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-082",
+    "applies_to": [
+      "viewport"
+    ],
+    "parameters": {
+      "viewport_border_lineweight_mm": 0.35,
+      "viewport_border_color_aci": 7,
+      "viewport_lock_required": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "viewport.border.lineweight_mm == parameters['viewport_border_lineweight_mm'] AND viewport.border.color_aci == parameters['viewport_border_color_aci'] AND viewport.locked == parameters['viewport_lock_required']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-083",
+    "applies_to": [
+      "viewport"
+    ],
+    "parameters": {
+      "min_viewport_width_mm": 50,
+      "min_viewport_height_mm": 50
+    },
+    "conditional_expression": "always",
+    "validation_expression": "viewport.width_mm >= parameters['min_viewport_width_mm'] AND viewport.height_mm >= parameters['min_viewport_height_mm']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_5457"
+    ]
+  },
+  {
+    "rule_id": "CAD-090",
+    "applies_to": [
+      "layer"
+    ],
+    "parameters": {
+      "naming_pattern": "^<DISCIPLINE>-<TECH>-<CATEGORY>-<SUB>-$",
+      "separator": "-",
+      "max_layer_name_length": 64,
+      "allowed_disciplines": [
+        "CIVIL",
+        "ELEC",
+        "MECH",
+        "PROC",
+        "INST",
+        "ARC",
+        "FIRE",
+        "GEO",
+        "HYD",
+        "COMM",
+        "SAFE",
+        "CAD",
+        "GEN"
+      ]
+    },
+    "conditional_expression": "always",
+    "validation_expression": "layer.name.matches(parameters['naming_pattern']) AND len(layer.name) <= parameters['max_layer_name_length'] AND layer.discipline in parameters['allowed_disciplines']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_13567_1",
+      "ISO_13567_2",
+      "AIA_National_CAD"
+    ]
+  },
+  {
+    "rule_id": "CAD-091",
+    "applies_to": [
+      "layer"
+    ],
+    "parameters": {
+      "max_layers_per_drawing": 500,
+      "min_layers_per_drawing": 5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "drawing.layers_count <= parameters['max_layers_per_drawing'] AND drawing.layers_count >= parameters['min_layers_per_drawing']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-092",
+    "applies_to": [
+      "layer"
+    ],
+    "parameters": {
+      "unique_names_required": true,
+      "case_sensitive": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "len(set(layer.name for layer in drawing.layers)) == len(drawing.layers)",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-100",
+    "applies_to": [
+      "color"
+    ],
+    "parameters": {
+      "aci_palette": true,
+      "rgb_range_min": 0,
+      "rgb_range_max": 255,
+      "reserved_aci_for_layers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "conditional_expression": "always",
+    "validation_expression": "color.aci is not None OR (color.rgb_r >= 0 AND color.rgb_r <= 255 AND color.rgb_g >= 0 AND color.rgb_g <= 255 AND color.rgb_b >= 0 AND color.rgb_b <= 255)",
+    "severity": "INFO",
+    "source_ids": [
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-101",
+    "applies_to": [
+      "color"
+    ],
+    "parameters": {
+      "background_aci": 7,
+      "background_rgb": [
+        0,
+        0,
+        0
+      ],
+      "text_color_aci": 7,
+      "text_color_rgb": [
+        255,
+        255,
+        255
+      ]
+    },
+    "conditional_expression": "paper_background == DARK",
+    "validation_expression": "text.color_aci == parameters['text_color_aci']",
+    "severity": "INFO",
+    "source_ids": [
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-102",
+    "applies_to": [
+      "layer"
+    ],
+    "parameters": {
+      "color_to_lineweight_map": {
+        "1": 0.5,
+        "2": 0.35,
+        "3": 0.35,
+        "4": 0.25,
+        "5": 0.18,
+        "6": 0.18,
+        "7": 0.5,
+        "8": 0.13,
+        "9": 0.13
+      }
+    },
+    "conditional_expression": "always",
+    "validation_expression": "layer.lineweight_mm == parameters['color_to_lineweight_map'].get(str(layer.aci_color), None)",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_128_20",
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-110",
+    "applies_to": [
+      "plot_style"
+    ],
+    "parameters": {
+      "plot_style_types": [
+        "CTB",
+        "STB"
+      ],
+      "default_type": "CTB",
+      "required_for_release": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "drawing.plot_style.type in parameters['plot_style_types'] AND drawing.plot_style.file_attached == parameters['required_for_release']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DXF_R2018",
+      "AIA_National_CAD"
+    ]
+  },
+  {
+    "rule_id": "CAD-111",
+    "applies_to": [
+      "ctb"
+    ],
+    "parameters": {
+      "aci_to_lineweight_map": {
+        "1": 0.5,
+        "2": 0.35,
+        "3": 0.35,
+        "4": 0.25,
+        "5": 0.18,
+        "6": 0.18,
+        "7": 0.5,
+        "8": 0.13,
+        "9": 0.13,
+        "255": 0.13
+      },
+      "screening_min_pct": 50,
+      "screening_max_pct": 100
+    },
+    "conditional_expression": "plot_style_type == 'CTB'",
+    "validation_expression": "ctb.aci_to_lineweight == parameters['aci_to_lineweight_map']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-112",
+    "applies_to": [
+      "stb"
+    ],
+    "parameters": {
+      "style_names": [
+        "Normal",
+        "Style_0_13",
+        "Style_0_18",
+        "Style_0_25",
+        "Style_0_35",
+        "Style_0_50",
+        "Style_0_70",
+        "Style_1_00",
+        "Style_1_40",
+        "Style_2_00"
+      ],
+      "lineweights_mm": [
+        0.13,
+        0.18,
+        0.25,
+        0.35,
+        0.5,
+        0.7,
+        1.0,
+        1.4,
+        2.0
+      ]
+    },
+    "conditional_expression": "plot_style_type == 'STB'",
+    "validation_expression": "stb.has_style('Normal') AND all(name in stb.styles for name in parameters['style_names'])",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-120",
+    "applies_to": [
+      "revision"
+    ],
+    "parameters": {
+      "revision_letters": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z"
+      ],
+      "date_format": "YYYY-MM-DD",
+      "required_fields": [
+        "revision_letter",
+        "date",
+        "description",
+        "author",
+        "reviewer",
+        "approver"
+      ]
+    },
+    "conditional_expression": "always",
+    "validation_expression": "revision.letter in parameters['revision_letters'] AND revision.date.matches(parameters['date_format']) AND all(f in revision for f in parameters['required_fields'])",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_7200",
+      "ISO_19650_2"
+    ]
+  },
+  {
+    "rule_id": "CAD-121",
+    "applies_to": [
+      "revision"
+    ],
+    "parameters": {
+      "cloud_marker_arc_min_mm": 6,
+      "cloud_marker_arc_max_mm": 12,
+      "revision_triangle_height_mm": 7
+    },
+    "conditional_expression": "always",
+    "validation_expression": "revision.cloud.arc_min_mm >= parameters['cloud_marker_arc_min_mm'] AND revision.cloud.arc_max_mm <= parameters['cloud_marker_arc_max_mm'] AND revision.triangle.height_mm == parameters['revision_triangle_height_mm']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_7200"
+    ]
+  },
+  {
+    "rule_id": "CAD-122",
+    "applies_to": [
+      "revision"
+    ],
+    "parameters": {
+      "afc_required_for_construction": true,
+      "afc_signature_required": true
+    },
+    "conditional_expression": "stage >= DETAILED_ENGINEERING",
+    "validation_expression": "drawing.afc_status == 'APPROVED' AND drawing.afc_signature is not None",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_19650_2"
+    ]
+  },
+  {
+    "rule_id": "CAD-130",
+    "applies_to": [
+      "xref"
+    ],
+    "parameters": {
+      "allowed_xref_types": [
+        "OVERLAY",
+        "ATTACH"
+      ],
+      "xref_layer_visible_default": true,
+      "max_xref_depth": 3,
+      "xref_path_type": "RELATIVE"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "xref.type in parameters['allowed_xref_types'] AND xref.path_type == parameters['xref_path_type'] AND xref.depth <= parameters['max_xref_depth']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DXF_R2018",
+      "ISO_19650_2"
+    ]
+  },
+  {
+    "rule_id": "CAD-131",
+    "applies_to": [
+      "xref"
+    ],
+    "parameters": {
+      "xref_layer_freeze_on_insert": true,
+      "bind_prohibited_for_release": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "xref.bind == false",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-132",
+    "applies_to": [
+      "xref"
+    ],
+    "parameters": {
+      "xref_naming_pattern": "^XREF-<DISCIPLINE>-<TYPE>-NN$"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "xref.name.matches(parameters['xref_naming_pattern'])",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_19650_2",
+      "AIA_National_CAD"
+    ]
+  },
+  {
+    "rule_id": "CAD-140",
+    "applies_to": [
+      "coordinate"
+    ],
+    "parameters": {
+      "crs_epsg_required": true,
+      "coordinate_precision_decimals": 3,
+      "easting_min": 166000,
+      "easting_max": 834000,
+      "northing_min": 0,
+      "northing_max": 9300000
+    },
+    "conditional_expression": "country_iso == 'PE'",
+    "validation_expression": "coordinate.crs_epsg is not None AND round(coordinate.easting, parameters['coordinate_precision_decimals']) AND coordinate.easting >= parameters['easting_min'] AND coordinate.easting <= parameters['easting_max']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_19111",
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-141",
+    "applies_to": [
+      "coordinate"
+    ],
+    "parameters": {
+      "grid_north_locked": true,
+      "false_easting_offset_m": 500000,
+      "utm_zone_pe_default": 18
+    },
+    "conditional_expression": "country_iso == 'PE' AND crs_epsg in [32717, 32718, 32719]",
+    "validation_expression": "coordinate.utm_zone in [17,18,19]",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_19111"
+    ]
+  },
+  {
+    "rule_id": "CAD-142",
+    "applies_to": [
+      "coordinate"
+    ],
+    "parameters": {
+      "local_grid_required": true,
+      "origin_offset_max_m": 1000
+    },
+    "conditional_expression": "drawing.scale >= 1:200",
+    "validation_expression": "coordinate.local_grid_origin_defined == parameters['local_grid_required']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_19111",
+      "ISO_5455"
+    ]
+  },
+  {
+    "rule_id": "CAD-150",
+    "applies_to": [
+      "export"
+    ],
+    "parameters": {
+      "formats_supported": [
+        "DXF",
+        "SVG",
+        "PDF"
+      ],
+      "pdf_version": "1.7",
+      "svg_version": "1.1",
+      "dxf_version": "R2018",
+      "export_resolution_dpi": 300,
+      "pdf_a_compliance": "PDF/A-2b"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "export.format in parameters['formats_supported'] AND export.resolution_dpi >= parameters['export_resolution_dpi']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DXF_R2018",
+      "W3C_SVG_1_1",
+      "PDF_ISO_32000_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-151",
+    "applies_to": [
+      "export"
+    ],
+    "parameters": {
+      "line_fidelity_mm": 0.01,
+      "arc_segment_tolerance_mm": 0.05,
+      "text_to_path_threshold_chars": 50,
+      "font_embedding_required": true
+    },
+    "conditional_expression": "export.format == 'PDF'",
+    "validation_expression": "export.font_embedded == parameters['font_embedding_required']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "PDF_ISO_32000_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-152",
+    "applies_to": [
+      "export"
+    ],
+    "parameters": {
+      "svg_xml_well_formed": true,
+      "svg_units": "mm",
+      "svg_viewbox_required": true
+    },
+    "conditional_expression": "export.format == 'SVG'",
+    "validation_expression": "svg.units == parameters['svg_units'] AND svg.viewbox is not None",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "W3C_SVG_1_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-153",
+    "applies_to": [
+      "export"
+    ],
+    "parameters": {
+      "dxf_codepage": "UTF-8",
+      "dxf_drawing_version": "AC1027",
+      "dxf_write_handles": true
+    },
+    "conditional_expression": "export.format == 'DXF'",
+    "validation_expression": "dxf.codepage == parameters['dxf_codepage'] AND dxf.version == parameters['dxf_drawing_version']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-160",
+    "applies_to": [
+      "text",
+      "annotation"
+    ],
+    "parameters": {
+      "min_text_height_to_sheet_ratio": 0.0035,
+      "max_text_height_to_sheet_ratio": 0.05,
+      "text_to_line_spacing_mm": 1.5,
+      "min_text_to_geometry_gap_mm": 1.0
+    },
+    "conditional_expression": "always",
+    "validation_expression": "text.height_mm / sheet.height_mm >= parameters['min_text_height_to_sheet_ratio'] AND text.height_mm / sheet.height_mm <= parameters['max_text_height_to_sheet_ratio'] AND text.gap_to_geometry_mm >= parameters['min_text_to_geometry_gap_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1",
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-161",
+    "applies_to": [
+      "text"
+    ],
+    "parameters": {
+      "min_printed_text_height_mm": 1.8,
+      "text_color_contrast_min": 4.5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "text.printed_height_mm >= parameters['min_printed_text_height_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-162",
+    "applies_to": [
+      "text"
+    ],
+    "parameters": {
+      "min_text_color_difference": 4.5,
+      "background_white_rgb": [
+        255,
+        255,
+        255
+      ],
+      "text_min_luminance": 0.3
+    },
+    "conditional_expression": "always",
+    "validation_expression": "text.color_contrast_ratio >= parameters['min_text_color_difference']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-170",
+    "applies_to": [
+      "text",
+      "annotation"
+    ],
+    "parameters": {
+      "overlap_tolerance_mm": 0.1,
+      "overlap_check_enabled": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "all(aabb_overlap(text_a, text_b) == false for text_a, text_b in pairs(texts))",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_128_20",
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-171",
+    "applies_to": [
+      "dimension"
+    ],
+    "parameters": {
+      "dim_overlap_tolerance_mm": 0.5,
+      "dim_to_text_gap_mm": 1.5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "all(aabb_overlap(dim_a, dim_b) == false for dim_a, dim_b in pairs(dimensions)) AND all(aabb_gap(dim, text) >= parameters['dim_to_text_gap_mm'] for dim, text in dim_text_pairs)",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-172",
+    "applies_to": [
+      "geometry"
+    ],
+    "parameters": {
+      "min_clearance_mm": 0.5,
+      "self_intersect_check": true,
+      "zero_length_line_check": true,
+      "duplicate_entity_check": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "all(line.length_mm > 0.01 for line in lines) AND all(not has_self_intersect(polyline) for polyline in polylines) AND len(set(entity.id for entity in drawing.entities)) == len(drawing.entities)",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_128_20",
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-173",
+    "applies_to": [
+      "hatch"
+    ],
+    "parameters": {
+      "min_hatch_scale": 1,
+      "max_hatch_scale": 50,
+      "default_hatch_patterns": [
+        "ANSI31",
+        "ANSI32",
+        "ANSI33",
+        "ANSI34",
+        "ANSI35",
+        "ANSI36",
+        "ANSI37",
+        "ANSI38",
+        "AR-CONC",
+        "AR-SAND",
+        "EARTH",
+        "HONEY",
+        "SOLID"
+      ]
+    },
+    "conditional_expression": "always",
+    "validation_expression": "hatch.scale >= parameters['min_hatch_scale'] AND hatch.scale <= parameters['max_hatch_scale'] AND hatch.pattern in parameters['default_hatch_patterns']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-180",
+    "applies_to": [
+      "block"
+    ],
+    "parameters": {
+      "block_name_pattern": "^[A-Z]{2,6}-[A-Z]{2,6}-NNN$",
+      "min_block_definition_count": 1,
+      "base_point_required": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "block.name.matches(parameters['block_name_pattern']) AND block.base_point is not None",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DXF_R2018",
+      "ISO_14617"
+    ]
+  },
+  {
+    "rule_id": "CAD-181",
+    "applies_to": [
+      "block"
+    ],
+    "parameters": {
+      "nested_block_depth_max": 3,
+      "anonymous_block_prohibited": true,
+      "attribute_required_for_dynamic": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "block.nested_depth <= parameters['nested_block_depth_max'] AND not block.is_anonymous",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-182",
+    "applies_to": [
+      "block"
+    ],
+    "parameters": {
+      "insert_scale_lock": true,
+      "insert_rotation_lock": false,
+      "insert_scale_min": 0.1,
+      "insert_scale_max": 10.0
+    },
+    "conditional_expression": "always",
+    "validation_expression": "block.insert_scale >= parameters['insert_scale_min'] AND block.insert_scale <= parameters['insert_scale_max']",
+    "severity": "WARNING",
+    "source_ids": [
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-190",
+    "applies_to": [
+      "table"
+    ],
+    "parameters": {
+      "table_row_height_mm": 7,
+      "table_col_width_default_mm": 25,
+      "table_text_height_mm": 2.5,
+      "table_header_bg_color_aci": 8,
+      "table_border_lineweight_mm": 0.35,
+      "table_internal_lineweight_mm": 0.18
+    },
+    "conditional_expression": "always",
+    "validation_expression": "table.row_height_mm == parameters['table_row_height_mm'] AND table.text_height_mm == parameters['table_text_height_mm'] AND table.border.lineweight_mm == parameters['table_border_lineweight_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_7200",
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-191",
+    "applies_to": [
+      "table"
+    ],
+    "parameters": {
+      "max_cell_text_length": 50,
+      "cell_overflow_action": "WRAP",
+      "alignment_default": "CENTER"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "table.alignment == parameters['alignment_default']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_7200"
+    ]
+  },
+  {
+    "rule_id": "CAD-200",
+    "applies_to": [
+      "hatch"
+    ],
+    "parameters": {
+      "hatch_associativity_required": true,
+      "min_hatch_area_mm2": 1,
+      "max_hatch_islands": 100
+    },
+    "conditional_expression": "always",
+    "validation_expression": "hatch.associative == parameters['hatch_associativity_required'] AND hatch.area_mm2 >= parameters['min_hatch_area_mm2']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_128_20",
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-201",
+    "applies_to": [
+      "hatch"
+    ],
+    "parameters": {
+      "section_material_map": {
+        "CONCRETE": "AR-CONC",
+        "STEEL": "ANSI32",
+        "EARTH": "EARTH",
+        "WATER": "SOLID",
+        "INSULATION": "ANSI37",
+        "WOOD": "AR-BRSTD"
+      }
+    },
+    "conditional_expression": "always",
+    "validation_expression": "hatch.pattern == parameters['section_material_map'].get(hatch.material, None)",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "CAD-210",
+    "applies_to": [
+      "north_arrow"
+    ],
+    "parameters": {
+      "arrow_min_height_mm": 15,
+      "arrow_max_height_mm": 30,
+      "placement_corner": "TR",
+      "text_height_mm": 3.5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "north_arrow.height_mm >= parameters['arrow_min_height_mm'] AND north_arrow.height_mm <= parameters['arrow_max_height_mm'] AND north_arrow.placement == parameters['placement_corner']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_7200",
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-211",
+    "applies_to": [
+      "scale_bar"
+    ],
+    "parameters": {
+      "scale_bar_min_length_mm": 50,
+      "scale_bar_segment_count": 5,
+      "scale_bar_text_height_mm": 2.5,
+      "placement_corner": "BR"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "scale_bar.length_mm >= parameters['scale_bar_min_length_mm'] AND scale_bar.segments == parameters['scale_bar_segment_count'] AND scale_bar.placement == parameters['placement_corner']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1",
+      "ISO_5455"
+    ]
+  },
+  {
+    "rule_id": "CAD-212",
+    "applies_to": [
+      "legend"
+    ],
+    "parameters": {
+      "legend_min_items": 1,
+      "legend_text_height_mm": 2.5,
+      "legend_placement_corner": "TL",
+      "legend_border_lineweight_mm": 0.35
+    },
+    "conditional_expression": "always",
+    "validation_expression": "legend.items_count >= parameters['legend_min_items'] AND legend.placement == parameters['legend_placement_corner']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_7200"
+    ]
+  },
+  {
+    "rule_id": "CAD-220",
+    "applies_to": [
+      "grid"
+    ],
+    "parameters": {
+      "grid_line_lineweight_mm": 0.18,
+      "grid_line_color_aci": 8,
+      "grid_marker_diameter_mm": 10,
+      "grid_text_height_mm": 5,
+      "grid_letter_pattern": "A-Z",
+      "grid_number_pattern": "1-N",
+      "grid_bubble_lineweight_mm": 0.5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "grid.line.lineweight_mm == parameters['grid_line_lineweight_mm'] AND grid.marker.diameter_mm == parameters['grid_marker_diameter_mm'] AND grid.text.height_mm == parameters['grid_text_height_mm']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1",
+      "ISO_5457"
+    ]
+  },
+  {
+    "rule_id": "CAD-221",
+    "applies_to": [
+      "grid"
+    ],
+    "parameters": {
+      "grid_min_letter": "A",
+      "grid_max_letter": "Z",
+      "grid_min_number": 1,
+      "grid_max_number": 99,
+      "grid_sequence": "ALPHA_NUM"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "grid.label.matches('^[A-Z]$') OR grid.label.matches('^[1-9][0-9]?$')",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-230",
+    "applies_to": [
+      "units"
+    ],
+    "parameters": {
+      "linear_unit_default": "mm",
+      "angular_unit_default": "degree",
+      "decimal_places_default": 3,
+      "insert_scale": 1.0
+    },
+    "conditional_expression": "always",
+    "validation_expression": "drawing.linear_unit == parameters['linear_unit_default'] AND drawing.angular_unit == parameters['angular_unit_default']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1",
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-231",
+    "applies_to": [
+      "units"
+    ],
+    "parameters": {
+      "si_unit_consistency": true,
+      "imperial_units_prohibited_except_country": "US"
+    },
+    "conditional_expression": "country_iso != 'US'",
+    "validation_expression": "drawing.uses_si_units == parameters['si_unit_consistency']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1",
+      "ISO_80000"
+    ]
+  },
+  {
+    "rule_id": "CAD-240",
+    "applies_to": [
+      "release"
+    ],
+    "parameters": {
+      "required_checks_before_release": [
+        "schema",
+        "layers",
+        "linetypes",
+        "dim_styles",
+        "blocks",
+        "xref",
+        "ctb_stb",
+        "annotations",
+        "north_arrow",
+        "scale_bar",
+        "legend",
+        "title_block",
+        "revision_block",
+        "signatures"
+      ],
+      "min_pass_rate_pct": 100
+    },
+    "conditional_expression": "always",
+    "validation_expression": "all(checks[c] == 'PASS' for c in parameters['required_checks_before_release'])",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_19650_2",
+      "ISO_7200"
+    ]
+  },
+  {
+    "rule_id": "CAD-241",
+    "applies_to": [
+      "release"
+    ],
+    "parameters": {
+      "no_orphan_objects": true,
+      "no_unpurged_layers": true,
+      "no_unpurged_blocks": true,
+      "no_unpurged_linetypes": true,
+      "no_zero_length_lines": true,
+      "no_duplicate_entities": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "drawing.orphan_objects == 0 AND drawing.unpurged_layers == 0 AND drawing.unpurged_blocks == 0 AND drawing.unpurged_linetypes == 0",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_19650_2",
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-242",
+    "applies_to": [
+      "release"
+    ],
+    "parameters": {
+      "file_size_max_mb": 50,
+      "entity_count_max": 500000,
+      "layer_count_max": 500,
+      "block_count_max": 1000
+    },
+    "conditional_expression": "always",
+    "validation_expression": "drawing.file_size_mb <= parameters['file_size_max_mb'] AND drawing.entity_count <= parameters['entity_count_max']",
+    "severity": "WARNING",
+    "source_ids": [
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-250",
+    "applies_to": [
+      "print"
+    ],
+    "parameters": {
+      "paper_sizes_mm": {
+        "A0": [
+          841,
+          1189
+        ],
+        "A1": [
+          594,
+          841
+        ],
+        "A2": [
+          420,
+          594
+        ],
+        "A3": [
+          297,
+          420
+        ],
+        "A4": [
+          210,
+          297
+        ]
+      },
+      "print_resolution_dpi": 300,
+      "color_mode": "COLOR",
+      "orientation": "LANDSCAPE"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "print.size in parameters['paper_sizes_mm'] AND print.resolution_dpi >= parameters['print_resolution_dpi']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_5457",
+      "PDF_ISO_32000_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-251",
+    "applies_to": [
+      "print"
+    ],
+    "parameters": {
+      "print_to_scale": true,
+      "custom_scale_allowed": false,
+      "fit_to_page_allowed": true,
+      "scale_tolerance_pct": 1
+    },
+    "conditional_expression": "always",
+    "validation_expression": "abs(print.measured_scale - print.specified_scale) / print.specified_scale * 100 <= parameters['scale_tolerance_pct']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_5455",
+      "PDF_ISO_32000_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-260",
+    "applies_to": [
+      "metadata"
+    ],
+    "parameters": {
+      "required_dwg_props": [
+        "TITLE",
+        "AUTHOR",
+        "SUBJECT",
+        "KEYWORDS",
+        "COMMENTS",
+        "LASTSAVEDBY",
+        "REVISIONNUMBER",
+        "SHEETSET",
+        "CUSTOM_PROJECT_ID",
+        "CUSTOM_PROJECT_NAME",
+        "CUSTOM_DISCIPLINE",
+        "CUSTOM_TECHNOLOGY",
+        "CUSTOM_STAGE"
+      ]
+    },
+    "conditional_expression": "always",
+    "validation_expression": "all(prop in drawing.metadata for prop in parameters['required_dwg_props'])",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_19650_2",
+      "DXF_R2018"
+    ]
+  },
+  {
+    "rule_id": "CAD-261",
+    "applies_to": [
+      "metadata"
+    ],
+    "parameters": {
+      "nomenclature_pattern": "^[A-Z]{2,4}-[A-Z]{2,4}-[A-Z]{2,4}-NNN-[A-Z]$",
+      "sheet_number_pattern": "NNN"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "drawing.id.matches(parameters['nomenclature_pattern'])",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_19650_2",
+      "AIA_National_CAD"
+    ]
+  },
+  {
+    "rule_id": "CAD-270",
+    "applies_to": [
+      "security"
+    ],
+    "parameters": {
+      "password_protection_required": false,
+      "digital_signature_required": true,
+      "encryption_required": false,
+      "watermark_for_draft": true
+    },
+    "conditional_expression": "stage < AFC",
+    "validation_expression": "drawing.has_watermark == parameters['watermark_for_draft']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_19650_2",
+      "PDF_ISO_32000_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-271",
+    "applies_to": [
+      "security"
+    ],
+    "parameters": {
+      "afc_signature_required": true,
+      "afc_pdf_signature_required": true,
+      "afc_pdf_cert_required": true
+    },
+    "conditional_expression": "stage == AFC OR stage == AS_BUILT",
+    "validation_expression": "pdf.has_digital_signature == parameters['afc_pdf_signature_required']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_19650_2",
+      "PDF_ISO_32000_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-280",
+    "applies_to": [
+      "section"
+    ],
+    "parameters": {
+      "section_line_arrow_size_mm": 7,
+      "section_text_height_mm": 5,
+      "section_direction_indicator_required": true,
+      "section_id_format": "^[A-Z]-[0-9]+$ OR ^[A-Z]$"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "section.arrow_size_mm == parameters['section_line_arrow_size_mm'] AND section.text_height_mm == parameters['section_text_height_mm'] AND section.has_direction == parameters['section_direction_indicator_required']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "CAD-290",
+    "applies_to": [
+      "ifc"
+    ],
+    "parameters": {
+      "ifc_version": "IFC4X3",
+      "ifc_required_for_stage": "BASIC_ENGINEERING",
+      "ifc_export_required_disciplines": [
+        "ARCH",
+        "STRUCT",
+        "MECH",
+        "ELEC"
+      ]
+    },
+    "conditional_expression": "stage >= BASIC_ENGINEERING",
+    "validation_expression": "drawing.ifc_export.version == parameters['ifc_version']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_16739"
+    ]
+  },
+  {
+    "rule_id": "CAD-291",
+    "applies_to": [
+      "bim"
+    ],
+    "parameters": {
+      "ifc_spatial_structure_required": true,
+      "ifc_classification_required": true,
+      "ifc_owner_history_required": true,
+      "lod_min": 300
+    },
+    "conditional_expression": "stage >= BASIC_ENGINEERING",
+    "validation_expression": "drawing.ifc.lod >= parameters['lod_min']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_16739",
+      "ISO_19650_2"
+    ]
+  },
+  {
+    "rule_id": "CAD-300",
+    "applies_to": [
+      "file"
+    ],
+    "parameters": {
+      "file_naming_pattern": "^<PROJECT_ID>-<DISCIPLINE>-<TECH>-<SHEET_TYPE>-<NUMBER>_<REV>.<ext>$",
+      "allowed_extensions": [
+        "dwg",
+        "dxf",
+        "pdf",
+        "svg",
+        "rvt",
+        "ifc"
+      ]
+    },
+    "conditional_expression": "always",
+    "validation_expression": "file.name.matches(parameters['file_naming_pattern']) AND file.extension in parameters['allowed_extensions']",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_19650_2",
+      "AIA_National_CAD"
+    ]
+  },
+  {
+    "rule_id": "CAD-301",
+    "applies_to": [
+      "file"
+    ],
+    "parameters": {
+      "folder_structure": [
+        "/01_CAD/",
+        "/01_CAD/00_References/",
+        "/01_CAD/01_Architecture/",
+        "/01_CAD/02_Civil/",
+        "/01_CAD/03_Structural/",
+        "/01_CAD/04_Electrical/",
+        "/01_CAD/05_Mechanical/",
+        "/01_CAD/06_Process/",
+        "/01_CAD/07_Instrumentation/",
+        "/01_CAD/08_Fire/",
+        "/01_CAD/09_AsBuilt/"
+      ]
+    },
+    "conditional_expression": "always",
+    "validation_expression": "file.folder in parameters['folder_structure']",
+    "severity": "WARNING",
+    "source_ids": [
+      "ISO_19650_2"
+    ]
+  }
+]

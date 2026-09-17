@@ -1,0 +1,1302 @@
+[
+  {
+    "field_id": "H2-001",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "electrolyzer type"
+    ],
+    "blocked_drawings": [
+      "H2-C-001",
+      "H2-C-002"
+    ]
+  },
+  {
+    "field_id": "H2-002",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "stack count"
+    ],
+    "blocked_drawings": [
+      "H2-C-001"
+    ]
+  },
+  {
+    "field_id": "H2-003",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "stacks per skid"
+    ],
+    "blocked_drawings": [
+      "H2-C-001"
+    ]
+  },
+  {
+    "field_id": "H2-004",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "current density"
+    ],
+    "blocked_drawings": [
+      "H2-C-001"
+    ]
+  },
+  {
+    "field_id": "H2-005",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "cell voltage"
+    ],
+    "blocked_drawings": [
+      "H2-C-001"
+    ]
+  },
+  {
+    "field_id": "H2-006",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "Faraday efficiency"
+    ],
+    "blocked_drawings": [
+      "H2-C-001"
+    ]
+  },
+  {
+    "field_id": "H2-007",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "voltage efficiency"
+    ],
+    "blocked_drawings": [
+      "H2-C-001"
+    ]
+  },
+  {
+    "field_id": "H2-008",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "energy consumption"
+    ],
+    "blocked_drawings": [
+      "H2-C-002"
+    ]
+  },
+  {
+    "field_id": "H2-009",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "DC voltage"
+    ],
+    "blocked_drawings": [
+      "H2-C-015"
+    ]
+  },
+  {
+    "field_id": "H2-010",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "DC current"
+    ],
+    "blocked_drawings": [
+      "H2-C-015"
+    ]
+  },
+  {
+    "field_id": "H2-011",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "stack power"
+    ],
+    "blocked_drawings": [
+      "H2-C-001",
+      "H2-C-015"
+    ]
+  },
+  {
+    "field_id": "H2-012",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "water consumption"
+    ],
+    "blocked_drawings": [
+      "H2-C-003"
+    ]
+  },
+  {
+    "field_id": "H2-016",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "TDS"
+    ],
+    "blocked_drawings": [
+      "H2-C-003"
+    ]
+  },
+  {
+    "field_id": "H2-017",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "water type"
+    ],
+    "blocked_drawings": [
+      "H2-C-003"
+    ]
+  },
+  {
+    "field_id": "H2-018",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "treatment capacity"
+    ],
+    "blocked_drawings": [
+      "H2-C-003"
+    ]
+  },
+  {
+    "field_id": "H2-019",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "cooling water"
+    ],
+    "blocked_drawings": [
+      "H2-C-003"
+    ]
+  },
+  {
+    "field_id": "H2-020",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "makeup source"
+    ],
+    "blocked_drawings": [
+      "H2-C-003"
+    ]
+  },
+  {
+    "field_id": "H2-021",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "compressor type"
+    ],
+    "blocked_drawings": [
+      "H2-C-004"
+    ]
+  },
+  {
+    "field_id": "H2-022",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "discharge pressure"
+    ],
+    "blocked_drawings": [
+      "H2-C-004"
+    ]
+  },
+  {
+    "field_id": "H2-023",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "isothermal efficiency"
+    ],
+    "blocked_drawings": [
+      "H2-C-004"
+    ]
+  },
+  {
+    "field_id": "H2-024",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "number of stages"
+    ],
+    "blocked_drawings": [
+      "H2-C-004"
+    ]
+  },
+  {
+    "field_id": "H2-027",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "suction pressure"
+    ],
+    "blocked_drawings": [
+      "H2-C-004"
+    ]
+  },
+  {
+    "field_id": "H2-028",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "cooled temp"
+    ],
+    "blocked_drawings": [
+      "H2-C-004"
+    ]
+  },
+  {
+    "field_id": "H2-029",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "dryer type"
+    ],
+    "blocked_drawings": [
+      "H2-C-005"
+    ]
+  },
+  {
+    "field_id": "H2-030",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "dew point"
+    ],
+    "blocked_drawings": [
+      "H2-C-005"
+    ]
+  },
+  {
+    "field_id": "H2-031",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "dryer capacity"
+    ],
+    "blocked_drawings": [
+      "H2-C-005"
+    ]
+  },
+  {
+    "field_id": "H2-033",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "storage type"
+    ],
+    "blocked_drawings": [
+      "H2-C-007"
+    ]
+  },
+  {
+    "field_id": "H2-034",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "storage volume"
+    ],
+    "blocked_drawings": [
+      "H2-C-007"
+    ]
+  },
+  {
+    "field_id": "H2-035",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "storage pressure"
+    ],
+    "blocked_drawings": [
+      "H2-C-007"
+    ]
+  },
+  {
+    "field_id": "H2-041",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "pipe material"
+    ],
+    "blocked_drawings": [
+      "H2-C-009",
+      "H2-C-011"
+    ]
+  },
+  {
+    "field_id": "H2-042",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "pipe diameter"
+    ],
+    "blocked_drawings": [
+      "H2-C-009",
+      "H2-C-011"
+    ]
+  },
+  {
+    "field_id": "H2-043",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "wall thickness"
+    ],
+    "blocked_drawings": [
+      "H2-C-009"
+    ]
+  },
+  {
+    "field_id": "H2-044",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "pressure class"
+    ],
+    "blocked_drawings": [
+      "H2-C-009"
+    ]
+  },
+  {
+    "field_id": "H2-045",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "velocity"
+    ],
+    "blocked_drawings": [
+      "H2-C-011"
+    ]
+  },
+  {
+    "field_id": "H2-046",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "pressure drop"
+    ],
+    "blocked_drawings": [
+      "H2-C-011"
+    ]
+  },
+  {
+    "field_id": "H2-049",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "zone class"
+    ],
+    "blocked_drawings": [
+      "H2-C-012"
+    ]
+  },
+  {
+    "field_id": "H2-050",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "gas group"
+    ],
+    "blocked_drawings": [
+      "H2-C-012"
+    ]
+  },
+  {
+    "field_id": "H2-051",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "temperature class"
+    ],
+    "blocked_drawings": [
+      "H2-C-012"
+    ]
+  },
+  {
+    "field_id": "H2-052",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "Ex method"
+    ],
+    "blocked_drawings": [
+      "H2-C-012"
+    ]
+  },
+  {
+    "field_id": "H2-053",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "H2 sensor count"
+    ],
+    "blocked_drawings": [
+      "H2-C-012"
+    ]
+  },
+  {
+    "field_id": "H2-054",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "H2 LEL"
+    ],
+    "blocked_drawings": [
+      "H2-C-012"
+    ]
+  },
+  {
+    "field_id": "H2-055",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "vent stack height"
+    ],
+    "blocked_drawings": [
+      "H2-C-013"
+    ]
+  },
+  {
+    "field_id": "H2-056",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "vent velocity"
+    ],
+    "blocked_drawings": [
+      "H2-C-013"
+    ]
+  },
+  {
+    "field_id": "H2-059",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "false",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "ESD system"
+    ],
+    "blocked_drawings": [
+      "H2-C-014"
+    ]
+  },
+  {
+    "field_id": "H2-061",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "false",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "HAZOP"
+    ],
+    "blocked_drawings": [
+      "H2-C-014"
+    ]
+  },
+  {
+    "field_id": "H2-062",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "false",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "SIL verified"
+    ],
+    "blocked_drawings": [
+      "H2-C-014"
+    ]
+  },
+  {
+    "field_id": "H2-063",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "ESD response"
+    ],
+    "blocked_drawings": [
+      "H2-C-014"
+    ]
+  },
+  {
+    "field_id": "H2-064",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "total power"
+    ],
+    "blocked_drawings": [
+      "H2-C-015"
+    ]
+  },
+  {
+    "field_id": "H2-065",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "rectifier efficiency"
+    ],
+    "blocked_drawings": [
+      "H2-C-015"
+    ]
+  },
+  {
+    "field_id": "H2-066",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "transformer power"
+    ],
+    "blocked_drawings": [
+      "H2-C-015"
+    ]
+  },
+  {
+    "field_id": "H2-067",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "grid voltage"
+    ],
+    "blocked_drawings": [
+      "H2-C-015"
+    ]
+  },
+  {
+    "field_id": "H2-068",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "PCC"
+    ],
+    "blocked_drawings": [
+      "H2-C-015"
+    ]
+  },
+  {
+    "field_id": "H2-070",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "EIA category"
+    ],
+    "blocked_drawings": [
+      "H2-C-013"
+    ]
+  },
+  {
+    "field_id": "H2-072",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "fire water"
+    ],
+    "blocked_drawings": [
+      "H2-C-014"
+    ]
+  },
+  {
+    "field_id": "H2-073",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "SCADA arch"
+    ],
+    "blocked_drawings": [
+      "H2-C-014"
+    ]
+  },
+  {
+    "field_id": "H2-074",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "cyber zone"
+    ],
+    "blocked_drawings": [
+      "H2-C-014"
+    ]
+  },
+  {
+    "field_id": "H2-075",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "comm protocol"
+    ],
+    "blocked_drawings": [
+      "H2-C-014"
+    ]
+  },
+  {
+    "field_id": "H2-080",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "efficiency"
+    ],
+    "blocked_drawings": [
+      "H2-C-001"
+    ]
+  },
+  {
+    "field_id": "H2-081",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "energy consumption"
+    ],
+    "blocked_drawings": [
+      "H2-C-002"
+    ]
+  },
+  {
+    "field_id": "H2-082",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "water consumption"
+    ],
+    "blocked_drawings": [
+      "H2-C-003"
+    ]
+  },
+  {
+    "field_id": "H2-083",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "storage pressure"
+    ],
+    "blocked_drawings": [
+      "H2-C-007"
+    ]
+  },
+  {
+    "field_id": "H2-084",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "pipe diameter"
+    ],
+    "blocked_drawings": [
+      "H2-C-009"
+    ]
+  },
+  {
+    "field_id": "H2-085",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "pipe material"
+    ],
+    "blocked_drawings": [
+      "H2-C-011"
+    ]
+  },
+  {
+    "field_id": "H2-086",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "SIL target"
+    ],
+    "blocked_drawings": [
+      "H2-C-014"
+    ]
+  },
+  {
+    "field_id": "H2-087",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "dew point"
+    ],
+    "blocked_drawings": [
+      "H2-C-005"
+    ]
+  },
+  {
+    "field_id": "H2-088",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "H2 production"
+    ],
+    "blocked_drawings": [
+      "H2-C-001"
+    ]
+  },
+  {
+    "field_id": "H2-089",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "compressor power"
+    ],
+    "blocked_drawings": [
+      "H2-C-004"
+    ]
+  },
+  {
+    "field_id": "H2-090",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "discharge pressure"
+    ],
+    "blocked_drawings": [
+      "H2-C-004"
+    ]
+  },
+  {
+    "field_id": "H2-091",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "zone class"
+    ],
+    "blocked_drawings": [
+      "H2-C-012"
+    ]
+  },
+  {
+    "field_id": "H2-092",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "gas group"
+    ],
+    "blocked_drawings": [
+      "H2-C-012"
+    ]
+  },
+  {
+    "field_id": "H2-093",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "temperature class"
+    ],
+    "blocked_drawings": [
+      "H2-C-012"
+    ]
+  },
+  {
+    "field_id": "H2-094",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "storage volume"
+    ],
+    "blocked_drawings": [
+      "H2-C-007"
+    ]
+  },
+  {
+    "field_id": "H2-095",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "PCC voltage"
+    ],
+    "blocked_drawings": [
+      "H2-C-015"
+    ]
+  },
+  {
+    "field_id": "H2-013",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Electrolyte specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "H2-C-001"
+    ],
+    "blocked_drawings": [
+      "H2-DRW-004"
+    ]
+  },
+  {
+    "field_id": "H2-014",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Catalyst datasheet",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "H2-C-001"
+    ],
+    "blocked_drawings": [
+      "H2-DRW-004"
+    ]
+  },
+  {
+    "field_id": "H2-025",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Compressor specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "H2-C-004"
+    ],
+    "blocked_drawings": [
+      "H2-DRW-006"
+    ]
+  },
+  {
+    "field_id": "H2-032",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "false",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "H2-036",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Storage specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "H2-C-007"
+    ],
+    "blocked_drawings": [
+      "H2-DRW-007"
+    ]
+  },
+  {
+    "field_id": "H2-037",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Tube trailer specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "H2-C-007"
+    ],
+    "blocked_drawings": [
+      "H2-DRW-007"
+    ]
+  },
+  {
+    "field_id": "H2-038",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "LH2 specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "H2-C-007"
+    ],
+    "blocked_drawings": [
+      "H2-DRW-007"
+    ]
+  },
+  {
+    "field_id": "H2-039",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cavern specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "H2-C-007"
+    ],
+    "blocked_drawings": [
+      "H2-DRW-007"
+    ]
+  },
+  {
+    "field_id": "H2-040",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "NH3 plant specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "H2-C-007"
+    ],
+    "blocked_drawings": [
+      "H2-DRW-016"
+    ]
+  },
+  {
+    "field_id": "H2-047",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "false",
+    "responsible_role": "true",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "H2-048",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "false",
+    "responsible_role": "true",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "H2-057",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "H2-058",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Flare specification",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "H2-C-013"
+    ],
+    "blocked_drawings": [
+      "H2-DRW-011"
+    ]
+  },
+  {
+    "field_id": "H2-060",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "H2-069",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "false",
+    "responsible_role": "true",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  }
+]

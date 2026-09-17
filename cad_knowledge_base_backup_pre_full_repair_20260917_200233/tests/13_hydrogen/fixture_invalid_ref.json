@@ -1,0 +1,15 @@
+{
+  "technology": "13_hydrogen",
+  "project_id": "TEST-H2-003",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {
+    "H2-001": "value_0",
+    "H2-002": "value_1",
+    "H2-003": "value_2",
+    "H2-004": "value_3",
+    "H2-005": "value_4"
+  },
+  "drawings_to_generate": [
+    "INVALID-DRW-999"
+  ]
+}

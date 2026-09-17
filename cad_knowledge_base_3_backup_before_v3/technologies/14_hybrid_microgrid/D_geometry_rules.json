@@ -1,0 +1,1341 @@
+[
+  {
+    "geometry_rule_id": "MG-GR-001",
+    "name_es": "Layout de la microrred",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-002",
+      "MG-003",
+      "MG-008",
+      "MG-018",
+      "MG-101",
+      "MG-102",
+      "MG-104",
+      "MG-105",
+      "MG-106",
+      "MG-107",
+      "MG-108"
+    ],
+    "required_calculation_ids": [
+      "MG-C-004",
+      "MG-C-007",
+      "MG-C-008"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Composite placement",
+    "algorithm_pseudocode": [
+      "place_PV_subsystem(sun area)",
+      "place_wind_subsystem(wind area)",
+      "place_BESS(close to PCC, fire safety)",
+      "place_hydro(near water)",
+      "place_biomass(near biomass source)",
+      "place_geothermal(near well)",
+      "place_diesel(downwind)"
+    ],
+    "generated_entity_types": [
+      "MICROGRID_BOUNDARY",
+      "PV_AREA",
+      "WIND_AREA",
+      "BESS_AREA",
+      "HYDRO_AREA",
+      "BIOMASS_AREA",
+      "GEOTHERMAL_AREA",
+      "DIESEL_AREA",
+      "CONTROL_BUILDING"
+    ],
+    "clearances": [
+      {
+        "entity": "PV_AREA",
+        "min_m": 5,
+        "ref": "WIND_AREA"
+      },
+      {
+        "entity": "BESS_AREA",
+        "min_m": 3,
+        "ref": "PROPERTY_LINE"
+      },
+      {
+        "entity": "DIESEL_AREA",
+        "min_m": 10,
+        "ref": "CONTROL_BUILDING"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "PV shadow on wind turbine -> warning"
+      },
+      {
+        "rule": "BESS < 3 m to property line -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_xy_mm": 100
+    },
+    "failure_conditions": [
+      "Boundary undefined"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "NFPA_855_2023",
+      "DNV_RP_0585",
+      "ISO_5457"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-002",
+    "name_es": "Layout PV subsystem",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-018 INCLUDES 'PV'",
+    "required_field_ids": [
+      "MG-002",
+      "MG-003",
+      "MG-101",
+      "MG-011",
+      "MG-021"
+    ],
+    "required_calculation_ids": [
+      "MG-C-004",
+      "MG-C-007"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Solar area placement",
+    "algorithm_pseudocode": [
+      "compute_PV_area(P_kWp, GHI)",
+      "orient_PV_north_hemisphere(latitude)"
+    ],
+    "generated_entity_types": [
+      "PV_AREA",
+      "PV_MODULE",
+      "PV_INVERTER",
+      "PV_STRING"
+    ],
+    "clearances": [
+      {
+        "entity": "PV_MODULE",
+        "min_m": 0.3,
+        "ref": "GROUND"
+      },
+      {
+        "entity": "PV_INVERTER",
+        "max_m": 50,
+        "ref": "PV_MODULE"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "row-to-row shading > 5% -> warning"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_xy_mm": 50
+    },
+    "failure_conditions": [
+      "Insufficient area"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "IEC_61215_1",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-003",
+    "name_es": "Layout BESS subsystem",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-102",
+      "MG-103",
+      "MG-129",
+      "MG-008"
+    ],
+    "required_calculation_ids": [
+      "MG-C-008",
+      "MG-C-009"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "BESS area placement",
+    "algorithm_pseudocode": [
+      "place_BESS_containers(close to PCC)",
+      "verify_NFPA_855_separations"
+    ],
+    "generated_entity_types": [
+      "BESS_AREA",
+      "BESS_CONTAINER",
+      "BESS_RACK"
+    ],
+    "clearances": [
+      {
+        "entity": "BESS_CONTAINER",
+        "min_m": 1.5,
+        "ref": "BUILDING"
+      },
+      {
+        "entity": "BESS_CONTAINER",
+        "min_m": 3,
+        "ref": "PROPERTY_LINE"
+      },
+      {
+        "entity": "BESS_CONTAINER",
+        "min_m": 7.5,
+        "ref": "HAZARD"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "distance < NFPA 855 -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.1
+    },
+    "failure_conditions": [
+      "NFPA 855 separation violated"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "IEC_62933_2_1",
+      "UL_9540A",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-004",
+    "name_es": "Layout Wind subsystem",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-018 INCLUDES 'WIND'",
+    "required_field_ids": [
+      "MG-002",
+      "MG-003",
+      "MG-104",
+      "MG-012"
+    ],
+    "required_calculation_ids": [
+      "MG-C-004"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Wind turbine placement",
+    "algorithm_pseudocode": [
+      "place_wt_per_IEC_61400_6",
+      "wake_separation > 5D cross, 8D along"
+    ],
+    "generated_entity_types": [
+      "WIND_TURBINE",
+      "WIND_TOWER",
+      "WIND_FOUNDATION"
+    ],
+    "clearances": [
+      {
+        "entity": "WIND_TURBINE",
+        "min_m": 500,
+        "ref": "WIND_TURBINE"
+      },
+      {
+        "entity": "WIND_TURBINE",
+        "min_m": 200,
+        "ref": "BUILDING"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "wake overlap -> warning"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_xy_mm": 1000
+    },
+    "failure_conditions": [
+      "Site insufficient for wind turbines"
+    ],
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_6",
+      "IEC_61400_11",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-005",
+    "name_es": "Layout Hydro subsystem",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-018 INCLUDES 'HYDRO'",
+    "required_field_ids": [
+      "MG-002",
+      "MG-003",
+      "MG-013",
+      "MG-014",
+      "MG-105"
+    ],
+    "required_calculation_ids": [
+      "MG-C-004"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Hydro plant placement",
+    "algorithm_pseudocode": [
+      "place_water_intake",
+      "place_penstock_route",
+      "place_powerhouse"
+    ],
+    "generated_entity_types": [
+      "WATER_INTAKE",
+      "PENSTOCK",
+      "POWERHOUSE",
+      "TAILRACE"
+    ],
+    "clearances": [
+      {
+        "entity": "PENSTOCK",
+        "min_m": 1,
+        "ref": "BOUNDARY"
+      },
+      {
+        "entity": "POWERHOUSE",
+        "min_m": 50,
+        "ref": "RIVER"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "penstock slope < 5% -> warning"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.1
+    },
+    "failure_conditions": [
+      "Water rights or geotechnical issues"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "IEC_60041",
+      "IEC_60193",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-006",
+    "name_es": "Layout Biomass/Biogas subsystem",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-018 IN ('BIOMASS','BIOGAS')",
+    "required_field_ids": [
+      "MG-015",
+      "MG-016",
+      "MG-017",
+      "MG-106",
+      "MG-002",
+      "MG-003"
+    ],
+    "required_calculation_ids": [
+      "MG-C-004"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Biomass plant placement",
+    "algorithm_pseudocode": [
+      "place_storage_biomass",
+      "place_digester(biogas)",
+      "place_engine_gen",
+      "classify_AEx_per_IEC_60079"
+    ],
+    "generated_entity_types": [
+      "BIOMASS_STORAGE",
+      "DIGESTER",
+      "ENGINE_GEN",
+      "GAS_HOLDER",
+      "FLARE"
+    ],
+    "clearances": [
+      {
+        "entity": "DIGESTER",
+        "min_m": 15,
+        "ref": "PROPERTY_LINE"
+      },
+      {
+        "entity": "FLARE",
+        "min_m": 30,
+        "ref": "BUILDING"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "AEx zone overlapped -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.1
+    },
+    "failure_conditions": [
+      "Biomass supply insufficient"
+    ],
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_0",
+      "IEC_60079_10_1",
+      "ASME_B31_3_2022",
+      "MINEM_DS_032_2003",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-007",
+    "name_es": "Layout Geothermal subsystem",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-018 INCLUDES 'GEOTHERMAL'",
+    "required_field_ids": [
+      "MG-019",
+      "MG-020",
+      "MG-107",
+      "MG-002",
+      "MG-003"
+    ],
+    "required_calculation_ids": [
+      "MG-C-004"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Geothermal plant placement",
+    "algorithm_pseudocode": [
+      "place_production_wells",
+      "place_injection_wells",
+      "place_pipelines_to_powerhouse",
+      "place_binary_or_flash_cycle"
+    ],
+    "generated_entity_types": [
+      "GEOTH_WELL",
+      "GEOTH_PIPELINE",
+      "BINARY_UNIT",
+      "FLASH_UNIT",
+      "COOLING_TOWER"
+    ],
+    "clearances": [
+      {
+        "entity": "GEOTH_WELL",
+        "min_m": 100,
+        "ref": "BUILDING"
+      },
+      {
+        "entity": "GEOTH_PIPELINE",
+        "min_m": 5,
+        "ref": "PROPERTY_LINE"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "H2S emissions > limit -> warning"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.1
+    },
+    "failure_conditions": [
+      "Resource insufficient"
+    ],
+    "source_ids": [
+      "IGA_BestPractices",
+      "ASME_B31_1_2022",
+      "ASME_BPVC_VIII_1_2023",
+      "API_610_2024",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-008",
+    "name_es": "Posicion del PCC",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-109",
+      "MG-110",
+      "MG-111",
+      "MG-112",
+      "MG-002",
+      "MG-003"
+    ],
+    "required_calculation_ids": [
+      "MG-C-025",
+      "MG-C-034",
+      "MG-C-035"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "PCC placement",
+    "algorithm_pseudocode": [
+      "place_PCC_breaker_at_grid_connection",
+      "place_sync_check_relay_at_PCC"
+    ],
+    "generated_entity_types": [
+      "PCC_BREAKER",
+      "SYNC_CHECK_RELAY",
+      "METERING_CT_PT"
+    ],
+    "clearances": [
+      {
+        "entity": "PCC_BREAKER",
+        "max_m": 10,
+        "ref": "METERING_CT_PT"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "PCC inaccessible -> warning"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.05
+    },
+    "failure_conditions": [
+      "PCC undefined"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_1547_4",
+      "COES_Proyectos_Conexion",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-009",
+    "name_es": "Transformer yard",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-110",
+      "MG-113",
+      "MG-023"
+    ],
+    "required_calculation_ids": [
+      "MG-C-041"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Transformer yard placement",
+    "algorithm_pseudocode": [
+      "place_xfr_per_NESC_clearance",
+      "verify_clearance_to_structures"
+    ],
+    "generated_entity_types": [
+      "TRANSFORMER",
+      "XFR_FOUNDATION",
+      "OIL_CONTAINMENT"
+    ],
+    "clearances": [
+      {
+        "entity": "TRANSFORMER",
+        "min_m": 3,
+        "ref": "BUILDING"
+      },
+      {
+        "entity": "TRANSFORMER",
+        "min_m": 3,
+        "ref": "PROPERTY_LINE"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "oil containment < 100% oil volume -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.05
+    },
+    "failure_conditions": [
+      "NESC clearance violated"
+    ],
+    "source_ids": [
+      "IEEE_C2_2023",
+      "NFPA_70_2023",
+      "IEEE_80_2013",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-010",
+    "name_es": "Switchgear placement",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-110",
+      "MG-090",
+      "MG-111",
+      "MG-008"
+    ],
+    "required_calculation_ids": [
+      "MG-C-035",
+      "MG-C-040"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Switchgear placement",
+    "algorithm_pseudocode": [
+      "place_switchgear_indoor",
+      "verify_arc_flash_hazard"
+    ],
+    "generated_entity_types": [
+      "SWITCHGEAR_MV",
+      "SWITCHGEAR_LV",
+      "ARC_FLASH_RELAY"
+    ],
+    "clearances": [
+      {
+        "entity": "SWITCHGEAR_MV",
+        "min_m": 1,
+        "ref": "WALL"
+      },
+      {
+        "entity": "SWITCHGEAR_LV",
+        "min_m": 1,
+        "ref": "WALL"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "working space < NESC -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.01
+    },
+    "failure_conditions": [
+      "Insufficient working space"
+    ],
+    "source_ids": [
+      "IEEE_C2_2023",
+      "NFPA_70_2023",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-011",
+    "name_es": "Cuarto del servidor EMS",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-041",
+      "MG-045",
+      "MG-006",
+      "MG-007",
+      "MG-139"
+    ],
+    "required_calculation_ids": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "coordinate_space": "BUILDING",
+    "algorithm": "EMS server room placement",
+    "algorithm_pseudocode": [
+      "place_server_room_with_HVAC",
+      "verify_environmental_per_TIA-942 (general)"
+    ],
+    "generated_entity_types": [
+      "EMS_SERVER_RACK",
+      "UPS",
+      "PRECISION_HVAC",
+      "FIRE_SUPPRESSION"
+    ],
+    "clearances": [
+      {
+        "entity": "EMS_SERVER_RACK",
+        "min_m": 1,
+        "ref": "WALL"
+      },
+      {
+        "entity": "EMS_SERVER_RACK",
+        "min_m": 1.2,
+        "ref": "EMS_SERVER_RACK"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no water piping through room -> warning"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.01
+    },
+    "failure_conditions": [
+      "HVAC insufficient"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "DNV_RP_0585",
+      "ISO_5457"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-012",
+    "name_es": "Gabinete del gateway SCADA",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-094",
+      "MG-095",
+      "MG-096",
+      "MG-097",
+      "MG-098",
+      "MG-139"
+    ],
+    "required_calculation_ids": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "coordinate_space": "BUILDING",
+    "algorithm": "SCADA gateway cabinet placement",
+    "algorithm_pseudocode": [
+      "place_cabinet_in_control_room",
+      "route cables_per_IEC_61508"
+    ],
+    "generated_entity_types": [
+      "SCADA_GATEWAY_CABINET",
+      "SCADA_GATEWAY",
+      "COMM_SWITCH"
+    ],
+    "clearances": [
+      {
+        "entity": "SCADA_GATEWAY_CABINET",
+        "min_m": 1,
+        "ref": "WALL"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "cabinet blocking access -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.01
+    },
+    "failure_conditions": [
+      "No communication"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEC_61400_25",
+      "IEC_61508_1",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-013",
+    "name_es": "Rutas de comunicacion (fiber/radio/cellular)",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-098",
+      "MG-097",
+      "MG-094",
+      "MG-095"
+    ],
+    "required_calculation_ids": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Communication routes",
+    "algorithm_pseudocode": [
+      "route_fiber_or_radio_per_medium",
+      "verify_redundant_paths"
+    ],
+    "generated_entity_types": [
+      "FIBER_CABLE",
+      "RADIO_ANTENNA",
+      "CELLULAR_GATEWAY",
+      "COMM_TRENCH"
+    ],
+    "clearances": [
+      {
+        "entity": "FIBER_CABLE",
+        "min_m": 0.3,
+        "ref": "POWER_CABLE"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "single path for redundant SCADA -> error"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "FIBER_CABLE",
+        "cost": 1.0
+      },
+      {
+        "route": "RADIO",
+        "cost": 1.2
+      },
+      {
+        "route": "CELLULAR",
+        "cost": 0.8
+      }
+    ],
+    "tolerances": {
+      "pos_m": 0.1
+    },
+    "failure_conditions": [
+      "No redundant comm path"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEC_61400_25",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-014",
+    "name_es": "Posicion de reles de proteccion",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-083",
+      "MG-084",
+      "MG-087",
+      "MG-090",
+      "MG-111"
+    ],
+    "required_calculation_ids": [
+      "MG-C-021",
+      "MG-C-035"
+    ],
+    "coordinate_space": "BUILDING",
+    "algorithm": "Protection relay placement",
+    "algorithm_pseudocode": [
+      "place_relays_in_protection_panel",
+      "verify_CT/PT_wiring"
+    ],
+    "generated_entity_types": [
+      "PROTECTION_RELAY",
+      "CT",
+      "PT",
+      "PROTECTION_PANEL"
+    ],
+    "clearances": [
+      {
+        "entity": "PROTECTION_RELAY",
+        "max_m": 5,
+        "ref": "CT"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "CT class mismatch -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.01
+    },
+    "failure_conditions": [
+      "CT/PT mismatch"
+    ],
+    "source_ids": [
+      "IEEE_C2_2023",
+      "IEEE_1547_2018",
+      "IEC_60364_5_54",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-015",
+    "name_es": "Posicion del rele sync check",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-091",
+      "MG-092",
+      "MG-093",
+      "MG-110"
+    ],
+    "required_calculation_ids": [
+      "MG-C-025"
+    ],
+    "coordinate_space": "BUILDING",
+    "algorithm": "Sync check relay placement",
+    "algorithm_pseudocode": [
+      "place_sync_check_at_PCC",
+      "verify_redundancy_auto/manual"
+    ],
+    "generated_entity_types": [
+      "SYNC_CHECK_RELAY",
+      "AUTO_SYNCHRONIZER",
+      "MANUAL_SYNC_SWITCH"
+    ],
+    "clearances": [
+      {
+        "entity": "SYNC_CHECK_RELAY",
+        "max_m": 2,
+        "ref": "PCC_BREAKER"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no sync check at PCC -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.01
+    },
+    "failure_conditions": [
+      "No sync check"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-016",
+    "name_es": "Estaciones de carga EV",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-118 > 0",
+    "required_field_ids": [
+      "MG-118",
+      "MG-117",
+      "MG-110"
+    ],
+    "required_calculation_ids": [
+      "MG-C-042"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "EV charging stations placement",
+    "algorithm_pseudocode": [
+      "place_EV_chargers_per_parking_layout",
+      "verify_circuit_sizing"
+    ],
+    "generated_entity_types": [
+      "EV_CHARGER",
+      "EV_CIRCUIT",
+      "EV_DISPLAY"
+    ],
+    "clearances": [
+      {
+        "entity": "EV_CHARGER",
+        "min_m": 1,
+        "ref": "WALL"
+      },
+      {
+        "entity": "EV_CHARGER",
+        "max_m": 3,
+        "ref": "EV_CHARGER"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "EV charger blocking walkway -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.01
+    },
+    "failure_conditions": [
+      "No parking capacity"
+    ],
+    "source_ids": [
+      "IEC_61851_1",
+      "NFPA_70_2023",
+      "IEEE_2030_2",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-017",
+    "name_es": "Controladores de demanda response",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-117 > 0",
+    "required_field_ids": [
+      "MG-116",
+      "MG-117",
+      "MG-030"
+    ],
+    "required_calculation_ids": [
+      "MG-C-010",
+      "MG-C-013"
+    ],
+    "coordinate_space": "BUILDING",
+    "algorithm": "DR controller placement",
+    "algorithm_pseudocode": [
+      "place_DR_controllers_per_load",
+      "verify_comm_with_EMS"
+    ],
+    "generated_entity_types": [
+      "DR_CONTROLLER",
+      "DR_COMM_MODULE",
+      "DR_ACTUATOR"
+    ],
+    "clearances": [
+      {
+        "entity": "DR_CONTROLLER",
+        "max_m": 10,
+        "ref": "DR_ACTUATOR"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "DR controller no comm -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.01
+    },
+    "failure_conditions": [
+      "No DR controllers"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEEE_1547_2018",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-018",
+    "name_es": "Sala de control",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-139",
+      "MG-041",
+      "MG-042",
+      "MG-008"
+    ],
+    "required_calculation_ids": [
+      "MG-C-010",
+      "MG-C-011"
+    ],
+    "coordinate_space": "BUILDING",
+    "algorithm": "Control room layout",
+    "algorithm_pseudocode": [
+      "layout_control_room_per_architecture",
+      "verify_HMI_ergonomics"
+    ],
+    "generated_entity_types": [
+      "HMI_WORKSTATION",
+      "UPS",
+      "CONTROL_ROOM_HVAC"
+    ],
+    "clearances": [
+      {
+        "entity": "HMI_WORKSTATION",
+        "min_m": 1,
+        "ref": "WALL"
+      },
+      {
+        "entity": "HMI_WORKSTATION",
+        "min_m": 1.2,
+        "ref": "HMI_WORKSTATION"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no UPS in control room -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.01
+    },
+    "failure_conditions": [
+      "Control room insufficient"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "DNV_RP_0585",
+      "ISO_5457"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-019",
+    "name_es": "Cerca perimetral",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-002",
+      "MG-003",
+      "MG-148"
+    ],
+    "required_calculation_ids": [
+      "MG-C-038"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Perimeter fence layout",
+    "algorithm_pseudocode": [
+      "fence_offset = 5 m from equipment",
+      "add_security_sensors"
+    ],
+    "generated_entity_types": [
+      "PERIMETER_FENCE",
+      "SECURITY_CAMERA",
+      "ACCESS_GATE"
+    ],
+    "clearances": [
+      {
+        "entity": "PERIMETER_FENCE",
+        "min_m": 3,
+        "ref": "PROPERTY_LINE"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "fence inside equipment area -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_m": 0.05
+    },
+    "failure_conditions": [
+      "Fence missing"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "DNV_RP_0585",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-020",
+    "name_es": "Loop de agua contra incendio",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND (MG-129 INCLUDES 'BESS' OR MG-108 > 0)",
+    "required_field_ids": [
+      "MG-102",
+      "MG-103",
+      "MG-108",
+      "MG-129"
+    ],
+    "required_calculation_ids": [
+      "MG-C-008"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Fire water loop routing",
+    "algorithm_pseudocode": [
+      "loop_dia = compute_dia(Q_demand, v<=3 m/s)",
+      "size_per_NFPA_13/20"
+    ],
+    "generated_entity_types": [
+      "FIRE_WATER_LOOP",
+      "FIRE_PUMP",
+      "FIRE_WATER_TANK",
+      "HYDRANT"
+    ],
+    "clearances": [
+      {
+        "entity": "FIRE_WATER_LOOP",
+        "min_m": 1,
+        "ref": "FOUNDATION"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "dead_end > 50 m -> error"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "FIRE_WATER",
+        "cost": 1.5
+      }
+    ],
+    "tolerances": {
+      "pos_mm": 50
+    },
+    "failure_conditions": [
+      "Fire water reserve < 90 min"
+    ],
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_20_2022",
+      "NFPA_15_2022",
+      "NFPA_855_2023",
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-021",
+    "name_es": "Grid de tierra (malla)",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-144",
+      "MG-145",
+      "MG-146",
+      "MG-010"
+    ],
+    "required_calculation_ids": [
+      "MG-C-036",
+      "MG-C-037"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Grounding grid layout",
+    "algorithm_pseudocode": [
+      "grid_size = compute_grid_size(R_target, rho_soil)",
+      "place_conductors(grid_size, spacing=3 m)"
+    ],
+    "generated_entity_types": [
+      "GROUNDING_GRID",
+      "GROUND_ROD",
+      "EQUIPOT_BONDING"
+    ],
+    "clearances": [
+      {
+        "entity": "GROUNDING_GRID",
+        "min_m": 0.8,
+        "ref": "FOUNDATION"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "grid_step_potential > IEEE 80 limits -> error"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "GROUNDING",
+        "cost": 0.5
+      }
+    ],
+    "tolerances": {
+      "pos_xy_mm": 20
+    },
+    "failure_conditions": [
+      "R_g > 5 ohm"
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_142",
+      "IEC_60364_5_54",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-022",
+    "name_es": "Posicion de pararrayos (rolling sphere)",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-147",
+      "MG-148",
+      "MG-002",
+      "MG-003"
+    ],
+    "required_calculation_ids": [
+      "MG-C-038"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Rolling sphere method",
+    "algorithm_pseudocode": [
+      "sphere_radius = f(LPL) (30 m LPL I, 45 m II, 60 m III)",
+      "place_air_terminals(sphere_coverage)"
+    ],
+    "generated_entity_types": [
+      "AIR_TERMINAL",
+      "DOWN_CONDUCTOR",
+      "LIGHTNING_COUNTER"
+    ],
+    "clearances": [
+      {
+        "entity": "AIR_TERMINAL",
+        "max_m": 25,
+        "ref": "AIR_TERMINAL (LPL III)"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "sphere uncoverage > 0% -> error"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "pos_xy_mm": 50
+    },
+    "failure_conditions": [
+      "Coverage < 100%"
+    ],
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023",
+      "IEEE_80_2013"
+    ]
+  },
+  {
+    "geometry_rule_id": "MG-GR-023",
+    "name_es": "Cable trays AC/DC/control",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "required_field_ids": [
+      "MG-110",
+      "MG-102",
+      "MG-023",
+      "MG-094"
+    ],
+    "required_calculation_ids": [
+      "MG-C-033",
+      "MG-C-039",
+      "MG-C-040"
+    ],
+    "coordinate_space": "SITE",
+    "algorithm": "Cable tray routing",
+    "algorithm_pseudocode": [
+      "route_tray_LV_AC(PV->XFR->switchgear->MV)",
+      "route_DC_tray(BESS->PCS)",
+      "separate > 300 mm control vs power"
+    ],
+    "generated_entity_types": [
+      "CABLE_TRAY_LV_AC",
+      "CABLE_TRAY_MV_AC",
+      "CABLE_TRAY_DC",
+      "CABLE_TRAY_CONTROL",
+      "LV_AC_CABLE",
+      "MV_AC_CABLE",
+      "DC_CABLE",
+      "CONTROL_CABLE"
+    ],
+    "clearances": [
+      {
+        "entity": "CABLE_TRAY_LV_AC",
+        "min_mm": 300,
+        "ref": "DC_TRAY"
+      },
+      {
+        "entity": "CABLE_TRAY_MV_AC",
+        "min_mm": 300,
+        "ref": "LV_TRAY"
+      },
+      {
+        "entity": "CABLE_TRAY_CONTROL",
+        "min_mm": 300,
+        "ref": "POWER_TRAY"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "LV tray crossing DC tray < 90 deg -> error"
+      },
+      {
+        "rule": "control parallel power < 300 mm -> error"
+      }
+    ],
+    "routing_costs": [
+      {
+        "route": "CABLE_TRAY_LV_AC",
+        "cost": 1.0
+      },
+      {
+        "route": "CABLE_TRAY_MV_AC",
+        "cost": 1.5
+      },
+      {
+        "route": "CABLE_TRAY_DC",
+        "cost": 1.2
+      },
+      {
+        "route": "CABLE_TRAY_CONTROL",
+        "cost": 1.0
+      }
+    ],
+    "tolerances": {
+      "pos_mm": 10
+    },
+    "failure_conditions": [
+      "Ampacity < NEC Table"
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023",
+      "IEEE_835",
+      "IEC_61508_1",
+      "DNV_RP_0585"
+    ]
+  }
+]

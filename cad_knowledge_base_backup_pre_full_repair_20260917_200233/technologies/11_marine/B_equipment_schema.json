@@ -1,0 +1,1257 @@
+[
+  {
+    "equipment_type_id": "TIDAL_TURBINE_HA",
+    "name_es": "Turbina de marea de eje horizontal",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Potencia nominal",
+        "field_id": "MAR-035",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 10,
+        "max": 20000
+      },
+      {
+        "name_es": "Diámetro de rotor",
+        "field_id": "MAR-039",
+        "data_type": "float",
+        "unit": "m",
+        "min": 1,
+        "max": 25
+      },
+      {
+        "name_es": "Velocidad nominal",
+        "field_id": "MAR-041",
+        "data_type": "float",
+        "unit": "rpm",
+        "min": 5,
+        "max": 200
+      },
+      {
+        "name_es": "Eficiencia pico",
+        "field_id": "MAR-042",
+        "data_type": "float",
+        "unit": "%",
+        "min": 30,
+        "max": 55
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TIDAL_TURBINE_VA",
+    "name_es": "Turbina de marea de eje vertical",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Potencia nominal",
+        "field_id": "MAR-035",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 10,
+        "max": 10000
+      },
+      {
+        "name_es": "Diámetro de rotor",
+        "field_id": "MAR-039",
+        "data_type": "float",
+        "unit": "m",
+        "min": 1,
+        "max": 20
+      },
+      {
+        "name_es": "Velocidad nominal",
+        "field_id": "MAR-041",
+        "data_type": "float",
+        "unit": "rpm",
+        "min": 5,
+        "max": 120
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "WEC_ATTENUATOR",
+    "name_es": "Convertidor de energía de ola atenuador",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Longitud característica",
+        "field_id": "MAR-047",
+        "data_type": "float",
+        "unit": "m",
+        "min": 10,
+        "max": 200
+      },
+      {
+        "name_es": "Tipo de PTO",
+        "field_id": "MAR-046",
+        "data_type": "enum",
+        "unit": "-"
+      },
+      {
+        "name_es": "Ancho de captura",
+        "field_id": "MAR-045",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0.05,
+        "max": 0.8
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "WEC_POINT_ABSORBER",
+    "name_es": "Convertidor de energía de ola punto absorbedor",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Longitud característica",
+        "field_id": "MAR-047",
+        "data_type": "float",
+        "unit": "m",
+        "min": 1,
+        "max": 30
+      },
+      {
+        "name_es": "Tipo de PTO",
+        "field_id": "MAR-046",
+        "data_type": "enum",
+        "unit": "-"
+      },
+      {
+        "name_es": "Calado",
+        "field_id": "MAR-048",
+        "data_type": "float",
+        "unit": "m",
+        "min": 1,
+        "max": 30
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "WEC_TERMINATOR",
+    "name_es": "Convertidor de energía de ola terminador",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Longitud característica",
+        "field_id": "MAR-047",
+        "data_type": "float",
+        "unit": "m",
+        "min": 5,
+        "max": 100
+      },
+      {
+        "name_es": "Tipo de PTO",
+        "field_id": "MAR-046",
+        "data_type": "enum",
+        "unit": "-"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "WEC_OVERTOPPING",
+    "name_es": "Convertidor de energía de ola por sobrevertido",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Longitud característica",
+        "field_id": "MAR-047",
+        "data_type": "float",
+        "unit": "m",
+        "min": 20,
+        "max": 200
+      },
+      {
+        "name_es": "Tipo de PTO",
+        "field_id": "MAR-046",
+        "data_type": "enum",
+        "unit": "-"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CURRENT_TURBINE_HA",
+    "name_es": "Turbina de corriente de eje horizontal",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Potencia nominal",
+        "field_id": "MAR-035",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 10,
+        "max": 5000
+      },
+      {
+        "name_es": "Diámetro de rotor",
+        "field_id": "MAR-039",
+        "data_type": "float",
+        "unit": "m",
+        "min": 1,
+        "max": 20
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CURRENT_TURBINE_VA",
+    "name_es": "Turbina de corriente de eje vertical",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Potencia nominal",
+        "field_id": "MAR-035",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 10,
+        "max": 5000
+      },
+      {
+        "name_es": "Diámetro de rotor",
+        "field_id": "MAR-039",
+        "data_type": "float",
+        "unit": "m",
+        "min": 1,
+        "max": 20
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "OTEC_PLANT_CLOSED",
+    "name_es": "Planta OTEC ciclo cerrado",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Tipo de ciclo",
+        "field_id": "MAR-049",
+        "data_type": "enum",
+        "unit": "-"
+      },
+      {
+        "name_es": "Fluido de trabajo",
+        "field_id": "MAR-050",
+        "data_type": "enum",
+        "unit": "-"
+      },
+      {
+        "name_es": "Flujo agua fría",
+        "field_id": "MAR-054",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 100,
+        "max": 50000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "OTEC_PLANT_OPEN",
+    "name_es": "Planta OTEC ciclo abierto",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Tipo de ciclo",
+        "field_id": "MAR-049",
+        "data_type": "enum",
+        "unit": "-"
+      },
+      {
+        "name_es": "Flujo agua fría",
+        "field_id": "MAR-054",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 100,
+        "max": 50000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "OTEC_PLANT_HYBRID",
+    "name_es": "Planta OTEC ciclo híbrido",
+    "subsystem": "POWER_GENERATION",
+    "properties": [
+      {
+        "name_es": "Tipo de ciclo",
+        "field_id": "MAR-049",
+        "data_type": "enum",
+        "unit": "-"
+      },
+      {
+        "name_es": "Fluido de trabajo",
+        "field_id": "MAR-050",
+        "data_type": "enum",
+        "unit": "-"
+      },
+      {
+        "name_es": "Flujo agua fría",
+        "field_id": "MAR-054",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 100,
+        "max": 50000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "OTEC_EVAPORATOR",
+    "name_es": "Evaporador OTEC (intercambiador de placas)",
+    "subsystem": "OTEC",
+    "properties": [
+      {
+        "name_es": "Flujo másico NH3",
+        "field_id": "MAR-056",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 1,
+        "max": 2000
+      },
+      {
+        "name_es": "Flujo agua caliente",
+        "field_id": "MAR-055",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 100,
+        "max": 50000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "OTEC_CONDENSER",
+    "name_es": "Condensador OTEC (intercambiador de placas)",
+    "subsystem": "OTEC",
+    "properties": [
+      {
+        "name_es": "Flujo másico NH3",
+        "field_id": "MAR-056",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 1,
+        "max": 2000
+      },
+      {
+        "name_es": "Flujo agua fría",
+        "field_id": "MAR-054",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 100,
+        "max": 50000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "OTEC_COLD_WATER_PIPE",
+    "name_es": "Tubería de agua fría OTEC",
+    "subsystem": "OTEC",
+    "properties": [
+      {
+        "name_es": "Diámetro",
+        "field_id": "MAR-051",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.5,
+        "max": 10
+      },
+      {
+        "name_es": "Profundidad de toma",
+        "field_id": "MAR-052",
+        "data_type": "float",
+        "unit": "m",
+        "min": 500,
+        "max": 1500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "OTEC_HOT_WATER_INTAKE",
+    "name_es": "Toma de agua caliente OTEC",
+    "subsystem": "OTEC",
+    "properties": [
+      {
+        "name_es": "Profundidad de toma",
+        "field_id": "MAR-053",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0,
+        "max": 50
+      },
+      {
+        "name_es": "Flujo agua caliente",
+        "field_id": "MAR-055",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 100,
+        "max": 50000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "SUBSEA_CABLE_INTER_ARRAY",
+    "name_es": "Cable submarino inter-array",
+    "subsystem": "ELECTRICAL_COLLECTION",
+    "properties": [
+      {
+        "name_es": "Tensión",
+        "field_id": "MAR-075",
+        "data_type": "enum",
+        "unit": "kV"
+      },
+      {
+        "name_es": "Sección",
+        "field_id": "MAR-079",
+        "data_type": "float",
+        "unit": "mm2",
+        "min": 35,
+        "max": 2000
+      },
+      {
+        "name_es": "Longitud",
+        "field_id": "MAR-080",
+        "data_type": "float",
+        "unit": "m",
+        "min": 100,
+        "max": 200000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "SUBSEA_CABLE_EXPORT",
+    "name_es": "Cable submarino de exportación",
+    "subsystem": "ELECTRICAL_TRANSMISSION",
+    "properties": [
+      {
+        "name_es": "Tensión",
+        "field_id": "MAR-076",
+        "data_type": "enum",
+        "unit": "kV"
+      },
+      {
+        "name_es": "Sección",
+        "field_id": "MAR-079",
+        "data_type": "float",
+        "unit": "mm2",
+        "min": 35,
+        "max": 2000
+      },
+      {
+        "name_es": "Longitud",
+        "field_id": "MAR-081",
+        "data_type": "float",
+        "unit": "m",
+        "min": 100,
+        "max": 300000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "ANCHOR_DRAG_EMBEDMENT",
+    "name_es": "Ancla de arrastre y embebimiento",
+    "subsystem": "MOORING",
+    "properties": [
+      {
+        "name_es": "Penetración",
+        "field_id": "MAR-064",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.5,
+        "max": 30
+      },
+      {
+        "name_es": "Capacidad de retención",
+        "field_id": "MAR-065",
+        "data_type": "float",
+        "unit": "kN",
+        "min": 50,
+        "max": 50000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "ANCHOR_SUCTION_PILE",
+    "name_es": "Ancla tipo pilote de succión",
+    "subsystem": "MOORING",
+    "properties": [
+      {
+        "name_es": "Penetración",
+        "field_id": "MAR-064",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.5,
+        "max": 30
+      },
+      {
+        "name_es": "Capacidad de retención",
+        "field_id": "MAR-065",
+        "data_type": "float",
+        "unit": "kN",
+        "min": 50,
+        "max": 50000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "ANCHOR_PILE",
+    "name_es": "Ancla tipo pilote convencional",
+    "subsystem": "MOORING",
+    "properties": [
+      {
+        "name_es": "Penetración",
+        "field_id": "MAR-064",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.5,
+        "max": 40
+      },
+      {
+        "name_es": "Capacidad de retención",
+        "field_id": "MAR-065",
+        "data_type": "float",
+        "unit": "kN",
+        "min": 50,
+        "max": 50000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "ANCHOR_DEADWEIGHT",
+    "name_es": "Ancla de lastre (deadweight)",
+    "subsystem": "MOORING",
+    "properties": [
+      {
+        "name_es": "Capacidad de retención",
+        "field_id": "MAR-065",
+        "data_type": "float",
+        "unit": "kN",
+        "min": 50,
+        "max": 20000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "MOORING_LINE_CHAIN",
+    "name_es": "Línea de fondeo tipo cadena",
+    "subsystem": "MOORING",
+    "properties": [
+      {
+        "name_es": "Diámetro",
+        "field_id": "MAR-071",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 10,
+        "max": 300
+      },
+      {
+        "name_es": "Longitud",
+        "field_id": "MAR-072",
+        "data_type": "float",
+        "unit": "m",
+        "min": 10,
+        "max": 2000
+      },
+      {
+        "name_es": "MBL",
+        "field_id": "MAR-073",
+        "data_type": "float",
+        "unit": "kN",
+        "min": 100,
+        "max": 30000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "MOORING_LINE_WIRE",
+    "name_es": "Línea de fondeo tipo cable de acero",
+    "subsystem": "MOORING",
+    "properties": [
+      {
+        "name_es": "Diámetro",
+        "field_id": "MAR-071",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 10,
+        "max": 200
+      },
+      {
+        "name_es": "Longitud",
+        "field_id": "MAR-072",
+        "data_type": "float",
+        "unit": "m",
+        "min": 10,
+        "max": 2000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "MOORING_LINE_SYNTHETIC",
+    "name_es": "Línea de fondeo sintética (poliester/dyneema)",
+    "subsystem": "MOORING",
+    "properties": [
+      {
+        "name_es": "Diámetro",
+        "field_id": "MAR-071",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 10,
+        "max": 300
+      },
+      {
+        "name_es": "Longitud",
+        "field_id": "MAR-072",
+        "data_type": "float",
+        "unit": "m",
+        "min": 10,
+        "max": 2000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "ONSHORE_SUBSTATION_HVAC",
+    "name_es": "Subestación de costa HVAC",
+    "subsystem": "ELECTRICAL_SUBSTATION",
+    "properties": [
+      {
+        "name_es": "Potencia transformador",
+        "field_id": "MAR-092",
+        "data_type": "float",
+        "unit": "MVA",
+        "min": 1,
+        "max": 1000
+      },
+      {
+        "name_es": "Compensación reactiva",
+        "field_id": "MAR-093",
+        "data_type": "float",
+        "unit": "MVAr",
+        "min": 0,
+        "max": 500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "ONSHORE_SUBSTATION_HVDC",
+    "name_es": "Subestación de costa HVDC",
+    "subsystem": "ELECTRICAL_SUBSTATION",
+    "properties": [
+      {
+        "name_es": "Potencia transformador",
+        "field_id": "MAR-092",
+        "data_type": "float",
+        "unit": "MVA",
+        "min": 1,
+        "max": 1000
+      },
+      {
+        "name_es": "Tipo de convertidor",
+        "field_id": "MAR-094",
+        "data_type": "enum",
+        "unit": "-"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "ONSHORE_TRANSFORMER",
+    "name_es": "Transformador de potencia de subestación",
+    "subsystem": "ELECTRICAL_SUBSTATION",
+    "properties": [
+      {
+        "name_es": "Potencia nominal",
+        "field_id": "MAR-092",
+        "data_type": "float",
+        "unit": "MVA",
+        "min": 1,
+        "max": 1000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "ONSHORE_GROUNDING_GRID",
+    "name_es": "Malla de tierra de subestación costa",
+    "subsystem": "ELECTRICAL_GROUNDING",
+    "properties": [
+      {
+        "name_es": "Resistencia",
+        "field_id": "MAR-095",
+        "data_type": "float",
+        "unit": "ohm",
+        "min": 0.1,
+        "max": 5
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TRANSITION_PIECE",
+    "name_es": "Pieza de transición (device-foundation)",
+    "subsystem": "STRUCTURAL",
+    "properties": [
+      {
+        "name_es": "Material",
+        "field_id": "MAR-115",
+        "data_type": "enum",
+        "unit": "-"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "SCOUR_PROTECTION",
+    "name_es": "Protección contra socavación",
+    "subsystem": "CIVIL",
+    "properties": [
+      {
+        "name_es": "Volumen",
+        "field_id": "MAR-090",
+        "data_type": "float",
+        "unit": "m3",
+        "min": 0,
+        "max": 10000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "NAVIGATION_LIGHT",
+    "name_es": "Luz de navegación en dispositivo",
+    "subsystem": "NAVIGATION",
+    "properties": [
+      {
+        "name_es": "Presencia",
+        "field_id": "MAR-123",
+        "data_type": "bool",
+        "unit": "-"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "AIS_TRANSPONDER",
+    "name_es": "Transpondedor AIS en dispositivo",
+    "subsystem": "NAVIGATION",
+    "properties": [
+      {
+        "name_es": "Presencia",
+        "field_id": "MAR-122",
+        "data_type": "bool",
+        "unit": "-"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "SCADA_CABINET_OFFSHORE",
+    "name_es": "Gabinete SCADA offshore",
+    "subsystem": "CONTROL",
+    "properties": [
+      {
+        "name_es": "Cantidad",
+        "field_id": "MAR-124",
+        "data_type": "int",
+        "unit": "-",
+        "min": 1,
+        "max": 50
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "ENVIRONMENTAL_MONITORING_BUOY",
+    "name_es": "Boya de monitoreo ambiental",
+    "subsystem": "ENVIRONMENTAL",
+    "properties": [
+      {
+        "name_es": "Ruido submarino",
+        "field_id": "MAR-101",
+        "data_type": "float",
+        "unit": "dB",
+        "min": 100,
+        "max": 200
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CTV_BERTH",
+    "name_es": "Muelle para CTV (crew transfer vessel)",
+    "subsystem": "O_AND_M",
+    "properties": [
+      {
+        "name_es": "Distancia al parque",
+        "field_id": "MAR-106",
+        "data_type": "float",
+        "unit": "km",
+        "min": 0.5,
+        "max": 200
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "SOV_BERTH",
+    "name_es": "Muelle para SOV (service operation vessel)",
+    "subsystem": "O_AND_M",
+    "properties": [
+      {
+        "name_es": "Presencia",
+        "field_id": "MAR-107",
+        "data_type": "bool",
+        "unit": "-"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "HELICOPTER_PAD",
+    "name_es": "Helipuerto en subestación o dispositivo",
+    "subsystem": "O_AND_M",
+    "properties": [
+      {
+        "name_es": "Presencia",
+        "field_id": "MAR-108",
+        "data_type": "bool",
+        "unit": "-"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "OFFSHORE_FOUNDATION_GRAVITY",
+    "name_es": "Fundación tipo gravity base",
+    "subsystem": "FOUNDATION",
+    "properties": [
+      {
+        "name_es": "Carga de diseño",
+        "field_id": "MAR-088",
+        "data_type": "float",
+        "unit": "kN",
+        "min": 100,
+        "max": 50000
+      },
+      {
+        "name_es": "Concreto",
+        "field_id": "MAR-116",
+        "data_type": "enum",
+        "unit": "-"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "OFFSHORE_FOUNDATION_MONOPILE",
+    "name_es": "Fundación tipo monopile",
+    "subsystem": "FOUNDATION",
+    "properties": [
+      {
+        "name_es": "Penetración",
+        "field_id": "MAR-087",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.5,
+        "max": 40
+      },
+      {
+        "name_es": "Carga de diseño",
+        "field_id": "MAR-088",
+        "data_type": "float",
+        "unit": "kN",
+        "min": 100,
+        "max": 50000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "OFFSHORE_FOUNDATION_JACKET",
+    "name_es": "Fundación tipo jacket (espacial)",
+    "subsystem": "FOUNDATION",
+    "properties": [
+      {
+        "name_es": "Penetración",
+        "field_id": "MAR-087",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.5,
+        "max": 40
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "OFFSHORE_FOUNDATION_FLOATING",
+    "name_es": "Fundación tipo flotante",
+    "subsystem": "FOUNDATION",
+    "properties": [
+      {
+        "name_es": "Material",
+        "field_id": "MAR-115",
+        "data_type": "enum",
+        "unit": "-"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CATHODIC_PROTECTION_SYSTEM",
+    "name_es": "Sistema de protección catódica",
+    "subsystem": "CORROSION_PROTECTION",
+    "properties": [
+      {
+        "name_es": "Corriente de diseño",
+        "field_id": "MAR-110",
+        "data_type": "float",
+        "unit": "A",
+        "min": 1,
+        "max": 2000
+      },
+      {
+        "name_es": "Vida de diseño",
+        "field_id": "MAR-114",
+        "data_type": "float",
+        "unit": "years",
+        "min": 5,
+        "max": 50
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "DYNAMIC_CABLE",
+    "name_es": "Cable dinámico entre dispositivo y fondo",
+    "subsystem": "ELECTRICAL_COLLECTION",
+    "properties": [
+      {
+        "name_es": "Sección",
+        "field_id": "MAR-079",
+        "data_type": "float",
+        "unit": "mm2",
+        "min": 35,
+        "max": 2000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  }
+]

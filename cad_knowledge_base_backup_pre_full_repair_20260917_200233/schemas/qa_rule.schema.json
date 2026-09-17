@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/qa_rule.schema.json",
+  "title": "Regla de aseguramiento de calidad (QA)",
+  "description": "Regla evaluable con expresión, mensaje específico y evidencia real",
+  "type": "object",
+  "required": [
+    "qa_rule_id",
+    "name_es",
+    "purpose",
+    "domain_tags",
+    "assertion_expression",
+    "message_template",
+    "evidence_type",
+    "severity",
+    "affected_fields",
+    "affected_calculations",
+    "affected_drawings",
+    "source_ids"
+  ],
+  "properties": {
+    "qa_rule_id": {
+      "type": "string",
+      "pattern": "^QA-[A-Z]{3,6}-\\d{4}$"
+    },
+    "name_es": {
+      "type": "string",
+      "minLength": 10
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 20
+    },
+    "domain_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["pv", "wind", "hydro", "biomass", "biogas", "geothermal", "csp", "marine", "bess", "hydrogen", "hybrid", "electrical", "civil", "structural", "mechanical", "hydraulic", "process", "safety"]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "applicability_expression": {
+      "type": "string"
+    },
+    "assertion_expression": {
+      "type": "string",
+      "minLength": 5,
+      "not": {
+        "enum": ["true", "false", "1", "0", "yes", "no"]
+      },
+      "description": "Expresión evaluable distinta de constantes"
+    },
+    "message_template": {
+      "type": "string",
+      "minLength": 20,
+      "not": {
+        "pattern": "^(Regla|Rule)\\s*\\d*:.*fallida|failed.*revisar dependencias"
+      },
+      "description": "Mensaje específico con variables del fallo"
+    },
+    "evidence_type": {
+      "type": "string",
+      "enum": [
+        "calculation_output",
+        "field_value",
+        "geometry_entity",
+        "symbol_instance",
+        "layer_content",
+        "drawing_metadata",
+        "external_reference",
+        "normative_clause"
+      ],
+      "not": {
+        "pattern": "^.*_evidence_record$"
+      }
+    },
+    "evidence_query": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Consulta para obtener evidencia real"
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["info", "warning", "error", "critical", "blocking"]
+    },
+    "override_allowed": {
+      "type": "boolean",
+      "default": false
+    },
+    "override_requires": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["peer_review", "senior_approval", "client_waiver", "regulatory_exemption"]
+      }
+    },
+    "affected_fields": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "description": "Campos reales afectados por esta regla"
+    },
+    "affected_calculations": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "affected_drawings": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "description": "Planos reales afectados por esta regla"
+    },
+    "related_qa_rules": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "description": "Fuentes normativas que exigen esta verificación"
+    }
+  },
+  "additionalProperties": false
+}

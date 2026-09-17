@@ -1,0 +1,1965 @@
+[
+  {
+    "field_id": "BIG-001",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de caracterización de sustratos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-009",
+      "BIG-CALC-010"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-001",
+      "BIG-DRW-002",
+      "BIG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIG-002",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de caracterización de sustratos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-009",
+      "BIG-CALC-010"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-001",
+      "BIG-DRW-002",
+      "BIG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIG-003",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de caracterización de sustratos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-009",
+      "BIG-CALC-010"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-001",
+      "BIG-DRW-002",
+      "BIG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIG-004",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de caracterización de sustratos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-009"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-001",
+      "BIG-DRW-002",
+      "BIG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIG-005",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de caracterización de sustratos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-009"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-001",
+      "BIG-DRW-002",
+      "BIG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIG-008",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ensayos de laboratorio de sustratos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-008",
+      "BIG-CALC-019"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIG-009",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ensayos de laboratorio de sustratos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-004",
+      "BIG-CALC-009"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-005",
+      "BIG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIG-010",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ensayos de laboratorio de sustratos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-004",
+      "BIG-CALC-010"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-005",
+      "BIG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIG-011",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ensayos de laboratorio de sustratos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-009"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIG-012",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ensayos de laboratorio de sustratos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-011"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIG-013",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ensayos de laboratorio de sustratos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-011"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIG-014",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ensayos de laboratorio de sustratos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-011"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIG-015",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ensayos BMP de laboratorio",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-001",
+      "BIG-CALC-002",
+      "BIG-CALC-010"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-005",
+      "BIG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIG-016",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance de masa del proceso",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-012",
+      "BIG-CALC-019"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-006",
+      "BIG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIG-017",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación mecánica del gasómetro",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-019",
+      "BIG-CALC-028"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIG-018",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance de masa y energía del proceso",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-006",
+      "BIG-CALC-011",
+      "BIG-CALC-012"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIG-019",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis cromatográfico de biogás",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-005",
+      "BIG-CALC-012",
+      "BIG-CALC-013"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-020",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis cromatográfico de biogás",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-005",
+      "BIG-CALC-013",
+      "BIG-CALC-014"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-021",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis cromatográfico de biogás",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-015",
+      "BIG-CALC-022"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-006",
+      "BIG-DRW-009",
+      "BIG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "BIG-022",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis cromatográfico de biogás",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-005",
+      "BIG-CALC-013"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-023",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis cromatográfico de biogás",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-005",
+      "BIG-CALC-013"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-024",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis cromatográfico de biogás",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-005",
+      "BIG-CALC-013"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-006",
+      "BIG-DRW-009",
+      "BIG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "BIG-025",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance psicrométrico del biogás",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-012",
+      "BIG-CALC-013"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIG-026",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo de poder calorífico del biogás",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-021",
+      "BIG-CALC-023",
+      "BIG-CALC-024"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-010",
+      "BIG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIG-027",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de proceso del digestor",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-006",
+      "BIG-CALC-011"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-004",
+      "BIG-DRW-005",
+      "BIG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIG-028",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de proceso del digestor",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-008",
+      "BIG-CALC-004",
+      "BIG-CALC-011"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-004",
+      "BIG-DRW-005"
+    ]
+  },
+  {
+    "field_id": "BIG-029",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de proceso del digestor",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-009",
+      "BIG-CALC-002"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-004",
+      "BIG-DRW-005"
+    ]
+  },
+  {
+    "field_id": "BIG-030",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance de masa del proceso",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-004",
+      "BIG-CALC-010"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-005",
+      "BIG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "BIG-031",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de mezclador",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-007",
+      "BIG-CALC-006"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-004",
+      "BIG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIG-032",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de mezclador",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-007"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-004"
+    ]
+  },
+  {
+    "field_id": "BIG-033",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación mecánica del digestor",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-008",
+      "BIG-CALC-009",
+      "BIG-CALC-006",
+      "BIG-CALC-007"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-004",
+      "BIG-DRW-005"
+    ]
+  },
+  {
+    "field_id": "BIG-034",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de proceso del digestor",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-008",
+      "BIG-CALC-009"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-004",
+      "BIG-DRW-005"
+    ]
+  },
+  {
+    "field_id": "BIG-035",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance térmico del proceso",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-006"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-005",
+      "BIG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "BIG-036",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance térmico del proceso",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-006"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-004"
+    ]
+  },
+  {
+    "field_id": "BIG-037",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de separador de digestato",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-003"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-005",
+      "BIG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "BIG-038",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ensayos de separación de digestato",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "BIG-039",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis NPK del digestato",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-003"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "BIG-040",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis NPK del digestato",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-003"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "BIG-041",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis NPK del digestato",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-003"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "BIG-042",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de tanque de digestato",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-019"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-008"
+    ]
+  },
+  {
+    "field_id": "BIG-043",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de proceso de upgrading",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-013",
+      "BIG-CALC-014",
+      "BIG-CALC-016",
+      "BIG-CALC-017",
+      "BIG-CALC-018"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-044",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de calidad de biometano",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-015"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-045",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de calidad de biometano",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-013",
+      "BIG-CALC-018"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-046",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de proceso de upgrading",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-013",
+      "BIG-CALC-014"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-047",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de proceso de upgrading",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-013",
+      "BIG-CALC-028",
+      "BIG-CALC-029"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-048",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de proceso de upgrading",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-030",
+      "BIG-CALC-032"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-005",
+      "BIG-DRW-009",
+      "BIG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "BIG-049",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación mecánica del gasómetro",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-019"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-006",
+      "BIG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "BIG-050",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación mecánica del gasómetro",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-019"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIG-051",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación mecánica del gasómetro",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-019"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIG-052",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de compresor de biogás",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-028",
+      "BIG-CALC-030"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-053",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de compresor de biometano",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-028",
+      "BIG-CALC-029"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009",
+      "BIG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "BIG-054",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de sistema de detección de gas",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022",
+      "BIG-CALC-011"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009",
+      "BIG-DRW-013",
+      "BIG-DRW-014",
+      "BIG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "BIG-055",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de sistema de detección de gas",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022",
+      "BIG-CALC-015"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009",
+      "BIG-DRW-013",
+      "BIG-DRW-014",
+      "BIG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "BIG-056",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de sistema de detección de gas",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022",
+      "BIG-CALC-011"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009",
+      "BIG-DRW-013",
+      "BIG-DRW-014",
+      "BIG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "BIG-057",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de clasificación de áreas",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-006",
+      "BIG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "BIG-058",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de clasificación de áreas",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-006",
+      "BIG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "BIG-059",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de clasificación de áreas",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-020",
+      "BIG-CALC-021"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-012",
+      "BIG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "BIG-060",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de clasificación de áreas",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "BIG-061",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de antorcha",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-020",
+      "BIG-CALC-021",
+      "BIG-CALC-022"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIG-062",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de antorcha",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-020",
+      "BIG-CALC-021"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIG-063",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de antorcha",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-020",
+      "BIG-CALC-021"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIG-064",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo de dispersión de antorcha",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-020",
+      "BIG-CALC-021"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-012",
+      "BIG-DRW-014"
+    ]
+  },
+  {
+    "field_id": "BIG-065",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de motor CHP",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-023",
+      "BIG-CALC-025",
+      "BIG-CALC-030",
+      "BIG-CALC-032"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-010",
+      "BIG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "BIG-066",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de motor CHP",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-023",
+      "BIG-CALC-025",
+      "BIG-CALC-026"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "BIG-067",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de motor CHP",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-024",
+      "BIG-CALC-025",
+      "BIG-CALC-026"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "BIG-068",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de motor CHP",
+    "responsible_role": "ENVIRONMENT_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022",
+      "BIG-CALC-027"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-010",
+      "BIG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIG-069",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de motor CHP",
+    "responsible_role": "ENVIRONMENT_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022",
+      "BIG-CALC-027"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-010",
+      "BIG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIG-070",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de motor CHP",
+    "responsible_role": "ENVIRONMENT_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-027"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-010",
+      "BIG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIG-071",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de interconexión eléctrica",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-031",
+      "BIG-CALC-032"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "BIG-072",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de interconexión eléctrica",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-031",
+      "BIG-CALC-032"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "BIG-073",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de cortocircuito",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-031"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "BIG-076",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de SCADA",
+    "responsible_role": "CONTROL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-013",
+      "BIG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIG-077",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Lista de lazos de instrumentación",
+    "responsible_role": "CONTROL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-007",
+      "BIG-DRW-008",
+      "BIG-DRW-009",
+      "BIG-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BIG-078",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio SIL / Análisis LOPA",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-013",
+      "BIG-DRW-014",
+      "BIG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "BIG-079",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio SIL / Análisis LOPA",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-013",
+      "BIG-DRW-014",
+      "BIG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "BIG-080",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos de seguridad H2S",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-013",
+      "BIG-DRW-014",
+      "BIG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "BIG-081",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de detección de gas",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-022"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-013",
+      "BIG-DRW-014",
+      "BIG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "BIG-082",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de cálculo de protección contra incendios",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-028"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-010",
+      "BIG-DRW-015"
+    ]
+  },
+  {
+    "field_id": "BIG-083",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de cálculo de protección contra incendios",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-028"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-015",
+      "BIG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "BIG-084",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de bomba contra incendio",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-028"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-015",
+      "BIG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "BIG-085",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de tubería de biogás",
+    "responsible_role": "PIPING_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-028"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-086",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo de sizing de tubería",
+    "responsible_role": "PIPING_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-028"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-087",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación mecánica del digestor",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-029"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-004",
+      "BIG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIG-088",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo mecánico del digestor",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-029"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-004"
+    ]
+  },
+  {
+    "field_id": "BIG-089",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de logística de sustratos",
+    "responsible_role": "LOGISTICS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-002",
+      "BIG-CALC-019"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-001",
+      "BIG-DRW-002",
+      "BIG-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIG-090",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de logística de sustratos",
+    "responsible_role": "LOGISTICS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-019"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-001",
+      "BIG-DRW-002"
+    ]
+  },
+  {
+    "field_id": "BIG-093",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de transformador",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-031",
+      "BIG-CALC-032"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-011",
+      "BIG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "BIG-094",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de transformador",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-031",
+      "BIG-CALC-032"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-011",
+      "BIG-DRW-016"
+    ]
+  },
+  {
+    "field_id": "BIG-095",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de switchgear",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-031"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "BIG-096",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de scrubber de H2S",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-015"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-097",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de scrubber de H2S",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-015"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-098",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de scrubber de H2S",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-015"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-099",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de cooler de secado",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-012",
+      "BIG-CALC-013"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-100",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de chiller",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-012",
+      "BIG-CALC-013"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BIG-101",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio topográfico del sitio",
+    "responsible_role": "CIVIL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-020",
+      "BIG-CALC-002"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-001",
+      "BIG-DRW-002"
+    ]
+  },
+  {
+    "field_id": "BIG-102",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio topográfico del sitio",
+    "responsible_role": "CIVIL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-020"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-001",
+      "BIG-DRW-002"
+    ]
+  },
+  {
+    "field_id": "BIG-103",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio meteorológico del sitio",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-006",
+      "BIG-CALC-020"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BIG-104",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio topográfico del sitio",
+    "responsible_role": "CIVIL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-CALC-020",
+      "BIG-CALC-012"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-001",
+      "BIG-DRW-002"
+    ]
+  },
+  {
+    "field_id": "BIG-105",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "BMP test",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BIG-106",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Digester specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-004"
+    ]
+  },
+  {
+    "field_id": "BIG-107",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Digester specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-004"
+    ]
+  },
+  {
+    "field_id": "BIG-108",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Digester specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003",
+      "BIG-DRW-004"
+    ]
+  },
+  {
+    "field_id": "BIG-109",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Biogas analysis",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIG-110",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Biogas analysis",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006",
+      "BIG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIG-111",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Gas holder specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-002",
+      "BIG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIG-112",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Flare specification",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIG-113",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "CHP datasheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "BIG-114",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "CHP datasheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-010"
+    ]
+  },
+  {
+    "field_id": "BIG-115",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Production calc",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIG-116",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Substrate characterization",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BIG-117",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Substrate characterization",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BIG-118",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Substrate characterization",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BIG-119",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-011"
+    ]
+  },
+  {
+    "field_id": "BIG-120",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "SIL study",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "BIG-C-001"
+    ],
+    "blocked_drawings": [
+      "BIG-DRW-015"
+    ]
+  }
+]

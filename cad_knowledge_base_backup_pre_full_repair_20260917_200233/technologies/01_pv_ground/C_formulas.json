@@ -1,0 +1,2936 @@
+[
+  {
+    "calculation_id": "PVG-C-001",
+    "name_es": "Cálculo GHI sobre plano del array (POA)",
+    "purpose": "Obtener la irradiancia global sobre el plano del array (POA) a partir de GHI, DNI y DHI horarias.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-011",
+      "PVG-012",
+      "PVG-013",
+      "PVG-096",
+      "PVG-097",
+      "PVG-018"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "POA = DNI*cos(AOI) + DHI*(1+cos(tilt))/2 + GHI*albedo*(1-cos(tilt))/2",
+      "AOI = arccos(sin(decl)*sin(lat)*cos(tilt) - sin(decl)*cos(lat)*sin(tilt)*cos(az) + cos(decl)*cos(lat)*cos(tilt)*cos(h) + cos(decl)*sin(lat)*sin(tilt)*cos(az)*cos(h) + sin(tilt)*sin(az)*sin(h)*cos(decl))"
+    ],
+    "equations_latex": [
+      "POA = \\mathrm{DNI}\\cos(AOI) + \\mathrm{DHI}\\frac{1+\\cos(\\beta)}{2} + \\mathrm{GHI}\\alpha\\frac{1-\\cos(\\beta)}{2}",
+      "AOI = \\arccos(\\sin\\delta\\sin\\varphi\\cos\\beta - \\sin\\delta\\cos\\varphi\\sin\\beta\\cos\\gamma + \\cos\\delta\\cos\\varphi\\cos\\beta\\cos\\omega + \\cos\\delta\\sin\\varphi\\sin\\beta\\cos\\gamma\\cos\\omega + \\sin\\beta\\sin\\gamma\\sin\\omega\\cos\\delta)"
+    ],
+    "variables": [
+      {
+        "name": "GHI global horizontal",
+        "symbol": "GHI",
+        "unit": "W/m2"
+      },
+      {
+        "name": "DNI beam",
+        "symbol": "DNI",
+        "unit": "W/m2"
+      },
+      {
+        "name": "DHI diffuse",
+        "symbol": "DHI",
+        "unit": "W/m2"
+      },
+      {
+        "name": "tilt",
+        "symbol": "beta",
+        "unit": "deg"
+      },
+      {
+        "name": "azimuth",
+        "symbol": "gamma",
+        "unit": "deg"
+      },
+      {
+        "name": "albedo",
+        "symbol": "alpha",
+        "unit": "-"
+      },
+      {
+        "name": "declination",
+        "symbol": "delta",
+        "unit": "deg"
+      },
+      {
+        "name": "latitude",
+        "symbol": "varphi",
+        "unit": "deg"
+      },
+      {
+        "name": "hour angle",
+        "symbol": "omega",
+        "unit": "deg"
+      },
+      {
+        "name": "angle of incidence",
+        "symbol": "AOI",
+        "unit": "deg"
+      },
+      {
+        "name": "POA irradiance",
+        "symbol": "POA",
+        "unit": "W/m2"
+      }
+    ],
+    "unit_equations": [
+      "POA [W/m2] = DNI [W/m2] * cos(AOI) [rad] + DHI [W/m2] * (1+cos(tilt)[rad])/2 + GHI [W/m2] * albedo [-] * (1-cos(tilt)[rad])/2"
+    ],
+    "numerical_method": "Analytical with trigonometric decomposition (Liu & Jordan / Hay / Perez model).",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "beta in [0,90]",
+        "message": "tilt out of range"
+      },
+      {
+        "condition": "albedo in [0,1]",
+        "message": "albedo out of range"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "POA",
+        "unit": "W/m2"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "POA in [0,1400]",
+        "message": "POA exceeds physical bounds"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "NaN inputs",
+        "recovery": "require solar resource"
+      },
+      {
+        "mode": "azimuth ambiguity",
+        "recovery": "explicit PVG-097"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-001",
+      "PVG-DRW-014"
+    ],
+    "source_ids": [
+      "NSRDB_NREL",
+      "NASA_POWER",
+      "ASTM_E891",
+      "ASTM_C1549",
+      "IEC_61724_1"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-002",
+    "name_es": "Descomposición DNI/DHI a partir de GHI",
+    "purpose": "Reconstruir DNI y DHI horarias cuando solo se dispone de GHI (modelo DISC o Erbs).",
+    "applicability_expression": "dhi_annual_missing OR dni_annual_missing",
+    "input_field_ids": [
+      "PVG-011",
+      "PVG-014",
+      "PVG-015"
+    ],
+    "derived_input_ids": [
+      "PVG-012",
+      "PVG-013"
+    ],
+    "equations_ascii": [
+      "Kt = GHI / (Solar_constant * sin(elevation))",
+      "if Kt < 0.3: Kd = 1 - 0.09*Kt",
+      "elif Kt < 0.8: Kd = 0.9511 - 0.1604*Kt + 4.388*Kt^2 - 16.638*Kt^3 + 12.336*Kt^4",
+      "else: Kd = 0.165",
+      "DHI = Kd * GHI",
+      "DNI = (GHI - DHI) / sin(elevation)"
+    ],
+    "equations_latex": [
+      "K_t = \\frac{\\mathrm{GHI}}{G_0\\sin(\\alpha_s)}",
+      "K_d = \\begin{cases} 1-0.09K_t & K_t<0.3 \\\\ 0.9511-0.1604K_t+4.388K_t^2-16.638K_t^3+12.336K_t^4 & 0.3\\le K_t<0.8 \\\\ 0.165 & K_t\\ge 0.8 \\end{cases}",
+      "DHI = K_d\\cdot \\mathrm{GHI}",
+      "DNI = (\\mathrm{GHI}-DHI)/\\sin(\\alpha_s)"
+    ],
+    "variables": [
+      {
+        "name": "clearness index",
+        "symbol": "Kt",
+        "unit": "-"
+      },
+      {
+        "name": "diffuse fraction",
+        "symbol": "Kd",
+        "unit": "-"
+      },
+      {
+        "name": "solar elevation",
+        "symbol": "alpha_s",
+        "unit": "deg"
+      },
+      {
+        "name": "solar constant",
+        "symbol": "G0",
+        "unit": "W/m2"
+      },
+      {
+        "name": "GHI",
+        "symbol": "GHI",
+        "unit": "W/m2"
+      },
+      {
+        "name": "DNI",
+        "symbol": "DNI",
+        "unit": "W/m2"
+      },
+      {
+        "name": "DHI",
+        "symbol": "DHI",
+        "unit": "W/m2"
+      }
+    ],
+    "unit_equations": [
+      "Kd [-] = f(Kt [-])",
+      "DHI [W/m2] = Kd [-] * GHI [W/m2]",
+      "DNI [W/m2] = (GHI [W/m2] - DHI [W/m2]) / sin(alpha_s [rad])"
+    ],
+    "numerical_method": "Erbs empirical decomposition.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "Kt in [0,1]",
+        "message": "invalid clearness index"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "DNI",
+        "unit": "W/m2"
+      },
+      {
+        "name": "DHI",
+        "unit": "W/m2"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "DNI>=0 and DHI>=0",
+        "message": "negative irradiance"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "non-physical decomposition",
+        "recovery": "use Perez model"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-001"
+    ],
+    "source_ids": [
+      "NSRDB_NREL",
+      "NASA_POWER",
+      "ASTM_E891",
+      "IEC_61724_1"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-003",
+    "name_es": "Pérdida IAM (Incidence Angle Modifier)",
+    "purpose": "Aplicar el modelo ASHRAE/Sandia para pérdidas por ángulo de incidencia.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-045"
+    ],
+    "derived_input_ids": [
+      "IAM"
+    ],
+    "equations_ascii": [
+      "IAM = 1 - b1*(1/cos(AOI)-1)  (ASHRAE)",
+      "IAM = sum_{i=0..5} b_i * (AOI/90)^i  (Sandia polynomial)"
+    ],
+    "equations_latex": [
+      "IAM = 1 - b_1\\left(\\frac{1}{\\cos(AOI)}-1\\right)",
+      "IAM = \\sum_{i=0}^{5} b_i \\left(\\frac{AOI}{90}\\right)^{i}"
+    ],
+    "variables": [
+      {
+        "name": "IAM",
+        "symbol": "IAM",
+        "unit": "-"
+      },
+      {
+        "name": "ASHRAE coefficient b1",
+        "symbol": "b1",
+        "unit": "-"
+      },
+      {
+        "name": "Sandia polynomial coefficients",
+        "symbol": "b_i",
+        "unit": "-"
+      },
+      {
+        "name": "angle of incidence",
+        "symbol": "AOI",
+        "unit": "deg"
+      }
+    ],
+    "unit_equations": [
+      "IAM [-] = 1 - b1 [-] * (1/cos(AOI[rad]) - 1)",
+      "IAM [-] = sum_{i=0..5} b_i[-] * (AOI[deg]/90)^i"
+    ],
+    "numerical_method": "Sandia 5th-order polynomial with b0..b5 from PVG-045.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "AOI in [0,90]",
+        "message": "AOI exceeds 90 deg"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "IAM",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "IAM in [0,1.05]",
+        "message": "IAM out of physical range"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "b_i missing",
+        "recovery": "request IEC 61853-2 IAM report"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-014"
+    ],
+    "source_ids": [
+      "IEC_61853_2",
+      "IEC_61853_4",
+      "NREL_SAM_2024"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-004",
+    "name_es": "Temperatura de célula",
+    "purpose": "Estimar la temperatura de operación de la célula FV a partir de POA, viento y T ambiente.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-011",
+      "PVG-014",
+      "PVG-017"
+    ],
+    "derived_input_ids": [
+      "T_cell"
+    ],
+    "equations_ascii": [
+      "T_cell = T_amb + (NOCT - 20)/800 * POA * (1 - 0.25*V_wind - 0.6*0.1*wind_factor)",
+      "NOCT = 45 default; replace with measured NOCT",
+      "Alternative Sandia: T_cell = T_amb + POA*exp(-3.47 - 0.0594*V_wind)"
+    ],
+    "equations_latex": [
+      "T_{cell} = T_{amb} + (NOCT - 20)/800 \\cdot POA \\cdot (1 - 0.25 V_{wind} - 0.6 f)",
+      "T_{cell} = T_{amb} + POA \\cdot e^{-3.47 - 0.0594 V_{wind}}"
+    ],
+    "variables": [
+      {
+        "name": "T ambiente",
+        "symbol": "T_amb",
+        "unit": "°C"
+      },
+      {
+        "name": "NOCT",
+        "symbol": "NOCT",
+        "unit": "°C"
+      },
+      {
+        "name": "POA",
+        "symbol": "POA",
+        "unit": "W/m2"
+      },
+      {
+        "name": "velocidad de viento",
+        "symbol": "V_wind",
+        "unit": "m/s"
+      },
+      {
+        "name": "factor de montaje",
+        "symbol": "f",
+        "unit": "-"
+      },
+      {
+        "name": "temperatura célula",
+        "symbol": "T_cell",
+        "unit": "°C"
+      }
+    ],
+    "unit_equations": [
+      "T_cell [°C] = T_amb [°C] + (NOCT [°C] - 20 [°C]) / 800 [W/m2] * POA [W/m2] * (1 - 0.25*V_wind [m/s] - 0.6*f [-])"
+    ],
+    "numerical_method": "NOCT model (default) or Sandia thermal model.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.1,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "T_amb in [-40,60]",
+        "message": "T ambiente fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "T_cell",
+        "unit": "°C"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "T_cell in [-30,90]",
+        "message": "T_cell fuera de rango"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "NOCT missing",
+        "recovery": "assume NOCT=45°C"
+      },
+      {
+        "mode": "V_wind missing",
+        "recovery": "assume 1 m/s"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-014",
+      "PVG-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_61215_1",
+      "IEC_61853_1",
+      "NREL_SAM_2024"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-005",
+    "name_es": "Pérdida por derate del módulo",
+    "purpose": "Calcular la potencia de salida del módulo considerando derates de temperatura, LID, degradación y no-linealidades.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-032",
+      "PVG-038",
+      "PVG-046",
+      "PVG-121"
+    ],
+    "derived_input_ids": [
+      "P_module_derate"
+    ],
+    "equations_ascii": [
+      "P_module = P_STC * (1 + gamma_pmp*(T_cell - 25)) * (1 - LID) * (1 - degradation)",
+      "derate = (P_module / P_STC)"
+    ],
+    "equations_latex": [
+      "P_{module} = P_{STC}\\,(1 + \\gamma_{pmp}(T_{cell}-25))\\,(1-LID)\\,(1-degradation)",
+      "derate = \\frac{P_{module}}{P_{STC}}"
+    ],
+    "variables": [
+      {
+        "name": "Potencia STC",
+        "symbol": "P_STC",
+        "unit": "Wp"
+      },
+      {
+        "name": "Coef temp Pmax",
+        "symbol": "gamma_pmp",
+        "unit": "%/°C"
+      },
+      {
+        "name": "Temperatura célula",
+        "symbol": "T_cell",
+        "unit": "°C"
+      },
+      {
+        "name": "LID",
+        "symbol": "LID",
+        "unit": "-"
+      },
+      {
+        "name": "Degradación",
+        "symbol": "degradation",
+        "unit": "-"
+      },
+      {
+        "name": "Potencia módulo",
+        "symbol": "P_module",
+        "unit": "W"
+      },
+      {
+        "name": "Derate",
+        "symbol": "derate",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "P_module [W] = P_STC [Wp] * (1 + gamma_pmp [%/°C]/100 * (T_cell [°C] - 25 [°C])) * (1 - LID [-]) * (1 - degradation [-])"
+    ],
+    "numerical_method": "Linear derating model.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "gamma_pmp in [-0.6,-0.1]",
+        "message": "coef temp fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "P_module",
+        "unit": "W"
+      },
+      {
+        "name": "derate",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "derate in [0.5,1.0]",
+        "message": "derate fuera de rango"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "gamma missing",
+        "recovery": "request IEC 61853-1 datasheet"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_61853_1",
+      "IEC_61853_4",
+      "IEC_TS_62804_1"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-006",
+    "name_es": "Tensión de string en punto MPP",
+    "purpose": "Calcular V_mp del string en operación real.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-033",
+      "PVG-047",
+      "PVG-037",
+      "PVG-054",
+      "PVG-055"
+    ],
+    "derived_input_ids": [
+      "V_string_mpp"
+    ],
+    "equations_ascii": [
+      "V_string_mpp = N_mod * V_mp_STC * (1 + beta_voc*(T_cell - 25))",
+      "Validate: V_mp_min < V_string_mpp < V_mp_max (PVG-054, PVG-055)"
+    ],
+    "equations_latex": [
+      "V_{string,mpp} = N_{mod}\\cdot V_{mp,STC}\\,(1 + \\beta_{voc}(T_{cell}-25))",
+      "V_{mp,min} < V_{string,mpp} < V_{mp,max}"
+    ],
+    "variables": [
+      {
+        "name": "Módulos por string",
+        "symbol": "N_mod",
+        "unit": "-"
+      },
+      {
+        "name": "V_mp STC",
+        "symbol": "V_mp_STC",
+        "unit": "V"
+      },
+      {
+        "name": "Beta Voc",
+        "symbol": "beta_voc",
+        "unit": "V/°C"
+      },
+      {
+        "name": "T célula",
+        "symbol": "T_cell",
+        "unit": "°C"
+      },
+      {
+        "name": "V string mpp",
+        "symbol": "V_string_mpp",
+        "unit": "V"
+      },
+      {
+        "name": "V mppt min",
+        "symbol": "V_mp_min",
+        "unit": "V"
+      },
+      {
+        "name": "V mppt max",
+        "symbol": "V_mp_max",
+        "unit": "V"
+      }
+    ],
+    "unit_equations": [
+      "V_string_mpp [V] = N_mod [-] * V_mp_STC [V] * (1 + beta_voc [V/°C] * (T_cell [°C] - 25 [°C]))",
+      "V_mp_min [V] < V_string_mpp [V] < V_mp_max [V]"
+    ],
+    "numerical_method": "Linear temperature model.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.1,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "V_string_mpp in [V_mp_min, V_mp_max]",
+        "message": "MPPT fuera de ventana"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "V_string_mpp",
+        "unit": "V"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "V_string_mpp > V_mp_min",
+        "message": "V mpp fuera de ventana MPPT"
+      },
+      {
+        "rule": "V_string_mpp < V_mp_max",
+        "message": "V mpp fuera de ventana MPPT"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "T_cell extreme",
+        "recovery": "use PVG-016 max T"
+      },
+      {
+        "mode": "string size invalid",
+        "recovery": "recompute N_mod"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-005",
+      "PVG-DRW-008"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60364_7_712"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-007",
+    "name_es": "Tensión de circuito abierto del string en frío",
+    "purpose": "Calcular V_oc del string a la temperatura mínima esperada.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-035",
+      "PVG-047",
+      "PVG-037",
+      "PVG-015",
+      "PVG-053"
+    ],
+    "derived_input_ids": [
+      "V_string_oc_cold"
+    ],
+    "equations_ascii": [
+      "V_string_oc_cold = N_mod * V_oc_STC * (1 + beta_voc*(T_min - 25))",
+      "Validate: V_string_oc_cold < inverter_dc_vmax (PVG-053)"
+    ],
+    "equations_latex": [
+      "V_{string,oc,cold} = N_{mod}\\cdot V_{oc,STC}\\,(1 + \\beta_{voc}(T_{min}-25))",
+      "V_{string,oc,cold} < V_{DC,max}"
+    ],
+    "variables": [
+      {
+        "name": "Módulos por string",
+        "symbol": "N_mod",
+        "unit": "-"
+      },
+      {
+        "name": "V_oc STC",
+        "symbol": "V_oc_STC",
+        "unit": "V"
+      },
+      {
+        "name": "Beta Voc",
+        "symbol": "beta_voc",
+        "unit": "V/°C"
+      },
+      {
+        "name": "T mínima",
+        "symbol": "T_min",
+        "unit": "°C"
+      },
+      {
+        "name": "V_oc frío",
+        "symbol": "V_string_oc_cold",
+        "unit": "V"
+      },
+      {
+        "name": "V dc máx",
+        "symbol": "V_DC_max",
+        "unit": "V"
+      }
+    ],
+    "unit_equations": [
+      "V_string_oc_cold [V] = N_mod [-] * V_oc_STC [V] * (1 + beta_voc [V/°C] * (T_min [°C] - 25 [°C]))",
+      "V_string_oc_cold [V] < V_DC_max [V]"
+    ],
+    "numerical_method": "Linear temperature model with safety factor (IEC 62548).",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.1,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "V_string_oc_cold < 0.9 * V_DC_max",
+        "message": "margin too low"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "V_string_oc_cold",
+        "unit": "V"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "V_string_oc_cold < V_DC_max",
+        "message": "V_oc supera V dc máx del inversor"
+      },
+      {
+        "rule": "V_string_oc_cold <= 0.9 * V_DC_max",
+        "message": "margen de seguridad insuficiente"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "beta_voc missing",
+        "recovery": "request IEC 60904-7 datasheet"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-005",
+      "PVG-DRW-008"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60904_7",
+      "IEC_60364_7_712"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-008",
+    "name_es": "Corriente de string en MPP",
+    "purpose": "Calcular I_mp del string en operación real.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-034",
+      "PVG-039",
+      "PVG-057"
+    ],
+    "derived_input_ids": [
+      "I_string_mpp"
+    ],
+    "equations_ascii": [
+      "I_string_mpp = I_mp_STC * (1 + alpha_isc*(T_cell - 25)) * POA/1000",
+      "Validate: I_string_mpp < I_dc_max_mppt (PVG-057)"
+    ],
+    "equations_latex": [
+      "I_{string,mpp} = I_{mp,STC}\\,(1+\\alpha_{isc}(T_{cell}-25))\\,\\frac{POA}{1000}",
+      "I_{string,mpp} < I_{dc,max,mppt}"
+    ],
+    "variables": [
+      {
+        "name": "I_mp STC",
+        "symbol": "I_mp_STC",
+        "unit": "A"
+      },
+      {
+        "name": "Alpha Isc",
+        "symbol": "alpha_isc",
+        "unit": "A/°C"
+      },
+      {
+        "name": "T célula",
+        "symbol": "T_cell",
+        "unit": "°C"
+      },
+      {
+        "name": "POA",
+        "symbol": "POA",
+        "unit": "W/m2"
+      },
+      {
+        "name": "I string mpp",
+        "symbol": "I_string_mpp",
+        "unit": "A"
+      },
+      {
+        "name": "I dc máx mppt",
+        "symbol": "I_dc_max_mppt",
+        "unit": "A"
+      }
+    ],
+    "unit_equations": [
+      "I_string_mpp [A] = I_mp_STC [A] * (1 + alpha_isc [A/°C] * (T_cell [°C] - 25 [°C])) * POA [W/m2] / 1000 [W/m2]",
+      "I_string_mpp [A] < I_dc_max_mppt [A]"
+    ],
+    "numerical_method": "Linear temperature & irradiance model.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "POA in [0,1500]",
+        "message": "POA fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "I_string_mpp",
+        "unit": "A"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "I_string_mpp < I_dc_max_mppt",
+        "message": "Corriente supera I dc máx MPPT"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "alpha missing",
+        "recovery": "request IEC 60904-7 datasheet"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-005",
+      "PVG-DRW-008"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60904_7"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-009",
+    "name_es": "Corriente de cortocircuito del string",
+    "purpose": "Calcular I_sc del string en condición cálida.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-036",
+      "PVG-039",
+      "PVG-058",
+      "PVG-016"
+    ],
+    "derived_input_ids": [
+      "I_string_sc"
+    ],
+    "equations_ascii": [
+      "I_string_sc = N_parallel * I_sc_STC * (1 + alpha_isc*(T_max - 25)) * POA/1000",
+      "Validate: I_string_sc < inverter_dc_isc_max (PVG-058)"
+    ],
+    "equations_latex": [
+      "I_{string,sc} = N_{parallel}\\cdot I_{sc,STC}\\,(1+\\alpha_{isc}(T_{max}-25))\\,\\frac{POA}{1000}",
+      "I_{string,sc} < I_{sc,max}"
+    ],
+    "variables": [
+      {
+        "name": "Paralelo strings",
+        "symbol": "N_parallel",
+        "unit": "-"
+      },
+      {
+        "name": "I_sc STC",
+        "symbol": "I_sc_STC",
+        "unit": "A"
+      },
+      {
+        "name": "Alpha Isc",
+        "symbol": "alpha_isc",
+        "unit": "A/°C"
+      },
+      {
+        "name": "T máxima",
+        "symbol": "T_max",
+        "unit": "°C"
+      },
+      {
+        "name": "POA",
+        "symbol": "POA",
+        "unit": "W/m2"
+      },
+      {
+        "name": "I string sc",
+        "symbol": "I_string_sc",
+        "unit": "A"
+      },
+      {
+        "name": "I sc máx inversor",
+        "symbol": "I_sc_max",
+        "unit": "A"
+      }
+    ],
+    "unit_equations": [
+      "I_string_sc [A] = N_parallel [-] * I_sc_STC [A] * (1 + alpha_isc [A/°C] * (T_max [°C] - 25 [°C])) * POA [W/m2] / 1000 [W/m2]",
+      "I_string_sc [A] < I_sc_max [A]"
+    ],
+    "numerical_method": "Linear temperature & irradiance model with safety factor 1.25 (IEC 62548).",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "POA in [0,1500]",
+        "message": "POA fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "I_string_sc",
+        "unit": "A"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "I_string_sc * 1.25 < I_sc_max",
+        "message": "I_sc supera capacidad inversor con factor 1.25"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "alpha missing",
+        "recovery": "request IEC 60904-7 datasheet"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-005",
+      "PVG-DRW-006"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60904_7"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-010",
+    "name_es": "DC/AC ratio del parque",
+    "purpose": "Calcular la relación DC instalado / AC nominal.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-032",
+      "PVG-047",
+      "PVG-049",
+      "PVG-059",
+      "PVG-119"
+    ],
+    "derived_input_ids": [
+      "DC_AC_ratio"
+    ],
+    "equations_ascii": [
+      "P_dc = N_string * N_mod * P_STC",
+      "P_ac = sum(inverter_ac_rated)",
+      "DC_AC_ratio = P_dc / P_ac"
+    ],
+    "equations_latex": [
+      "P_{dc} = N_{string}\\cdot N_{mod}\\cdot P_{STC}",
+      "P_{ac} = \\sum P_{ac,rated}",
+      "DC/AC = \\frac{P_{dc}}{P_{ac}}"
+    ],
+    "variables": [
+      {
+        "name": "Número de strings",
+        "symbol": "N_string",
+        "unit": "-"
+      },
+      {
+        "name": "Módulos por string",
+        "symbol": "N_mod",
+        "unit": "-"
+      },
+      {
+        "name": "Potencia STC",
+        "symbol": "P_STC",
+        "unit": "Wp"
+      },
+      {
+        "name": "Potencia AC nominal",
+        "symbol": "P_ac_rated",
+        "unit": "W"
+      },
+      {
+        "name": "DC AC ratio",
+        "symbol": "DC_AC",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "P_dc [W] = N_string [-] * N_mod [-] * P_STC [Wp]",
+      "P_ac [W] = sum P_ac_rated [W]",
+      "DC/AC [-] = P_dc [W] / P_ac [W]"
+    ],
+    "numerical_method": "Direct ratio computation.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "DC/AC in [0.8,1.5]",
+        "message": "DC/AC fuera de rango típico"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "DC_AC_ratio",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "DC/AC in [1.0,1.4]",
+        "message": "DC/AC fuera de rango óptimo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "inverter AC missing",
+        "recovery": "request datasheet UL 1741"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-008"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "IEEE_1547_2018",
+      "NREL_SAM_2024"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-011",
+    "name_es": "Pérdida por clipping del inversor",
+    "purpose": "Calcular energía perdida por clipping cuando P_dc > P_ac_rated.",
+    "applicability_expression": "inverter_clipping_enabled==true",
+    "input_field_ids": [
+      "PVG-059",
+      "PVG-119",
+      "PVG-063"
+    ],
+    "derived_input_ids": [
+      "E_clipping"
+    ],
+    "equations_ascii": [
+      "P_clipped = max(0, P_dc - P_ac_rated)",
+      "E_clipping = sum(P_clipped * dt)"
+    ],
+    "equations_latex": [
+      "P_{clipped} = \\max(0, P_{dc} - P_{ac,rated})",
+      "E_{clipping} = \\sum P_{clipped}\\cdot \\Delta t"
+    ],
+    "variables": [
+      {
+        "name": "Potencia DC",
+        "symbol": "P_dc",
+        "unit": "W"
+      },
+      {
+        "name": "Potencia AC nominal",
+        "symbol": "P_ac_rated",
+        "unit": "W"
+      },
+      {
+        "name": "Potencia clipada",
+        "symbol": "P_clipped",
+        "unit": "W"
+      },
+      {
+        "name": "Energía clipada",
+        "symbol": "E_clipping",
+        "unit": "Wh"
+      },
+      {
+        "name": "Paso de tiempo",
+        "symbol": "dt",
+        "unit": "h"
+      }
+    ],
+    "unit_equations": [
+      "P_clipped [W] = max(0, P_dc [W] - P_ac_rated [W])",
+      "E_clipping [Wh] = sum P_clipped [W] * dt [h]"
+    ],
+    "numerical_method": "Hourly summation over TMY.",
+    "iteration_limits": {
+      "max_iterations": 8760,
+      "tolerance": 1,
+      "method": "hourly_sum"
+    },
+    "validity_limits": [
+      {
+        "condition": "DC/AC > 1.0",
+        "message": "no clipping if DC/AC<1"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "E_clipping",
+        "unit": "Wh"
+      },
+      {
+        "name": "P_clipping_pct",
+        "unit": "%"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "E_clipping < 3% of E_dc",
+        "message": "clipping excesivo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "missing clipping flag",
+        "recovery": "assume true if DC/AC>1.1"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-015"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEC_62894",
+      "NREL_SAM_2024"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-012",
+    "name_es": "Caída de tensión DC del cable de string",
+    "purpose": "Calcular la caída de tensión porcentual del cable DC.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-064",
+      "PVG-065",
+      "PVG-034",
+      "PVG-047",
+      "PVG-033",
+      "PVG-068"
+    ],
+    "derived_input_ids": [
+      "V_drop_dc"
+    ],
+    "equations_ascii": [
+      "V_drop = 2 * rho * L * I / A",
+      "V_drop_pct = V_drop / V_string * 100"
+    ],
+    "equations_latex": [
+      "\\Delta V = \\frac{2\\rho L I}{A}",
+      "\\Delta V_{\\%} = \\frac{\\Delta V}{V_{string}}\\cdot 100"
+    ],
+    "variables": [
+      {
+        "name": "Resistividad Cu",
+        "symbol": "rho",
+        "unit": "ohm*m"
+      },
+      {
+        "name": "Longitud",
+        "symbol": "L",
+        "unit": "m"
+      },
+      {
+        "name": "Corriente",
+        "symbol": "I",
+        "unit": "A"
+      },
+      {
+        "name": "Sección",
+        "symbol": "A",
+        "unit": "mm2"
+      },
+      {
+        "name": "Caída de tensión",
+        "symbol": "V_drop",
+        "unit": "V"
+      },
+      {
+        "name": "V string",
+        "symbol": "V_string",
+        "unit": "V"
+      },
+      {
+        "name": "Caída porcentual",
+        "symbol": "V_drop_pct",
+        "unit": "%"
+      }
+    ],
+    "unit_equations": [
+      "V_drop [V] = 2 * rho [ohm*m] * L [m] * I [A] / A [mm2]",
+      "V_drop_pct [%] = V_drop [V] / V_string [V] * 100"
+    ],
+    "numerical_method": "Ohm's law with material resistivity.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "A >= 2.5",
+        "message": "sección mínima IEC 62548"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "V_drop_dc",
+        "unit": "V"
+      },
+      {
+        "name": "V_drop_pct",
+        "unit": "%"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "V_drop_pct < 1.5%",
+        "message": "caída DC excesiva"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "rho missing",
+        "recovery": "use 0.0185 ohm*mm2/m for Cu"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-006",
+      "PVG-DRW-013"
+    ],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEC_62548",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-013",
+    "name_es": "Caída de tensión AC del cable inversor",
+    "purpose": "Calcular la caída de tensión porcentual del cable AC trifásico.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-070",
+      "PVG-071",
+      "PVG-060",
+      "PVG-073",
+      "PVG-072"
+    ],
+    "derived_input_ids": [
+      "V_drop_ac"
+    ],
+    "equations_ascii": [
+      "V_drop = sqrt(3) * rho * L * I * cos(phi) / A",
+      "V_drop_pct = V_drop / V_LL * 100"
+    ],
+    "equations_latex": [
+      "\\Delta V = \\frac{\\sqrt{3}\\rho L I \\cos\\varphi}{A}",
+      "\\Delta V_{\\%} = \\frac{\\Delta V}{V_{LL}}\\cdot 100"
+    ],
+    "variables": [
+      {
+        "name": "Resistividad Cu",
+        "symbol": "rho",
+        "unit": "ohm*m"
+      },
+      {
+        "name": "Longitud",
+        "symbol": "L",
+        "unit": "m"
+      },
+      {
+        "name": "Corriente",
+        "symbol": "I",
+        "unit": "A"
+      },
+      {
+        "name": "Sección",
+        "symbol": "A",
+        "unit": "mm2"
+      },
+      {
+        "name": "FP",
+        "symbol": "cos_phi",
+        "unit": "-"
+      },
+      {
+        "name": "V línea-línea",
+        "symbol": "V_LL",
+        "unit": "V"
+      },
+      {
+        "name": "Caída porcentual",
+        "symbol": "V_drop_pct",
+        "unit": "%"
+      }
+    ],
+    "unit_equations": [
+      "V_drop [V] = sqrt(3) * rho [ohm*m] * L [m] * I [A] * cos_phi [-] / A [mm2]",
+      "V_drop_pct [%] = V_drop [V] / V_LL [V] * 100"
+    ],
+    "numerical_method": "Three-phase Ohm's law with PF correction.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "A >= 6",
+        "message": "sección mínima NEC"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "V_drop_ac",
+        "unit": "V"
+      },
+      {
+        "name": "V_drop_pct",
+        "unit": "%"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "V_drop_pct < 1.5%",
+        "message": "caída AC excesiva"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "cos_phi missing",
+        "recovery": "assume 0.95 inductive"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-007",
+      "PVG-DRW-013"
+    ],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_835",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-014",
+    "name_es": "Ampacity del cable DC",
+    "purpose": "Calcular la capacidad de corriente del cable DC corregida por temperatura y agrupación.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-064",
+      "PVG-014",
+      "PVG-067"
+    ],
+    "derived_input_ids": [
+      "I_amp_dc"
+    ],
+    "equations_ascii": [
+      "I_amp_dc = I_base * k_temp * k_grouping * k_thermal",
+      "Validate: I_amp_dc > I_sc_string * 1.25"
+    ],
+    "equations_latex": [
+      "I_{amp,dc} = I_{base}\\cdot k_{T}\\cdot k_{g}\\cdot k_{th}",
+      "I_{amp,dc} > 1.25\\cdot I_{sc,string}"
+    ],
+    "variables": [
+      {
+        "name": "Ampacidad base",
+        "symbol": "I_base",
+        "unit": "A"
+      },
+      {
+        "name": "Factor temperatura",
+        "symbol": "k_T",
+        "unit": "-"
+      },
+      {
+        "name": "Factor agrupación",
+        "symbol": "k_g",
+        "unit": "-"
+      },
+      {
+        "name": "Factor térmico suelo",
+        "symbol": "k_th",
+        "unit": "-"
+      },
+      {
+        "name": "Ampacidad DC",
+        "symbol": "I_amp_dc",
+        "unit": "A"
+      },
+      {
+        "name": "I sc string",
+        "symbol": "I_sc_string",
+        "unit": "A"
+      }
+    ],
+    "unit_equations": [
+      "I_amp_dc [A] = I_base [A] * k_T [-] * k_g [-] * k_th [-]",
+      "I_amp_dc [A] > 1.25 * I_sc_string [A]"
+    ],
+    "numerical_method": "IEC 60287 with correction factors.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.1,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "k_T in [0.7,1.1]",
+        "message": "factor T fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "I_amp_dc",
+        "unit": "A"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "I_amp_dc > 1.25 * I_sc_string",
+        "message": "ampacidad insuficiente"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "k_T missing",
+        "recovery": "use IEC 60287 tables"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-006",
+      "PVG-DRW-013"
+    ],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_835",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-015",
+    "name_es": "Ampacity del cable AC",
+    "purpose": "Calcular la capacidad de corriente del cable AC trifásico.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-070",
+      "PVG-014",
+      "PVG-060",
+      "PVG-075"
+    ],
+    "derived_input_ids": [
+      "I_amp_ac"
+    ],
+    "equations_ascii": [
+      "I_amp_ac = I_base * k_temp * k_grouping * k_thermal",
+      "Validate: I_amp_ac > I_inverter_ac * 1.25"
+    ],
+    "equations_latex": [
+      "I_{amp,ac} = I_{base}\\cdot k_{T}\\cdot k_{g}\\cdot k_{th}",
+      "I_{amp,ac} > 1.25\\cdot I_{inv,ac}"
+    ],
+    "variables": [
+      {
+        "name": "Ampacidad base",
+        "symbol": "I_base",
+        "unit": "A"
+      },
+      {
+        "name": "Factor temperatura",
+        "symbol": "k_T",
+        "unit": "-"
+      },
+      {
+        "name": "Factor agrupación",
+        "symbol": "k_g",
+        "unit": "-"
+      },
+      {
+        "name": "Factor térmico suelo",
+        "symbol": "k_th",
+        "unit": "-"
+      },
+      {
+        "name": "Ampacidad AC",
+        "symbol": "I_amp_ac",
+        "unit": "A"
+      },
+      {
+        "name": "I inversor AC",
+        "symbol": "I_inverter_ac",
+        "unit": "A"
+      }
+    ],
+    "unit_equations": [
+      "I_amp_ac [A] = I_base [A] * k_T [-] * k_g [-] * k_th [-]",
+      "I_amp_ac [A] > 1.25 * I_inverter_ac [A]"
+    ],
+    "numerical_method": "IEC 60287 three-phase ampacity.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.1,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "k_T in [0.7,1.1]",
+        "message": "factor T fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "I_amp_ac",
+        "unit": "A"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "I_amp_ac > 1.25 * I_inverter_ac",
+        "message": "ampacidad insuficiente"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "k_T missing",
+        "recovery": "use IEC 60287 tables"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-007",
+      "PVG-DRW-013"
+    ],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_835",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-016",
+    "name_es": "Pérdida MPPT tracking",
+    "purpose": "Estimar pérdida de eficiencia por desviación del MPPT.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-062",
+      "PVG-068",
+      "PVG-054",
+      "PVG-055"
+    ],
+    "derived_input_ids": [
+      "L_mppt"
+    ],
+    "equations_ascii": [
+      "L_mppt = (1 - eta_euro) - sum(L_wiring + L_temp)",
+      "Alternative: L_mppt = max(0, 0.5% - tracking_quality)"
+    ],
+    "equations_latex": [
+      "L_{mppt} = (1 - \\eta_{euro}) - \\sum(L_{wiring}+L_{temp})",
+      "L_{mppt} = \\max(0, 0.005 - q_{track})"
+    ],
+    "variables": [
+      {
+        "name": "Eficiencia Euro",
+        "symbol": "eta_euro",
+        "unit": "-"
+      },
+      {
+        "name": "Pérdida cable",
+        "symbol": "L_wiring",
+        "unit": "-"
+      },
+      {
+        "name": "Pérdida térmica",
+        "symbol": "L_temp",
+        "unit": "-"
+      },
+      {
+        "name": "Calidad tracking",
+        "symbol": "q_track",
+        "unit": "-"
+      },
+      {
+        "name": "Pérdida MPPT",
+        "symbol": "L_mppt",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "L_mppt [-] = (1 - eta_euro [-]) - sum(L_wiring [-] + L_temp [-])",
+      "L_mppt [-] = max(0, 0.005 - q_track [-])"
+    ],
+    "numerical_method": "Empirical model based on efficiency curves.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "eta_euro in [0.88,0.99]",
+        "message": "eficiencia fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "L_mppt",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "L_mppt < 0.02",
+        "message": "pérdida MPPT excesiva"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "eta_euro missing",
+        "recovery": "use IEC 62894 datasheet"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_62894",
+      "IEC_62109_1"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-017",
+    "name_es": "Pérdida por sombreado",
+    "purpose": "Calcular pérdida por sombreado transversal y axial del módulo.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-020",
+      "PVG-046",
+      "PVG-114",
+      "PVG-096"
+    ],
+    "derived_input_ids": [
+      "L_shading"
+    ],
+    "equations_ascii": [
+      "L_shading_transverse = f(diode_count, obstacle_angle, tilt)",
+      "L_shading_axial = g(row_spacing, sun_elevation_min)",
+      "L_shading = L_transverse + L_axial"
+    ],
+    "equations_latex": [
+      "L_{shad,T} = f(N_{diode}, \\theta_{obs}, \\beta)",
+      "L_{shad,A} = g(d_{row}, \\alpha_{s,min})",
+      "L_{shad} = L_{shad,T} + L_{shad,A}"
+    ],
+    "variables": [
+      {
+        "name": "Diodos bypass",
+        "symbol": "N_diode",
+        "unit": "-"
+      },
+      {
+        "name": "Ángulo obstáculo",
+        "symbol": "theta_obs",
+        "unit": "deg"
+      },
+      {
+        "name": "Tilt",
+        "symbol": "beta",
+        "unit": "deg"
+      },
+      {
+        "name": "Distancia entre filas",
+        "symbol": "d_row",
+        "unit": "m"
+      },
+      {
+        "name": "Elevación solar mín",
+        "symbol": "alpha_s_min",
+        "unit": "deg"
+      },
+      {
+        "name": "Pérdida sombreado",
+        "symbol": "L_shading",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "L_shad_T [-] = f(N_diode [-], theta_obs [deg], beta [deg])",
+      "L_shad_A [-] = g(d_row [m], alpha_s_min [deg])",
+      "L_shad [-] = L_shad_T [-] + L_shad_A [-]"
+    ],
+    "numerical_method": "Sandia shading model with bypass diode logic.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "d_row > 0",
+        "message": "distancia entre filas inválida"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "L_shading",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "L_shading < 0.05",
+        "message": "sombreado excesivo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "horizon missing",
+        "recovery": "assume flat horizon"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-004",
+      "PVG-DRW-014"
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "NREL_SAM_2024",
+      "IEC_TS_63209"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-018",
+    "name_es": "Pérdida por ensuciamiento",
+    "purpose": "Aplicar pérdida por soiling según datos históricos.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-019"
+    ],
+    "derived_input_ids": [
+      "L_soiling"
+    ],
+    "equations_ascii": [
+      "L_soiling = soiling_loss_pct / 100"
+    ],
+    "equations_latex": [
+      "L_{soiling} = \\frac{\\mathrm{soiling\\_loss\\_pct}}{100}"
+    ],
+    "variables": [
+      {
+        "name": "Soiling",
+        "symbol": "soiling_loss_pct",
+        "unit": "%"
+      },
+      {
+        "name": "Pérdida soiling",
+        "symbol": "L_soiling",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "L_soiling [-] = soiling_loss_pct [%] / 100"
+    ],
+    "numerical_method": "Direct conversion from PVG-019.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "soiling_loss_pct in [0,30]",
+        "message": "soiling fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "L_soiling",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "L_soiling < 0.10",
+        "message": "soiling excesivo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "soiling missing",
+        "recovery": "use 2% default (not prohibited)"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_61724_1",
+      "IEC_TS_63049"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-019",
+    "name_es": "Pérdida térmica del módulo",
+    "purpose": "Calcular pérdida térmica usando coeficiente de temperatura.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-038",
+      "PVG-014"
+    ],
+    "derived_input_ids": [
+      "L_thermal"
+    ],
+    "equations_ascii": [
+      "L_thermal = -gamma_pmp * (T_cell - 25) / 100"
+    ],
+    "equations_latex": [
+      "L_{thermal} = -\\frac{\\gamma_{pmp}(T_{cell}-25)}{100}"
+    ],
+    "variables": [
+      {
+        "name": "Coef temp Pmax",
+        "symbol": "gamma_pmp",
+        "unit": "%/°C"
+      },
+      {
+        "name": "T célula",
+        "symbol": "T_cell",
+        "unit": "°C"
+      },
+      {
+        "name": "Pérdida térmica",
+        "symbol": "L_thermal",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "L_thermal [-] = -gamma_pmp [%/°C] * (T_cell [°C] - 25 [°C]) / 100"
+    ],
+    "numerical_method": "Linear thermal derate model.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "gamma_pmp in [-0.6,-0.1]",
+        "message": "coef temp fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "L_thermal",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "L_thermal in [-0.25,0.05]",
+        "message": "pérdida térmica fuera de rango"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "gamma missing",
+        "recovery": "request IEC 61853-1 datasheet"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-014",
+      "PVG-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_61853_1",
+      "IEC_61215_1"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-020",
+    "name_es": "Pérdida por mismatch",
+    "purpose": "Calcular pérdida por mismatch entre módulos y strings.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-032",
+      "PVG-046",
+      "PVG-127"
+    ],
+    "derived_input_ids": [
+      "L_mismatch"
+    ],
+    "equations_ascii": [
+      "L_mismatch_module = 0.5% (typical)",
+      "L_mismatch_string = (sigma_Vmp^2 / (2 * mean_Vmp^2))",
+      "L_mismatch = L_module + L_string"
+    ],
+    "equations_latex": [
+      "L_{m,mod} = 0.005",
+      "L_{m,str} = \\frac{\\sigma^2_{Vmp}}{2\\bar{V}_{mp}^2}",
+      "L_m = L_{m,mod} + L_{m,str}"
+    ],
+    "variables": [
+      {
+        "name": "Sigma Vmp",
+        "symbol": "sigma_Vmp",
+        "unit": "V"
+      },
+      {
+        "name": "Media Vmp",
+        "symbol": "mean_Vmp",
+        "unit": "V"
+      },
+      {
+        "name": "Pérdida mismatch",
+        "symbol": "L_mismatch",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "L_m_mod [-] = 0.005",
+      "L_m_str [-] = sigma_Vmp [V]^2 / (2 * mean_Vmp [V]^2)",
+      "L_m [-] = L_m_mod [-] + L_m_str [-]"
+    ],
+    "numerical_method": "Statistical mismatch model with normal distribution.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "sigma_Vmp > 0",
+        "message": "sigma inválido"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "L_mismatch",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "L_mismatch < 0.03",
+        "message": "mismatch excesivo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "sigma missing",
+        "recovery": "assume 2% mismatch"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_61853_1",
+      "IEC_TS_62804_1"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-021",
+    "name_es": "Pérdida LID",
+    "purpose": "Aplicar pérdida por Light Induced Degradation.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-121",
+      "PVG-127"
+    ],
+    "derived_input_ids": [
+      "L_lid"
+    ],
+    "equations_ascii": [
+      "L_lid = lid_loss_pct / 100"
+    ],
+    "equations_latex": [
+      "L_{LID} = \\frac{\\mathrm{lid\\_loss\\_pct}}{100}"
+    ],
+    "variables": [
+      {
+        "name": "LID",
+        "symbol": "lid_loss_pct",
+        "unit": "%"
+      },
+      {
+        "name": "Pérdida LID",
+        "symbol": "L_lid",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "L_lid [-] = lid_loss_pct [%] / 100"
+    ],
+    "numerical_method": "Direct conversion from PVG-121.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "lid_loss_pct in [0,3]",
+        "message": "LID fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "L_lid",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "L_lid < 0.02",
+        "message": "LID excesivo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "LID missing",
+        "recovery": "request IEC TS 62804-1 test"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_TS_62804_1",
+      "IEC_61215_1"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-022",
+    "name_es": "Pérdida por disponibilidad",
+    "purpose": "Calcular pérdida por indisponibilidad forzada del parque.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-120"
+    ],
+    "derived_input_ids": [
+      "L_avail"
+    ],
+    "equations_ascii": [
+      "L_avail = (100 - availability_target_pct) / 100"
+    ],
+    "equations_latex": [
+      "L_{avail} = \\frac{100 - \\mathrm{availability\\_target\\_pct}}{100}"
+    ],
+    "variables": [
+      {
+        "name": "Disponibilidad",
+        "symbol": "availability_target_pct",
+        "unit": "%"
+      },
+      {
+        "name": "Pérdida disponibilidad",
+        "symbol": "L_avail",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "L_avail [-] = (100 [%] - availability_target_pct [%]) / 100"
+    ],
+    "numerical_method": "Direct conversion from PVG-120.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "availability_target_pct in [95,99.9]",
+        "message": "disponibilidad fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "L_avail",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "L_avail < 0.03",
+        "message": "indisponibilidad excesiva"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "availability missing",
+        "recovery": "assume 99%"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-015"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEC_61724_1"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-023",
+    "name_es": "Producción anual de energía",
+    "purpose": "Calcular la producción anual de energía entregada por el parque al POC.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-011",
+      "PVG-032",
+      "PVG-047",
+      "PVG-049",
+      "PVG-059",
+      "PVG-061",
+      "PVG-062",
+      "PVG-119",
+      "PVG-120"
+    ],
+    "derived_input_ids": [
+      "E_net",
+      "E_yr"
+    ],
+    "equations_ascii": [
+      "E_array = POA_total * P_dc * PR_array",
+      "E_inverter = E_array * eta_inv",
+      "E_aux = E_inverter * aux_loss",
+      "E_net = (E_inverter - E_aux) * (1 - L_avail) * (1 - L_clipping) * (1 - L_soiling)",
+      "E_yr = E_net * 8760"
+    ],
+    "equations_latex": [
+      "E_{array} = POA_{tot}\\cdot P_{dc}\\cdot PR_{array}",
+      "E_{inv} = E_{array}\\cdot \\eta_{inv}",
+      "E_{aux} = E_{inv}\\cdot L_{aux}",
+      "E_{net} = (E_{inv}-E_{aux})(1-L_{avail})(1-L_{clip})(1-L_{soil})",
+      "E_{yr} = E_{net}\\cdot 8760"
+    ],
+    "variables": [
+      {
+        "name": "POA total",
+        "symbol": "POA_total",
+        "unit": "kWh/m2"
+      },
+      {
+        "name": "Potencia DC",
+        "symbol": "P_dc",
+        "unit": "Wp"
+      },
+      {
+        "name": "PR array",
+        "symbol": "PR_array",
+        "unit": "-"
+      },
+      {
+        "name": "Eficiencia inversor",
+        "symbol": "eta_inv",
+        "unit": "-"
+      },
+      {
+        "name": "Pérdida auxiliares",
+        "symbol": "L_aux",
+        "unit": "-"
+      },
+      {
+        "name": "Disponibilidad",
+        "symbol": "L_avail",
+        "unit": "-"
+      },
+      {
+        "name": "Clipping",
+        "symbol": "L_clip",
+        "unit": "-"
+      },
+      {
+        "name": "Soiling",
+        "symbol": "L_soil",
+        "unit": "-"
+      },
+      {
+        "name": "Energía anual",
+        "symbol": "E_yr",
+        "unit": "Wh"
+      },
+      {
+        "name": "Energía neta",
+        "symbol": "E_net",
+        "unit": "W"
+      }
+    ],
+    "unit_equations": [
+      "E_array [Wh] = POA_total [kWh/m2] * P_dc [Wp] * PR_array [-]",
+      "E_inv [Wh] = E_array [Wh] * eta_inv [-]",
+      "E_aux [Wh] = E_inv [Wh] * L_aux [-]",
+      "E_net [W] = (E_inv [Wh] - E_aux [Wh]) * (1 - L_avail [-]) * (1 - L_clip [-]) * (1 - L_soil [-])",
+      "E_yr [Wh] = E_net [W] * 8760 [h]"
+    ],
+    "numerical_method": "Hourly simulation (SAM/PVsyst equivalent).",
+    "iteration_limits": {
+      "max_iterations": 8760,
+      "tolerance": 1,
+      "method": "hourly_sum"
+    },
+    "validity_limits": [
+      {
+        "condition": "POA_total in [800,2600]",
+        "message": "POA anual fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "E_yr",
+        "unit": "Wh"
+      },
+      {
+        "name": "E_net",
+        "unit": "Wh"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "specific_yield > 800 kWh/kWp",
+        "message": "rendimiento específico bajo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "aux_loss missing",
+        "recovery": "assume 0.5%"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-001",
+      "PVG-DRW-015"
+    ],
+    "source_ids": [
+      "ASTM_E2848",
+      "IEC_61724_1",
+      "NREL_SAM_2024",
+      "NREL_PVWatts"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-024",
+    "name_es": "Final Yield (Yf)",
+    "purpose": "Calcular el Final Yield como energía neta normalizada por potencia DC instalada.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-032",
+      "PVG-047",
+      "PVG-049"
+    ],
+    "derived_input_ids": [
+      "Yf"
+    ],
+    "equations_ascii": [
+      "Yf = E_yr / P_dc_installed"
+    ],
+    "equations_latex": [
+      "Y_f = \\frac{E_{yr}}{P_{dc,installed}}"
+    ],
+    "variables": [
+      {
+        "name": "Energía anual",
+        "symbol": "E_yr",
+        "unit": "kWh"
+      },
+      {
+        "name": "Potencia DC instalada",
+        "symbol": "P_dc_installed",
+        "unit": "kWp"
+      },
+      {
+        "name": "Final Yield",
+        "symbol": "Yf",
+        "unit": "kWh/kWp"
+      }
+    ],
+    "unit_equations": [
+      "Yf [kWh/kWp] = E_yr [kWh] / P_dc_installed [kWp]"
+    ],
+    "numerical_method": "Direct normalization.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "P_dc_installed > 0",
+        "message": "P_dc nulo"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Yf",
+        "unit": "kWh/kWp"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "Yf in [800,2500]",
+        "message": "Yf fuera de rango"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "P_dc missing",
+        "recovery": "compute from module count"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-001",
+      "PVG-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_61724_1",
+      "ASTM_E2848"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-025",
+    "name_es": "Performance Ratio (PR)",
+    "purpose": "Calcular el Performance Ratio corregido (PR) según IEC 61724-1.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-011",
+      "PVG-032",
+      "PVG-047",
+      "PVG-049",
+      "PVG-061",
+      "PVG-062"
+    ],
+    "derived_input_ids": [
+      "PR"
+    ],
+    "equations_ascii": [
+      "Yr = POA_total / 1000 * P_dc",
+      "PR = Yf / Yr",
+      "PR_corrected = PR * (1 - L_temp_corr_factor)"
+    ],
+    "equations_latex": [
+      "Y_r = \\frac{POA_{tot}}{1000}\\cdot P_{dc}",
+      "PR = \\frac{Y_f}{Y_r}",
+      "PR_{corr} = PR\\cdot(1 - f_{corr})"
+    ],
+    "variables": [
+      {
+        "name": "Reference Yield",
+        "symbol": "Yr",
+        "unit": "kWh/kWp"
+      },
+      {
+        "name": "Final Yield",
+        "symbol": "Yf",
+        "unit": "kWh/kWp"
+      },
+      {
+        "name": "POA total",
+        "symbol": "POA_tot",
+        "unit": "kWh/m2"
+      },
+      {
+        "name": "Potencia DC",
+        "symbol": "P_dc",
+        "unit": "Wp"
+      },
+      {
+        "name": "PR",
+        "symbol": "PR",
+        "unit": "-"
+      },
+      {
+        "name": "Factor corrección temp",
+        "symbol": "f_corr",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "Yr [kWh/kWp] = POA_tot [kWh/m2] / 1000 [kWh/m2] * P_dc [Wp]",
+      "PR [-] = Yf [kWh/kWp] / Yr [kWh/kWp]",
+      "PR_corr [-] = PR [-] * (1 - f_corr [-])"
+    ],
+    "numerical_method": "Direct ratio with optional temperature correction (IEC 61724-1 Annex).",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "Yr > 0",
+        "message": "Yr nulo"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "PR",
+        "unit": "%"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "PR in [0.6,0.9]",
+        "message": "PR fuera de rango típico"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "f_corr missing",
+        "recovery": "use 0.0 = no temp correction"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-001",
+      "PVG-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_61724_1",
+      "ASTM_E2848",
+      "NREL_PVWatts"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-026",
+    "name_es": "Pérdida DC colección",
+    "purpose": "Calcular pérdida por cableado DC de colección (sum home-runs).",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-069",
+      "PVG-065",
+      "PVG-068",
+      "PVG-049"
+    ],
+    "derived_input_ids": [
+      "L_dc_collection"
+    ],
+    "equations_ascii": [
+      "P_loss_i = I_i^2 * R_i",
+      "E_loss = sum_i(P_loss_i * dt)",
+      "L_dc_collection = E_loss / E_dc"
+    ],
+    "equations_latex": [
+      "P_{loss,i} = I_i^2 R_i",
+      "E_{loss} = \\sum_i P_{loss,i} \\Delta t",
+      "L_{dc} = \\frac{E_{loss}}{E_{dc}}"
+    ],
+    "variables": [
+      {
+        "name": "Corriente",
+        "symbol": "I",
+        "unit": "A"
+      },
+      {
+        "name": "Resistencia",
+        "symbol": "R",
+        "unit": "ohm"
+      },
+      {
+        "name": "Pérdida potencia",
+        "symbol": "P_loss",
+        "unit": "W"
+      },
+      {
+        "name": "Energía pérdida",
+        "symbol": "E_loss",
+        "unit": "Wh"
+      },
+      {
+        "name": "Energía DC",
+        "symbol": "E_dc",
+        "unit": "Wh"
+      },
+      {
+        "name": "Pérdida DC colección",
+        "symbol": "L_dc_collection",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "P_loss [W] = I [A]^2 * R [ohm]",
+      "E_loss [Wh] = sum P_loss [W] * dt [h]",
+      "L_dc_collection [-] = E_loss [Wh] / E_dc [Wh]"
+    ],
+    "numerical_method": "Joule loss summation.",
+    "iteration_limits": {
+      "max_iterations": 8760,
+      "tolerance": 1,
+      "method": "hourly_sum"
+    },
+    "validity_limits": [
+      {
+        "condition": "E_dc > 0",
+        "message": "E_dc nulo"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "L_dc_collection",
+        "unit": "%"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "L_dc_collection < 2%",
+        "message": "pérdida DC excesiva"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "R missing",
+        "recovery": "compute from rho and L"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-006",
+      "PVG-DRW-013"
+    ],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEC_62548",
+      "IEC_60364_7_712"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-027",
+    "name_es": "Pérdida AC colección",
+    "purpose": "Calcular pérdida por cableado AC y transformadores.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-070",
+      "PVG-071",
+      "PVG-075",
+      "PVG-080",
+      "PVG-081",
+      "PVG-026"
+    ],
+    "derived_input_ids": [
+      "L_ac_collection"
+    ],
+    "equations_ascii": [
+      "P_cable_loss = 3 * I^2 * R",
+      "P_trans_loss = P_loss_no_load + P_loss_copper * (P_ac/P_rated)^2",
+      "L_ac_collection = (E_cable_loss + E_trans_loss) / E_inv"
+    ],
+    "equations_latex": [
+      "P_{cable} = 3 I^2 R",
+      "P_{trans} = P_0 + P_k\\left(\\frac{P_{ac}}{P_{rated}}\\right)^2",
+      "L_{ac} = \\frac{E_{cable} + E_{trans}}{E_{inv}}"
+    ],
+    "variables": [
+      {
+        "name": "Corriente",
+        "symbol": "I",
+        "unit": "A"
+      },
+      {
+        "name": "Resistencia",
+        "symbol": "R",
+        "unit": "ohm"
+      },
+      {
+        "name": "Pérdida cable",
+        "symbol": "P_cable",
+        "unit": "W"
+      },
+      {
+        "name": "Pérdida no-load trans",
+        "symbol": "P_0",
+        "unit": "W"
+      },
+      {
+        "name": "Pérdida copper trans",
+        "symbol": "P_k",
+        "unit": "W"
+      },
+      {
+        "name": "Potencia AC",
+        "symbol": "P_ac",
+        "unit": "W"
+      },
+      {
+        "name": "Potencia nominal trans",
+        "symbol": "P_rated",
+        "unit": "W"
+      },
+      {
+        "name": "Pérdida AC colección",
+        "symbol": "L_ac_collection",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "P_cable [W] = 3 * I [A]^2 * R [ohm]",
+      "P_trans [W] = P_0 [W] + P_k [W] * (P_ac [W] / P_rated [W])^2",
+      "L_ac_collection [-] = (E_cable [Wh] + E_trans [Wh]) / E_inv [Wh]"
+    ],
+    "numerical_method": "Three-phase joule loss + transformer loss model.",
+    "iteration_limits": {
+      "max_iterations": 8760,
+      "tolerance": 1,
+      "method": "hourly_sum"
+    },
+    "validity_limits": [
+      {
+        "condition": "P_rated > 0",
+        "message": "potencia nominal nula"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "L_ac_collection",
+        "unit": "%"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "L_ac_collection < 2.5%",
+        "message": "pérdida AC excesiva"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "P_0 missing",
+        "recovery": "use 0.2% of P_rated"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-007",
+      "PVG-DRW-008"
+    ],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_C2_2023",
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-028",
+    "name_es": "Resistencia de malla de tierra",
+    "purpose": "Calcular la resistencia de la malla de tierra según IEEE 80.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVG-007",
+      "PVG-090",
+      "PVG-091",
+      "PVG-094"
+    ],
+    "derived_input_ids": [
+      "R_grid"
+    ],
+    "equations_ascii": [
+      "R_grid = rho_soil * (0.5 + sqrt(pi*A_grid) - sqrt(pi*A_grid)/exp(L_grid*sqrt(pi/A_grid))) (Sverak)",
+      "Validate: R_grid < 1 ohm typical (PV plant)"
+    ],
+    "equations_latex": [
+      "R_{grid} = \\rho_s\\left[0.5 + \\frac{\\sqrt{\\pi A}}{L_{tot}} - \\frac{\\sqrt{\\pi A}}{L_{tot}\\exp(L_{tot}\\sqrt{\\pi/A})}\\right]",
+      "R_{grid} < 1\\,\\Omega"
+    ],
+    "variables": [
+      {
+        "name": "Resistividad suelo",
+        "symbol": "rho_soil",
+        "unit": "ohm*m"
+      },
+      {
+        "name": "Área malla",
+        "symbol": "A_grid",
+        "unit": "m2"
+      },
+      {
+        "name": "Longitud total conductor",
+        "symbol": "L_grid",
+        "unit": "m"
+      },
+      {
+        "name": "Resistencia malla",
+        "symbol": "R_grid",
+        "unit": "ohm"
+      }
+    ],
+    "unit_equations": [
+      "R_grid [ohm] = rho_soil [ohm*m] * (0.5 + sqrt(pi*A_grid[m2])/L_grid[m] - sqrt(pi*A_grid[m2])/(L_grid[m]*exp(L_grid[m]*sqrt(pi/A_grid[m2]))))"
+    ],
+    "numerical_method": "Sverak formula (IEEE 80).",
+    "iteration_limits": {
+      "max_iterations": 100,
+      "tolerance": 0.01,
+      "method": "newton_raphson"
+    },
+    "validity_limits": [
+      {
+        "condition": "rho_soil in [10,5000]",
+        "message": "rho fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "R_grid",
+        "unit": "ohm"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "R_grid < 1 ohm",
+        "message": "resistencia malla alta"
+      },
+      {
+        "rule": "step_voltage < 80% PVG-092",
+        "message": "tensión paso excede límite"
+      },
+      {
+        "rule": "touch_voltage < 80% PVG-093",
+        "message": "tensión contacto excede límite"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "A_grid missing",
+        "recovery": "compute from plant area"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-012"
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEC_60364_5_54",
+      "IEEE_142"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-029",
+    "name_es": "Ángulo de backtracking del tracker",
+    "purpose": "Calcular el ángulo de backtracking para evitar sombreado entre filas.",
+    "applicability_expression": "structure_type_class contains TRACKER AND tracker_backtracking_enabled==true",
+    "input_field_ids": [
+      "PVG-101",
+      "PVG-114",
+      "PVG-096",
+      "PVG-102",
+      "PVG-104"
+    ],
+    "derived_input_ids": [
+      "theta_backtrack"
+    ],
+    "equations_ascii": [
+      "theta_b = arctan( (d_row/cos(theta_rot)) * sin(alpha_s) / 1 )",
+      "theta_backtrack = max(-theta_rot_max, min(theta_rot_max, theta_b))"
+    ],
+    "equations_latex": [
+      "\\theta_b = \\arctan\\left(\\frac{d_{row}}{\\cos(\\theta_{rot})}\\sin(\\alpha_s)\\right)",
+      "\\theta_{bt} = \\max(-\\theta_{max}, \\min(\\theta_{max}, \\theta_b))"
+    ],
+    "variables": [
+      {
+        "name": "Distancia entre filas",
+        "symbol": "d_row",
+        "unit": "m"
+      },
+      {
+        "name": "Rotación tracker",
+        "symbol": "theta_rot",
+        "unit": "deg"
+      },
+      {
+        "name": "Elevación solar",
+        "symbol": "alpha_s",
+        "unit": "deg"
+      },
+      {
+        "name": "Rotación máxima",
+        "symbol": "theta_max",
+        "unit": "deg"
+      },
+      {
+        "name": "Ángulo backtracking",
+        "symbol": "theta_backtrack",
+        "unit": "deg"
+      }
+    ],
+    "unit_equations": [
+      "theta_b [deg] = arctan( (d_row [m] / cos(theta_rot [rad])) * sin(alpha_s [rad]) / 1 )",
+      "theta_backtrack [deg] = max(-theta_max [deg], min(theta_max [deg], theta_b [deg]))"
+    ],
+    "numerical_method": "Standard backtracking algorithm (NREL).",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "d_row > 0",
+        "message": "distancia inválida"
+      },
+      {
+        "condition": "theta_max > 0",
+        "message": "rotación máx inválida"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "theta_backtrack",
+        "unit": "deg"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "theta_backtrack in [theta_max, theta_max]",
+        "message": "ángulo fuera de rango"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "sun elevation missing",
+        "recovery": "compute from PVG-001/002"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-011"
+    ],
+    "source_ids": [
+      "NREL_SAM_2024",
+      "IEC_TS_63049",
+      "IEC_62548"
+    ]
+  },
+  {
+    "calculation_id": "PVG-C-030",
+    "name_es": "Carga de nieve sobre módulo",
+    "purpose": "Calcular la carga de nieve sobre el módulo según IEC 62938.",
+    "applicability_expression": "snow_load_kn_m2 > 0",
+    "input_field_ids": [
+      "PVG-021",
+      "PVG-096",
+      "PVG-095"
+    ],
+    "derived_input_ids": [
+      "S_module"
+    ],
+    "equations_ascii": [
+      "S_module = S_ground * Ce * Ct * Cs * Ie",
+      "S_module_validate: < module_rated_snow_load"
+    ],
+    "equations_latex": [
+      "S_m = S_g \\cdot C_e \\cdot C_t \\cdot C_s \\cdot I_e",
+      "S_m \\le S_{rated}"
+    ],
+    "variables": [
+      {
+        "name": "Carga nieve suelo",
+        "symbol": "S_ground",
+        "unit": "kN/m2"
+      },
+      {
+        "name": "Factor exposición",
+        "symbol": "Ce",
+        "unit": "-"
+      },
+      {
+        "name": "Factor térmico",
+        "symbol": "Ct",
+        "unit": "-"
+      },
+      {
+        "name": "Factor slope",
+        "symbol": "Cs",
+        "unit": "-"
+      },
+      {
+        "name": "Factor importancia",
+        "symbol": "Ie",
+        "unit": "-"
+      },
+      {
+        "name": "Carga nieve módulo",
+        "symbol": "S_module",
+        "unit": "kN/m2"
+      }
+    ],
+    "unit_equations": [
+      "S_module [kN/m2] = S_ground [kN/m2] * Ce [-] * Ct [-] * Cs [-] * Ie [-]",
+      "S_module [kN/m2] <= S_rated [kN/m2]"
+    ],
+    "numerical_method": "ASCE 7 / IEC 62938 calculation.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "S_ground > 0",
+        "message": "carga nieve nula"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "S_module",
+        "unit": "kN/m2"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "S_module <= module_rated_snow_load",
+        "message": "carga nieve excede rated del módulo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "Ce missing",
+        "recovery": "use 0.8 for exposure B"
+      }
+    ],
+    "drawing_impacts": [
+      "PVG-DRW-010",
+      "PVG-DRW-014"
+    ],
+    "source_ids": [
+      "IEC_62938",
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  }
+]

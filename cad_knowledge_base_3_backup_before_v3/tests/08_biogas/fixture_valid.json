@@ -1,0 +1,17 @@
+{
+  "technology": "08_biogas",
+  "project_id": "TEST-BIG-001",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {
+    "BIG-001": "value_0",
+    "BIG-002": "value_1",
+    "BIG-003": "value_2",
+    "BIG-004": "value_3",
+    "BIG-005": "value_4"
+  },
+  "drawings_to_generate": [
+    "BIG-DRW-001",
+    "BIG-DRW-002",
+    "BIG-DRW-003"
+  ]
+}

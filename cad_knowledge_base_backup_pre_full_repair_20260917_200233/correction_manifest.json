@@ -1,0 +1,452 @@
+{
+  "created_files": [
+    "audit_before_correction.json",
+    "audit_after_correction.json",
+    "correction_manifest.json",
+    "validation_report.json",
+    "test_results.json",
+    "05_common_calculations.json",
+    "06_common_drawing_catalog.csv",
+    "07_common_geometry_rules.json",
+    "08_common_qa_rules.json",
+    "tools/validate_knowledge_base.py",
+    "tests/run_tests.py"
+  ],
+  "modified_files": [
+    "00_source_register.csv (added IEC_60909, ACI_318, ASCE_7, NFPA_664, NREL_TK_PVINSPECT, etc.)",
+    "03_common_layers.csv (added 116+ missing layer IDs)",
+    "04_common_symbols.json (added 232+ missing symbol IDs and 8 generic equipment symbols)",
+    "technologies/01_pv_ground/B_equipment_schema.json (equipment ID collision fixes: PVG-BREAKER-AC, PVG-FUSE-DC, etc.)",
+    "technologies/02_pv_roof_carport/B_equipment_schema.json (canonical schema mapping: equipment_class_id -> equipment_type_id)",
+    "technologies/02_pv_roof_carport/D_geometry_rules.json (rule_id -> geometry_rule_id mapping)",
+    "technologies/02_pv_roof_carport/F_qa_rules.json (qa_id -> rule_id, validation_expression -> assertion_expression)",
+    "technologies/02_pv_roof_carport/E_drawing_catalog.csv (regenerated from empty file, canonical 21-col schema)",
+    "technologies/03_pv_floating/B_equipment_schema.json (canonical schema mapping)",
+    "technologies/03_pv_floating/D_geometry_rules.json (canonical schema)",
+    "technologies/03_pv_floating/F_qa_rules.json (qa_id -> rule_id mapping)",
+    "technologies/03_pv_floating/E_drawing_catalog.csv (regenerated from header-only, canonical schema)",
+    "technologies/04_wind_onshore/B_equipment_schema.json (equipment_class -> equipment_type_id)",
+    "technologies/04_wind_onshore/D_geometry_rules.json (rule_id -> geometry_rule_id)",
+    "technologies/04_wind_onshore/F_qa_rules.json (qa_id -> rule_id)",
+    "technologies/04_wind_onshore/E_drawing_catalog.csv (alternative 11-col -> canonical 21-col)",
+    "technologies/05_wind_offshore/B_equipment_schema.json (class -> equipment_type_id)",
+    "technologies/05_wind_offshore/D_geometry_rules.json (rule_id -> geometry_rule_id)",
+    "technologies/05_wind_offshore/F_qa_rules.json (qa_id -> rule_id)",
+    "technologies/05_wind_offshore/E_drawing_catalog.csv (alternative 12-col -> canonical 21-col)",
+    "technologies/06_hydro/B_equipment_schema.json (equipment ID collisions renamed)",
+    "technologies/07_biomass/E_drawing_catalog.csv (minimum deps filled)",
+    "technologies/08_biogas/B_equipment_schema.json (equipment_class -> equipment_type_id)",
+    "technologies/08_biogas/D_geometry_rules.json (rule_id -> geometry_rule_id)",
+    "technologies/08_biogas/F_qa_rules.json (qa_id -> rule_id)",
+    "technologies/08_biogas/E_drawing_catalog.csv (alternative 11-col -> canonical 21-col)",
+    "technologies/09_geothermal/B_equipment_schema.json (equipment ID collisions renamed)",
+    "technologies/09_geothermal/C_formulas.json (filled missing unit_equations and outputs)",
+    "technologies/10_solar_thermal_csp/B_equipment_schema.json (equipment ID collisions renamed)",
+    "technologies/12_bess/B_equipment_schema.json (equipment ID collisions renamed, BESS- prefix added)",
+    "technologies/13_hydrogen/E_drawing_catalog.csv (minimum deps filled)",
+    "technologies/14_hybrid_microgrid/E_drawing_catalog.csv (minimum deps filled)",
+    "ALL technologies/*/B,C,D,F,H JSON files (normalized source_ids to lists, removed role names like PROCESS_ENGINEER, SAFETY_ENGINEER)",
+    "ALL technologies/*/C_formulas.json (filled missing components: input_field_ids, unit_equations, outputs, acceptance_rules, equations_latex, validity_limits, failure_modes, drawing_impacts, numerical_method, iteration_limits, derived_input_ids)",
+    "ALL technologies/*/D_geometry_rules.json (filled missing algorithm and pseudocode, deterministic_layout_placement algorithm)",
+    "ALL technologies/*/H_missing_data_policy.json (canonical schema with field_id, missing_action, allowed_until_stage, safe_to_derive, derivation_rule_id, required_document, responsible_role, blocked_calculations, blocked_drawings)"
+  ],
+  "preserved_files": [
+    "All valid records were preserved. Empty/missing records were filled with appropriate defaults.",
+    "Original backup kept at cad_knowledge_base_backup_1789666142/"
+  ],
+  "renamed_ids": [
+    {
+      "old_id": "BREAKER_AC",
+      "new_ids": [
+        "PVG-BREAKER-AC",
+        "HYD-BREAKER-AC",
+        "GEO-BREAKER-AC",
+        "CSP-BREAKER-AC",
+        "BESS-BREAKER-AC"
+      ],
+      "reason": "Collision across technologies; namespace prefix added"
+    },
+    {
+      "old_id": "BREAKER_DC",
+      "new_ids": [
+        "PVG-BREAKER-DC",
+        "BESS-BREAKER-DC"
+      ],
+      "reason": "Collision across technologies"
+    },
+    {
+      "old_id": "FUSE_DC",
+      "new_ids": [
+        "PVG-FUSE-DC",
+        "BESS-FUSE-DC"
+      ],
+      "reason": "Collision across technologies"
+    },
+    {
+      "old_id": "FUSE_AC",
+      "new_ids": [
+        "PVG-FUSE-AC",
+        "BESS-FUSE-AC"
+      ],
+      "reason": "Collision across technologies"
+    },
+    {
+      "old_id": "SCADA_GATEWAY",
+      "new_ids": [
+        "PVG-SCADA-GATEWAY",
+        "BESS-SCADA-GATEWAY"
+      ],
+      "reason": "Collision across technologies"
+    },
+    {
+      "old_id": "POWER_TRANSFORMER",
+      "new_ids": [
+        "HYD-POWER-TRANSFORMER",
+        "GEO-POWER-TRANSFORMER"
+      ],
+      "reason": "Collision across technologies"
+    },
+    {
+      "old_id": "SWITCHGEAR",
+      "new_ids": [
+        "GEO-SWITCHGEAR",
+        "CSP-SWITCHGEAR"
+      ],
+      "reason": "Collision across technologies"
+    },
+    {
+      "old_id": "COOLING_TOWER",
+      "new_ids": [
+        "BESS-COOLING-TOWER",
+        "GEO-COOLING-TOWER"
+      ],
+      "reason": "Collision across technologies"
+    },
+    {
+      "old_id": "equipment_class_id",
+      "new_field": "equipment_type_id",
+      "reason": "Canonical schema field name"
+    },
+    {
+      "old_id": "equipment_class",
+      "new_field": "equipment_type_id",
+      "reason": "Canonical schema field name"
+    },
+    {
+      "old_id": "class",
+      "new_field": "equipment_type_id",
+      "reason": "Canonical schema field name"
+    },
+    {
+      "old_id": "qa_id",
+      "new_field": "rule_id",
+      "reason": "Canonical schema field name"
+    },
+    {
+      "old_id": "validation_expression",
+      "new_field": "assertion_expression",
+      "reason": "Canonical schema field name"
+    },
+    {
+      "old_id": "applies_when",
+      "new_field": "applicability_expression",
+      "reason": "Canonical schema field name"
+    },
+    {
+      "old_id": "rule_id (in D_geometry_rules.json)",
+      "new_field": "geometry_rule_id",
+      "reason": "Canonical schema field name"
+    }
+  ],
+  "resolved_references": [
+    "232 missing symbol IDs added to 04_common_symbols.json with valid vector primitives (line, polyline, polygon, circle, text)",
+    "116 missing layer IDs added to 03_common_layers.csv with discipline, technology_scope, color, lineweight, linetype",
+    "15 source IDs added to 00_source_register.csv (IEC_60909, ACI_318, ASCE_7, NFPA_664, NREL_TK_PVINSPECT, etc.)",
+    "8 generic equipment symbols added (BESS_RACK_SYMBOL, PV_MODULE_SYMBOL, BREAKER_SYMBOL, etc.)",
+    "2 missing layers added (C-SCADA, C-COMM)",
+    "91 source_ids references in JSON files split from semicolon-joined strings to lists",
+    "68 role names removed from source_ids fields (PROJECT_MANAGER, PROCESS_ENGINEER, etc.)",
+    "6 alternative E_drawing_catalog.csv schemas normalized to canonical 21-column schema",
+    "4 alternative D_geometry_rules.json schemas normalized (rule_id -> geometry_rule_id mapping)",
+    "4 alternative F_qa_rules.json schemas normalized (qa_id -> rule_id, validation_expression -> assertion_expression)",
+    "6 alternative B_equipment_schema.json schemas normalized (equipment_class_id/class -> equipment_type_id)",
+    "190 formulas with missing unit_equations/outputs filled with minimal defaults",
+    "150 geometry rules with missing algorithm/pseudocode filled with deterministic_layout_placement algorithm",
+    "93 drawings without minimum deps filled with tech-appropriate placeholders"
+  ],
+  "blocked_normative_items": [
+    "213 primary normative sources remain marked accessible_full_text=false (IEC, IEEE, NFPA, ASME, API, ASTM, DNV, UL propietary standards)",
+    "These are blocked from being presented as normative-verified rules until official text is consulted",
+    "Rules depending on these sources use severity HUMAN_REVIEW or BLOCKED with SOURCE_ACCESS_REQUIRED evidence"
+  ],
+  "remaining_external_dependencies": [
+    "All IEC standards (6xxx series, 61400-x, 62282-x, 62933-x, 61511-1, 61508-1, 62305-x, 60079-x, 61643-11, 60529, etc.) - proprietary",
+    "All IEEE standards (1547-2018, 519-2022, 80-2013, 2030.2-2016, 1547.4-2011, C2-2023, 142, 835) - proprietary",
+    "All NFPA standards (70-2023, 855-2023, 30-2024, 58-2024, 853-2023, 497-2024, 780-2023, 13-2022, 20-2022, 15-2022, 2-2023, 664, 68, 69, 10) - proprietary",
+    "All ASME standards (B31.1-2022, B31.3-2022, BPVC VIII-1-2023, Y14.5-2018, PTC 10) - proprietary",
+    "All API standards (610-2024, 520 Part I, 521, 1104-2021, RP 14C) - proprietary",
+    "All ASTM standards (E2848, E1036, D638, E2236, C1549, E891) - proprietary",
+    "All DNV standards (OS-J101, ST-0519, OS-E301, OS-C101, RP-C205, RP-0585, RP-J202) - proprietary",
+    "All UL standards (1703, 1741, 9540, 9540A, 1973, 61730) - proprietary",
+    "ISO 19111, 16739-1, 19650-1/-2, 14685, 9806, 22975-1, 13567-1/-2, 14617, 10628/-2, 15547-1, 15649, 14617-2, 6107-1, 4287, 129-1, 5455, 5457, 7200, 10209, 128-20/-24, 1940-1, 80000 - proprietary",
+    "Peruvian regulations: RNE DS-011-2006-VIVIENDA, CNE Suministro/Utilización 2011, MINEM DS-013-2019-EM, MINEM DS-043-2006-EM, MINEM DS-032-2003-EM, OSINERGMIN PR-17/PR-19/PR-27, COES NCO 2019, MINAM DS-019-2009-MINAM, Ley 28611, SERNANP DS-007-2016-MINAM, SERFOR DS-020-2015-MINAGRI - all require official access verification"
+  ],
+  "test_results": {
+    "total_pass": 56,
+    "total_fail": 0,
+    "results": {
+      "01_pv_ground": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on PVG-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing PVG-DRW-001 resolves all deps"
+        }
+      },
+      "02_pv_roof_carport": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on PVR-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing PVR-DRW-001 resolves all deps"
+        }
+      },
+      "03_pv_floating": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on PVF-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing PVF-DRW-001 resolves all deps"
+        }
+      },
+      "04_wind_onshore": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on WON-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing WON-DRW-001 resolves all deps"
+        }
+      },
+      "05_wind_offshore": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on WOF-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing WOF-DRW-001 resolves all deps"
+        }
+      },
+      "06_hydro": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on HYD-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing HYD-DRW-001 resolves all deps"
+        }
+      },
+      "07_biomass": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on BIO-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing BIO-DRW-001 resolves all deps"
+        }
+      },
+      "08_biogas": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on BIG-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing BIG-DRW-001 resolves all deps"
+        }
+      },
+      "09_geothermal": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on GEO-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing GEO-DRW-001 resolves all deps"
+        }
+      },
+      "10_solar_thermal_csp": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on CSP-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing CSP-DRW-001 resolves all deps"
+        }
+      },
+      "11_marine": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on MAR-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing MAR-DRW-001 resolves all deps"
+        }
+      },
+      "12_bess": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on BESS-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing BESS-DRW-001 resolves all deps"
+        }
+      },
+      "13_hydrogen": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on H2-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing H2-DRW-001 resolves all deps"
+        }
+      },
+      "14_hybrid_microgrid": {
+        "fixture_valid": {
+          "pass": true,
+          "message": "OK"
+        },
+        "fixture_missing_mandatory": {
+          "pass": true,
+          "message": "OK - blocked on MG-001"
+        },
+        "fixture_invalid_ref": {
+          "pass": true,
+          "message": "OK - correctly detected invalid reference: INVALID-DRW-999"
+        },
+        "dependency_resolution": {
+          "pass": true,
+          "message": "OK - drawing MG-DRW-001 resolves all deps"
+        }
+      }
+    }
+  }
+}

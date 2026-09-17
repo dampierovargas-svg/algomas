@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/symbol.schema.json",
+  "title": "Símbolo CAD",
+  "description": "Definición gráfica de símbolo con geometría, puertos y capas",
+  "type": "object",
+  "required": [
+    "symbol_id",
+    "name_es",
+    "discipline",
+    "domain_tags",
+    "graphic_definition",
+    "ports",
+    "layers"
+  ],
+  "properties": {
+    "symbol_id": {
+      "type": "string",
+      "pattern": "^SYM-[A-Z]{3,6}-\\d{4}$",
+      "not": {
+        "pattern": "[|;,\\*]"
+      },
+      "description": "ID único sin caracteres prohibidos"
+    },
+    "name_es": {
+      "type": "string",
+      "minLength": 5,
+      "not": {
+        "pattern": "^Símbolo:.*"
+      },
+      "description": "Nombre técnico real, no 'Símbolo: ...'"
+    },
+    "name_en": {
+      "type": "string"
+    },
+    "discipline": {
+      "type": "string",
+      "enum": ["ELEC", "CIVIL", "STR", "MECH", "HYD", "PROC", "INST", "SAFETY", "FIRE", "GEO", "ENV", "GEN"],
+      "description": "Disciplina correspondiente al símbolo. PLC, RTU, CT, PT, relés y breakers NO pueden ser GEN"
+    },
+    "domain_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["pv", "wind", "hydro", "biomass", "biogas", "geothermal", "csp", "marine", "bess", "hydrogen", "hybrid"]
+      },
+      "uniqueItems": true
+    },
+    "graphic_definition": {
+      "type": "object",
+      "required": ["primitives", "viewBox"],
+      "properties": {
+        "primitives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["line", "polyline", "polygon", "circle", "ellipse", "rect", "path", "text", "g"]
+              },
+              "attributes": {"type": "object"},
+              "children": {"type": "array"}
+            }
+          },
+          "minItems": 1
+        },
+        "viewBox": {
+          "type": "array",
+          "items": {"type": "number"},
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "anchor": {
+          "type": "array",
+          "items": {"type": "number"},
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "bounding_box": {
+          "type": "object",
+          "properties": {
+            "x_min": {"type": "number"},
+            "y_min": {"type": "number"},
+            "x_max": {"type": "number"},
+            "y_max": {"type": "number"}
+          }
+        }
+      }
+    },
+    "ports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["port_id", "type", "location"],
+        "properties": {
+          "port_id": {"type": "string"},
+          "type": {
+            "type": "string",
+            "enum": [
+              "AC_L1", "AC_L2", "AC_L3", "AC_N", "AC_PE", "AC_3PH",
+              "DC_POS", "DC_NEG", "DC_GND",
+              "SIGNAL_AI", "SIGNAL_AO", "SIGNAL_DI", "SIGNAL_DO",
+              "COMM_RS485", "COMM_ETHERNET", "COMM_FIBER",
+              "FLUID_IN", "FLUID_OUT", "FLUID_VENT", "FLUID_DRAIN",
+              "HYDRO_IN", "HYDRO_OUT",
+              "MOUNT_POINT", "ANCHOR_POINT"
+            ],
+            "not": {
+              "enum": ["IN", "OUT", "PROCESS", "IN PROCESS", "OUT PROCESS", "IN/OUT PROCESS"]
+            }
+          },
+          "location": {
+            "type": "array",
+            "items": {"type": "number"},
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "direction": {
+            "type": "string",
+            "enum": ["N", "S", "E", "W", "NE", "NW", "SE", "SW"]
+          },
+          "fluid_type": {"type": "string"},
+          "voltage_class": {"type": "string"},
+          "protocol": {"type": "string"}
+        }
+      },
+      "minItems": 1
+    },
+    "layers": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "description": "Capas destino del símbolo, no genéricas impropias"
+    },
+    "shared_graphic_standard_id": {
+      "type": "string",
+      "description": "ID de estándar gráfico compartido si hay duplicados justificados"
+    },
+    "scale_default": {
+      "type": "number",
+      "default": 1.0
+    },
+    "rotation_default": {
+      "type": "number",
+      "default": 0
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}

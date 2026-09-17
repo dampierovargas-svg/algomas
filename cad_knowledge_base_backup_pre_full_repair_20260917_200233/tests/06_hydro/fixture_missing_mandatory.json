@@ -1,0 +1,19 @@
+{
+  "technology": "06_hydro",
+  "project_id": "TEST-HYD-002",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {
+    "HYD-002": "value_1",
+    "HYD-003": "value_2",
+    "HYD-004": "value_3",
+    "HYD-005": "value_4"
+  },
+  "missing_fields": [
+    "HYD-001"
+  ],
+  "drawings_to_generate": [
+    "HYD-DRW-001",
+    "HYD-DRW-002",
+    "HYD-DRW-003"
+  ]
+}

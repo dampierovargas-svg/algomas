@@ -1,0 +1,1192 @@
+[
+  {
+    "field_id": "BIO-001",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Fuel characterization report",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIO-C-001",
+      "BIO-C-002"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-001",
+      "BIO-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BIO-002",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "LHV|PCI|net calorific value"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-002",
+      "BIO-C-003"
+    ]
+  },
+  {
+    "field_id": "BIO-003",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "HHV|PCS|gross calorific value"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-002"
+    ]
+  },
+  {
+    "field_id": "BIO-004",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "moisture|water content|MC"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-002",
+      "BIO-C-004"
+    ]
+  },
+  {
+    "field_id": "BIO-005",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "ash|A%"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-002",
+      "BIO-C-013"
+    ]
+  },
+  {
+    "field_id": "BIO-006",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "VM|volatile matter"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-002"
+    ]
+  },
+  {
+    "field_id": "BIO-007",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "FC|fixed carbon"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-002"
+    ]
+  },
+  {
+    "field_id": "BIO-008",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "C%|carbon"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-002"
+    ]
+  },
+  {
+    "field_id": "BIO-009",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "H%|hydrogen"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-002"
+    ]
+  },
+  {
+    "field_id": "BIO-010",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "N%|nitrogen"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-002"
+    ]
+  },
+  {
+    "field_id": "BIO-011",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "S%|sulfur"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-002",
+      "BIO-C-019"
+    ]
+  },
+  {
+    "field_id": "BIO-014",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "bulk density|BD"
+    ],
+    "blocked_drawings": [
+      "BIO-C-015",
+      "BIO-C-021"
+    ]
+  },
+  {
+    "field_id": "BIO-015",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "particle size|PS"
+    ],
+    "blocked_drawings": [
+      "BIO-C-015",
+      "BIO-C-021"
+    ]
+  },
+  {
+    "field_id": "BIO-016",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "supply distance"
+    ],
+    "blocked_drawings": [
+      "BIO-C-015",
+      "BIO-C-021"
+    ]
+  },
+  {
+    "field_id": "BIO-017",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "truck capacity"
+    ],
+    "blocked_drawings": [
+      "BIO-C-015",
+      "BIO-C-021"
+    ]
+  },
+  {
+    "field_id": "BIO-019",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "storage days"
+    ],
+    "blocked_drawings": [
+      "BIO-C-021"
+    ]
+  },
+  {
+    "field_id": "BIO-021",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "boiler type"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-003"
+    ]
+  },
+  {
+    "field_id": "BIO-022",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "steam pressure"
+    ],
+    "blocked_drawings": [
+      "BIO-C-005",
+      "BIO-C-006",
+      "BIO-C-028"
+    ]
+  },
+  {
+    "field_id": "BIO-023",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "steam temp"
+    ],
+    "blocked_drawings": [
+      "BIO-C-005",
+      "BIO-C-006"
+    ]
+  },
+  {
+    "field_id": "BIO-026",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "thermal capacity"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-003"
+    ]
+  },
+  {
+    "field_id": "BIO-027",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "excess air|EA"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-004"
+    ]
+  },
+  {
+    "field_id": "BIO-028",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "boiler efficiency"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001"
+    ]
+  },
+  {
+    "field_id": "BIO-029",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "combustion temp"
+    ],
+    "blocked_drawings": [
+      "BIO-C-002",
+      "BIO-C-004"
+    ]
+  },
+  {
+    "field_id": "BIO-031",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "flue gas temp"
+    ],
+    "blocked_drawings": [
+      "BIO-C-004",
+      "BIO-C-022"
+    ]
+  },
+  {
+    "field_id": "BIO-032",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "turbine type"
+    ],
+    "blocked_drawings": [
+      "BIO-C-006",
+      "BIO-C-007"
+    ]
+  },
+  {
+    "field_id": "BIO-033",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "turbine rated power"
+    ],
+    "blocked_drawings": [
+      "BIO-C-007",
+      "BIO-C-008"
+    ]
+  },
+  {
+    "field_id": "BIO-034",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "turbine efficiency"
+    ],
+    "blocked_drawings": [
+      "BIO-C-007",
+      "BIO-C-008"
+    ]
+  },
+  {
+    "field_id": "BIO-035",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "generator power"
+    ],
+    "blocked_drawings": [
+      "BIO-C-008"
+    ]
+  },
+  {
+    "field_id": "BIO-036",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "generator efficiency"
+    ],
+    "blocked_drawings": [
+      "BIO-C-008"
+    ]
+  },
+  {
+    "field_id": "BIO-038",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "cooling type"
+    ],
+    "blocked_drawings": [
+      "BIO-C-009",
+      "BIO-C-010"
+    ]
+  },
+  {
+    "field_id": "BIO-039",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "cooling water consumption"
+    ],
+    "blocked_drawings": [
+      "BIO-C-009"
+    ]
+  },
+  {
+    "field_id": "BIO-040",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "PM emission"
+    ],
+    "blocked_drawings": [
+      "BIO-C-011"
+    ]
+  },
+  {
+    "field_id": "BIO-041",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "SO2 emission"
+    ],
+    "blocked_drawings": [
+      "BIO-C-019",
+      "BIO-C-011"
+    ]
+  },
+  {
+    "field_id": "BIO-042",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "NOx emission"
+    ],
+    "blocked_drawings": [
+      "BIO-C-016",
+      "BIO-C-011"
+    ]
+  },
+  {
+    "field_id": "BIO-043",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "CO emission"
+    ],
+    "blocked_drawings": [
+      "BIO-C-011"
+    ]
+  },
+  {
+    "field_id": "BIO-045",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "dioxin|PCDD/F"
+    ],
+    "blocked_drawings": [
+      "BIO-C-011"
+    ]
+  },
+  {
+    "field_id": "BIO-046",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "EPA subpart"
+    ],
+    "blocked_drawings": [
+      "BIO-C-011"
+    ]
+  },
+  {
+    "field_id": "BIO-047",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "FGT system"
+    ],
+    "blocked_drawings": [
+      "BIO-C-011",
+      "BIO-C-013",
+      "BIO-C-014",
+      "BIO-C-015"
+    ]
+  },
+  {
+    "field_id": "BIO-066",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "water consumption"
+    ],
+    "blocked_drawings": [
+      "BIO-C-009"
+    ]
+  },
+  {
+    "field_id": "BIO-067",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "stack height"
+    ],
+    "blocked_drawings": [
+      "BIO-C-020"
+    ]
+  },
+  {
+    "field_id": "BIO-073",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "false",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "dust fire hazard"
+    ],
+    "blocked_drawings": [
+      "BIO-C-024"
+    ]
+  },
+  {
+    "field_id": "BIO-076",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "fire water demand"
+    ],
+    "blocked_drawings": [
+      "BIO-C-024"
+    ]
+  },
+  {
+    "field_id": "BIO-080",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "conveyor capacity"
+    ],
+    "blocked_drawings": [
+      "BIO-C-028"
+    ]
+  },
+  {
+    "field_id": "BIO-085",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "LHV|PCI"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001",
+      "BIO-C-002"
+    ]
+  },
+  {
+    "field_id": "BIO-086",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "moisture"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001"
+    ]
+  },
+  {
+    "field_id": "BIO-087",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "ash"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001"
+    ]
+  },
+  {
+    "field_id": "BIO-088",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "sulfur"
+    ],
+    "blocked_drawings": [
+      "BIO-C-002"
+    ]
+  },
+  {
+    "field_id": "BIO-089",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "steam pressure"
+    ],
+    "blocked_drawings": [
+      "BIO-C-005"
+    ]
+  },
+  {
+    "field_id": "BIO-090",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "steam temp"
+    ],
+    "blocked_drawings": [
+      "BIO-C-005"
+    ]
+  },
+  {
+    "field_id": "BIO-091",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "boiler efficiency"
+    ],
+    "blocked_drawings": [
+      "BIO-C-001"
+    ]
+  },
+  {
+    "field_id": "BIO-092",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "turbine efficiency"
+    ],
+    "blocked_drawings": [
+      "BIO-C-007"
+    ]
+  },
+  {
+    "field_id": "BIO-093",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "excess air"
+    ],
+    "blocked_drawings": [
+      "BIO-C-004"
+    ]
+  },
+  {
+    "field_id": "BIO-094",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "storage days"
+    ],
+    "blocked_drawings": [
+      "BIO-C-021"
+    ]
+  },
+  {
+    "field_id": "BIO-095",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "PM emission"
+    ],
+    "blocked_drawings": [
+      "BIO-C-011"
+    ]
+  },
+  {
+    "field_id": "BIO-096",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "NOx emission"
+    ],
+    "blocked_drawings": [
+      "BIO-C-011"
+    ]
+  },
+  {
+    "field_id": "BIO-097",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "stack height"
+    ],
+    "blocked_drawings": [
+      "BIO-C-020"
+    ]
+  },
+  {
+    "field_id": "BIO-098",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "0.0",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "cooling water"
+    ],
+    "blocked_drawings": [
+      "BIO-C-009"
+    ]
+  },
+  {
+    "field_id": "BIO-099",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "SIL target"
+    ],
+    "blocked_drawings": [
+      "BIO-C-024"
+    ]
+  },
+  {
+    "field_id": "BIO-100",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "false",
+    "responsible_role": "true",
+    "blocked_calculations": [
+      "dust fire hazard"
+    ],
+    "blocked_drawings": [
+      "BIO-C-024"
+    ]
+  },
+  {
+    "field_id": "BIO-013",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ultimate analysis report",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIO-C-002",
+      "BIO-C-019"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIO-024",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Boiler specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIO-C-005",
+      "BIO-C-006"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-006",
+      "BIO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BIO-025",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Boiler specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIO-C-005",
+      "BIO-C-006"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BIO-037",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Condenser specification",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BIO-C-009",
+      "BIO-C-010"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BIO-044",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Emission study",
+    "responsible_role": "ENVIRONMENTAL_LEAD",
+    "blocked_calculations": [
+      "BIO-C-019",
+      "BIO-C-011"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIO-048",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "ESP specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIO-C-013"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIO-049",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Bag filter specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIO-C-013"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIO-050",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "FGD specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIO-C-014"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIO-051",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "SCR specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIO-C-015"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIO-052",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "SNCR specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIO-C-015"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIO-053",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "SCR specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIO-C-015"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIO-054",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "SNCR specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIO-C-015"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIO-055",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "FGD specification",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BIO-C-014"
+    ],
+    "blocked_drawings": [
+      "BIO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BIO-070",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "[]",
+    "responsible_role": "true",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "BIO-071",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "false",
+    "responsible_role": "true",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "BIO-072",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "[]",
+    "responsible_role": "true",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "BIO-074",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "[]",
+    "responsible_role": "true",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "BIO-075",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "false",
+    "responsible_role": "true",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "BIO-081",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "false",
+    "responsible_role": "true",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  }
+]

@@ -1,0 +1,1485 @@
+[
+  {
+    "geometry_rule_id": "MAR-GR-001",
+    "name_es": "Layout de parque de turbinas de marea (tidal array grid)",
+    "applicability_expression": "device_type contains tidal_stream_turbine",
+    "required_field_ids": [
+      "MAR-006",
+      "MAR-022",
+      "MAR-034",
+      "MAR-036",
+      "MAR-037",
+      "MAR-039",
+      "MAR-101",
+      "MAR-104"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-022",
+      "MAR-C-025"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Disposición en grid rectangular de turbinas con espaciamiento mínimo 7D alineado con corriente predominante.",
+    "algorithm_pseudocode": [
+      "place_grid(device_count_total, spacing_multiple, current_direction)",
+      "  for each device in array:",
+      "    place_circle(radius=rotor_diameter/2)",
+      "  assert spacing_center >= 7D",
+      "  assert exclusion_zone_radius surrounds array"
+    ],
+    "generated_entity_types": [
+      "DEVICE_POINT",
+      "ARRAY_BOUNDARY_POLY",
+      "EXCLUSION_ZONE_CIRCLE"
+    ],
+    "clearances": [
+      {
+        "name": "device_spacing_along_flow",
+        "min_factor_of_D": 7
+      },
+      {
+        "name": "device_spacing_cross_flow",
+        "min_factor_of_D": 5
+      },
+      {
+        "name": "exclusion_zone_radius",
+        "min_m": 100
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "device_spacing >= 7D",
+        "error": "spacing insuficiente"
+      },
+      {
+        "rule": "no device inside exclusion zone of other",
+        "error": "colisión"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-002",
+      "MAR-DRW-003",
+      "MAR-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "DNV_OS_C101",
+      "DNV_RP_C205"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-001: required input field missing or invalid",
+      "MAR-GR-001: collision between generated entities detected",
+      "MAR-GR-001: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-002",
+    "name_es": "Layout de array de WEC",
+    "applicability_expression": "device_type contains WEC",
+    "required_field_ids": [
+      "MAR-011",
+      "MAR-012",
+      "MAR-018",
+      "MAR-034",
+      "MAR-036",
+      "MAR-037",
+      "MAR-047",
+      "MAR-104"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-021",
+      "MAR-C-026",
+      "MAR-C-027"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Disposición de WEC alineada con dirección predominante de ola para maximizar captura.",
+    "algorithm_pseudocode": [
+      "place_WEC_array(device_count_total, wave_direction)",
+      "  orient array perpendicular to wave direction",
+      "  spacing = 3 * L_characteristic",
+      "  assert mooring polygon per device"
+    ],
+    "generated_entity_types": [
+      "WEC_POINT",
+      "WEC_MOORING_POLYGON",
+      "ARRAY_BOUNDARY_POLY"
+    ],
+    "clearances": [
+      {
+        "name": "spacing_along_wave",
+        "min_factor_of_L": 3
+      },
+      {
+        "name": "spacing_cross_wave",
+        "min_factor_of_L": 2
+      },
+      {
+        "name": "mooring_polygon_radius",
+        "min_m": 50
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no overlap of mooring polygons",
+        "error": "mooring overlap"
+      },
+      {
+        "rule": "orientation aligned with wave direction",
+        "error": "misalignment"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-002",
+      "MAR-DRW-003",
+      "MAR-DRW-011"
+    ],
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "DNV_OS_E301",
+      "DNV_RP_C205"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-002: required input field missing or invalid",
+      "MAR-GR-002: collision between generated entities detected",
+      "MAR-GR-002: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-003",
+    "name_es": "Posición de plataforma OTEC",
+    "applicability_expression": "device_type contains OTEC",
+    "required_field_ids": [
+      "MAR-005",
+      "MAR-006",
+      "MAR-027",
+      "MAR-052",
+      "MAR-053",
+      "MAR-104"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-017",
+      "MAR-C-018"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Posición de plataforma OTEC con profundidad de toma fría suficiente y distancia a costa.",
+    "algorithm_pseudocode": [
+      "place_OTEC_platform(water_depth_LAT, cold_intake_depth)",
+      "  assert water_depth_LAT >= cold_intake_depth + 100m",
+      "  assert distance_to_shore <= 20 km para cable económico"
+    ],
+    "generated_entity_types": [
+      "OTEC_PLATFORM_RECT",
+      "COLD_WATER_INTAKE_POINT",
+      "HOT_WATER_INTAKE_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "water_depth_min",
+        "min_m": 800
+      },
+      {
+        "name": "distance_to_shore_max",
+        "max_km": 20
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "water_depth > cold_intake_depth + 100m",
+        "error": "profundidad insuficiente"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-002",
+      "MAR-DRW-016",
+      "MAR-DRW-003"
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "IAPWS_IF97",
+      "IRENA_OFFSHORE_2023"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-003: required input field missing or invalid",
+      "MAR-GR-003: collision between generated entities detected",
+      "MAR-GR-003: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-004",
+    "name_es": "Ruta de cable inter-array",
+    "applicability_expression": "device_count_total > 1",
+    "required_field_ids": [
+      "MAR-034",
+      "MAR-036",
+      "MAR-075",
+      "MAR-077",
+      "MAR-078",
+      "MAR-080",
+      "MAR-037",
+      "MAR-006"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-016"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ruteo del cable inter-array en topología string con longitudes mínimas y sin cruces.",
+    "algorithm_pseudocode": [
+      "route_string_topology(devices, substation_offshore)",
+      "  for each string:",
+      "    connect devices in series",
+      "    minimize total cable length",
+      "    avoid crossing other strings"
+    ],
+    "generated_entity_types": [
+      "INTER_ARRAY_CABLE_POLYLINE",
+      "STRING_TOPOLOGY_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "cable_length_per_device",
+        "min_m": 100
+      },
+      {
+        "name": "bend_radius",
+        "min_m": 5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no string crossing",
+        "error": "cable crossing"
+      },
+      {
+        "rule": "total length within budget",
+        "error": "excessive cable"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-004",
+      "MAR-DRW-005"
+    ],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "DNV_OS_J101",
+      "IEC_TS_62600_30"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-004: required input field missing or invalid",
+      "MAR-GR-004: collision between generated entities detected",
+      "MAR-GR-004: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-005",
+    "name_es": "Ruta de cable de exportación",
+    "applicability_expression": "device_count_total > 0",
+    "required_field_ids": [
+      "MAR-005",
+      "MAR-006",
+      "MAR-076",
+      "MAR-078",
+      "MAR-081",
+      "MAR-007",
+      "MAR-008"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-016"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ruteo del cable de exportación desde parque hasta punto de landfall evitando obstáculos.",
+    "algorithm_pseudocode": [
+      "route_export_cable(device_array_centroid, landfall_point)",
+      "  trace shortest path avoiding:",
+      "    shipping lanes, anchorage zones, hard bottom",
+      "  set burial depth per soil type"
+    ],
+    "generated_entity_types": [
+      "EXPORT_CABLE_POLYLINE",
+      "ROUTE_WAYPOINTS"
+    ],
+    "clearances": [
+      {
+        "name": "distance_to_shipping_lane",
+        "min_m": 500
+      },
+      {
+        "name": "distance_to_anchorage",
+        "min_m": 1000
+      },
+      {
+        "name": "bend_radius",
+        "min_m": 10
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no crossing of shipping lane",
+        "error": "navigation hazard"
+      },
+      {
+        "rule": "no burial on hard bottom",
+        "error": "impossible burial"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-005",
+      "MAR-DRW-006"
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "IEC_60287_1_1",
+      "MINEM_DS_032_2003"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-005: required input field missing or invalid",
+      "MAR-GR-005: collision between generated entities detected",
+      "MAR-GR-005: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-006",
+    "name_es": "Landfall (cruce de costa)",
+    "applicability_expression": "device_count_total > 0",
+    "required_field_ids": [
+      "MAR-005",
+      "MAR-008",
+      "MAR-081",
+      "MAR-082",
+      "MAR-083"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-013"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Punto de transición cable submarino a subterráneo con HDD o trenching.",
+    "algorithm_pseudocode": [
+      "place_landfall(export_cable_terminus, shoreline)",
+      "  select HDD if urban/industrial",
+      "  select open trench if rural",
+      "  set transition joint bay"
+    ],
+    "generated_entity_types": [
+      "LANDFALL_POINT",
+      "HDD_POLYLINE",
+      "JOINT_BAY_RECT"
+    ],
+    "clearances": [
+      {
+        "name": "distance_to_residential",
+        "min_m": 100
+      },
+      {
+        "name": "HDD_depth_below_seabed",
+        "min_m": 5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no impact on shoreline stability",
+        "error": "erosion risk"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-006",
+      "MAR-DRW-005"
+    ],
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "DNV_OS_J101",
+      "RNE_DS_011_2006"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-006: required input field missing or invalid",
+      "MAR-GR-006: collision between generated entities detected",
+      "MAR-GR-006: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-007",
+    "name_es": "Subestación de costa",
+    "applicability_expression": "device_count_total > 0",
+    "required_field_ids": [
+      "MAR-005",
+      "MAR-091",
+      "MAR-092",
+      "MAR-095",
+      "MAR-104"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-028"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ubicación de subestación de costa con área mínima y malla de tierra dedicada.",
+    "algorithm_pseudocode": [
+      "place_substation(landfall_point, area)",
+      "  assert distance to shore <= 1 km",
+      "  place grounding grid IEEE 80",
+      "  place transformer and switchgear"
+    ],
+    "generated_entity_types": [
+      "SUBSTATION_RECT",
+      "GROUNDING_GRID",
+      "TRANSFORMER_RECT"
+    ],
+    "clearances": [
+      {
+        "name": "distance_to_shore",
+        "max_km": 1
+      },
+      {
+        "name": "grounding_resistance",
+        "max_ohm": 1
+      },
+      {
+        "name": "oil_containment_volume",
+        "min_factor_of_transformer_oil": 1.1
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "grounding resistance <= 1 ohm",
+        "error": "grounding insuficiente"
+      },
+      {
+        "rule": "oil containment present",
+        "error": "oil spill risk"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-009",
+      "MAR-DRW-010"
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_1547_2018",
+      "NFPA_70_2023"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-007: required input field missing or invalid",
+      "MAR-GR-007: collision between generated entities detected",
+      "MAR-GR-007: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-008",
+    "name_es": "Posiciones de anclas",
+    "applicability_expression": "device_type contains [WEC,OTEC] OR mooring_type != none",
+    "required_field_ids": [
+      "MAR-006",
+      "MAR-009",
+      "MAR-063",
+      "MAR-064",
+      "MAR-065",
+      "MAR-069",
+      "MAR-070",
+      "MAR-072"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-008",
+      "MAR-C-009",
+      "MAR-C-010"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ubicación de anclas en polígono de fondeo con separación y sin conflicto.",
+    "algorithm_pseudocode": [
+      "place_anchor_polygon(device_centroid, mooring_type, line_count)",
+      "  for each anchor:",
+      "    compute holding capacity per soil",
+      "    assert distance to other anchors >= 2*line_diameter"
+    ],
+    "generated_entity_types": [
+      "ANCHOR_POINT",
+      "MOORING_POLYGON"
+    ],
+    "clearances": [
+      {
+        "name": "anchor_spacing",
+        "min_m": 10
+      },
+      {
+        "name": "distance_to_export_cable",
+        "min_m": 50
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no anchor on export cable route",
+        "error": "cable damage risk"
+      },
+      {
+        "rule": "holding capacity >= design load * SF",
+        "error": "insufficient holding"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-007",
+      "MAR-DRW-011",
+      "MAR-DRW-008"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_OS_C101",
+      "ISO_14656"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-008: required input field missing or invalid",
+      "MAR-GR-008: collision between generated entities detected",
+      "MAR-GR-008: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-009",
+    "name_es": "Polígono de líneas de fondeo",
+    "applicability_expression": "mooring_type != none",
+    "required_field_ids": [
+      "MAR-063",
+      "MAR-069",
+      "MAR-070",
+      "MAR-071",
+      "MAR-072",
+      "MAR-073",
+      "MAR-074"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-006",
+      "MAR-C-007"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ruteo de líneas de fondeo en catenaria o taut con clearance adecuado.",
+    "algorithm_pseudocode": [
+      "route_mooring_lines(device, anchors, type)",
+      "  if catenary:",
+      "    compute sag and horizontal excursion",
+      "  if taut:",
+      "    compute tension and inclination",
+      "  assert SF >= 1.5"
+    ],
+    "generated_entity_types": [
+      "MOORING_LINE_POLYLINE",
+      "MOORING_POLYGON"
+    ],
+    "clearances": [
+      {
+        "name": "line_spacing",
+        "min_m": 5
+      },
+      {
+        "name": "excursion_max",
+        "max_factor_of_water_depth": 0.1
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no mooring line crossing",
+        "error": "entanglement risk"
+      },
+      {
+        "rule": "MBL SF >= 1.5",
+        "error": "SF insuficiente"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-011",
+      "MAR-DRW-008"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_RP_C205",
+      "IEC_TS_62600_10"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-009: required input field missing or invalid",
+      "MAR-GR-009: collision between generated entities detected",
+      "MAR-GR-009: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-010",
+    "name_es": "Zona de exclusión de seguridad",
+    "applicability_expression": "device_count_total > 0",
+    "required_field_ids": [
+      "MAR-034",
+      "MAR-036",
+      "MAR-039",
+      "MAR-104",
+      "MAR-102"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-025"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Definición de zona de exclusión de seguridad para navegación alrededor del parque.",
+    "algorithm_pseudocode": [
+      "define_exclusion_zone(device_array_centroid, radius)",
+      "  place circular zone around array",
+      "  radius = max(device_diameter * 5, 100m)",
+      "  register with maritime authority"
+    ],
+    "generated_entity_types": [
+      "EXCLUSION_ZONE_CIRCLE",
+      "BUOY_MARKER_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "exclusion_zone_radius",
+        "min_m": 100
+      },
+      {
+        "name": "buoy_spacing",
+        "max_m": 500
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no shipping lane inside exclusion zone",
+        "error": "navigation conflict"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-015",
+      "MAR-DRW-002"
+    ],
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "API_RP_14C",
+      "DNV_OS_J101"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-010: required input field missing or invalid",
+      "MAR-GR-010: collision between generated entities detected",
+      "MAR-GR-010: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-011",
+    "name_es": "Zona de exclusión ambiental",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "MAR-096",
+      "MAR-097",
+      "MAR-098",
+      "MAR-099",
+      "MAR-100",
+      "MAR-101",
+      "MAR-003"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-025"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Definición de zonas de exclusión ambiental para mamíferos, aves y rutas migratorias.",
+    "algorithm_pseudocode": [
+      "define_environmental_exclusion(marine_mammal_presence, fish_migration_route, bird_collision_risk)",
+      "  if mammal_presence:",
+      "    add buffer zone 500m",
+      "  if fish_migration:",
+      "    add corridor exclusion",
+      "  if bird_risk_level == high:",
+      "    add bird flight corridor"
+    ],
+    "generated_entity_types": [
+      "ENV_EXCLUSION_POLYGON",
+      "BIRD_CORRIDOR_POLY",
+      "MAMMAL_BUFFER_CIRCLE"
+    ],
+    "clearances": [
+      {
+        "name": "mammal_buffer",
+        "min_m": 500
+      },
+      {
+        "name": "bird_corridor_width",
+        "min_m": 200
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no device inside mammal buffer",
+        "error": "environmental violation"
+      },
+      {
+        "rule": "array outside fish migration corridor",
+        "error": "migration impact"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-014",
+      "MAR-DRW-002"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "IEC_TS_62600_40",
+      "SERFOR_DS_020_2015"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-011: required input field missing or invalid",
+      "MAR-GR-011: collision between generated entities detected",
+      "MAR-GR-011: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-012",
+    "name_es": "Ruta de pre-lay survey",
+    "applicability_expression": "device_count_total > 0",
+    "required_field_ids": [
+      "MAR-005",
+      "MAR-007",
+      "MAR-080",
+      "MAR-081",
+      "MAR-102",
+      "MAR-103"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ruta del levantamiento geofísico previo a la instalación de cables.",
+    "algorithm_pseudocode": [
+      "route_pre_lay_survey(export_cable_route, inter_array_route)",
+      "  sub-bottom profiler + multibeam + sidescan sonar",
+      "  assert coverage = cable_route + 200m buffer"
+    ],
+    "generated_entity_types": [
+      "SURVEY_POLYLINE",
+      "SURVEY_BUFFER_POLY"
+    ],
+    "clearances": [
+      {
+        "name": "survey_buffer",
+        "min_m": 200
+      },
+      {
+        "name": "survey_spacing",
+        "max_m": 50
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "survey covers all cable routes",
+        "error": "insufficient survey"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-005",
+      "MAR-DRW-004",
+      "MAR-DRW-001"
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "ISO_14656",
+      "MINEM_DS_032_2003"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-012: required input field missing or invalid",
+      "MAR-GR-012: collision between generated entities detected",
+      "MAR-GR-012: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-013",
+    "name_es": "Cruce de costa (shore crossing)",
+    "applicability_expression": "device_count_total > 0",
+    "required_field_ids": [
+      "MAR-005",
+      "MAR-007",
+      "MAR-081",
+      "MAR-082",
+      "MAR-083"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-013"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ruteo del cable en zona de shore crossing con HDD o open cut.",
+    "algorithm_pseudocode": [
+      "route_shore_crossing(landfall, substation)",
+      "  if HDD:",
+      "    set entry and exit points",
+      "    set depth below seabed >= 5m",
+      "  if open cut:",
+      "    set trench depth >= 1.5m"
+    ],
+    "generated_entity_types": [
+      "SHORE_CROSSING_POLYLINE",
+      "HDD_PROFILE_3D"
+    ],
+    "clearances": [
+      {
+        "name": "HDD_depth_below_seabed",
+        "min_m": 5
+      },
+      {
+        "name": "trench_depth",
+        "min_m": 1.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no impact on shoreline",
+        "error": "erosion risk"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-006",
+      "MAR-DRW-005"
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "MINEM_DS_032_2003",
+      "RNE_DS_011_2006"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-013: required input field missing or invalid",
+      "MAR-GR-013: collision between generated entities detected",
+      "MAR-GR-013: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-014",
+    "name_es": "Corredor de navegación",
+    "applicability_expression": "device_count_total > 0",
+    "required_field_ids": [
+      "MAR-005",
+      "MAR-102",
+      "MAR-103",
+      "MAR-104",
+      "MAR-105"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-025"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Definición del corredor de navegación permitido alrededor del parque marino.",
+    "algorithm_pseudocode": [
+      "define_navigation_corridor(shipping_lane_distance, anchorage_distance)",
+      "  set corridor width based on vessel traffic",
+      "  register with maritime authority",
+      "  mark with navigation aids"
+    ],
+    "generated_entity_types": [
+      "NAVIGATION_CORRIDOR_POLY",
+      "BUOY_MARKER_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "corridor_width",
+        "min_m": 500
+      },
+      {
+        "name": "distance_to_array",
+        "min_m": 500
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no device inside corridor",
+        "error": "navigation conflict"
+      },
+      {
+        "rule": "no export cable on corridor surface",
+        "error": "cable strike risk"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-015",
+      "MAR-DRW-002"
+    ],
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "API_RP_14C",
+      "DNV_OS_J101"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-014: required input field missing or invalid",
+      "MAR-GR-014: collision between generated entities detected",
+      "MAR-GR-014: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-015",
+    "name_es": "Evitación de anclaje (anchorage avoidance)",
+    "applicability_expression": "device_count_total > 0",
+    "required_field_ids": [
+      "MAR-005",
+      "MAR-102",
+      "MAR-103",
+      "MAR-080",
+      "MAR-081",
+      "MAR-083"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-013"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Verificación de que cables y dispositivos evitan zonas de anclaje conocidas.",
+    "algorithm_pseudocode": [
+      "check_anchorage_avoidance(cable_route, anchorage_zone)",
+      "  if cable crosses anchorage:",
+      "    increase burial depth",
+      "    or reroute cable"
+    ],
+    "generated_entity_types": [
+      "ANCHORAGE_ZONE_POLY",
+      "ANCHOR_NO_GO_POLY"
+    ],
+    "clearances": [
+      {
+        "name": "distance_to_anchorage",
+        "min_m": 1000
+      },
+      {
+        "name": "burial_depth_in_anchorage",
+        "min_m": 3
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no shallow cable in anchorage zone",
+        "error": "anchor strike risk"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-015",
+      "MAR-DRW-005"
+    ],
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "DNV_OS_J101",
+      "IEC_60287_1_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-015: required input field missing or invalid",
+      "MAR-GR-015: collision between generated entities detected",
+      "MAR-GR-015: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-016",
+    "name_es": "Ruta de cold water pipe OTEC",
+    "applicability_expression": "device_type contains OTEC",
+    "required_field_ids": [
+      "MAR-006",
+      "MAR-027",
+      "MAR-051",
+      "MAR-052",
+      "MAR-115"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-017",
+      "MAR-C-020"
+    ],
+    "coordinate_space": "SITE_UTM_VERTICAL",
+    "algorithm": "Ruteo del cold water pipe OTEC desde profundidad hasta plataforma.",
+    "algorithm_pseudocode": [
+      "route_CWP(platform_position, cold_intake_depth)",
+      "  vertical pipe or inclined",
+      "  compute stress per ASME BPVC",
+      "  set support points every 30m"
+    ],
+    "generated_entity_types": [
+      "CWP_POLYLINE_3D",
+      "CWP_SUPPORT_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "pipe_diameter",
+        "min_m": 0.5
+      },
+      {
+        "name": "support_spacing",
+        "max_m": 30
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "pipe stress within ASME BPVC limits",
+        "error": "stress exceeds allowable"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-008",
+      "MAR-DRW-016"
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_B31_3_2022",
+      "IAPWS_IF97"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-016: required input field missing or invalid",
+      "MAR-GR-016: collision between generated entities detected",
+      "MAR-GR-016: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-017",
+    "name_es": "Posición de tomas OTEC (cold/hot)",
+    "applicability_expression": "device_type contains OTEC",
+    "required_field_ids": [
+      "MAR-006",
+      "MAR-026",
+      "MAR-027",
+      "MAR-052",
+      "MAR-053"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-017",
+      "MAR-C-018"
+    ],
+    "coordinate_space": "SITE_UTM_VERTICAL",
+    "algorithm": "Ubicación de tomas de agua fría y caliente OTEC con separación vertical y horizontal.",
+    "algorithm_pseudocode": [
+      "place_intake_points(platform, cold_depth, hot_depth)",
+      "  cold_intake at depth 700-1000m",
+      "  hot_intake at depth 0-50m",
+      "  assert vertical separation >= 500m"
+    ],
+    "generated_entity_types": [
+      "COLD_INTAKE_POINT",
+      "HOT_INTAKE_POINT",
+      "INTAKE_SEPARATION_LINE"
+    ],
+    "clearances": [
+      {
+        "name": "vertical_separation",
+        "min_m": 500
+      },
+      {
+        "name": "horizontal_separation",
+        "min_m": 50
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no recirculation between intakes",
+        "error": "efficiency loss"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-016",
+      "MAR-DRW-008"
+    ],
+    "source_ids": [
+      "IAPWS_IF97",
+      "ISO_6107_1",
+      "ASME_BPVC_VIII_1_2023"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-017: required input field missing or invalid",
+      "MAR-GR-017: collision between generated entities detected",
+      "MAR-GR-017: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-018",
+    "name_es": "Layout de protección contra socavación",
+    "applicability_expression": "foundation_type in [monopile,jacket]",
+    "required_field_ids": [
+      "MAR-008",
+      "MAR-009",
+      "MAR-032",
+      "MAR-086",
+      "MAR-087",
+      "MAR-090"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-014"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Disposición de protección contra socavación alrededor de fundaciones.",
+    "algorithm_pseudocode": [
+      "place_scour_protection(foundation_position, scour_depth)",
+      "  place rock berm or mattress",
+      "  radius = foundation_diameter * 3",
+      "  thickness = scour_depth + freeboard"
+    ],
+    "generated_entity_types": [
+      "SCOUR_PROTECTION_CIRCLE",
+      "ROCK_BERM_POLY"
+    ],
+    "clearances": [
+      {
+        "name": "protection_radius",
+        "min_factor_of_D": 3
+      },
+      {
+        "name": "protection_thickness",
+        "min_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "coverage full around foundation",
+        "error": "partial protection"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-007",
+      "MAR-DRW-008"
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "ISO_14656",
+      "DNV_RP_C205"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-018: required input field missing or invalid",
+      "MAR-GR-018: collision between generated entities detected",
+      "MAR-GR-018: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-019",
+    "name_es": "Corredor de burial de cables",
+    "applicability_expression": "cable_type_static_present == true",
+    "required_field_ids": [
+      "MAR-007",
+      "MAR-008",
+      "MAR-080",
+      "MAR-081",
+      "MAR-082",
+      "MAR-083"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-013"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Definición del corredor de burial de cables submarinos con profundidad mínima.",
+    "algorithm_pseudocode": [
+      "define_burial_corridor(cable_route, burial_depth)",
+      "  set corridor width = cable_route + 50m",
+      "  set burial depth per soil type",
+      "  mark on bathymetry"
+    ],
+    "generated_entity_types": [
+      "BURIAL_CORRIDOR_POLY",
+      "CABLE_ROUTE_LINE"
+    ],
+    "clearances": [
+      {
+        "name": "corridor_width",
+        "min_m": 50
+      },
+      {
+        "name": "burial_depth_min",
+        "min_m": 1.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "burial depth >= 1m",
+        "error": "insufficient burial"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-005",
+      "MAR-DRW-006",
+      "MAR-DRW-012"
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "IEC_60287_1_1",
+      "MINEM_DS_032_2003"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-019: required input field missing or invalid",
+      "MAR-GR-019: collision between generated entities detected",
+      "MAR-GR-019: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-020",
+    "name_es": "Layout de muelles O&M (CTV/SOV)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "MAR-005",
+      "MAR-036",
+      "MAR-106",
+      "MAR-107",
+      "MAR-108",
+      "MAR-109"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ubicación de muelles CTV/SOV y helipuerto para O&M del parque.",
+    "algorithm_pseudocode": [
+      "place_O&M_berths(shore_base, maintenance_strategy)",
+      "  CTV berth always present",
+      "  SOV berth if device_count_total>=30",
+      "  helicopter pad if distance_to_shore>50km"
+    ],
+    "generated_entity_types": [
+      "CTV_BERTH_RECT",
+      "SOV_BERTH_RECT",
+      "HELICOPTER_PAD_CIRCLE"
+    ],
+    "clearances": [
+      {
+        "name": "berth_distance_to_array",
+        "max_km": 100
+      },
+      {
+        "name": "CTV_speed_min",
+        "min_knots": 25
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "maintenance access covers all devices",
+        "error": "access gap"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-002",
+      "MAR-DRW-009",
+      "MAR-DRW-015"
+    ],
+    "source_ids": [
+      "IRENA_OFFSHORE_2023",
+      "API_RP_14C",
+      "NFPA_780_2023"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-020: required input field missing or invalid",
+      "MAR-GR-020: collision between generated entities detected",
+      "MAR-GR-020: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-021",
+    "name_es": "Layout de boyas de monitoreo ambiental",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "MAR-096",
+      "MAR-097",
+      "MAR-098",
+      "MAR-099",
+      "MAR-100",
+      "MAR-101",
+      "MAR-104"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ubicación de boyas de monitoreo ambiental (ruido, EMF, mamíferos y otras variables).",
+    "algorithm_pseudocode": [
+      "place_monitoring_buoys(array_boundary, environmental_constraints)",
+      "  one buoy upwind and one downwind of array",
+      "  additional buoy near export cable",
+      "  mark with AIS"
+    ],
+    "generated_entity_types": [
+      "MONITORING_BUOY_POINT",
+      "BUOY_MOORING_CIRCLE"
+    ],
+    "clearances": [
+      {
+        "name": "buoy_distance_to_array",
+        "min_m": 500
+      },
+      {
+        "name": "buoy_count",
+        "min_int": 2
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no buoy in navigation corridor",
+        "error": "navigation hazard"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-014",
+      "MAR-DRW-015"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "IEC_TS_62600_40",
+      "SERNANP_DS_007_2016"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-021: required input field missing or invalid",
+      "MAR-GR-021: collision between generated entities detected",
+      "MAR-GR-021: clearance violation"
+    ]
+  },
+  {
+    "geometry_rule_id": "MAR-GR-022",
+    "name_es": "Posición de fundaciones",
+    "applicability_expression": "foundation_type in [gravity_base,monopile,jacket,suction_caisson]",
+    "required_field_ids": [
+      "MAR-006",
+      "MAR-008",
+      "MAR-009",
+      "MAR-086",
+      "MAR-087",
+      "MAR-088",
+      "MAR-089"
+    ],
+    "required_calculation_ids": [
+      "MAR-C-014",
+      "MAR-C-004"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ubicación de fundaciones según geotecnia y cargas.",
+    "algorithm_pseudocode": [
+      "place_foundations(device_positions, soil_type, design_load)",
+      "  for each device:",
+      "    verify bearing capacity",
+      "    set penetration depth",
+      "    place scour protection"
+    ],
+    "generated_entity_types": [
+      "FOUNDATION_CIRCLE",
+      "PENETRATION_PROFILE",
+      "SCOUR_PROTECTION_CIRCLE"
+    ],
+    "clearances": [
+      {
+        "name": "bearing_capacity_SF",
+        "min_factor": 2.0
+      },
+      {
+        "name": "penetration_to_diameter_ratio",
+        "min_factor": 2
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "bearing capacity >= design_load * SF",
+        "error": "insufficient capacity"
+      },
+      {
+        "rule": "no foundation on hard rock outcrop",
+        "error": "installation risk"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-007",
+      "MAR-DRW-008",
+      "MAR-DRW-003"
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_OS_C101",
+      "ISO_14656"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "MAR-GR-022: required input field missing or invalid",
+      "MAR-GR-022: collision between generated entities detected",
+      "MAR-GR-022: clearance violation"
+    ]
+  }
+]

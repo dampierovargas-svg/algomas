@@ -1,0 +1,2891 @@
+[
+  {
+    "calculation_id": "HYD-C-001",
+    "name_es": "Avenida de diseño metodo Gumbel",
+    "purpose": "Estimar el caudal de avenida para un periodo de retorno T usando la distribucion de Gumbel.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-013",
+      "HYD-018",
+      "HYD-019",
+      "HYD-020"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_T = mean + K_T * stdev",
+      "K_T = -(sqrt(6)/pi)*(0.5772 + ln(ln(T/(T-1))))",
+      "x_T = mean + K_T * stdev"
+    ],
+    "equations_latex": [
+      "Q_T = \\bar{Q} + K_T\\sigma_Q",
+      "K_T = -\\frac{\\sqrt{6}}{\\pi}\\left(0.5772 + \\ln\\left(\\ln\\frac{T}{T-1}\\right)\\right)"
+    ],
+    "variables": [
+      {
+        "name": "mean annual flow",
+        "symbol": "mean",
+        "unit": "m3/s"
+      },
+      {
+        "name": "standard deviation",
+        "symbol": "stdev",
+        "unit": "m3/s"
+      },
+      {
+        "name": "return period",
+        "symbol": "T",
+        "unit": "years"
+      },
+      {
+        "name": "Gumbel frequency factor",
+        "symbol": "K_T",
+        "unit": "-"
+      },
+      {
+        "name": "design flood",
+        "symbol": "Q_T",
+        "unit": "m3/s"
+      }
+    ],
+    "unit_equations": [
+      "Q_T [m3/s] = mean [m3/s] + K_T [-] * stdev [m3/s]"
+    ],
+    "numerical_method": "Analytical statistical fitting with annual maximum series (AMS).",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "T>=10",
+        "message": "return period too short for ICOLD"
+      },
+      {
+        "condition": "stdev<=mean*0.5",
+        "message": "excessive variability"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "design flood",
+        "unit": "m3/s"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "Q_T>=mean",
+        "message": "design flood below mean"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "insufficient record",
+        "recovery": "require >=20 years of data"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-001",
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_60",
+      "ISO_14685"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-002",
+    "name_es": "Avenida de diseño metodo Log-Pearson III",
+    "purpose": "Estimar el caudal de avenida con la distribucion Log-Pearson Tipo III usada por USGS.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-013",
+      "HYD-018",
+      "HYD-019"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "log(Q_T) = mean_log + K_T*stdev_log",
+      "K_T from Pearson III skew table"
+    ],
+    "equations_latex": [
+      "\\log Q_T = \\overline{\\log Q} + K_T \\sigma_{\\log Q}"
+    ],
+    "variables": [
+      {
+        "name": "log mean",
+        "symbol": "mean_log",
+        "unit": "-"
+      },
+      {
+        "name": "log std",
+        "symbol": "stdev_log",
+        "unit": "-"
+      },
+      {
+        "name": "Pearson III frequency factor",
+        "symbol": "K_T",
+        "unit": "-"
+      },
+      {
+        "name": "design flood",
+        "symbol": "Q_T",
+        "unit": "m3/s"
+      }
+    ],
+    "unit_equations": [
+      "log10(Q_T) [-] = mean_log [-] + K_T [-] * stdev_log [-]"
+    ],
+    "numerical_method": "Statistical fitting with skewness coefficient; lookup K_T table per Pearson III.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form_table"
+    },
+    "validity_limits": [
+      {
+        "condition": "record>=10",
+        "message": "insufficient record"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "design flood",
+        "unit": "m3/s"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "Q_T>=0",
+        "message": "negative flood"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "skew > 2 or < -2",
+        "recovery": "apply regional skew"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-001",
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_60"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-003",
+    "name_es": "Avenida de diseño metodo GEV",
+    "purpose": "Estimar el caudal de avenida con la distribucion Generalized Extreme Value.",
+    "applicability_expression": "plant_classification in [MEDIA,PEQUENA]",
+    "input_field_ids": [
+      "HYD-013",
+      "HYD-020",
+      "HYD-021"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F(x)=exp[-(1+k*y)^(1/k)]",
+      "y=(x-mu)/sigma if k!=0",
+      "x_T = mu + sigma/k * (1 - (-ln(1-1/T))^(-k))"
+    ],
+    "equations_latex": [
+      "F(x) = \\exp\\left[-(1+k y)^{1/k}\\right]"
+    ],
+    "variables": [
+      {
+        "name": "location",
+        "symbol": "mu",
+        "unit": "m3/s"
+      },
+      {
+        "name": "scale",
+        "symbol": "sigma",
+        "unit": "m3/s"
+      },
+      {
+        "name": "shape",
+        "symbol": "k",
+        "unit": "-"
+      },
+      {
+        "name": "design flood",
+        "symbol": "x_T",
+        "unit": "m3/s"
+      }
+    ],
+    "unit_equations": [
+      "x_T [m3/s] = mu [m3/s] + sigma [m3/s]/k [-] * (1 - (-ln(1-1/T))^(-k))"
+    ],
+    "numerical_method": "Maximum likelihood estimation (MLE) fitting on AMS.",
+    "iteration_limits": {
+      "max_iterations": 50,
+      "tolerance": 0.001,
+      "method": "MLE Newton-Raphson"
+    },
+    "validity_limits": [
+      {
+        "condition": "|k|<0.5",
+        "message": "shape parameter out of valid range"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "design flood",
+        "unit": "m3/s"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "x_T>=0",
+        "message": "negative flood"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "MLE non-convergence",
+        "recovery": "use L-moments estimator"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-001",
+      "HYD-DRW-013"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_60"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-004",
+    "name_es": "Caudal medio interanual",
+    "purpose": "Calcular el caudal medio interanual a partir del balance hidrologico anual.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-010",
+      "HYD-011",
+      "HYD-012",
+      "HYD-013"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_mean = (P - ET - dS) * A / (365*24*3600)",
+      "P=mean_annual_rainfall_mm",
+      "ET=evapotranspiration_mm",
+      "dS=storage_change_mm"
+    ],
+    "equations_latex": [
+      "Q_{mean} = \\frac{(P-ET-\\Delta S) A}{365 \\cdot 24 \\cdot 3600}"
+    ],
+    "variables": [
+      {
+        "name": "precipitation",
+        "symbol": "P",
+        "unit": "mm"
+      },
+      {
+        "name": "evapotranspiration",
+        "symbol": "ET",
+        "unit": "mm"
+      },
+      {
+        "name": "storage change",
+        "symbol": "dS",
+        "unit": "mm"
+      },
+      {
+        "name": "catchment area",
+        "symbol": "A",
+        "unit": "m2"
+      },
+      {
+        "name": "mean flow",
+        "symbol": "Q_mean",
+        "unit": "m3/s"
+      }
+    ],
+    "unit_equations": [
+      "Q_mean [m3/s] = (P [mm]*1e-3 - ET [mm]*1e-3 - dS [mm]*1e-3) * A [m2] / (365*24*3600 [s])"
+    ],
+    "numerical_method": "Analytical water balance.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "P>=ET",
+        "message": "evapotranspiration exceeds precipitation"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "mean flow",
+        "unit": "m3/s"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "Q_mean>=0",
+        "message": "negative flow"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "missing ET data",
+        "recovery": "apply Turc-Pike or Hargreaves"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-001"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_60",
+      "ISO_14685"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-005",
+    "name_es": "Curva de duracion de caudales",
+    "purpose": "Construir la curva de duracion (FDC) a partir de la serie historica diaria.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-013",
+      "HYD-014",
+      "HYD-015",
+      "HYD-016"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "p_i = rank_i / (N+1) * 100",
+      "FDC: p vs Q"
+    ],
+    "equations_latex": [
+      "p_i = \\frac{r_i}{N+1} \\cdot 100"
+    ],
+    "variables": [
+      {
+        "name": "rank",
+        "symbol": "rank_i",
+        "unit": "-"
+      },
+      {
+        "name": "record length",
+        "symbol": "N",
+        "unit": "-"
+      },
+      {
+        "name": "exceedance probability",
+        "symbol": "p_i",
+        "unit": "%"
+      },
+      {
+        "name": "flow",
+        "symbol": "Q",
+        "unit": "m3/s"
+      }
+    ],
+    "unit_equations": [
+      "p_i [%] = rank_i [-] / (N+1) [-] * 100 [-]"
+    ],
+    "numerical_method": "Rank-sort daily flows; assign Weibull plotting position.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "rank_sort"
+    },
+    "validity_limits": [
+      {
+        "condition": "N>=365",
+        "message": "need at least one year"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "flow duration curve",
+        "unit": "m3/s vs %"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "Q is monotonic decreasing in p",
+        "message": "FDC not monotonic"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "gaps in record",
+        "recovery": "fill with patch-by-regression"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-005"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_60",
+      "ISO_14685"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-006",
+    "name_es": "Caudal ecologico metodo Tennant",
+    "purpose": "Calcular el caudal ecologico segun Tennant (% del caudal medio anual).",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-013",
+      "HYD-015",
+      "HYD-017"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_eco = alpha * Q_mean",
+      "alpha=10% (poor), 30% (good) for Tennant; ANA may use Q95"
+    ],
+    "equations_latex": [
+      "Q_{eco} = \\alpha \\bar Q"
+    ],
+    "variables": [
+      {
+        "name": "coefficient",
+        "symbol": "alpha",
+        "unit": "-"
+      },
+      {
+        "name": "mean flow",
+        "symbol": "Q_mean",
+        "unit": "m3/s"
+      },
+      {
+        "name": "ecological flow",
+        "symbol": "Q_eco",
+        "unit": "m3/s"
+      }
+    ],
+    "unit_equations": [
+      "Q_eco [m3/s] = alpha [-] * Q_mean [m3/s]"
+    ],
+    "numerical_method": "Analytical rule; alpha selected by authority (ANA/Peru: max(0.1*Qmean, Q95)).",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "alpha in [0.05,0.5]",
+        "message": "alpha out of Tennant range"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "ecological flow",
+        "unit": "m3/s"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "Q_eco<=Q_mean",
+        "message": "eco flow exceeds mean"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "regulatory override",
+        "recovery": "use ANA-specific alpha"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-001",
+      "HYD-DRW-003"
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "ICOLD_Bull_60"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-007",
+    "name_es": "Carga total de sedimentos",
+    "purpose": "Calcular la carga anual de sedimentos (suspension + fondo).",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-013",
+      "HYD-022",
+      "HYD-023"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_s = Q * C * k",
+      "L_year = Q_s * 365*24*3600 * 1e-6 (ton/year when C in mg/L)"
+    ],
+    "equations_latex": [
+      "Q_s = Q\\,C\\,k",
+      "L_{year} = Q_s \\cdot 365 \\cdot 24 \\cdot 3600 \\cdot 10^{-6}"
+    ],
+    "variables": [
+      {
+        "name": "water flow",
+        "symbol": "Q",
+        "unit": "m3/s"
+      },
+      {
+        "name": "concentration",
+        "symbol": "C",
+        "unit": "mg/L"
+      },
+      {
+        "name": "unit factor",
+        "symbol": "k",
+        "unit": "-"
+      },
+      {
+        "name": "sediment discharge",
+        "symbol": "Q_s",
+        "unit": "kg/s"
+      },
+      {
+        "name": "annual load",
+        "symbol": "L_year",
+        "unit": "ton/year"
+      }
+    ],
+    "unit_equations": [
+      "L_year [ton/year] = Q [m3/s] * C [mg/L] * 1e-3 [kg/m3 per mg/L] * 365*24*3600 [s] / 1000 [kg/ton]"
+    ],
+    "numerical_method": "Analytical integrated over time; multiply by density for bed load if absent.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "C<50000",
+        "message": "concentration abnormally high"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "sediment load",
+        "unit": "ton/year"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "L_year>=0",
+        "message": "negative sediment load"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "missing bed load",
+        "recovery": "assume bed load = 10% of suspended"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-003"
+    ],
+    "source_ids": [
+      "ISO_14685",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-008",
+    "name_es": "Diseno de desarenador",
+    "purpose": "Calcular la longitud del desarenador para retirar particulas D50.",
+    "applicability_expression": "sediment_d50_mm<0.5",
+    "input_field_ids": [
+      "HYD-013",
+      "HYD-056",
+      "HYD-057",
+      "HYD-058",
+      "HYD-059",
+      "HYD-024"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "L = k * (V/V_s) * H",
+      "L = length of settling chamber",
+      "V=approach velocity",
+      "V_s=settling velocity",
+      "H=depth"
+    ],
+    "equations_latex": [
+      "L = k \\frac{V}{V_s} H"
+    ],
+    "variables": [
+      {
+        "name": "approach velocity",
+        "symbol": "V",
+        "unit": "m/s"
+      },
+      {
+        "name": "settling velocity",
+        "symbol": "V_s",
+        "unit": "m/s"
+      },
+      {
+        "name": "depth",
+        "symbol": "H",
+        "unit": "m"
+      },
+      {
+        "name": "safety factor",
+        "symbol": "k",
+        "unit": "-"
+      },
+      {
+        "name": "desander length",
+        "symbol": "L",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "L [m] = k [-] * (V [m/s]/V_s [m/s]) * H [m]"
+    ],
+    "numerical_method": "Analytical settling theory (Camp); surface loading rate V_s = Q/(B*L).",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "V_s>0",
+        "message": "non-settling particle"
+      },
+      {
+        "condition": "V<0.5",
+        "message": "excessive velocity prevents settling"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "desander length",
+        "unit": "m"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "L>=3*W",
+        "message": "length to width ratio insufficient"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "turbulent flow",
+        "recovery": "apply laminar correction"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-003"
+    ],
+    "source_ids": [
+      "ISO_14685"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-009",
+    "name_es": "Salto bruto",
+    "purpose": "Calcular el salto bruto entre el nivel de embalse y el nivel de cola.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-030",
+      "HYD-038",
+      "HYD-039",
+      "HYD-050"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "H_gross = N_up - N_tw",
+      "N_up = normal_pool_level",
+      "N_tw = tailwater_level_design"
+    ],
+    "equations_latex": [
+      "H_{gross} = N_{up} - N_{tw}"
+    ],
+    "variables": [
+      {
+        "name": "upstream pool level",
+        "symbol": "N_up",
+        "unit": "m"
+      },
+      {
+        "name": "tailwater level",
+        "symbol": "N_tw",
+        "unit": "m"
+      },
+      {
+        "name": "gross head",
+        "symbol": "H_gross",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "H_gross [m] = N_up [m] - N_tw [m]"
+    ],
+    "numerical_method": "Analytical elevation difference.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "H_gross>0",
+        "message": "head must be positive"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "gross head",
+        "unit": "m"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "H_gross in [0.5,2000]",
+        "message": "gross head out of physical range"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "tailwater unknown at design flood",
+        "recovery": "use rating curve at design flood"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-004",
+      "HYD-DRW-005",
+      "HYD-DRW-006",
+      "HYD-DRW-008"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "IEC_60193"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-010",
+    "name_es": "Salto neto",
+    "purpose": "Calcular el salto neto en la entrada de la turbina restando perdidas.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-030",
+      "HYD-031",
+      "HYD-032",
+      "HYD-033",
+      "HYD-034",
+      "HYD-035",
+      "HYD-036",
+      "HYD-037"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "H_net = H_gross - h_losses",
+      "h_losses = h_f + h_e + h_x + h_b + h_v"
+    ],
+    "equations_latex": [
+      "H_{net} = H_{gross} - \\sum h_{losses}"
+    ],
+    "variables": [
+      {
+        "name": "gross head",
+        "symbol": "H_gross",
+        "unit": "m"
+      },
+      {
+        "name": "friction",
+        "symbol": "h_f",
+        "unit": "m"
+      },
+      {
+        "name": "entrance",
+        "symbol": "h_e",
+        "unit": "m"
+      },
+      {
+        "name": "exit",
+        "symbol": "h_x",
+        "unit": "m"
+      },
+      {
+        "name": "bends",
+        "symbol": "h_b",
+        "unit": "m"
+      },
+      {
+        "name": "valves",
+        "symbol": "h_v",
+        "unit": "m"
+      },
+      {
+        "name": "net head",
+        "symbol": "H_net",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "H_net [m] = H_gross [m] - (h_f [m] + h_e [m] + h_x [m] + h_b [m] + h_v [m])"
+    ],
+    "numerical_method": "Analytical summation of head losses per Bernoulli extended.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "H_net>0",
+        "message": "negative net head"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "net head",
+        "unit": "m"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "h_losses<0.1*H_gross",
+        "message": "excessive losses"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "losses > 10% head",
+        "recovery": "resize penstock diameter"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-006",
+      "HYD-DRW-009"
+    ],
+    "source_ids": [
+      "IEC_60193",
+      "IEC_60041"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-011",
+    "name_es": "Perdidas por friccion (Darcy-Weisbach)",
+    "purpose": "Calcular las perdidas por friccion en conducto forzado.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-031",
+      "HYD-032",
+      "HYD-033",
+      "HYD-070",
+      "HYD-071",
+      "HYD-013",
+      "HYD-112"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "h_f = f * (L/D) * V^2/(2*g)",
+      "V = Q/A = 4Q/(pi*D^2)",
+      "f from Colebrook-White or Swamee-Jain"
+    ],
+    "equations_latex": [
+      "h_f = f \\frac{L}{D} \\frac{V^2}{2g}"
+    ],
+    "variables": [
+      {
+        "name": "Darcy friction factor",
+        "symbol": "f",
+        "unit": "-"
+      },
+      {
+        "name": "length",
+        "symbol": "L",
+        "unit": "m"
+      },
+      {
+        "name": "diameter",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "velocity",
+        "symbol": "V",
+        "unit": "m/s"
+      },
+      {
+        "name": "gravity",
+        "symbol": "g",
+        "unit": "m/s2"
+      },
+      {
+        "name": "flow",
+        "symbol": "Q",
+        "unit": "m3/s"
+      },
+      {
+        "name": "friction head loss",
+        "symbol": "h_f",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "h_f [m] = f [-] * (L [m]/D [m]) * (V [m/s]^2)/(2*g [m/s2])"
+    ],
+    "numerical_method": "Colebrook-White iteration for f; otherwise Swamee-Jain explicit.",
+    "iteration_limits": {
+      "max_iterations": 50,
+      "tolerance": 1e-05,
+      "method": "Colebrook"
+    },
+    "validity_limits": [
+      {
+        "condition": "Re>4000",
+        "message": "turbulent flow required"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "friction loss",
+        "unit": "m"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "f in [0.008,0.08]",
+        "message": "friction factor out of range"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "laminar flow",
+        "recovery": "use Hagen-Poiseuille"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-006"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "ISO_14685"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-012",
+    "name_es": "Perdidas por friccion (Manning) en canales",
+    "purpose": "Calcular perdidas en canales abiertos con formula de Manning.",
+    "applicability_expression": "headrace_canal_length_m>0 OR tailrace_canal_length_m>0",
+    "input_field_ids": [
+      "HYD-260",
+      "HYD-261",
+      "HYD-263",
+      "HYD-013",
+      "HYD-112"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V = (1/n) * R^(2/3) * S^(1/2)",
+      "h_f = S*L",
+      "n = Manning roughness"
+    ],
+    "equations_latex": [
+      "V = \\frac{1}{n} R^{2/3} S^{1/2}"
+    ],
+    "variables": [
+      {
+        "name": "Manning n",
+        "symbol": "n",
+        "unit": "s/m^(1/3)"
+      },
+      {
+        "name": "hydraulic radius",
+        "symbol": "R",
+        "unit": "m"
+      },
+      {
+        "name": "slope",
+        "symbol": "S",
+        "unit": "-"
+      },
+      {
+        "name": "velocity",
+        "symbol": "V",
+        "unit": "m/s"
+      },
+      {
+        "name": "friction head loss",
+        "symbol": "h_f",
+        "unit": "m"
+      },
+      {
+        "name": "length",
+        "symbol": "L",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "h_f [m] = S [-] * L [m]",
+      "V [m/s] = (1/n [s/m^(1/3)]) * R [m]^(2/3) * S [-]^(1/2)"
+    ],
+    "numerical_method": "Analytical for open-channel uniform flow.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "n in [0.009,0.05]",
+        "message": "Manning n out of range"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "friction head loss",
+        "unit": "m"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "V in [0.5,3]",
+        "message": "velocity out of typical canal range"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "non-uniform flow",
+        "recovery": "use backwater HEC-RAS"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-005",
+      "HYD-DRW-012"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-013",
+    "name_es": "Espesor de pared de tuberia forzada (ASME B31.1)",
+    "purpose": "Calcular el espesor minimo de pared de la tuberia forzada de acero.",
+    "applicability_expression": "penstock_material in [STEEL_CARBON,STEEL_ALLOY]",
+    "input_field_ids": [
+      "HYD-070",
+      "HYD-073",
+      "HYD-075",
+      "HYD-077",
+      "HYD-079",
+      "HYD-080"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "t = P*D/(2*(S*E*W + 0.4*P)) + CA",
+      "t = required wall thickness",
+      "S=allowable stress = Sy/3",
+      "E=joint efficiency",
+      "W=coefficient",
+      "CA=corrosion allowance"
+    ],
+    "equations_latex": [
+      "t = \\frac{P D}{2(S E W + 0.4 P)} + C_A"
+    ],
+    "variables": [
+      {
+        "name": "design pressure",
+        "symbol": "P",
+        "unit": "MPa"
+      },
+      {
+        "name": "diameter",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "allowable stress",
+        "symbol": "S",
+        "unit": "MPa"
+      },
+      {
+        "name": "joint efficiency",
+        "symbol": "E",
+        "unit": "-"
+      },
+      {
+        "name": "weld factor",
+        "symbol": "W",
+        "unit": "-"
+      },
+      {
+        "name": "corrosion allowance",
+        "symbol": "C_A",
+        "unit": "mm"
+      },
+      {
+        "name": "wall thickness",
+        "symbol": "t",
+        "unit": "mm"
+      }
+    ],
+    "unit_equations": [
+      "t [mm] = P [MPa]*D [mm]/(2*(S [MPa]*E [-]*W [-] + 0.4*P [MPa])) + C_A [mm]"
+    ],
+    "numerical_method": "Analytical per ASME B31.1 circumferential stress formula.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "t>=2",
+        "message": "wall too thin"
+      },
+      {
+        "condition": "t<=80",
+        "message": "wall too thick"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "wall thickness",
+        "unit": "mm"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "S<=Sy/3",
+        "message": "allowable stress exceeds 1/3 yield"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "P near hydrostatic test",
+        "recovery": "check test pressure"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-006"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-014",
+    "name_es": "Verificacion de esfuerzos en penstock",
+    "purpose": "Verificar que el esfuerzo circunferencial y longitudinal cumpla ASME.",
+    "applicability_expression": "penstock_material in [STEEL_CARBON,STEEL_ALLOY]",
+    "input_field_ids": [
+      "HYD-070",
+      "HYD-073",
+      "HYD-074",
+      "HYD-075",
+      "HYD-077"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "sigma_h = P*D/(2*t)",
+      "sigma_l = P*D/(4*t)",
+      "VM = sqrt(sigma_h^2 - sigma_h*sigma_l + sigma_l^2)",
+      "VM <= S_allow"
+    ],
+    "equations_latex": [
+      "\\sigma_h = \\frac{P D}{2 t}",
+      "\\sigma_l = \\frac{P D}{4 t}",
+      "\\sigma_{VM} = \\sqrt{\\sigma_h^2 - \\sigma_h \\sigma_l + \\sigma_l^2}"
+    ],
+    "variables": [
+      {
+        "name": "hoop stress",
+        "symbol": "sigma_h",
+        "unit": "MPa"
+      },
+      {
+        "name": "longitudinal stress",
+        "symbol": "sigma_l",
+        "unit": "MPa"
+      },
+      {
+        "name": "von Mises",
+        "symbol": "VM",
+        "unit": "MPa"
+      },
+      {
+        "name": "wall thickness",
+        "symbol": "t",
+        "unit": "mm"
+      },
+      {
+        "name": "diameter",
+        "symbol": "D",
+        "unit": "mm"
+      },
+      {
+        "name": "pressure",
+        "symbol": "P",
+        "unit": "MPa"
+      }
+    ],
+    "unit_equations": [
+      "sigma_h [MPa] = P [MPa]*D [mm]/(2*t [mm])",
+      "sigma_l [MPa] = P [MPa]*D [mm]/(4*t [mm])"
+    ],
+    "numerical_method": "Analytical per ASME B31.1 hoop and longitudinal stress formulas.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "t>0",
+        "message": "wall thickness must be positive"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "von Mises stress",
+        "unit": "MPa"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "VM<=S_allow",
+        "message": "stress exceeds allowable"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "VM>S_allow",
+        "recovery": "increase t or reduce P"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-006"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-015",
+    "name_es": "Dimensionamiento de tanque de equilibrio (Allievi)",
+    "purpose": "Calcular el diametro minimo del tanque de equilibrio para evitar inestabilidad.",
+    "applicability_expression": "penstock_length_m>500",
+    "input_field_ids": [
+      "HYD-070",
+      "HYD-071",
+      "HYD-081",
+      "HYD-082",
+      "HYD-083",
+      "HYD-084",
+      "HYD-085",
+      "HYD-086",
+      "HYD-013",
+      "HYD-112"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Thoma critical area: A_Tc = L*A_p/(2*g*H_net*sigma)",
+      "sigma = V0^2/(2*g*H_net)",
+      "A_surge >= A_Tc * FS",
+      "Allievi p=2*L*V0/(a*Tc)"
+    ],
+    "equations_latex": [
+      "A_{Tc} = \\frac{L A_p}{2 g H_{net} \\sigma}",
+      "A_{surge} \\ge A_{Tc} \\cdot FS"
+    ],
+    "variables": [
+      {
+        "name": "penstock length",
+        "symbol": "L",
+        "unit": "m"
+      },
+      {
+        "name": "penstock area",
+        "symbol": "A_p",
+        "unit": "m2"
+      },
+      {
+        "name": "gravity",
+        "symbol": "g",
+        "unit": "m/s2"
+      },
+      {
+        "name": "net head",
+        "symbol": "H_net",
+        "unit": "m"
+      },
+      {
+        "name": "Thoma sigma",
+        "symbol": "sigma",
+        "unit": "-"
+      },
+      {
+        "name": "initial velocity",
+        "symbol": "V0",
+        "unit": "m/s"
+      },
+      {
+        "name": "wave speed",
+        "symbol": "a",
+        "unit": "m/s"
+      },
+      {
+        "name": "closure time",
+        "symbol": "Tc",
+        "unit": "s"
+      },
+      {
+        "name": "surge area",
+        "symbol": "A_surge",
+        "unit": "m2"
+      },
+      {
+        "name": "Allievi p",
+        "symbol": "p",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "A_surge [m2] >= A_Tc [m2] * FS [-]",
+      "A_Tc [m2] = L [m] * A_p [m2] / (2*g [m/s2] * H_net [m] * sigma [-])"
+    ],
+    "numerical_method": "Analytical Thoma criterion; verify with finite-difference Allievi ODE for up-surge and down-surge amplitudes.",
+    "iteration_limits": {
+      "max_iterations": 50,
+      "tolerance": 0.01,
+      "method": "Allievi_fd"
+    },
+    "validity_limits": [
+      {
+        "condition": "sigma>0",
+        "message": "sigma must be positive"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "surge tank area",
+        "unit": "m2"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "A_surge>=A_Tc",
+        "message": "surge area below Thoma critical"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "resonance",
+        "recovery": "redesign surge tank"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-006"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-016",
+    "name_es": "Golpe de ariete (Joukowsky)",
+    "purpose": "Calcular el sobrepress maximo por golpe de ariete con la ecuacion de Joukowsky.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-084",
+      "HYD-085",
+      "HYD-013",
+      "HYD-070",
+      "HYD-112",
+      "HYD-075"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "dP = rho * a * dV",
+      "dV = V0 - V_final",
+      "dH = a*dV/g"
+    ],
+    "equations_latex": [
+      "\\Delta P = \\rho a \\Delta V",
+      "\\Delta H = \\frac{a \\Delta V}{g}"
+    ],
+    "variables": [
+      {
+        "name": "density",
+        "symbol": "rho",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "wave speed",
+        "symbol": "a",
+        "unit": "m/s"
+      },
+      {
+        "name": "velocity change",
+        "symbol": "dV",
+        "unit": "m/s"
+      },
+      {
+        "name": "pressure rise",
+        "symbol": "dP",
+        "unit": "Pa"
+      },
+      {
+        "name": "head rise",
+        "symbol": "dH",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "dP [Pa] = rho [kg/m3] * a [m/s] * dV [m/s]",
+      "dH [m] = a [m/s] * dV [m/s] / g [m/s2]"
+    ],
+    "numerical_method": "Analytical Joukowsky for instant closure; Allievi equations for slow closure.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "a in [200,1500]",
+        "message": "wave speed out of range"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "pressure rise",
+        "unit": "Pa"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "dH<=2*H_net",
+        "message": "excessive waterhammer"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "slow closure",
+        "recovery": "use Allievi ODE"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-006"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-017",
+    "name_es": "Seleccion de tipo de turbina",
+    "purpose": "Seleccionar el tipo de turbina (Pelton/Francis/Kaplan/Turgo) segun salto y caudal.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-030",
+      "HYD-031",
+      "HYD-013",
+      "HYD-110",
+      "HYD-112"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "n_s = n*sqrt(Q)/H^(3/4) -> typology",
+      "H<50: Kaplan; H 50-800: Francis; H>800: Pelton"
+    ],
+    "equations_latex": [
+      "n_s = \\frac{n\\sqrt{Q}}{H^{3/4}}"
+    ],
+    "variables": [
+      {
+        "name": "speed",
+        "symbol": "n",
+        "unit": "rpm"
+      },
+      {
+        "name": "flow",
+        "symbol": "Q",
+        "unit": "m3/s"
+      },
+      {
+        "name": "head",
+        "symbol": "H",
+        "unit": "m"
+      },
+      {
+        "name": "specific speed",
+        "symbol": "n_s",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "n_s [-] = n [rpm] * sqrt(Q [m3/s]) / H [m]^(3/4)"
+    ],
+    "numerical_method": "Use chart of (head,flow) to choose turbine type. Pelton for H>400m and low Q, Francis mid-range, Kaplan for low H and high Q.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "H>0",
+        "message": "head must be positive"
+      },
+      {
+        "condition": "Q>0",
+        "message": "flow must be positive"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "turbine type",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "type in [PELTON,FRANCIS,KAPLAN,TURGO,PROPELLER,CROSSFLOW]",
+        "message": "invalid turbine type"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "ambiguous range",
+        "recovery": "select lower cost / rpm match"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-002",
+      "HYD-DRW-009"
+    ],
+    "source_ids": [
+      "IEC_60193",
+      "IEC_60041",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-018",
+    "name_es": "Potencia y velocidad sincronica de turbina",
+    "purpose": "Calcular la potencia mecanica al freno y velocidad sincronica de la turbina.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-030",
+      "HYD-031",
+      "HYD-112",
+      "HYD-113",
+      "HYD-114",
+      "HYD-118",
+      "HYD-119",
+      "HYD-116",
+      "HYD-117",
+      "HYD-123",
+      "HYD-124",
+      "HYD-133"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_mech = rho*g*Q*H_net*eta",
+      "n_sync = 120*f/p",
+      "Pelton: n = 1/D1 * sqrt(g*H/2)*60/(2*pi)"
+    ],
+    "equations_latex": [
+      "P_{mech} = \\rho g Q H_{net} \\eta",
+      "n_s = \\frac{n\\sqrt{Q}}{H^{3/4}}"
+    ],
+    "variables": [
+      {
+        "name": "density",
+        "symbol": "rho",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "gravity",
+        "symbol": "g",
+        "unit": "m/s2"
+      },
+      {
+        "name": "flow",
+        "symbol": "Q",
+        "unit": "m3/s"
+      },
+      {
+        "name": "net head",
+        "symbol": "H_net",
+        "unit": "m"
+      },
+      {
+        "name": "efficiency",
+        "symbol": "eta",
+        "unit": "-"
+      },
+      {
+        "name": "mechanical power",
+        "symbol": "P_mech",
+        "unit": "W"
+      },
+      {
+        "name": "frequency",
+        "symbol": "f",
+        "unit": "Hz"
+      },
+      {
+        "name": "pole pairs",
+        "symbol": "p",
+        "unit": "-"
+      },
+      {
+        "name": "synchronous speed",
+        "symbol": "n_sync",
+        "unit": "rpm"
+      }
+    ],
+    "unit_equations": [
+      "P_mech [W] = rho [kg/m3] * g [m/s2] * Q [m3/s] * H_net [m] * eta [-]",
+      "n_sync [rpm] = 120 * f [Hz] / p [-]"
+    ],
+    "numerical_method": "Closed-form analytical for power. Speed selected to nearest standard synchronous speed (poles pair).",
+    "iteration_limits": {
+      "max_iterations": 5,
+      "tolerance": 0.01,
+      "method": "closed_form_iterative_pole_selection"
+    },
+    "validity_limits": [
+      {
+        "condition": "eta in [0.5,0.98]",
+        "message": "efficiency out of range"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "mechanical power",
+        "unit": "W"
+      },
+      {
+        "name": "synchronous speed",
+        "unit": "rpm"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "P_mech>=0",
+        "message": "negative power"
+      },
+      {
+        "rule": "n_sync in standard values (50,75,100,150,200,250,300,400,500,600,750,1000,1500)",
+        "message": "non-standard speed"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "eta unknown",
+        "recovery": "assume 0.88 then refine"
+      },
+      {
+        "mode": "pole count invalid",
+        "recovery": "select from standard set"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-009",
+      "HYD-DRW-010"
+    ],
+    "source_ids": [
+      "IEC_60193",
+      "IEC_60041"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-019",
+    "name_es": "Curva Hill de eficiencia de turbina",
+    "purpose": "Calcular la eficiencia para distintas combinaciones (Q,H,n) usando la curva Hill del modelo IEC 60193.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-111",
+      "HYD-112",
+      "HYD-113",
+      "HYD-114",
+      "HYD-116",
+      "HYD-118",
+      "HYD-119"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "n11 = n*D/sqrt(H)",
+      "Q11 = Q/(D^2*sqrt(H))",
+      "P11 = P/(D^2*H^(3/2))",
+      "eta = f(n11,Q11)"
+    ],
+    "equations_latex": [
+      "n_{11} = \\frac{n D}{\\sqrt{H}}",
+      "Q_{11} = \\frac{Q}{D^2 \\sqrt H}",
+      "P_{11} = \\frac{P}{D^2 H^{3/2}}"
+    ],
+    "variables": [
+      {
+        "name": "unit speed",
+        "symbol": "n_11",
+        "unit": "-"
+      },
+      {
+        "name": "unit flow",
+        "symbol": "Q_11",
+        "unit": "-"
+      },
+      {
+        "name": "unit power",
+        "symbol": "P_11",
+        "unit": "-"
+      },
+      {
+        "name": "diameter",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "head",
+        "symbol": "H",
+        "unit": "m"
+      },
+      {
+        "name": "efficiency",
+        "symbol": "eta",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "n_11 [-] = n [rpm] * D [m] / sqrt(H [m])",
+      "Q_11 [-] = Q [m3/s] / (D [m]^2 * sqrt(H [m]))"
+    ],
+    "numerical_method": "Interpolate on model test Hill curve (per IEC 60193); apply scale effect (Moody): eta_p = 1-(1-eta_m)*(1-e)^(0.2).",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "2d_interpolation"
+    },
+    "validity_limits": [
+      {
+        "condition": "n_11 in valid Hill range",
+        "message": "unit speed out of range"
+      },
+      {
+        "condition": "Q_11 in valid Hill range",
+        "message": "unit flow out of range"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "efficiency",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "eta>=0.5",
+        "message": "efficiency too low"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "model curve missing",
+        "recovery": "assume generic curve from n_s"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-009"
+    ],
+    "source_ids": [
+      "IEC_60193",
+      "IEC_60041"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-020",
+    "name_es": "Sigma de Thoma (cavitacion)",
+    "purpose": "Calcular sigma de Thoma planta y verificar contra sigma de modelo.",
+    "applicability_expression": "turbine_type in [FRANCIS,KAPLAN,PROPELLER]",
+    "input_field_ids": [
+      "HYD-031",
+      "HYD-111",
+      "HYD-115",
+      "HYD-120",
+      "HYD-121",
+      "HYD-125",
+      "HYD-210",
+      "HYD-211",
+      "HYD-212",
+      "HYD-213",
+      "HYD-214",
+      "HYD-215"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "sigma_plant = (H_atm - H_vapor - H_s)/H",
+      "FS = sigma_plant/sigma_model",
+      "NPSH = H_atm - H_vapor - H_s"
+    ],
+    "equations_latex": [
+      "\\sigma_{plant} = \\frac{H_{atm} - H_{vapor} - H_s}{H}",
+      "FS = \\frac{\\sigma_{plant}}{\\sigma_{model}}"
+    ],
+    "variables": [
+      {
+        "name": "atmospheric head",
+        "symbol": "H_atm",
+        "unit": "m"
+      },
+      {
+        "name": "vapor head",
+        "symbol": "H_vapor",
+        "unit": "m"
+      },
+      {
+        "name": "setting height",
+        "symbol": "H_s",
+        "unit": "m"
+      },
+      {
+        "name": "net head",
+        "symbol": "H",
+        "unit": "m"
+      },
+      {
+        "name": "plant sigma",
+        "symbol": "sigma_plant",
+        "unit": "-"
+      },
+      {
+        "name": "model sigma",
+        "symbol": "sigma_model",
+        "unit": "-"
+      },
+      {
+        "name": "safety factor",
+        "symbol": "FS",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "sigma_plant [-] = (H_atm [m] - H_vapor [m] - H_s [m]) / H [m]",
+      "FS [-] = sigma_plant [-] / sigma_model [-]"
+    ],
+    "numerical_method": "Closed-form analytical; sigma_model from IEC 60193 model test report.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "FS>=1.0",
+        "message": "insufficient cavitation safety"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "plant sigma",
+        "unit": "-"
+      },
+      {
+        "name": "safety factor",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "FS>=1.0",
+        "message": "cavitation risk"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "low sigma",
+        "recovery": "lower runner setting"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-008",
+      "HYD-DRW-009"
+    ],
+    "source_ids": [
+      "IEC_60193",
+      "IEC_60041",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-021",
+    "name_es": "Potencia y dimensionamiento de generador",
+    "purpose": "Calcular potencia electrica nominal, eficiencia y verificacion termica.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-113",
+      "HYD-130",
+      "HYD-131",
+      "HYD-132",
+      "HYD-133",
+      "HYD-134",
+      "HYD-135",
+      "HYD-136",
+      "HYD-137",
+      "HYD-138",
+      "HYD-139",
+      "HYD-153",
+      "HYD-154",
+      "HYD-184"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_gen = P_mech * eta_gen",
+      "S_gen = P_gen / cos(phi)",
+      "I = S_gen/(sqrt(3)*V)"
+    ],
+    "equations_latex": [
+      "P_{gen} = P_{mech} \\eta_{gen}",
+      "S_{gen} = \\frac{P_{gen}}{\\cos\\varphi}",
+      "I = \\frac{S_{gen}}{\\sqrt3 V}"
+    ],
+    "variables": [
+      {
+        "name": "mechanical power",
+        "symbol": "P_mech",
+        "unit": "W"
+      },
+      {
+        "name": "generator efficiency",
+        "symbol": "eta_gen",
+        "unit": "-"
+      },
+      {
+        "name": "active power",
+        "symbol": "P_gen",
+        "unit": "W"
+      },
+      {
+        "name": "power factor",
+        "symbol": "cos_phi",
+        "unit": "-"
+      },
+      {
+        "name": "apparent power",
+        "symbol": "S_gen",
+        "unit": "VA"
+      },
+      {
+        "name": "current",
+        "symbol": "I",
+        "unit": "A"
+      },
+      {
+        "name": "voltage",
+        "symbol": "V",
+        "unit": "V"
+      }
+    ],
+    "unit_equations": [
+      "P_gen [W] = P_mech [W] * eta_gen [-]",
+      "S_gen [VA] = P_gen [W] / cos_phi [-]",
+      "I [A] = S_gen [VA] / (sqrt(3) * V [V])"
+    ],
+    "numerical_method": "Closed-form electrical; verify stator current <= rated, and armature thermal.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "cos_phi in [0.7,1]",
+        "message": "PF out of range"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "active power",
+        "unit": "W"
+      },
+      {
+        "name": "apparent power",
+        "unit": "VA"
+      },
+      {
+        "name": "current",
+        "unit": "A"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "I <= rated current",
+        "message": "overcurrent"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "PF too low",
+        "recovery": "use capacitor bank"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-010",
+      "HYD-DRW-011"
+    ],
+    "source_ids": [
+      "IEC_61366",
+      "IEC_60041",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-022",
+    "name_es": "Perdidas y eficiencia de transformador",
+    "purpose": "Calcular perdidas en vacio y en carga, y eficiencia del transformador principal.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-160",
+      "HYD-161",
+      "HYD-162",
+      "HYD-163",
+      "HYD-164",
+      "HYD-165",
+      "HYD-166",
+      "HYD-131",
+      "HYD-184"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_total = P0 + (S/S_r)^2 * Pk",
+      "eta = S*cos(phi)/(S*cos(phi)+P_total)"
+    ],
+    "equations_latex": [
+      "P_{total} = P_0 + \\left(\\frac{S}{S_r}\\right)^2 P_k",
+      "\\eta = \\frac{S \\cos\\varphi}{S\\cos\\varphi + P_{total}}"
+    ],
+    "variables": [
+      {
+        "name": "no load loss",
+        "symbol": "P0",
+        "unit": "W"
+      },
+      {
+        "name": "load loss",
+        "symbol": "Pk",
+        "unit": "W"
+      },
+      {
+        "name": "loading",
+        "symbol": "S",
+        "unit": "VA"
+      },
+      {
+        "name": "rated power",
+        "symbol": "S_r",
+        "unit": "VA"
+      },
+      {
+        "name": "total loss",
+        "symbol": "P_total",
+        "unit": "W"
+      },
+      {
+        "name": "efficiency",
+        "symbol": "eta",
+        "unit": "-"
+      },
+      {
+        "name": "power factor",
+        "symbol": "cos_phi",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "P_total [W] = P0 [W] + (S [VA]/S_r [VA])^2 * Pk [W]",
+      "eta [-] = S [VA]*cos_phi [-] / (S [VA]*cos_phi [-] + P_total [W])"
+    ],
+    "numerical_method": "Closed-form; loading based on generation vs auxiliary load.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "Pk>0",
+        "message": "load loss must be positive"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "efficiency",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "eta>=0.95",
+        "message": "efficiency below 95%"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "overload",
+        "recovery": "specify larger transformer"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-011"
+    ],
+    "source_ids": [
+      "IEC_61366",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-023",
+    "name_es": "Perdida en rejilla y separacion",
+    "purpose": "Calcular la perdida en la rejilla y verificar separacion libre.",
+    "applicability_expression": "turbine_type==PELTON OR turbine_type==TURGO",
+    "input_field_ids": [
+      "HYD-052",
+      "HYD-053",
+      "HYD-054",
+      "HYD-055",
+      "HYD-013",
+      "HYD-112"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "h_r = K_t*(V_a^2)/(2g)",
+      "K_t = beta*(t/b)^1.33",
+      "V_a = approach velocity"
+    ],
+    "equations_latex": [
+      "h_r = K_t \\frac{V_a^2}{2g}",
+      "K_t = \\beta \\left(\\frac{t}{b}\\right)^{1.33}"
+    ],
+    "variables": [
+      {
+        "name": "rack loss",
+        "symbol": "h_r",
+        "unit": "m"
+      },
+      {
+        "name": "loss coefficient",
+        "symbol": "K_t",
+        "unit": "-"
+      },
+      {
+        "name": "approach velocity",
+        "symbol": "V_a",
+        "unit": "m/s"
+      },
+      {
+        "name": "gravity",
+        "symbol": "g",
+        "unit": "m/s2"
+      },
+      {
+        "name": "bar thickness",
+        "symbol": "t",
+        "unit": "mm"
+      },
+      {
+        "name": "clear spacing",
+        "symbol": "b",
+        "unit": "mm"
+      },
+      {
+        "name": "angle factor",
+        "symbol": "beta",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "h_r [m] = K_t [-] * V_a [m/s]^2 / (2*g [m/s2])",
+      "K_t [-] = beta [-] * (t [mm]/b [mm])^1.33"
+    ],
+    "numerical_method": "Closed-form analytical per Kirschmer.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "b>=t",
+        "message": "spacing must exceed bar thickness"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "rack loss",
+        "unit": "m"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "h_r<=0.15",
+        "message": "excessive trash rack loss"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "clogged rack",
+        "recovery": "apply safety factor 2"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-003"
+    ],
+    "source_ids": [
+      "IEC_60193",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-024",
+    "name_es": "Capacidad de aliviadero y cuenco amortiguador",
+    "purpose": "Calcular el caudal descargable por el vertedero Ogee y dimensionar el cuenco.",
+    "applicability_expression": "spillway_type != NONE",
+    "input_field_ids": [
+      "HYD-250",
+      "HYD-251",
+      "HYD-252",
+      "HYD-253",
+      "HYD-254",
+      "HYD-255",
+      "HYD-018",
+      "HYD-019",
+      "HYD-020"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q = C_d * L * H_d^(3/2)",
+      "C_d = 2.2 to 2.5 (USBR)",
+      "L = effective crest length",
+      "H_d = design head"
+    ],
+    "equations_latex": [
+      "Q = C_d L H_d^{3/2}"
+    ],
+    "variables": [
+      {
+        "name": "discharge coefficient",
+        "symbol": "C_d",
+        "unit": "-"
+      },
+      {
+        "name": "crest length",
+        "symbol": "L",
+        "unit": "m"
+      },
+      {
+        "name": "design head",
+        "symbol": "H_d",
+        "unit": "m"
+      },
+      {
+        "name": "spillway discharge",
+        "symbol": "Q",
+        "unit": "m3/s"
+      }
+    ],
+    "unit_equations": [
+      "Q [m3/s] = C_d [-] * L [m] * H_d [m]^(3/2)"
+    ],
+    "numerical_method": "Closed-form weir equation; for basins USBR Type III/IV.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "C_d in [2.0,2.6]",
+        "message": "Cd out of typical range"
+      },
+      {
+        "condition": "Q>=Q_design",
+        "message": "spillway capacity below design flood"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "spillway discharge",
+        "unit": "m3/s"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "Q_spillway>=Q_design_flood",
+        "message": "insufficient spillway capacity"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "submergence",
+        "recovery": "apply submergence correction"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_60",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-025",
+    "name_es": "Disipacion de energia y subpresion en cimientos",
+    "purpose": "Calcular long. del cuenco amortiguador y subpresion bajo cimiento de casa de maquinas.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-013",
+      "HYD-031",
+      "HYD-095",
+      "HYD-098",
+      "HYD-220",
+      "HYD-221",
+      "HYD-222",
+      "HYD-227",
+      "HYD-228",
+      "HYD-254",
+      "HYD-255"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "L_basin = 4.5 to 6*y2 (USBR III)",
+      "E1 = y1 + V1^2/(2g)",
+      "E2 = y2 + V2^2/(2g)",
+      "dE = E1 - E2",
+      "U_subpressure = rho*g*H_uplift"
+    ],
+    "equations_latex": [
+      "L_b = (4.5\\ldots6) y_2",
+      "E_1 = y_1 + \\frac{V_1^2}{2g}",
+      "E_2 = y_2 + \\frac{V_2^2}{2g}",
+      "\\Delta E = E_1 - E_2",
+      "U = \\rho g H_u"
+    ],
+    "variables": [
+      {
+        "name": "basin length",
+        "symbol": "L_b",
+        "unit": "m"
+      },
+      {
+        "name": "downstream depth",
+        "symbol": "y2",
+        "unit": "m"
+      },
+      {
+        "name": "upstream depth",
+        "symbol": "y1",
+        "unit": "m"
+      },
+      {
+        "name": "velocity",
+        "symbol": "V",
+        "unit": "m/s"
+      },
+      {
+        "name": "energy",
+        "symbol": "E",
+        "unit": "m"
+      },
+      {
+        "name": "energy dissipated",
+        "symbol": "dE",
+        "unit": "m"
+      },
+      {
+        "name": "subpressure",
+        "symbol": "U",
+        "unit": "Pa"
+      },
+      {
+        "name": "uplift head",
+        "symbol": "H_u",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "L_b [m] = 4.5 * y2 [m] (USBR III typical)",
+      "U [Pa] = rho [kg/m3] * g [m/s2] * H_u [m]"
+    ],
+    "numerical_method": "Closed-form USBR; sub-pressure relief via drains (ICOLD Bull 120).",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "L_b>=y2*4",
+        "message": "basin too short"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "basin length",
+        "unit": "m"
+      },
+      {
+        "name": "subpressure",
+        "unit": "Pa"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "U_subpressure < bearing_capacity",
+        "message": "uplift exceeds bearing capacity"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "underdrains absent",
+        "recovery": "add relief drains"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-008",
+      "HYD-DRW-014"
+    ],
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "ISO_14685"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-026",
+    "name_es": "Capacidad de cimiento y estabilidad sismica",
+    "purpose": "Verificar capacidad admisible y estabilidad global de la casa de maquinas.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-090",
+      "HYD-091",
+      "HYD-092",
+      "HYD-093",
+      "HYD-094",
+      "HYD-095",
+      "HYD-096",
+      "HYD-097",
+      "HYD-098",
+      "HYD-099",
+      "HYD-100",
+      "HYD-180",
+      "HYD-181",
+      "HYD-182",
+      "HYD-183",
+      "HYD-220",
+      "HYD-221",
+      "HYD-222",
+      "HYD-226",
+      "HYD-227",
+      "HYD-228",
+      "HYD-229",
+      "HYD-230",
+      "HYD-240",
+      "HYD-241",
+      "HYD-242",
+      "HYD-243",
+      "HYD-244",
+      "HYD-245",
+      "HYD-256",
+      "HYD-257",
+      "HYD-198",
+      "HYD-199",
+      "HYD-167",
+      "HYD-260",
+      "HYD-261",
+      "HYD-262",
+      "HYD-263"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "q_allow = qa * (1+Df/B)*Nq + 0.5*gamma*Df*N_gamma (Terzaghi/Meyerhof)",
+      "FS_overturning = M_resist/M_drive",
+      "FS_sliding = (W*mu)/H_drive",
+      "FS_bearing = q_allow/q_applied",
+      "seismic: V = Cs*W (NTE-060)"
+    ],
+    "equations_latex": [
+      "q_{allow} = q_a\\left(1+\\frac{D_f}{B}\\right)N_q + \\frac12 \\gamma D_f N_\\gamma",
+      "FS_{ot} = \\frac{M_R}{M_D}",
+      "FS_{sl} = \\frac{W\\mu}{H_D}",
+      "FS_{b} = \\frac{q_{allow}}{q_{applied}}"
+    ],
+    "variables": [
+      {
+        "name": "allowable bearing",
+        "symbol": "q_allow",
+        "unit": "kPa"
+      },
+      {
+        "name": "net bearing pressure",
+        "symbol": "q_a",
+        "unit": "kPa"
+      },
+      {
+        "name": "foundation depth",
+        "symbol": "D_f",
+        "unit": "m"
+      },
+      {
+        "name": "foundation width",
+        "symbol": "B",
+        "unit": "m"
+      },
+      {
+        "name": "bearing factors",
+        "symbol": "N_q",
+        "unit": "-"
+      },
+      {
+        "name": "gamma factor",
+        "symbol": "N_gamma",
+        "unit": "-"
+      },
+      {
+        "name": "soil unit weight",
+        "symbol": "gamma",
+        "unit": "kN/m3"
+      },
+      {
+        "name": "resisting moment",
+        "symbol": "M_R",
+        "unit": "kN*m"
+      },
+      {
+        "name": "driving moment",
+        "symbol": "M_D",
+        "unit": "kN*m"
+      },
+      {
+        "name": "weight",
+        "symbol": "W",
+        "unit": "kN"
+      },
+      {
+        "name": "friction coefficient",
+        "symbol": "mu",
+        "unit": "-"
+      },
+      {
+        "name": "horizontal driving",
+        "symbol": "H_D",
+        "unit": "kN"
+      },
+      {
+        "name": "seismic coefficient",
+        "symbol": "Cs",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "FS_b [-] = q_allow [kPa] / q_applied [kPa]",
+      "FS_ot [-] = M_R [kN*m] / M_D [kN*m]",
+      "FS_sl [-] = (W [kN] * mu [-]) / H_D [kN]"
+    ],
+    "numerical_method": "Closed-form Meyerhof bearing + NTE-060 seismic stability with PGA and importance factor.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "FS_bearing>=3",
+        "message": "bearing FS insufficient"
+      },
+      {
+        "condition": "FS_overturning>=1.5",
+        "message": "overturning FS insufficient"
+      },
+      {
+        "condition": "FS_sliding>=1.3",
+        "message": "sliding FS insufficient"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "FS bearing",
+        "unit": "-"
+      },
+      {
+        "name": "FS overturning",
+        "unit": "-"
+      },
+      {
+        "name": "FS sliding",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "FS_bearing>=3",
+        "message": "FS bearing too low"
+      },
+      {
+        "rule": "FS_sliding>=1.5",
+        "message": "FS sliding too low"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "uplift exceeds",
+        "recovery": "add anchors"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-008"
+    ],
+    "source_ids": [
+      "ISO_14685",
+      "RNE_DS_011_2006",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-027",
+    "name_es": "Proteccion contra rayos (LPL) y pararrayos",
+    "purpose": "Calcular nivel de proteccion LPL y dimensionar pararrayos segun IEC 62305.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "HYD-197",
+      "HYD-200",
+      "HYD-198",
+      "HYD-199",
+      "HYD-002",
+      "HYD-003",
+      "HYD-040",
+      "HYD-092"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Nd = Ng*(C1+Ae*C2)*C3* ",
+      "LPL selected by risk assessment",
+      "rolling sphere radius r = LPS_class (30m for LPL I)"
+    ],
+    "equations_latex": [
+      "N_d = N_g C_1 A_e C_2 \\cdots",
+      "r = R_{LPS}"
+    ],
+    "variables": [
+      {
+        "name": "lightning ground flash density",
+        "symbol": "Ng",
+        "unit": "1/(km2*year)"
+      },
+      {
+        "name": "equivalent collection area",
+        "symbol": "Ae",
+        "unit": "m2"
+      },
+      {
+        "name": "number of dangerous events",
+        "symbol": "Nd",
+        "unit": "1/year"
+      },
+      {
+        "name": "rolling sphere radius",
+        "symbol": "r",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "Nd [1/year] = Ng [1/(km2*year)] * C1 [-] * Ae [m2]/1e6 [km2/m2] * C2 [-] * C3 [-]"
+    ],
+    "numerical_method": "Closed-form risk assessment per IEC 62305-2; rolling sphere method to position air terminals.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "LPL in [I,II,III,IV]",
+        "message": "invalid LPL"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "LPL",
+        "unit": "-"
+      },
+      {
+        "name": "rolling sphere radius",
+        "unit": "m"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "R_actual<=R_tolerable",
+        "message": "risk exceeds tolerable"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "excessive risk",
+        "recovery": "upgrade LPL or add mast"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-016"
+    ],
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023"
+    ]
+  },
+  {
+    "calculation_id": "HYD-C-028",
+    "name_es": "Caida de tension en linea de transmision y malla de tierra",
+    "purpose": "Calcular la caida de tension y verificar malla de tierra IEEE 80.",
+    "applicability_expression": "transmission_line_length_km>0",
+    "input_field_ids": [
+      "HYD-168",
+      "HYD-169",
+      "HYD-170",
+      "HYD-194",
+      "HYD-196",
+      "HYD-197",
+      "HYD-198",
+      "HYD-199",
+      "HYD-131",
+      "HYD-132",
+      "HYD-184"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "dV = sqrt(3)*I*L*(R*cos(phi)+X*sin(phi))",
+      "Rg = rho*sqrt(pi/A)+rho/(2*Lc)*(1-ln(d/Lc))"
+    ],
+    "equations_latex": [
+      "\\Delta V = \\sqrt3 I L (R\\cos\\varphi + X\\sin\\varphi)",
+      "R_g = \\rho\\sqrt{\\pi/A} + \\frac{\\rho}{2L_c}(1 - \\ln(d/L_c))"
+    ],
+    "variables": [
+      {
+        "name": "voltage drop",
+        "symbol": "dV",
+        "unit": "V"
+      },
+      {
+        "name": "current",
+        "symbol": "I",
+        "unit": "A"
+      },
+      {
+        "name": "length",
+        "symbol": "L",
+        "unit": "m"
+      },
+      {
+        "name": "resistance",
+        "symbol": "R",
+        "unit": "ohm/km"
+      },
+      {
+        "name": "reactance",
+        "symbol": "X",
+        "unit": "ohm/km"
+      },
+      {
+        "name": "power factor",
+        "symbol": "cos_phi",
+        "unit": "-"
+      },
+      {
+        "name": "ground resistance",
+        "symbol": "Rg",
+        "unit": "ohm"
+      },
+      {
+        "name": "resistivity",
+        "symbol": "rho",
+        "unit": "ohm*m"
+      },
+      {
+        "name": "grid area",
+        "symbol": "A",
+        "unit": "m2"
+      },
+      {
+        "name": "total buried length",
+        "symbol": "Lc",
+        "unit": "m"
+      },
+      {
+        "name": "grid conductor spacing",
+        "symbol": "d",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "dV [V] = sqrt(3) * I [A] * L [m] * (R [ohm/km]/1000 * cos_phi [-] + X [ohm/km]/1000 * sin(phi) [-])",
+      "Rg [ohm] = rho [ohm*m] * sqrt(pi/A [m2]) + rho [ohm*m] / (2*Lc [m]) * (1 - ln(d [m]/Lc [m]))"
+    ],
+    "numerical_method": "Closed-form per IEEE 80 Sverak formula and voltage drop equation.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "dV<=0.03*V_rated",
+        "message": "voltage drop exceeds 3%"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "voltage drop",
+        "unit": "V"
+      },
+      {
+        "name": "ground resistance",
+        "unit": "ohm"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "Rg<=5 ohm",
+        "message": "ground resistance exceeds 5 ohm"
+      },
+      {
+        "rule": "dV/V<=0.03",
+        "message": "excessive voltage drop"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "high soil resistivity",
+        "recovery": "add rods/chemical treatment"
+      }
+    ],
+    "drawing_impacts": [
+      "HYD-DRW-011",
+      "HYD-DRW-016"
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_835",
+      "IEEE_C2_2023",
+      "CNE_2011"
+    ]
+  }
+]

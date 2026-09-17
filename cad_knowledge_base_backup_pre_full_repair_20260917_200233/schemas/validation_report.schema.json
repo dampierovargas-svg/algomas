@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/validation_report.schema.json",
+  "title": "Informe de validación",
+  "description": "Resultado estructurado de validación de base de conocimiento",
+  "type": "object",
+  "required": [
+    "validation_timestamp",
+    "base_directory",
+    "structural_validation",
+    "semantic_validation",
+    "formula_validation",
+    "geometry_validation",
+    "render_validation",
+    "normative_validation",
+    "mutation_validation",
+    "independent_audit_match",
+    "integration_recommendation",
+    "official_issue_recommendation"
+  ],
+  "properties": {
+    "validation_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "base_directory": {
+      "type": "string"
+    },
+    "structural_validation": {
+      "type": "object",
+      "required": ["status", "errors"],
+      "properties": {
+        "status": {"type": "string", "enum": ["PASS", "FAIL"]},
+        "read_errors": {"type": "integer"},
+        "schema_errors": {"type": "integer"},
+        "duplicate_ids": {"type": "integer"},
+        "broken_references": {"type": "integer"},
+        "unresolved_drawings": {"type": "integer"},
+        "utf8_failures": {"type": "integer"},
+        "errors": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "semantic_validation": {
+      "type": "object",
+      "required": ["status", "errors"],
+      "properties": {
+        "status": {"type": "string", "enum": ["PASS", "FAIL"]},
+        "generic_formulas": {"type": "integer"},
+        "irrelevant_inputs": {"type": "integer"},
+        "variables_without_origin": {"type": "integer"},
+        "unit_mismatches": {"type": "integer"},
+        "duplicate_equations_unjustified": {"type": "integer"},
+        "generic_geometries": {"type": "integer"},
+        "duplicate_pseudocode": {"type": "integer"},
+        "constant_qa": {"type": "integer"},
+        "generic_qa_messages": {"type": "integer"},
+        "fictional_qa_evidence": {"type": "integer"},
+        "errors": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "formula_validation": {
+      "type": "object",
+      "required": ["status", "tested_count", "passed_count"],
+      "properties": {
+        "status": {"type": "string", "enum": ["PASS", "FAIL"]},
+        "tested_count": {"type": "integer"},
+        "passed_count": {"type": "integer"},
+        "failed_count": {"type": "integer"},
+        "errors": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "geometry_validation": {
+      "type": "object",
+      "required": ["status", "tested_count", "passed_count"],
+      "properties": {
+        "status": {"type": "string", "enum": ["PASS", "FAIL"]},
+        "tested_count": {"type": "integer"},
+        "passed_count": {"type": "integer"},
+        "failed_count": {"type": "integer"},
+        "errors": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "render_validation": {
+      "type": "object",
+      "required": ["status", "atlas_generated"],
+      "properties": {
+        "status": {"type": "string", "enum": ["PASS", "FAIL"]},
+        "atlas_generated": {"type": "boolean"},
+        "generic_symbols": {"type": "integer"},
+        "wrong_disciplines": {"type": "integer"},
+        "generic_ports": {"type": "integer"},
+        "unjustified_graphic_duplicates": {"type": "integer"},
+        "elements_outside_cell": {"type": "integer"},
+        "clipped_texts": {"type": "integer"},
+        "errors": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "normative_validation": {
+      "type": "object",
+      "required": ["status", "verified_primary_sources", "blocked_sources"],
+      "properties": {
+        "status": {"type": "string", "enum": ["PASS", "PARTIAL", "FAIL"]},
+        "verified_primary_sources": {"type": "integer"},
+        "blocked_sources": {"type": "integer"},
+        "sources_requiring_review": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "mutation_validation": {
+      "type": "object",
+      "required": ["status", "detected_count", "total_mutations"],
+      "properties": {
+        "status": {"type": "string", "enum": ["PASS", "FAIL"]},
+        "detected_count": {"type": "integer"},
+        "total_mutations": {"type": "integer"},
+        "missed_mutations": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "independent_audit_match": {
+      "type": "boolean"
+    },
+    "integration_recommendation": {
+      "type": "string",
+      "enum": ["READY", "NOT_READY"]
+    },
+    "official_issue_recommendation": {
+      "type": "string",
+      "enum": ["READY", "CONDITIONAL", "BLOCKED"]
+    },
+    "error_summary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code", "message", "severity", "location"],
+        "properties": {
+          "code": {"type": "string"},
+          "message": {"type": "string"},
+          "severity": {"type": "string", "enum": ["info", "warning", "error", "critical"]},
+          "location": {"type": "string"}
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

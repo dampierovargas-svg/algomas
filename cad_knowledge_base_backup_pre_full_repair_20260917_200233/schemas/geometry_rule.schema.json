@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/geometry_rule.schema.json",
+  "title": "Regla geométrica determinista",
+  "description": "Algoritmo específico para generar entidades CAD con coordenadas deterministas",
+  "type": "object",
+  "required": [
+    "geometry_rule_id",
+    "name_es",
+    "purpose",
+    "domain_tags",
+    "applicability_expression",
+    "input_field_ids",
+    "calculation_ids",
+    "coordinate_system",
+    "origin",
+    "orientation",
+    "units",
+    "algorithm_pseudocode",
+    "entities_produced",
+    "target_layers",
+    "symbols_used",
+    "clearances",
+    "tolerances",
+    "failure_conditions",
+    "source_ids"
+  ],
+  "properties": {
+    "geometry_rule_id": {
+      "type": "string",
+      "pattern": "^GEO-[A-Z]{3,6}-\\d{4}$"
+    },
+    "name_es": {
+      "type": "string",
+      "minLength": 10
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Propósito geométrico específico"
+    },
+    "domain_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["pv", "wind", "hydro", "biomass", "biogas", "geothermal", "csp", "marine", "bess", "hydrogen", "hybrid", "electrical", "civil", "structural", "mechanical", "hydraulic", "process"]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "applicability_expression": {
+      "type": "string",
+      "minLength": 5
+    },
+    "input_field_ids": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "calculation_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "coordinate_system": {
+      "type": "string",
+      "enum": ["cartesian_2d", "cartesian_3d", "cylindrical", "spherical", "utm", "lat_lon"]
+    },
+    "origin": {
+      "type": "object",
+      "required": ["x", "y"],
+      "properties": {
+        "x": {"type": "number"},
+        "y": {"type": "number"},
+        "z": {"type": "number"},
+        "reference": {"type": "string"}
+      }
+    },
+    "orientation": {
+      "type": "object",
+      "properties": {
+        "north_angle_deg": {"type": "number"},
+        "rotation_deg": {"type": "number"},
+        "reference": {"type": "string"}
+      }
+    },
+    "units": {
+      "type": "string",
+      "enum": ["m", "mm", "cm", "km", "ft", "in"]
+    },
+    "algorithm_pseudocode": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 10,
+        "not": {
+          "enum": [
+            "deterministic_layout_placement",
+            "tech_specific_layout_algorithm",
+            "generic_layout",
+            "place_entities",
+            "calculate_positions",
+            "draw_elements",
+            "COMPUTE positions based on field values and design rules OUTPUT generated entities"
+          ]
+        }
+      },
+      "minItems": 5,
+      "description": "Pasos reproducibles del algoritmo geométrico"
+    },
+    "entities_produced": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["entity_type", "layer_id", "parameters"],
+        "properties": {
+          "entity_type": {
+            "type": "string",
+            "enum": ["line", "polyline", "polygon", "circle", "arc", "text", "block_reference", "point", "hatch", "dimension"]
+          },
+          "layer_id": {"type": "string"},
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "vertices": {"type": "array", "items": {"type": "array", "minItems": 2, "maxItems": 3}},
+              "center": {"type": "array", "minItems": 2, "maxItems": 3},
+              "radius": {"type": "number"},
+              "start_angle": {"type": "number"},
+              "end_angle": {"type": "number"},
+              "text_content": {"type": "string"},
+              "block_name": {"type": "string"},
+              "scale_x": {"type": "number"},
+              "scale_y": {"type": "number"},
+              "rotation": {"type": "number"}
+            }
+          },
+          "count": {"type": "integer", "minimum": 1}
+        }
+      },
+      "minItems": 1
+    },
+    "target_layers": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "symbols_used": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "clearances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from_entity", "to_entity", "distance", "unit", "condition"],
+        "properties": {
+          "from_entity": {"type": "string"},
+          "to_entity": {"type": "string"},
+          "distance": {"type": "number", "minimum": 0},
+          "unit": {"type": "string"},
+          "condition": {"type": "string"},
+          "source_id": {"type": "string"}
+        }
+      }
+    },
+    "collisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["entity_pair", "resolution"],
+        "properties": {
+          "entity_pair": {"type": "array", "items": {"type": "string"}, "minItems": 2},
+          "resolution": {"type": "string"}
+        }
+      }
+    },
+    "routing_costs": {
+      "type": "object",
+      "properties": {
+        "length_weight": {"type": "number"},
+        "bend_penalty": {"type": "number"},
+        "clearance_violation_penalty": {"type": "number"}
+      }
+    },
+    "tolerances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["parameter", "tolerance_value", "unit"],
+        "properties": {
+          "parameter": {"type": "string"},
+          "tolerance_value": {"type": "number"},
+          "unit": {"type": "string"},
+          "justification": {"type": "string"}
+        }
+      }
+    },
+    "failure_conditions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["condition", "message", "severity"],
+        "properties": {
+          "condition": {"type": "string"},
+          "message": {"type": "string"},
+          "severity": {"type": "string", "enum": ["warning", "error", "critical"]}
+        }
+      },
+      "minItems": 1
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}

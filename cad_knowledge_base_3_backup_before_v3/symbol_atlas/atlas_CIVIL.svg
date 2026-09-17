@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="1490" viewBox="0 0 320 1490">
+  <rect width="320" height="1490" fill="white"/>
+  <text x="160" y="20" font-size="14" text-anchor="middle" font-weight="bold">Atlas: CIVIL (117 símbolos)</text>
+  <rect x="10" y="40" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="35" y1="45" x2="35" y2="75" stroke="black" stroke-width="2.0"/>
+  
+  <text x="40" y="97" font-size="6" text-anchor="middle">SYM-PV-007</text>
+  <rect x="70" y="40" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="85" y1="47" x2="115" y2="47" stroke="black" stroke-width="1.0"/>
+  <line x1="89" y1="47" x2="99" y2="59" stroke="black" stroke-width="1.0"/>
+  <line x1="111" y1="47" x2="101" y2="59" stroke="black" stroke-width="1.0"/>
+  <line x1="97" y1="59" x2="103" y2="59" stroke="black" stroke-width="1.0"/>
+  <text x="100" y="97" font-size="6" text-anchor="middle">SYM-PV-008</text>
+  <rect x="130" y="40" width="60" height="60" fill="none" stroke="#ccc"/>
+  <circle cx="160.0" cy="60.0" r="14" fill="none" stroke="black" stroke-width="1.0"/>
+  <line x1="149" y1="60.0" x2="171" y2="60.0" stroke="black" stroke-width="1.0"/>
+  <text x="160" y="97" font-size="6" text-anchor="middle">SYM-PV-009</text>
+  <rect x="190" y="40" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="205" y1="55" x2="245" y2="55" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="97" font-size="6" text-anchor="middle">SYM-PV-010</text>
+  <rect x="250" y="40" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="269.0,55.0 311.0,55.0 305.0,75.0 275.0,75.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <text x="280" y="97" font-size="6" text-anchor="middle">SYM-WIND-002</text>
+  <rect x="10" y="100" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="29.0,115.0 71.0,115.0 61.0,155.0 39.0,155.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <text x="40" y="157" font-size="6" text-anchor="middle">SYM-WIND-003</text>
+  <rect x="70" y="100" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="101" y1="105" x2="101" y2="175" stroke="black" stroke-width="2.8"/>
+  <line x1="109" y1="105" x2="109" y2="175" stroke="black" stroke-width="2.8"/>
+  <line x1="95" y1="175" x2="115" y2="175" stroke="black" stroke-width="1.0"/>
+  
+  <text x="100" y="157" font-size="6" text-anchor="middle">SYM-WIND-004</text>
+  <rect x="130" y="100" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="155" y1="105" x2="145" y2="175" stroke="black" stroke-width="2.0"/>
+  <line x1="195" y1="105" x2="205" y2="175" stroke="black" stroke-width="2.0"/>
+  <line x1="155" y1="135" x2="195" y2="135" stroke="black" stroke-width="1.0"/>
+  <line x1="155" y1="105" x2="195" y2="135" stroke="black" stroke-width="1.0"/>
+  <line x1="195" y1="105" x2="155" y2="135" stroke="black" stroke-width="1.0"/>
+  <text x="160" y="157" font-size="6" text-anchor="middle">SYM-WIND-005</text>
+  <rect x="190" y="100" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="215" y="125" width="60" height="20" fill="none" stroke="black" stroke-width="1.0"/>
+  <polygon points="215.0,125.0 205.0,165.0 225.0,165.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <polygon points="275.0,125.0 285.0,165.0 265.0,165.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="157" font-size="6" text-anchor="middle">SYM-WIND-006</text>
+  <rect x="250" y="100" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="265.0,109.0 281.0,109.0 289.0,121.0 265.0,121.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="280" y="157" font-size="6" text-anchor="middle">SYM-WIND-009</text>
+  <rect x="10" y="160" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="31" y1="175" x2="31" y2="201" stroke="black" stroke-width="2.0"/>
+  <line x1="49" y1="175" x2="49" y2="201" stroke="black" stroke-width="2.0"/>
+  <line x1="31" y1="175" x2="49" y2="175" stroke="black" stroke-width="1.0"/>
+  <text x="40" y="217" font-size="6" text-anchor="middle">SYM-WIND-010</text>
+  <rect x="70" y="160" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="85.0,175.0 125.0,175.0 155.0,201.0 165.0,201.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <text x="100" y="217" font-size="6" text-anchor="middle">SYM-HYD-010</text>
+  <rect x="130" y="160" width="60" height="60" fill="none" stroke="#ccc"/>
+  <circle cx="150.0" cy="170.0" r="1.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <line x1="149" y1="169" x2="151" y2="171" stroke="black" stroke-width="1.0"/>
+  <text x="160" y="217" font-size="6" text-anchor="middle">SYM-CIV-001</text>
+  <rect x="190" y="160" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="205" y1="175" x2="245" y2="175" stroke="black" stroke-width="2.0"/>
+  <line x1="205" y1="181" x2="245" y2="181" stroke="black" stroke-width="0.72"/>
+  <text x="220" y="217" font-size="6" text-anchor="middle">SYM-CIV-002</text>
+  <rect x="250" y="160" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="269.0,171.0 291.0,171.0 291.0,179.0 269.0,179.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="280" y="217" font-size="6" text-anchor="middle">SYM-CIV-003</text>
+  <rect x="10" y="220" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="25.0,239.0 41.0,239.0 45.0,231.0 49.0,239.0 65.0,239.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="40" y="277" font-size="6" text-anchor="middle">SYM-CIV-004</text>
+  <rect x="70" y="220" width="60" height="60" fill="none" stroke="#ccc"/>
+  <circle cx="100.0" cy="240.0" r="12" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="100" y="277" font-size="6" text-anchor="middle">SYM-CIV-005</text>
+  <rect x="130" y="220" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="145.0,229.0 205.0,229.0 195.0,249.0 155.0,249.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <text x="160" y="277" font-size="6" text-anchor="middle">SYM-CIV-006</text>
+  <rect x="190" y="220" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="205" y1="231" x2="265" y2="231" stroke="black" stroke-width="1.0"/>
+  <line x1="205" y1="249" x2="265" y2="249" stroke="black" stroke-width="1.0"/>
+  <line x1="215" y1="231" x2="215" y2="249" stroke="black" stroke-width="1.0"/>
+  <line x1="235" y1="231" x2="235" y2="249" stroke="black" stroke-width="1.0"/>
+  <line x1="255" y1="231" x2="255" y2="249" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="277" font-size="6" text-anchor="middle">SYM-CIV-007</text>
+  <rect x="250" y="220" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="265.0,241.0 345.0,241.0 335.0,249.0 275.0,249.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <line x1="305" y1="241" x2="305" y2="249" stroke="black" stroke-width="1.0"/>
+  <text x="280" y="277" font-size="6" text-anchor="middle">SYM-CIV-008</text>
+  <rect x="10" y="280" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="25.0,289.0 85.0,289.0 85.0,309.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <line x1="25" y1="289" x2="85" y2="309" stroke="black" stroke-width="1.0"/>
+  <text x="40" y="337" font-size="6" text-anchor="middle">SYM-CIV-009</text>
+  <rect x="70" y="280" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="85.0,289.0 145.0,289.0 85.0,309.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <line x1="145" y1="289" x2="85" y2="309" stroke="black" stroke-width="1.0"/>
+  <text x="100" y="337" font-size="6" text-anchor="middle">SYM-CIV-010</text>
+  <rect x="130" y="280" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="149.0,295.0 201.0,295.0 195.0,315.0 155.0,315.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <line x1="165" y1="295" x2="165" y2="315" stroke="black" stroke-width="1.0"/>
+  <line x1="185" y1="295" x2="185" y2="315" stroke="black" stroke-width="1.0"/>
+  <text x="160" y="337" font-size="6" text-anchor="middle">SYM-MAR-001</text>
+  <rect x="190" y="280" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="209.0,295.0 281.0,295.0 271.0,305.0 219.0,305.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="337" font-size="6" text-anchor="middle">SYM-MAR-002</text>
+  <rect x="250" y="280" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="265" y1="295" x2="345" y2="295" stroke="black" stroke-width="2.8"/>
+  <text x="280" y="337" font-size="6" text-anchor="middle">SYM-MAR-003</text>
+  <rect x="10" y="340" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="349" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="365" font-size="5.0" text-anchor="middle">CSP-HYDR</text>
+  <text x="40" y="397" font-size="6" text-anchor="middle">SYM-CSP-HYDRANT</text>
+  <rect x="70" y="340" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="349" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="365" font-size="5.0" text-anchor="middle">GEO-HYDR</text>
+  <text x="100" y="397" font-size="6" text-anchor="middle">SYM-GEO-HYDRANT</text>
+  <rect x="130" y="340" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="349" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="365" font-size="5.0" text-anchor="middle">HYD-ANCH</text>
+  <text x="160" y="397" font-size="6" text-anchor="middle">SYM-HYD-ANCHOR</text>
+  <rect x="190" y="340" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="349" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="365" font-size="5.0" text-anchor="middle">HYD-ARRE</text>
+  <text x="220" y="397" font-size="6" text-anchor="middle">SYM-HYD-ARRESTE</text>
+  <rect x="250" y="340" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="349" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="365" font-size="5.0" text-anchor="middle">HYD-BREA</text>
+  <text x="280" y="397" font-size="6" text-anchor="middle">SYM-HYD-BREAKER</text>
+  <rect x="10" y="400" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="409" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="425" font-size="5.0" text-anchor="middle">HYD-CANA</text>
+  <text x="40" y="457" font-size="6" text-anchor="middle">SYM-HYD-CANAL</text>
+  <rect x="70" y="400" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="409" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="425" font-size="5.0" text-anchor="middle">HYD-COOL</text>
+  <text x="100" y="457" font-size="6" text-anchor="middle">SYM-HYD-COOLING</text>
+  <rect x="130" y="400" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="409" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="425" font-size="5.0" text-anchor="middle">HYD-CRAN</text>
+  <text x="160" y="457" font-size="6" text-anchor="middle">SYM-HYD-CRANE</text>
+  <rect x="190" y="400" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="207.0,411.0 223.0,411.0 223.0,419.0 207.0,419.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="207" y1="419" x2="205" y2="421" stroke="black" stroke-width="1.0"/>
+  <line x1="223" y1="419" x2="225" y2="421" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="457" font-size="6" text-anchor="middle">SYM-HYD-DAM</text>
+  <rect x="250" y="400" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="409" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="425" font-size="5.0" text-anchor="middle">HYD-DESA</text>
+  <text x="280" y="457" font-size="6" text-anchor="middle">SYM-HYD-DESANDE</text>
+  <rect x="10" y="460" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="469" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="485" font-size="5.0" text-anchor="middle">HYD-DRAF</text>
+  <text x="40" y="517" font-size="6" text-anchor="middle">SYM-HYD-DRAFTTU</text>
+  <rect x="70" y="460" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="469" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="485" font-size="5.0" text-anchor="middle">HYD-EXCI</text>
+  <text x="100" y="517" font-size="6" text-anchor="middle">SYM-HYD-EXCITER</text>
+  <rect x="130" y="460" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="147" y1="467" x2="147" y2="483" stroke="black" stroke-width="2.0"/>
+  <line x1="163" y1="467" x2="163" y2="483" stroke="black" stroke-width="2.0"/>
+  <path d="M160.7873085421709 472.568925512663 A 14 14 0 0 1 160.7873085421709 477.431074487337" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="160" y="517" font-size="6" text-anchor="middle">SYM-HYD-GATE</text>
+  <rect x="190" y="460" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="469" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="485" font-size="5.0" text-anchor="middle">HYD-GENE</text>
+  <text x="220" y="517" font-size="6" text-anchor="middle">SYM-HYD-GENERAT</text>
+  <rect x="250" y="460" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="469" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="485" font-size="5.0" text-anchor="middle">HYD-GOVE</text>
+  <text x="280" y="517" font-size="6" text-anchor="middle">SYM-HYD-GOVERNO</text>
+  <rect x="10" y="520" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="529" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="545" font-size="5.0" text-anchor="middle">HYD-GROU</text>
+  <text x="40" y="577" font-size="6" text-anchor="middle">SYM-HYD-GROUND</text>
+  <rect x="70" y="520" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="87.0,531.0 103.0,531.0 103.0,539.0 87.0,539.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="87" y1="539" x2="85" y2="541" stroke="black" stroke-width="1.0"/>
+  <line x1="103" y1="539" x2="105" y2="541" stroke="black" stroke-width="1.0"/>
+  <text x="100" y="577" font-size="6" text-anchor="middle">SYM-HYD-HMI</text>
+  <rect x="130" y="520" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="529" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="545" font-size="5.0" text-anchor="middle">HYD-INTA</text>
+  <text x="160" y="577" font-size="6" text-anchor="middle">SYM-HYD-INTAKE</text>
+  <rect x="190" y="520" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="529" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="545" font-size="5.0" text-anchor="middle">HYD-LIGH</text>
+  <text x="220" y="577" font-size="6" text-anchor="middle">SYM-HYD-LIGHTNI</text>
+  <rect x="250" y="520" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="267.0,531.0 283.0,531.0 283.0,539.0 267.0,539.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="267" y1="539" x2="265" y2="541" stroke="black" stroke-width="1.0"/>
+  <line x1="283" y1="539" x2="285" y2="541" stroke="black" stroke-width="1.0"/>
+  <text x="280" y="577" font-size="6" text-anchor="middle">SYM-HYD-PLC</text>
+  <rect x="10" y="580" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="589" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="605" font-size="5.0" text-anchor="middle">HYD-POWE</text>
+  <text x="40" y="637" font-size="6" text-anchor="middle">SYM-HYD-POWERHO</text>
+  <rect x="70" y="580" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="589" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="605" font-size="5.0" text-anchor="middle">HYD-RELA</text>
+  <text x="100" y="637" font-size="6" text-anchor="middle">SYM-HYD-RELAY</text>
+  <rect x="130" y="580" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="147.0,591.0 163.0,591.0 163.0,599.0 147.0,599.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="147" y1="599" x2="145" y2="601" stroke="black" stroke-width="1.0"/>
+  <line x1="163" y1="599" x2="165" y2="601" stroke="black" stroke-width="1.0"/>
+  <text x="160" y="637" font-size="6" text-anchor="middle">SYM-HYD-ROD</text>
+  <rect x="190" y="580" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="207.0,591.0 223.0,591.0 223.0,599.0 207.0,599.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="207" y1="599" x2="205" y2="601" stroke="black" stroke-width="1.0"/>
+  <line x1="223" y1="599" x2="225" y2="601" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="637" font-size="6" text-anchor="middle">SYM-HYD-RTU</text>
+  <rect x="250" y="580" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="589" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="605" font-size="5.0" text-anchor="middle">HYD-RUNN</text>
+  <text x="280" y="637" font-size="6" text-anchor="middle">SYM-HYD-RUNNER</text>
+  <rect x="10" y="640" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="649" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="665" font-size="5.0" text-anchor="middle">HYD-SCRO</text>
+  <text x="40" y="697" font-size="6" text-anchor="middle">SYM-HYD-SCROLLC</text>
+  <rect x="70" y="640" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="649" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="665" font-size="5.0" text-anchor="middle">HYD-SPIL</text>
+  <text x="100" y="697" font-size="6" text-anchor="middle">SYM-HYD-SPILLWA</text>
+  <rect x="130" y="640" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="649" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="665" font-size="5.0" text-anchor="middle">HYD-STIL</text>
+  <text x="160" y="697" font-size="6" text-anchor="middle">SYM-HYD-STILLIN</text>
+  <rect x="190" y="640" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="649" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="665" font-size="5.0" text-anchor="middle">HYD-SURG</text>
+  <text x="220" y="697" font-size="6" text-anchor="middle">SYM-HYD-SURGETA</text>
+  <rect x="250" y="640" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="649" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="665" font-size="5.0" text-anchor="middle">HYD-TRAN</text>
+  <text x="280" y="697" font-size="6" text-anchor="middle">SYM-HYD-TRANSFO</text>
+  <rect x="10" y="700" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="709" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="725" font-size="5.0" text-anchor="middle">HYD-TRAS</text>
+  <text x="40" y="757" font-size="6" text-anchor="middle">SYM-HYD-TRASHRA</text>
+  <rect x="70" y="700" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="87.0,711.0 103.0,711.0 103.0,719.0 87.0,719.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="87" y1="719" x2="85" y2="721" stroke="black" stroke-width="1.0"/>
+  <line x1="103" y1="719" x2="105" y2="721" stroke="black" stroke-width="1.0"/>
+  <text x="100" y="757" font-size="6" text-anchor="middle">SYM-MAR-AIS</text>
+  <rect x="130" y="700" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="709" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="725" font-size="5.0" text-anchor="middle">MAR-ANCH</text>
+  <text x="160" y="757" font-size="6" text-anchor="middle">SYM-MAR-ANCHOR</text>
+  <rect x="190" y="700" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="207.0,711.0 223.0,711.0 223.0,719.0 207.0,719.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="207" y1="719" x2="205" y2="721" stroke="black" stroke-width="1.0"/>
+  <line x1="223" y1="719" x2="225" y2="721" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="757" font-size="6" text-anchor="middle">SYM-MAR-BUOY</text>
+  <rect x="250" y="700" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="709" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="725" font-size="5.0" text-anchor="middle">MAR-BURI</text>
+  <text x="280" y="757" font-size="6" text-anchor="middle">SYM-MAR-BURIAL</text>
+  <rect x="10" y="760" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="769" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="785" font-size="5.0" text-anchor="middle">MAR-CABL</text>
+  <text x="40" y="817" font-size="6" text-anchor="middle">SYM-MAR-CABLE</text>
+  <rect x="70" y="760" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="769" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="785" font-size="5.0" text-anchor="middle">MAR-CURR</text>
+  <text x="100" y="817" font-size="6" text-anchor="middle">SYM-MAR-CURRENT</text>
+  <rect x="130" y="760" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="769" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="785" font-size="5.0" text-anchor="middle">MAR-DEPT</text>
+  <text x="160" y="817" font-size="6" text-anchor="middle">SYM-MAR-DEPTH</text>
+  <rect x="190" y="760" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="769" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="785" font-size="5.0" text-anchor="middle">MAR-DEVI</text>
+  <text x="220" y="817" font-size="6" text-anchor="middle">SYM-MAR-DEVICE</text>
+  <rect x="250" y="760" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="769" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="785" font-size="5.0" text-anchor="middle">MAR-EXCL</text>
+  <text x="280" y="817" font-size="6" text-anchor="middle">SYM-MAR-EXCLUSI</text>
+  <rect x="10" y="820" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="829" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="845" font-size="5.0" text-anchor="middle">MAR-FLOA</text>
+  <text x="40" y="877" font-size="6" text-anchor="middle">SYM-MAR-FLOATER</text>
+  <rect x="70" y="820" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="829" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="845" font-size="5.0" text-anchor="middle">MAR-FOUN</text>
+  <text x="100" y="877" font-size="6" text-anchor="middle">SYM-MAR-FOUNDAT</text>
+  <rect x="130" y="820" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="829" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="845" font-size="5.0" text-anchor="middle">MAR-GROU</text>
+  <text x="160" y="877" font-size="6" text-anchor="middle">SYM-MAR-GROUNDI</text>
+  <rect x="190" y="820" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="829" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="845" font-size="5.0" text-anchor="middle">MAR-GROW</text>
+  <text x="220" y="877" font-size="6" text-anchor="middle">SYM-MAR-GROWTH</text>
+  <rect x="250" y="820" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="267.0,831.0 283.0,831.0 283.0,839.0 267.0,839.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="267" y1="839" x2="265" y2="841" stroke="black" stroke-width="1.0"/>
+  <line x1="283" y1="839" x2="285" y2="841" stroke="black" stroke-width="1.0"/>
+  <text x="280" y="877" font-size="6" text-anchor="middle">SYM-MAR-HDD</text>
+  <rect x="10" y="880" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="889" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="905" font-size="5.0" text-anchor="middle">MAR-JUNC</text>
+  <text x="40" y="937" font-size="6" text-anchor="middle">SYM-MAR-JUNCTIO</text>
+  <rect x="70" y="880" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="889" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="905" font-size="5.0" text-anchor="middle">MAR-MAMM</text>
+  <text x="100" y="937" font-size="6" text-anchor="middle">SYM-MAR-MAMMAL</text>
+  <rect x="130" y="880" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="889" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="905" font-size="5.0" text-anchor="middle">MAR-MOOR</text>
+  <text x="160" y="937" font-size="6" text-anchor="middle">SYM-MAR-MOORING</text>
+  <rect x="190" y="880" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="889" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="905" font-size="5.0" text-anchor="middle">MAR-NAV_</text>
+  <text x="220" y="937" font-size="6" text-anchor="middle">SYM-MAR-NAV_LIG</text>
+  <rect x="250" y="880" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="889" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="905" font-size="5.0" text-anchor="middle">MAR-SCOU</text>
+  <text x="280" y="937" font-size="6" text-anchor="middle">SYM-MAR-SCOUR</text>
+  <rect x="10" y="940" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="27.0,951.0 43.0,951.0 43.0,959.0 27.0,959.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="27" y1="959" x2="25" y2="961" stroke="black" stroke-width="1.0"/>
+  <line x1="43" y1="959" x2="45" y2="961" stroke="black" stroke-width="1.0"/>
+  <text x="40" y="997" font-size="6" text-anchor="middle">SYM-MAR-SOIL</text>
+  <rect x="70" y="940" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="949" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="965" font-size="5.0" text-anchor="middle">MAR-SUBS</text>
+  <text x="100" y="997" font-size="6" text-anchor="middle">SYM-MAR-SUBSTAT</text>
+  <rect x="130" y="940" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="949" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="965" font-size="5.0" text-anchor="middle">MAR-SWIT</text>
+  <text x="160" y="997" font-size="6" text-anchor="middle">SYM-MAR-SWITCHG</text>
+  <rect x="190" y="940" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="949" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="965" font-size="5.0" text-anchor="middle">MAR-TRAN</text>
+  <text x="220" y="997" font-size="6" text-anchor="middle">SYM-MAR-TRANSFO</text>
+  <rect x="250" y="940" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="949" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="965" font-size="5.0" text-anchor="middle">PVG-ARC-</text>
+  <text x="280" y="997" font-size="6" text-anchor="middle">SYM-PVG-ARC-DET</text>
+  <rect x="10" y="1000" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1009" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1025" font-size="5.0" text-anchor="middle">PVG-BALL</text>
+  <text x="40" y="1057" font-size="6" text-anchor="middle">SYM-PVG-BALLAST</text>
+  <rect x="70" y="1000" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="1009" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="1025" font-size="5.0" text-anchor="middle">PVG-BREA</text>
+  <text x="100" y="1057" font-size="6" text-anchor="middle">SYM-PVG-BREAKER</text>
+  <rect x="130" y="1000" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="1009" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="1025" font-size="5.0" text-anchor="middle">PVG-CABL</text>
+  <text x="160" y="1057" font-size="6" text-anchor="middle">SYM-PVG-CABLE-A</text>
+  <rect x="190" y="1000" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="1009" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="1025" font-size="5.0" text-anchor="middle">PVG-CABL</text>
+  <text x="220" y="1057" font-size="6" text-anchor="middle">SYM-PVG-CABLE-D</text>
+  <rect x="250" y="1000" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="1009" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="1025" font-size="5.0" text-anchor="middle">PVG-CLAM</text>
+  <text x="280" y="1057" font-size="6" text-anchor="middle">SYM-PVG-CLAMP</text>
+  <rect x="10" y="1060" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1069" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1085" font-size="5.0" text-anchor="middle">PVG-COMB</text>
+  <text x="40" y="1117" font-size="6" text-anchor="middle">SYM-PVG-COMBINE</text>
+  <rect x="70" y="1060" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="1069" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="1085" font-size="5.0" text-anchor="middle">PVG-COND</text>
+  <text x="100" y="1117" font-size="6" text-anchor="middle">SYM-PVG-CONDUIT</text>
+  <rect x="130" y="1060" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="1069" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="1085" font-size="5.0" text-anchor="middle">PVG-DETE</text>
+  <text x="160" y="1117" font-size="6" text-anchor="middle">SYM-PVG-DETECTO</text>
+  <rect x="190" y="1060" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="1069" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="1085" font-size="5.0" text-anchor="middle">PVG-DRIV</text>
+  <text x="220" y="1117" font-size="6" text-anchor="middle">SYM-PVG-DRIVE</text>
+  <rect x="250" y="1060" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="1069" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="1085" font-size="5.0" text-anchor="middle">PVG-EQUI</text>
+  <text x="280" y="1117" font-size="6" text-anchor="middle">SYM-PVG-EQUIPOT</text>
+  <rect x="10" y="1120" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1129" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1145" font-size="5.0" text-anchor="middle">PVG-FENC</text>
+  <text x="40" y="1177" font-size="6" text-anchor="middle">SYM-PVG-FENCE</text>
+  <rect x="70" y="1120" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="1129" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="1145" font-size="5.0" text-anchor="middle">PVG-FENC</text>
+  <text x="100" y="1177" font-size="6" text-anchor="middle">SYM-PVG-FENCE-P</text>
+  <rect x="130" y="1120" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="1129" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="1145" font-size="5.0" text-anchor="middle">PVG-FIRE</text>
+  <text x="160" y="1177" font-size="6" text-anchor="middle">SYM-PVG-FIRE-AL</text>
+  <rect x="190" y="1120" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="207.0,1131.0 223.0,1131.0 223.0,1139.0 207.0,1139.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="207" y1="1139" x2="205" y2="1141" stroke="black" stroke-width="1.0"/>
+  <line x1="223" y1="1139" x2="225" y2="1141" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="1177" font-size="6" text-anchor="middle">SYM-PVG-FUSE</text>
+  <rect x="250" y="1120" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="267" y1="1127" x2="267" y2="1143" stroke="black" stroke-width="2.0"/>
+  <line x1="283" y1="1127" x2="283" y2="1143" stroke="black" stroke-width="2.0"/>
+  <path d="M280.78730854217093 1132.5689255126629 A 14 14 0 0 1 280.78730854217093 1137.4310744873371" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="280" y="1177" font-size="6" text-anchor="middle">SYM-PVG-GATE</text>
+  <rect x="10" y="1180" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1189" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1205" font-size="5.0" text-anchor="middle">PVG-GATE</text>
+  <text x="40" y="1237" font-size="6" text-anchor="middle">SYM-PVG-GATEWAY</text>
+  <rect x="70" y="1180" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="87.0,1191.0 103.0,1191.0 103.0,1199.0 87.0,1199.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="87" y1="1199" x2="85" y2="1201" stroke="black" stroke-width="1.0"/>
+  <line x1="103" y1="1199" x2="105" y2="1201" stroke="black" stroke-width="1.0"/>
+  <text x="100" y="1237" font-size="6" text-anchor="middle">SYM-PVG-GIRT</text>
+  <rect x="130" y="1180" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="1189" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="1205" font-size="5.0" text-anchor="middle">PVG-GRAD</text>
+  <text x="160" y="1237" font-size="6" text-anchor="middle">SYM-PVG-GRADE-B</text>
+  <rect x="190" y="1180" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="1189" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="1205" font-size="5.0" text-anchor="middle">PVG-GROU</text>
+  <text x="220" y="1237" font-size="6" text-anchor="middle">SYM-PVG-GROUND</text>
+  <rect x="250" y="1180" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="1189" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="1205" font-size="5.0" text-anchor="middle">PVG-GROU</text>
+  <text x="280" y="1237" font-size="6" text-anchor="middle">SYM-PVG-GROUND-</text>
+  <rect x="10" y="1240" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1249" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1265" font-size="5.0" text-anchor="middle">PVG-GROU</text>
+  <text x="40" y="1297" font-size="6" text-anchor="middle">SYM-PVG-GROUND-</text>
+  <rect x="70" y="1240" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="1249" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="1265" font-size="5.0" text-anchor="middle">PVG-H-PI</text>
+  <text x="100" y="1297" font-size="6" text-anchor="middle">SYM-PVG-H-PILE</text>
+  <rect x="130" y="1240" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="1249" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="1265" font-size="5.0" text-anchor="middle">PVG-MANH</text>
+  <text x="160" y="1297" font-size="6" text-anchor="middle">SYM-PVG-MANHOLE</text>
+  <rect x="190" y="1240" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="207.0,1251.0 223.0,1251.0 223.0,1259.0 207.0,1259.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="207" y1="1259" x2="205" y2="1261" stroke="black" stroke-width="1.0"/>
+  <line x1="223" y1="1259" x2="225" y2="1261" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="1297" font-size="6" text-anchor="middle">SYM-PVG-POST</text>
+  <rect x="250" y="1240" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="267.0,1251.0 283.0,1251.0 283.0,1259.0 267.0,1259.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="267" y1="1259" x2="265" y2="1261" stroke="black" stroke-width="1.0"/>
+  <line x1="283" y1="1259" x2="285" y2="1261" stroke="black" stroke-width="1.0"/>
+  <text x="280" y="1297" font-size="6" text-anchor="middle">SYM-PVG-ROAD</text>
+  <rect x="10" y="1300" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="27.0,1311.0 43.0,1311.0 43.0,1319.0 27.0,1319.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="27" y1="1319" x2="25" y2="1321" stroke="black" stroke-width="1.0"/>
+  <line x1="43" y1="1319" x2="45" y2="1321" stroke="black" stroke-width="1.0"/>
+  <text x="40" y="1357" font-size="6" text-anchor="middle">SYM-PVG-ROD</text>
+  <rect x="70" y="1300" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="87.0,1311.0 103.0,1311.0 103.0,1319.0 87.0,1319.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="87" y1="1319" x2="85" y2="1321" stroke="black" stroke-width="1.0"/>
+  <line x1="103" y1="1319" x2="105" y2="1321" stroke="black" stroke-width="1.0"/>
+  <text x="100" y="1357" font-size="6" text-anchor="middle">SYM-PVG-RTU</text>
+  <rect x="130" y="1300" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="1309" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="1325" font-size="5.0" text-anchor="middle">PVG-SCAD</text>
+  <text x="160" y="1357" font-size="6" text-anchor="middle">SYM-PVG-SCADA</text>
+  <rect x="190" y="1300" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="207.0,1311.0 223.0,1311.0 223.0,1319.0 207.0,1319.0" fill="none" stroke="black" stroke-width="1.0"/>
+  
+  <line x1="207" y1="1319" x2="205" y2="1321" stroke="black" stroke-width="1.0"/>
+  <line x1="223" y1="1319" x2="225" y2="1321" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="1357" font-size="6" text-anchor="middle">SYM-PVG-SPD</text>
+  <rect x="250" y="1300" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="1309" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="1325" font-size="5.0" text-anchor="middle">PVG-SPD-</text>
+  <text x="280" y="1357" font-size="6" text-anchor="middle">SYM-PVG-SPD-DC</text>
+  <rect x="10" y="1360" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1369" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1385" font-size="5.0" text-anchor="middle">PVG-TORQ</text>
+  <text x="40" y="1417" font-size="6" text-anchor="middle">SYM-PVG-TORQUE-</text>
+  <rect x="70" y="1360" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="1369" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="1385" font-size="5.0" text-anchor="middle">PVG-TRAC</text>
+  <text x="100" y="1417" font-size="6" text-anchor="middle">SYM-PVG-TRACKER</text>
+  <rect x="130" y="1360" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="1369" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="1385" font-size="5.0" text-anchor="middle">PVG-TRAN</text>
+  <text x="160" y="1417" font-size="6" text-anchor="middle">SYM-PVG-TRANSFO</text>
+  <rect x="190" y="1360" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="1369" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="1385" font-size="5.0" text-anchor="middle">PVG-TREN</text>
+  <text x="220" y="1417" font-size="6" text-anchor="middle">SYM-PVG-TRENCH</text>
+  <rect x="250" y="1360" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="1369" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="1385" font-size="5.0" text-anchor="middle">CONTAINE</text>
+  <text x="280" y="1417" font-size="6" text-anchor="middle">FENCE_SYMBOL</text>
+  <rect x="10" y="1420" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1429" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1445" font-size="5.0" text-anchor="middle">NETWORK_</text>
+  <text x="40" y="1477" font-size="6" text-anchor="middle">GATEWAY_SYMBOL</text>
+  <rect x="70" y="1420" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="1429" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="1445" font-size="5.0" text-anchor="middle">PV_AREA_</text>
+  <text x="100" y="1477" font-size="6" text-anchor="middle">FENCE_SYMBOL</text>
+</svg>

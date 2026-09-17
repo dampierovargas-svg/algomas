@@ -1,0 +1,984 @@
+[
+  {
+    "rule_id": "BIO-QA-001",
+    "name_es": "Plot plan exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "plot_plan_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Plot plan must exist",
+    "required_evidence": [
+      "BIO-QA-001_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19650_2"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-002",
+    "name_es": "Implantation drawing exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "implantation_drawing_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Implantation drawing must exist",
+    "required_evidence": [
+      "BIO-QA-002_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19650_2"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-003",
+    "name_es": "Storage days > 3",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-019 >= 3",
+    "severity": "WARNING",
+    "message_template": "Storage autonomy should be > 3 days",
+    "required_evidence": [
+      "BIO-019"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_664"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-004",
+    "name_es": "Boiler efficiency > 80%",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-028 >= 80",
+    "severity": "BLOCKED",
+    "message_template": "Boiler efficiency must be > 80%",
+    "required_evidence": [
+      "BIO-028"
+    ],
+    "affected_fields": [
+      "BIO-001"
+    ],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-005",
+    "name_es": "Boiler drum thickness per ASME BPVC",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-077 satisfies ASME BPVC VIII Div 1",
+    "severity": "BLOCKED",
+    "message_template": "Drum thickness must satisfy ASME BPVC",
+    "required_evidence": [
+      "BIO-077"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-006",
+    "name_es": "PFD exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "pfd_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "PFD must exist",
+    "required_evidence": [
+      "BIO-QA-006_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_10628"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-007",
+    "name_es": "Steam P&ID exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "steam_p_id_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Steam P&ID must exist",
+    "required_evidence": [
+      "BIO-QA-007_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-008",
+    "name_es": "BFW P&ID exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "bfw_p_id_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "BFW P&ID must exist",
+    "required_evidence": [
+      "BIO-QA-008_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-009",
+    "name_es": "Condensate P&ID exists",
+    "category": "documentary",
+    "applicability_expression": "turbine_type == condensing",
+    "assertion_expression": "condensate_p_id_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Condensate P&ID must exist",
+    "required_evidence": [
+      "BIO-QA-009_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-010",
+    "name_es": "Fuel feeding P&ID exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "fuel_p_id_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Fuel feeding P&ID must exist",
+    "required_evidence": [
+      "BIO-QA-010_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-011",
+    "name_es": "Ash handling P&ID exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "ash_p_id_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Ash handling P&ID must exist",
+    "required_evidence": [
+      "BIO-QA-011_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-012",
+    "name_es": "FGT plan exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "fgt_plan_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "FGT plan must exist",
+    "required_evidence": [
+      "BIO-QA-012_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-013",
+    "name_es": "Turbine-generator plan exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "turbine_plan_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Turbine-generator plan must exist",
+    "required_evidence": [
+      "BIO-QA-013_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-014",
+    "name_es": "SLD exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "sld_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "SLD must exist",
+    "required_evidence": [
+      "BIO-QA-014_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-015",
+    "name_es": "Control architecture exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "control_arch_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Control architecture must exist",
+    "required_evidence": [
+      "BIO-QA-015_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-016",
+    "name_es": "Fire detection layout exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "fire_detection_layout_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Fire detection layout must exist",
+    "required_evidence": [
+      "BIO-QA-016_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-017",
+    "name_es": "As-built exists",
+    "category": "documentary",
+    "applicability_expression": "stage==AS_BUILT",
+    "assertion_expression": "asbuilt_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "As-built must exist with AFC stamp",
+    "required_evidence": [
+      "BIO-QA-017_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19650_2"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-018",
+    "name_es": "ESP efficiency > 99.5%",
+    "category": "numeric",
+    "applicability_expression": "fgt_system==ESP",
+    "assertion_expression": "BIO-048 >= 99.5",
+    "severity": "BLOCKED",
+    "message_template": "ESP efficiency must be > 99.5%",
+    "required_evidence": [
+      "BIO-048"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-019",
+    "name_es": "Bag filter < 20 mg/Nm3",
+    "category": "numeric",
+    "applicability_expression": "fgt_system==bag_filter",
+    "assertion_expression": "BIO-040 < 20",
+    "severity": "BLOCKED",
+    "message_template": "PM emission must be < 20 mg/Nm3 with bag filter",
+    "required_evidence": [
+      "BIO-040"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-020",
+    "name_es": "FGD efficiency > 95%",
+    "category": "numeric",
+    "applicability_expression": "fgt_system contains FGD",
+    "assertion_expression": "BIO-050 >= 95",
+    "severity": "BLOCKED",
+    "message_template": "FGD efficiency must be > 95%",
+    "required_evidence": [
+      "BIO-050"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-021",
+    "name_es": "SCR NOx < 200 mg/Nm3",
+    "category": "numeric",
+    "applicability_expression": "fgt_system==SCR",
+    "assertion_expression": "BIO-042 < 200",
+    "severity": "BLOCKED",
+    "message_template": "NOx emission must be < 200 mg/Nm3 with SCR",
+    "required_evidence": [
+      "BIO-042"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-022",
+    "name_es": "SNCR NOx < 400 mg/Nm3",
+    "category": "numeric",
+    "applicability_expression": "fgt_system==SNCR",
+    "assertion_expression": "BIO-042 < 400",
+    "severity": "BLOCKED",
+    "message_template": "NOx emission must be < 400 mg/Nm3 with SNCR",
+    "required_evidence": [
+      "BIO-042"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-023",
+    "name_es": "Dioxins < 0.1 ng TEQ/Nm3",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-045 < 0.1",
+    "severity": "BLOCKED",
+    "message_template": "Dioxin emission must be < 0.1 ng TEQ/Nm3",
+    "required_evidence": [
+      "BIO-045"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-024",
+    "name_es": "HCl emission if Cl > 0.05%",
+    "category": "numeric",
+    "applicability_expression": "ultimate_chlorine_daf_pct > 0.05",
+    "assertion_expression": "BIO-044 < 100",
+    "severity": "WARNING",
+    "message_template": "HCl emission must be monitored if Cl > 0.05%",
+    "required_evidence": [
+      "BIO-044"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-025",
+    "name_es": "ASME B31.1 steam pipe",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-078 satisfies ASME B31.1",
+    "severity": "BLOCKED",
+    "message_template": "Steam piping must satisfy ASME B31.1",
+    "required_evidence": [
+      "BIO-078"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-026",
+    "name_es": "ASME BPVC pressure vessels",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "all_pressure_vessels_satisfy_ASME_BPVC == true",
+    "severity": "BLOCKED",
+    "message_template": "All pressure vessels must satisfy ASME BPVC",
+    "required_evidence": [
+      "BIO-QA-026_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-027",
+    "name_es": "Fuel storage autonomy > 3 days",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-019 >= 3",
+    "severity": "BLOCKED",
+    "message_template": "Fuel storage autonomy must be > 3 days",
+    "required_evidence": [
+      "BIO-019"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_664"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-028",
+    "name_es": "Ammonia tank area classification",
+    "category": "normative",
+    "applicability_expression": "fgt_system==SCR OR fgt_system==SNCR",
+    "assertion_expression": "BIO-075 == true AND ammonia_tank_zone_classified == true",
+    "severity": "BLOCKED",
+    "message_template": "Ammonia tank area must be classified",
+    "required_evidence": [
+      "BIO-070"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_497_2024"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-029",
+    "name_es": "ESD IEC 61511 SIL 2",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-071 == true AND SIL_achieved >= SIL2",
+    "severity": "BLOCKED",
+    "message_template": "ESD must be SIL 2 per IEC 61511",
+    "required_evidence": [
+      "BIO-071",
+      "BIO-072"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-030",
+    "name_es": "Gas detection ATEX zones",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-074 satisfies IEC 60079-10-1",
+    "severity": "BLOCKED",
+    "message_template": "Gas detection must satisfy IEC 60079-10-1",
+    "required_evidence": [
+      "BIO-070",
+      "BIO-074"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-031",
+    "name_es": "Dust fire hazard NFPA 664",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-073 satisfies NFPA 664",
+    "severity": "BLOCKED",
+    "message_template": "Dust fire hazard must satisfy NFPA 664",
+    "required_evidence": [
+      "BIO-073"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_664"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-032",
+    "name_es": "Sprinklers NFPA 13",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "sprinklers_satisfy_NFPA_13 == true",
+    "severity": "BLOCKED",
+    "message_template": "Sprinklers must satisfy NFPA 13",
+    "required_evidence": [
+      "BIO-076"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-033",
+    "name_es": "IEEE 1547 interconnection",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "ieee_1547_compliance == true",
+    "severity": "BLOCKED",
+    "message_template": "Must comply with IEEE 1547",
+    "required_evidence": [
+      "BIO-QA-033_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-034",
+    "name_es": "Water balance",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "water_balance_mass_balance_consistent == true",
+    "severity": "BLOCKED",
+    "message_template": "Water balance must be consistent",
+    "required_evidence": [
+      "BIO-066"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-035",
+    "name_es": "Ash disposal plan",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "ash_disposal_plan_exists == true",
+    "severity": "WARNING",
+    "message_template": "Ash disposal plan should exist",
+    "required_evidence": [
+      "BIO-056"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": true,
+    "override_role": "ENVIRONMENTAL_LEAD",
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-036",
+    "name_es": "Transport logistics plan",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "logistics_plan_exists == true",
+    "severity": "WARNING",
+    "message_template": "Logistics plan should exist",
+    "required_evidence": [
+      "BIO-016",
+      "BIO-017"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": true,
+    "override_role": "LOGISTICS_LEAD",
+    "source_ids": [
+      "ISO_22790"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-037",
+    "name_es": "As-built stamps",
+    "category": "documentary",
+    "applicability_expression": "stage==AS_BUILT",
+    "assertion_expression": "asbuilt_stamps_complete == true",
+    "severity": "BLOCKED",
+    "message_template": "All as-built drawings must have stamps",
+    "required_evidence": [
+      "BIO-QA-037_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19650_2"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-038",
+    "name_es": "Layers per CAD standard",
+    "category": "graphic",
+    "applicability_expression": "always",
+    "assertion_expression": "layers_match_CAD_standard == true",
+    "severity": "WARNING",
+    "message_template": "Layers must match CAD standard",
+    "required_evidence": [
+      "BIO-QA-038_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": true,
+    "override_role": "CAD_MANAGER",
+    "source_ids": [
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-039",
+    "name_es": "Lineweights per CAD standard",
+    "category": "graphic",
+    "applicability_expression": "always",
+    "assertion_expression": "lineweights_match_CAD_standard == true",
+    "severity": "WARNING",
+    "message_template": "Lineweights must match CAD standard",
+    "required_evidence": [
+      "BIO-QA-039_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": true,
+    "override_role": "CAD_MANAGER",
+    "source_ids": [
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-040",
+    "name_es": "No overlapping text",
+    "category": "topological",
+    "applicability_expression": "always",
+    "assertion_expression": "no_text_overlaps == true",
+    "severity": "BLOCKED",
+    "message_template": "Text must not overlap",
+    "required_evidence": [
+      "BIO-QA-040_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-041",
+    "name_es": "Turbine efficiency > 75%",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-034 >= 75",
+    "severity": "BLOCKED",
+    "message_template": "Turbine efficiency must be > 75%",
+    "required_evidence": [
+      "BIO-034"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-042",
+    "name_es": "Generator efficiency > 95%",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-036 >= 95",
+    "severity": "BLOCKED",
+    "message_template": "Generator efficiency must be > 95%",
+    "required_evidence": [
+      "BIO-036"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60034"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-043",
+    "name_es": "Stack height per dispersion",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-067 satisfies dispersion study",
+    "severity": "BLOCKED",
+    "message_template": "Stack height must satisfy dispersion study",
+    "required_evidence": [
+      "BIO-067"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-044",
+    "name_es": "Conveyor capacity > 1.5x fuel flow",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-080 >= fuel_flow * 1.5",
+    "severity": "WARNING",
+    "message_template": "Conveyor capacity should have 20% margin",
+    "required_evidence": [
+      "BIO-080"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": true,
+    "override_role": "PROCESS_ENGINEER",
+    "source_ids": [
+      "ISO_22790"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-045",
+    "name_es": "BFW pump power reasonable",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-060 matches pump_curve",
+    "severity": "WARNING",
+    "message_template": "BFW pump power should match pump curve",
+    "required_evidence": [
+      "BIO-060"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": true,
+    "override_role": "MECHANICAL_ENGINEER",
+    "source_ids": [
+      "API_610_2024"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-046",
+    "name_es": "Sil target verified",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-072 sil_verified == true",
+    "severity": "BLOCKED",
+    "message_template": "SIL must be verified",
+    "required_evidence": [
+      "BIO-072"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-047",
+    "name_es": "Cybersecurity IEC 62443",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "cybersecurity_compliant == true",
+    "severity": "WARNING",
+    "message_template": "Should comply with IEC 62443",
+    "required_evidence": [
+      "BIO-QA-047_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": true,
+    "override_role": "CONTROL_ENGINEER",
+    "source_ids": [
+      "IEC_61508_1"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-048",
+    "name_es": "Fuel characterization report",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "fuel_characterization_report_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Fuel characterization report must exist",
+    "required_evidence": [
+      "BIO-001",
+      "BIO-002",
+      "BIO-004",
+      "BIO-005"
+    ],
+    "affected_fields": [
+      "BIO-001"
+    ],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_22790"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-049",
+    "name_es": "Excess air in range",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "BIO-027 >= 1.1 AND BIO-027 <= 2.0",
+    "severity": "BLOCKED",
+    "message_template": "Excess air must be in 1.1-2.0",
+    "required_evidence": [
+      "BIO-027"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "rule_id": "BIO-QA-050",
+    "name_es": "CNE compliance",
+    "category": "normative",
+    "applicability_expression": "country_iso==PE",
+    "assertion_expression": "cne_compliance == true",
+    "severity": "BLOCKED",
+    "message_template": "Must comply with CNE Suministro",
+    "required_evidence": [
+      "BIO-QA-050_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "CNE_2011"
+    ]
+  }
+]

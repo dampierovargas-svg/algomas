@@ -1,0 +1,2816 @@
+[
+  {
+    "calculation_id": "CSP-C-001",
+    "name_es": "Potencia del campo solar (Power Field Capacity) - DNI a PFC",
+    "purpose": "Calcular la potencia térmica del campo solar a partir del DNI y área de apertura.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-006",
+      "CSP-029",
+      "CSP-024",
+      "CSP-010",
+      "CSP-103",
+      "CSP-104",
+      "CSP-108"
+    ],
+    "derived_input_ids": [
+      "CSP-C-010"
+    ],
+    "equations_ascii": [
+      "PFC = DNI * A_aperture_total * eta_optical"
+    ],
+    "equations_latex": [
+      "P_{FC} = DNI \\cdot A_{ap,tot} \\cdot \\eta_{opt}"
+    ],
+    "variables": [
+      {
+        "name": "DNI",
+        "symbol": "DNI",
+        "unit": "W/m2"
+      },
+      {
+        "name": "Área de apertura total",
+        "symbol": "A_aperture_total",
+        "unit": "m2"
+      },
+      {
+        "name": "Eficiencia óptica",
+        "symbol": "eta_optical",
+        "unit": "-"
+      },
+      {
+        "name": "Potencia del campo solar",
+        "symbol": "PFC",
+        "unit": "W"
+      }
+    ],
+    "unit_equations": [
+      "PFC = DNI*Area*eta; convertir a MW /1e6"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "DNI > 0",
+      "eta_optical > 0"
+    ],
+    "outputs": [
+      {
+        "name": "Potencia del campo solar",
+        "symbol": "PFC",
+        "unit": "W"
+      }
+    ],
+    "acceptance_rules": [
+      "PFC > 0",
+      "PFC <= DNI * A_aperture_total"
+    ],
+    "failure_modes": [
+      "DNI=0 (noche)",
+      "eta_optical < 0"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-003",
+      "CSP-DRW-004"
+    ],
+    "references": [
+      "NSRDB_NREL;NREL_SAM_2024;ASTM_E891;ISO_9806",
+      "NREL_SAM_2024;ISO_9806;ASHRAE_93;ASTM_C1549"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-002",
+    "name_es": "Descomposición DNI - modelo Disc (Maxwell)",
+    "purpose": "Estimar la fracción de irradiancia directa (DNI) a partir de GHI usando el modelo Disc.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-009",
+      "CSP-012",
+      "CSP-015",
+      "CSP-017"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "DNI_Disc = (GHI - DHI_estimate) / cos(zenith); Kt = GHI / (I0 * cos(zenith))"
+    ],
+    "equations_latex": [
+      "DNI_{Disc} = \\frac{GHI - DHI}{\\cos\\theta_z};\\ K_t = \\frac{GHI}{I_0 \\cos\\theta_z}"
+    ],
+    "variables": [
+      {
+        "name": "GHI",
+        "symbol": "GHI",
+        "unit": "W/m2"
+      },
+      {
+        "name": "DHI estimado",
+        "symbol": "DHI_estimate",
+        "unit": "W/m2"
+      },
+      {
+        "name": "Ángulo cenital",
+        "symbol": "zenith",
+        "unit": "deg"
+      },
+      {
+        "name": "Masa de aire",
+        "symbol": "AM",
+        "unit": "-"
+      },
+      {
+        "name": "Irradiancia extraterrestre",
+        "symbol": "I0",
+        "unit": "W/m2"
+      },
+      {
+        "name": "Índice de claridad",
+        "symbol": "Kt",
+        "unit": "-"
+      },
+      {
+        "name": "DNI estimado",
+        "symbol": "DNI_Disc",
+        "unit": "W/m2"
+      }
+    ],
+    "unit_equations": [
+      "DNI = (GHI - DHI) / cos(theta_z)"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "zenith < 87 deg",
+      "GHI > 0"
+    ],
+    "outputs": [
+      {
+        "name": "DNI estimado",
+        "symbol": "DNI_Disc",
+        "unit": "W/m2"
+      }
+    ],
+    "acceptance_rules": [
+      "DNI_Disc >= 0",
+      "DNI_Disc <= I0"
+    ],
+    "failure_modes": [
+      "zenith >= 87 deg (bajo sol)",
+      "GHI = 0"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-001"
+    ],
+    "references": [
+      "NSRDB_NREL;NREL_SAM_2024;ASTM_E891;ISO_9806",
+      "NREL_SAM_2024"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-003",
+    "name_es": "Descomposición DNI - modelo Boland-Ridley",
+    "purpose": "Estimar DNI a partir de GHI usando el modelo Boland-Ridley.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-009",
+      "CSP-012",
+      "CSP-015"
+    ],
+    "derived_input_ids": [
+      "CSP-C-002"
+    ],
+    "equations_ascii": [
+      "Kb = a + b*cos(zenith) + c*cos2(zenith) + d*AM; DNI_Boland = Kb * I0 * cos(zenith)"
+    ],
+    "equations_latex": [
+      "K_b = a + b\\cos\\theta_z + c\\cos^2\\theta_z + d\\,AM;\\ DNI_{Boland} = K_b I_0 \\cos\\theta_z"
+    ],
+    "variables": [
+      {
+        "name": "GHI",
+        "symbol": "GHI",
+        "unit": "W/m2"
+      },
+      {
+        "name": "Ángulo cenital",
+        "symbol": "zenith",
+        "unit": "deg"
+      },
+      {
+        "name": "Masa de aire",
+        "symbol": "AM",
+        "unit": "-"
+      },
+      {
+        "name": "Coeficientes Boland-Ridley",
+        "symbol": "a,b,c,d",
+        "unit": "-"
+      },
+      {
+        "name": "Índice de haz",
+        "symbol": "Kb",
+        "unit": "-"
+      },
+      {
+        "name": "Irradiancia extraterrestre",
+        "symbol": "I0",
+        "unit": "W/m2"
+      },
+      {
+        "name": "DNI estimado",
+        "symbol": "DNI_Boland",
+        "unit": "W/m2"
+      }
+    ],
+    "unit_equations": [
+      "Coeficientes empíricos en NREL SAM"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "zenith < 87 deg"
+    ],
+    "outputs": [
+      {
+        "name": "DNI estimado",
+        "symbol": "DNI_Boland",
+        "unit": "W/m2"
+      }
+    ],
+    "acceptance_rules": [
+      "DNI_Boland >= 0"
+    ],
+    "failure_modes": [
+      "Coeficientes fuera de rango"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-001"
+    ],
+    "references": [
+      "NSRDB_NREL;NREL_SAM_2024;ASTM_E891;ISO_9806"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-004",
+    "name_es": "Factor coseno de incidencia (cos theta)",
+    "purpose": "Calcular el factor coseno de incidencia para heliostato / colector.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-014",
+      "CSP-015",
+      "CSP-016",
+      "CSP-018",
+      "CSP-033"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "cos_theta = dot(sun_vector, heliostat_normal); sun_vector = [sin(theta_s), cos(theta_s)*sin(phi_s), cos(theta_s)*cos(phi_s)]"
+    ],
+    "equations_latex": [
+      "\\cos\\theta = \\hat s \\cdot \\hat n_h"
+    ],
+    "variables": [
+      {
+        "name": "Vector solar",
+        "symbol": "sun_vector",
+        "unit": "-"
+      },
+      {
+        "name": "Vector normal heliostato",
+        "symbol": "heliostat_normal",
+        "unit": "-"
+      },
+      {
+        "name": "Ángulo cenital solar",
+        "symbol": "theta_s",
+        "unit": "deg"
+      },
+      {
+        "name": "Azimut solar",
+        "symbol": "phi_s",
+        "unit": "deg"
+      },
+      {
+        "name": "Factor coseno",
+        "symbol": "cos_theta",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "cos_theta en [0,1]"
+    ],
+    "numerical_method": "vector algebra",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "theta_s < 90 deg"
+    ],
+    "outputs": [
+      {
+        "name": "Factor coseno",
+        "symbol": "cos_theta",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "cos_theta >= 0",
+      "cos_theta <= 1"
+    ],
+    "failure_modes": [
+      "sun vector inválido"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-003"
+    ],
+    "references": [
+      "NREL_SAM_2024;ISO_9806;ASHRAE_93;ASTM_C1549",
+      "NREL_SAM_2024;ASTM_E891;ASHRAE_93"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-005",
+    "name_es": "Modificador de ángulo de incidencia (IAM)",
+    "purpose": "Calcular el modificador de ángulo de incidencia para colector (trough / Fresnel).",
+    "applicability_expression": "plant_type in [parabolic_trough,linear_fresnel]",
+    "input_field_ids": [
+      "CSP-020",
+      "CSP-014",
+      "CSP-015"
+    ],
+    "derived_input_ids": [
+      "CSP-C-004"
+    ],
+    "equations_ascii": [
+      "IAM = 1 + a1*theta + a2*theta^2; theta = acos(cos_theta) en deg"
+    ],
+    "equations_latex": [
+      "IAM(\\theta) = 1 + a_1 \\theta + a_2 \\theta^2"
+    ],
+    "variables": [
+      {
+        "name": "Coeficiente IAM a1",
+        "symbol": "a1",
+        "unit": "-"
+      },
+      {
+        "name": "Coeficiente IAM a2",
+        "symbol": "a2",
+        "unit": "1/deg"
+      },
+      {
+        "name": "Ángulo de incidencia",
+        "symbol": "theta",
+        "unit": "deg"
+      },
+      {
+        "name": "IAM",
+        "symbol": "IAM",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "IAM en [0.85,1.05] típicamente"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "theta en [0,90]"
+    ],
+    "outputs": [
+      {
+        "name": "IAM",
+        "symbol": "IAM",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "IAM >= 0.85",
+      "IAM <= 1.05"
+    ],
+    "failure_modes": [
+      "Coeficientes fuera de rango"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-004"
+    ],
+    "references": [
+      "NREL_SAM_2024;ISO_9806;ASHRAE_93;ASTM_C1549",
+      "ASHRAE_93"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-006",
+    "name_es": "Pérdidas por bloqueo (blocking) en campo de heliostatos",
+    "purpose": "Calcular las pérdidas por bloqueo entre heliostatos del campo.",
+    "applicability_expression": "plant_type == tower_heliostat",
+    "input_field_ids": [
+      "CSP-034",
+      "CSP-035",
+      "CSP-036",
+      "CSP-014",
+      "CSP-015"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "blocking_loss = sum_over_pairs(blocked_area / total_area)"
+    ],
+    "equations_latex": [
+      "\\eta_{blk} = 1 - \\frac{\\sum A_{blocked}}{A_{total}}"
+    ],
+    "variables": [
+      {
+        "name": "Área bloqueada",
+        "symbol": "blocked_area",
+        "unit": "m2"
+      },
+      {
+        "name": "Área total del campo",
+        "symbol": "total_area",
+        "unit": "m2"
+      },
+      {
+        "name": "Tipo de layout",
+        "symbol": "layout",
+        "unit": "-"
+      },
+      {
+        "name": "Pérdida por bloqueo",
+        "symbol": "blocking_loss",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "blocking_loss en [0,0.30]"
+    ],
+    "numerical_method": "ray tracing (SolarPILOT)",
+    "iteration_limits": {
+      "max_iterations": 100,
+      "tolerance": 0.0001
+    },
+    "validity_limits": [
+      "layout en [N-S_polar,radial_stagger,cornfield_north,surrounding_north]"
+    ],
+    "outputs": [
+      {
+        "name": "Pérdida por bloqueo",
+        "symbol": "blocking_loss",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "blocking_loss < 0.30"
+    ],
+    "failure_modes": [
+      "Layout inválido"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-003"
+    ],
+    "references": [
+      "NREL_SAM_2024;ISO_9806;ASHRAE_93;ASTM_C1549",
+      "NREL_SAM_2024"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-007",
+    "name_es": "Pérdidas por sombreado (shading) - SANDIA",
+    "purpose": "Calcular las pérdidas por sombreado entre heliostatos según método SANDIA.",
+    "applicability_expression": "plant_type == tower_heliostat",
+    "input_field_ids": [
+      "CSP-034",
+      "CSP-035",
+      "CSP-037",
+      "CSP-014",
+      "CSP-015"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "shading_loss = sum_over_pairs(shadowed_area / total_area) using SANDIA method"
+    ],
+    "equations_latex": [
+      "\\eta_{sh} = 1 - \\frac{\\sum A_{shadowed}}{A_{total}}"
+    ],
+    "variables": [
+      {
+        "name": "Área sombreada",
+        "symbol": "shadowed_area",
+        "unit": "m2"
+      },
+      {
+        "name": "Área total del campo",
+        "symbol": "total_area",
+        "unit": "m2"
+      },
+      {
+        "name": "Pérdida por sombreado",
+        "symbol": "shading_loss",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "shading_loss en [0,0.30]"
+    ],
+    "numerical_method": "ray tracing (SANDIA)",
+    "iteration_limits": {
+      "max_iterations": 100,
+      "tolerance": 0.0001
+    },
+    "validity_limits": [
+      "layout válido"
+    ],
+    "outputs": [
+      {
+        "name": "Pérdida por sombreado",
+        "symbol": "shading_loss",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "shading_loss < 0.30"
+    ],
+    "failure_modes": [
+      "Layout inválido"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-003"
+    ],
+    "references": [
+      "NREL_SAM_2024;ISO_9806;ASHRAE_93;ASTM_C1549"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-008",
+    "name_es": "Factor de interceptación del receptor",
+    "purpose": "Calcular la fracción de flujo radiante interceptada por el receptor.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-025",
+      "CSP-026",
+      "CSP-041",
+      "CSP-042",
+      "CSP-028"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "intercept = area_intercepted / area_cone_at_receiver"
+    ],
+    "equations_latex": [
+      "\\gamma = \\frac{A_{int}}{A_{cone,R}}"
+    ],
+    "variables": [
+      {
+        "name": "Área interceptada por receptor",
+        "symbol": "area_intercepted",
+        "unit": "m2"
+      },
+      {
+        "name": "Área del cono a la altura del receptor",
+        "symbol": "area_cone_at_receiver",
+        "unit": "m2"
+      },
+      {
+        "name": "Error de seguimiento",
+        "symbol": "tracking_error",
+        "unit": "mrad"
+      },
+      {
+        "name": "Factor de interceptación",
+        "symbol": "intercept",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "intercept en [0.85,0.99]"
+    ],
+    "numerical_method": "ray tracing (SolarPILOT)",
+    "iteration_limits": {
+      "max_iterations": 200,
+      "tolerance": 1e-05
+    },
+    "validity_limits": [
+      "CR > 0"
+    ],
+    "outputs": [
+      {
+        "name": "Factor de interceptación",
+        "symbol": "intercept",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "intercept >= 0.85"
+    ],
+    "failure_modes": [
+      "Tracking error excesivo"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-003",
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ],
+    "references": [
+      "NREL_SAM_2024;ISO_9806;ASHRAE_93;ASTM_C1549"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-009",
+    "name_es": "Spillage del receptor",
+    "purpose": "Calcular el porcentaje de radiación que derrapa del receptor (spillage).",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-039",
+      "CSP-025",
+      "CSP-026"
+    ],
+    "derived_input_ids": [
+      "CSP-C-008"
+    ],
+    "equations_ascii": [
+      "spillage_pct = (1 - intercept) * 100"
+    ],
+    "equations_latex": [
+      "\\%_{spill} = (1 - \\gamma) \\cdot 100"
+    ],
+    "variables": [
+      {
+        "name": "Factor de interceptación",
+        "symbol": "intercept",
+        "unit": "-"
+      },
+      {
+        "name": "Spillage",
+        "symbol": "spillage_pct",
+        "unit": "%"
+      }
+    ],
+    "unit_equations": [
+      "spillage en [1,15]%"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "intercept en [0.85,0.99]"
+    ],
+    "outputs": [
+      {
+        "name": "Spillage",
+        "symbol": "spillage_pct",
+        "unit": "%"
+      }
+    ],
+    "acceptance_rules": [
+      "spillage_pct < 15"
+    ],
+    "failure_modes": [
+      "intercept < 0.85"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-003",
+      "CSP-DRW-005"
+    ],
+    "references": [
+      "NREL_SAM_2024;ISO_9806;ASHRAE_93;ASTM_C1549"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-010",
+    "name_es": "Eficiencia óptica total del campo solar",
+    "purpose": "Calcular la eficiencia óptica total del campo solar.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-019",
+      "CSP-020",
+      "CSP-021",
+      "CSP-022",
+      "CSP-023",
+      "CSP-024",
+      "CSP-025",
+      "CSP-027",
+      "CSP-028",
+      "CSP-038",
+      "CSP-036",
+      "CSP-037",
+      "CSP-039"
+    ],
+    "derived_input_ids": [
+      "CSP-C-004",
+      "CSP-C-005",
+      "CSP-C-006",
+      "CSP-C-007",
+      "CSP-C-008",
+      "CSP-C-009",
+      "CSP-C-025"
+    ],
+    "equations_ascii": [
+      "eta_optical = cos_theta * IAM * (1-end_loss) * (1-blocking) * (1-shading) * reflectance * intercept * (1-soiling) * (1-tracking_error_loss) * (1-spillage)"
+    ],
+    "equations_latex": [
+      "\\eta_{opt} = \\cos\\theta \\cdot IAM \\cdot (1-e_{end}) \\cdot (1-b) \\cdot (1-s) \\cdot \\rho \\cdot \\gamma \\cdot (1-s_{oil}) \\cdot (1-e_{trk}) \\cdot (1-e_{spill})"
+    ],
+    "variables": [
+      {
+        "name": "Factor coseno",
+        "symbol": "cos_theta",
+        "unit": "-"
+      },
+      {
+        "name": "IAM",
+        "symbol": "IAM",
+        "unit": "-"
+      },
+      {
+        "name": "End-loss",
+        "symbol": "end_loss",
+        "unit": "-"
+      },
+      {
+        "name": "Bloqueo",
+        "symbol": "blocking",
+        "unit": "-"
+      },
+      {
+        "name": "Sombreado",
+        "symbol": "shading",
+        "unit": "-"
+      },
+      {
+        "name": "Reflectancia",
+        "symbol": "reflectance",
+        "unit": "-"
+      },
+      {
+        "name": "Intercept",
+        "symbol": "intercept",
+        "unit": "-"
+      },
+      {
+        "name": "Soiling",
+        "symbol": "soiling",
+        "unit": "-"
+      },
+      {
+        "name": "Tracking error loss",
+        "symbol": "tracking_error_loss",
+        "unit": "-"
+      },
+      {
+        "name": "Spillage",
+        "symbol": "spillage",
+        "unit": "-"
+      },
+      {
+        "name": "Eficiencia óptica",
+        "symbol": "eta_optical",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "eta_optical en [0.50,0.80]"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "todos los factores en [0,1]"
+    ],
+    "outputs": [
+      {
+        "name": "Eficiencia óptica",
+        "symbol": "eta_optical",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "eta_optical > 0.50",
+      "eta_optical < 0.85"
+    ],
+    "failure_modes": [
+      "Algun factor fuera de rango"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-003",
+      "CSP-DRW-004"
+    ],
+    "references": [
+      "NREL_SAM_2024;ISO_9806;ASHRAE_93;ASTM_C1549"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-011",
+    "name_es": "Relación de concentración (Concentration Ratio CR)",
+    "purpose": "Calcular la relación de concentración media del campo solar.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-026",
+      "CSP-029",
+      "CSP-041",
+      "CSP-042",
+      "CSP-104",
+      "CSP-103"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "CR = A_aperture_total / A_receiver_active"
+    ],
+    "equations_latex": [
+      "CR = \\frac{A_{ap,tot}}{A_{R,active}}"
+    ],
+    "variables": [
+      {
+        "name": "Área de apertura total",
+        "symbol": "A_aperture_total",
+        "unit": "m2"
+      },
+      {
+        "name": "Área activa del receptor",
+        "symbol": "A_receiver_active",
+        "unit": "m2"
+      },
+      {
+        "name": "CR",
+        "symbol": "CR",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "CR en [1,2000] (trough ~70, tower ~500-1000)"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "A_receiver_active > 0"
+    ],
+    "outputs": [
+      {
+        "name": "CR",
+        "symbol": "CR",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "CR > 0"
+    ],
+    "failure_modes": [
+      "Receptor inválido"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ],
+    "references": [
+      "NREL_SAM_2024;ISO_9806;ASHRAE_93;ASTM_C1549"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-012",
+    "name_es": "Flujo másico de HTF requerido",
+    "purpose": "Calcular el flujo másico de HTF requerido para el duty del receptor / SG.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-046",
+      "CSP-047",
+      "CSP-048",
+      "CSP-051",
+      "CSP-052",
+      "CSP-001"
+    ],
+    "derived_input_ids": [
+      "CSP-C-001"
+    ],
+    "equations_ascii": [
+      "m_HTF = PFC / (Cp_HTF * (T_hot - T_cold))"
+    ],
+    "equations_latex": [
+      "\\dot m_{HTF} = \\frac{P_{FC}}{C_{p,HTF}(T_{hot} - T_{cold})}"
+    ],
+    "variables": [
+      {
+        "name": "Potencia del campo solar",
+        "symbol": "PFC",
+        "unit": "W"
+      },
+      {
+        "name": "Calor específico HTF",
+        "symbol": "Cp_HTF",
+        "unit": "J/kgK"
+      },
+      {
+        "name": "T caliente",
+        "symbol": "T_hot",
+        "unit": "K"
+      },
+      {
+        "name": "T fría",
+        "symbol": "T_cold",
+        "unit": "K"
+      },
+      {
+        "name": "Flujo másico HTF",
+        "symbol": "m_HTF",
+        "unit": "kg/s"
+      }
+    ],
+    "unit_equations": [
+      "m_HTF en kg/s"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "T_hot > T_cold",
+      "Cp_HTF > 0"
+    ],
+    "outputs": [
+      {
+        "name": "Flujo másico HTF",
+        "symbol": "m_HTF",
+        "unit": "kg/s"
+      }
+    ],
+    "acceptance_rules": [
+      "m_HTF > 0"
+    ],
+    "failure_modes": [
+      "T_hot <= T_cold"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-007",
+      "CSP-DRW-008"
+    ],
+    "references": [
+      "ASME_B31_1_2022;NIST_WEBBOOK;IAPWS_IF97;NREL_TES_CSP",
+      "IAPWS_IF97"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-013",
+    "name_es": "Incremento de temperatura del HTF",
+    "purpose": "Calcular el incremento de temperatura del HTF a través del receptor.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-051",
+      "CSP-052",
+      "CSP-001"
+    ],
+    "derived_input_ids": [
+      "CSP-C-012"
+    ],
+    "equations_ascii": [
+      "Delta_T_HTF = T_hot - T_cold"
+    ],
+    "equations_latex": [
+      "\\Delta T_{HTF} = T_{hot} - T_{cold}"
+    ],
+    "variables": [
+      {
+        "name": "T caliente",
+        "symbol": "T_hot",
+        "unit": "degC"
+      },
+      {
+        "name": "T fría",
+        "symbol": "T_cold",
+        "unit": "degC"
+      },
+      {
+        "name": "Incremento de T",
+        "symbol": "Delta_T_HTF",
+        "unit": "K"
+      }
+    ],
+    "unit_equations": [
+      "Delta_T en K = degC diferencia"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "T_hot > T_cold"
+    ],
+    "outputs": [
+      {
+        "name": "Incremento de T",
+        "symbol": "Delta_T_HTF",
+        "unit": "K"
+      }
+    ],
+    "acceptance_rules": [
+      "Delta_T_HTF > 50",
+      "Delta_T_HTF < 350"
+    ],
+    "failure_modes": [
+      "T_hot <= T_cold"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-007"
+    ],
+    "references": [
+      "ASME_B31_1_2022;NIST_WEBBOOK;NREL_TES_CSP"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-014",
+    "name_es": "Energía almacenada en TES (kWh térmicos)",
+    "purpose": "Calcular la energía térmica almacenada en el TES.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-054",
+      "CSP-055",
+      "CSP-056",
+      "CSP-057",
+      "CSP-047",
+      "CSP-048",
+      "CSP-051",
+      "CSP-052"
+    ],
+    "derived_input_ids": [
+      "CSP-C-013"
+    ],
+    "equations_ascii": [
+      "E_TES = m_HTF * Cp_HTF * (T_hot - T_cold) / 3600"
+    ],
+    "equations_latex": [
+      "E_{TES} = \\dot m_{HTF} C_p (T_{hot} - T_{cold}) \\cdot t / 3600"
+    ],
+    "variables": [
+      {
+        "name": "Masa de HTF almacenada",
+        "symbol": "m_HTF",
+        "unit": "kg"
+      },
+      {
+        "name": "Calor específico HTF",
+        "symbol": "Cp_HTF",
+        "unit": "J/kgK"
+      },
+      {
+        "name": "T caliente",
+        "symbol": "T_hot",
+        "unit": "K"
+      },
+      {
+        "name": "T fría",
+        "symbol": "T_cold",
+        "unit": "K"
+      },
+      {
+        "name": "Energía almacenada",
+        "symbol": "E_TES",
+        "unit": "kWh"
+      }
+    ],
+    "unit_equations": [
+      "1 kWh = 3600 kJ"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "T_hot > T_cold"
+    ],
+    "outputs": [
+      {
+        "name": "Energía almacenada",
+        "symbol": "E_TES",
+        "unit": "kWh"
+      }
+    ],
+    "acceptance_rules": [
+      "E_TES > 0"
+    ],
+    "failure_modes": [
+      "Masa = 0"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-009"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;NREL_TES_CSP;NREL_SAM_2024"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-015",
+    "name_es": "Horas de TES a plena carga",
+    "purpose": "Calcular las horas de almacenamiento a plena carga del TES.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-058",
+      "CSP-057",
+      "CSP-064",
+      "CSP-001"
+    ],
+    "derived_input_ids": [
+      "CSP-C-014"
+    ],
+    "equations_ascii": [
+      "TES_hours = E_TES / (P_plant_net / eta_cycle)"
+    ],
+    "equations_latex": [
+      "h_{TES} = \\frac{E_{TES}}{P_{net}/\\eta_{cycle}}"
+    ],
+    "variables": [
+      {
+        "name": "Energía almacenada",
+        "symbol": "E_TES",
+        "unit": "kWh"
+      },
+      {
+        "name": "Capacidad neta de planta",
+        "symbol": "P_plant_net",
+        "unit": "kW"
+      },
+      {
+        "name": "Eficiencia del ciclo",
+        "symbol": "eta_cycle",
+        "unit": "-"
+      },
+      {
+        "name": "Horas de TES",
+        "symbol": "TES_hours",
+        "unit": "h"
+      }
+    ],
+    "unit_equations": [
+      "TES_hours en [6,15] típico"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "P_plant_net > 0"
+    ],
+    "outputs": [
+      {
+        "name": "Horas de TES",
+        "symbol": "TES_hours",
+        "unit": "h"
+      }
+    ],
+    "acceptance_rules": [
+      "TES_hours >= 6",
+      "TES_hours <= 18"
+    ],
+    "failure_modes": [
+      "P_plant_net = 0"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-009"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;NREL_TES_CSP;NREL_SAM_2024"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-016",
+    "name_es": "Pérdidas térmicas del receptor (rad + conv + cond)",
+    "purpose": "Calcular las pérdidas térmicas totales del receptor (radiación, convección, conducción).",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-044",
+      "CSP-041",
+      "CSP-042",
+      "CSP-043",
+      "CSP-045",
+      "CSP-052"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_loss = Q_rad + Q_conv + Q_cond; Q_rad = eps * sigma * A * (T^4 - T_amb^4); Q_conv = h_conv * A * (T - T_amb); Q_cond = k * A * (T - T_amb) / L"
+    ],
+    "equations_latex": [
+      "\\dot Q_{loss} = \\epsilon \\sigma A (T^4 - T_{amb}^4) + h_{conv} A (T - T_{amb}) + k A (T - T_{amb})/L"
+    ],
+    "variables": [
+      {
+        "name": "Emisividad",
+        "symbol": "eps",
+        "unit": "-"
+      },
+      {
+        "name": "Constante de Stefan-Boltzmann",
+        "symbol": "sigma",
+        "unit": "W/m2K4"
+      },
+      {
+        "name": "Área del receptor",
+        "symbol": "A",
+        "unit": "m2"
+      },
+      {
+        "name": "Temperatura del receptor",
+        "symbol": "T",
+        "unit": "K"
+      },
+      {
+        "name": "Temperatura ambiente",
+        "symbol": "T_amb",
+        "unit": "K"
+      },
+      {
+        "name": "Coeficiente de convección",
+        "symbol": "h_conv",
+        "unit": "W/m2K"
+      },
+      {
+        "name": "Conductividad",
+        "symbol": "k",
+        "unit": "W/mK"
+      },
+      {
+        "name": "Longitud conducción",
+        "symbol": "L",
+        "unit": "m"
+      },
+      {
+        "name": "Pérdida total",
+        "symbol": "Q_loss",
+        "unit": "W"
+      }
+    ],
+    "unit_equations": [
+      "sigma = 5.67e-8 W/m2K4"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 5,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "T > T_amb"
+    ],
+    "outputs": [
+      {
+        "name": "Pérdida térmica total",
+        "symbol": "Q_loss",
+        "unit": "W"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_loss > 0"
+    ],
+    "failure_modes": [
+      "T <= T_amb"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;ISO_9806;NREL_TES_CSP;IAPWS_IF97",
+      "ISO_9806"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-017",
+    "name_es": "Eficiencia del ciclo Rankine",
+    "purpose": "Calcular la eficiencia térmica del ciclo Rankine (convencional o supercrítica).",
+    "applicability_expression": "power_block_type in [Rankine_conventional,Rankine_supercritical]",
+    "input_field_ids": [
+      "CSP-063",
+      "CSP-064",
+      "CSP-065",
+      "CSP-066",
+      "CSP-067",
+      "CSP-068",
+      "CSP-069",
+      "CSP-071",
+      "CSP-072"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "eta_Rankine = W_turbine / Q_in; W_turbine = m_steam*(h_in - h_out_is)*eta_is"
+    ],
+    "equations_latex": [
+      "\\eta_{Rk} = \\frac{\\dot W_{turb}}{\\dot Q_{in}} = \\frac{\\dot m_s (h_{in} - h_{out,s}) \\eta_{is}}{\\dot m_s (h_{in} - h_{fw})}"
+    ],
+    "variables": [
+      {
+        "name": "Flujo de vapor",
+        "symbol": "m_steam",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Entalpía de admisión",
+        "symbol": "h_in",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Entalpía isoentrópica",
+        "symbol": "h_out_is",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Eficiencia isoentrópica",
+        "symbol": "eta_is",
+        "unit": "-"
+      },
+      {
+        "name": "Entalpía feedwater",
+        "symbol": "h_fw",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Potencia turbina",
+        "symbol": "W_turbine",
+        "unit": "kW"
+      },
+      {
+        "name": "Calor de entrada",
+        "symbol": "Q_in",
+        "unit": "kW"
+      },
+      {
+        "name": "Eficiencia Rankine",
+        "symbol": "eta_Rankine",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "eta_Rankine * 100 = % (Rankine 35-45%, supercrítica 42-48%)"
+    ],
+    "numerical_method": "IAPWS-IF97 steam tables",
+    "iteration_limits": {
+      "max_iterations": 50,
+      "tolerance": 1e-06
+    },
+    "validity_limits": [
+      "h_in > h_out_is"
+    ],
+    "outputs": [
+      {
+        "name": "Eficiencia Rankine",
+        "symbol": "eta_Rankine",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "eta_Rankine > 0.35",
+      "eta_Rankine < 0.50"
+    ],
+    "failure_modes": [
+      "h_in <= h_out_is"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-010",
+      "CSP-DRW-011"
+    ],
+    "references": [
+      "ASME_PTC_10;IAPWS_IF97;ISO_1940_1",
+      "IAPWS_IF97"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-018",
+    "name_es": "Eficiencia del ciclo Brayton sCO2",
+    "purpose": "Calcular la eficiencia del ciclo Brayton supercrítico de CO2 (sCO2).",
+    "applicability_expression": "power_block_type == sCO2_Brayton",
+    "input_field_ids": [
+      "CSP-063",
+      "CSP-064",
+      "CSP-065",
+      "CSP-066",
+      "CSP-067",
+      "CSP-068",
+      "CSP-069",
+      "CSP-046",
+      "CSP-052"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "eta_sCO2 = 1 - (P_ratio_comp)^(1-k)/k * (T_ratio)^(k-1)/k; simplified: eta_sCO2 = (W_turb - W_comp) / Q_in"
+    ],
+    "equations_latex": [
+      "\\eta_{sCO2} = \\frac{\\dot W_{turb} - \\dot W_{comp}}{\\dot Q_{in}}"
+    ],
+    "variables": [
+      {
+        "name": "Potencia turbina sCO2",
+        "symbol": "W_turb",
+        "unit": "kW"
+      },
+      {
+        "name": "Potencia compresor sCO2",
+        "symbol": "W_comp",
+        "unit": "kW"
+      },
+      {
+        "name": "Calor de entrada",
+        "symbol": "Q_in",
+        "unit": "kW"
+      },
+      {
+        "name": "Relación de presión compresor",
+        "symbol": "P_ratio_comp",
+        "unit": "-"
+      },
+      {
+        "name": "Razón de calor específico",
+        "symbol": "k",
+        "unit": "-"
+      },
+      {
+        "name": "Eficiencia sCO2",
+        "symbol": "eta_sCO2",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "eta_sCO2 en [0.45,0.55] para sCO2 Brayton"
+    ],
+    "numerical_method": "iterative (real-gas properties)",
+    "iteration_limits": {
+      "max_iterations": 100,
+      "tolerance": 1e-06
+    },
+    "validity_limits": [
+      "P_ratio_comp > 1"
+    ],
+    "outputs": [
+      {
+        "name": "Eficiencia sCO2",
+        "symbol": "eta_sCO2",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "eta_sCO2 > 0.45",
+      "eta_sCO2 < 0.55"
+    ],
+    "failure_modes": [
+      "P_ratio_comp <= 1"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-010",
+      "CSP-DRW-011"
+    ],
+    "references": [
+      "ASME_PTC_10;IAPWS_IF97;ISO_1940_1",
+      "NIST_WEBBOOK"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-019",
+    "name_es": "Eficiencia de ciclo Rankine con reheat",
+    "purpose": "Calcular la eficiencia térmica del ciclo Rankine con recalentamiento (reheat).",
+    "applicability_expression": "turbine_type == Rankine_reheat_condensing",
+    "input_field_ids": [
+      "CSP-062",
+      "CSP-067",
+      "CSP-068",
+      "CSP-069",
+      "CSP-066",
+      "CSP-071"
+    ],
+    "derived_input_ids": [
+      "CSP-C-017"
+    ],
+    "equations_ascii": [
+      "eta_reheat = (W_HP + W_LP - W_pump) / Q_in; W_HP = m*(h_in - h_RH_is)*eta_is; W_LP = m*(h_RH - h_out_is)*eta_is"
+    ],
+    "equations_latex": [
+      "\\eta_{RH} = \\frac{\\dot W_{HP} + \\dot W_{LP} - \\dot W_p}{\\dot Q_{in}}"
+    ],
+    "variables": [
+      {
+        "name": "Trabajo turbina HP",
+        "symbol": "W_HP",
+        "unit": "kW"
+      },
+      {
+        "name": "Trabajo turbina LP",
+        "symbol": "W_LP",
+        "unit": "kW"
+      },
+      {
+        "name": "Trabajo bomba",
+        "symbol": "W_pump",
+        "unit": "kW"
+      },
+      {
+        "name": "Calor de entrada",
+        "symbol": "Q_in",
+        "unit": "kW"
+      },
+      {
+        "name": "Eficiencia con reheat",
+        "symbol": "eta_reheat",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "eta_reheat en [0.40,0.48]"
+    ],
+    "numerical_method": "IAPWS-IF97",
+    "iteration_limits": {
+      "max_iterations": 100,
+      "tolerance": 1e-06
+    },
+    "validity_limits": [
+      "W_HP > 0"
+    ],
+    "outputs": [
+      {
+        "name": "Eficiencia con reheat",
+        "symbol": "eta_reheat",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "eta_reheat > 0.40"
+    ],
+    "failure_modes": [
+      "Reheat no aplicado"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-010",
+      "CSP-DRW-011"
+    ],
+    "references": [
+      "ASME_PTC_10;IAPWS_IF97;ISO_1940_1",
+      "IAPWS_IF97"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-020",
+    "name_es": "Duty del condensador principal",
+    "purpose": "Calcular el calor rechazado en el condensador principal del power block.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-070",
+      "CSP-071",
+      "CSP-072",
+      "CSP-064",
+      "CSP-065",
+      "CSP-069"
+    ],
+    "derived_input_ids": [
+      "CSP-C-017",
+      "CSP-C-018"
+    ],
+    "equations_ascii": [
+      "Q_cond = Q_in * (1 - eta_cycle) + aux_losses"
+    ],
+    "equations_latex": [
+      "\\dot Q_{cond} = \\dot Q_{in}(1 - \\eta_{cycle}) + \\dot Q_{aux}"
+    ],
+    "variables": [
+      {
+        "name": "Calor de entrada al ciclo",
+        "symbol": "Q_in",
+        "unit": "kW"
+      },
+      {
+        "name": "Eficiencia del ciclo",
+        "symbol": "eta_cycle",
+        "unit": "-"
+      },
+      {
+        "name": "Pérdidas auxiliares",
+        "symbol": "aux_losses",
+        "unit": "kW"
+      },
+      {
+        "name": "Duty del condensador",
+        "symbol": "Q_cond",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      "Q_cond = P_gross * (1/eta - 1) approx"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 5,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "eta_cycle > 0"
+    ],
+    "outputs": [
+      {
+        "name": "Duty del condensador",
+        "symbol": "Q_cond",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_cond > 0"
+    ],
+    "failure_modes": [
+      "eta_cycle = 0"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-011"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;IAPWS_IF97;ASME_B31_1_2022"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-021",
+    "name_es": "Duty de la cooling tower (método Merkel)",
+    "purpose": "Calcular el duty de la cooling tower según el método Merkel.",
+    "applicability_expression": "condenser_type == wet_surface",
+    "input_field_ids": [
+      "CSP-070",
+      "CSP-119",
+      "CSP-116",
+      "CSP-115",
+      "CSP-011",
+      "CSP-012",
+      "CSP-003"
+    ],
+    "derived_input_ids": [
+      "CSP-C-020"
+    ],
+    "equations_ascii": [
+      "Merkel = integral(T_cold, T_hot, Cp_w/(h_sat_v - h_air) dT); KaV/L = Merkel"
+    ],
+    "equations_latex": [
+      "\\frac{KaV}{L} = \\int_{T_{cold}}^{T_{hot}} \\frac{C_{p,w}}{h_{sat,v} - h_{air}} dT"
+    ],
+    "variables": [
+      {
+        "name": "Coeficiente de transferencia de masa",
+        "symbol": "Ka",
+        "unit": "kg/m3s"
+      },
+      {
+        "name": "Volumen empacado",
+        "symbol": "V",
+        "unit": "m3"
+      },
+      {
+        "name": "Flujo de agua",
+        "symbol": "L",
+        "unit": "kg/s"
+      },
+      {
+        "name": "T caliente del agua",
+        "symbol": "T_hot",
+        "unit": "K"
+      },
+      {
+        "name": "T fría del agua",
+        "symbol": "T_cold",
+        "unit": "K"
+      },
+      {
+        "name": "Entalpía de vapor saturado",
+        "symbol": "h_sat_v",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Entalpía de aire húmedo",
+        "symbol": "h_air",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Número de Merkel",
+        "symbol": "Merkel",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "Merkel typical 1.2-2.4"
+    ],
+    "numerical_method": "integral numerical (Simpson)",
+    "iteration_limits": {
+      "max_iterations": 50,
+      "tolerance": 0.0001
+    },
+    "validity_limits": [
+      "T_hot > T_cold",
+      "T_cold > T_wet_bulb"
+    ],
+    "outputs": [
+      {
+        "name": "Número de Merkel",
+        "symbol": "Merkel",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "Merkel > 0.8"
+    ],
+    "failure_modes": [
+      "T_cold <= T_wet_bulb"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-011",
+      "CSP-DRW-014"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;IAPWS_IF97;ASME_B31_1_2022"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-022",
+    "name_es": "Duty del ACC (Air Cooled Condenser)",
+    "purpose": "Calcular el duty del ACC para condensación del vapor.",
+    "applicability_expression": "condenser_type == air_cooled_ACC",
+    "input_field_ids": [
+      "CSP-070",
+      "CSP-071",
+      "CSP-073",
+      "CSP-011",
+      "CSP-012"
+    ],
+    "derived_input_ids": [
+      "CSP-C-020"
+    ],
+    "equations_ascii": [
+      "Q_ACC = m_air * Cp_air * (T_out - T_in); Q_ACC = m_steam * (h_steam - h_cond)"
+    ],
+    "equations_latex": [
+      "\\dot Q_{ACC} = \\dot m_{air} C_{p,air} (T_{out} - T_{in})"
+    ],
+    "variables": [
+      {
+        "name": "Flujo de aire",
+        "symbol": "m_air",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Cp del aire",
+        "symbol": "Cp_air",
+        "unit": "kJ/kgK"
+      },
+      {
+        "name": "T salida aire",
+        "symbol": "T_out",
+        "unit": "K"
+      },
+      {
+        "name": "T entrada aire",
+        "symbol": "T_in",
+        "unit": "K"
+      },
+      {
+        "name": "Flujo de vapor",
+        "symbol": "m_steam",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Entalpía de vapor",
+        "symbol": "h_steam",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Entalpía de condensado",
+        "symbol": "h_cond",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Duty del ACC",
+        "symbol": "Q_ACC",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      "Q_ACC igual al duty del condensador"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 5,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "T_out > T_in"
+    ],
+    "outputs": [
+      {
+        "name": "Duty del ACC",
+        "symbol": "Q_ACC",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_ACC > 0"
+    ],
+    "failure_modes": [
+      "T_out <= T_in"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-011"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;IAPWS_IF97;ASME_B31_1_2022"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-023",
+    "name_es": "Pérdida de calor del HTF pipe (aislado)",
+    "purpose": "Calcular la pérdida de calor por unidad de longitud del HTF pipe aislado.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-074",
+      "CSP-075",
+      "CSP-077",
+      "CSP-052",
+      "CSP-011",
+      "CSP-012"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "q_loss = 2*pi*k_ins*(T_HTF - T_amb) / ln(r_o/r_i)"
+    ],
+    "equations_latex": [
+      "q' = \\frac{2\\pi k_{ins}(T_{HTF} - T_{amb})}{\\ln(r_o/r_i)}"
+    ],
+    "variables": [
+      {
+        "name": "Conductividad del aislante",
+        "symbol": "k_ins",
+        "unit": "W/mK"
+      },
+      {
+        "name": "T del HTF",
+        "symbol": "T_HTF",
+        "unit": "K"
+      },
+      {
+        "name": "T ambiente",
+        "symbol": "T_amb",
+        "unit": "K"
+      },
+      {
+        "name": "Radio externo del aislante",
+        "symbol": "r_o",
+        "unit": "m"
+      },
+      {
+        "name": "Radio interno del aislante",
+        "symbol": "r_i",
+        "unit": "m"
+      },
+      {
+        "name": "Pérdida por longitud",
+        "symbol": "q_loss",
+        "unit": "W/m"
+      }
+    ],
+    "unit_equations": [
+      "q_loss en W/m"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "T_HTF > T_amb",
+      "r_o > r_i"
+    ],
+    "outputs": [
+      {
+        "name": "Pérdida por longitud",
+        "symbol": "q_loss",
+        "unit": "W/m"
+      }
+    ],
+    "acceptance_rules": [
+      "q_loss < 500"
+    ],
+    "failure_modes": [
+      "T_HTF <= T_amb"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-008"
+    ],
+    "references": [
+      "ASME_B31_1_2022;ASME_BPVC_VIII_1_2023;NIST_WEBBOOK"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-024",
+    "name_es": "Protección de congelamiento (freeze protection) de sal fundida",
+    "purpose": "Calcular la capacidad térmica requerida para protección de congelamiento del HTF (sal).",
+    "applicability_expression": "HTF_type contains salt",
+    "input_field_ids": [
+      "CSP-050",
+      "CSP-011",
+      "CSP-112",
+      "CSP-113",
+      "CSP-114",
+      "CSP-074",
+      "CSP-075"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_trace = m_HTF_pipe * Cp_HTF * (T_freeze + 10 - T_amb) / tau; Q_trace = U*A*(T_HTF - T_amb)"
+    ],
+    "equations_latex": [
+      "\\dot Q_{tr} = \\dot m C_p (T_{fr} + 10 - T_{amb})/\\tau = U A (T_{HTF} - T_{amb})"
+    ],
+    "variables": [
+      {
+        "name": "Punto de congelamiento",
+        "symbol": "T_freeze",
+        "unit": "degC"
+      },
+      {
+        "name": "T ambiente mínima",
+        "symbol": "T_amb",
+        "unit": "degC"
+      },
+      {
+        "name": "Masa HTF en tubería",
+        "symbol": "m_HTF_pipe",
+        "unit": "kg"
+      },
+      {
+        "name": "Cp HTF",
+        "symbol": "Cp_HTF",
+        "unit": "J/kgK"
+      },
+      {
+        "name": "Tiempo de respuesta",
+        "symbol": "tau",
+        "unit": "s"
+      },
+      {
+        "name": "Capacidad tracing",
+        "symbol": "Q_trace",
+        "unit": "W"
+      }
+    ],
+    "unit_equations": [
+      "T de operación = T_freeze + 10 C margen"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 10,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "T_amb < T_freeze"
+    ],
+    "outputs": [
+      {
+        "name": "Capacidad tracing",
+        "symbol": "Q_trace",
+        "unit": "W"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_trace > 0"
+    ],
+    "failure_modes": [
+      "T_amb >= T_freeze"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ],
+    "references": [
+      "ASME_B31_1_2022;NIST_WEBBOOK;IAPWS_IF97;NREL_TES_CSP",
+      "NREL_TES_CSP"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-025",
+    "name_es": "Pérdida por suciedad (soiling) en espejos",
+    "purpose": "Calcular la pérdida por suciedad (soiling) anual promedio.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-027",
+      "CSP-101",
+      "CSP-100",
+      "CSP-102",
+      "CSP-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "soiling_loss = (1 - reflectance_clean_after_wash/reflectance_clean) * 100"
+    ],
+    "equations_latex": [
+      "\\%_{soil} = \\left(1 - \\frac{\\rho_{soil}}{\\rho_{clean}}\\right) \\cdot 100"
+    ],
+    "variables": [
+      {
+        "name": "Reflectancia con suciedad",
+        "symbol": "reflectance_soiled",
+        "unit": "-"
+      },
+      {
+        "name": "Reflectancia limpia",
+        "symbol": "reflectance_clean",
+        "unit": "-"
+      },
+      {
+        "name": "Frecuencia de lavado",
+        "symbol": "washing_freq",
+        "unit": "1/yr"
+      },
+      {
+        "name": "Pérdida por suciedad",
+        "symbol": "soiling_loss",
+        "unit": "%"
+      }
+    ],
+    "unit_equations": [
+      "soiling en [1,30]%"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "reflectance_soiled > 0"
+    ],
+    "outputs": [
+      {
+        "name": "Pérdida por suciedad",
+        "symbol": "soiling_loss",
+        "unit": "%"
+      }
+    ],
+    "acceptance_rules": [
+      "soiling_loss < 30"
+    ],
+    "failure_modes": [
+      "Reflectancia con suciedad <= 0"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-015"
+    ],
+    "references": [
+      "MINAM_DS_019_2009;NREL_SAM_2024;ASTM_C1549",
+      "ASTM_C1549"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-026",
+    "name_es": "Eficiencia térmica del colector parabólico (SANDIA)",
+    "purpose": "Calcular la eficiencia térmica del colector parabólico según el modelo SANDIA.",
+    "applicability_expression": "plant_type == parabolic_trough",
+    "input_field_ids": [
+      "CSP-103",
+      "CSP-104",
+      "CSP-020",
+      "CSP-021",
+      "CSP-105",
+      "CSP-106",
+      "CSP-107",
+      "CSP-052",
+      "CSP-011",
+      "CSP-012",
+      "CSP-027"
+    ],
+    "derived_input_ids": [
+      "CSP-C-010"
+    ],
+    "equations_ascii": [
+      "eta_th = K_opt*IAM*(1-end_loss) - a1*(T-HSF)/DNI - a2*(T-HSF)^2/DNI - a3*(dT/dt)/DNI"
+    ],
+    "equations_latex": [
+      "\\eta_{th} = K\\theta \\cdot IAM (1-e_{end}) - a_1\\frac{\\Delta T}{DNI} - a_2\\frac{\\Delta T^2}{DNI} - a_3\\frac{dT/dt}{DNI}"
+    ],
+    "variables": [
+      {
+        "name": "Eficiencia óptica del colector",
+        "symbol": "K_opt",
+        "unit": "-"
+      },
+      {
+        "name": "IAM",
+        "symbol": "IAM",
+        "unit": "-"
+      },
+      {
+        "name": "End-loss",
+        "symbol": "end_loss",
+        "unit": "-"
+      },
+      {
+        "name": "Coeficiente a1",
+        "symbol": "a1",
+        "unit": "W/m2K"
+      },
+      {
+        "name": "Coeficiente a2",
+        "symbol": "a2",
+        "unit": "W/m2K2"
+      },
+      {
+        "name": "Coeficiente a3",
+        "symbol": "a3",
+        "unit": "-"
+      },
+      {
+        "name": "Diferencia T_HTF-T_amb",
+        "symbol": "Delta_T",
+        "unit": "K"
+      },
+      {
+        "name": "DNI",
+        "symbol": "DNI",
+        "unit": "W/m2"
+      },
+      {
+        "name": "Eficiencia térmica",
+        "symbol": "eta_th",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "eta_th en [0.40,0.75]"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 5,
+      "tolerance": 0.0001
+    },
+    "validity_limits": [
+      "DNI > 0"
+    ],
+    "outputs": [
+      {
+        "name": "Eficiencia térmica",
+        "symbol": "eta_th",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "eta_th > 0.40"
+    ],
+    "failure_modes": [
+      "DNI = 0"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-004"
+    ],
+    "references": [
+      "NREL_SAM_2024;ISO_9806;ASHRAE_93;ASTM_C1549",
+      "ASHRAE_93"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-027",
+    "name_es": "Pérdida de calor del HCE (Heat Collection Element)",
+    "purpose": "Calcular la pérdida de calor específica del HCE para colector parabólico.",
+    "applicability_expression": "plant_type == parabolic_trough",
+    "input_field_ids": [
+      "CSP-105",
+      "CSP-106",
+      "CSP-107",
+      "CSP-052",
+      "CSP-011",
+      "CSP-012"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_HCE_loss_per_length = a0 + a1*T_HTF + a2*T_HTF^2 + a3*T_amb + a4*v_wind + a5*T_HTF*T_amb"
+    ],
+    "equations_latex": [
+      "q'_{HCE} = a_0 + a_1 T + a_2 T^2 + a_3 T_{amb} + a_4 v_w + a_5 T T_{amb}"
+    ],
+    "variables": [
+      {
+        "name": "Coeficientes HCE",
+        "symbol": "a0..a5",
+        "unit": "various"
+      },
+      {
+        "name": "T del HTF",
+        "symbol": "T_HTF",
+        "unit": "degC"
+      },
+      {
+        "name": "T ambiente",
+        "symbol": "T_amb",
+        "unit": "degC"
+      },
+      {
+        "name": "Velocidad del viento",
+        "symbol": "v_wind",
+        "unit": "m/s"
+      },
+      {
+        "name": "Pérdida del HCE por longitud",
+        "symbol": "Q_HCE_loss_per_length",
+        "unit": "W/m"
+      }
+    ],
+    "unit_equations": [
+      "Q_HCE_loss en W/m (típico 100-400 W/m)"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 5,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "T_HTF > 0"
+    ],
+    "outputs": [
+      {
+        "name": "Pérdida HCE",
+        "symbol": "Q_HCE_loss_per_length",
+        "unit": "W/m"
+      }
+    ],
+    "acceptance_rules": [
+      "Q_HCE_loss_per_length < 500"
+    ],
+    "failure_modes": [
+      "Coeficientes inválidos"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-004"
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;ISO_9806;NREL_TES_CSP;IAPWS_IF97",
+      "ISO_9806"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-028",
+    "name_es": "Optimización del campo de heliostatos (SolarPILOT/DELSOL)",
+    "purpose": "Calcular la disposición óptima del campo de heliostatos según SolarPILOT/DELSOL.",
+    "applicability_expression": "plant_type == tower_heliostat",
+    "input_field_ids": [
+      "CSP-029",
+      "CSP-030",
+      "CSP-031",
+      "CSP-034",
+      "CSP-035",
+      "CSP-093",
+      "CSP-094",
+      "CSP-006",
+      "CSP-013",
+      "CSP-118",
+      "CSP-117"
+    ],
+    "derived_input_ids": [
+      "CSP-C-010",
+      "CSP-C-006",
+      "CSP-C-007",
+      "CSP-C-008"
+    ],
+    "equations_ascii": [
+      "layout_opt = argmax_layout(PFC - cost_heliostats - tower_cost); subject to land_area, blocking < 0.20, shading < 0.20"
+    ],
+    "equations_latex": [
+      "\\mathcal{L}_{opt} = \\arg\\max_{\\mathcal{L}} P_{FC}(\\mathcal{L}) - C_h N_h - C_t H_t"
+    ],
+    "variables": [
+      {
+        "name": "Tipo de layout",
+        "symbol": "layout",
+        "unit": "-"
+      },
+      {
+        "name": "Densidad de empaquetamiento",
+        "symbol": "packing_density",
+        "unit": "-"
+      },
+      {
+        "name": "Número de heliostatos",
+        "symbol": "N_h",
+        "unit": "-"
+      },
+      {
+        "name": "Costo de heliostato",
+        "symbol": "C_h",
+        "unit": "USD"
+      },
+      {
+        "name": "Altura de torre",
+        "symbol": "H_t",
+        "unit": "m"
+      },
+      {
+        "name": "Costo de torre",
+        "symbol": "C_t",
+        "unit": "USD/m"
+      },
+      {
+        "name": "Potencia del campo",
+        "symbol": "PFC",
+        "unit": "W"
+      },
+      {
+        "name": "Layout óptimo",
+        "symbol": "layout_opt",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "layout en [N-S_polar,radial_stagger,cornfield_north,surrounding_north]"
+    ],
+    "numerical_method": "genetic / gradient descent",
+    "iteration_limits": {
+      "max_iterations": 1000,
+      "tolerance": 1e-06
+    },
+    "validity_limits": [
+      "packing_density > 0.10"
+    ],
+    "outputs": [
+      {
+        "name": "Layout óptimo",
+        "symbol": "layout_opt",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      "PFC optimizado",
+      "packing_density en [0.10,0.50]"
+    ],
+    "failure_modes": [
+      "Layout inválido"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-003"
+    ],
+    "references": [
+      "NREL_SAM_2024;NREL_TES_CSP;ASTM_C1549",
+      "NREL_SAM_2024"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-029",
+    "name_es": "Altura óptima de la torre receptora",
+    "purpose": "Calcular la altura óptima de la torre receptora solar.",
+    "applicability_expression": "plant_type == tower_heliostat",
+    "input_field_ids": [
+      "CSP-093",
+      "CSP-094",
+      "CSP-035",
+      "CSP-026",
+      "CSP-118",
+      "CSP-117",
+      "CSP-013",
+      "CSP-006"
+    ],
+    "derived_input_ids": [
+      "CSP-C-028"
+    ],
+    "equations_ascii": [
+      "H_tower_opt = argmin_H(tower_cost + spillage_loss + cosine_loss); subject to structural stability"
+    ],
+    "equations_latex": [
+      "H_{opt} = \\arg\\min_H \\left[ C_t H + C_s S(H) + C_c \\bar{\\cos}^{-1}(H) \\right]"
+    ],
+    "variables": [
+      {
+        "name": "Altura de la torre",
+        "symbol": "H_tower",
+        "unit": "m"
+      },
+      {
+        "name": "Costo de torre",
+        "symbol": "C_t",
+        "unit": "USD/m"
+      },
+      {
+        "name": "Spillage",
+        "symbol": "S",
+        "unit": "-"
+      },
+      {
+        "name": "Coseno promedio",
+        "symbol": "cos_avg",
+        "unit": "-"
+      },
+      {
+        "name": "Costo de spillage",
+        "symbol": "C_s",
+        "unit": "USD"
+      },
+      {
+        "name": "Costo de pérdida coseno",
+        "symbol": "C_c",
+        "unit": "USD"
+      },
+      {
+        "name": "Altura óptima",
+        "symbol": "H_tower_opt",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "H_tower_opt en [50,250] m"
+    ],
+    "numerical_method": "gradient descent",
+    "iteration_limits": {
+      "max_iterations": 200,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "H_tower > 20",
+      "PGA < 1.5"
+    ],
+    "outputs": [
+      {
+        "name": "Altura óptima",
+        "symbol": "H_tower_opt",
+        "unit": "m"
+      }
+    ],
+    "acceptance_rules": [
+      "H_tower_opt < 250"
+    ],
+    "failure_modes": [
+      "PGA > 1.5"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ],
+    "references": [
+      "NREL_SAM_2024;NREL_TES_CSP;ASTM_C1549",
+      "NREL_SAM_2024"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-030",
+    "name_es": "Rendimiento anual (SAM / SOLTRACE)",
+    "purpose": "Calcular el rendimiento anual (kWh exportados) de la planta CSP usando NREL SAM/SOLTRACE.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-006",
+      "CSP-001",
+      "CSP-002",
+      "CSP-003",
+      "CSP-004",
+      "CSP-108",
+      "CSP-064",
+      "CSP-058",
+      "CSP-010",
+      "CSP-027",
+      "CSP-011",
+      "CSP-012",
+      "CSP-013"
+    ],
+    "derived_input_ids": [
+      "CSP-C-001",
+      "CSP-C-010",
+      "CSP-C-017",
+      "CSP-C-018",
+      "CSP-C-014",
+      "CSP-C-015",
+      "CSP-C-024"
+    ],
+    "equations_ascii": [
+      "E_annual = sum_over_year(P_hourly * 1h); P_hourly = PFC(t) * eta_cycle - aux_losses"
+    ],
+    "equations_latex": [
+      "E_{ann} = \\sum_{t=1}^{8760} P_{net}(t) \\cdot \\Delta t"
+    ],
+    "variables": [
+      {
+        "name": "Potencia neta horaria",
+        "symbol": "P_hourly",
+        "unit": "kW"
+      },
+      {
+        "name": "Horas",
+        "symbol": "t",
+        "unit": "h"
+      },
+      {
+        "name": "Energía anual",
+        "symbol": "E_annual",
+        "unit": "kWh"
+      }
+    ],
+    "unit_equations": [
+      "E_annual = sum(P_hourly * 1h) en kWh"
+    ],
+    "numerical_method": "time-series simulation",
+    "iteration_limits": {
+      "max_iterations": 8760,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "DNI > 0"
+    ],
+    "outputs": [
+      {
+        "name": "Energía anual",
+        "symbol": "E_annual",
+        "unit": "kWh"
+      }
+    ],
+    "acceptance_rules": [
+      "E_annual > 0",
+      "Capacity factor > 20%"
+    ],
+    "failure_modes": [
+      "DNI = 0"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-017",
+      "CSP-DRW-001"
+    ],
+    "references": [
+      "NREL_SAM_2024",
+      "NSRDB_NREL;NREL_SAM_2024;ASTM_E891;ISO_9806"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-031",
+    "name_es": "Caída de presión del HTF en tubería (ASME B31.1)",
+    "purpose": "Calcular la caída de presión del HTF en la tubería según ASME B31.1.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-074",
+      "CSP-075",
+      "CSP-046",
+      "CSP-047",
+      "CSP-048",
+      "CSP-049",
+      "CSP-076"
+    ],
+    "derived_input_ids": [
+      "CSP-C-012"
+    ],
+    "equations_ascii": [
+      "dP = f*(L/D)*(rho*v^2/2) + sum(K fittings)*(rho*v^2/2)"
+    ],
+    "equations_latex": [
+      "\\Delta P = f\\frac{L}{D}\\frac{\\rho v^2}{2} + \\sum K_i \\frac{\\rho v^2}{2}"
+    ],
+    "variables": [
+      {
+        "name": "Factor de fricción",
+        "symbol": "f",
+        "unit": "-"
+      },
+      {
+        "name": "Longitud",
+        "symbol": "L",
+        "unit": "m"
+      },
+      {
+        "name": "Diámetro",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "Densidad",
+        "symbol": "rho",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Velocidad",
+        "symbol": "v",
+        "unit": "m/s"
+      },
+      {
+        "name": "Pérdidas por accesorios",
+        "symbol": "K_fittings",
+        "unit": "-"
+      },
+      {
+        "name": "Caída de presión",
+        "symbol": "dP",
+        "unit": "Pa"
+      }
+    ],
+    "unit_equations": [
+      "1 Pa = 0.01 mbar; validar v < erosion limit"
+    ],
+    "numerical_method": "deterministic (Darcy-Weisbach)",
+    "iteration_limits": {
+      "max_iterations": 10,
+      "tolerance": 0.0001
+    },
+    "validity_limits": [
+      "v < 10 m/s"
+    ],
+    "outputs": [
+      {
+        "name": "Caída de presión",
+        "symbol": "dP",
+        "unit": "Pa"
+      }
+    ],
+    "acceptance_rules": [
+      "dP > 0"
+    ],
+    "failure_modes": [
+      "v = 0"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-008"
+    ],
+    "references": [
+      "ASME_B31_1_2022;ASME_BPVC_VIII_1_2023;NIST_WEBBOOK"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  },
+  {
+    "calculation_id": "CSP-C-032",
+    "name_es": "Espesor de pared de tubería HTF (ASME B31.1)",
+    "purpose": "Calcular el espesor mínimo de pared de la tubería del HTF per ASME B31.1.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "CSP-074",
+      "CSP-075",
+      "CSP-076",
+      "CSP-043"
+    ],
+    "derived_input_ids": [
+      "CSP-C-031"
+    ],
+    "equations_ascii": [
+      "t = (P*D)/(2*(S*E + 0.6*P)) + A; t >= t_min_code"
+    ],
+    "equations_latex": [
+      "t = \\frac{PD}{2(SE + 0.6P)} + A"
+    ],
+    "variables": [
+      {
+        "name": "Presión interna de diseño",
+        "symbol": "P",
+        "unit": "bar"
+      },
+      {
+        "name": "Diámetro externo",
+        "symbol": "D",
+        "unit": "mm"
+      },
+      {
+        "name": "Esfuerzo admisible",
+        "symbol": "S",
+        "unit": "MPa"
+      },
+      {
+        "name": "Factor de calidad",
+        "symbol": "E",
+        "unit": "-"
+      },
+      {
+        "name": "Margen de corrosión",
+        "symbol": "A",
+        "unit": "mm"
+      },
+      {
+        "name": "Espesor de pared",
+        "symbol": "t",
+        "unit": "mm"
+      }
+    ],
+    "unit_equations": [
+      "1 bar = 0.1 MPa; validar t_min B31.1"
+    ],
+    "numerical_method": "deterministic",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.0
+    },
+    "validity_limits": [
+      "P > 0",
+      "D > 0"
+    ],
+    "outputs": [
+      {
+        "name": "Espesor de pared",
+        "symbol": "t",
+        "unit": "mm"
+      }
+    ],
+    "acceptance_rules": [
+      "t > 0",
+      "t < 50"
+    ],
+    "failure_modes": [
+      "P = 0"
+    ],
+    "drawing_impacts": [
+      "CSP-DRW-008"
+    ],
+    "references": [
+      "ASME_B31_1_2022;ASME_BPVC_VIII_1_2023;NIST_WEBBOOK",
+      "ASME_B31_1_2022"
+    ],
+    "source_ids": [
+      "ISO_14617"
+    ]
+  }
+]

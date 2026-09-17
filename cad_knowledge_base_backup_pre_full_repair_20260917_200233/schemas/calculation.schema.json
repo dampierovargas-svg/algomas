@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/calculation.schema.json",
+  "title": "Cálculo ejecutable",
+  "description": "Fórmula con ecuaciones, variables, unidades y reglas de aceptación",
+  "type": "object",
+  "required": [
+    "calculation_id",
+    "name_es",
+    "purpose",
+    "domain_tags",
+    "applicability_expression",
+    "input_field_ids",
+    "equations_ascii",
+    "variables",
+    "outputs"
+  ],
+  "properties": {
+    "calculation_id": {
+      "type": "string",
+      "pattern": "^CALC-[A-Z]{3,6}-\\d{4}$"
+    },
+    "name_es": {
+      "type": "string",
+      "minLength": 10
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Propósito técnico específico del cálculo"
+    },
+    "domain_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["pv", "wind", "hydro", "biomass", "biogas", "geothermal", "csp", "marine", "bess", "hydrogen", "hybrid", "electrical", "civil", "structural", "mechanical", "hydraulic", "process"]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "applicability_expression": {
+      "type": "string",
+      "description": "Expresión booleana que define cuándo aplica el cálculo",
+      "minLength": 5
+    },
+    "input_field_ids": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "description": "IDs de campos de entrada (FLD-*)"
+    },
+    "derived_input_ids": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "IDs de cálculos previos cuyos outputs son inputs de este"
+    },
+    "shared_formula_id": {
+      "type": "string",
+      "description": "ID de fórmula compartida si se reutiliza legítimamente"
+    },
+    "shared_formula_justification": {
+      "type": "string",
+      "description": "Justificación técnica para reutilizar fórmula"
+    },
+    "equations_ascii": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 5,
+        "not": {
+          "enum": [
+            "y = f(x)",
+            "result = calculate(inputs)",
+            "inputs within valid ranges",
+            "output within plausible range",
+            "input outside valid physical range",
+            "invalid inputs",
+            "tech_specific_formula",
+            "generic_formula"
+          ]
+        }
+      },
+      "minItems": 1,
+      "description": "Ecuaciones en ASCII ejecutables"
+    },
+    "equations_latex": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "variables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "symbol", "unit", "type"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 2,
+            "not": {
+              "enum": ["input", "x", "var", "value", "result", "output"]
+            }
+          },
+          "symbol": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unit": {
+            "type": "string",
+            "not": {
+              "enum": ["various", "unit", "unknown", "?"]
+            }
+          },
+          "type": {
+            "type": "string",
+            "enum": ["input", "constant", "derived", "output"]
+          },
+          "origin_field_id": {
+            "type": ["string", "null"],
+            "description": "Requerido si type=input"
+          },
+          "origin_calculation_id": {
+            "type": ["string", "null"],
+            "description": "Requerido si type=derived"
+          },
+          "constant_value": {
+            "type": ["number", "string"],
+            "description": "Requerido si type=constant"
+          },
+          "constant_source": {
+            "type": "string",
+            "description": "Fuente técnica de la constante"
+          }
+        },
+        "if": {
+          "properties": {"type": {"const": "input"}}
+        },
+        "then": {
+          "required": ["origin_field_id"]
+        },
+        "if": {
+          "properties": {"type": {"const": "derived"}}
+        },
+        "then": {
+          "required": ["origin_calculation_id"]
+        },
+        "if": {
+          "properties": {"type": {"const": "constant"}}
+        },
+        "then": {
+          "required": ["constant_value", "constant_source"]
+        }
+      }
+    },
+    "unit_equations": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Ecuaciones de consistencia dimensional"
+    },
+    "numerical_method": {
+      "type": "string",
+      "enum": ["direct", "iterative_newton", "iterative_fixed_point", "numerical_integration", "ode_solver", "optimization", "monte_carlo"]
+    },
+    "iteration_limits": {
+      "type": "object",
+      "properties": {
+        "max_iterations": {"type": "integer", "minimum": 1},
+        "tolerance": {"type": "number", "minimum": 0}
+      }
+    },
+    "validity_limits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["variable", "condition"],
+        "properties": {
+          "variable": {"type": "string"},
+          "condition": {"type": "string"},
+          "message": {"type": "string"}
+        }
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "output_id", "type", "unit"],
+        "properties": {
+          "name": {"type": "string", "minLength": 3},
+          "output_id": {"type": "string"},
+          "type": {"type": "string"},
+          "unit": {"type": "string"},
+          "description": {"type": "string"}
+        }
+      },
+      "minItems": 1
+    },
+    "acceptance_rules": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 10,
+        "not": {
+          "enum": ["true", "false", "result is valid", "output is acceptable"]
+        }
+      },
+      "description": "Reglas evaluables para validar resultados"
+    },
+    "failure_modes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["mode_id", "condition", "severity"],
+        "properties": {
+          "mode_id": {"type": "string"},
+          "condition": {"type": "string"},
+          "severity": {"type": "string", "enum": ["warning", "error", "critical"]},
+          "message": {"type": "string"}
+        }
+      }
+    },
+    "drawing_impacts": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "IDs de planos afectados por este cálculo"
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Fuentes normativas que exigen o validan este cálculo"
+    }
+  },
+  "additionalProperties": false
+}

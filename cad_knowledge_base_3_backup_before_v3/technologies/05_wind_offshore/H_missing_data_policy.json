@@ -1,0 +1,2454 @@
+[
+  {
+    "field_id": "WOF-001",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Project charter and notify PROJECT_MANAGER",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "PROJECT_MANAGER -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-002",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Geodetic survey and notify GEODESIST",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "GEODESIST -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "ISO_19111",
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-003",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Geodetic survey and notify GEODESIST",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "GEODESIST -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "ISO_19111",
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-004",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Concession map and notify GEODESIST",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "GEODESIST -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "ISO_19111",
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-010",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Bathymetric survey report (prohibited_default=0) and notify HYDROGRAPHIC_ENGINEER",
+    "fallback_calculation_id": "WOF-CALC-004",
+    "cross_check_required": true,
+    "escalation_path": "HYDROGRAPHIC_ENGINEER -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_RP_C205",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-011",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Tide table and notify HYDROGRAPHIC_ENGINEER",
+    "fallback_calculation_id": "WOF-CALC-019",
+    "cross_check_required": true,
+    "escalation_path": "HYDROGRAPHIC_ENGINEER -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-012",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Storm surge study and notify METOCEAN_LEAD",
+    "fallback_calculation_id": "WOF-CALC-001",
+    "cross_check_required": true,
+    "escalation_path": "METOCEAN_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_RP_C205",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-013",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Metocean design basis (prohibited_default=0) and notify METOCEAN_LEAD",
+    "fallback_calculation_id": "WOF-CALC-001",
+    "cross_check_required": true,
+    "escalation_path": "METOCEAN_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_RP_C205",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-014",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Metocean design basis and notify METOCEAN_LEAD",
+    "fallback_calculation_id": "WOF-CALC-001",
+    "cross_check_required": true,
+    "escalation_path": "METOCEAN_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-015",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Metocean design basis (prohibited_default=0) and notify METOCEAN_LEAD",
+    "fallback_calculation_id": "WOF-CALC-002",
+    "cross_check_required": true,
+    "escalation_path": "METOCEAN_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_RP_C205",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-016",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Metocean design basis and notify METOCEAN_LEAD",
+    "fallback_calculation_id": "WOF-CALC-002",
+    "cross_check_required": true,
+    "escalation_path": "METOCEAN_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-017",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Metocean design basis (prohibited_default=0) and notify METOCEAN_LEAD",
+    "fallback_calculation_id": "WOF-CALC-005",
+    "cross_check_required": true,
+    "escalation_path": "METOCEAN_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_3_1",
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-018",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Metocean design basis and notify METOCEAN_LEAD",
+    "fallback_calculation_id": "WOF-CALC-005",
+    "cross_check_required": true,
+    "escalation_path": "METOCEAN_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-019",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Turbine datasheet (prohibited_default=S) and notify LEAD_ENGINEER_MECHANICAL",
+    "fallback_calculation_id": "WOF-CALC-005",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_MECHANICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-020",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Metocean design basis (prohibited_default=0) and notify METOCEAN_LEAD",
+    "fallback_calculation_id": "WOF-CALC-004",
+    "cross_check_required": true,
+    "escalation_path": "METOCEAN_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_RP_C205",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-021",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Metocean design basis and notify METOCEAN_LEAD",
+    "fallback_calculation_id": "WOF-CALC-004",
+    "cross_check_required": true,
+    "escalation_path": "METOCEAN_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-022",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Oceanographic study and notify METOCEAN_LEAD",
+    "fallback_calculation_id": "WOF-CALC-019",
+    "cross_check_required": true,
+    "escalation_path": "METOCEAN_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-023",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Oceanographic study and notify METOCEAN_LEAD",
+    "fallback_calculation_id": "WOF-CALC-019",
+    "cross_check_required": true,
+    "escalation_path": "METOCEAN_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-024",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request DNV-RP-C205 growth profile and notify METOCEAN_LEAD",
+    "fallback_calculation_id": "WOF-CALC-026",
+    "cross_check_required": true,
+    "escalation_path": "METOCEAN_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_OS_J101"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-025",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Geotechnical/scour report (prohibited_default=0) and notify GEOTECHNICAL_ENGINEER",
+    "fallback_calculation_id": "WOF-CALC-023",
+    "cross_check_required": true,
+    "escalation_path": "GEOTECHNICAL_ENGINEER -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-027",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Metocean design basis and notify METOCEAN_LEAD",
+    "fallback_calculation_id": "WOF-CALC-006",
+    "cross_check_required": true,
+    "escalation_path": "METOCEAN_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-030",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Geotechnical report (prohibited_default=SAND) and notify GEOTECHNICAL_ENGINEER",
+    "fallback_calculation_id": "WOF-CALC-010",
+    "cross_check_required": true,
+    "escalation_path": "GEOTECHNICAL_ENGINEER -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_OS_J103"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-031",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Geotechnical report and notify GEOTECHNICAL_ENGINEER",
+    "fallback_calculation_id": "WOF-CALC-010",
+    "cross_check_required": true,
+    "escalation_path": "GEOTECHNICAL_ENGINEER -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_OS_J101"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-032",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Geotechnical report and notify GEOTECHNICAL_ENGINEER",
+    "fallback_calculation_id": "WOF-CALC-010",
+    "cross_check_required": true,
+    "escalation_path": "GEOTECHNICAL_ENGINEER -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_OS_J101"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-033",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Geotechnical report and notify GEOTECHNICAL_ENGINEER",
+    "fallback_calculation_id": "WOF-CALC-010",
+    "cross_check_required": true,
+    "escalation_path": "GEOTECHNICAL_ENGINEER -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_OS_J101"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-040",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Turbine datasheet (prohibited_default=10000) and notify LEAD_ENGINEER_MECHANICAL",
+    "fallback_calculation_id": "WOF-CALC-006",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_MECHANICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-041",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Turbine datasheet (prohibited_default=150) and notify LEAD_ENGINEER_MECHANICAL",
+    "fallback_calculation_id": "WOF-CALC-005",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_MECHANICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-042",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Turbine datasheet (prohibited_default=100) and notify LEAD_ENGINEER_MECHANICAL",
+    "fallback_calculation_id": "WOF-CALC-005",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_MECHANICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-043",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Turbine datasheet and notify LEAD_ENGINEER_MECHANICAL",
+    "fallback_calculation_id": "WOF-CALC-009",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_MECHANICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-044",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Turbine datasheet and notify LEAD_ENGINEER_MECHANICAL",
+    "fallback_calculation_id": "WOF-CALC-009",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_MECHANICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-045",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Turbine datasheet and notify LEAD_ENGINEER_MECHANICAL",
+    "fallback_calculation_id": "WOF-CALC-009",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_MECHANICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_6"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-050",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Foundation selection memo (prohibited_default=MONOPILE) and notify LEAD_ENGINEER_CIVIL",
+    "fallback_calculation_id": "WOF-CALC-009",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_CIVIL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_OS_J101",
+      "IEC_61400_3_1",
+      "DNV_OS_J103",
+      "IEC_61400_3_2",
+      "DNV_OS_C101"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-064",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Design basis and notify LEAD_ENGINEER_CIVIL",
+    "fallback_calculation_id": "WOF-CALC-007",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_CIVIL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_OS_J101",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-100",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Electrical design (prohibited_default=33) and notify LEAD_ENGINEER_ELECTRICAL",
+    "fallback_calculation_id": "WOF-CALC-019",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_ELECTRICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEC_61400_25"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-101",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Electrical design and notify LEAD_ENGINEER_ELECTRICAL",
+    "fallback_calculation_id": "WOF-CALC-019",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_ELECTRICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_60287_1_1",
+      "DNV_ST_0519"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-102",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Electrical design and notify LEAD_ENGINEER_ELECTRICAL",
+    "fallback_calculation_id": "WOF-CALC-019",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_ELECTRICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_ST_0519"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-103",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Cable routing design and notify LEAD_ENGINEER_ELECTRICAL",
+    "fallback_calculation_id": "WOF-CALC-019",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_ELECTRICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_ST_0519"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-104",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Electrical design (prohibited_default=220) and notify LEAD_ENGINEER_ELECTRICAL",
+    "fallback_calculation_id": "WOF-CALC-019",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_ELECTRICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_60287_1_1",
+      "DNV_ST_0519"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-105",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Electrical design and notify LEAD_ENGINEER_ELECTRICAL",
+    "fallback_calculation_id": "WOF-CALC-019",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_ELECTRICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_60287_1_1",
+      "DNV_ST_0519"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-106",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Cable routing design (prohibited_default=0) and notify LEAD_ENGINEER_ELECTRICAL",
+    "fallback_calculation_id": "WOF-CALC-019",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_ELECTRICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_ST_0519"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-107",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Electrical design (prohibited_default=STATIC) and notify LEAD_ENGINEER_ELECTRICAL",
+    "fallback_calculation_id": "WOF-CALC-019",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_ELECTRICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_ST_0519",
+      "IEC_61400_27_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-108",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Cable burial design (prohibited_default=0) and notify LEAD_ENGINEER_ELECTRICAL",
+    "fallback_calculation_id": "WOF-CALC-022",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_ELECTRICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_ST_0519",
+      "DNV_RP_J202"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-109",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Installation procedure and notify CONSTRUCTION_LEAD",
+    "fallback_calculation_id": "WOF-CALC-022",
+    "cross_check_required": true,
+    "escalation_path": "CONSTRUCTION_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "DNV_ST_0519",
+      "DNV_RP_J202"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-120",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Logistics study (prohibited_default=0) and notify LOGISTICS_LEAD",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "LOGISTICS_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-121",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "WARNING",
+    "blocking": false,
+    "action_when_missing": "Request Port capacity statement and notify LOGISTICS_LEAD",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "LOGISTICS_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-122",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "WARNING",
+    "blocking": false,
+    "action_when_missing": "Request Port capacity statement and notify LOGISTICS_LEAD",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "LOGISTICS_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-123",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "WARNING",
+    "blocking": false,
+    "action_when_missing": "Request Port capacity statement and notify LOGISTICS_LEAD",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "LOGISTICS_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-124",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Vessel charter (prohibited_default=JACK_UP) and notify CONSTRUCTION_LEAD",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "CONSTRUCTION_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-130",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request EIA study and notify ENVIRONMENTAL_LEAD",
+    "fallback_calculation_id": "WOF-CALC-027",
+    "cross_check_required": true,
+    "escalation_path": "ENVIRONMENTAL_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-131",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request EIA study and notify ENVIRONMENTAL_LEAD",
+    "fallback_calculation_id": "WOF-CALC-027",
+    "cross_check_required": true,
+    "escalation_path": "ENVIRONMENTAL_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-132",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request EIA study and notify ENVIRONMENTAL_LEAD",
+    "fallback_calculation_id": "WOF-CALC-027",
+    "cross_check_required": true,
+    "escalation_path": "ENVIRONMENTAL_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-133",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Decommissioning plan and notify ENVIRONMENTAL_LEAD",
+    "fallback_calculation_id": "WOF-CALC-027",
+    "cross_check_required": true,
+    "escalation_path": "ENVIRONMENTAL_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-134",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request EIA study and notify ENVIRONMENTAL_LEAD",
+    "fallback_calculation_id": "WOF-CALC-027",
+    "cross_check_required": true,
+    "escalation_path": "ENVIRONMENTAL_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023",
+      "ISO_19111"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-135",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Navigation study (prohibited_default=0) and notify NAVIGATION_LEAD",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "NAVIGATION_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-136",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Navigation study and notify NAVIGATION_LEAD",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "NAVIGATION_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-137",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Navigation study and notify NAVIGATION_LEAD",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "NAVIGATION_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-140",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Logistics study and notify LOGISTICS_LEAD",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "LOGISTICS_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-142",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request OSS design and notify LEAD_ENGINEER_ELECTRICAL",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_ELECTRICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-143",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request SCADA design and notify LEAD_ENGINEER_ELECTRICAL",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "LEAD_ENGINEER_ELECTRICAL -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_25"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-144",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request SCADA design and notify NAVIGATION_LEAD",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "NAVIGATION_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_25"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-145",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Aviation study and notify AVIATION_LEAD",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "AVIATION_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_24",
+      "IEC_61400_3_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-146",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Yield assessment and notify ENERGY_ANALYST",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "ENERGY_ANALYST -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_12_1",
+      "IEC_61400_15_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-147",
+    "requirement_class": "PROJECT_MANDATORY",
+    "severity": "BLOCKED",
+    "blocking": true,
+    "action_when_missing": "Request Commissioning plan and notify COMMISSIONING_LEAD",
+    "fallback_calculation_id": "WOF-CALC-028",
+    "cross_check_required": true,
+    "escalation_path": "COMMISSIONING_LEAD -> PROJECT_MANAGER -> OWNER",
+    "max_resubmission_days": 5,
+    "source_ids": [
+      "IEC_61400_21_1",
+      "IEC_61400_25"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WOF-115",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Bathymetry survey",
+    "responsible_role": "GEODESIST",
+    "blocked_calculations": [
+      "WOF-C-001"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-001",
+      "WOF-DRW-007"
+    ]
+  },
+  {
+    "field_id": "WOF-116",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Metocean study",
+    "responsible_role": "METEOROLOGIST",
+    "blocked_calculations": [
+      "WOF-C-001",
+      "WOF-C-004"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-001"
+    ]
+  },
+  {
+    "field_id": "WOF-117",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Metocean study",
+    "responsible_role": "METEOROLOGIST",
+    "blocked_calculations": [
+      "WOF-C-001",
+      "WOF-C-004"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-001"
+    ]
+  },
+  {
+    "field_id": "WOF-118",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Metocean study",
+    "responsible_role": "METEOROLOGIST",
+    "blocked_calculations": [
+      "WOF-C-001",
+      "WOF-C-004"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-001"
+    ]
+  },
+  {
+    "field_id": "WOF-119",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Geotech seabed study",
+    "responsible_role": "GEOTECH_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-004"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-007",
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-125",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "WT datasheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-001",
+      "WOF-C-006"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-003"
+    ]
+  },
+  {
+    "field_id": "WOF-126",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-006"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-011"
+    ]
+  },
+  {
+    "field_id": "WOF-127",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-006"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-011"
+    ]
+  },
+  {
+    "field_id": "WOF-128",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Geotech seabed study",
+    "responsible_role": "GEOTECH_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-004"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-007",
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-129",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Wind measurement report",
+    "responsible_role": "METEOROLOGIST",
+    "blocked_calculations": [
+      "WOF-C-001"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-001",
+      "WOF-DRW-003"
+    ]
+  },
+  {
+    "field_id": "WOF-300",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "WT datasheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-001"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-003"
+    ]
+  },
+  {
+    "field_id": "WOF-301",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "WT datasheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-001"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-003"
+    ]
+  },
+  {
+    "field_id": "WOF-302",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "WT datasheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-001"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-003"
+    ]
+  },
+  {
+    "field_id": "WOF-303",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "WT datasheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-001",
+      "WOF-C-006"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-003"
+    ]
+  },
+  {
+    "field_id": "WOF-304",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-006"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-011"
+    ]
+  },
+  {
+    "field_id": "WOF-305",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-006"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-011"
+    ]
+  },
+  {
+    "field_id": "WOF-306",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Geotech seabed study",
+    "responsible_role": "GEOTECH_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-004"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-007",
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-307",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Metocean study",
+    "responsible_role": "METEOROLOGIST",
+    "blocked_calculations": [
+      "WOF-C-001"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-007",
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-308",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Scour study",
+    "responsible_role": "GEOTECH_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-004"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-007"
+    ]
+  },
+  {
+    "field_id": "WOF-309",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cable specification",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-C-006"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-004"
+    ]
+  },
+  {
+    "field_id": "WOF-051",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Foundation drawing",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "WOF-CALC-007",
+      "WOF-CALC-009"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-052",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Geotechnical report (prohibited_default=0)",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-CALC-010",
+      "WOF-CALC-029"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-053",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Foundation drawing",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "WOF-CALC-007"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-054",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Foundation drawing",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "WOF-CALC-024"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-055",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Foundation drawing",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "WOF-CALC-024"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-056",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grout datasheet",
+    "responsible_role": "MATERIALS_ENGINEER",
+    "blocked_calculations": [
+      "WOF-CALC-024"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-057",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Foundation drawing",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "WOF-CALC-008"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-007"
+    ]
+  },
+  {
+    "field_id": "WOF-058",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Foundation drawing",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "WOF-CALC-008"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-059",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Foundation drawing",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "WOF-CALC-008"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-060",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Foundation drawing",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "WOF-CALC-008"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-061",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Foundation drawing",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "WOF-CALC-011"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-062",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Scour protection design (prohibited_default=NONE)",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-CALC-023"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-018"
+    ]
+  },
+  {
+    "field_id": "WOF-063",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Scour protection design",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-CALC-023"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-018"
+    ]
+  },
+  {
+    "field_id": "WOF-070",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Naval architecture report (prohibited_default=0)",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-017",
+      "WOF-CALC-018"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-071",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Naval architecture report",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-017"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-072",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Naval architecture report (prohibited_default=0)",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-017",
+      "WOF-CALC-018"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-073",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Naval architecture report",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-017"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-074",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Naval architecture report",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-017"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-075",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Naval architecture report",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-017"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-076",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Naval architecture report",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-017",
+      "WOF-CALC-018"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-077",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Dynamic cable design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "WOF-CALC-020",
+      "WOF-CALC-021"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-014"
+    ]
+  },
+  {
+    "field_id": "WOF-080",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Mooring design (prohibited_default=0)",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-012",
+      "WOF-CALC-013"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-081",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Mooring design (prohibited_default=CHAIN)",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-012",
+      "WOF-CALC-013"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-082",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Mooring design",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-012"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-083",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Mooring design",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-012"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-084",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Mooring design",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-012"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-085",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Mooring design",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-012"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-086",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Mooring design",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-013"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-087",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Mooring design",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-012"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-088",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Mooring design",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-012"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-089",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Chain certificate",
+    "responsible_role": "MATERIALS_ENGINEER",
+    "blocked_calculations": [
+      "WOF-CALC-012"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-090",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Anchor design (prohibited_default=DRAG)",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-014",
+      "WOF-CALC-015",
+      "WOF-CALC-016"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-091",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Anchor design",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-CALC-015"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-092",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Anchor design (prohibited_default=0)",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-014",
+      "WOF-CALC-015",
+      "WOF-CALC-016"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-093",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Anchor design",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-014",
+      "WOF-CALC-015",
+      "WOF-CALC-016"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-094",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Anchor design",
+    "responsible_role": "NAVAL_ARCHITECT",
+    "blocked_calculations": [
+      "WOF-CALC-014"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-095",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Anchor design",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-CALC-015"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-013"
+    ]
+  },
+  {
+    "field_id": "WOF-110",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "OSS design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "WOF-CALC-008"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-009"
+    ]
+  },
+  {
+    "field_id": "WOF-111",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "OSS design (prohibited_default=JACKET)",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "WOF-CALC-008"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-009"
+    ]
+  },
+  {
+    "field_id": "WOF-112",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "OSS design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "WOF-CALC-025",
+      "WOF-CALC-019"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-010"
+    ]
+  },
+  {
+    "field_id": "WOF-113",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Transmission design (prohibited_default=HVAC)",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "WOF-CALC-025"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-010"
+    ]
+  },
+  {
+    "field_id": "WOF-114",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Transmission design",
+    "responsible_role": "LEAD_ENGINEER_ELECTRICAL",
+    "blocked_calculations": [
+      "WOF-CALC-025"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-010"
+    ]
+  },
+  {
+    "field_id": "WOF-026",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Metocean design basis",
+    "responsible_role": "METOCEAN_LEAD",
+    "blocked_calculations": [
+      "WOF-CALC-005"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-003"
+    ]
+  },
+  {
+    "field_id": "WOF-034",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Geotechnical report",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-CALC-011"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-035",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Geotechnical report",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "WOF-CALC-011"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WOF-046",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Turbine datasheet",
+    "responsible_role": "LEAD_ENGINEER_MECHANICAL",
+    "blocked_calculations": [
+      "WOF-CALC-028"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-015"
+    ]
+  },
+  {
+    "field_id": "WOF-141",
+    "missing_action": "HUMAN_REVIEW",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "SOV datasheet",
+    "responsible_role": "LOGISTICS_LEAD",
+    "blocked_calculations": [
+      "WOF-CALC-028"
+    ],
+    "blocked_drawings": [
+      "WOF-DRW-002"
+    ]
+  }
+]

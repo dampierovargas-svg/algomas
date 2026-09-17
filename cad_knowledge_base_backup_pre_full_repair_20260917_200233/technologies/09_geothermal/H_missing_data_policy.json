@@ -1,0 +1,1969 @@
+[
+  {
+    "field_id": "GEO-001",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio topográfico o GPS del campo geotérmico",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "GEO-C-004",
+      "GEO-C-033"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-001",
+      "GEO-DRW-002"
+    ]
+  },
+  {
+    "field_id": "GEO-002",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio topográfico o GPS del campo geotérmico",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "GEO-C-004",
+      "GEO-C-033"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-001",
+      "GEO-DRW-002"
+    ]
+  },
+  {
+    "field_id": "GEO-003",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio topográfico",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "GEO-C-004",
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-001",
+      "GEO-DRW-002"
+    ]
+  },
+  {
+    "field_id": "GEO-004",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ubicación geopolítica del sitio",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "GEO-C-027"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-014"
+    ]
+  },
+  {
+    "field_id": "GEO-005",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Título de propiedad o levantamiento topográfico",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "GEO-C-023",
+      "GEO-C-032"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-001",
+      "GEO-DRW-002"
+    ]
+  },
+  {
+    "field_id": "GEO-006",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Informe de exploración geotérmica (pozos exploratorios)",
+    "responsible_role": "RESERVOIR_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-001",
+      "GEO-C-002",
+      "GEO-C-004"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003",
+      "GEO-DRW-006"
+    ]
+  },
+  {
+    "field_id": "GEO-007",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Prueba de presión en pozos exploratorios",
+    "responsible_role": "RESERVOIR_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-004",
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003"
+    ]
+  },
+  {
+    "field_id": "GEO-008",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Registros de pozos exploratorios",
+    "responsible_role": "RESERVOIR_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-009",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis químico de muestras de fondo",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-003",
+      "GEO-C-017",
+      "GEO-C-018"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-010",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis químico de fondo",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-003",
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-011",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Pruebas de presión transitoria (DST/PBU)",
+    "responsible_role": "RESERVOIR_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003"
+    ]
+  },
+  {
+    "field_id": "GEO-012",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Registros nucleares de pozos",
+    "responsible_role": "RESERVOIR_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003"
+    ]
+  },
+  {
+    "field_id": "GEO-013",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio geológico de superficie y núcleos",
+    "responsible_role": "RESERVOIR_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-014",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis químico ICP-OES",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-001",
+      "GEO-C-003"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-015",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis químico ICP-OES",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-001",
+      "GEO-C-003"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-016",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis químico ICP-OES",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-003",
+      "GEO-C-018"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-017",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis químico ICP-OES",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-003"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-018",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis químico (cromatografía iónica)",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-003",
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-019",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis químico (titulación)",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-003",
+      "GEO-C-018"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-020",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis químico (cromatografía iónica)",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-003"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-021",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis químico (espectrofotometría UV)",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-002",
+      "GEO-C-003",
+      "GEO-C-017"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-022",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis cromatográfico de gases no condensables",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-013",
+      "GEO-C-019",
+      "GEO-C-021"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-023",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis cromatográfico de gases no condensables",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-019",
+      "GEO-C-020",
+      "GEO-C-021"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-024",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis cromatográfico de gases no condensables",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-019",
+      "GEO-C-021"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-025",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis cromatográfico de gases no condensables",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-019",
+      "GEO-C-021"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-026",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Plan de desarrollo del campo geotérmico",
+    "responsible_role": "RESERVOIR_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-004",
+      "GEO-C-011",
+      "GEO-C-012"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003"
+    ]
+  },
+  {
+    "field_id": "GEO-027",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Plan de desarrollo del campo geotérmico",
+    "responsible_role": "RESERVOIR_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-004",
+      "GEO-C-023",
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003"
+    ]
+  },
+  {
+    "field_id": "GEO-028",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Programa de completación de pozos",
+    "responsible_role": "DRILLING_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-029",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Programa de perforación",
+    "responsible_role": "DRILLING_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-030",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Diseño mecánico del pozo (API/ASME)",
+    "responsible_role": "DRILLING_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-031",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Pruebas de producción de pozos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-004",
+      "GEO-C-007",
+      "GEO-C-009"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-032",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Pruebas de producción de pozos",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-004",
+      "GEO-C-009"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-033",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación mecánica del cabezal",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006"
+    ]
+  },
+  {
+    "field_id": "GEO-034",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación mecánica",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-010"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-035",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Diagrama de proceso PFD",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-007",
+      "GEO-C-009"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-036",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ingeniería de detalle del gathering system",
+    "responsible_role": "PIPING_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-005",
+      "GEO-C-006",
+      "GEO-C-028"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-037",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Isométrico del gathering",
+    "responsible_role": "PIPING_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-005",
+      "GEO-C-006"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-038",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo hidráulico del gathering",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-005",
+      "GEO-C-006"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-039",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación mecánica de materiales",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-040",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Diagrama de proceso PFD/P&ID",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-007",
+      "GEO-C-008"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-041",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del separador",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-007",
+      "GEO-C-008"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-042",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del separador",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-007",
+      "GEO-C-008"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-043",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo de diseño del separador",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-007",
+      "GEO-C-008"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-044",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "PFD del ciclo flash",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-009",
+      "GEO-C-004"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-045",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "PFD del ciclo flash",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-009",
+      "GEO-C-004"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-046",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del flash vessel",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-009"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-047",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del flash vessel",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-009"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-048",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del demister",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-010"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-049",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación del moisture remover",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-010",
+      "GEO-C-014"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-050",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación del demister",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-010"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-051",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Isométrico de vapor ASME B31.1",
+    "responsible_role": "PIPING_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-028"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-008"
+    ]
+  },
+  {
+    "field_id": "GEO-052",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación mecánica",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-028"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-008"
+    ]
+  },
+  {
+    "field_id": "GEO-053",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos de tubería ASME B31.1",
+    "responsible_role": "PIPING_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-028"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-006",
+      "GEO-DRW-008"
+    ]
+  },
+  {
+    "field_id": "GEO-054",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Isométrico de salmuera ASME B31.3",
+    "responsible_role": "PIPING_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-029"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-055",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación mecánica",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-029"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-056",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos de tubería ASME B31.3",
+    "responsible_role": "PIPING_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-029"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-057",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de prefactibilidad",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-004",
+      "GEO-C-014",
+      "GEO-C-025",
+      "GEO-C-027"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-001",
+      "GEO-DRW-002",
+      "GEO-DRW-011"
+    ]
+  },
+  {
+    "field_id": "GEO-058",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de prefactibilidad",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-004",
+      "GEO-C-014",
+      "GEO-C-025"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-001",
+      "GEO-DRW-011"
+    ]
+  },
+  {
+    "field_id": "GEO-059",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estimación de producción anual",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-014"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-011"
+    ]
+  },
+  {
+    "field_id": "GEO-060",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos de turbina",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-014"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-008",
+      "GEO-DRW-009"
+    ]
+  },
+  {
+    "field_id": "GEO-061",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "PFD ciclo de vapor",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-014"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-008",
+      "GEO-DRW-009"
+    ]
+  },
+  {
+    "field_id": "GEO-062",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "PFD ciclo de vapor",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-014"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-008",
+      "GEO-DRW-009"
+    ]
+  },
+  {
+    "field_id": "GEO-063",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "PFD ciclo de vapor",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-014",
+      "GEO-C-015"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-008",
+      "GEO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "GEO-064",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos de turbina",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-014"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-008",
+      "GEO-DRW-009"
+    ]
+  },
+  {
+    "field_id": "GEO-065",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "PFD ciclo de vapor",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-015"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "GEO-066",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "PFD ciclo de vapor",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-015"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "GEO-067",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance térmico",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-015"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "GEO-068",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos de torre de enfriamiento",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-015"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-002",
+      "GEO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "GEO-069",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance térmico",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-015"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-012"
+    ]
+  },
+  {
+    "field_id": "GEO-070",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "PFD de extracción de NCG",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-016"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-071",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del sistema NCG",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-016",
+      "GEO-C-013"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-072",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del eyector",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-016"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-073",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos de la bomba LRVP",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-016"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-074",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "PFD del sistema H2S",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-020"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-075",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación del sistema H2S",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-020"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-076",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del sistema H2S",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-020"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-077",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estimación de emisiones",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-019",
+      "GEO-C-020"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-078",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ingeniería mecánica de vente",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-023",
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-079",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance de masa NCG",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-021",
+      "GEO-C-013"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-080",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo API 521 venteo",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013",
+      "GEO-DRW-016"
+    ]
+  },
+  {
+    "field_id": "GEO-081",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo de saturación de sílice",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-017"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-082",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo LSI",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-018"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-083",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "PFD del control de sílice",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-017"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-084",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis de gases no condensables",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-019",
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013",
+      "GEO-DRW-016"
+    ]
+  },
+  {
+    "field_id": "GEO-085",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis de gases no condensables",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-086",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis químico de salmuera",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-087",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de materiales",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005",
+      "GEO-DRW-006"
+    ]
+  },
+  {
+    "field_id": "GEO-088",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis de metales traza",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-022"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-089",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis de metales traza",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-090",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "PFD del ciclo ORC",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-024",
+      "GEO-C-025",
+      "GEO-C-026",
+      "GEO-C-027"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-010",
+      "GEO-DRW-011"
+    ]
+  },
+  {
+    "field_id": "GEO-091",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance térmico ORC",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-024"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-010"
+    ]
+  },
+  {
+    "field_id": "GEO-092",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance térmico ORC",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-025"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-010"
+    ]
+  },
+  {
+    "field_id": "GEO-093",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance térmico ORC",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-026"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-010"
+    ]
+  },
+  {
+    "field_id": "GEO-094",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance térmico ORC",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-027"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-010",
+      "GEO-DRW-011"
+    ]
+  },
+  {
+    "field_id": "GEO-095",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos turbina ORC",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-024",
+      "GEO-C-027"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-010"
+    ]
+  },
+  {
+    "field_id": "GEO-096",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos ACC",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-026"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-010"
+    ]
+  },
+  {
+    "field_id": "GEO-097",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance térmico ORC",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-026"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-010"
+    ]
+  },
+  {
+    "field_id": "GEO-098",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos ACC",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-026"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-010"
+    ]
+  },
+  {
+    "field_id": "GEO-099",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "PFD del sistema de reinyección",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-023",
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-100",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Balance térmico",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-017",
+      "GEO-C-023"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-101",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis químico de salmuera",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-017",
+      "GEO-C-018"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-007"
+    ]
+  },
+  {
+    "field_id": "GEO-102",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo de bombas",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-023"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-004",
+      "GEO-DRW-005"
+    ]
+  },
+  {
+    "field_id": "GEO-103",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Pruebas de producción de pozos",
+    "responsible_role": "RESERVOIR_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-004",
+      "GEO-C-011",
+      "GEO-C-012",
+      "GEO-C-013"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003",
+      "GEO-DRW-006"
+    ]
+  },
+  {
+    "field_id": "GEO-104",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Pruebas de inyectividad",
+    "responsible_role": "RESERVOIR_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-023",
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003"
+    ]
+  },
+  {
+    "field_id": "GEO-105",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de bombas",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-031"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003",
+      "GEO-DRW-010"
+    ]
+  },
+  {
+    "field_id": "GEO-106",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del generador",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-014",
+      "GEO-C-027"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-011"
+    ]
+  },
+  {
+    "field_id": "GEO-107",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del transformador",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-027"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-011"
+    ]
+  },
+  {
+    "field_id": "GEO-108",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del switchgear",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-027"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-011"
+    ]
+  },
+  {
+    "field_id": "GEO-109",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de conexión COES",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-027"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-011"
+    ]
+  },
+  {
+    "field_id": "GEO-110",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de puesta a tierra IEEE 80",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-033"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-011"
+    ]
+  },
+  {
+    "field_id": "GEO-111",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de control SCADA",
+    "responsible_role": "CONTROL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-027"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-014"
+    ]
+  },
+  {
+    "field_id": "GEO-112",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de control",
+    "responsible_role": "CONTROL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-027"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-014"
+    ]
+  },
+  {
+    "field_id": "GEO-113",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis SIL / LOPA",
+    "responsible_role": "PROCESS_SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-027"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-014"
+    ]
+  },
+  {
+    "field_id": "GEO-114",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de seguridad",
+    "responsible_role": "PROCESS_SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-022"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-015"
+    ]
+  },
+  {
+    "field_id": "GEO-115",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de clasificación de área",
+    "responsible_role": "PROCESS_SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-016"
+    ]
+  },
+  {
+    "field_id": "GEO-116",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación de sistema contra incendio",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-032"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-015"
+    ]
+  },
+  {
+    "field_id": "GEO-117",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo hidráulico NFPA 13",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-032"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-015"
+    ]
+  },
+  {
+    "field_id": "GEO-118",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "EIA aprobada por MINAM",
+    "responsible_role": "ENVIRONMENTAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-023",
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-001",
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-119",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "EIA aprobada",
+    "responsible_role": "ENVIRONMENTAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-019",
+      "GEO-C-020",
+      "GEO-C-021"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-120",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "EIA aprobada",
+    "responsible_role": "ENVIRONMENTAL_ENGINEER",
+    "blocked_calculations": [
+      "GEO-C-022"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-013"
+    ]
+  },
+  {
+    "field_id": "GEO-121",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Layout de wellpads",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "GEO-C-023",
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003"
+    ]
+  },
+  {
+    "field_id": "GEO-122",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Layout de planta",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-002",
+      "GEO-DRW-014"
+    ]
+  },
+  {
+    "field_id": "GEO-123",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Layout de vías",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "GEO-C-030"
+    ],
+    "blocked_drawings": [
+      "GEO-DRW-003"
+    ]
+  }
+]

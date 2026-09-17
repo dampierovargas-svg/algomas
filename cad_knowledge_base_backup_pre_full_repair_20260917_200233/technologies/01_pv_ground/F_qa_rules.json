@@ -1,0 +1,1163 @@
+[
+  {
+    "rule_id": "PVG-QA-001",
+    "name_es": "Coherencia de coordenadas lat/lon",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "abs(latitude_deg)<=90 AND abs(longitude_deg)<=180",
+    "severity": "BLOCKED",
+    "message_template": "Latitud o longitud fuera de rango válido",
+    "required_evidence": [
+      "topographic_survey",
+      "geodetic_control"
+    ],
+    "affected_fields": [
+      "PVG-001",
+      "PVG-002"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-001",
+      "PVG-DRW-002",
+      "PVG-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111",
+      "NSRDB_NREL"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-002",
+    "name_es": "Coherencia de área y dimensiones",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "site_area_m2 >= (modules_per_string * strings_per_inverter * module_area_m2)",
+    "severity": "BLOCKED",
+    "message_template": "Área del sitio insuficiente para número de módulos requeridos",
+    "required_evidence": [
+      "site_plan",
+      "module_count"
+    ],
+    "affected_fields": [
+      "PVG-005",
+      "PVG-047",
+      "PVG-049",
+      "PVG-042"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-001",
+      "PVG-DRW-002",
+      "PVG-DRW-004"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62548",
+      "ISO_19111"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-003",
+    "name_es": "Coherencia de módulos por string",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "modules_per_string >= 8 AND modules_per_string <= 40",
+    "severity": "WARNING",
+    "message_template": "Número de módulos por string fuera de rango típico (8-40)",
+    "required_evidence": [
+      "string_sizing_calc",
+      "inverter_datasheet"
+    ],
+    "affected_fields": [
+      "PVG-047",
+      "PVG-053",
+      "PVG-054"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-005"
+    ],
+    "override_allowed": true,
+    "override_role": "LEAD_ENGINEER_ELECTRICAL",
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60364_7_712"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-004",
+    "name_es": "Coherencia V_oc frío vs V_dc_max",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "N_mod * V_oc_STC * (1 + beta_voc*(T_min-25)) < inverter_dc_input_vmax_v * 0.90",
+    "severity": "BLOCKED",
+    "message_template": "V_oc frío del string supera el 90% del V_dc_max del inversor",
+    "required_evidence": [
+      "calc_PVG-C-007",
+      "inverter_datasheet"
+    ],
+    "affected_fields": [
+      "PVG-035",
+      "PVG-037",
+      "PVG-015",
+      "PVG-053",
+      "PVG-047"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-005",
+      "PVG-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60904_7"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-005",
+    "name_es": "Coherencia I_mp vs I_dc_max_mppt",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "I_string_mpp < inverter_dc_input_imax_per_mppt_a * 0.95",
+    "severity": "BLOCKED",
+    "message_template": "I_mp del string supera el 95% del I_dc_max_mppt del inversor",
+    "required_evidence": [
+      "calc_PVG-C-008",
+      "inverter_datasheet"
+    ],
+    "affected_fields": [
+      "PVG-034",
+      "PVG-057",
+      "PVG-048"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-005",
+      "PVG-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62548",
+      "IEC_62109_1"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-006",
+    "name_es": "Coherencia ampacity cable DC",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "I_amp_dc > I_sc_string * 1.25",
+    "severity": "BLOCKED",
+    "message_template": "Ampacidad del cable DC insuficiente para I_sc del string con factor 1.25",
+    "required_evidence": [
+      "calc_PVG-C-014",
+      "cable_catalog"
+    ],
+    "affected_fields": [
+      "PVG-064",
+      "PVG-067",
+      "PVG-036",
+      "PVG-048"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-006",
+      "PVG-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEC_62548"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-007",
+    "name_es": "Coherencia ampacity cable AC",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "I_amp_ac > I_inverter_ac * 1.25",
+    "severity": "BLOCKED",
+    "message_template": "Ampacidad del cable AC insuficiente para I_ac del inversor con factor 1.25",
+    "required_evidence": [
+      "calc_PVG-C-015",
+      "cable_catalog"
+    ],
+    "affected_fields": [
+      "PVG-070",
+      "PVG-060",
+      "PVG-075"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-007",
+      "PVG-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-008",
+    "name_es": "Coherencia DC/AC ratio",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "DC_AC_ratio in [0.8, 1.5]",
+    "severity": "WARNING",
+    "message_template": "DC/AC ratio fuera del rango típico (0.8-1.5)",
+    "required_evidence": [
+      "calc_PVG-C-010",
+      "module_count",
+      "inverter_count"
+    ],
+    "affected_fields": [
+      "PVG-119",
+      "PVG-032",
+      "PVG-047",
+      "PVG-049",
+      "PVG-059"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-008"
+    ],
+    "override_allowed": true,
+    "override_role": "LEAD_ENGINEER_ELECTRICAL",
+    "source_ids": [
+      "IEC_62548",
+      "IEEE_1547_2018",
+      "NREL_SAM_2024"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-009",
+    "name_es": "Coherencia tensión AC POC y transformer LV",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "ac_collection_voltage_v == transformer_lv_kv * 1000",
+    "severity": "BLOCKED",
+    "message_template": "Tensión AC de colección no coincide con tensión LV del transformador",
+    "required_evidence": [
+      "inverter_datasheet",
+      "transformer_datasheet"
+    ],
+    "affected_fields": [
+      "PVG-073",
+      "PVG-077"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-007",
+      "PVG-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_C2_2023",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-010",
+    "name_es": "Coherencia tensión MV colección y transformer MV",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "mv_collection_voltage_kv == transformer_mv_kv",
+    "severity": "BLOCKED",
+    "message_template": "Tensión MV de colección no coincide con tensión MV del transformador",
+    "required_evidence": [
+      "mv_collection_spec",
+      "transformer_datasheet"
+    ],
+    "affected_fields": [
+      "PVG-074",
+      "PVG-078"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-007",
+      "PVG-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_C2_2023",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-011",
+    "name_es": "Coherencia resistencia malla vs objetivo",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "grounding_grid_resistance_ohm < 1.0",
+    "severity": "WARNING",
+    "message_template": "Resistencia de malla de tierra mayor a 1 ohm",
+    "required_evidence": [
+      "calc_PVG-C-028",
+      "geotechnical_report"
+    ],
+    "affected_fields": [
+      "PVG-090",
+      "PVG-091",
+      "PVG-094"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-012"
+    ],
+    "override_allowed": true,
+    "override_role": "LEAD_ENGINEER_ELECTRICAL",
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEC_60364_5_54"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-012",
+    "name_es": "Coherencia step/touch voltages vs límites",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "step_voltage <= 0.8 * step_voltage_limit_v AND touch_voltage <= 0.8 * touch_voltage_limit_v",
+    "severity": "BLOCKED",
+    "message_template": "Tensiones de paso o contacto superan el 80% del límite IEEE 80",
+    "required_evidence": [
+      "calc_PVG-C-028",
+      "grounding_study"
+    ],
+    "affected_fields": [
+      "PVG-092",
+      "PVG-093",
+      "PVG-090"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEC_60364_5_54"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-013",
+    "name_es": "No overlap de módulos",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "no two modules overlap in 2D",
+    "severity": "BLOCKED",
+    "message_template": "Existen módulos superpuestos en el layout",
+    "required_evidence": [
+      "array_layout_dwg"
+    ],
+    "affected_fields": [
+      "PVG-040",
+      "PVG-041",
+      "PVG-047",
+      "PVG-048"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-004",
+      "PVG-DRW-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62548",
+      "ISO_19111"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-014",
+    "name_es": "No crossing de zanjas sin manhole",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "no two trenches cross without a manhole",
+    "severity": "BLOCKED",
+    "message_template": "Existen zanjas que se cruzan sin manhole",
+    "required_evidence": [
+      "trench_layout_dwg"
+    ],
+    "affected_fields": [
+      "PVG-110",
+      "PVG-111"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-006",
+      "PVG-DRW-007",
+      "PVG-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-015",
+    "name_es": "Cables DC y AC en conduit separado",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "no DC cable and AC cable share the same conduit",
+    "severity": "BLOCKED",
+    "message_template": "Cable DC y AC compartiendo conduit",
+    "required_evidence": [
+      "conduit_layout_dwg"
+    ],
+    "affected_fields": [
+      "PVG-064",
+      "PVG-069",
+      "PVG-070",
+      "PVG-075",
+      "PVG-112",
+      "PVG-113"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-006",
+      "PVG-DRW-007",
+      "PVG-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60364_7_712",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-016",
+    "name_es": "pendiente equipo dentro de cerca",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "all equipment inside fence polygon",
+    "severity": "BLOCKED",
+    "message_template": "Existen equipos fuera de la cerca perimetral",
+    "required_evidence": [
+      "implant_dwg",
+      "fence_dwg"
+    ],
+    "affected_fields": [
+      "PVG-005",
+      "PVG-009"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-001",
+      "PVG-DRW-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-017",
+    "name_es": "Combiner boxes accesibles por camino",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "every combiner_box within 50 m of an internal road",
+    "severity": "WARNING",
+    "message_template": "Caja de combinación DC a más de 50 m de camino interno",
+    "required_evidence": [
+      "combiner_layout_dwg",
+      "road_layout_dwg"
+    ],
+    "affected_fields": [
+      "PVG-051",
+      "PVG-010",
+      "PVG-123"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-006",
+      "PVG-DRW-013"
+    ],
+    "override_allowed": true,
+    "override_role": "LEAD_ENGINEER_ELECTRICAL",
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-018",
+    "name_es": "Inversores accesibles por camino",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "every inverter_pad within 5 m of an internal road",
+    "severity": "BLOCKED",
+    "message_template": "Pad de inversor a más de 5 m de camino interno",
+    "required_evidence": [
+      "inverter_layout_dwg",
+      "road_layout_dwg"
+    ],
+    "affected_fields": [
+      "PVG-052",
+      "PVG-010"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-007",
+      "PVG-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_C2_2023",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-019",
+    "name_es": "Transformadores accesibles",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "every transformer_pad within 5 m of an internal road",
+    "severity": "BLOCKED",
+    "message_template": "Pad de transformador a más de 5 m de camino interno",
+    "required_evidence": [
+      "transformer_layout_dwg",
+      "road_layout_dwg"
+    ],
+    "affected_fields": [
+      "PVG-077",
+      "PVG-078",
+      "PVG-010"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_C2_2023",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-020",
+    "name_es": "Continuidad de malla de tierra",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "grounding grid forms a continuous network",
+    "severity": "BLOCKED",
+    "message_template": "Malla de tierra no forma una red continua",
+    "required_evidence": [
+      "grounding_layout_dwg"
+    ],
+    "affected_fields": [
+      "PVG-090",
+      "PVG-091",
+      "PVG-094"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEC_60364_5_54"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-021",
+    "name_es": "Row spacing mayor a umbral de sombreado",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "row_spacing_m >= row_spacing_min (winter solstice)",
+    "severity": "BLOCKED",
+    "message_template": "Espaciamiento entre filas menor al mínimo para evitar sombreado",
+    "required_evidence": [
+      "calc_PVG-C-017",
+      "layout_dwg"
+    ],
+    "affected_fields": [
+      "PVG-114",
+      "PVG-096",
+      "PVG-001",
+      "PVG-097"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-004",
+      "PVG-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62548",
+      "NREL_SAM_2024"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-022",
+    "name_es": "Distancia a cerca perimetral",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "every table >= fence_offset_m from fence",
+    "severity": "BLOCKED",
+    "message_template": "Mesa dentro del offset mínimo a cerca perimetral",
+    "required_evidence": [
+      "layout_dwg",
+      "fence_dwg"
+    ],
+    "affected_fields": [
+      "PVG-009",
+      "PVG-114"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-002",
+      "PVG-DRW-004"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-023",
+    "name_es": "Clearance de módulo a suelo",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "structure_clearance_to_ground_mm >= 200",
+    "severity": "BLOCKED",
+    "message_template": "Distancia libre del borde inferior del módulo al suelo menor a 200 mm",
+    "required_evidence": [
+      "layout_section_dwg"
+    ],
+    "affected_fields": [
+      "PVG-098"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-010",
+      "PVG-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62548",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-024",
+    "name_es": "Cover de zanja",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "trench_depth_mm - cable_diameter >= 400",
+    "severity": "BLOCKED",
+    "message_template": "Cobertura de zanja sobre cables menor a 400 mm",
+    "required_evidence": [
+      "trench_section_dwg"
+    ],
+    "affected_fields": [
+      "PVG-111",
+      "PVG-064",
+      "PVG-069",
+      "PVG-070",
+      "PVG-075"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-025",
+    "name_es": "Conduit fill < 40%",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "conduit_fill_pct < 40",
+    "severity": "BLOCKED",
+    "message_template": "Llenado de conduit mayor al 40% (NEC)",
+    "required_evidence": [
+      "conduit_layout_dwg"
+    ],
+    "affected_fields": [
+      "PVG-113",
+      "PVG-110",
+      "PVG-111"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-026",
+    "name_es": "Road turning radius >= 9 m",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "all road curves have radius >= 9 m",
+    "severity": "BLOCKED",
+    "message_template": "Radio de giro de camino interno menor a 9 m",
+    "required_evidence": [
+      "road_layout_dwg"
+    ],
+    "affected_fields": [
+      "PVG-010"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-027",
+    "name_es": "Clearance inversor a transformador",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "distance(inverter_pad, transformer_pad) <= 10 m",
+    "severity": "WARNING",
+    "message_template": "Distancia entre inversor y transformador mayor a 10 m",
+    "required_evidence": [
+      "layout_dwg"
+    ],
+    "affected_fields": [
+      "PVG-059",
+      "PVG-077",
+      "PVG-078"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-007"
+    ],
+    "override_allowed": true,
+    "override_role": "LEAD_ENGINEER_ELECTRICAL",
+    "source_ids": [
+      "IEEE_C2_2023",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-028",
+    "name_es": "Berm de aceite de transformador",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "berm_volume >= transformer_oil_volume * 1.1",
+    "severity": "BLOCKED",
+    "message_template": "Volumen de berm de aceite insuficiente para contención",
+    "required_evidence": [
+      "transformer_layout_dwg",
+      "berm_section_dwg"
+    ],
+    "affected_fields": [
+      "PVG-079",
+      "PVG-081"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-029",
+    "name_es": "Datasheet del módulo adjunto",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "module_datasheet_pdf attached AND stamped IEC 61215-1",
+    "severity": "BLOCKED",
+    "message_template": "Datasheet del módulo no adjunto o sin certificación IEC 61215-1",
+    "required_evidence": [
+      "module_datasheet",
+      "iec_61215_certificate"
+    ],
+    "affected_fields": [
+      "PVG-032",
+      "PVG-035",
+      "PVG-036",
+      "PVG-037",
+      "PVG-038",
+      "PVG-039"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-005",
+      "PVG-DRW-010"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61215_1",
+      "IEC_61730_1",
+      "IEC_61730_2"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-030",
+    "name_es": "Datasheet del inversor adjunto",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "inverter_datasheet_pdf attached AND stamped IEC 62109-1/2",
+    "severity": "BLOCKED",
+    "message_template": "Datasheet del inversor no adjunto o sin certificación IEC 62109",
+    "required_evidence": [
+      "inverter_datasheet",
+      "iec_62109_certificate"
+    ],
+    "affected_fields": [
+      "PVG-053",
+      "PVG-054",
+      "PVG-055",
+      "PVG-059",
+      "PVG-061",
+      "PVG-062"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-008",
+      "PVG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62109_2",
+      "UL_1741",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-031",
+    "name_es": "Certificado anti-islanding válido",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "anti_islanding_required==true",
+    "assertion_expression": "iec_62116_test_report attached AND valid",
+    "severity": "BLOCKED",
+    "message_template": "Certificado IEC 62116 anti-islanding no adjunto o inválido",
+    "required_evidence": [
+      "iec_62116_report"
+    ],
+    "affected_fields": [
+      "PVG-029",
+      "PVG-088"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-008",
+      "PVG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62116",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-032",
+    "name_es": "Reporte geotécnico adjunto",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "geotechnical_report_pdf attached",
+    "severity": "BLOCKED",
+    "message_template": "Reporte geotécnico no adjunto",
+    "required_evidence": [
+      "geotechnical_report"
+    ],
+    "affected_fields": [
+      "PVG-007",
+      "PVG-008",
+      "PVG-090",
+      "PVG-091",
+      "PVG-094",
+      "PVG-105"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-009",
+      "PVG-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "IEEE_80_2013"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-033",
+    "name_es": "Reporte de recurso solar adjunto",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "solar_resource_report_pdf attached (TMY)",
+    "severity": "BLOCKED",
+    "message_template": "Reporte TMY de recurso solar no adjunto",
+    "required_evidence": [
+      "tmy_report"
+    ],
+    "affected_fields": [
+      "PVG-011",
+      "PVG-012",
+      "PVG-013",
+      "PVG-014",
+      "PVG-017"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-001",
+      "PVG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NSRDB_NREL",
+      "NASA_POWER",
+      "ASTM_C1549",
+      "ASTM_E891"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-034",
+    "name_es": "Manual de operaciones adjunto",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "o_and_m_manual attached",
+    "severity": "WARNING",
+    "message_template": "Manual de operación y mantenimiento no adjunto",
+    "required_evidence": [
+      "om_manual"
+    ],
+    "affected_fields": [
+      "PVG-095",
+      "PVG-105",
+      "PVG-122"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-015",
+      "PVG-DRW-017"
+    ],
+    "override_allowed": true,
+    "override_role": "PROJECT_MANAGER",
+    "source_ids": [
+      "IEC_62446_1",
+      "IEC_61724_1"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-035",
+    "name_es": "Cumplimiento IEC 62548 sizing de string",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "string_sizing_calc performed per IEC 62548",
+    "severity": "BLOCKED",
+    "message_template": "Cálculo de sizing de string no cumple IEC 62548",
+    "required_evidence": [
+      "calc_PVG-C-006",
+      "calc_PVG-C-007"
+    ],
+    "affected_fields": [
+      "PVG-047",
+      "PVG-053",
+      "PVG-054",
+      "PVG-055",
+      "PVG-015"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-005",
+      "PVG-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62548"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-036",
+    "name_es": "Cumplimiento IEEE 1547 interconexión",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "grid_interconnection_study_performed AND ieee_1547_compliance_certificate",
+    "severity": "BLOCKED",
+    "message_template": "Estudio de interconexión IEEE 1547 no adjunto",
+    "required_evidence": [
+      "interconnection_study",
+      "ieee_1547_certificate"
+    ],
+    "affected_fields": [
+      "PVG-023",
+      "PVG-024",
+      "PVG-025",
+      "PVG-026",
+      "PVG-028",
+      "PVG-029"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-008",
+      "PVG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "COES_Proyectos_Conexion"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-037",
+    "name_es": "Cumplimiento NFPA 70 NEC",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "rapid_shutdown AND arc_fault_detection implemented",
+    "severity": "BLOCKED",
+    "message_template": "Cumplimiento NEC 690.11 y 690.12 no implementado",
+    "required_evidence": [
+      "protection_design"
+    ],
+    "affected_fields": [
+      "PVG-125",
+      "PVG-126"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-008",
+      "PVG-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-038",
+    "name_es": "Cumplimiento NFPA 780 pararrayos",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "lightning_protection_design_performed AND nfpa_780_class_designated",
+    "severity": "BLOCKED",
+    "message_template": "Diseño de pararrayos NFPA 780 no realizado",
+    "required_evidence": [
+      "lightning_protection_design"
+    ],
+    "affected_fields": [
+      "PVG-089",
+      "PVG-091"
+    ],
+    "affected_drawings": [
+      "PVG-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_780_2023",
+      "IEEE_80_2013"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-039",
+    "name_es": "Layers correctos en planos",
+    "category": "GRAPHIC",
+    "applicability_expression": "always",
+    "assertion_expression": "all drawings use ISO 13567 layers",
+    "severity": "WARNING",
+    "message_template": "Plano no usa layers estandarizados ISO 13567",
+    "required_evidence": [
+      "drawing_file"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "PVG-DRW-001",
+      "PVG-DRW-002",
+      "PVG-DRW-004",
+      "PVG-DRW-005",
+      "PVG-DRW-006",
+      "PVG-DRW-007",
+      "PVG-DRW-008"
+    ],
+    "override_allowed": true,
+    "override_role": "DRAFTSMAN",
+    "source_ids": [
+      "ISO_13567_1",
+      "ISO_13567_2"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-040",
+    "name_es": "Bloques de título y revisiones",
+    "category": "GRAPHIC",
+    "applicability_expression": "always",
+    "assertion_expression": "title_block_present AND revision_letter_present",
+    "severity": "BLOCKED",
+    "message_template": "Bloque de título o letra de revisión ausente",
+    "required_evidence": [
+      "drawing_file"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "PVG-DRW-001",
+      "PVG-DRW-002",
+      "PVG-DRW-003",
+      "PVG-DRW-017"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_7200",
+      "ISO_5457"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-041",
+    "name_es": "Escala estándar usada",
+    "category": "GRAPHIC",
+    "applicability_expression": "always",
+    "assertion_expression": "scale in [1:1, 1:10, 1:20, 1:50, 1:100, 1:200, 1:500, 1:1000, 1:5000]",
+    "severity": "WARNING",
+    "message_template": "Escala usada no es estándar ISO 5455",
+    "required_evidence": [
+      "drawing_file"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "PVG-DRW-001",
+      "PVG-DRW-002",
+      "PVG-DRW-004",
+      "PVG-DRW-014"
+    ],
+    "override_allowed": true,
+    "override_role": "DRAFTSMAN",
+    "source_ids": [
+      "ISO_5455",
+      "ISO_5457"
+    ]
+  },
+  {
+    "rule_id": "PVG-QA-042",
+    "name_es": "Formato de hoja estándar",
+    "category": "GRAPHIC",
+    "applicability_expression": "always",
+    "assertion_expression": "sheet_format in [A0, A1, A2, A3, A4]",
+    "severity": "WARNING",
+    "message_template": "Formato de hoja no es estándar ISO 5457",
+    "required_evidence": [
+      "drawing_file"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "PVG-DRW-001",
+      "PVG-DRW-002",
+      "PVG-DRW-017"
+    ],
+    "override_allowed": true,
+    "override_role": "DRAFTSMAN",
+    "source_ids": [
+      "ISO_5457"
+    ]
+  }
+]

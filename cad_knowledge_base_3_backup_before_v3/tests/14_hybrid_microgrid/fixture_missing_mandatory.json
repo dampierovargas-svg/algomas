@@ -1,0 +1,19 @@
+{
+  "technology": "14_hybrid_microgrid",
+  "project_id": "TEST-MG-002",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {
+    "MG-002": "value_1",
+    "MG-003": "value_2",
+    "MG-004": "value_3",
+    "MG-005": "value_4"
+  },
+  "missing_fields": [
+    "MG-001"
+  ],
+  "drawings_to_generate": [
+    "MG-DRW-001",
+    "MG-DRW-002",
+    "MG-DRW-003"
+  ]
+}

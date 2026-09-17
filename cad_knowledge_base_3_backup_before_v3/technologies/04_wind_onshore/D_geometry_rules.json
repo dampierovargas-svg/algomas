@@ -1,0 +1,1488 @@
+[
+  {
+    "rule_id": "WON-GEO-001",
+    "name_es": "Grilla de micrositing de turbinas",
+    "applies_to": [
+      "WT",
+      "hardstand"
+    ],
+    "parameters": {
+      "spacing_crosswind_D_min": 3,
+      "spacing_downwind_D_min": 5,
+      "boundary_setback_m_min": 1.1
+    },
+    "conditional_expression": "always",
+    "validation_expression": "all WT spacing crosswind >= parameters.spacing_crosswind_D_min * WT.rotor_diameter AND all WT spacing downwind >= parameters.spacing_downwind_D_min * WT.rotor_diameter AND all WT to boundary >= parameters.boundary_setback_m_min * WT.rotor_diameter",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_15_1",
+      "NREL_TP_5000_87434"
+    ],
+    "geometry_rule_id": "WON-GEO-001",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-001: required input field missing or invalid",
+      "WON-GEO-001: collision between generated entities detected",
+      "WON-GEO-001: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-002",
+    "name_es": "Trazo de caminos de acceso principal",
+    "applies_to": [
+      "ACCESS_ROAD"
+    ],
+    "parameters": {
+      "gradient_max_pct": 12,
+      "curve_radius_min_m": 50,
+      "width_m": 6
+    },
+    "conditional_expression": "always",
+    "validation_expression": "all road segment gradient <= parameters.gradient_max_pct AND all horizontal curve radius >= parameters.curve_radius_min_m AND road width >= parameters.width_m",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "NREL_TP_5000_87434"
+    ],
+    "geometry_rule_id": "WON-GEO-002",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-002: required input field missing or invalid",
+      "WON-GEO-002: collision between generated entities detected",
+      "WON-GEO-002: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-003",
+    "name_es": "Trazo de zanja del colector eléctrico",
+    "applies_to": [
+      "collector_trench"
+    ],
+    "parameters": {
+      "depth_m_min": 0.8,
+      "separation_cables_m_min": 0.2,
+      "warning_tape_count": 1
+    },
+    "conditional_expression": "always",
+    "validation_expression": "trench depth >= parameters.depth_m_min AND inter-cable separation >= parameters.separation_cables_m_min AND warning_tape installed",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "RNE_DS_011_2006"
+    ],
+    "geometry_rule_id": "WON-GEO-003",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-003: required input field missing or invalid",
+      "WON-GEO-003: collision between generated entities detected",
+      "WON-GEO-003: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-004",
+    "name_es": "Ruta de cables colectores MV",
+    "applies_to": [
+      "MV_cable_route"
+    ],
+    "parameters": {
+      "parallel_road_offset_m": 1.5,
+      "vertical_separation_water_m": 0.3
+    },
+    "conditional_expression": "always",
+    "validation_expression": "cable route parallel to road with offset >= parameters.parallel_road_offset_m AND vertical separation from water/drain >= parameters.vertical_separation_water_m",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023"
+    ],
+    "geometry_rule_id": "WON-GEO-004",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-004: required input field missing or invalid",
+      "WON-GEO-004: collision between generated entities detected",
+      "WON-GEO-004: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-005",
+    "name_es": "Posición de cimentaciones",
+    "applies_to": [
+      "FOUNDATION_RAFT",
+      "FOUNDATION_PILE",
+      "FOUNDATION_ROCK_ANCHOR"
+    ],
+    "parameters": {
+      "setback_road_m_min": 5,
+      "setback_boundary_m_min": 1.1,
+      "geotech_validated": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "foundation center to road edge >= parameters.setback_road_m_min AND foundation to site boundary >= parameters.setback_boundary_m_min * WT.rotor_diameter AND geotech report exists",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_6",
+      "ISO_14685"
+    ],
+    "geometry_rule_id": "WON-GEO-005",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-005: required input field missing or invalid",
+      "WON-GEO-005: collision between generated entities detected",
+      "WON-GEO-005: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-006",
+    "name_es": "Posición de hardstands",
+    "applies_to": [
+      "HARDSTAND"
+    ],
+    "parameters": {
+      "distance_to_foundation_m_min": 5,
+      "bearing_capacity_kpa_min": 200
+    },
+    "conditional_expression": "always",
+    "validation_expression": "hardstand distance to foundation >= parameters.distance_to_foundation_m_min AND bearing_capacity >= parameters.bearing_capacity_kpa_min",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_14685",
+      "RNE_DS_011_2006"
+    ],
+    "geometry_rule_id": "WON-GEO-006",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-006: required input field missing or invalid",
+      "WON-GEO-006: collision between generated entities detected",
+      "WON-GEO-006: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-007",
+    "name_es": "Posición de crane pads",
+    "applies_to": [
+      "CRANE_PAD"
+    ],
+    "parameters": {
+      "distance_to_tower_m_min": 8,
+      "slope_pct_max": 2
+    },
+    "conditional_expression": "always",
+    "validation_expression": "crane pad distance to tower >= parameters.distance_to_tower_m_min AND slope <= parameters.slope_pct_max",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_14685",
+      "NREL_TP_5000_87434"
+    ],
+    "geometry_rule_id": "WON-GEO-007",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-007: required input field missing or invalid",
+      "WON-GEO-007: collision between generated entities detected",
+      "WON-GEO-007: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-008",
+    "name_es": "Zona de acopio (laydown area)",
+    "applies_to": [
+      "LAYDOWN_AREA"
+    ],
+    "parameters": {
+      "area_m2_min": 500,
+      "distance_to_road_m_max": 50,
+      "distance_to_wt_m_max": 500
+    },
+    "conditional_expression": "always",
+    "validation_expression": "laydown area >= parameters.area_m2_min AND distance to road <= parameters.distance_to_road_m_max AND distance to WT <= parameters.distance_to_wt_m_max",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "NREL_TP_5000_87434"
+    ],
+    "geometry_rule_id": "WON-GEO-008",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-008: required input field missing or invalid",
+      "WON-GEO-008: collision between generated entities detected",
+      "WON-GEO-008: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-009",
+    "name_es": "Localización de subestación",
+    "applies_to": [
+      "SUBSTATION"
+    ],
+    "parameters": {
+      "distance_to_grid_PCC_m_max": 1000,
+      "distance_to_first_WT_m_max": 5000,
+      "flood_freeboard_m_min": 1
+    },
+    "conditional_expression": "always",
+    "validation_expression": "substation to PCC <= parameters.distance_to_grid_PCC_m_max AND substation to nearest WT <= parameters.distance_to_first_WT_m_max AND substation elevation >= flood level + parameters.flood_freeboard_m_min",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "RNE_DS_011_2006"
+    ],
+    "geometry_rule_id": "WON-GEO-009",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-009: required input field missing or invalid",
+      "WON-GEO-009: collision between generated entities detected",
+      "WON-GEO-009: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-010",
+    "name_es": "Posición de met masts",
+    "applies_to": [
+      "ANEM_MAST",
+      "MET_MAST"
+    ],
+    "parameters": {
+      "distance_to_WT_D_min": 2,
+      "distance_to_boundary_m_min": 100
+    },
+    "conditional_expression": "always",
+    "validation_expression": "met mast to nearest WT >= parameters.distance_to_WT_D_min * WT.rotor_diameter AND met mast to boundary >= parameters.distance_to_boundary_m_min",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "IEC_61400_15_1"
+    ],
+    "geometry_rule_id": "WON-GEO-010",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-010: required input field missing or invalid",
+      "WON-GEO-010: collision between generated entities detected",
+      "WON-GEO-010: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-011",
+    "name_es": "Localización de edificio O&M",
+    "applies_to": [
+      "OM_BUILDING"
+    ],
+    "parameters": {
+      "distance_to_substation_m_min": 50,
+      "distance_to_road_m_min": 20,
+      "parking_spaces_min": 5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "O&M building distance to substation >= parameters.distance_to_substation_m_min AND distance to road >= parameters.distance_to_road_m_min AND parking spaces >= parameters.parking_spaces_min",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "MINEM_DS_043_2006"
+    ],
+    "geometry_rule_id": "WON-GEO-011",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-011: required input field missing or invalid",
+      "WON-GEO-011: collision between generated entities detected",
+      "WON-GEO-011: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-012",
+    "name_es": "Cercos perimetrales",
+    "applies_to": [
+      "fence"
+    ],
+    "parameters": {
+      "height_m_min": 1.8,
+      "setback_boundary_m_min": 1
+    },
+    "conditional_expression": "always",
+    "validation_expression": "fence height >= parameters.height_m_min AND fence to boundary >= parameters.setback_boundary_m_min",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "MINEM_DS_043_2006"
+    ],
+    "geometry_rule_id": "WON-GEO-012",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-012: required input field missing or invalid",
+      "WON-GEO-012: collision between generated entities detected",
+      "WON-GEO-012: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-013",
+    "name_es": "Posición de cámaras de seguridad",
+    "applies_to": [
+      "security_camera"
+    ],
+    "parameters": {
+      "cameras_per_wt_min": 1,
+      "camera_height_m_min": 3
+    },
+    "conditional_expression": "always",
+    "validation_expression": "cameras per WT >= parameters.cameras_per_wt_min AND mounting height >= parameters.camera_height_m_min",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINEM_DS_043_2006"
+    ],
+    "geometry_rule_id": "WON-GEO-013",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-013: required input field missing or invalid",
+      "WON-GEO-013: collision between generated entities detected",
+      "WON-GEO-013: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-014",
+    "name_es": "Portón de acceso",
+    "applies_to": [
+      "gate"
+    ],
+    "parameters": {
+      "width_m_min": 6,
+      "height_m_min": 5,
+      "setback_road_m_min": 10
+    },
+    "conditional_expression": "always",
+    "validation_expression": "gate width >= parameters.width_m_min AND gate height >= parameters.height_m_min AND setback to road >= parameters.setback_road_m_min",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "MINEM_DS_043_2006"
+    ],
+    "geometry_rule_id": "WON-GEO-014",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-014: required input field missing or invalid",
+      "WON-GEO-014: collision between generated entities detected",
+      "WON-GEO-014: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-015",
+    "name_es": "Caminos internos de acceso",
+    "applies_to": [
+      "ACCESS_ROAD"
+    ],
+    "parameters": {
+      "width_m_min": 4.5,
+      "culvert_spacing_m_max": 200
+    },
+    "conditional_expression": "always",
+    "validation_expression": "internal road width >= parameters.width_m_min AND culvert spacing <= parameters.culvert_spacing_m_max",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "geometry_rule_id": "WON-GEO-015",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-015: required input field missing or invalid",
+      "WON-GEO-015: collision between generated entities detected",
+      "WON-GEO-015: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-016",
+    "name_es": "Ruta home-run de baja tensión WT a transformador",
+    "applies_to": [
+      "LV_cable_home_run"
+    ],
+    "parameters": {
+      "length_m_max": 50,
+      "depth_m_min": 0.6
+    },
+    "conditional_expression": "always",
+    "validation_expression": "LV home-run length <= parameters.length_m_max AND burial depth >= parameters.depth_m_min",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_21_1",
+      "RNE_DS_011_2006"
+    ],
+    "geometry_rule_id": "WON-GEO-016",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-016: required input field missing or invalid",
+      "WON-GEO-016: collision between generated entities detected",
+      "WON-GEO-016: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-017",
+    "name_es": "Ruta de comunicaciones SCADA",
+    "applies_to": [
+      "SCADA_comms_route"
+    ],
+    "parameters": {
+      "fiber_redundant": true,
+      "fiber_ring_required": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "fiber redundant AND fiber ring topology",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_25",
+      "IEEE_1547_2018"
+    ],
+    "geometry_rule_id": "WON-GEO-017",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-017: required input field missing or invalid",
+      "WON-GEO-017: collision between generated entities detected",
+      "WON-GEO-017: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-018",
+    "name_es": "Posición de luces de aviación",
+    "applies_to": [
+      "AVIATION_LIGHT"
+    ],
+    "parameters": {
+      "lights_per_tower_top_min": 1,
+      "lights_per_met_mast_min": 1,
+      "intensity_cd_min": 32.5
+    },
+    "conditional_expression": "aviation_requiere_luces_bool==true",
+    "validation_expression": "lights per tower top >= parameters.lights_per_tower_top_min AND lights per met mast >= parameters.lights_per_met_mast_min AND intensity >= parameters.intensity_cd_min",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEEE_C2_2023"
+    ],
+    "geometry_rule_id": "WON-GEO-018",
+    "applicability_expression": "aviation_requiere_luces_bool==true",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-018: required input field missing or invalid",
+      "WON-GEO-018: collision between generated entities detected",
+      "WON-GEO-018: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-019",
+    "name_es": "Zona de exclusión ambiental",
+    "applies_to": [
+      "environmental_exclusion_zone"
+    ],
+    "parameters": {
+      "WT_setback_from_zone_m_min": 100,
+      "road_setback_from_zone_m_min": 50
+    },
+    "conditional_expression": "ambiental_zonas_exclusion!=empty",
+    "validation_expression": "WT to exclusion zone >= parameters.WT_setback_from_zone_m_min AND road to exclusion zone >= parameters.road_setback_from_zone_m_min",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "SERNANP_DS_007_2016"
+    ],
+    "geometry_rule_id": "WON-GEO-019",
+    "applicability_expression": "ambiental_zonas_exclusion!=empty",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-019: required input field missing or invalid",
+      "WON-GEO-019: collision between generated entities detected",
+      "WON-GEO-019: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-020",
+    "name_es": "Polígono de contorno de ruido",
+    "applies_to": [
+      "noise_contour_polygon"
+    ],
+    "parameters": {
+      "limit_dba_above_ambient": 4,
+      "receptor_distance_m_min": 200
+    },
+    "validation_expression": "noise contour at receptor delta <= parameters.limit_dba_above_ambient AND receptor distance >= parameters.receptor_distance_m_min",
+    "conditional_expression": "always",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_11",
+      "MINAM_DS_019_2009"
+    ],
+    "geometry_rule_id": "WON-GEO-020",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-020: required input field missing or invalid",
+      "WON-GEO-020: collision between generated entities detected",
+      "WON-GEO-020: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-021",
+    "name_es": "Polígono de shadow flicker",
+    "applies_to": [
+      "shadow_flicker_polygon"
+    ],
+    "parameters": {
+      "limit_h_per_year": 30,
+      "receptor_setback_m_min": 500
+    },
+    "conditional_expression": "always",
+    "validation_expression": "shadow flicker at receptor <= parameters.limit_h_per_year AND WT to receptor >= parameters.receptor_setback_m_min",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "NREL_TP_5000_87434"
+    ],
+    "geometry_rule_id": "WON-GEO-021",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-021: required input field missing or invalid",
+      "WON-GEO-021: collision between generated entities detected",
+      "WON-GEO-021: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-022",
+    "name_es": "Profundidad de zanjas eléctricas",
+    "applies_to": [
+      "electrical_trench"
+    ],
+    "parameters": {
+      "depth_mv_m_min": 0.8,
+      "depth_lv_m_min": 0.6,
+      "depth_fiber_m_min": 0.5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "MV trench depth >= parameters.depth_mv_m_min AND LV trench depth >= parameters.depth_lv_m_min AND fiber trench depth >= parameters.depth_fiber_m_min",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "RNE_DS_011_2006"
+    ],
+    "geometry_rule_id": "WON-GEO-022",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-022: required input field missing or invalid",
+      "WON-GEO-022: collision between generated entities detected",
+      "WON-GEO-022: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "WON-GEO-023",
+    "name_es": "Setback de cimentación respecto a linderos y caminos",
+    "applies_to": [
+      "FOUNDATION_RAFT",
+      "FOUNDATION_PILE",
+      "FOUNDATION_ROCK_ANCHOR"
+    ],
+    "parameters": {
+      "setback_property_line_m_min": 1.5,
+      "setback_road_center_m_min": 6
+    },
+    "conditional_expression": "always",
+    "validation_expression": "foundation to property line >= parameters.setback_property_line_m_min AND foundation to road centerline >= parameters.setback_road_center_m_min",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_61400_6"
+    ],
+    "geometry_rule_id": "WON-GEO-023",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "WON-001",
+      "WON-002"
+    ],
+    "required_calculation_ids": [
+      "WON-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "WON-GEO-023: required input field missing or invalid",
+      "WON-GEO-023: collision between generated entities detected",
+      "WON-GEO-023: clearance violation"
+    ]
+  }
+]

@@ -1,0 +1,2113 @@
+[
+  {
+    "calculation_id": "H2-C-001",
+    "name_es": "Faraday efficiency",
+    "purpose": "Coulombic efficiency of H2 production",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-004",
+      "H2-005",
+      "H2-011"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "η_F = (n_H2_actual / n_H2_theoretical) * 100",
+      "n_H2_theoretical = I * t / (2 * F)"
+    ],
+    "equations_latex": [
+      "\\eta_F = \\frac{n_{H2,actual}}{n_{H2,theoretical}} \\times 100, \\quad n_{H2,th} = \\frac{I t}{2 F}"
+    ],
+    "variables": [
+      {
+        "name": "η_F",
+        "unit": "percent"
+      },
+      {
+        "name": "n_H2",
+        "unit": "mol"
+      },
+      {
+        "name": "I",
+        "unit": "A"
+      },
+      {
+        "name": "t",
+        "unit": "s"
+      },
+      {
+        "name": "F",
+        "unit": "C/mol"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "efficiency",
+        "value": "percent = mol / mol * 100"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "η_F > 95%"
+    ],
+    "outputs": [
+      {
+        "name": "faraday_efficiency_pct",
+        "unit": "percent"
+      }
+    ],
+    "acceptance_rules": [
+      "η_F > 95%"
+    ],
+    "failure_modes": [
+      "High overpotential or side reactions"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-004"
+    ],
+    "source_ids": [
+      "IEC_62282_2"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-002",
+    "name_es": "Energy consumption kWh/kg H2",
+    "purpose": "Specific energy consumption",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-005",
+      "H2-011",
+      "H2-015"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "EC = P_stack / (m_H2_produced)",
+      "m_H2 = (I * t * M_H2) / (2 * F)"
+    ],
+    "equations_latex": [
+      "\\text{EC} = \\frac{P_{stack}}{\\dot{m}_{H2}} = \\frac{U \\cdot I \\cdot 2 F}{I \\cdot M_{H2}} \\times 1000"
+    ],
+    "variables": [
+      {
+        "name": "EC",
+        "unit": "kWh/kg H2"
+      },
+      {
+        "name": "P_stack",
+        "unit": "kW"
+      },
+      {
+        "name": "m_H2",
+        "unit": "kg/s"
+      },
+      {
+        "name": "U",
+        "unit": "V"
+      },
+      {
+        "name": "I",
+        "unit": "A"
+      },
+      {
+        "name": "F",
+        "unit": "C/mol"
+      },
+      {
+        "name": "M_H2",
+        "unit": "g/mol"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "specific_energy",
+        "value": "kWh/kg = kW / (kg/s) / 1000"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "EC 40-80 kWh/kg H2"
+    ],
+    "outputs": [
+      {
+        "name": "energy_consumption_kwh_kg_h2",
+        "unit": "kWh/kg H2"
+      }
+    ],
+    "acceptance_rules": [
+      "EC < 80"
+    ],
+    "failure_modes": [
+      "High EC indicates inefficiency"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-004"
+    ],
+    "source_ids": [
+      "IEC_62282_2"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-003",
+    "name_es": "Water consumption L/kg H2",
+    "purpose": "Water balance",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-012",
+      "H2-015"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_water_stoich = (18 * m_H2) / 2",
+      "water_total = water_stoich + cooling_water"
+    ],
+    "equations_latex": [
+      "\\dot{m}_{w,s} = \\frac{18 \\dot{m}_{H2}}{2}, \\quad \\dot{m}_{w,total} = \\dot{m}_{w,s} + \\dot{m}_{w,cooling}"
+    ],
+    "variables": [
+      {
+        "name": "water_stoich",
+        "unit": "L/kg H2"
+      },
+      {
+        "name": "m_H2",
+        "unit": "kg/s"
+      },
+      {
+        "name": "water_total",
+        "unit": "L/kg H2"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "water_consumption",
+        "value": "L/kg = L/kg + L/kg"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "water_total 8-15 L/kg H2"
+    ],
+    "outputs": [
+      {
+        "name": "water_consumption_l_kg_h2",
+        "unit": "L/kg H2"
+      }
+    ],
+    "acceptance_rules": [
+      "water_total < 20"
+    ],
+    "failure_modes": [
+      "Water quality"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-005"
+    ],
+    "source_ids": [
+      "IEC_62282_2",
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-004",
+    "name_es": "Compressor power",
+    "purpose": "Isothermal compression",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-021",
+      "H2-022",
+      "H2-023",
+      "H2-024",
+      "H2-027"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "W_iso = R * T * ln(p2/p1) * m_h2 / η_iso",
+      "P = W_iso * m_flow"
+    ],
+    "equations_latex": [
+      "W_{iso} = \\frac{R T \\ln(p_2/p_1) \\dot{m}_{H2}}{\\eta_{iso}}"
+    ],
+    "variables": [
+      {
+        "name": "W_iso",
+        "unit": "J/kg"
+      },
+      {
+        "name": "R",
+        "unit": "J/mol/K"
+      },
+      {
+        "name": "T",
+        "unit": "K"
+      },
+      {
+        "name": "p2/p1",
+        "unit": "dimensionless_ratio"
+      },
+      {
+        "name": "η_iso",
+        "unit": "dimensionless_ratio"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "power",
+        "value": "kW = J/kg * kg/s / 1000"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "η_iso 40-80%"
+    ],
+    "outputs": [
+      {
+        "name": "compressor_power_kw",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      "Power matches design"
+    ],
+    "failure_modes": [
+      "Low efficiency"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-006"
+    ],
+    "source_ids": [
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-005",
+    "name_es": "Dew point calculation",
+    "purpose": "H2 drying",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-029",
+      "H2-030",
+      "H2-031"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "DP = T - ((100 - RH) / 5) for ref",
+      "p_H2O = exp(11.07 - 2240/(T+273) + 3e-5*(T+273)^2)"
+    ],
+    "equations_latex": [
+      "\\text{DP} = T - \\frac{100 - RH}{5}"
+    ],
+    "variables": [
+      {
+        "name": "DP",
+        "unit": "C"
+      },
+      {
+        "name": "T",
+        "unit": "C"
+      },
+      {
+        "name": "RH",
+        "unit": "percent"
+      },
+      {
+        "name": "p_H2O",
+        "unit": "Pa"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "dew_point",
+        "value": "C = C - (100-percent)/5"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "DP < -40C for grid"
+    ],
+    "outputs": [
+      {
+        "name": "dew_point_c",
+        "unit": "C"
+      }
+    ],
+    "acceptance_rules": [
+      "DP < -40C"
+    ],
+    "failure_modes": [
+      "Insufficient drying"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-006"
+    ],
+    "source_ids": [
+      "NFPA_853_2023"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-006",
+    "name_es": "Multistage compression",
+    "purpose": "Compression with intercooling",
+    "applicability_expression": "number_of_stages > 1",
+    "input_field_ids": [
+      "H2-022",
+      "H2-024",
+      "H2-025",
+      "H2-027"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_multi = N * P_iso_single / η_iso",
+      "W_total = (N * R * T * ln(p_final/p_in)) / (N * η_iso)"
+    ],
+    "equations_latex": [
+      "W_{total} = N \\cdot R T \\ln(p_f / p_i) / (N \\eta_{iso})"
+    ],
+    "variables": [
+      {
+        "name": "P_multi",
+        "unit": "kW"
+      },
+      {
+        "name": "N",
+        "unit": "stages"
+      },
+      {
+        "name": "P_iso_single",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "power",
+        "value": "kW = stages * kW / dimensionless"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "3-5 stages typical"
+    ],
+    "outputs": [
+      {
+        "name": "multi_compressor_power_kw",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      "Multi-stage saves energy"
+    ],
+    "failure_modes": [
+      "Too few stages causes overheating"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-006"
+    ],
+    "source_ids": [
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-007",
+    "name_es": "Storage cylinder thickness",
+    "purpose": "ASME BPVC",
+    "applicability_expression": "storage_type contains cylinder",
+    "input_field_ids": [
+      "H2-034",
+      "H2-035"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "t = P*R / (S*E - 0.6*P) + corrosion_allowance"
+    ],
+    "equations_latex": [
+      "t = \\frac{P R}{S E - 0.6 P} + CA"
+    ],
+    "variables": [
+      {
+        "name": "t",
+        "unit": "mm"
+      },
+      {
+        "name": "P",
+        "unit": "MPa"
+      },
+      {
+        "name": "R",
+        "unit": "mm"
+      },
+      {
+        "name": "S",
+        "unit": "MPa"
+      },
+      {
+        "name": "E",
+        "unit": "dimensionless_ratio"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "thickness",
+        "value": "mm = MPa * mm / (MPa * dimensionless)"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "t > 0"
+    ],
+    "outputs": [
+      {
+        "name": "cylinder_thickness_mm",
+        "unit": "mm"
+      }
+    ],
+    "acceptance_rules": [
+      "ASME BPVC VIII Div 1 satisfied"
+    ],
+    "failure_modes": [
+      "Pressure too high"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-007"
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-008",
+    "name_es": "LH2 boil-off",
+    "purpose": "Liquid H2 storage",
+    "applicability_expression": "storage_type == liquid_h2",
+    "input_field_ids": [
+      "H2-038",
+      "H2-034"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_boil = V * rho * boil_off_pct / 100"
+    ],
+    "equations_latex": [
+      "\\dot{m}_{boil} = V \\rho \\cdot \\text{boil\\_off}/100"
+    ],
+    "variables": [
+      {
+        "name": "m_boil",
+        "unit": "kg/day"
+      },
+      {
+        "name": "V",
+        "unit": "m3"
+      },
+      {
+        "name": "rho",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "boil_off",
+        "unit": "percent/day"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "boil_off",
+        "value": "kg/day = m3 * kg/m3 * percent/100"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "boil-off < 1%/day typical"
+    ],
+    "outputs": [
+      {
+        "name": "lh2_boil_off_kg_day",
+        "unit": "kg/day"
+      }
+    ],
+    "acceptance_rules": [
+      "< 1% per day"
+    ],
+    "failure_modes": [
+      "Insufficient insulation"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-007"
+    ],
+    "source_ids": [
+      "NFPA_853_2023"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-009",
+    "name_es": "ASME B31.3 pipe thickness",
+    "purpose": "Piping design",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-042",
+      "H2-035",
+      "H2-041"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "t = P*D / (2*(S*E + W*P)) + corrosion_allowance"
+    ],
+    "equations_latex": [
+      "t = \\frac{P D}{2 (S E + W P)} + CA"
+    ],
+    "variables": [
+      {
+        "name": "t",
+        "unit": "mm"
+      },
+      {
+        "name": "P",
+        "unit": "MPa"
+      },
+      {
+        "name": "D",
+        "unit": "mm"
+      },
+      {
+        "name": "S",
+        "unit": "MPa"
+      },
+      {
+        "name": "E",
+        "unit": "dimensionless_ratio"
+      },
+      {
+        "name": "W",
+        "unit": "kg"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "thickness",
+        "value": "mm = MPa * mm / (MPa * dimensionless)"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "t > 0"
+    ],
+    "outputs": [
+      {
+        "name": "pipe_wall_thickness_mm",
+        "unit": "mm"
+      }
+    ],
+    "acceptance_rules": [
+      "ASME B31.3 satisfied"
+    ],
+    "failure_modes": [
+      "Pressure too high"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-006;H2-DRW-008"
+    ],
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-010",
+    "name_es": "NH3 synthesis mass balance",
+    "purpose": "Ammonia synthesis",
+    "applicability_expression": "storage_type == ammonia_carrier",
+    "input_field_ids": [
+      "H2-040",
+      "H2-015"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "3 H2 + N2 -> 2 NH3",
+      "m_NH3 = 17/3 * m_H2_consumed"
+    ],
+    "equations_latex": [
+      "3 H_2 + N_2 \\to 2 NH_3, \\quad \\dot{m}_{NH3} = 17/3 \\cdot \\dot{m}_{H2,consumed}"
+    ],
+    "variables": [
+      {
+        "name": "m_NH3",
+        "unit": "kg/s"
+      },
+      {
+        "name": "m_H2",
+        "unit": "kg/s"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "mass",
+        "value": "kg/s = kg/s * dimensionless"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "Conversion > 15% per pass"
+    ],
+    "outputs": [
+      {
+        "name": "nh3_production_kg_s",
+        "unit": "kg/s"
+      }
+    ],
+    "acceptance_rules": [
+      "Match design"
+    ],
+    "failure_modes": [
+      "Low conversion"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-016"
+    ],
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-011",
+    "name_es": "H2 pipe sizing",
+    "purpose": "Velocity constraint",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-042",
+      "H2-045",
+      "H2-015"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q = m_flow / rho",
+      "v = Q / A",
+      "A = pi/4 * D^2"
+    ],
+    "equations_latex": [
+      "Q = \\dot{m}/\\rho, \\quad v = Q/A, \\quad A = \\pi/4 \\cdot D^2"
+    ],
+    "variables": [
+      {
+        "name": "Q",
+        "unit": "m3/s"
+      },
+      {
+        "name": "m_flow",
+        "unit": "kg/s"
+      },
+      {
+        "name": "rho",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "v",
+        "unit": "m/s"
+      },
+      {
+        "name": "A",
+        "unit": "m2"
+      },
+      {
+        "name": "D",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "velocity",
+        "value": "m/s = m3/s / m2"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "v < 30 m/s for H2"
+    ],
+    "outputs": [
+      {
+        "name": "pipe_diameter_mm",
+        "unit": "mm"
+      }
+    ],
+    "acceptance_rules": [
+      "v < 30 m/s"
+    ],
+    "failure_modes": [
+      "Excessive velocity causes erosion"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-008"
+    ],
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-012",
+    "name_es": "Area classification IEC 60079-10-1",
+    "purpose": "Hazardous area",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-049",
+      "H2-050",
+      "H2-051",
+      "H2-052",
+      "H2-053",
+      "H2-054"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Zone based on release rate, ventilation, gas properties",
+      "V = G * V_z / (C * (X-A)/A)"
+    ],
+    "equations_latex": [
+      "V = G V_z / (C (X-A)/A)"
+    ],
+    "variables": [
+      {
+        "name": "V",
+        "unit": "m3"
+      },
+      {
+        "name": "G",
+        "unit": "m3/s"
+      },
+      {
+        "name": "V_z",
+        "unit": "m3"
+      },
+      {
+        "name": "C",
+        "unit": "dimensionless_ratio"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "zone",
+        "value": "dimensionless"
+      }
+    ],
+    "numerical_method": "Iterative",
+    "iteration_limits": {
+      "max_iter": 10
+    },
+    "validity_limits": [
+      "Zone 0/1/2 determined"
+    ],
+    "outputs": [
+      {
+        "name": "area_classification_zone",
+        "unit": "enum"
+      }
+    ],
+    "acceptance_rules": [
+      "Zone assigned per release scenario"
+    ],
+    "failure_modes": [
+      "Wrong release estimation"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-012"
+    ],
+    "source_ids": [
+      "IEC_60079_10_1",
+      "NFPA_497_2024"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-013",
+    "name_es": "Vent stack height API 521",
+    "purpose": "Dispersion",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-055",
+      "H2-056",
+      "H2-015"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "C_max = Q * u^(-1) * sigma_y^(-1) * sigma_z^(-1) * exp(-H^2 / (2*sigma_z^2))",
+      "H = H_physical + Delta_H (plume rise)"
+    ],
+    "equations_latex": [
+      "C = \\frac{Q}{2\\pi u \\sigma_y \\sigma_z} \\exp(-\\frac{H^2}{2\\sigma_z^2})"
+    ],
+    "variables": [
+      {
+        "name": "C",
+        "unit": "mg/m3"
+      },
+      {
+        "name": "Q",
+        "unit": "mg/s"
+      },
+      {
+        "name": "u",
+        "unit": "m/s"
+      },
+      {
+        "name": "sigma_y",
+        "unit": "m"
+      },
+      {
+        "name": "sigma_z",
+        "unit": "m"
+      },
+      {
+        "name": "H",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "stack_height",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Gaussian dispersion",
+    "iteration_limits": {
+      "max_iter": 10
+    },
+    "validity_limits": [
+      "H2 below LEL at receptor"
+    ],
+    "outputs": [
+      {
+        "name": "vent_stack_height_m",
+        "unit": "m"
+      }
+    ],
+    "acceptance_rules": [
+      "Below LEL 4% at receptor"
+    ],
+    "failure_modes": [
+      "Stack too short"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-010"
+    ],
+    "source_ids": [
+      "API_521",
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-014",
+    "name_es": "SIL verification IEC 61511",
+    "purpose": "Safety integrity",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-059",
+      "H2-060",
+      "H2-061",
+      "H2-062",
+      "H2-063"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "PFD_avg <= 10^(-n) for SIL n",
+      "SIL_target verified by LOPA",
+      "ESD_response_time < process_safety_time"
+    ],
+    "equations_latex": [
+      "\\text{PFD}_{avg} \\leq 10^{-n} \\, \\text{for SIL}\\, n"
+    ],
+    "variables": [
+      {
+        "name": "PFD_avg",
+        "unit": "1/h"
+      },
+      {
+        "name": "SIL",
+        "unit": "dimensionless_ratio"
+      },
+      {
+        "name": "ESD_response_time",
+        "unit": "ms"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "sil_achieved",
+        "value": "dimensionless"
+      }
+    ],
+    "numerical_method": "LOPA + RBD",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "SIL achieved >= SIL target"
+    ],
+    "outputs": [
+      {
+        "name": "sil_achieved",
+        "unit": "enum"
+      },
+      {
+        "name": "esd_response_time",
+        "unit": "ms"
+      }
+    ],
+    "acceptance_rules": [
+      "SIL_achieved >= SIL_target"
+    ],
+    "failure_modes": [
+      "ESD response time > safety time"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61508_1"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-015",
+    "name_es": "Electrical load",
+    "purpose": "Power sizing",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-009",
+      "H2-010",
+      "H2-011",
+      "H2-026",
+      "H2-064",
+      "H2-065",
+      "H2-066"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_total = P_stack + P_compressor + P_aux + P_cooling + P_lighting",
+      "P_rectifier = P_stack / η_rectifier"
+    ],
+    "equations_latex": [
+      "P_{total} = P_{stack} + P_{comp} + P_{aux} + P_{cool} + P_{light}"
+    ],
+    "variables": [
+      {
+        "name": "P_total",
+        "unit": "kW"
+      },
+      {
+        "name": "η_rectifier",
+        "unit": "dimensionless_ratio"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "power",
+        "value": "kW = kW + kW"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "P_total > 0"
+    ],
+    "outputs": [
+      {
+        "name": "total_power_kw",
+        "unit": "kW"
+      },
+      {
+        "name": "rectifier_power_kw",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      "Match design"
+    ],
+    "failure_modes": [
+      "Overload"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-009"
+    ],
+    "source_ids": [
+      "IEC_62282_8_201",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-016",
+    "name_es": "H2 density at T,P",
+    "purpose": "Real gas EOS",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-035",
+      "H2-028"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "rho_H2 = P * M / (Z * R * T)",
+      "Z = 1 + B*P/(R*T) virial"
+    ],
+    "equations_latex": [
+      "\\rho_{H2} = \\frac{P M}{Z R T}"
+    ],
+    "variables": [
+      {
+        "name": "rho_H2",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "P",
+        "unit": "Pa"
+      },
+      {
+        "name": "M",
+        "unit": "kg/mol"
+      },
+      {
+        "name": "Z",
+        "unit": "dimensionless_ratio"
+      },
+      {
+        "name": "R",
+        "unit": "J/mol/K"
+      },
+      {
+        "name": "T",
+        "unit": "K"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "density",
+        "value": "kg/m3 = Pa * kg/mol / (dimensionless * J/mol/K * K)"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "Z < 1.1 for H2 at moderate P"
+    ],
+    "outputs": [
+      {
+        "name": "h2_density_kg_m3",
+        "unit": "kg/m3"
+      }
+    ],
+    "acceptance_rules": [
+      "Reasonable density"
+    ],
+    "failure_modes": [
+      "Wrong EOS"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-006;H2-DRW-007"
+    ],
+    "source_ids": [
+      "NIST_WEBBOOK",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-017",
+    "name_es": "Cylinder Type IV hoop stress",
+    "purpose": "Composite vessel",
+    "applicability_expression": "storage_type == cylinder_type_IV",
+    "input_field_ids": [
+      "H2-034",
+      "H2-035",
+      "H2-036"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "sigma_hoop = P * R / t_composite"
+    ],
+    "equations_latex": [
+      "\\sigma_{hoop} = \\frac{P R}{t_{comp}}"
+    ],
+    "variables": [
+      {
+        "name": "sigma_hoop",
+        "unit": "MPa"
+      },
+      {
+        "name": "P",
+        "unit": "MPa"
+      },
+      {
+        "name": "R",
+        "unit": "mm"
+      },
+      {
+        "name": "t_composite",
+        "unit": "mm"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "stress",
+        "value": "MPa = MPa * mm / mm"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "sigma_hoop < allowable composite"
+    ],
+    "outputs": [
+      {
+        "name": "hoop_stress_mpa",
+        "unit": "MPa"
+      }
+    ],
+    "acceptance_rules": [
+      "< design allowable"
+    ],
+    "failure_modes": [
+      "Liner cracking"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-007"
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-018",
+    "name_es": "Salt cavern storage capacity",
+    "purpose": "Cavern design",
+    "applicability_expression": "storage_type == salt_cavern",
+    "input_field_ids": [
+      "H2-039"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_cavern = pi/3 * h * (r1^2 + r2^2 + r1*r2)",
+      "m_H2 = V * rho_H2 * working_pressure_ratio"
+    ],
+    "equations_latex": [
+      "V = \\frac{\\pi}{3} h (r_1^2 + r_2^2 + r_1 r_2)"
+    ],
+    "variables": [
+      {
+        "name": "V_cavern",
+        "unit": "m3"
+      },
+      {
+        "name": "h",
+        "unit": "m"
+      },
+      {
+        "name": "r1",
+        "unit": "m"
+      },
+      {
+        "name": "r2",
+        "unit": "m"
+      },
+      {
+        "name": "m_H2",
+        "unit": "kg"
+      },
+      {
+        "name": "rho_H2",
+        "unit": "kg/m3"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "cavern_capacity",
+        "value": "kg = m3 * kg/m3 * dimensionless"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "m_H2 > 1000 kg"
+    ],
+    "outputs": [
+      {
+        "name": "salt_cavern_working_capacity_kg",
+        "unit": "kg"
+      }
+    ],
+    "acceptance_rules": [
+      "Match geological study"
+    ],
+    "failure_modes": [
+      "Wrong shape"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-007"
+    ],
+    "source_ids": [
+      "API_1104_2021"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-019",
+    "name_es": "H2 pipe pressure drop",
+    "purpose": "Darcy-Weisbach",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-042",
+      "H2-045",
+      "H2-046"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "dP = f * (L/D) * rho * v^2 / 2",
+      "f = 0.316 / Re^0.25 (Blasius)"
+    ],
+    "equations_latex": [
+      "\\Delta P = f \\frac{L}{D} \\frac{\\rho v^2}{2}"
+    ],
+    "variables": [
+      {
+        "name": "dP",
+        "unit": "Pa"
+      },
+      {
+        "name": "f",
+        "unit": "dimensionless_ratio"
+      },
+      {
+        "name": "L",
+        "unit": "m"
+      },
+      {
+        "name": "D",
+        "unit": "m"
+      },
+      {
+        "name": "rho",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "v",
+        "unit": "m/s"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "pressure_drop",
+        "value": "Pa = dimensionless * m/m * kg/m3 * (m/s)^2 / 2"
+      }
+    ],
+    "numerical_method": "Darcy-Weisbach",
+    "iteration_limits": {
+      "max_iter": 5
+    },
+    "validity_limits": [
+      "dP < 10% of operating pressure"
+    ],
+    "outputs": [
+      {
+        "name": "pipe_pressure_drop_bar",
+        "unit": "bar"
+      }
+    ],
+    "acceptance_rules": [
+      "dP reasonable"
+    ],
+    "failure_modes": [
+      "Excessive dP"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-008"
+    ],
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-020",
+    "name_es": "Heat of vaporization LH2",
+    "purpose": "LH2 storage energy",
+    "applicability_expression": "storage_type == liquid_h2",
+    "input_field_ids": [
+      "H2-038",
+      "H2-034"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Q_vap = m_boil * h_fg",
+      "h_fg = 446 kJ/kg for H2"
+    ],
+    "equations_latex": [
+      "Q_{vap} = \\dot{m}_{boil} h_{fg}"
+    ],
+    "variables": [
+      {
+        "name": "Q_vap",
+        "unit": "kW"
+      },
+      {
+        "name": "m_boil",
+        "unit": "kg/s"
+      },
+      {
+        "name": "h_fg",
+        "unit": "kJ/kg"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "heat",
+        "value": "kW = kg/s * kJ/kg"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "Q_vap > 0"
+    ],
+    "outputs": [
+      {
+        "name": "vaporization_heat_kw",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      "Insulation sized accordingly"
+    ],
+    "failure_modes": [
+      "Wrong h_fg"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-007"
+    ],
+    "source_ids": [
+      "IAPWS_IF97",
+      "NIST_WEBBOOK"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-021",
+    "name_es": "Hydrogen embrittlement assessment",
+    "purpose": "Material compatibility",
+    "applicability_expression": "pipe_material_class contains carbon_steel",
+    "input_field_ids": [
+      "H2-041",
+      "H2-035",
+      "H2-048"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "KIH = K_IC * (1 - alpha * H_concentration)",
+      "HE susceptibility test per ASTM G142"
+    ],
+    "equations_latex": [
+      "K_{IH} = K_{IC} (1 - \\alpha [H])"
+    ],
+    "variables": [
+      {
+        "name": "KIH",
+        "unit": "MPa*sqrt(m)"
+      },
+      {
+        "name": "K_IC",
+        "unit": "MPa*sqrt(m)"
+      },
+      {
+        "name": "alpha",
+        "unit": "dimensionless_ratio"
+      },
+      {
+        "name": "H_concentration",
+        "unit": "ppm"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "he_susceptibility",
+        "value": "dimensionless"
+      }
+    ],
+    "numerical_method": "Test",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "KIH > K_applied"
+    ],
+    "outputs": [
+      {
+        "name": "he_susceptibility_test",
+        "unit": "boolean"
+      }
+    ],
+    "acceptance_rules": [
+      "Material compatible"
+    ],
+    "failure_modes": [
+      "Carbon steel not suitable"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-006;H2-DRW-008"
+    ],
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-022",
+    "name_es": "LOHC mass balance",
+    "purpose": "LOHC",
+    "applicability_expression": "storage_type == LOHC",
+    "input_field_ids": [
+      "H2-015"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_LOHC = m_H2 * M_LOHC / M_H2",
+      "storage_LOHC = m_LOHC / rho_LOHC"
+    ],
+    "equations_latex": [
+      "\\dot{m}_{LOHC} = \\dot{m}_{H2} \\cdot M_{LOHC}/M_{H2}"
+    ],
+    "variables": [
+      {
+        "name": "m_LOHC",
+        "unit": "kg/s"
+      },
+      {
+        "name": "M_LOHC",
+        "unit": "g/mol"
+      },
+      {
+        "name": "M_H2",
+        "unit": "g/mol"
+      },
+      {
+        "name": "rho_LOHC",
+        "unit": "kg/m3"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "mass",
+        "value": "kg/s = kg/s * g/mol / g/mol"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "LOHC reversible"
+    ],
+    "outputs": [
+      {
+        "name": "lohc_storage_m3",
+        "unit": "m3"
+      }
+    ],
+    "acceptance_rules": [
+      "Storage volume reasonable"
+    ],
+    "failure_modes": [
+      "Hydrogenation efficiency"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-007"
+    ],
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-023",
+    "name_es": "Methanol synthesis",
+    "purpose": "Methanol from H2 + CO2",
+    "applicability_expression": "storage_type == methanol",
+    "input_field_ids": [
+      "H2-015"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "CO2 + 3 H2 -> CH3OH + H2O",
+      "m_MeOH = m_H2 * 32/6 = m_H2 * 5.33"
+    ],
+    "equations_latex": [
+      "\\text{CO}_2 + 3 \\text{H}_2 \\to \\text{CH}_3\\text{OH} + \\text{H}_2\\text{O}"
+    ],
+    "variables": [
+      {
+        "name": "m_MeOH",
+        "unit": "kg/s"
+      },
+      {
+        "name": "m_H2",
+        "unit": "kg/s"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "mass",
+        "value": "kg/s = kg/s * dimensionless"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "Conversion > 5% per pass"
+    ],
+    "outputs": [
+      {
+        "name": "methanol_production_kg_s",
+        "unit": "kg/s"
+      }
+    ],
+    "acceptance_rules": [
+      "Match design"
+    ],
+    "failure_modes": [
+      "Low conversion"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-016"
+    ],
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-024",
+    "name_es": "H2 vent dispersion",
+    "purpose": "Gaussian dispersion",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-055",
+      "H2-056",
+      "H2-015"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "C_max = Q / (2*pi*u*sigma_y*sigma_z) * exp(-H^2 / (2*sigma_z^2))"
+    ],
+    "equations_latex": [
+      "C_{max} = \\frac{Q}{2\\pi u \\sigma_y \\sigma_z} \\exp(-\\frac{H^2}{2\\sigma_z^2})"
+    ],
+    "variables": [
+      {
+        "name": "C_max",
+        "unit": "ppm"
+      },
+      {
+        "name": "Q",
+        "unit": "g/s"
+      },
+      {
+        "name": "u",
+        "unit": "m/s"
+      },
+      {
+        "name": "sigma_y",
+        "unit": "m"
+      },
+      {
+        "name": "sigma_z",
+        "unit": "m"
+      },
+      {
+        "name": "H",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "concentration",
+        "value": "ppm = g/s / (m/s * m * m)"
+      }
+    ],
+    "numerical_method": "Gaussian",
+    "iteration_limits": {
+      "max_iter": 5
+    },
+    "validity_limits": [
+      "C < LEL 4% at receptor"
+    ],
+    "outputs": [
+      {
+        "name": "h2_concentration_at_receptor_ppm",
+        "unit": "ppm"
+      }
+    ],
+    "acceptance_rules": [
+      "Below LEL"
+    ],
+    "failure_modes": [
+      "Stack too short"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-010"
+    ],
+    "source_ids": [
+      "API_521"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-025",
+    "name_es": "Flare destruction efficiency",
+    "purpose": "Flare performance",
+    "applicability_expression": "flare_type != null",
+    "input_field_ids": [
+      "H2-057",
+      "H2-058"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "DRE = (1 - m_H2_unburned / m_H2_fed) * 100",
+      "Q_flare = m_H2_fed * LHV_H2"
+    ],
+    "equations_latex": [
+      "\\text{DRE} = (1 - \\dot{m}_{unburnt}/\\dot{m}_{fed}) \\times 100"
+    ],
+    "variables": [
+      {
+        "name": "DRE",
+        "unit": "percent"
+      },
+      {
+        "name": "m_H2",
+        "unit": "kg/h"
+      },
+      {
+        "name": "LHV_H2",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Q_flare",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "efficiency",
+        "value": "percent = 1 - kg/h / kg/h * 100"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "DRE > 99%"
+    ],
+    "outputs": [
+      {
+        "name": "flare_destruction_efficiency_pct",
+        "unit": "percent"
+      },
+      {
+        "name": "flare_heat_kw",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      "DRE > 99%"
+    ],
+    "failure_modes": [
+      "Low DRE means emissions"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-011"
+    ],
+    "source_ids": [
+      "API_521"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-026",
+    "name_es": "Gaussian plume rise",
+    "purpose": "Plume rise Brigs",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-055",
+      "H2-056",
+      "H2-028"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Delta_H = 1.6 * (F * x^2 / u)^(1/3)",
+      "F = g * v_s * (T_s - T_a) / T_s * d^2 / 4"
+    ],
+    "equations_latex": [
+      "\\Delta H = 1.6 (F x^2 / u)^{1/3}"
+    ],
+    "variables": [
+      {
+        "name": "Delta_H",
+        "unit": "m"
+      },
+      {
+        "name": "F",
+        "unit": "m4/s3"
+      },
+      {
+        "name": "x",
+        "unit": "m"
+      },
+      {
+        "name": "u",
+        "unit": "m/s"
+      },
+      {
+        "name": "g",
+        "unit": "m/s2"
+      },
+      {
+        "name": "v_s",
+        "unit": "m/s"
+      },
+      {
+        "name": "T_s",
+        "unit": "K"
+      },
+      {
+        "name": "T_a",
+        "unit": "K"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "plume_rise",
+        "value": "m"
+      }
+    ],
+    "numerical_method": "Briggs",
+    "iteration_limits": {
+      "max_iter": 5
+    },
+    "validity_limits": [
+      "Delta_H > 0"
+    ],
+    "outputs": [
+      {
+        "name": "plume_rise_m",
+        "unit": "m"
+      }
+    ],
+    "acceptance_rules": [
+      "Delta_H > 0"
+    ],
+    "failure_modes": [
+      "Stable atmosphere"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-010"
+    ],
+    "source_ids": [
+      "API_521"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-027",
+    "name_es": "Faraday stoichiometry",
+    "purpose": "Stoichiometric H2",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-002",
+      "H2-004",
+      "H2-005"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "n_H2_st = I * t / (2 * F)",
+      "m_H2 = n_H2_st * M_H2"
+    ],
+    "equations_latex": [
+      "n_{H2,st} = \\frac{I t}{2 F}"
+    ],
+    "variables": [
+      {
+        "name": "n_H2",
+        "unit": "mol"
+      },
+      {
+        "name": "I",
+        "unit": "A"
+      },
+      {
+        "name": "t",
+        "unit": "s"
+      },
+      {
+        "name": "F",
+        "unit": "C/mol"
+      },
+      {
+        "name": "M_H2",
+        "unit": "g/mol"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "mass",
+        "value": "kg = mol * g/mol / 1000"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "n_H2 > 0"
+    ],
+    "outputs": [
+      {
+        "name": "h2_stoichiometric_mass_kg",
+        "unit": "kg"
+      }
+    ],
+    "acceptance_rules": [
+      "Mass > 0"
+    ],
+    "failure_modes": [
+      "Wrong stoichiometry"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-004"
+    ],
+    "source_ids": [
+      "IEC_62282_2"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-028",
+    "name_es": "Electrolyzer cell voltage Nernst",
+    "purpose": "Thermodynamic voltage",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-005"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "E_Nernst = E_0 + R*T/(2*F) * ln((p_H2 * p_O2^0.5)/a_H2O)"
+    ],
+    "equations_latex": [
+      "E_N = E_0 + \\frac{R T}{2 F} \\ln(p_{H2} p_{O2}^{0.5})"
+    ],
+    "variables": [
+      {
+        "name": "E_Nernst",
+        "unit": "V"
+      },
+      {
+        "name": "E_0",
+        "unit": "V"
+      },
+      {
+        "name": "R",
+        "unit": "J/mol/K"
+      },
+      {
+        "name": "T",
+        "unit": "K"
+      },
+      {
+        "name": "F",
+        "unit": "C/mol"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "voltage",
+        "value": "V"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "E_Nernst ~ 1.23 V at standard"
+    ],
+    "outputs": [
+      {
+        "name": "nernst_voltage_v",
+        "unit": "V"
+      }
+    ],
+    "acceptance_rules": [
+      "Match theory"
+    ],
+    "failure_modes": [
+      "Wrong activity"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-004"
+    ],
+    "source_ids": [
+      "IEC_62282_2"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-029",
+    "name_es": "Hydrogen conversion efficiency",
+    "purpose": "Process efficiency",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-001",
+      "H2-002"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "η_process = LHV_H2 * m_H2 / P_elec"
+    ],
+    "equations_latex": [
+      "\\eta_{proc} = \\frac{LHV_{H2} \\dot{m}_{H2}}{P_{elec}}"
+    ],
+    "variables": [
+      {
+        "name": "η_process",
+        "unit": "dimensionless_ratio"
+      },
+      {
+        "name": "LHV_H2",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "m_H2",
+        "unit": "kg/s"
+      },
+      {
+        "name": "P_elec",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "efficiency",
+        "value": "dimensionless = kJ/kg * kg/s / kW"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "η_process > 0.5"
+    ],
+    "outputs": [
+      {
+        "name": "process_efficiency",
+        "unit": "various_units"
+      }
+    ],
+    "acceptance_rules": [
+      "η > 50%"
+    ],
+    "failure_modes": [
+      "Low efficiency"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-004"
+    ],
+    "source_ids": [
+      "IEC_62282_2"
+    ]
+  },
+  {
+    "calculation_id": "H2-C-030",
+    "name_es": "Grounding resistance",
+    "purpose": "IEEE 80",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "H2-001"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "R_g = ρ * (1 + ln(L/((pi*A)^0.5) - 1)) / (4*L)"
+    ],
+    "equations_latex": [
+      "R_g = \\rho \\frac{1 + \\ln(L/\\sqrt{\\pi A}) - 1}{4L}"
+    ],
+    "variables": [
+      {
+        "name": "R_g",
+        "unit": "ohm"
+      },
+      {
+        "name": "rho",
+        "unit": "ohm-m"
+      },
+      {
+        "name": "L",
+        "unit": "m"
+      },
+      {
+        "name": "A",
+        "unit": "m2"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "resistance",
+        "value": "ohm"
+      }
+    ],
+    "numerical_method": "IEEE 80",
+    "iteration_limits": {
+      "max_iter": 5
+    },
+    "validity_limits": [
+      "R_g < 5 ohm typical"
+    ],
+    "outputs": [
+      {
+        "name": "grounding_resistance_ohm",
+        "unit": "ohm"
+      }
+    ],
+    "acceptance_rules": [
+      "< 5 ohm"
+    ],
+    "failure_modes": [
+      "High resistivity soil"
+    ],
+    "drawing_impacts": [
+      "H2-DRW-009"
+    ],
+    "source_ids": [
+      "IEEE_80_2013"
+    ]
+  }
+]

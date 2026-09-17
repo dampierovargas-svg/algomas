@@ -1,0 +1,1787 @@
+[
+  {
+    "calculation_id": "C-COM-001",
+    "name_es": "Transformación geodésica Lat/Lon -> UTM (EPSG:32718 para Perú)",
+    "purpose": "Convertir coordenadas geográficas (lat, lon) a UTM (easting, northing) usando serie de Krüger basada en elipsoide WGS84",
+    "applicability_expression": "country_iso == 'PE' AND crs_epsg in [32717, 32718, 32719]",
+    "input_field_ids": [
+      "PRJ_052",
+      "PRJ_053",
+      "PRJ_050"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "a = 6378137.0  # semi-major axis WGS84",
+      "f = 1/298.257223563  # flattening",
+      "k0 = 0.9996  # UTM scale factor",
+      "e2 = 2*f - f^2  # eccentricity squared",
+      "ep2 = e2 / (1 - e2)  # second eccentricity",
+      "N = a / sqrt(1 - e2 * sin(lat_rad)^2)  # radius of curvature",
+      "T = tan(lat_rad)^2",
+      "C = ep2 * cos(lat_rad)^2",
+      "A = cos(lat_rad) * (lon_rad - lon0_rad)",
+      "M = a * ((1 - e2/4 - 3*e2^2/64 - 5*e2^3/256) * lat_rad - (3*e2/8 + 3*e2^2/32 + 45*e2^3/1024) * sin(2*lat_rad) + (15*e2^2/256 + 45*e2^3/1024) * sin(4*lat_rad) - (35*e2^3/3072) * sin(6*lat_rad))",
+      "easting = 500000 + k0 * N * (A + (1 - T + C) * A^3/6 + (5 - 18*T + T^2 + 72*C - 58*ep2) * A^5/120)",
+      "northing = k0 * (M + N * tan(lat_rad) * (A^2/2 + (5 - T + 9*C + 4*C^2) * A^4/24 + (61 - 58*T + T^2 + 600*C - 330*ep2) * A^6/720))"
+    ],
+    "equations_latex": [
+      "a = 6378137.0, \\quad f = 1/298.257223563, \\quad k_0 = 0.9996",
+      "e^2 = 2f - f^2, \\quad e'^{2} = \\frac{e^2}{1-e^2}",
+      "N = \\frac{a}{\\sqrt{1 - e^2 \\sin^2\\phi}}, \\quad T = \\tan^2\\phi, \\quad C = e'^{2}\\cos^2\\phi",
+      "A = \\cos\\phi \\cdot (\\lambda - \\lambda_0)",
+      "M = a\\left[\\left(1 - \\frac{e^2}{4} - \\frac{3e^4}{64} - \\frac{5e^6}{256}\\right)\\phi - \\left(\\frac{3e^2}{8} + \\frac{3e^4}{32} + \\frac{45e^6}{1024}\\right)\\sin 2\\phi + \\left(\\frac{15e^4}{256} + \\frac{45e^6}{1024}\\right)\\sin 4\\phi - \\frac{35e^6}{3072}\\sin 6\\phi\\right]",
+      "E = 500000 + k_0 N \\left[A + \\frac{(1-T+C)A^3}{6} + \\frac{(5-18T+T^2+72C-58e'^2)A^5}{120}\\right]",
+      "N_{utm} = k_0\\left[M + N\\tan\\phi\\left(\\frac{A^2}{2} + \\frac{(5-T+9C+4C^2)A^4}{24} + \\frac{(61-58T+T^2+600C-330e'^2)A^6}{720}\\right)\\right]"
+    ],
+    "variables": [
+      {
+        "name": "lat",
+        "symbol": "\\phi",
+        "unit": "degree",
+        "type": "input",
+        "origin": "PRJ_052"
+      },
+      {
+        "name": "lon",
+        "symbol": "\\lambda",
+        "unit": "degree",
+        "type": "input",
+        "origin": "PRJ_053"
+      },
+      {
+        "name": "crs_epsg",
+        "symbol": "EPSG",
+        "unit": "integer",
+        "type": "input",
+        "origin": "PRJ_050"
+      },
+      {
+        "name": "a",
+        "symbol": "a",
+        "unit": "m",
+        "type": "constant",
+        "origin": "WGS84 ellipsoid semi-major axis"
+      },
+      {
+        "name": "f",
+        "symbol": "f",
+        "unit": "dimensionless_ratio",
+        "type": "constant",
+        "origin": "WGS84 flattening"
+      },
+      {
+        "name": "k0",
+        "symbol": "k_0",
+        "unit": "dimensionless_ratio",
+        "type": "constant",
+        "origin": "UTM scale factor"
+      },
+      {
+        "name": "e2",
+        "symbol": "e^2",
+        "unit": "dimensionless_ratio",
+        "type": "derived",
+        "origin": "2*f - f^2"
+      },
+      {
+        "name": "ep2",
+        "symbol": "e'^2",
+        "unit": "dimensionless_ratio",
+        "type": "derived",
+        "origin": "e2/(1-e2)"
+      },
+      {
+        "name": "N",
+        "symbol": "N",
+        "unit": "m",
+        "type": "derived",
+        "origin": "radius of curvature"
+      },
+      {
+        "name": "T",
+        "symbol": "T",
+        "unit": "dimensionless_ratio",
+        "type": "derived",
+        "origin": "tan(lat)^2"
+      },
+      {
+        "name": "C",
+        "symbol": "C",
+        "unit": "dimensionless_ratio",
+        "type": "derived",
+        "origin": "ep2*cos(lat)^2"
+      },
+      {
+        "name": "A",
+        "symbol": "A",
+        "unit": "dimensionless_ratio",
+        "type": "derived",
+        "origin": "cos(lat)*(lon-lon0)"
+      },
+      {
+        "name": "M",
+        "symbol": "M",
+        "unit": "m",
+        "type": "derived",
+        "origin": "meridional arc"
+      },
+      {
+        "name": "easting",
+        "symbol": "E",
+        "unit": "m",
+        "type": "output",
+        "origin": "UTM easting"
+      },
+      {
+        "name": "northing",
+        "symbol": "N_{utm}",
+        "unit": "m",
+        "type": "output",
+        "origin": "UTM northing"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "easting",
+        "value": "m = dimensionless * m * dimensionless"
+      },
+      {
+        "name": "northing",
+        "value": "m = dimensionless * (m + m * dimensionless * dimensionless)"
+      },
+      {
+        "name": "M_arc",
+        "value": "m = m * radian - m * dimensionless * radian"
+      }
+    ],
+    "numerical_method": "Krüger series (6th order) for UTM transformation per ISO 19111",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "|lat| <= 84 degrees (UTM valid range)",
+      "32717 <= crs_epsg <= 32719 for Peru",
+      "lon must be within +/- 3 degrees of central meridian for the UTM zone"
+    ],
+    "outputs": [
+      {
+        "name": "easting_m",
+        "unit": "m",
+        "type": "number",
+        "range": [
+          166000,
+          834000
+        ]
+      },
+      {
+        "name": "northing_m",
+        "unit": "m",
+        "type": "number",
+        "range": [
+          0,
+          9300000
+        ]
+      }
+    ],
+    "acceptance_rules": [
+      "easting_m in [166000, 834000] for Peru UTM zones",
+      "northing_m in [0, 9300000] for southern hemisphere",
+      "reverse transformation (UTM->Lat/Lon) must reproduce input within 1 mm",
+      "computed easting must lie within 500000 +/- 334000 (UTM zone width)"
+    ],
+    "failure_modes": [
+      "invalid crs_epsg outside UTM range",
+      "latitude exceeds +/- 84 degrees",
+      "longitude exceeds +/- 180 degrees",
+      "input latitude or longitude is None",
+      "ellipsoid constants inconsistent"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-001",
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_19111"
+    ]
+  },
+  {
+    "calculation_id": "C-COM-002",
+    "name_es": "Área y perímetro de polígono por fórmula del zapato (shoelace)",
+    "purpose": "Calcular área y perímetro de un polígono cerrado definido por vértices (e.g., límite de terreno)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PRJ_070",
+      "PRJ_071"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "n = length(vertices)  # number of vertices (polygon must be closed: v[0] == v[n-1])",
+      "A = 0.5 * |sum_{i=0}^{n-2} (x_i * y_{i+1} - x_{i+1} * y_i)|",
+      "L = sum_{i=0}^{n-2} sqrt((x_{i+1} - x_i)^2 + (y_{i+1} - y_i)^2)"
+    ],
+    "equations_latex": [
+      "A = \\frac{1}{2}\\left|\\sum_{i=0}^{n-2} (x_i y_{i+1} - x_{i+1} y_i)\\right|",
+      "L = \\sum_{i=0}^{n-2} \\sqrt{(x_{i+1} - x_i)^2 + (y_{i+1} - y_i)^2}"
+    ],
+    "variables": [
+      {
+        "name": "vertices",
+        "symbol": "V",
+        "unit": "list of (x,y) tuples in m",
+        "type": "input",
+        "origin": "PRJ_070"
+      },
+      {
+        "name": "boundary_area_m2",
+        "symbol": "A",
+        "unit": "m2",
+        "type": "input",
+        "origin": "PRJ_071 (used as check)"
+      },
+      {
+        "name": "polygon_area",
+        "symbol": "A_{calc}",
+        "unit": "m2",
+        "type": "output",
+        "origin": "shoelace formula"
+      },
+      {
+        "name": "perimeter",
+        "symbol": "L",
+        "unit": "m",
+        "type": "output",
+        "origin": "sum of edge lengths"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "area",
+        "value": "m2 = m * m (sum of cross products)"
+      },
+      {
+        "name": "perimeter",
+        "value": "m = m (sum of edge lengths)"
+      }
+    ],
+    "numerical_method": "Direct shoelace formula",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "n >= 3 (minimum triangle)",
+      "polygon must be closed (v[0] == v[n-1])",
+      "polygon must not self-intersect",
+      "vertices in counter-clockwise or clockwise order"
+    ],
+    "outputs": [
+      {
+        "name": "area_m2",
+        "unit": "m2",
+        "type": "number",
+        "range": [
+          1,
+          1000000000.0
+        ]
+      },
+      {
+        "name": "perimeter_m",
+        "unit": "m",
+        "type": "number",
+        "range": [
+          1,
+          100000.0
+        ]
+      }
+    ],
+    "acceptance_rules": [
+      "area_m2 > 0",
+      "perimeter_m > 0",
+      "abs(computed_area - boundary_area_m2) / boundary_area_m2 < 0.001",
+      "computed_area within 1% of PRJ_071 declared value"
+    ],
+    "failure_modes": [
+      "polygon not closed (v[0] != v[n-1])",
+      "self-intersecting polygon",
+      "fewer than 3 vertices",
+      "vertices outside UTM zone"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-001",
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_19111"
+    ]
+  },
+  {
+    "calculation_id": "C-COM-003",
+    "name_es": "Pendiente y azimuth entre dos puntos topográficos",
+    "purpose": "Calcular la pendiente porcentual y el azimuth entre dos puntos para acceso, caminos y ruteo",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PRJ_052",
+      "PRJ_053",
+      "PRJ_064",
+      "PRJ_065"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "dx = x2 - x1  # m",
+      "dy = y2 - y1  # m",
+      "dz = z2 - z1  # m",
+      "horizontal_dist = sqrt(dx^2 + dy^2)  # m",
+      "slope_pct = (dz / horizontal_dist) * 100  # percent",
+      "azimuth_deg = atan2(dx, dy) * 180 / pi  # degrees from North, clockwise",
+      "if azimuth_deg < 0: azimuth_deg += 360"
+    ],
+    "equations_latex": [
+      "\\Delta x = x_2 - x_1, \\quad \\Delta y = y_2 - y_1, \\quad \\Delta z = z_2 - z_1",
+      "d_h = \\sqrt{(\\Delta x)^2 + (\\Delta y)^2}",
+      "s = \\frac{\\Delta z}{d_h} \\cdot 100",
+      "\\alpha = \\arctan 2(\\Delta x, \\Delta y) \\cdot \\frac{180}{\\pi}"
+    ],
+    "variables": [
+      {
+        "name": "p1_x",
+        "symbol": "x_1",
+        "unit": "m",
+        "type": "input",
+        "origin": "PRJ_052 site_centroid_easting"
+      },
+      {
+        "name": "p1_y",
+        "symbol": "y_1",
+        "unit": "m",
+        "type": "input",
+        "origin": "PRJ_053 site_centroid_northing"
+      },
+      {
+        "name": "p1_z",
+        "symbol": "z_1",
+        "unit": "m",
+        "type": "input",
+        "origin": "PRJ_064 topo_vertical_accuracy_mm (as proxy)"
+      },
+      {
+        "name": "p2_x",
+        "symbol": "x_2",
+        "unit": "m",
+        "type": "input",
+        "origin": "PRJ_052 (offset to point 2)"
+      },
+      {
+        "name": "p2_y",
+        "symbol": "y_2",
+        "unit": "m",
+        "type": "input",
+        "origin": "PRJ_053 (offset to point 2)"
+      },
+      {
+        "name": "p2_z",
+        "symbol": "z_2",
+        "unit": "m",
+        "type": "input",
+        "origin": "PRJ_065 topo_horizontal_accuracy_mm (as proxy)"
+      },
+      {
+        "name": "horizontal_dist",
+        "symbol": "d_h",
+        "unit": "m",
+        "type": "derived",
+        "origin": "sqrt(dx^2+dy^2)"
+      },
+      {
+        "name": "slope_pct",
+        "symbol": "s",
+        "unit": "percent",
+        "type": "output"
+      },
+      {
+        "name": "azimuth_deg",
+        "symbol": "\\alpha",
+        "unit": "degree",
+        "type": "output"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "slope",
+        "value": "percent = m / m * 100"
+      },
+      {
+        "name": "azimuth",
+        "value": "degree = radian * 180 / pi"
+      }
+    ],
+    "numerical_method": "Direct arctan2",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "horizontal_dist > 0",
+      "slope_pct in [-100, 100] (otherwise terrain too steep)",
+      "azimuth_deg in [0, 360)"
+    ],
+    "outputs": [
+      {
+        "name": "slope_pct",
+        "unit": "percent",
+        "type": "number",
+        "range": [
+          -100,
+          100
+        ]
+      },
+      {
+        "name": "azimuth_deg",
+        "unit": "degree",
+        "type": "number",
+        "range": [
+          0,
+          360
+        ]
+      }
+    ],
+    "acceptance_rules": [
+      "horizontal_dist > 0.001 m (points not identical)",
+      "abs(slope_pct) <= 100 (no vertical slopes)",
+      "azimuth_deg in [0, 360)",
+      "for road design: slope_pct <= 12 (per RNE NTE-110)"
+    ],
+    "failure_modes": [
+      "two points identical (horizontal_dist = 0)",
+      "slope_pct > 100 indicates vertical terrain",
+      "azimuth_deg undefined when dx = dy = 0"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "calculation_id": "C-COM-004",
+    "name_es": "Carga sísmica base shear según NTE-060 (RNE Perú)",
+    "purpose": "Calcular la fuerza cortante basal sísmica para estructuras según el reglamento peruano NTE-060",
+    "applicability_expression": "country_iso == 'PE' AND structure_type in ['concrete','steel','masonry']",
+    "input_field_ids": [
+      "PRJ_190",
+      "PRJ_191",
+      "PRJ_192",
+      "PRJ_193",
+      "PRJ_180",
+      "PRJ_120"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Z = seismic_factor_z (zone: 0.10, 0.15, 0.25, 0.35, 0.45)",
+      "S = soil_amplification_factor (S0=0.8, S1=1.0, S2=1.2, S3=1.4)",
+      "U = importance_factor (residential=1.0, essential=1.5)",
+      "R = reduction factor (concrete special=8, intermediate=6, steel special=9, masonry=3)",
+      "W = total seismic weight of structure (kN)",
+      "V_base_shear = (Z * U * S * W) / R  # kN"
+    ],
+    "equations_latex": [
+      "V = \\frac{Z \\cdot U \\cdot S \\cdot W}{R}"
+    ],
+    "variables": [
+      {
+        "name": "seismic_zone_Z",
+        "symbol": "Z",
+        "unit": "dimensionless_ratio",
+        "type": "input",
+        "origin": "PRJ_190 seismic_zone_pe"
+      },
+      {
+        "name": "factor_Z",
+        "symbol": "Z",
+        "unit": "dimensionless_ratio",
+        "type": "input",
+        "origin": "PRJ_191 seismic_factor_z"
+      },
+      {
+        "name": "soil_type",
+        "symbol": "S_{type}",
+        "unit": "enum",
+        "type": "input",
+        "origin": "PRJ_192 soil_type_s260"
+      },
+      {
+        "name": "amplification_S",
+        "symbol": "S",
+        "unit": "dimensionless_ratio",
+        "type": "input",
+        "origin": "PRJ_193 response_amplification_factor_s"
+      },
+      {
+        "name": "design_life_years",
+        "symbol": "L",
+        "unit": "years",
+        "type": "input",
+        "origin": "PRJ_180 design_life_years"
+      },
+      {
+        "name": "total_weight_W",
+        "symbol": "W",
+        "unit": "kN",
+        "type": "input",
+        "origin": "PRJ_120 total_installed_capacity_mw (used as proxy for plant weight)"
+      },
+      {
+        "name": "base_shear_V",
+        "symbol": "V",
+        "unit": "kN",
+        "type": "output"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "base_shear",
+        "value": "kN = dimensionless * dimensionless * dimensionless * kN / dimensionless"
+      }
+    ],
+    "numerical_method": "Direct per NTE-060",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "Z in [0.10, 0.45]",
+      "S in [0.8, 2.4]",
+      "U in [1.0, 1.5]",
+      "R per structural type per NTE-060 Table 6.1",
+      "W > 0"
+    ],
+    "outputs": [
+      {
+        "name": "base_shear_kn",
+        "unit": "kN",
+        "type": "number",
+        "range": [
+          10,
+          100000
+        ]
+      }
+    ],
+    "acceptance_rules": [
+      "base_shear_kn > 0",
+      "base_shear_kn < 0.5 * W (typical upper bound for seismic)",
+      "Z, S, U, R within NTE-060 tabulated ranges",
+      "structural system matches R factor"
+    ],
+    "failure_modes": [
+      "Z outside [0.10, 0.45] indicates wrong seismic zone",
+      "R factor inconsistent with structure type",
+      "W = 0 (no seismic weight)",
+      "soil type not classified per NTE-060"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-003"
+    ],
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "calculation_id": "C-COM-005",
+    "name_es": "Capacidad de carga admisible del suelo (Meyerhof)",
+    "purpose": "Calcular la capacidad de carga última y admisible de una cimentación superficial usando Meyerhof",
+    "applicability_expression": "foundation_type in ['strip','square','rectangular','circular'] AND depth_m <= width_m",
+    "input_field_ids": [
+      "PRJ_092",
+      "PRJ_093",
+      "PRJ_094",
+      "PRJ_095",
+      "PRJ_096",
+      "PRJ_210"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "phi = friction_angle_deg * pi / 180  # radians",
+      "Nq = exp(pi * tan(phi)) * tan(pi/4 + phi/2)^2",
+      "Nc = (Nq - 1) * cot(phi) if phi > 0 else 5.14",
+      "Ngamma = (Nq - 1) * tan(1.4 * phi)",
+      "D = foundation_depth_m  # m",
+      "B = foundation_width_m  # m",
+      "gamma = soil_unit_weight_kN_m3  # kN/m3",
+      "c = cohesion_kPa  # kPa",
+      "q_ultimate = c * Nc + gamma * D * Nq + 0.5 * gamma * B * Ngamma  # kPa",
+      "FS = 3.0  # factor of safety for permanent structures",
+      "q_allowable = q_ultimate / FS  # kPa"
+    ],
+    "equations_latex": [
+      "N_q = e^{\\pi\\tan\\phi}\\tan^2(\\pi/4 + \\phi/2)",
+      "N_c = (N_q - 1)\\cot\\phi",
+      "N_\\gamma = (N_q - 1)\\tan(1.4\\phi)",
+      "q_u = cN_c + \\gamma D N_q + 0.5\\gamma B N_\\gamma",
+      "q_a = q_u / FS"
+    ],
+    "variables": [
+      {
+        "name": "friction_angle",
+        "symbol": "\\phi",
+        "unit": "degree",
+        "type": "input",
+        "origin": "PRJ_092 friction_angle_deg"
+      },
+      {
+        "name": "cohesion",
+        "symbol": "c",
+        "unit": "kPa",
+        "type": "input",
+        "origin": "PRJ_094 cohesion_kPa"
+      },
+      {
+        "name": "soil_unit_weight",
+        "symbol": "\\gamma",
+        "unit": "kN/m3",
+        "type": "input",
+        "origin": "PRJ_210 (proxy for soil density)"
+      },
+      {
+        "name": "foundation_depth",
+        "symbol": "D",
+        "unit": "m",
+        "type": "input",
+        "origin": "PRJ_095 groundwater_depth_m (proxy)"
+      },
+      {
+        "name": "foundation_width",
+        "symbol": "B",
+        "unit": "m",
+        "type": "input",
+        "origin": "PRJ_092 (derived from footing size)"
+      },
+      {
+        "name": "bearing_capacity_kpa",
+        "symbol": "q_a",
+        "unit": "kPa",
+        "type": "input",
+        "origin": "PRJ_092 bearing_capacity_kpa (used as check)"
+      },
+      {
+        "name": "Nq",
+        "symbol": "N_q",
+        "unit": "dimensionless_ratio",
+        "type": "derived"
+      },
+      {
+        "name": "Nc",
+        "symbol": "N_c",
+        "unit": "dimensionless_ratio",
+        "type": "derived"
+      },
+      {
+        "name": "Ngamma",
+        "symbol": "N_\\gamma",
+        "unit": "dimensionless_ratio",
+        "type": "derived"
+      },
+      {
+        "name": "q_ultimate",
+        "symbol": "q_u",
+        "unit": "kPa",
+        "type": "derived"
+      },
+      {
+        "name": "q_allowable",
+        "symbol": "q_a",
+        "unit": "kPa",
+        "type": "output"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "bearing_capacity",
+        "value": "kPa = kPa * dimensionless + kN/m3 * m * dimensionless + kN/m3 * m * dimensionless"
+      }
+    ],
+    "numerical_method": "Direct Meyerhof bearing capacity",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "phi in [0, 45] degrees",
+      "cohesion_kPa >= 0",
+      "D > 0 (foundation has embedment)",
+      "B > 0",
+      "D <= B (shallow foundation assumption)",
+      "groundwater below foundation base"
+    ],
+    "outputs": [
+      {
+        "name": "ultimate_bearing_capacity_kpa",
+        "unit": "kPa",
+        "type": "number",
+        "range": [
+          50,
+          5000
+        ]
+      },
+      {
+        "name": "allowable_bearing_capacity_kpa",
+        "unit": "kPa",
+        "type": "number",
+        "range": [
+          10,
+          1000
+        ]
+      }
+    ],
+    "acceptance_rules": [
+      "q_allowable >= 100 kPa for residential structures",
+      "q_allowable >= 200 kPa for industrial structures",
+      "FS >= 3.0 for permanent structures",
+      "computed q_allowable matches geotechnical report within 10%",
+      "phi consistent with soil type per USCS"
+    ],
+    "failure_modes": [
+      "phi > 45 indicates gravel/cemented soil (Meyerhof not applicable)",
+      "cohesion < 0 invalid",
+      "groundwater above foundation base (effective stress analysis needed)",
+      "D > B indicates deep foundation (use pile capacity instead)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-003"
+    ],
+    "source_ids": [
+      "ISO_14685",
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "calculation_id": "C-COM-006",
+    "name_es": "Estadísticas metocean (Hs, Tp, viento) con percentiles",
+    "purpose": "Calcular media, varianza, percentiles 50/95/99 y valores extremos de variables metocean para diseño offshore/flotante",
+    "applicability_expression": "technology in [WIND_OFFSHORE, PV_FLOATING, MARINE]",
+    "input_field_ids": [
+      "PRJ_100",
+      "PRJ_102",
+      "PRJ_105",
+      "PRJ_106",
+      "PRJ_107"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "n = length(dataset)  # number of samples",
+      "if n == 0: return NaN",
+      "mean = sum(dataset) / n",
+      "variance = sum((x_i - mean)^2 for i in range(n)) / (n - 1)  # sample variance",
+      "std_dev = sqrt(variance)",
+      "# Percentiles via linear interpolation (ISO 16269-4)",
+      "sorted_data = sort(dataset ascending)",
+      "p = percentile (e.g., 0.95 for 95th percentile)",
+      "rank = p * (n - 1) + 1  # 1-indexed",
+      "lower_index = floor(rank)",
+      "upper_index = ceil(rank)",
+      "fraction = rank - lower_index",
+      "percentile_value = sorted_data[lower_index-1] + fraction * (sorted_data[upper_index-1] - sorted_data[lower_index-1])",
+      "# Extreme value analysis (Gumbel for annual maxima)",
+      "if dataset is annual_maxima:",
+      "    # Gumbel: F(x) = exp(-exp(-(x-mu)/beta))",
+      "    # Fit mu, beta via method of moments:",
+      "    beta = std_dev * sqrt(6) / pi",
+      "    mu = mean - 0.5772 * beta  # Euler-Mascheroni constant",
+      "    return_period_T_years = 50  # 50-year return",
+      "    x_T = mu - beta * log(-log(1 - 1/T))"
+    ],
+    "equations_latex": [
+      "\\bar{x} = \\frac{1}{n}\\sum_{i=1}^n x_i",
+      "\\sigma^2 = \\frac{1}{n-1}\\sum_{i=1}^n (x_i - \\bar{x})^2",
+      "P_p = x_{\\lfloor p(n-1)+1\\rfloor} + (p(n-1)+1 - \\lfloor p(n-1)+1\\rfloor)(x_{\\lceil p(n-1)+1\\rceil} - x_{\\lfloor p(n-1)+1\\rfloor})",
+      "F(x) = \\exp\\left(-\\exp\\left(-\\frac{x-\\mu}{\\beta}\\right)\\right)",
+      "\\beta = \\sigma\\sqrt{6}/\\pi, \\quad \\mu = \\bar{x} - 0.5772\\beta",
+      "x_T = \\mu - \\beta\\ln(-\\ln(1-1/T))"
+    ],
+    "variables": [
+      {
+        "name": "meteo_data_source",
+        "symbol": "src",
+        "unit": "string",
+        "type": "input",
+        "origin": "PRJ_100 meteo_data_source"
+      },
+      {
+        "name": "ghi",
+        "symbol": "GHI",
+        "unit": "kWh/m2/year",
+        "type": "input",
+        "origin": "PRJ_102 annual_ghi_kwh_m2"
+      },
+      {
+        "name": "dni",
+        "symbol": "DNI",
+        "unit": "kWh/m2/year",
+        "type": "input",
+        "origin": "PRJ_103 annual_dni_kwh_m2"
+      },
+      {
+        "name": "wind_speed",
+        "symbol": "v",
+        "unit": "m/s",
+        "type": "input",
+        "origin": "PRJ_105 annual_avg_wind_speed_ms"
+      },
+      {
+        "name": "temperature",
+        "symbol": "T",
+        "unit": "degree C",
+        "type": "input",
+        "origin": "PRJ_106 annual_avg_temperature_c"
+      },
+      {
+        "name": "extreme_temp",
+        "symbol": "T_{ext}",
+        "unit": "degree C",
+        "type": "input",
+        "origin": "PRJ_107 extreme_max_temp_c"
+      },
+      {
+        "name": "mean",
+        "symbol": "\\bar{x}",
+        "unit": "same as input",
+        "type": "derived"
+      },
+      {
+        "name": "std_dev",
+        "symbol": "\\sigma",
+        "unit": "same as input",
+        "type": "derived"
+      },
+      {
+        "name": "percentile_95",
+        "symbol": "P_{95}",
+        "unit": "same as input",
+        "type": "output"
+      },
+      {
+        "name": "extreme_50yr",
+        "symbol": "x_{50}",
+        "unit": "same as input",
+        "type": "output"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "mean",
+        "value": "unit = unit / dimensionless"
+      },
+      {
+        "name": "std_dev",
+        "value": "unit = unit (sqrt of variance)"
+      },
+      {
+        "name": "percentile",
+        "value": "unit = unit (interpolation)"
+      }
+    ],
+    "numerical_method": "Linear interpolation for percentiles (ISO 16269-4), Gumbel method of moments for extremes",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "n >= 1000 samples for stable statistics",
+      "n >= 10 years for extreme value analysis (annual maxima)",
+      "no NaN or infinite values in dataset",
+      "percentile p in (0, 1)"
+    ],
+    "outputs": [
+      {
+        "name": "mean",
+        "unit": "same as input",
+        "type": "number"
+      },
+      {
+        "name": "std_dev",
+        "unit": "same as input",
+        "type": "number"
+      },
+      {
+        "name": "percentile_95",
+        "unit": "same as input",
+        "type": "number"
+      },
+      {
+        "name": "extreme_50yr",
+        "unit": "same as input",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "mean > 0 for positive-definite quantities (wind, GHI)",
+      "std_dev/mean < 1 (coefficient of variation)",
+      "percentile_95 > mean",
+      "extreme_50yr > percentile_95",
+      "no NaN values in output"
+    ],
+    "failure_modes": [
+      "n < 1000 (insufficient data)",
+      "NaN or infinite in dataset",
+      "non-normal distribution (use Weibull or GEV instead)",
+      "extreme_50yr < percentile_95 (extreme analysis failed)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "NASA_POWER",
+      "NSRDB_NREL"
+    ]
+  },
+  {
+    "calculation_id": "C-COM-007",
+    "name_es": "Capacidad de cortocircuito en PCC según IEC 60909",
+    "purpose": "Calcular la corriente de cortocircuito trifásica simétrica en el punto de común acoplamiento (PCC) según IEC 60909-0",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PRJ_111",
+      "PRJ_113",
+      "PRJ_114"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_nominal = grid_nominal_voltage_kv * 1000  # V (line-to-line)",
+      "S_sc = grid_short_circuit_capacity_mva * 1e6  # VA",
+      "XR = grid_xr_ratio  # dimensionless",
+      "# Per IEC 60909-0:",
+      "c_factor = 1.1  # voltage factor for max short-circuit current",
+      "I_k3 = c_factor * V_nominal / (sqrt(3) * Z_th)  # A",
+      "Z_th = V_nominal^2 / S_sc  # ohm (Thevenin impedance)",
+      "R_th = Z_th / sqrt(1 + XR^2)  # ohm",
+      "X_th = XR * R_th  # ohm",
+      "# Peak short-circuit current ip:",
+      "kappa = 1.02 + 0.98 * exp(-3 * R_th / X_th)  # dimensionless",
+      "i_p = kappa * sqrt(2) * I_k3  # A (peak)"
+    ],
+    "equations_latex": [
+      "I_{k3}'' = \\frac{c V_n}{\\sqrt{3} Z_{th}}",
+      "Z_{th} = \\frac{V_n^2}{S_{sc}}",
+      "R_{th} = \\frac{Z_{th}}{\\sqrt{1 + (X/R)^2}}",
+      "X_{th} = (X/R) \\cdot R_{th}",
+      "\\kappa = 1.02 + 0.98 e^{-3 R_{th}/X_{th}}",
+      "i_p = \\kappa \\sqrt{2} I_{k3}''"
+    ],
+    "variables": [
+      {
+        "name": "grid_nominal_voltage_kv",
+        "symbol": "V_n",
+        "unit": "kV",
+        "type": "input",
+        "origin": "PRJ_111 grid_nominal_voltage_kv"
+      },
+      {
+        "name": "grid_short_circuit_mva",
+        "symbol": "S_{sc}",
+        "unit": "MVA",
+        "type": "input",
+        "origin": "PRJ_113 grid_short_circuit_capacity_mva"
+      },
+      {
+        "name": "grid_xr_ratio",
+        "symbol": "X/R",
+        "unit": "dimensionless_ratio",
+        "type": "input",
+        "origin": "PRJ_114 grid_xr_ratio"
+      },
+      {
+        "name": "thevenin_impedance",
+        "symbol": "Z_{th}",
+        "unit": "ohm",
+        "type": "derived"
+      },
+      {
+        "name": "thevenin_resistance",
+        "symbol": "R_{th}",
+        "unit": "ohm",
+        "type": "derived"
+      },
+      {
+        "name": "thevenin_reactance",
+        "symbol": "X_{th}",
+        "unit": "ohm",
+        "type": "derived"
+      },
+      {
+        "name": "c_factor",
+        "symbol": "c",
+        "unit": "dimensionless_ratio",
+        "type": "constant",
+        "origin": "1.1 per IEC 60909 for max current"
+      },
+      {
+        "name": "kappa",
+        "symbol": "\\kappa",
+        "unit": "dimensionless_ratio",
+        "type": "derived"
+      },
+      {
+        "name": "short_circuit_current",
+        "symbol": "I_{k3}''",
+        "unit": "A",
+        "type": "output"
+      },
+      {
+        "name": "peak_short_circuit_current",
+        "symbol": "i_p",
+        "unit": "A",
+        "type": "output"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "short_circuit_current",
+        "value": "A = dimensionless * V / (sqrt(3) * ohm)"
+      },
+      {
+        "name": "peak_current",
+        "value": "A = dimensionless * sqrt(2) * A"
+      }
+    ],
+    "numerical_method": "Direct per IEC 60909-0",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "V_n in [0.4, 500] kV",
+      "S_sc in [1, 10000] MVA",
+      "X/R in [1, 50]",
+      "frequency 50 or 60 Hz"
+    ],
+    "outputs": [
+      {
+        "name": "short_circuit_current_ka",
+        "unit": "kA",
+        "type": "number",
+        "range": [
+          1,
+          80
+        ]
+      },
+      {
+        "name": "peak_short_circuit_current_ka",
+        "unit": "kA",
+        "type": "number",
+        "range": [
+          2.5,
+          200
+        ]
+      }
+    ],
+    "acceptance_rules": [
+      "I_k3 < device_interrupt_rating (e.g., 25 kA for typical MV switchgear)",
+      "i_p < device_peak_rating (e.g., 65 kA for typical MV switchgear)",
+      "I_k3 < 0.8 * S_sc / (sqrt(3) * V_n) (sanity check)",
+      "kappa in [1.0, 1.95] per IEC 60909"
+    ],
+    "failure_modes": [
+      "V_n outside typical range",
+      "S_sc = 0 (grid not modeled)",
+      "X/R < 1 (highly resistive grid, unusual)",
+      "kappa > 2.0 indicates miscalculation"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-004",
+      "DRW-COM-006"
+    ],
+    "source_ids": [
+      "IEC_60909",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "calculation_id": "C-COM-008",
+    "name_es": "Dimensionamiento de transformador de potencia",
+    "purpose": "Determinar la potencia nominal del transformador a partir de la carga, factor de potencia y factor de de-rating",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PRJ_120",
+      "PRJ_121",
+      "PRJ_123"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_load = active_power_export_kw  # kW",
+      "PF = power_factor_nominal  # dimensionless (0 to 1)",
+      "# Derating for altitude and temperature:",
+      "altitude_m = site_centroid_elevation  # m",
+      "ambient_temp_c = annual_avg_temperature_c  # degree C",
+      "if altitude_m > 1000: k_alt = 1 - (altitude_m - 1000) / 10000",
+      "else: k_alt = 1.0",
+      "if ambient_temp_c > 40: k_temp = 1 - (ambient_temp_c - 40) * 0.005",
+      "else: k_temp = 1.0",
+      "k_derating = k_alt * k_temp",
+      "S_rated = P_load / (PF * k_derating)  # kVA",
+      "# Select standard size:",
+      "standard_sizes = [25, 50, 100, 160, 250, 400, 630, 1000, 1600, 2500, 4000, 6300, 10000, 16000, 25000, 40000, 63000, 100000]",
+      "S_selected = min(s for s in standard_sizes if s >= S_rated)"
+    ],
+    "equations_latex": [
+      "S_{rated} = \\frac{P_{load}}{PF \\cdot k_{der}}",
+      "k_{der} = k_{alt} \\cdot k_{temp}",
+      "S_{selected} = \\min\\{s \\in S_{standard} : s \\geq S_{rated}\\}"
+    ],
+    "variables": [
+      {
+        "name": "active_power",
+        "symbol": "P_{load}",
+        "unit": "kW",
+        "type": "input",
+        "origin": "PRJ_121 active_power_export_kw"
+      },
+      {
+        "name": "power_factor",
+        "symbol": "PF",
+        "unit": "dimensionless_ratio",
+        "type": "input",
+        "origin": "PRJ_123 power_factor_nominal"
+      },
+      {
+        "name": "total_capacity",
+        "symbol": "P_{total}",
+        "unit": "MW",
+        "type": "input",
+        "origin": "PRJ_120 total_installed_capacity_mw"
+      },
+      {
+        "name": "transformer_count",
+        "symbol": "N",
+        "unit": "integer",
+        "type": "input",
+        "origin": "PRJ_125 transformer_count"
+      },
+      {
+        "name": "altitude_factor",
+        "symbol": "k_{alt}",
+        "unit": "dimensionless_ratio",
+        "type": "derived"
+      },
+      {
+        "name": "temperature_factor",
+        "symbol": "k_{temp}",
+        "unit": "dimensionless_ratio",
+        "type": "derived"
+      },
+      {
+        "name": "derating",
+        "symbol": "k_{der}",
+        "unit": "dimensionless_ratio",
+        "type": "derived"
+      },
+      {
+        "name": "rated_power",
+        "symbol": "S_{rated}",
+        "unit": "kVA",
+        "type": "derived"
+      },
+      {
+        "name": "selected_power",
+        "symbol": "S_{selected}",
+        "unit": "kVA",
+        "type": "output"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "rated_power",
+        "value": "kVA = kW / (dimensionless * dimensionless)"
+      }
+    ],
+    "numerical_method": "Direct sizing, snap-up to standard size",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "P_load > 0",
+      "PF in (0, 1]",
+      "altitude < 4000 m",
+      "ambient_temp < 60 C",
+      "k_derating in (0.5, 1.0]"
+    ],
+    "outputs": [
+      {
+        "name": "rated_power_kva",
+        "unit": "kVA",
+        "type": "number",
+        "range": [
+          25,
+          100000
+        ]
+      },
+      {
+        "name": "selected_standard_size_kva",
+        "unit": "kVA",
+        "type": "number",
+        "range": [
+          25,
+          100000
+        ]
+      }
+    ],
+    "acceptance_rules": [
+      "S_selected >= S_rated",
+      "S_selected / S_rated in [1.0, 1.3] (avoid over-sizing)",
+      "PF > 0.8 (avoid excessive reactive power)",
+      "k_derating > 0.7 (operating conditions acceptable)"
+    ],
+    "failure_modes": [
+      "P_load = 0",
+      "PF = 0 (impossible)",
+      "altitude > 4000 m (transformer cannot be air-cooled)",
+      "ambient_temp > 60 C (transformer exceeds insulation class)",
+      "no standard size >= S_rated (S_rated exceeds maximum)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-004"
+    ],
+    "source_ids": [
+      "IEC_60034",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "calculation_id": "C-COM-009",
+    "name_es": "Resistencia de puesta a tierra según IEEE Std 80-2013",
+    "purpose": "Calcular la resistencia de la malla de puesta a tierra usando la fórmula simplificada de IEEE Std 80 para grid rectangular",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PRJ_095",
+      "PRJ_096",
+      "PRJ_097",
+      "PRJ_133"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "# IEEE 80-2013 simplified formula for grid resistance:",
+      "rho = soil_resistivity_ohm_m  # ohm-m",
+      "A_grid = grid_area_m2  # m2",
+      "L_total = total_conductor_length_m  # m (includes grid conductors + ground rods)",
+      "# For rectangular grid with buried depth h:",
+      "h = 0.5  # m typical burial depth",
+      "# Endrenyi/Sverak formula (IEEE 80 simplified):",
+      "R_g = rho * (1/A_grid^0.5 + 1/(L_total + 1.15 * h * A_grid^0.5) + 1/(L_total * sqrt(A_grid)))  # ohm",
+      "# Simplified Laurent formula:",
+      "R_g_simplified = rho * (1/L_total + 1/sqrt(16 * A_grid))  # ohm",
+      "# Touch voltage criterion:",
+      "I_ground_fault = 1000  # A (assumed fault current)",
+      "E_touch_allowable = (116 + 0.17 * rho) / sqrt(t_fault)  # V (fibrillation threshold)",
+      "E_touch_computed = I_ground_fault * R_g * k_touch  # V",
+      "if E_touch_computed > E_touch_allowable: design_unsafe = True"
+    ],
+    "equations_latex": [
+      "R_g = \\rho\\left(\\frac{1}{\\sqrt{A}} + \\frac{1}{L + 1.15h\\sqrt{A}} + \\frac{1}{L\\sqrt{A}}\\right)",
+      "E_{touch,max} = \\frac{116 + 0.17\\rho}{\\sqrt{t}}"
+    ],
+    "variables": [
+      {
+        "name": "soil_resistivity",
+        "symbol": "\\rho",
+        "unit": "ohm-m",
+        "type": "input",
+        "origin": "derived from PRJ_092 friction_angle and PRJ_096 groundwater_depth_m"
+      },
+      {
+        "name": "groundwater_depth",
+        "symbol": "D_w",
+        "unit": "m",
+        "type": "input",
+        "origin": "PRJ_096 groundwater_depth_m"
+      },
+      {
+        "name": "active_fault_distance",
+        "symbol": "d",
+        "unit": "km",
+        "type": "input",
+        "origin": "PRJ_097 active_fault_distance_km"
+      },
+      {
+        "name": "earthing_type",
+        "symbol": "type",
+        "unit": "enum",
+        "type": "input",
+        "origin": "PRJ_133 earthing_system_type"
+      },
+      {
+        "name": "grid_area",
+        "symbol": "A",
+        "unit": "m2",
+        "type": "input",
+        "origin": "derived from PRJ_071 usable_area_m2"
+      },
+      {
+        "name": "total_conductor_length",
+        "symbol": "L",
+        "unit": "m",
+        "type": "input",
+        "origin": "derived from PRJ_095"
+      },
+      {
+        "name": "burial_depth",
+        "symbol": "h",
+        "unit": "m",
+        "type": "constant",
+        "origin": "0.5 m typical"
+      },
+      {
+        "name": "ground_resistance",
+        "symbol": "R_g",
+        "unit": "ohm",
+        "type": "output"
+      },
+      {
+        "name": "touch_voltage_allowable",
+        "symbol": "E_{t,a}",
+        "unit": "V",
+        "type": "output"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "resistance",
+        "value": "ohm = ohm-m * (1/sqrt(m2) + 1/m + 1/(m*sqrt(m2)))"
+      },
+      {
+        "name": "touch_voltage",
+        "value": "V = A * ohm"
+      }
+    ],
+    "numerical_method": "IEEE 80-2013 simplified Endrenyi/Sverak formula",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "rho in [1, 5000] ohm-m (typical soils)",
+      "A_grid > 0 m2",
+      "L_total > 0",
+      "h in [0.3, 1.0] m (typical burial depths)",
+      "t_fault in [0.1, 1.0] s (typical clearing times)"
+    ],
+    "outputs": [
+      {
+        "name": "ground_resistance_ohm",
+        "unit": "ohm",
+        "type": "number",
+        "range": [
+          0.1,
+          100
+        ]
+      },
+      {
+        "name": "touch_voltage_allowable_v",
+        "unit": "V",
+        "type": "number",
+        "range": [
+          100,
+          2000
+        ]
+      }
+    ],
+    "acceptance_rules": [
+      "R_g < 5 ohm for industrial installations",
+      "R_g < 1 ohm for HV substations (>50 kV)",
+      "E_touch_computed < E_touch_allowable",
+      "step voltage within IEEE 80 limits",
+      "ground fault cleared within t_fault"
+    ],
+    "failure_modes": [
+      "rho > 5000 ohm-m (rocky soil, deep-driven rods needed)",
+      "A_grid too small for required R_g",
+      "E_touch_computed > E_touch_allowable (fibrillation risk)",
+      "active fault within 5 km (high seismic risk affects ground grid)"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "IEEE_80_2013"
+    ]
+  },
+  {
+    "calculation_id": "C-COM-010",
+    "name_es": "Demanda de agua contra incendios según NFPA 13/20",
+    "purpose": "Calcular el caudal de agua contra incendios y el volumen de reserva basado en la clase de riesgo y el área de diseño",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PRJ_130",
+      "PRJ_071",
+      "PRJ_080",
+      "PRJ_081",
+      "PRJ_082",
+      "PRJ_083"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "# NFPA 13 design density based on hazard class:",
+      "design_density_mm_min = 8.2 if hazard_class == 'ordinary_hazard_1' else 12.2 if 'ordinary_hazard_2' else 4.1 if 'light' else 8.2",
+      "# NFPA 13 design area:",
+      "design_area_m2 = max(140, total_protected_area_m2 * 0.15) if hazard_class starts with 'ordinary' else max(140, total_protected_area_m2 * 0.1)",
+      "# Fire water demand:",
+      "Q_demand_m3_h = design_area_m2 * design_density_mm_min / 1000 * 60  # m3/h",
+      "# Duration per NFPA 13:",
+      "duration_min = 60 if hazard_class == 'light' else 90 if 'ordinary' else 120 if 'extra' else 60",
+      "# Reserve volume:",
+      "V_reserve_m3 = Q_demand_m3_h * duration_min / 60  # m3",
+      "# Pump sizing:",
+      "H_pump = 50  # m head (typical for sprinkler system)",
+      "P_pump_kw = (Q_demand_m3_h / 3600 * 1000 * 9.81 * H_pump) / (eta_pump * 1000)  # kW",
+      "eta_pump = 0.7"
+    ],
+    "equations_latex": [
+      "Q = \\frac{A_d \\cdot d \\cdot 60}{1000}",
+      "V = Q \\cdot \\frac{t}{60}",
+      "P = \\frac{\\rho g Q H}{\\eta}"
+    ],
+    "variables": [
+      {
+        "name": "fire_protection_basis",
+        "symbol": "basis",
+        "unit": "string",
+        "type": "input",
+        "origin": "PRJ_130 fire_protection_design_basis"
+      },
+      {
+        "name": "usable_area",
+        "symbol": "A",
+        "unit": "m2",
+        "type": "input",
+        "origin": "PRJ_071 usable_area_m2"
+      },
+      {
+        "name": "exclusion_archaeological",
+        "symbol": "A_{exc}",
+        "unit": "m2",
+        "type": "input",
+        "origin": "PRJ_080 exclusion_archaeological"
+      },
+      {
+        "name": "exclusion_environmental",
+        "symbol": "A_{env}",
+        "unit": "m2",
+        "type": "input",
+        "origin": "PRJ_081 exclusion_environmental"
+      },
+      {
+        "name": "hazard_class",
+        "symbol": "HC",
+        "unit": "enum",
+        "type": "input",
+        "origin": "derived from technology"
+      },
+      {
+        "name": "design_density",
+        "symbol": "d",
+        "unit": "mm/min",
+        "type": "constant",
+        "origin": "NFPA 13 hazard class table"
+      },
+      {
+        "name": "design_area",
+        "symbol": "A_d",
+        "unit": "m2",
+        "type": "derived"
+      },
+      {
+        "name": "duration",
+        "symbol": "t",
+        "unit": "min",
+        "type": "constant",
+        "origin": "NFPA 13 hazard class"
+      },
+      {
+        "name": "fire_water_demand",
+        "symbol": "Q",
+        "unit": "m3/h",
+        "type": "output"
+      },
+      {
+        "name": "reserve_volume",
+        "symbol": "V",
+        "unit": "m3",
+        "type": "output"
+      },
+      {
+        "name": "pump_power",
+        "symbol": "P",
+        "unit": "kW",
+        "type": "output"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "demand",
+        "value": "m3/h = m2 * mm/min * 60 / 1000"
+      },
+      {
+        "name": "volume",
+        "value": "m3 = m3/h * min / 60"
+      },
+      {
+        "name": "power",
+        "value": "kW = kg/m3 * m/s2 * m3/s * m / (dimensionless * 1000)"
+      }
+    ],
+    "numerical_method": "Direct per NFPA 13 hazard class tables",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "design_density in [4.1, 12.2] mm/min per NFPA 13",
+      "design_area in [140, 465] m2 per NFPA 13 hazard class",
+      "duration >= 60 min (NFPA minimum)",
+      "eta_pump in [0.6, 0.85] for centrifugal fire pumps"
+    ],
+    "outputs": [
+      {
+        "name": "fire_water_demand_m3_h",
+        "unit": "m3/h",
+        "type": "number",
+        "range": [
+          10,
+          2000
+        ]
+      },
+      {
+        "name": "fire_water_reserve_m3",
+        "unit": "m3",
+        "type": "number",
+        "range": [
+          50,
+          10000
+        ]
+      },
+      {
+        "name": "fire_pump_power_kw",
+        "unit": "kW",
+        "type": "number",
+        "range": [
+          5,
+          500
+        ]
+      }
+    ],
+    "acceptance_rules": [
+      "V_reserve >= 50 m3 (NFPA minimum)",
+      "V_reserve >= 30 min of demand",
+      "P_pump matches standard pump size (50, 75, 100, 150, 200 kW)",
+      "design_area matches NFPA 13 hazard class",
+      "sprinkler spacing <= 12 m2/sprinkler for ordinary hazard"
+    ],
+    "failure_modes": [
+      "design_density outside NFPA 13 range",
+      "design_area > 465 m2 (extra-hazard requiring foam)",
+      "V_reserve < 50 m3 (insufficient for required duration)",
+      "no water source capable of supplying Q_demand"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_20_2022"
+    ]
+  },
+  {
+    "calculation_id": "C-COM-011",
+    "name_es": "Capacidad de arquitectura SCADA y comunicaciones",
+    "purpose": "Dimensionar la capacidad de comunicaciones SCADA y el número de RTUs requeridos para cubrir todos los puntos de medición/control de la planta",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PRJ_150",
+      "PRJ_151",
+      "PRJ_152",
+      "PRJ_153",
+      "PRJ_154",
+      "PRJ_120"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "# Count RTUs based on plant size and SCADA architecture:",
+      "rtu_count = rtu_count_declared  # from PRJ_152",
+      "# Communication bandwidth requirement:",
+      "# Per IEC 60870-5-104, each RTU produces:",
+      "points_per_rtu_avg = 200  # analog + digital points",
+      "bytes_per_point = 8  # typical IEC 104 packet payload",
+      "poll_cycle_s = 1  # seconds (typical)",
+      "bandwidth_bytes_per_s_per_rtu = points_per_rtu_avg * bytes_per_point / poll_cycle_s",
+      "total_bandwidth_bps = rtu_count * bandwidth_bytes_per_s_per_rtu * 8  # bits/s",
+      "# Determine protocol choice:",
+      "if total_bandwidth_bps < 10000: protocol = 'MODBUS_TCP'",
+      "elif total_bandwidth_bps < 100000: protocol = 'IEC_60870-5-104'",
+      "elif total_bandwidth_bps < 1000000: protocol = 'IEC_61850'",
+      "else: protocol = 'OPC_UA'",
+      "# Redundancy:",
+      "if control_room_location == 'REMOTE_BOTH': redundancy = 2",
+      "else: redundancy = 1",
+      "link_bandwidth_bps = total_bandwidth_bps * redundancy",
+      "# Cybersecurity zone determination per IEC 62443:",
+      "if cybersecurity_zone == 'ZONES_2_4': zone_count = 4",
+      "elif cybersecurity_zone == 'ZONES_3_4': zone_count = 3",
+      "else: zone_count = 2",
+      "# SCADA server sizing:",
+      "memory_per_point = 1024  # bytes",
+      "server_memory_mb = rtu_count * points_per_rtu_avg * memory_per_point / 1e6",
+      "# Determine if cloud hybrid:",
+      "if scada_architecture_type == 'CLOUD_HYBRID':",
+      "    on_premise_servers = 1",
+      "    cloud_instances = 1",
+      "    required_internet_bps = total_bandwidth_bps * 0.3  # 30% to cloud",
+      "else:",
+      "    on_premise_servers = 2  # redundancy",
+      "    cloud_instances = 0",
+      "    required_internet_bps = 0"
+    ],
+    "equations_latex": [
+      "B_{total} = N_{RTU} \\cdot \\frac{P_{avg} \\cdot b_{point}}{T_{poll}}",
+      "B_{link} = B_{total} \\cdot R_{red}",
+      "M_{server} = N_{RTU} \\cdot P_{avg} \\cdot m_{point}"
+    ],
+    "variables": [
+      {
+        "name": "scada_architecture",
+        "symbol": "arch",
+        "unit": "enum",
+        "type": "input",
+        "origin": "PRJ_150 scada_architecture_type"
+      },
+      {
+        "name": "comm_protocol",
+        "symbol": "proto",
+        "unit": "enum",
+        "type": "input",
+        "origin": "PRJ_151 scada_comm_protocol"
+      },
+      {
+        "name": "rtu_count",
+        "symbol": "N_{RTU}",
+        "unit": "integer",
+        "type": "input",
+        "origin": "PRJ_152 rtu_count"
+      },
+      {
+        "name": "control_room_location",
+        "symbol": "loc",
+        "unit": "enum",
+        "type": "input",
+        "origin": "PRJ_153 control_room_location"
+      },
+      {
+        "name": "cybersecurity_zone",
+        "symbol": "zone",
+        "unit": "enum",
+        "type": "input",
+        "origin": "PRJ_154 cybersecurity_zone"
+      },
+      {
+        "name": "total_capacity_mw",
+        "symbol": "P",
+        "unit": "MW",
+        "type": "input",
+        "origin": "PRJ_120 total_installed_capacity_mw"
+      },
+      {
+        "name": "points_per_rtu",
+        "symbol": "P_{avg}",
+        "unit": "integer",
+        "type": "constant",
+        "origin": "typical I/O count per RTU"
+      },
+      {
+        "name": "bytes_per_point",
+        "symbol": "b_{point}",
+        "unit": "bytes",
+        "type": "constant",
+        "origin": "IEC 104 payload size"
+      },
+      {
+        "name": "poll_cycle",
+        "symbol": "T_{poll}",
+        "unit": "s",
+        "type": "constant",
+        "origin": "typical SCADA poll cycle"
+      },
+      {
+        "name": "total_bandwidth",
+        "symbol": "B_{total}",
+        "unit": "bps",
+        "type": "derived"
+      },
+      {
+        "name": "link_bandwidth",
+        "symbol": "B_{link}",
+        "unit": "bps",
+        "type": "output"
+      },
+      {
+        "name": "server_memory",
+        "symbol": "M_{server}",
+        "unit": "MB",
+        "type": "output"
+      }
+    ],
+    "unit_equations": [
+      {
+        "name": "bandwidth",
+        "value": "bps = integer * bytes * bits_per_byte / s"
+      },
+      {
+        "name": "memory",
+        "value": "MB = integer * integer * bytes / 1e6"
+      }
+    ],
+    "numerical_method": "Direct sizing per IEC 60870-5-104 bandwidth model",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "rtu_count > 0",
+      "points_per_rtu in [50, 500] typical range",
+      "poll_cycle in [0.5, 5] s for fast SCADA",
+      "bandwidth < 10 Mbps for typical plant"
+    ],
+    "outputs": [
+      {
+        "name": "link_bandwidth_bps",
+        "unit": "bps",
+        "type": "number",
+        "range": [
+          1000,
+          100000000
+        ]
+      },
+      {
+        "name": "server_memory_mb",
+        "unit": "MB",
+        "type": "number",
+        "range": [
+          100,
+          100000
+        ]
+      },
+      {
+        "name": "recommended_protocol",
+        "unit": "enum",
+        "type": "string"
+      }
+    ],
+    "acceptance_rules": [
+      "link_bandwidth < 10 Mbps (within typical SCADA capacity)",
+      "server_memory < 10000 MB (single server can host)",
+      "rtu_count < 1000 (manageable SCADA)",
+      "redundancy matches criticality (control room location REMOTE_BOTH requires redundancy >= 2)"
+    ],
+    "failure_modes": [
+      "rtu_count = 0 (no monitoring)",
+      "total_bandwidth > 10 Mbps (consider IEC 61850 or DNP3)",
+      "cybersecurity zone < 2 (insufficient segmentation)",
+      "no redundancy for REMOTE_BOTH control room"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-006"
+    ],
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61400_25"
+    ]
+  }
+]

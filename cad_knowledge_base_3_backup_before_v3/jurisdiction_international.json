@@ -1,0 +1,1760 @@
+[
+  {
+    "jurisdiction_rule_id": "JUR-INT-001",
+    "authority": "IEC",
+    "document_code": "IEC 62548",
+    "edition_year": 2023,
+    "topic": "Diseño de arrays PV",
+    "applies_to": [
+      "ELEC",
+      "PV_GROUND",
+      "PV_ROOF_CARPORT",
+      "PV_FLOATING"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir IEC 62548 para diseño de arrays PV",
+    "parameters": {
+      "max_string_voltage_factor": 1.25,
+      "min_dc_dc_ratio": 1.0,
+      "max_dc_dc_ratio": 1.5,
+      "reverse_current_protection_required_above_n_strings": 3
+    },
+    "evidence_required": [
+      "String sizing calculation",
+      "DC/AC ratio calculation",
+      "IEC 62548 compliance checklist"
+    ],
+    "affected_calculations": [
+      "C-PV-001",
+      "C-PV-002",
+      "C-PV-003"
+    ],
+    "affected_drawings": [
+      "DRW-PV-001",
+      "DRW-PV-002",
+      "DRW-PV-003"
+    ],
+    "source_ids": [
+      "IEC_62548"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-002",
+    "authority": "IEC",
+    "document_code": "IEC 61215-1",
+    "edition_year": 2021,
+    "topic": "Calificación módulos PV",
+    "applies_to": [
+      "ELEC",
+      "PV_GROUND",
+      "PV_ROOF_CARPORT",
+      "PV_FLOATING"
+    ],
+    "project_stage": [
+      "PROCUREMENT"
+    ],
+    "requirement_expression": "Módulos deben estar calificados según IEC 61215-1",
+    "parameters": {
+      "certification_required": true,
+      "test_sequence_required": true
+    },
+    "evidence_required": [
+      "IEC 61215-1 certificate",
+      "Datasheet"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [],
+    "source_ids": [
+      "IEC_61215_1"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-003",
+    "authority": "IEC",
+    "document_code": "IEC 61730-1/-2",
+    "edition_year": 2023,
+    "topic": "Seguridad módulos PV",
+    "applies_to": [
+      "ELEC",
+      "PV_GROUND",
+      "PV_ROOF_CARPORT",
+      "PV_FLOATING"
+    ],
+    "project_stage": [
+      "PROCUREMENT"
+    ],
+    "requirement_expression": "Módulos deben cumplir IEC 61730 para seguridad",
+    "parameters": {
+      "class_II_required": true,
+      "fire_rating_C_required": true
+    },
+    "evidence_required": [
+      "IEC 61730 certificate"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [],
+    "source_ids": [
+      "IEC_61730_1",
+      "IEC_61730_2"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-004",
+    "authority": "IEC",
+    "document_code": "IEC 62109-1/-2",
+    "edition_year": 2011,
+    "topic": "Seguridad inversores",
+    "applies_to": [
+      "ELEC",
+      "PV_GROUND",
+      "PV_ROOF_CARPORT",
+      "PV_FLOATING",
+      "BESS",
+      "HYBRID_MICROGRID"
+    ],
+    "project_stage": [
+      "PROCUREMENT"
+    ],
+    "requirement_expression": "Inversores deben cumplir IEC 62109-1/-2",
+    "parameters": {
+      "ip_rating_min": "IP65",
+      "anti_islanding_required_for_grid_tie": true
+    },
+    "evidence_required": [
+      "IEC 62109 certificate",
+      "Datasheet"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [],
+    "source_ids": [
+      "IEC_62109_1",
+      "IEC_62109_2"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-010",
+    "authority": "IEC",
+    "document_code": "IEC 61400-1",
+    "edition_year": 2019,
+    "topic": "Diseño aerogeneradores onshore",
+    "applies_to": [
+      "MECH",
+      "WIND_ONSHORE"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir IEC 61400-1 para diseño de WT",
+    "parameters": {
+      "turbine_classes": [
+        "IA",
+        "IB",
+        "IC",
+        "IIA",
+        "IIB",
+        "IIC",
+        "IIIA",
+        "IIIB",
+        "IIIC",
+        "IV"
+      ],
+      "design_life_years_min": 20,
+      "safety_class_required": true
+    },
+    "evidence_required": [
+      "Wind measurement campaign",
+      "Site assessment",
+      "IEC 61400-1 compliance report"
+    ],
+    "affected_calculations": [
+      "C-WT-001",
+      "C-WT-002",
+      "C-WT-003"
+    ],
+    "affected_drawings": [
+      "DRW-WT-001",
+      "DRW-WT-002",
+      "DRW-WT-003"
+    ],
+    "source_ids": [
+      "IEC_61400_1"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-011",
+    "authority": "IEC",
+    "document_code": "IEC 61400-3-1",
+    "edition_year": 2015,
+    "topic": "WT offshore fija",
+    "applies_to": [
+      "MECH",
+      "CIVIL",
+      "WIND_OFFSHORE"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir IEC 61400-3-1 para WT offshore fija",
+    "parameters": {
+      "site_specific_design_required": true,
+      "marine_environment_considered": true
+    },
+    "evidence_required": [
+      "Metocean study",
+      "Site assessment"
+    ],
+    "affected_calculations": [
+      "C-WT-001",
+      "C-WT-004"
+    ],
+    "affected_drawings": [
+      "DRW-WT-001",
+      "DRW-WT-004"
+    ],
+    "source_ids": [
+      "IEC_61400_3_1"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-012",
+    "authority": "IEC",
+    "document_code": "IEC 61400-3-2",
+    "edition_year": 2019,
+    "topic": "WT offshore flotante",
+    "applies_to": [
+      "MECH",
+      "CIVIL",
+      "WIND_OFFSHORE"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir IEC 61400-3-2 para WT offshore flotante",
+    "parameters": {
+      "mooring_design_required": true,
+      "hydrodynamic_analysis_required": true
+    },
+    "evidence_required": [
+      "Metocean study",
+      "Mooring design report"
+    ],
+    "affected_calculations": [
+      "C-WT-004",
+      "C-WT-005"
+    ],
+    "affected_drawings": [
+      "DRW-WT-004"
+    ],
+    "source_ids": [
+      "IEC_61400_3_2",
+      "DNV_ST_0519"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-013",
+    "authority": "IEC",
+    "document_code": "IEC 61400-21-1",
+    "edition_year": 2019,
+    "topic": "Cumplimiento de red WT",
+    "applies_to": [
+      "ELEC",
+      "WIND_ONSHORE",
+      "WIND_OFFSHORE"
+    ],
+    "project_stage": [
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Cumplir IEC 61400-21-1 para cumplimiento de red",
+    "parameters": {
+      "harmonic_test_required": true,
+      "flicker_test_required": true,
+      "frequency_response_test_required": true
+    },
+    "evidence_required": [
+      "IEC 61400-21-1 test report"
+    ],
+    "affected_calculations": [
+      "C-WT-006"
+    ],
+    "affected_drawings": [],
+    "source_ids": [
+      "IEC_61400_21_1",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-014",
+    "authority": "IEC",
+    "document_code": "IEC 61400-24",
+    "edition_year": 2019,
+    "topic": "Protección contra rayos WT",
+    "applies_to": [
+      "ELEC",
+      "SAFE",
+      "WIND_ONSHORE",
+      "WIND_OFFSHORE"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir IEC 61400-24 para LPS en WT",
+    "parameters": {
+      "LPS_required": true,
+      "lightning_current_measurement_required": true
+    },
+    "evidence_required": [
+      "LPS design",
+      "IEC 61400-24 compliance checklist"
+    ],
+    "affected_calculations": [
+      "C-WT-007"
+    ],
+    "affected_drawings": [
+      "DRW-WT-005"
+    ],
+    "source_ids": [
+      "IEC_61400_24",
+      "IEC_62305_3"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-020",
+    "authority": "IEEE",
+    "document_code": "IEEE 1547-2018",
+    "edition_year": 2018,
+    "topic": "Interconexión DER",
+    "applies_to": [
+      "ELEC",
+      "PV_GROUND",
+      "PV_ROOF_CARPORT",
+      "PV_FLOATING",
+      "WIND_ONSHORE",
+      "WIND_OFFSHORE",
+      "BESS",
+      "HYDRO",
+      "HYDROGEN",
+      "HYBRID_MICROGRID"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Cumplir IEEE 1547-2018 para interconexión DER",
+    "parameters": {
+      "max_response_time_ms": 5000,
+      "voltage_ride_through_required": true,
+      "frequency_ride_through_required": true,
+      "reactive_power_capability_required": true,
+      "min_power_factor": 0.95
+    },
+    "evidence_required": [
+      "IEEE 1547 compliance dossier",
+      "Commissioning test report"
+    ],
+    "affected_calculations": [
+      "C-COM-007",
+      "C-COM-008"
+    ],
+    "affected_drawings": [
+      "DRW-COM-004",
+      "DRW-COM-006"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_1547_1"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-021",
+    "authority": "IEEE",
+    "document_code": "IEEE 519-2022",
+    "edition_year": 2022,
+    "topic": "Control armónicos",
+    "applies_to": [
+      "ELEC",
+      "ALL"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Cumplir IEEE 519 para armónicos",
+    "parameters": {
+      "max_thd_voltage_pct": 5.0,
+      "max_thd_current_pct": 8.0,
+      "individual_harmonic_limit_pct": 3.0
+    },
+    "evidence_required": [
+      "Harmonic study",
+      "Power quality test report"
+    ],
+    "affected_calculations": [
+      "C-COM-007"
+    ],
+    "affected_drawings": [
+      "DRW-COM-006"
+    ],
+    "source_ids": [
+      "IEEE_519_2022"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-022",
+    "authority": "IEEE",
+    "document_code": "IEEE 80-2013",
+    "edition_year": 2013,
+    "topic": "Puesta a tierra subestaciones",
+    "applies_to": [
+      "ELEC",
+      "SAFE",
+      "ALL"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir IEEE 80 para diseño de puesta a tierra de subestaciones",
+    "parameters": {
+      "max_touch_voltage_v": 50,
+      "max_step_voltage_v": 100,
+      "grounding_grid_design_required": true
+    },
+    "evidence_required": [
+      "Grounding study",
+      "IEEE 80 calculation memory"
+    ],
+    "affected_calculations": [
+      "C-COM-009"
+    ],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_142"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-023",
+    "authority": "IEEE",
+    "document_code": "IEEE 2030.2",
+    "edition_year": 2016,
+    "topic": "Interoperabilidad BESS",
+    "applies_to": [
+      "ELEC",
+      "BESS",
+      "HYBRID_MICROGRID"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir IEEE 2030.2 para interoperabilidad EES",
+    "parameters": {
+      "standardized_interfaces_required": true,
+      "information_model_required": true
+    },
+    "evidence_required": [
+      "IEEE 2030.2 compliance dossier"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-006"
+    ],
+    "source_ids": [
+      "IEEE_2030_2"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-024",
+    "authority": "IEEE",
+    "document_code": "IEEE 1547.4",
+    "edition_year": 2011,
+    "topic": "Sistemas en isla",
+    "applies_to": [
+      "ELEC",
+      "HYBRID_MICROGRID",
+      "BESS"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir IEEE 1547.4 para sistemas en isla",
+    "parameters": {
+      "islanding_intentional_required": true,
+      "black_start_required_for_microgrid": true,
+      "grid_forming_inverter_required": true
+    },
+    "evidence_required": [
+      "Islanding design",
+      "Black start procedure"
+    ],
+    "affected_calculations": [
+      "C-MG-001",
+      "C-MG-002"
+    ],
+    "affected_drawings": [
+      "DRW-COM-004"
+    ],
+    "source_ids": [
+      "IEEE_1547_4"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-030",
+    "authority": "NFPA",
+    "document_code": "NFPA 70 (NEC)",
+    "edition_year": 2023,
+    "topic": "Instalación eléctrica",
+    "applies_to": [
+      "ELEC",
+      "ALL"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir NEC para instalaciones eléctricas",
+    "parameters": {
+      "article_690_pv_required": true,
+      "article_692_fuel_cell_required": true,
+      "article_706_ees_required": true,
+      "article_710_standalone_required": true
+    },
+    "evidence_required": [
+      "NEC compliance checklist",
+      "Inspection report"
+    ],
+    "affected_calculations": [
+      "C-COM-007",
+      "C-COM-008"
+    ],
+    "affected_drawings": [
+      "DRW-COM-004",
+      "DRW-COM-006"
+    ],
+    "source_ids": [
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-031",
+    "authority": "NFPA",
+    "document_code": "NFPA 855",
+    "edition_year": 2023,
+    "topic": "Instalación BESS",
+    "applies_to": [
+      "ELEC",
+      "FIRE",
+      "SAFE",
+      "BESS",
+      "HYBRID_MICROGRID"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING",
+      "CONSTRUCTION",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Cumplir NFPA 855 para instalación de BESS estacionarias",
+    "parameters": {
+      "max_capacity_mwh_indoor": 0.6,
+      "max_capacity_mwh_outdoor_unlimited_with_mitigation": true,
+      "thermal_runaway_propagation_test_required": true,
+      "explosion_control_required": true,
+      "gas_detection_required": true,
+      "fire_suppression_required": true,
+      "min_separation_to_building_m": 1.5,
+      "min_separation_to_property_line_m": 3.0,
+      "min_separation_to_hazard_m": 7.5
+    },
+    "evidence_required": [
+      "NFPA 855 compliance dossier",
+      "UL 9540A test report",
+      "Fire protection design",
+      "Hazard mitigation analysis"
+    ],
+    "affected_calculations": [
+      "C-BESS-001",
+      "C-BESS-002",
+      "C-BESS-003"
+    ],
+    "affected_drawings": [
+      "DRW-BESS-001",
+      "DRW-BESS-002",
+      "DRW-BESS-005"
+    ],
+    "source_ids": [
+      "NFPA_855_2023",
+      "UL_9540A",
+      "UL_9540"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-032",
+    "authority": "NFPA",
+    "document_code": "NFPA 30",
+    "edition_year": 2024,
+    "topic": "Líquidos inflamables",
+    "applies_to": [
+      "PROC",
+      "SAFE",
+      "BIOGAS",
+      "BIOMASS",
+      "HYDROGEN",
+      "GEOTHERMAL"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir NFPA 30 para almacenamiento de líquidos inflamables",
+    "parameters": {
+      "max_storage_class_ia_indoor_l": 946,
+      "vent_required_above_capacity_l": 2082,
+      "secondary_containment_required": true
+    },
+    "evidence_required": [
+      "Storage layout",
+      "Containment calculation"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "NFPA_30_2024"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-033",
+    "authority": "NFPA",
+    "document_code": "NFPA 853",
+    "edition_year": 2023,
+    "topic": "Celdas de combustible estacionarias",
+    "applies_to": [
+      "PROC",
+      "ELEC",
+      "SAFE",
+      "HYDROGEN"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING",
+      "CONSTRUCTION",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Cumplir NFPA 853 para instalación de celdas de combustible estacionarias",
+    "parameters": {
+      "min_distance_to_property_line_m": 7.6,
+      "min_distance_to_ignition_source_m": 7.6,
+      "gas_detection_required": true,
+      "fire_suppression_required": true
+    },
+    "evidence_required": [
+      "NFPA 853 compliance dossier",
+      "Fire protection design"
+    ],
+    "affected_calculations": [
+      "C-H2-001"
+    ],
+    "affected_drawings": [
+      "DRW-H2-001",
+      "DRW-H2-005"
+    ],
+    "source_ids": [
+      "NFPA_853_2023"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-034",
+    "authority": "NFPA",
+    "document_code": "NFPA 497",
+    "edition_year": 2024,
+    "topic": "Clasificación de áreas peligrosas",
+    "applies_to": [
+      "PROC",
+      "SAFE",
+      "ELEC",
+      "BIOGAS",
+      "BIOMASS",
+      "HYDROGEN",
+      "GEOTHERMAL"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Clasificar áreas según NFPA 497 para atmósferas explosivas",
+    "parameters": {
+      "zone_0_zone_1_zone_2_required": true,
+      "material_classification_required": true,
+      "min_distance_to_unclassified_area_m": 3.0
+    },
+    "evidence_required": [
+      "Area classification drawing",
+      "Material properties report"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "NFPA_497_2024",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-035",
+    "authority": "NFPA",
+    "document_code": "NFPA 13",
+    "edition_year": 2022,
+    "topic": "Sistemas de rociadores",
+    "applies_to": [
+      "FIRE",
+      "SAFE",
+      "ALL"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir NFPA 13 para sistemas de rociadores",
+    "parameters": {
+      "min_density_industrial_mm_min": 8.2,
+      "min_density_storage_mm_min": 12.2,
+      "hydraulic_calculation_required": true,
+      "water_supply_duration_min": 60
+    },
+    "evidence_required": [
+      "Hydraulic calculation",
+      "Water supply test"
+    ],
+    "affected_calculations": [
+      "C-COM-009"
+    ],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_20_2022"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-036",
+    "authority": "NFPA",
+    "document_code": "NFPA 780",
+    "edition_year": 2023,
+    "topic": "Sistemas de protección contra rayos",
+    "applies_to": [
+      "ELEC",
+      "SAFE",
+      "ALL"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir NFPA 780 para instalación de LPS",
+    "parameters": {
+      "LPS_class_required": "I/II/III/IV",
+      "down_conductor_spacing_max_m": 30,
+      "grounding_required": true,
+      "surge_protection_required": true
+    },
+    "evidence_required": [
+      "LPS design",
+      "Risk assessment"
+    ],
+    "affected_calculations": [
+      "C-COM-009"
+    ],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "NFPA_780_2023",
+      "IEC_62305_3"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-040",
+    "authority": "ASME",
+    "document_code": "ASME B31.1",
+    "edition_year": 2022,
+    "topic": "Tuberías de potencia",
+    "applies_to": [
+      "PROC",
+      "MECH",
+      "HYDRO",
+      "BIOGAS",
+      "GEOTHERMAL",
+      "CSP",
+      "SOLAR_THERMAL",
+      "HYDROGEN"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir ASME B31.1 para tuberías de potencia",
+    "parameters": {
+      "hydrostatic_test_factor": 1.5,
+      "ndt_required_above_diameter_mm": 50,
+      "stress_analysis_required_above_temp_c": 120
+    },
+    "evidence_required": [
+      "Piping specification",
+      "Stress analysis",
+      "Hydrostatic test report"
+    ],
+    "affected_calculations": [
+      "C-PROC-001",
+      "C-PROC-002"
+    ],
+    "affected_drawings": [
+      "DRW-PROC-001",
+      "DRW-PROC-002"
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-041",
+    "authority": "ASME",
+    "document_code": "ASME B31.3",
+    "edition_year": 2022,
+    "topic": "Tuberías de proceso",
+    "applies_to": [
+      "PROC",
+      "MECH",
+      "BIOGAS",
+      "BIOMASS",
+      "HYDROGEN",
+      "GEOTHERMAL",
+      "CSP",
+      "SOLAR_THERMAL"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Cumplir ASME B31.3 para tuberías de proceso",
+    "parameters": {
+      "fluid_service_normal_or_category_M_required": true,
+      "impact_test_required_below_temp_c": -29
+    },
+    "evidence_required": [
+      "Piping specification",
+      "Impact test report"
+    ],
+    "affected_calculations": [
+      "C-PROC-001"
+    ],
+    "affected_drawings": [
+      "DRW-PROC-001",
+      "DRW-PROC-002"
+    ],
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-042",
+    "authority": "ASME",
+    "document_code": "ASME BPVC VIII Div 1",
+    "edition_year": 2023,
+    "topic": "Recipientes a presión",
+    "applies_to": [
+      "PROC",
+      "MECH",
+      "HYDROGEN",
+      "BIOGAS",
+      "BIOMASS",
+      "GEOTHERMAL",
+      "CSP"
+    ],
+    "project_stage": [
+      "PROCUREMENT",
+      "CONSTRUCTION",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Recipientes a presión según ASME BPVC VIII Div 1",
+    "parameters": {
+      "design_margin_yield": 1.5,
+      "design_margin_uts": 3.5,
+      "hydrostatic_test_factor": 1.3,
+      "PWHT_required_above_thickness_mm": 38
+    },
+    "evidence_required": [
+      "ASME U-stamp",
+      "Manufacturer's data report",
+      "Welding procedure specification"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-050",
+    "authority": "API",
+    "document_code": "API 610",
+    "edition_year": 2024,
+    "topic": "Bombas centrífugas",
+    "applies_to": [
+      "PROC",
+      "MECH",
+      "HYDRO",
+      "BIOGAS",
+      "BIOMASS",
+      "HYDROGEN",
+      "GEOTHERMAL",
+      "CSP",
+      "SOLAR_THERMAL"
+    ],
+    "project_stage": [
+      "PROCUREMENT"
+    ],
+    "requirement_expression": "Bombas centrífugas según API 610",
+    "parameters": {
+      "BB1_BB2_BB3_BB4_BB5_OH2_OH3_types": true,
+      "NPSH_margin_required": true,
+      "seal_flush_plan_required": true
+    },
+    "evidence_required": [
+      "API 610 datasheet",
+      "Pump performance curve",
+      "Material certificate"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [],
+    "source_ids": [
+      "API_610_2024"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-051",
+    "authority": "API",
+    "document_code": "API 520 Part I",
+    "edition_year": 2020,
+    "topic": "Dimensionamiento PSV",
+    "applies_to": [
+      "PROC",
+      "SAFE",
+      "BIOGAS",
+      "BIOMASS",
+      "HYDROGEN",
+      "GEOTHERMAL",
+      "CSP"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "PSV dimensionados según API 520 Part I",
+    "parameters": {
+      "sizing_required": true,
+      "set_pressure_tolerance_pct": 3.0,
+      "overpressure_pct": 10.0
+    },
+    "evidence_required": [
+      "PSV sizing calculation",
+      "API 520 Part I compliance"
+    ],
+    "affected_calculations": [
+      "C-PROC-003",
+      "C-PROC-004"
+    ],
+    "affected_drawings": [
+      "DRW-PROC-002"
+    ],
+    "source_ids": [
+      "API_520_1",
+      "API_521"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-052",
+    "authority": "API",
+    "document_code": "API 521",
+    "edition_year": 2022,
+    "topic": "Sistemas de despresurización",
+    "applies_to": [
+      "PROC",
+      "SAFE",
+      "BIOGAS",
+      "BIOMASS",
+      "HYDROGEN",
+      "GEOTHERMAL",
+      "CSP"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Sistemas de despresurización según API 521",
+    "parameters": {
+      "flare_required_above_capacity_kg_h": 50,
+      "blowdown_required": true,
+      "dispersion_study_required": true
+    },
+    "evidence_required": [
+      "API 521 design",
+      "Dispersion study",
+      "Flare sizing calculation"
+    ],
+    "affected_calculations": [
+      "C-PROC-004"
+    ],
+    "affected_drawings": [
+      "DRW-PROC-002"
+    ],
+    "source_ids": [
+      "API_521",
+      "API_520_1"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-060",
+    "authority": "DNV",
+    "document_code": "DNV-OS-J101",
+    "edition_year": 2024,
+    "topic": "Estructuras eólicas offshore",
+    "applies_to": [
+      "CIVIL",
+      "STR",
+      "WIND_OFFSHORE"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Estructuras WT offshore según DNV-OS-J101",
+    "parameters": {
+      "LRFD_method_required": true,
+      "fatigue_analysis_required": true,
+      "redundancy_required": true
+    },
+    "evidence_required": [
+      "Structural design memory",
+      "Fatigue analysis"
+    ],
+    "affected_calculations": [
+      "C-WT-004",
+      "C-WT-005"
+    ],
+    "affected_drawings": [
+      "DRW-WT-004"
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_OS_C101"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-061",
+    "authority": "DNV",
+    "document_code": "DNV-ST-0519",
+    "edition_year": 2021,
+    "topic": "WT flotantes",
+    "applies_to": [
+      "CIVIL",
+      "STR",
+      "MECH",
+      "WIND_OFFSHORE"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "WT flotantes según DNV-ST-0519",
+    "parameters": {
+      "mooring_design_required": true,
+      "hydrodynamic_analysis_required": true,
+      "stability_analysis_required": true
+    },
+    "evidence_required": [
+      "Mooring design report",
+      "Hydrodynamic analysis",
+      "Stability analysis"
+    ],
+    "affected_calculations": [
+      "C-WT-005"
+    ],
+    "affected_drawings": [
+      "DRW-WT-004"
+    ],
+    "source_ids": [
+      "DNV_ST_0519",
+      "DNV_OS_J103",
+      "DNV_OS_E301"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-062",
+    "authority": "DNV",
+    "document_code": "DNV-OS-E301",
+    "edition_year": 2021,
+    "topic": "Posicionamiento por amarras",
+    "applies_to": [
+      "CIVIL",
+      "MARINE",
+      "WIND_OFFSHORE"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Sistemas de amarra según DNV-OS-E301",
+    "parameters": {
+      "mooring_redundancy_required": true,
+      "anchor_design_required": true,
+      "fatigue_analysis_required": true
+    },
+    "evidence_required": [
+      "Mooring design report",
+      "Anchor design"
+    ],
+    "affected_calculations": [
+      "C-WT-005",
+      "C-MAR-001"
+    ],
+    "affected_drawings": [
+      "DRW-WT-004",
+      "DRW-MAR-001"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_RP_C205"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-063",
+    "authority": "DNV",
+    "document_code": "DNV-RP-0585",
+    "edition_year": 2024,
+    "topic": "BESS seguridad y operación",
+    "applies_to": [
+      "ELEC",
+      "FIRE",
+      "SAFE",
+      "BESS"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING",
+      "CONSTRUCTION",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "BESS según DNV-RP-0585",
+    "parameters": {
+      "thermal_runaway_test_required": true,
+      "cybersecurity_assessment_required": true,
+      "functional_safety_assessment_required": true
+    },
+    "evidence_required": [
+      "DNV RP-0585 compliance dossier",
+      "UL 9540A test",
+      "SIL study"
+    ],
+    "affected_calculations": [
+      "C-BESS-001",
+      "C-BESS-004"
+    ],
+    "affected_drawings": [
+      "DRW-BESS-001",
+      "DRW-BESS-002",
+      "DRW-BESS-005"
+    ],
+    "source_ids": [
+      "DNV_RP_0585",
+      "IEC_62933_5_1"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-070",
+    "authority": "ISO",
+    "document_code": "ISO 9806",
+    "edition_year": 2024,
+    "topic": "Ensayo colectores solares",
+    "applies_to": [
+      "MECH",
+      "CSP",
+      "SOLAR_THERMAL"
+    ],
+    "project_stage": [
+      "PROCUREMENT",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Colectores solares según ISO 9806",
+    "parameters": {
+      "thermal_performance_test_required": true,
+      "efficiency_curve_required": true
+    },
+    "evidence_required": [
+      "ISO 9806 test report",
+      "Performance curve"
+    ],
+    "affected_calculations": [
+      "C-CSP-001"
+    ],
+    "affected_drawings": [],
+    "source_ids": [
+      "ISO_9806",
+      "ASHRAE_93"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-071",
+    "authority": "ISO",
+    "document_code": "ISO 19650-1/-2",
+    "edition_year": 2018,
+    "topic": "Gestión información BIM",
+    "applies_to": [
+      "ALL"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING",
+      "CONSTRUCTION",
+      "AS_BUILT"
+    ],
+    "requirement_expression": "Gestión de información BIM según ISO 19650",
+    "parameters": {
+      "CDE_required": true,
+      "LOD_required_min": 300,
+      "naming_convention_required": true
+    },
+    "evidence_required": [
+      "BIM execution plan",
+      "CDE access",
+      "Model files"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [],
+    "source_ids": [
+      "ISO_19650_1",
+      "ISO_19650_2",
+      "ISO_16739"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-072",
+    "authority": "ISO",
+    "document_code": "ISO 14685",
+    "edition_year": 2017,
+    "topic": "Levantamiento geotécnico estructuras hidráulicas",
+    "applies_to": [
+      "CIVIL",
+      "GEOT",
+      "HYDRO"
+    ],
+    "project_stage": [
+      "FEASIBILITY",
+      "BASIC_ENGINEERING"
+    ],
+    "requirement_expression": "Levantamiento geotécnico para hidroeléctricas según ISO 14685",
+    "parameters": {
+      "borehole_required": true,
+      "min_borehole_depth_m": 15,
+      "soil_classification_required": true
+    },
+    "evidence_required": [
+      "Geotechnical report",
+      "Borehole logs",
+      "Soil classification"
+    ],
+    "affected_calculations": [
+      "C-HYD-001"
+    ],
+    "affected_drawings": [
+      "DRW-HYD-001"
+    ],
+    "source_ids": [
+      "ISO_14685"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-073",
+    "authority": "ISO",
+    "document_code": "ISO 14617",
+    "edition_year": 2002,
+    "topic": "Símbolos gráficos para diagramas",
+    "applies_to": [
+      "ALL"
+    ],
+    "project_stage": [
+      "ALL"
+    ],
+    "requirement_expression": "Usar símbolos según ISO 14617 en diagramas",
+    "parameters": {
+      "symbol_library_required": true,
+      "no_custom_symbols_without_standard": true
+    },
+    "evidence_required": [
+      "Symbol library reference"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-001"
+    ],
+    "source_ids": [
+      "ISO_14617",
+      "ISO_10628"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-080",
+    "authority": "IEC",
+    "document_code": "IEC 62619",
+    "edition_year": 2022,
+    "topic": "Seguridad baterías litio industriales",
+    "applies_to": [
+      "ELEC",
+      "SAFE",
+      "BESS"
+    ],
+    "project_stage": [
+      "PROCUREMENT"
+    ],
+    "requirement_expression": "Baterías litio industriales según IEC 62619",
+    "parameters": {
+      "safety_test_required": true,
+      "thermal_stability_test_required": true,
+      "overcharge_test_required": true,
+      "short_circuit_test_required": true
+    },
+    "evidence_required": [
+      "IEC 62619 certificate",
+      "Test report"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [],
+    "source_ids": [
+      "IEC_62619",
+      "UL_1973"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-081",
+    "authority": "IEC",
+    "document_code": "IEC 62933-5-1",
+    "edition_year": 2024,
+    "topic": "BESS seguridad grid-integrated",
+    "applies_to": [
+      "ELEC",
+      "SAFE",
+      "BESS",
+      "HYBRID_MICROGRID"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING",
+      "CONSTRUCTION",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "BESS integrado a red según IEC 62933-5-1",
+    "parameters": {
+      "protection_functions_required": true,
+      "emergency_shutdown_required": true,
+      "cybersecurity_required": true
+    },
+    "evidence_required": [
+      "IEC 62933-5-1 compliance",
+      "Commissioning test report"
+    ],
+    "affected_calculations": [
+      "C-BESS-001"
+    ],
+    "affected_drawings": [
+      "DRW-BESS-002",
+      "DRW-BESS-005"
+    ],
+    "source_ids": [
+      "IEC_62933_5_1",
+      "IEC_62933_5_2"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-082",
+    "authority": "IEC",
+    "document_code": "IEC 60079-0",
+    "edition_year": 2024,
+    "topic": "Equipos para atmósferas explosivas",
+    "applies_to": [
+      "ELEC",
+      "SAFE",
+      "BIOGAS",
+      "BIOMASS",
+      "HYDROGEN",
+      "GEOTHERMAL"
+    ],
+    "project_stage": [
+      "PROCUREMENT",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Equipos Ex según IEC 60079-0",
+    "parameters": {
+      "Ex_ia_Ex_ib_Ex_d_Ex_e_Ex_nA_types": true,
+      "temperature_class_required": true,
+      "gas_group_required": true,
+      "IP_rating_min": "IP54"
+    },
+    "evidence_required": [
+      "IECEx certificate",
+      "Datasheet"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "IEC_60079_0",
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-083",
+    "authority": "IEC",
+    "document_code": "IEC 60079-10-1",
+    "edition_year": 2020,
+    "topic": "Clasificación de áreas gas",
+    "applies_to": [
+      "SAFE",
+      "ELEC",
+      "BIOGAS",
+      "BIOMASS",
+      "HYDROGEN",
+      "GEOTHERMAL"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Clasificación de áreas según IEC 60079-10-1",
+    "parameters": {
+      "zone_0_zone_1_zone_2_required": true,
+      "release_rate_calculation_required": true,
+      "ventilation_assessment_required": true
+    },
+    "evidence_required": [
+      "Area classification study",
+      "Release rate calculations",
+      "Ventilation study"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "IEC_60079_10_1",
+      "IEC_60079_0"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-084",
+    "authority": "IEC",
+    "document_code": "IEC 61511-1",
+    "edition_year": 2016,
+    "topic": "SIS industria de procesos",
+    "applies_to": [
+      "INST",
+      "SAFE",
+      "BIOGAS",
+      "BIOMASS",
+      "HYDROGEN",
+      "GEOTHERMAL",
+      "BESS"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING",
+      "CONSTRUCTION",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "SIS según IEC 61511-1",
+    "parameters": {
+      "SIL_assessment_required": true,
+      "SIL_verification_required": true,
+      "SIL_validation_required": true,
+      "max_SIL_3_for_general_use": true
+    },
+    "evidence_required": [
+      "SIL assessment report",
+      "SIL verification report",
+      "SIL validation report"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61508_1"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-085",
+    "authority": "IEC",
+    "document_code": "IEC 62305-3",
+    "edition_year": 2024,
+    "topic": "Protección contra rayos estructuras",
+    "applies_to": [
+      "ELEC",
+      "SAFE",
+      "ALL"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Protección contra rayos según IEC 62305-3",
+    "parameters": {
+      "LPS_required_if_risk_high": true,
+      "rolling_sphere_method_required": true,
+      "down_conductor_required": true,
+      "earthing_required": true,
+      "SPD_required": true
+    },
+    "evidence_required": [
+      "Lightning risk assessment",
+      "LPS design",
+      "Earthing design"
+    ],
+    "affected_calculations": [
+      "C-COM-009"
+    ],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "source_ids": [
+      "IEC_62305_3",
+      "IEC_62305_1",
+      "NFPA_780_2023"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-086",
+    "authority": "IEC",
+    "document_code": "IEC TS 62600-2",
+    "edition_year": 2019,
+    "topic": "Diseño sistemas marinos",
+    "applies_to": [
+      "CIVIL",
+      "MECH",
+      "MARINE"
+    ],
+    "project_stage": [
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "Diseño de sistemas de energía marina según IEC TS 62600-2",
+    "parameters": {
+      "design_life_years_min": 20,
+      "extreme_load_analysis_required": true,
+      "fatigue_analysis_required": true,
+      "mooring_design_required": true
+    },
+    "evidence_required": [
+      "Metocean study",
+      "Design report",
+      "Mooring analysis"
+    ],
+    "affected_calculations": [
+      "C-MAR-001"
+    ],
+    "affected_drawings": [
+      "DRW-MAR-001"
+    ],
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "DNV_OS_C101"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-090",
+    "authority": "IEC",
+    "document_code": "IEC 60193",
+    "edition_year": 2019,
+    "topic": "Ensayo de modelo de turbinas hidráulicas",
+    "applies_to": [
+      "MECH",
+      "HYDRO"
+    ],
+    "project_stage": [
+      "PROCUREMENT",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Modelo de turbina según IEC 60193",
+    "parameters": {
+      "model_test_required_above_mw": 5,
+      "efficiency_measurement_required": true,
+      "cavitation_test_required": true
+    },
+    "evidence_required": [
+      "IEC 60193 model test report",
+      "Efficiency curve"
+    ],
+    "affected_calculations": [
+      "C-HYD-005"
+    ],
+    "affected_drawings": [],
+    "source_ids": [
+      "IEC_60193",
+      "IEC_60041"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-100",
+    "authority": "UL",
+    "document_code": "UL 1741",
+    "edition_year": 2021,
+    "topic": "Inversores",
+    "applies_to": [
+      "ELEC",
+      "PV_GROUND",
+      "PV_ROOF_CARPORT",
+      "PV_FLOATING",
+      "BESS",
+      "HYDROGEN",
+      "HYBRID_MICROGRID"
+    ],
+    "project_stage": [
+      "PROCUREMENT"
+    ],
+    "requirement_expression": "Inversores según UL 1741",
+    "parameters": {
+      "grid_support_functions_required": true,
+      "anti_islanding_required": true
+    },
+    "evidence_required": [
+      "UL 1741 certificate"
+    ],
+    "affected_calculations": [],
+    "affected_drawings": [],
+    "source_ids": [
+      "UL_1741"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-101",
+    "authority": "UL",
+    "document_code": "UL 9540 / 9540A",
+    "edition_year": 2023,
+    "topic": "BESS",
+    "applies_to": [
+      "ELEC",
+      "SAFE",
+      "FIRE",
+      "BESS"
+    ],
+    "project_stage": [
+      "PROCUREMENT",
+      "BASIC_ENGINEERING",
+      "DETAILED_ENGINEERING"
+    ],
+    "requirement_expression": "BESS según UL 9540 y UL 9540A",
+    "parameters": {
+      "UL_9540_system_cert_required": true,
+      "UL_9540A_thermal_runaway_test_required": true,
+      "fire_propagation_test_required": true
+    },
+    "evidence_required": [
+      "UL 9540 certificate",
+      "UL 9540A test report"
+    ],
+    "affected_calculations": [
+      "C-BESS-001",
+      "C-BESS-004"
+    ],
+    "affected_drawings": [
+      "DRW-BESS-001",
+      "DRW-BESS-005"
+    ],
+    "source_ids": [
+      "UL_9540",
+      "UL_9540A",
+      "UL_1973"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-110",
+    "authority": "ASTM",
+    "document_code": "ASTM E2848",
+    "edition_year": 2020,
+    "topic": "Performance sistema PV",
+    "applies_to": [
+      "ELEC",
+      "PV_GROUND",
+      "PV_ROOF_CARPORT",
+      "PV_FLOATING"
+    ],
+    "project_stage": [
+      "COMMISSIONING",
+      "AS_BUILT"
+    ],
+    "requirement_expression": "Reportar performance PV según ASTM E2848",
+    "parameters": {
+      "measurement_uncertainty_max_pct": 5.0,
+      "test_duration_min_days": 7
+    },
+    "evidence_required": [
+      "ASTM E2848 test report"
+    ],
+    "affected_calculations": [
+      "C-PV-010"
+    ],
+    "affected_drawings": [],
+    "source_ids": [
+      "ASTM_E2848",
+      "ASTM_E1036"
+    ]
+  },
+  {
+    "jurisdiction_rule_id": "JUR-INT-120",
+    "authority": "IEC",
+    "document_code": "IEC 62282-8-201",
+    "edition_year": 2020,
+    "topic": "Sistemas de celdas de combustible",
+    "applies_to": [
+      "ELEC",
+      "PROC",
+      "HYDROGEN"
+    ],
+    "project_stage": [
+      "PROCUREMENT",
+      "COMMISSIONING"
+    ],
+    "requirement_expression": "Sistemas de celdas de combustible según IEC 62282-8-201",
+    "parameters": {
+      "performance_test_required": true,
+      "safety_test_required": true,
+      "efficiency_report_required": true
+    },
+    "evidence_required": [
+      "IEC 62282-8-201 test report"
+    ],
+    "affected_calculations": [
+      "C-H2-002"
+    ],
+    "affected_drawings": [],
+    "source_ids": [
+      "IEC_62282_8_201",
+      "IEC_62282_2"
+    ]
+  }
+]

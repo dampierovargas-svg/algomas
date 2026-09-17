@@ -1,0 +1,214 @@
+[
+  {
+    "rule_id": "QA-COM-001",
+    "name_es": "Coordenadas UTM dentro de rango válido para Perú",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "country_iso == 'PE'",
+    "assertion_expression": "PRJ_052_easting in [166000, 834000] AND PRJ_053_northing in [0, 9300000]",
+    "severity": "BLOCKED",
+    "message_template": "Coordenadas UTM {easting}, {northing} fuera de rango válido para Perú",
+    "required_evidence": [
+      "topographic_survey",
+      "UTM transformation certificate"
+    ],
+    "affected_fields": [
+      "PRJ_052",
+      "PRJ_053"
+    ],
+    "affected_drawings": [
+      "DRW-COM-001",
+      "DRW-COM-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111"
+    ]
+  },
+  {
+    "rule_id": "QA-COM-002",
+    "name_es": "Área de terreno coherente con polígono",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "abs(C-COM-002_area - PRJ_071) / PRJ_071 < 0.01",
+    "severity": "BLOCKED",
+    "message_template": "Área calculada del polígono ({calculated}) difiere más de 1% del área declarada ({declared})",
+    "required_evidence": [
+      "surveyor_certificate",
+      "geodetic_control"
+    ],
+    "affected_fields": [
+      "PRJ_070",
+      "PRJ_071"
+    ],
+    "affected_drawings": [
+      "DRW-COM-001",
+      "DRW-COM-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111"
+    ]
+  },
+  {
+    "rule_id": "QA-COM-003",
+    "name_es": "Distancia mínima a falla activa verificada",
+    "category": "GEOMETRIC",
+    "applicability_expression": "country_iso == 'PE'",
+    "assertion_expression": "PRJ_097_active_fault_distance_km >= 5.0 OR geotechnical_report_includes_seismic_study == True",
+    "severity": "BLOCKED",
+    "message_template": "Distancia a falla activa {distance_km} km menor a 5 km requiere estudio sísmico específico",
+    "required_evidence": [
+      "INGEMMET_fault_map",
+      "seismic_study"
+    ],
+    "affected_fields": [
+      "PRJ_097"
+    ],
+    "affected_drawings": [
+      "DRW-COM-003"
+    ],
+    "override_allowed": true,
+    "override_role": "STRUCTURAL_ENGINEER",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "rule_id": "QA-COM-004",
+    "name_es": "Cumplimiento de capacidad de cortocircuito del dispositivo",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "C-COM-007_short_circuit_current_ka < device_interrupt_rating_ka AND C-COM-007_peak_current_ka < device_peak_rating_ka",
+    "severity": "BLOCKED",
+    "message_template": "Corriente de cortocircuito {isc_ka} kA excede capacidad del dispositivo {rating_ka} kA",
+    "required_evidence": [
+      "short_circuit_study",
+      "switchgear_datasheet"
+    ],
+    "affected_fields": [
+      "PRJ_111",
+      "PRJ_113",
+      "PRJ_114"
+    ],
+    "affected_drawings": [
+      "DRW-COM-004",
+      "DRW-COM-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60909",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "QA-COM-005",
+    "name_es": "Cumplimiento de puesta a tierra IEEE 80",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "C-COM-009_ground_resistance_ohm < 5.0 AND touch_voltage_computed < touch_voltage_allowable",
+    "severity": "BLOCKED",
+    "message_template": "Resistencia de tierra {resistance_ohm} ohm excede límite IEEE 80 de 5 ohm para instalaciones industriales",
+    "required_evidence": [
+      "grounding_study",
+      "IEEE_80_calculation_memory"
+    ],
+    "affected_fields": [
+      "PRJ_133",
+      "PRJ_095",
+      "PRJ_096"
+    ],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_80_2013"
+    ]
+  },
+  {
+    "rule_id": "QA-COM-006",
+    "name_es": "Cumplimiento NFPA 13 para sistema contra incendios",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "C-COM-010_reserve_volume_m3 >= 50 AND C-COM-010_duration_min >= 60 AND hydrant_spacing_m <= 60",
+    "severity": "BLOCKED",
+    "message_template": "Sistema contra incendios no cumple NFPA 13: reserva {volume_m3} m3 menor a 50 m3 o duración {duration_min} min menor a 60",
+    "required_evidence": [
+      "NFPA_13_compliance_dossier",
+      "hydraulic_calculation",
+      "INDECI_opinion"
+    ],
+    "affected_fields": [
+      "PRJ_130",
+      "PRJ_136"
+    ],
+    "affected_drawings": [
+      "DRW-COM-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_20_2022"
+    ]
+  },
+  {
+    "rule_id": "QA-COM-007",
+    "name_es": "Capacidad SCADA y comunicaciones adecuada",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "C-COM-011_link_bandwidth_bps < 10000000 AND C-COM-011_rtu_count > 0 AND redundancy >= 2 if control_room_location == REMOTE_BOTH",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad SCADA insuficiente: ancho de banda {bandwidth_bps} bps o redundancia {redundancy} no cumple",
+    "required_evidence": [
+      "SCADA_architecture_design",
+      "IEC_62443_compliance"
+    ],
+    "affected_fields": [
+      "PRJ_150",
+      "PRJ_151",
+      "PRJ_152",
+      "PRJ_153",
+      "PRJ_154"
+    ],
+    "affected_drawings": [
+      "DRW-COM-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61400_25"
+    ]
+  },
+  {
+    "rule_id": "QA-COM-008",
+    "name_es": "Cumplimiento IEEE 1547 para interconexión DER",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "ieee_1547_compliance == True AND power_factor >= 0.95 AND harmonic_THD < 5.0",
+    "severity": "BLOCKED",
+    "message_template": "Incumplimiento IEEE 1547: factor de potencia {pf} o THD {thd_pct}% fuera de rango",
+    "required_evidence": [
+      "IEEE_1547_compliance_dossier",
+      "commissioning_test_report"
+    ],
+    "affected_fields": [
+      "PRJ_111",
+      "PRJ_112",
+      "PRJ_115"
+    ],
+    "affected_drawings": [
+      "DRW-COM-004"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018"
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "technology": "05_wind_offshore",
+  "project_id": "TEST-WOF-001",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {
+    "WOF-001": "value_0",
+    "WOF-002": "value_1",
+    "WOF-003": "value_2",
+    "WOF-004": "value_3",
+    "WOF-010": "value_4"
+  },
+  "drawings_to_generate": [
+    "WOF-DRW-001",
+    "WOF-DRW-002",
+    "WOF-DRW-003"
+  ]
+}

@@ -1,0 +1,1508 @@
+[
+  {
+    "rule_id": "BIG-GR-001",
+    "name_es": "Layout general del digestor",
+    "applies_to": [
+      "DIGESTER_CSTR",
+      "DIGESTER_PLUG_FLOW",
+      "DIGESTER_LAGOON"
+    ],
+    "parameters": {
+      "min_distance_to_property_line_m": 30,
+      "min_distance_to_buildings_m": 15,
+      "orientation_long_axis_NS": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "distance digestor to property_line >= 30 m AND distance digestor to occupied buildings >= 15 m AND long axis oriented N-S if plug_flow",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "MINAM_DS_019_2009"
+    ],
+    "geometry_rule_id": "BIG-GR-001",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-001: required input field missing or invalid",
+      "BIG-GR-001: collision between generated entities detected",
+      "BIG-GR-001: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-002",
+    "name_es": "Área de preparación de sustrato",
+    "applies_to": [
+      "feed_reception_hopper",
+      "FEED_PUMP_PROGRESSIVE_CAVITY"
+    ],
+    "parameters": {
+      "min_truck_unloading_bay_m": 1,
+      "min_distance_to_digestor_m": 5,
+      "slope_pct": 1
+    },
+    "conditional_expression": "always",
+    "validation_expression": "at least one truck unloading bay AND feed area slope >= 1% towards drain AND min distance to digestor >= 5 m",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "MINEM_DS_043_2006"
+    ],
+    "geometry_rule_id": "BIG-GR-002",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-002: required input field missing or invalid",
+      "BIG-GR-002: collision between generated entities detected",
+      "BIG-GR-002: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-003",
+    "name_es": "Rutas de bombeo de sustrato",
+    "applies_to": [
+      "FEED_PUMP_PROGRESSIVE_CAVITY"
+    ],
+    "parameters": {
+      "pipe_slope_pct_min": 1,
+      "pipe_diameter_mm_min": 80,
+      "pipe_velocity_m_s_max": 1.5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "feed pipe slope >= 1% and pipe diameter >= 80 mm and pipe velocity <= 1.5 m/s",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ASME_B31_3_2022",
+      "ISO_15649",
+      "ISO_22790"
+    ],
+    "geometry_rule_id": "BIG-GR-003",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-003: required input field missing or invalid",
+      "BIG-GR-003: collision between generated entities detected",
+      "BIG-GR-003: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-004",
+    "name_es": "Rutas de tubería de biogás (HDPE / acero inox)",
+    "applies_to": [
+      "biogas_piping"
+    ],
+    "parameters": {
+      "pipe_slope_pct_min": 1,
+      "pipe_velocity_m_s_max": 10,
+      "min_buried_depth_m": 0.6,
+      "above_ground_with_tracer": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "biogas pipe slope >= 1% towards drip legs AND pipe velocity <= 10 m/s AND buried pipe depth >= 0.6 m",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ASME_B31_3_2022",
+      "ISO_15649",
+      "IEC_60079_10_1",
+      "NFPA_497_2024"
+    ],
+    "geometry_rule_id": "BIG-GR-004",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-004: required input field missing or invalid",
+      "BIG-GR-004: collision between generated entities detected",
+      "BIG-GR-004: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-005",
+    "name_es": "Posición del gasómetro (gas holder)",
+    "applies_to": [
+      "GAS_HOLDER_DOUBLE_MEMBRANE"
+    ],
+    "parameters": {
+      "min_distance_to_digestor_m": 5,
+      "min_distance_to_flare_m": 15,
+      "min_distance_to_property_line_m": 15
+    },
+    "conditional_expression": "always",
+    "validation_expression": "gas holder distance to digestor >= 5 m AND to flare >= 15 m AND to property line >= 15 m",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1",
+      "NFPA_497_2024"
+    ],
+    "geometry_rule_id": "BIG-GR-005",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-005: required input field missing or invalid",
+      "BIG-GR-005: collision between generated entities detected",
+      "BIG-GR-005: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-006",
+    "name_es": "Posición de la antorcha (flare)",
+    "applies_to": [
+      "FLARE_OPEN",
+      "FLARE_ENCLOSED"
+    ],
+    "parameters": {
+      "min_distance_to_digestor_m": 30,
+      "min_distance_to_gas_holder_m": 15,
+      "min_distance_to_property_line_m": 15,
+      "thermal_radiation_at_property_line_kW_m2_max": 6.3
+    },
+    "conditional_expression": "always",
+    "validation_expression": "flare distance to digestor >= 30 m AND to gas holder >= 15 m AND to property line >= 15 m AND thermal radiation at property line <= 6.3 kW/m2",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "API_521",
+      "API_520_1",
+      "MINAM_DS_019_2009",
+      "IEC_60079_10_1",
+      "NFPA_497_2024"
+    ],
+    "geometry_rule_id": "BIG-GR-006",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-006: required input field missing or invalid",
+      "BIG-GR-006: collision between generated entities detected",
+      "BIG-GR-006: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-007",
+    "name_es": "Layout del cuarto del motor CHP",
+    "applies_to": [
+      "CHP_ENGINE",
+      "CHP_HEAT_RECOVERY",
+      "MOTOR_EXHAUST_SILENCER"
+    ],
+    "parameters": {
+      "min_room_height_m": 4,
+      "min_clearance_around_engine_m": 1.5,
+      "ventilation_air_changes_h_min": 6,
+      "exhaust_stack_height_m_above_roof": 3
+    },
+    "conditional_expression": "always",
+    "validation_expression": "CHP room height >= 4 m AND clearance around engine >= 1.5 m AND ventilation >= 6 air changes/h AND exhaust stack height >= 3 m above roof",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "MINAM_DS_019_2009",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006"
+    ],
+    "geometry_rule_id": "BIG-GR-007",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-007: required input field missing or invalid",
+      "BIG-GR-007: collision between generated entities detected",
+      "BIG-GR-007: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-008",
+    "name_es": "Cuarto de upgrading de biometano",
+    "applies_to": [
+      "UPGRADING_PSA",
+      "UPGRADING_WATER_SCRUBBER",
+      "UPGRADING_AMINE",
+      "UPGRADING_MEMBRANE",
+      "BIOMETHANE_COMPRESSOR"
+    ],
+    "parameters": {
+      "min_room_height_m": 4,
+      "min_clearance_around_skid_m": 1,
+      "ventilation_air_changes_h_min": 10,
+      "ex_classification": "Zone 2"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "upgrade room height >= 4 m AND clearance around skid >= 1 m AND ventilation >= 10 air changes/h AND area classified Zone 2",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "ASME_BPVC_VIII_1_2023"
+    ],
+    "geometry_rule_id": "BIG-GR-008",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-008: required input field missing or invalid",
+      "BIG-GR-008: collision between generated entities detected",
+      "BIG-GR-008: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-009",
+    "name_es": "Layout de detección de gas",
+    "applies_to": [
+      "GAS_DETECTION_CABINET",
+      "gas_det_sensor"
+    ],
+    "parameters": {
+      "max_distance_sensors_m": 7.5,
+      "min_height_CH4_sensor_m": 0.3,
+      "max_height_H2S_sensor_m": 1.5,
+      "min_sensors_per_zone": 2
+    },
+    "conditional_expression": "always",
+    "validation_expression": "distance between gas sensors <= 7.5 m AND CH4 sensor height >= 0.3 m above grade AND H2S sensor height <= 1.5 m AND at least 2 sensors per zone (voting 2oo3)",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_60079_29_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "IEC_61511_1",
+      "IEC_61508_1"
+    ],
+    "geometry_rule_id": "BIG-GR-009",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-009: required input field missing or invalid",
+      "BIG-GR-009: collision between generated entities detected",
+      "BIG-GR-009: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-010",
+    "name_es": "Áreas clasificadas ATEX / IEC 60079-10-1 Zone 1/2",
+    "applies_to": [
+      "area_classification_zone"
+    ],
+    "parameters": {
+      "zone1_radius_m_min": 1,
+      "zone2_radius_m_min": 3,
+      "zone2_vertical_m_min": 0.9
+    },
+    "conditional_expression": "always",
+    "validation_expression": "Zone 1 around vent/release source AND Zone 2 extends >= 3 m horizontal AND >= 0.9 m vertical above source",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "IEC_60079_0",
+      "NFPA_30_2024"
+    ],
+    "geometry_rule_id": "BIG-GR-010",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-010: required input field missing or invalid",
+      "BIG-GR-010: collision between generated entities detected",
+      "BIG-GR-010: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-011",
+    "name_es": "Layout del sistema ESD",
+    "applies_to": [
+      "ESD_SYSTEM",
+      "esd_pushbutton"
+    ],
+    "parameters": {
+      "max_distance_pushbuttons_m": 30,
+      "min_pushbutton_height_m": 1.4,
+      "min_distance_to_hazard_m": 15
+    },
+    "conditional_expression": "always",
+    "validation_expression": "ESD pushbuttons every 30 m max AND height 1.4 m AND distance to hazard >= 15 m",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61508_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "IEC_60079_29_1"
+    ],
+    "geometry_rule_id": "BIG-GR-011",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-011: required input field missing or invalid",
+      "BIG-GR-011: collision between generated entities detected",
+      "BIG-GR-011: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-012",
+    "name_es": "Cuarto de control (control room)",
+    "applies_to": [
+      "CONTROL_SYSTEM",
+      "control_room_building"
+    ],
+    "parameters": {
+      "min_distance_to_hazard_m": 15,
+      "min_room_area_m2": 15,
+      "pressurization_Pa_min": 25,
+      "fire_rating_h_min": 1
+    },
+    "conditional_expression": "always",
+    "validation_expression": "control room distance to hazard >= 15 m AND area >= 15 m2 AND pressurization >= 25 Pa AND fire rating >= 1 h",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "IEC_61511_1",
+      "IEC_61508_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "NFPA_13_2022",
+      "NFPA_15_2022"
+    ],
+    "geometry_rule_id": "BIG-GR-012",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-012: required input field missing or invalid",
+      "BIG-GR-012: collision between generated entities detected",
+      "BIG-GR-012: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-013",
+    "name_es": "Patio de transformadores",
+    "applies_to": [
+      "TRANSFORMER"
+    ],
+    "parameters": {
+      "min_distance_to_building_m": 3,
+      "oil_retention_capacity_pct": 100,
+      "min_fence_distance_m": 1.5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "transformer to building >= 3 m AND oil retention capacity >= 100% oil volume AND fence distance >= 1.5 m",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006",
+      "NFPA_30_2024"
+    ],
+    "geometry_rule_id": "BIG-GR-013",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-013: required input field missing or invalid",
+      "BIG-GR-013: collision between generated entities detected",
+      "BIG-GR-013: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-014",
+    "name_es": "Switchgear / tablero principal",
+    "applies_to": [
+      "SWITCHGEAR"
+    ],
+    "parameters": {
+      "min_clearance_front_m": 1.2,
+      "min_clearance_rear_m": 1,
+      "min_room_height_m": 2.5,
+      "fire_rating_h_min": 1
+    },
+    "conditional_expression": "always",
+    "validation_expression": "switchgear clearance front >= 1.2 m AND rear >= 1 m AND room height >= 2.5 m AND fire rating >= 1 h",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006",
+      "NFPA_13_2022",
+      "NFPA_15_2022"
+    ],
+    "geometry_rule_id": "BIG-GR-014",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-014: required input field missing or invalid",
+      "BIG-GR-014: collision between generated entities detected",
+      "BIG-GR-014: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-015",
+    "name_es": "Almacenamiento de digestato",
+    "applies_to": [
+      "DIGESTATE_STORAGE_TANK"
+    ],
+    "parameters": {
+      "min_distance_to_property_line_m": 10,
+      "min_distance_to_water_course_m": 30,
+      "secondary_containment_pct": 110,
+      "max_height_above_grade_m": 8
+    },
+    "conditional_expression": "always",
+    "validation_expression": "digestate storage to property line >= 10 m AND to water course >= 30 m AND secondary containment >= 110% AND height <= 8 m",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ],
+    "geometry_rule_id": "BIG-GR-015",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-015: required input field missing or invalid",
+      "BIG-GR-015: collision between generated entities detected",
+      "BIG-GR-015: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-016",
+    "name_es": "Anillo de agua contra incendio (fire water loop)",
+    "applies_to": [
+      "fire_water_loop"
+    ],
+    "parameters": {
+      "loop_diameter_mm_min": 100,
+      "hydrant_spacing_m_max": 90,
+      "hydrant_flow_L_min_min": 500,
+      "hydrant_pressure_kPa_g_min": 100
+    },
+    "conditional_expression": "always",
+    "validation_expression": "loop diameter >= 100 mm AND hydrant spacing <= 90 m AND hydrant flow >= 500 L/min AND pressure >= 100 kPa(g)",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "NFPA_20_2022",
+      "NFPA_13_2022",
+      "NFPA_15_2022",
+      "ASME_B31_3_2022",
+      "ISO_15649"
+    ],
+    "geometry_rule_id": "BIG-GR-016",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-016: required input field missing or invalid",
+      "BIG-GR-016: collision between generated entities detected",
+      "BIG-GR-016: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-017",
+    "name_es": "Drenaje del sitio (drainage)",
+    "applies_to": [
+      "site_drainage"
+    ],
+    "parameters": {
+      "slope_pct_min": 1,
+      "max_distance_to_catch_basin_m": 50,
+      "oil_water_separator": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "site drainage slope >= 1% AND catch basin spacing <= 50 m AND oil-water separator on biogas areas",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_6107_1",
+      "IAPWS_IF97",
+      "ISO_22790",
+      "NFPA_30_2024"
+    ],
+    "geometry_rule_id": "BIG-GR-017",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-017: required input field missing or invalid",
+      "BIG-GR-017: collision between generated entities detected",
+      "BIG-GR-017: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-018",
+    "name_es": "Cerca perimétrica (fence)",
+    "applies_to": [
+      "perimeter_fence"
+    ],
+    "parameters": {
+      "height_m_min": 2.4,
+      "post_spacing_m_max": 3,
+      "min_distance_to_hazard_m": 5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "fence height >= 2.4 m AND post spacing <= 3 m AND fence distance to hazard >= 5 m",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINEM_DS_043_2006",
+      "ISO_22790"
+    ],
+    "geometry_rule_id": "BIG-GR-018",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-018: required input field missing or invalid",
+      "BIG-GR-018: collision between generated entities detected",
+      "BIG-GR-018: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-019",
+    "name_es": "Corredores de drenaje de procesos",
+    "applies_to": [
+      "process_drainage_corridor"
+    ],
+    "parameters": {
+      "width_m_min": 1,
+      "slope_pct_min": 1,
+      "depth_m_min": 0.3,
+      "lined_with_concrete": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "drainage corridor width >= 1 m AND slope >= 1% AND depth >= 0.3 m AND concrete lined",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_6107_1",
+      "IAPWS_IF97",
+      "ISO_22790",
+      "NFPA_30_2024"
+    ],
+    "geometry_rule_id": "BIG-GR-019",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-019: required input field missing or invalid",
+      "BIG-GR-019: collision between generated entities detected",
+      "BIG-GR-019: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-020",
+    "name_es": "Acceso vehicular para entrega de sustrato",
+    "applies_to": [
+      "access_road_sustrato"
+    ],
+    "parameters": {
+      "width_m_min": 6,
+      "gradient_max_pct": 8,
+      "curve_radius_min_m": 15,
+      "turning_radius_min_m": 12
+    },
+    "conditional_expression": "always",
+    "validation_expression": "access road width >= 6 m AND gradient <= 8% AND curve radius >= 15 m AND turning radius >= 12 m",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINEM_DS_043_2006",
+      "ISO_22790"
+    ],
+    "geometry_rule_id": "BIG-GR-020",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-020: required input field missing or invalid",
+      "BIG-GR-020: collision between generated entities detected",
+      "BIG-GR-020: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-021",
+    "name_es": "Posición de venteas (vent position)",
+    "applies_to": [
+      "vent_stack"
+    ],
+    "parameters": {
+      "height_above_roof_m_min": 3,
+      "distance_to_intake_air_m_min": 10,
+      "min_distance_to_property_m": 15
+    },
+    "conditional_expression": "always",
+    "validation_expression": "vent stack height >= 3 m above roof AND distance to intake air >= 10 m AND distance to property line >= 15 m",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "ISO_22790",
+      "MINAM_DS_019_2009"
+    ],
+    "geometry_rule_id": "BIG-GR-021",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-021: required input field missing or invalid",
+      "BIG-GR-021: collision between generated entities detected",
+      "BIG-GR-021: clearance violation"
+    ]
+  },
+  {
+    "rule_id": "BIG-GR-022",
+    "name_es": "Zona de seguridad alrededor de la antorcha (radiación 6.3 kW/m2 API 521)",
+    "applies_to": [
+      "flare_safety_zone"
+    ],
+    "parameters": {
+      "radiation_kW_m2_at_property_line_max": 6.3,
+      "radiation_kW_m2_at_occupied_max": 1.5,
+      "exclusion_radius_m_min": 30
+    },
+    "conditional_expression": "always",
+    "validation_expression": "thermal radiation at property line <= 6.3 kW/m2 AND at occupied areas <= 1.5 kW/m2 AND exclusion radius >= 30 m",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "API_521",
+      "API_520_1",
+      "MINAM_DS_019_2009",
+      "IEC_60079_10_1",
+      "NFPA_497_2024"
+    ],
+    "geometry_rule_id": "BIG-GR-022",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "BIG-001",
+      "BIG-002"
+    ],
+    "required_calculation_ids": [
+      "BIG-CALC-001"
+    ],
+    "coordinate_space": "PLANT",
+    "algorithm": "tech_specific_layout_algorithm",
+    "algorithm_pseudocode": [
+      "INPUT: required_field_ids, required_calculation_ids",
+      "COORD_SPACE: ",
+      "FOR each required field in required_field_ids: READ value",
+      "COMPUTE positions based on field values and design rules",
+      "OUTPUT: generated_entity_types with absolute coordinates",
+      "CHECK: clearances and collision_rules satisfied",
+      "TOLERANCES: {}"
+    ],
+    "generated_entity_types": [
+      "LWPOLYLINE",
+      "TEXT",
+      "CIRCLE"
+    ],
+    "clearances": [
+      {
+        "min_distance_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no_overlap",
+        "severity": "BLOCKED"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "BIG-GR-022: required input field missing or invalid",
+      "BIG-GR-022: collision between generated entities detected",
+      "BIG-GR-022: clearance violation"
+    ]
+  }
+]

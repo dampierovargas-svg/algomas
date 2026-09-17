@@ -1,0 +1,6526 @@
+{
+  "audit_date": "2026-09-18",
+  "files_read": 112,
+  "syntax_errors": [],
+  "schema_mismatches": [
+    {
+      "file": "02_pv_roof_carport/B_equipment_schema.json",
+      "reason": "missing key equipment_type_id"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "reason": "missing key purpose"
+    },
+    {
+      "file": "02_pv_roof_carport/D_geometry_rules.json",
+      "reason": "missing key geometry_rule_id"
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "actual_cols": [
+        "drawing_id",
+        "name_es",
+        "name_en",
+        "discipline",
+        "sheet_format",
+        "scale",
+        "purpose",
+        "key_elements",
+        "depends_on",
+        "source_ids"
+      ],
+      "expected_cols": [
+        "drawing_id",
+        "technology",
+        "discipline",
+        "title_es",
+        "purpose",
+        "applicability_expression",
+        "minimum_project_stage",
+        "required_field_ids",
+        "required_calculation_ids",
+        "required_geometry_rule_ids",
+        "required_views",
+        "required_tables",
+        "required_symbol_ids",
+        "preferred_sheet_formats",
+        "preferred_scales",
+        "required_layers",
+        "mandatory_annotations",
+        "cross_references",
+        "qa_rule_ids",
+        "release_blockers",
+        "source_ids"
+      ]
+    },
+    {
+      "file": "02_pv_roof_carport/F_qa_rules.json",
+      "reason": "missing key rule_id"
+    },
+    {
+      "file": "02_pv_roof_carport/H_missing_data_policy.json",
+      "reason": "missing key missing_action"
+    },
+    {
+      "file": "03_pv_floating/B_equipment_schema.json",
+      "reason": "missing key equipment_type_id"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "reason": "missing key purpose"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "reason": "missing key applicability_expression"
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "actual_cols": [
+        "drawing_id",
+        "drawing_name",
+        "discipline",
+        "scale",
+        "paper_size",
+        "view_type",
+        "description",
+        "controlled_by_fields",
+        "calculation_ids",
+        "source_ids",
+        "layer_discipline",
+        "output_format"
+      ],
+      "expected_cols": [
+        "drawing_id",
+        "technology",
+        "discipline",
+        "title_es",
+        "purpose",
+        "applicability_expression",
+        "minimum_project_stage",
+        "required_field_ids",
+        "required_calculation_ids",
+        "required_geometry_rule_ids",
+        "required_views",
+        "required_tables",
+        "required_symbol_ids",
+        "preferred_sheet_formats",
+        "preferred_scales",
+        "required_layers",
+        "mandatory_annotations",
+        "cross_references",
+        "qa_rule_ids",
+        "release_blockers",
+        "source_ids"
+      ]
+    },
+    {
+      "file": "03_pv_floating/F_qa_rules.json",
+      "reason": "missing key rule_id"
+    },
+    {
+      "file": "03_pv_floating/H_missing_data_policy.json",
+      "reason": "missing key missing_action"
+    },
+    {
+      "file": "04_wind_onshore/B_equipment_schema.json",
+      "reason": "missing key equipment_type_id"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "reason": "missing key purpose"
+    },
+    {
+      "file": "04_wind_onshore/D_geometry_rules.json",
+      "reason": "missing key geometry_rule_id"
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "actual_cols": [
+        "drawing_id",
+        "name_es",
+        "scale",
+        "format",
+        "discipline",
+        "stage",
+        "depends_on",
+        "calculation_ids",
+        "geometry_rule_ids",
+        "equipment_classes",
+        "source_ids"
+      ],
+      "expected_cols": [
+        "drawing_id",
+        "technology",
+        "discipline",
+        "title_es",
+        "purpose",
+        "applicability_expression",
+        "minimum_project_stage",
+        "required_field_ids",
+        "required_calculation_ids",
+        "required_geometry_rule_ids",
+        "required_views",
+        "required_tables",
+        "required_symbol_ids",
+        "preferred_sheet_formats",
+        "preferred_scales",
+        "required_layers",
+        "mandatory_annotations",
+        "cross_references",
+        "qa_rule_ids",
+        "release_blockers",
+        "source_ids"
+      ]
+    },
+    {
+      "file": "04_wind_onshore/F_qa_rules.json",
+      "reason": "missing key rule_id"
+    },
+    {
+      "file": "04_wind_onshore/H_missing_data_policy.json",
+      "reason": "missing key missing_action"
+    },
+    {
+      "file": "05_wind_offshore/B_equipment_schema.json",
+      "reason": "missing key equipment_type_id"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "reason": "missing key purpose"
+    },
+    {
+      "file": "05_wind_offshore/D_geometry_rules.json",
+      "reason": "missing key geometry_rule_id"
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "actual_cols": [
+        "drawing_id",
+        "title_es",
+        "title_en",
+        "discipline",
+        "sheet_format",
+        "scale",
+        "stage",
+        "layer_set",
+        "legend_required",
+        "content_summary",
+        "related_calculation_ids",
+        "source_ids"
+      ],
+      "expected_cols": [
+        "drawing_id",
+        "technology",
+        "discipline",
+        "title_es",
+        "purpose",
+        "applicability_expression",
+        "minimum_project_stage",
+        "required_field_ids",
+        "required_calculation_ids",
+        "required_geometry_rule_ids",
+        "required_views",
+        "required_tables",
+        "required_symbol_ids",
+        "preferred_sheet_formats",
+        "preferred_scales",
+        "required_layers",
+        "mandatory_annotations",
+        "cross_references",
+        "qa_rule_ids",
+        "release_blockers",
+        "source_ids"
+      ]
+    },
+    {
+      "file": "05_wind_offshore/F_qa_rules.json",
+      "reason": "missing key category"
+    },
+    {
+      "file": "05_wind_offshore/H_missing_data_policy.json",
+      "reason": "missing key missing_action"
+    },
+    {
+      "file": "06_hydro/B_equipment_schema.json",
+      "reason": "missing key ports"
+    },
+    {
+      "file": "06_hydro/D_geometry_rules.json",
+      "reason": "missing key routing_costs"
+    },
+    {
+      "file": "08_biogas/B_equipment_schema.json",
+      "reason": "missing key equipment_type_id"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "reason": "missing key purpose"
+    },
+    {
+      "file": "08_biogas/D_geometry_rules.json",
+      "reason": "missing key geometry_rule_id"
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "actual_cols": [
+        "drawing_id",
+        "name_es",
+        "scale",
+        "format",
+        "discipline",
+        "stage",
+        "depends_on",
+        "calculation_ids",
+        "geometry_rule_ids",
+        "equipment_classes",
+        "source_ids"
+      ],
+      "expected_cols": [
+        "drawing_id",
+        "technology",
+        "discipline",
+        "title_es",
+        "purpose",
+        "applicability_expression",
+        "minimum_project_stage",
+        "required_field_ids",
+        "required_calculation_ids",
+        "required_geometry_rule_ids",
+        "required_views",
+        "required_tables",
+        "required_symbol_ids",
+        "preferred_sheet_formats",
+        "preferred_scales",
+        "required_layers",
+        "mandatory_annotations",
+        "cross_references",
+        "qa_rule_ids",
+        "release_blockers",
+        "source_ids"
+      ]
+    },
+    {
+      "file": "08_biogas/F_qa_rules.json",
+      "reason": "missing key rule_id"
+    },
+    {
+      "file": "09_geothermal/B_equipment_schema.json",
+      "reason": "missing key ports"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "reason": "missing key numerical_method"
+    },
+    {
+      "file": "09_geothermal/D_geometry_rules.json",
+      "reason": "missing key routing_costs"
+    },
+    {
+      "file": "10_solar_thermal_csp/B_equipment_schema.json",
+      "reason": "missing key ports"
+    },
+    {
+      "file": "10_solar_thermal_csp/C_formulas.json",
+      "reason": "missing key source_ids"
+    },
+    {
+      "file": "10_solar_thermal_csp/D_geometry_rules.json",
+      "reason": "missing key source_ids"
+    },
+    {
+      "file": "11_marine/B_equipment_schema.json",
+      "reason": "missing key ports"
+    },
+    {
+      "file": "11_marine/D_geometry_rules.json",
+      "reason": "missing key routing_costs"
+    },
+    {
+      "file": "12_bess/B_equipment_schema.json",
+      "reason": "missing key ports"
+    },
+    {
+      "file": "14_hybrid_microgrid/B_equipment_schema.json",
+      "reason": "missing key equipment_type_id"
+    }
+  ],
+  "duplicate_ids": [
+    {
+      "type": "equipment_type_id",
+      "id": "BREAKER_AC",
+      "technologies": [
+        "01_pv_ground",
+        "12_bess"
+      ]
+    },
+    {
+      "type": "equipment_type_id",
+      "id": "FUSE_DC",
+      "technologies": [
+        "01_pv_ground",
+        "12_bess"
+      ]
+    },
+    {
+      "type": "equipment_type_id",
+      "id": "BREAKER_DC",
+      "technologies": [
+        "01_pv_ground",
+        "12_bess"
+      ]
+    },
+    {
+      "type": "equipment_type_id",
+      "id": "FUSE_AC",
+      "technologies": [
+        "01_pv_ground",
+        "12_bess"
+      ]
+    },
+    {
+      "type": "equipment_type_id",
+      "id": "SCADA_GATEWAY",
+      "technologies": [
+        "01_pv_ground",
+        "12_bess"
+      ]
+    },
+    {
+      "type": "equipment_type_id",
+      "id": "SWITCHGEAR",
+      "technologies": [
+        "06_hydro",
+        "09_geothermal",
+        "10_solar_thermal_csp",
+        "12_bess"
+      ]
+    },
+    {
+      "type": "equipment_type_id",
+      "id": "POWER_TRANSFORMER",
+      "technologies": [
+        "06_hydro",
+        "09_geothermal"
+      ]
+    },
+    {
+      "type": "equipment_type_id",
+      "id": "COOLING_TOWER",
+      "technologies": [
+        "09_geothermal",
+        "10_solar_thermal_csp"
+      ]
+    }
+  ],
+  "broken_references": {
+    "source_ids": [
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-001",
+        "ref": "IAPWS_IF97;ISO_6107_1;ISO_14685"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-002",
+        "ref": "IAPWS_IF97;ISO_6107_1;ISO_14685"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-003",
+        "ref": "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-004",
+        "ref": "ASME_B31_3_2022;API_1104_2021;MINAM_DS_019_2009;ISO_14685;IAPWS_IF97;ISO_6107_1;ISO_14685"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-005",
+        "ref": "ASME_B31_3_2022;API_1104_2021;ASME_BPVC_VIII_1_2023"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-006",
+        "ref": "ASME_B31_3_2022;API_1104_2021;ASME_BPVC_VIII_1_2023"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-007",
+        "ref": "ASME_BPVC_VIII_1_2023;ASME_B31_3_2022;IAPWS_IF97"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-008",
+        "ref": "IAPWS_IF97;ASME_B31_3_2022;MINAM_DS_019_2009"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-009",
+        "ref": "ASME_PTC_10;IAPWS_IF97;ISO_1940_1"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-010",
+        "ref": "ASME_PTC_10;IAPWS_IF97;ISO_1940_1"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-011",
+        "ref": "ISO_15547_1;ASME_BPVC_VIII_1_2023;ASME_PTC_10;IAPWS_IF97"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-012",
+        "ref": "IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_043_2006;CNE_2011"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-013",
+        "ref": "ASME_BPVC_VIII_1_2023;IAPWS_IF97;ASME_B31_1_2022"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-014",
+        "ref": "MINEM_DS_032_2003;MINAM_DS_019_2009;API_521;MINAM_DS_019_2009;MINEM_DS_032_2003"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-015",
+        "ref": "IEC_61511_1;MINEM_DS_032_2003;MINEM_DS_043_2006"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-015B",
+        "ref": "IEC_60079_10_1;NFPA_497_2024;MINEM_DS_032_2003"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-016",
+        "ref": "MINAM_DS_019_2009;MINEM_DS_032_2003"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-016B",
+        "ref": "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-017",
+        "ref": "ASME_B31_3_2022;API_1104_2021;MINAM_DS_019_2009;ISO_14685;ISO_19111;ISO_14685"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-018",
+        "ref": "NFPA_13_2022;NFPA_15_2022;NFPA_20_2022;NFPA_497_2024;NFPA_30_2024;MINEM_DS_032_2003;IEC_60079_10_1;NFPA_497_2024;MINEM_DS_032_2003"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-018B",
+        "ref": "NFPA_13_2022;NFPA_15_2022;NFPA_20_2022;NFPA_497_2024;NFPA_30_2024;MINEM_DS_032_2003"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-019",
+        "ref": "ASME_BPVC_VIII_1_2023;ASME_B31_3_2022;IAPWS_IF97"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-020",
+        "ref": "IAPWS_IF97;ASME_B31_3_2022;MINAM_DS_019_2009;ISO_10628;ISO_10628_2;ISO_14617;ISO_14617_2"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-021",
+        "ref": "ASME_PTC_10;IAPWS_IF97;ISO_1940_1"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-022",
+        "ref": "ASME_PTC_10;IAPWS_IF97;ISO_1940_1"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-023",
+        "ref": "ISO_15547_1;ASME_BPVC_VIII_1_2023;ASME_PTC_10;IAPWS_IF97"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-024",
+        "ref": "IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_043_2006;CNE_2011;IEEE_1547_2018"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-025",
+        "ref": "ASME_BPVC_VIII_1_2023;IAPWS_IF97;ASME_B31_1_2022"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-026",
+        "ref": "ASME_PTC_10;API_521;ASME_B31_1_2022"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-027",
+        "ref": "ASME_PTC_10;API_521;ASME_B31_1_2022"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-028",
+        "ref": "MINAM_DS_019_2009;MINEM_DS_032_2003;ISO_6107_1;MINAM_DS_019_2009;IAPWS_IF97"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-029",
+        "ref": "IEC_61511_1;MINEM_DS_032_2003;MINEM_DS_043_2006;IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_043_2006;CNE_2011"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-030",
+        "ref": "NFPA_13_2022;NFPA_15_2022;NFPA_20_2022;NFPA_497_2024;NFPA_30_2024;MINEM_DS_032_2003"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-034",
+        "ref": "ASME_B31_3_2022;API_1104_2021;MINAM_DS_019_2009;ISO_14685;IAPWS_IF97;ISO_6107_1;ISO_14685"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-035",
+        "ref": "ASME_BPVC_VIII_1_2023;ASME_B31_3_2022;IAPWS_IF97;ASME_B31_1_2022;ASME_BPVC_VIII_1_2023"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-036",
+        "ref": "ASME_B31_3_2022;ASME_BPVC_VIII_1_2023;ASME_B31_1_2022;ASME_BPVC_VIII_1_2023;ISO_6107_1;MINAM_DS_019_2009;IAPWS_IF97"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-037",
+        "ref": "IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_043_2006;CNE_2011"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-038",
+        "ref": "MINEM_DS_032_2003;MINAM_DS_019_2009;API_521;MINAM_DS_019_2009;MINEM_DS_032_2003"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-041",
+        "ref": "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1;IAPWS_IF97;ISO_6107_1;ISO_14685"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-042",
+        "ref": "IEC_60079_10_1;NFPA_497_2024;MINEM_DS_032_2003"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-048",
+        "ref": "ASME_BPVC_VIII_1_2023;ASME_B31_3_2022;IAPWS_IF97"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-049",
+        "ref": "MINAM_DS_019_2009;MINEM_DS_032_2003;ASME_PTC_10;API_521;ASME_B31_1_2022"
+      },
+      {
+        "file": "09_geothermal/F_qa_rules.json",
+        "id": "GEO-QA-050",
+        "ref": "IAPWS_IF97;ISO_6107_1;ISO_14685;IAPWS_IF97"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-001",
+        "ref": "ISO_19111;NASA_POWER;MINAM_DS_019_2009"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-002",
+        "ref": "NSRDB_NREL;NREL_SAM_2024;ASTM_E891;ISO_9806"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-002",
+        "ref": "NREL_SAM_2024;NREL_TES_CSP;ASTM_C1549"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-003",
+        "ref": "NSRDB_NREL;NREL_SAM_2024;ASTM_E891;ISO_9806"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-004",
+        "ref": "NREL_SAM_2024;ISO_9806;ASHRAE_93;ASTM_C1549"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-005",
+        "ref": "NREL_SAM_2024;ISO_9806;ASHRAE_93;ASTM_C1549"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-006",
+        "ref": "MINAM_DS_019_2009;ISO_14685;ANSI_Y14_5"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-006",
+        "ref": "NREL_SAM_2024;NREL_TES_CSP;ASTM_C1549"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-007",
+        "ref": "ASME_BPVC_VIII_1_2023;ISO_9806;NREL_TES_CSP;IAPWS_IF97"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-009",
+        "ref": "ASME_BPVC_VIII_1_2023;NREL_TES_CSP;NREL_SAM_2024"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-010",
+        "ref": "ASME_BPVC_VIII_1_2023;NREL_TES_CSP;NREL_SAM_2024"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-011",
+        "ref": "ASME_PTC_10;IAPWS_IF97;ISO_1940_1"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-012",
+        "ref": "ASME_PTC_10;IAPWS_IF97;ISO_1940_1"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-013",
+        "ref": "ASME_PTC_10;IAPWS_IF97;ISO_1940_1"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-014",
+        "ref": "MINAM_DS_019_2009;ISO_5457;NFPA_70_2023"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-015",
+        "ref": "IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_013_2019;CNE_2011"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-017",
+        "ref": "IEC_61511_1;IEEE_2030_2;IEEE_1547_4;IEC_61724_1"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-018",
+        "ref": "IEC_61511_1;IEC_61508_1;MINEM_DS_043_2006"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-019",
+        "ref": "IEC_60079_10_1;NFPA_497_2024;MINEM_DS_032_2003"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-020",
+        "ref": "NFPA_30_2024;NFPA_13_2022;NFPA_15_2022;NFPA_20_2022;NFPA_497_2024;NFPA_780_2023;NFPA_853_2023;NFPA_70_2023"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-022",
+        "ref": "MINAM_DS_019_2009;NREL_SAM_2024;ASTM_C1549"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-023",
+        "ref": "IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_013_2019;CNE_2011"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-025",
+        "ref": "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-026",
+        "ref": "NSRDB_NREL;NREL_SAM_2024;ASTM_E891;ISO_9806"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-027",
+        "ref": "ASME_B31_1_2022;NIST_WEBBOOK;NREL_TES_CSP"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-028",
+        "ref": "ASME_B31_1_2022;NIST_WEBBOOK;IAPWS_IF97;NREL_TES_CSP"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-029",
+        "ref": "ASME_B31_1_2022;NIST_WEBBOOK;IAPWS_IF97;NREL_TES_CSP"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-030",
+        "ref": "NFPA_30_2024;NFPA_13_2022;NFPA_15_2022;NFPA_20_2022;NFPA_497_2024;NFPA_780_2023;NFPA_853_2023;NFPA_70_2023"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-031",
+        "ref": "ASME_BPVC_VIII_1_2023;IAPWS_IF97;ASME_B31_1_2022"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-032",
+        "ref": "ASME_BPVC_VIII_1_2023;IAPWS_IF97;ASME_B31_1_2022"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-037",
+        "ref": "ISO_19111;ISO_14685;MINAM_DS_019_2009"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-038",
+        "ref": "ISO_19111;ISO_14685;MINAM_DS_019_2009"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-039",
+        "ref": "ISO_19111;NASA_POWER;MINAM_DS_019_2009"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-040",
+        "ref": "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-041",
+        "ref": "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-041",
+        "ref": "ASME_PTC_10;IAPWS_IF97;ISO_1940_1"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-042",
+        "ref": "NREL_SAM_2024;NREL_TES_CSP;ASTM_C1549"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-043",
+        "ref": "ASME_BPVC_VIII_1_2023;ISO_9806;NREL_TES_CSP;IAPWS_IF97"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-044",
+        "ref": "ASME_BPVC_VIII_1_2023;ISO_9806;NREL_TES_CSP;IAPWS_IF97"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-045",
+        "ref": "ASME_B31_1_2022;NIST_WEBBOOK;IAPWS_IF97;NREL_TES_CSP"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-046",
+        "ref": "ASME_B31_1_2022;NIST_WEBBOOK;IAPWS_IF97;NREL_TES_CSP"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-047",
+        "ref": "ASME_PTC_10;IAPWS_IF97;ISO_1940_1"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-048",
+        "ref": "IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_013_2019;CNE_2011"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-049",
+        "ref": "IEC_61511_1;IEC_61508_1;MINEM_DS_043_2006"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-050",
+        "ref": "NFPA_30_2024;NFPA_13_2022;NFPA_15_2022;NFPA_20_2022;NFPA_497_2024;NFPA_780_2023;NFPA_853_2023;NFPA_70_2023"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-051",
+        "ref": "MINAM_DS_019_2009;NREL_SAM_2024;ASTM_C1549"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-051",
+        "ref": "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+      },
+      {
+        "file": "10_solar_thermal_csp/F_qa_rules.json",
+        "id": "CSP-QA-053",
+        "ref": "IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_013_2019;CNE_2011"
+      }
+    ],
+    "field_ids": [
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-001",
+        "ref": "BESS-001|BESS-002|BESS-003|BESS-048|BESS-049|BESS-055|BESS-046|BESS-044|BESS-045|BESS-128|BESS-130|BESS-119|BESS-118|BESS-117"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-002",
+        "ref": "BESS-002|BESS-003|BESS-055|BESS-046|BESS-044|BESS-044|BESS-085|BESS-130"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-003",
+        "ref": "BESS-038|BESS-046|BESS-044|BESS-045|BESS-041|BESS-042|BESS-047|BESS-043|BESS-094|BESS-095|BESS-098"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-004",
+        "ref": "BESS-028|BESS-029|BESS-030|BESS-031|BESS-032|BESS-033|BESS-034|BESS-035|BESS-036|BESS-037|BESS-020|BESS-021"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-005",
+        "ref": "BESS-019|BESS-013|BESS-014|BESS-015|BESS-016|BESS-008|BESS-009|BESS-010|BESS-011|BESS-012|BESS-020|BESS-021|BESS-023|BESS-027"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-006",
+        "ref": "BESS-029|BESS-054|BESS-091|BESS-093|BESS-079|BESS-031|BESS-028"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-007",
+        "ref": "BESS-075|BESS-080|BESS-081|BESS-083|BESS-084|BESS-085|BESS-086|BESS-087|BESS-088|BESS-089|BESS-090|BESS-092|BESS-082|BESS-077|BESS-078|BESS-049|BESS-053"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-008",
+        "ref": "BESS-114|BESS-115|BESS-116|BESS-117|BESS-118|BESS-119|BESS-002|BESS-003"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-009",
+        "ref": "BESS-042|BESS-099|BESS-100|BESS-101|BESS-102|BESS-103|BESS-104|BESS-105|BESS-106|BESS-107|BESS-108|BESS-109|BESS-110|BESS-111|BESS-112"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-010",
+        "ref": "BESS-105|BESS-106|BESS-107|BESS-108|BESS-044|BESS-045|BESS-046|BESS-047"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-011",
+        "ref": "BESS-094|BESS-095|BESS-096|BESS-097|BESS-098|BESS-041|BESS-046|BESS-044|BESS-045|BESS-005|BESS-006|BESS-037"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-012",
+        "ref": "BESS-060|BESS-061|BESS-062|BESS-063|BESS-064|BESS-065|BESS-066|BESS-067|BESS-068|BESS-069|BESS-070|BESS-071|BESS-072|BESS-074|BESS-131|BESS-132|BESS-133|BESS-134|BESS-138|BESS-139|BESS-140|BESS-078|BESS-082"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-013",
+        "ref": "BESS-131|BESS-132|BESS-133|BESS-134|BESS-138|BESS-139|BESS-140|BESS-077|BESS-120|BESS-121|BESS-122|BESS-074|BESS-127"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-014",
+        "ref": "BESS-105|BESS-106|BESS-108|BESS-042|BESS-047|BESS-111|BESS-112|BESS-113|BESS-046|BESS-044|BESS-045"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-015",
+        "ref": "BESS-130|BESS-033|BESS-038|BESS-055|BESS-046|BESS-044|BESS-045|BESS-085"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-016",
+        "ref": "BESS-135|BESS-136|BESS-137|BESS-131|BESS-132|BESS-133|BESS-134|BESS-138|BESS-140"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-017",
+        "ref": "BESS-001|BESS-002|BESS-003|BESS-055|BESS-046|BESS-044|BESS-045|BESS-114|BESS-117|BESS-118|BESS-119|BESS-128|BESS-130|BESS-109|BESS-110|BESS-144|BESS-145"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-001",
+        "ref": "MG-001|MG-002|MG-003|MG-008|MG-018|MG-101|MG-102|MG-104|MG-105|MG-106|MG-107|MG-108|MG-109|MG-110|MG-148|MG-147"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-002",
+        "ref": "MG-002|MG-003|MG-101|MG-102|MG-104|MG-105|MG-106|MG-107|MG-108|MG-005"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-003",
+        "ref": "MG-004|MG-018|MG-101|MG-102|MG-103|MG-104|MG-105|MG-106|MG-107|MG-108|MG-109|MG-110|MG-112|MG-113|MG-114|MG-069|MG-070|MG-083|MG-091|MG-092|MG-093|MG-126|MG-127"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-004",
+        "ref": "MG-109|MG-110|MG-111|MG-112|MG-085|MG-086|MG-088|MG-089|MG-091|MG-092|MG-093|MG-114|MG-060|MG-061"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-005",
+        "ref": "MG-101|MG-011|MG-021|MG-069|MG-070|MG-110"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-006",
+        "ref": "MG-102|MG-103|MG-069|MG-070|MG-072|MG-073|MG-074|MG-129|MG-110"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-007",
+        "ref": "MG-104|MG-012|MG-110|MG-069|MG-070"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-008",
+        "ref": "MG-105|MG-013|MG-014|MG-110|MG-069|MG-070"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-009",
+        "ref": "MG-015|MG-016|MG-017|MG-019|MG-020|MG-106|MG-107"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-010",
+        "ref": "MG-041|MG-042|MG-043|MG-044|MG-045|MG-046|MG-047|MG-048|MG-049|MG-050|MG-051|MG-052|MG-139"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-011",
+        "ref": "MG-094|MG-095|MG-096|MG-097|MG-098|MG-099|MG-100|MG-115|MG-127|MG-128"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-012",
+        "ref": "MG-083|MG-084|MG-085|MG-086|MG-087|MG-088|MG-089|MG-090|MG-091|MG-092|MG-093|MG-111"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-013",
+        "ref": "MG-010|MG-144|MG-145|MG-146|MG-147|MG-148|MG-005"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-014",
+        "ref": "MG-099|MG-100|MG-136|MG-137|MG-138|MG-094|MG-095"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-015",
+        "ref": "MG-041|MG-042|MG-043|MG-044|MG-046|MG-047|MG-048|MG-049|MG-050|MG-051|MG-052|MG-119|MG-120|MG-121|MG-122|MG-123|MG-124|MG-125"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-016",
+        "ref": "MG-023|MG-030|MG-031|MG-116|MG-117|MG-118|MG-122|MG-126|MG-127"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-017",
+        "ref": "MG-001|MG-002|MG-003|MG-008|MG-018|MG-101|MG-102|MG-104|MG-105|MG-106|MG-107|MG-108|MG-109|MG-110|MG-144|MG-147|MG-148"
+      }
+    ],
+    "calculation_ids": [
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-016",
+        "ref": "[]"
+      },
+      {
+        "file": "07_biomass/E",
+        "drawing_id": "BIO-DRW-004",
+        "ref": "BIO-C-001"
+      },
+      {
+        "file": "07_biomass/E",
+        "drawing_id": "BIO-DRW-006",
+        "ref": "BIO-C-001"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-003",
+        "ref": "BESS-C-008|BESS-C-013|BESS-C-014|BESS-C-027"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-005",
+        "ref": "BESS-C-001|BESS-C-005|BESS-C-006|BESS-C-007"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-006",
+        "ref": "BESS-C-008|BESS-C-018"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-007",
+        "ref": "BESS-C-018|BESS-C-019|BESS-C-025"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-009",
+        "ref": "BESS-C-016|BESS-C-027|BESS-C-028|BESS-C-029|BESS-C-030"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-010",
+        "ref": "BESS-C-027|BESS-C-028"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-011",
+        "ref": "BESS-C-013|BESS-C-014"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-012",
+        "ref": "BESS-C-002|BESS-C-004|BESS-C-015|BESS-C-017|BESS-C-021|BESS-C-022|BESS-C-025|BESS-C-031"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-013",
+        "ref": "BESS-C-025|BESS-C-031"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-014",
+        "ref": "BESS-C-027|BESS-C-028|BESS-C-029"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-016",
+        "ref": "BESS-C-025|BESS-C-031"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-017",
+        "ref": "BESS-C-010|BESS-C-020|BESS-C-027|BESS-C-028"
+      },
+      {
+        "file": "13_hydrogen/E",
+        "drawing_id": "H2-DRW-001",
+        "ref": "[]"
+      },
+      {
+        "file": "13_hydrogen/E",
+        "drawing_id": "H2-DRW-002",
+        "ref": "[]"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-001",
+        "ref": "MG-C-004|MG-C-007|MG-C-038"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-002",
+        "ref": "MG-C-038|MG-C-036"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-003",
+        "ref": "MG-C-004|MG-C-007|MG-C-034|MG-C-035"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-004",
+        "ref": "MG-C-022|MG-C-023|MG-C-024|MG-C-025|MG-C-034|MG-C-035"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-005",
+        "ref": "MG-C-004|MG-C-031"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-006",
+        "ref": "MG-C-008|MG-C-009|MG-C-012|MG-C-016"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-007",
+        "ref": "MG-C-004|MG-C-031"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-009",
+        "ref": "MG-C-004|MG-C-007"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-010",
+        "ref": "MG-C-010|MG-C-011|MG-C-014|MG-C-015|MG-C-016"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-011",
+        "ref": "MG-C-010|MG-C-011"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-012",
+        "ref": "MG-C-021|MG-C-022|MG-C-023|MG-C-024|MG-C-025|MG-C-035"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-013",
+        "ref": "MG-C-036|MG-C-037|MG-C-038"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-014",
+        "ref": "MG-C-010|MG-C-011"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-015",
+        "ref": "MG-C-010|MG-C-011|MG-C-012|MG-C-013|MG-C-014|MG-C-015"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-016",
+        "ref": "MG-C-010|MG-C-013|MG-C-042"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-017",
+        "ref": "MG-C-004|MG-C-036|MG-C-038"
+      }
+    ],
+    "geometry_rule_ids": [
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-008",
+        "ref": "[]"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-001",
+        "ref": "[]"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-010",
+        "ref": "[]"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-001",
+        "ref": "BESS-GR-001|BESS-GR-002|BESS-GR-019|BESS-GR-020"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-002",
+        "ref": "BESS-GR-001|BESS-GR-002|BESS-GR-007|BESS-GR-008"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-003",
+        "ref": "BESS-GR-003|BESS-GR-018|BESS-GR-022"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-007",
+        "ref": "BESS-GR-006|BESS-GR-007|BESS-GR-008"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-008",
+        "ref": "BESS-GR-012|BESS-GR-013"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-009",
+        "ref": "BESS-GR-010|BESS-GR-011|BESS-GR-021|BESS-GR-022"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-011",
+        "ref": "BESS-GR-003|BESS-GR-009"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-014",
+        "ref": "BESS-GR-011|BESS-GR-022"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-017",
+        "ref": "BESS-GR-001|BESS-GR-002|BESS-GR-012|BESS-GR-019|BESS-GR-020"
+      },
+      {
+        "file": "13_hydrogen/E",
+        "drawing_id": "H2-DRW-001",
+        "ref": "[]"
+      },
+      {
+        "file": "13_hydrogen/E",
+        "drawing_id": "H2-DRW-002",
+        "ref": "['H2-GR-001', 'H2-GR-002']"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-001",
+        "ref": "MG-GR-001|MG-GR-019|MG-GR-022"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-002",
+        "ref": "MG-GR-001|MG-GR-008|MG-GR-009|MG-GR-021"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-003",
+        "ref": "MG-GR-008|MG-GR-010|MG-GR-023"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-004",
+        "ref": "MG-GR-008|MG-GR-015"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-005",
+        "ref": "MG-GR-002|MG-GR-023"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-006",
+        "ref": "MG-GR-003|MG-GR-023"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-009",
+        "ref": "MG-GR-006|MG-GR-007"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-010",
+        "ref": "MG-GR-011|MG-GR-012|MG-GR-018"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-011",
+        "ref": "MG-GR-012|MG-GR-013"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-012",
+        "ref": "MG-GR-014|MG-GR-015"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-013",
+        "ref": "MG-GR-021|MG-GR-022"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-014",
+        "ref": "MG-GR-011|MG-GR-012|MG-GR-013"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-015",
+        "ref": "MG-GR-011|MG-GR-018"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-016",
+        "ref": "MG-GR-016|MG-GR-017"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-017",
+        "ref": "MG-GR-001|MG-GR-019|MG-GR-021|MG-GR-022"
+      }
+    ],
+    "drawing_ids": [],
+    "qa_rule_ids": [
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-016",
+        "ref": "PVG-QA-015B"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-017",
+        "ref": "PVG-QA-016B"
+      },
+      {
+        "file": "07_biomass/E",
+        "drawing_id": "BIO-DRW-017",
+        "ref": "AFC stamp required"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-001",
+        "ref": "BESS-QA-001|BESS-QA-008|BESS-QA-020|BESS-QA-024"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-002",
+        "ref": "BESS-QA-002|BESS-QA-003"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-003",
+        "ref": "BESS-QA-004|BESS-QA-009|BESS-QA-014|BESS-QA-018"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-004",
+        "ref": "BESS-QA-005|BESS-QA-006|BESS-QA-021"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-005",
+        "ref": "BESS-QA-007|BESS-QA-008"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-006",
+        "ref": "BESS-QA-010|BESS-QA-011|BESS-QA-022"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-007",
+        "ref": "BESS-QA-012|BESS-QA-013|BESS-QA-023|BESS-QA-024"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-008",
+        "ref": "BESS-QA-014|BESS-QA-025|BESS-QA-027|BESS-QA-028"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-009",
+        "ref": "BESS-QA-015|BESS-QA-016|BESS-QA-017|BESS-QA-018|BESS-QA-019|BESS-QA-026|BESS-QA-029|BESS-QA-030|BESS-QA-031|BESS-QA-032|BESS-QA-035|BESS-QA-036|BESS-QA-037"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-010",
+        "ref": "BESS-QA-020|BESS-QA-021"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-011",
+        "ref": "BESS-QA-009|BESS-QA-022|BESS-QA-033"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-012",
+        "ref": "BESS-QA-034|BESS-QA-035|BESS-QA-036"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-013",
+        "ref": "BESS-QA-034|BESS-QA-035|BESS-QA-037|BESS-QA-038"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-014",
+        "ref": "BESS-QA-020|BESS-QA-021|BESS-QA-036|BESS-QA-037"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-015",
+        "ref": "BESS-QA-003|BESS-QA-038"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-016",
+        "ref": "BESS-QA-035|BESS-QA-036|BESS-QA-037"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-017",
+        "ref": "BESS-QA-001|BESS-QA-040|BESS-QA-041|BESS-QA-042|BESS-QA-043|BESS-QA-044|BESS-QA-045|BESS-QA-046|BESS-QA-047"
+      },
+      {
+        "file": "13_hydrogen/E",
+        "drawing_id": "H2-DRW-017",
+        "ref": "AFC stamp required"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-001",
+        "ref": "MG-QA-001|MG-QA-008|MG-QA-020|MG-QA-024"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-002",
+        "ref": "MG-QA-002|MG-QA-003"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-003",
+        "ref": "MG-QA-004|MG-QA-005|MG-QA-011|MG-QA-013|MG-QA-021"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-004",
+        "ref": "MG-QA-012|MG-QA-014|MG-QA-016|MG-QA-019|MG-QA-021"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-005",
+        "ref": "MG-QA-004|MG-QA-013"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-006",
+        "ref": "MG-QA-005|MG-QA-006|MG-QA-009|MG-QA-010"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-007",
+        "ref": "MG-QA-004|MG-QA-013"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-009",
+        "ref": "MG-QA-018|MG-QA-019"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-010",
+        "ref": "MG-QA-007|MG-QA-008|MG-QA-014|MG-QA-020|MG-QA-023"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-011",
+        "ref": "MG-QA-020|MG-QA-023|MG-QA-024|MG-QA-025"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-012",
+        "ref": "MG-QA-016|MG-QA-017|MG-QA-018|MG-QA-019|MG-QA-021"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-013",
+        "ref": "MG-QA-014|MG-QA-022|MG-QA-026"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-014",
+        "ref": "MG-QA-024|MG-QA-025|MG-QA-027|MG-QA-028|MG-QA-029"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-015",
+        "ref": "MG-QA-007|MG-QA-008|MG-QA-023|MG-QA-030|MG-QA-031"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-016",
+        "ref": "MG-QA-035|MG-QA-036|MG-QA-037"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-017",
+        "ref": "MG-QA-044|MG-QA-045"
+      }
+    ],
+    "symbol_ids": [
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-001",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-001",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-001",
+        "ref": "SYM-COM-LEGEND"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-002",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-002",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-002",
+        "ref": "SYM-PVG-FENCE"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-002",
+        "ref": "SYM-PVG-ROAD"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-002",
+        "ref": "SYM-PVG-GATE"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-003",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-003",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-003",
+        "ref": "SYM-PVG-POST"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-003",
+        "ref": "SYM-PVG-FENCE-POST"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-004",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-004",
+        "ref": "SYM-PVG-MODULE"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-004",
+        "ref": "SYM-PVG-STRING"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-005",
+        "ref": "SYM-PVG-STRING"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-005",
+        "ref": "SYM-PVG-COMBINER"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-005",
+        "ref": "SYM-PVG-CABLE-DC"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-006",
+        "ref": "SYM-PVG-COMBINER"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-006",
+        "ref": "SYM-PVG-CABLE-DC"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-006",
+        "ref": "SYM-PVG-SPD-DC"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-007",
+        "ref": "SYM-PVG-CABLE-AC"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-007",
+        "ref": "SYM-PVG-TRANSFORMER"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-007",
+        "ref": "SYM-PVG-INVERTER"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-008",
+        "ref": "SYM-PVG-INVERTER"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-008",
+        "ref": "SYM-PVG-TRANSFORMER"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-008",
+        "ref": "SYM-PVG-BREAKER"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-008",
+        "ref": "SYM-PVG-FUSE"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-008",
+        "ref": "SYM-PVG-SPD"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-008",
+        "ref": "SYM-PVG-GROUND"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-009",
+        "ref": "SYM-PVG-H-PILE"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-009",
+        "ref": "SYM-PVG-GROUND-SCREW"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-009",
+        "ref": "SYM-PVG-BALLAST"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-009",
+        "ref": "SYM-PVG-GRADE-BEAM"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-010",
+        "ref": "SYM-PVG-POST"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-010",
+        "ref": "SYM-PVG-GIRT"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-010",
+        "ref": "SYM-PVG-CLAMP"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-010",
+        "ref": "SYM-PVG-MODULE"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-011",
+        "ref": "SYM-PVG-TRACKER"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-011",
+        "ref": "SYM-PVG-DRIVE"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-011",
+        "ref": "SYM-PVG-TORQUE-TUBE"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-012",
+        "ref": "SYM-PVG-GROUND-CONDUCTOR"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-012",
+        "ref": "SYM-PVG-ROD"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-012",
+        "ref": "SYM-PVG-EQUIPOT-BOND"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-013",
+        "ref": "SYM-PVG-TRENCH"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-013",
+        "ref": "SYM-PVG-CONDUIT"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-013",
+        "ref": "SYM-PVG-MANHOLE"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-014",
+        "ref": "SYM-PVG-MODULE"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-014",
+        "ref": "SYM-PVG-POST"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-015",
+        "ref": "SYM-PVG-SCADA"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-015",
+        "ref": "SYM-PVG-RTU"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-015",
+        "ref": "SYM-PVG-GATEWAY"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-015",
+        "ref": "SYM-COM-NETWORK"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-016",
+        "ref": "SYM-PVG-DETECTOR"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-016",
+        "ref": "SYM-PVG-ARC-DETECT"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-016",
+        "ref": "SYM-PVG-FIRE-ALARM"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-017",
+        "ref": "SYM-COM-AS-BUILT-STAMP"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-017",
+        "ref": "SYM-PVG-MODULE"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-017",
+        "ref": "SYM-PVG-STRING"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-001",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-001",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-001",
+        "ref": "SYM-COM-LEGEND"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-002",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-002",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-002",
+        "ref": "SYM-HYD-POWERHOUSE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-002",
+        "ref": "SYM-HYD-INTAKE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-003",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-003",
+        "ref": "SYM-HYD-INTAKE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-003",
+        "ref": "SYM-HYD-TRASHRACK"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-003",
+        "ref": "SYM-HYD-GATE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-003",
+        "ref": "SYM-HYD-DESANDER"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-004",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-004",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-004",
+        "ref": "SYM-HYD-DAM"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-004",
+        "ref": "SYM-HYD-GATE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-005",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-005",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-005",
+        "ref": "SYM-HYD-CANAL"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-006",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-006",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-006",
+        "ref": "SYM-HYD-PENSTOCK"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-006",
+        "ref": "SYM-HYD-ANCHOR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-006",
+        "ref": "SYM-HYD-SURGETANK"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-007",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-007",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-007",
+        "ref": "SYM-HYD-POWERHOUSE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-007",
+        "ref": "SYM-HYD-TURBINE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-007",
+        "ref": "SYM-HYD-GENERATOR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-007",
+        "ref": "SYM-HYD-CRANE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-008",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-008",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-008",
+        "ref": "SYM-HYD-POWERHOUSE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-008",
+        "ref": "SYM-HYD-TURBINE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-008",
+        "ref": "SYM-HYD-DRAFTTUBE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-009",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-009",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-009",
+        "ref": "SYM-HYD-TURBINE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-009",
+        "ref": "SYM-HYD-RUNNER"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-009",
+        "ref": "SYM-HYD-SCROLLCASE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-009",
+        "ref": "SYM-HYD-DRAFTTUBE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-010",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-010",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-010",
+        "ref": "SYM-HYD-GENERATOR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-010",
+        "ref": "SYM-HYD-EXCITER"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-010",
+        "ref": "SYM-HYD-COOLING"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-011",
+        "ref": "SYM-HYD-GENERATOR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-011",
+        "ref": "SYM-HYD-TRANSFORMER"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-011",
+        "ref": "SYM-HYD-BREAKER"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-011",
+        "ref": "SYM-HYD-RELAY"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-011",
+        "ref": "SYM-HYD-ARRESTER"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-012",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-012",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-012",
+        "ref": "SYM-HYD-CANAL"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-013",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-013",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-013",
+        "ref": "SYM-HYD-SPILLWAY"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-013",
+        "ref": "SYM-HYD-STILLINGBASIN"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-013",
+        "ref": "SYM-HYD-GATE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-014",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-014",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-014",
+        "ref": "SYM-HYD-SPILLWAY"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-014",
+        "ref": "SYM-HYD-STILLINGBASIN"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-015",
+        "ref": "SYM-HYD-PLC"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-015",
+        "ref": "SYM-HYD-RTU"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-015",
+        "ref": "SYM-HYD-HMI"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-015",
+        "ref": "SYM-HYD-RELAY"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-015",
+        "ref": "SYM-HYD-GOVERNOR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-016",
+        "ref": "SYM-HYD-GROUND"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-016",
+        "ref": "SYM-HYD-LIGHTNING"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-016",
+        "ref": "SYM-HYD-ROD"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-017",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-017",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-001",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-001",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-001",
+        "ref": "SYM-COM-LEGEND"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-002",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-002",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-002",
+        "ref": "SYM-GEO-FENCE"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-003",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-003",
+        "ref": "SYM-GEO-WELL"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-003",
+        "ref": "SYM-GEO-WELLPAD"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-003",
+        "ref": "SYM-GEO-ROAD"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-004",
+        "ref": "SYM-GEO-PIPE"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-004",
+        "ref": "SYM-GEO-VALVE"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-004",
+        "ref": "SYM-GEO-PIG-TRAP"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-005",
+        "ref": "SYM-GEO-PIPE"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-005",
+        "ref": "SYM-GEO-ELEVATION-MARK"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-006",
+        "ref": "SYM-GEO-SEPARATOR"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-006",
+        "ref": "SYM-GEO-VESSEL"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-006",
+        "ref": "SYM-GEO-NOZZLE"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-007",
+        "ref": "SYM-PFD-SEPARATOR"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-007",
+        "ref": "SYM-PFD-DEMISTER"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-007",
+        "ref": "SYM-PFD-VALVE-CV"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-008",
+        "ref": "SYM-GEO-TURBINE"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-008",
+        "ref": "SYM-GEO-GENERATOR"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-008",
+        "ref": "SYM-GEO-CRANE"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-009",
+        "ref": "SYM-GEO-TURBINE-BLADE"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-009",
+        "ref": "SYM-GEO-NOZZLE"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-010",
+        "ref": "SYM-GEO-ORC-SKID"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-010",
+        "ref": "SYM-GEO-ACC-FAN"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-010",
+        "ref": "SYM-GEO-ORC-TURBINE"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-011",
+        "ref": "SYM-GEO-GENERATOR"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-011",
+        "ref": "SYM-GEO-TRANSFORMER"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-011",
+        "ref": "SYM-GEO-BREAKER"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-011",
+        "ref": "SYM-GEO-GROUND"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-012",
+        "ref": "SYM-GEO-CONDENSER"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-012",
+        "ref": "SYM-GEO-COOLING-WATER"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-012",
+        "ref": "SYM-GEO-COOLING-TOWER"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-013",
+        "ref": "SYM-GEO-EJECTOR"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-013",
+        "ref": "SYM-GEO-LRVP"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-013",
+        "ref": "SYM-GEO-H2S-ABATEMENT"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-013",
+        "ref": "SYM-GEO-VENT-STACK"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-014",
+        "ref": "SYM-GEO-SCADA"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-014",
+        "ref": "SYM-GEO-DCS"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-014",
+        "ref": "SYM-GEO-SIS"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-014",
+        "ref": "SYM-COM-NETWORK"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-015",
+        "ref": "SYM-GEO-H2S-DETECTOR"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-015",
+        "ref": "SYM-GEO-FIRE-ALARM"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-015",
+        "ref": "SYM-GEO-HYDRANT"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-015",
+        "ref": "SYM-GEO-SPRINKLER"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-016",
+        "ref": "SYM-GEO-ZONE-0"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-016",
+        "ref": "SYM-GEO-ZONE-1"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-016",
+        "ref": "SYM-GEO-ZONE-2"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-016",
+        "ref": "SYM-GEO-VENT-RAD-ZONE"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-017",
+        "ref": "SYM-COM-AS-BUILT-STAMP"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-017",
+        "ref": "SYM-GEO-EQUIPMENT"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-001",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-001",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-001",
+        "ref": "SYM-COM-LEGEND"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-002",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-002",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-002",
+        "ref": "SYM-CSP-FENCE"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-003",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-003",
+        "ref": "SYM-CSP-HELIOSTAT"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-003",
+        "ref": "SYM-CSP-PEDESTAL"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-004",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-004",
+        "ref": "SYM-CSP-TROUGH"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-004",
+        "ref": "SYM-CSP-HCE"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-005",
+        "ref": "SYM-CSP-TOWER"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-005",
+        "ref": "SYM-CSP-RECEIVER"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-005",
+        "ref": "SYM-CSP-FOUNDATION"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-006",
+        "ref": "SYM-CSP-TOWER"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-006",
+        "ref": "SYM-CSP-RECEIVER"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-006",
+        "ref": "SYM-CSP-HCE"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-007",
+        "ref": "SYM-PFD-TANK"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-007",
+        "ref": "SYM-PFD-PUMP"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-007",
+        "ref": "SYM-PFD-HEX"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-007",
+        "ref": "SYM-PFD-VALVE"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-008",
+        "ref": "SYM-PID-PUMP"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-008",
+        "ref": "SYM-PID-TANK"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-008",
+        "ref": "SYM-PID-VALVE-CV"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-008",
+        "ref": "SYM-PID-FT"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-008",
+        "ref": "SYM-PID-TT"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-009",
+        "ref": "SYM-PID-TANK"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-009",
+        "ref": "SYM-PID-PUMP"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-009",
+        "ref": "SYM-PID-VALVE"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-010",
+        "ref": "SYM-PID-TURBINE"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-010",
+        "ref": "SYM-PID-CONDENSER"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-010",
+        "ref": "SYM-PID-SG"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-010",
+        "ref": "SYM-PID-PUMP"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-011",
+        "ref": "SYM-CSP-TURBINE"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-011",
+        "ref": "SYM-CSP-GENERATOR"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-011",
+        "ref": "SYM-CSP-CONDENSER"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-011",
+        "ref": "SYM-CSP-CRANE"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-012",
+        "ref": "SYM-CSP-TRANSFORMER"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-012",
+        "ref": "SYM-CSP-BREAKER"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-012",
+        "ref": "SYM-CSP-CT"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-012",
+        "ref": "SYM-CSP-PT"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-012",
+        "ref": "SYM-CSP-GENERATOR"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-013",
+        "ref": "SYM-CSP-SCADA"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-013",
+        "ref": "SYM-CSP-RTU"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-013",
+        "ref": "SYM-CSP-PLC"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-013",
+        "ref": "SYM-CSP-DNI"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-013",
+        "ref": "SYM-COM-NETWORK"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-014",
+        "ref": "SYM-CSP-DETECTOR"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-014",
+        "ref": "SYM-CSP-SPRINKLER"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-014",
+        "ref": "SYM-CSP-HYDRANT"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-014",
+        "ref": "SYM-CSP-FIRE-ALARM"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-015",
+        "ref": "SYM-COM-ROAD"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-015",
+        "ref": "SYM-CSP-WASHING-ROBOT"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-015",
+        "ref": "SYM-CSP-WASHING-TRUCK"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-015",
+        "ref": "SYM-COM-WATER"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-016",
+        "ref": "SYM-CSP-GROUND-CONDUCTOR"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-016",
+        "ref": "SYM-CSP-ROD"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-016",
+        "ref": "SYM-CSP-EQUIPOT-BOND"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-016",
+        "ref": "SYM-COM-LPS"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-017",
+        "ref": "SYM-COM-AS-BUILT-STAMP"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-017",
+        "ref": "SYM-CSP-HELIOSTAT"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-017",
+        "ref": "SYM-CSP-TOWER"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-001",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-001",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-001",
+        "ref": "SYM-MAR-DEPTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-001",
+        "ref": "SYM-MAR-CURRENT"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-002",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-002",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-002",
+        "ref": "SYM-MAR-DEVICE"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-002",
+        "ref": "SYM-MAR-SUBSTATION"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-002",
+        "ref": "SYM-MAR-EXCLUSION"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-003",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-003",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-003",
+        "ref": "SYM-MAR-DEVICE"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-003",
+        "ref": "SYM-MAR-MOORING"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-003",
+        "ref": "SYM-MAR-FOUNDATION"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-004",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-004",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-004",
+        "ref": "SYM-MAR-CABLE"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-004",
+        "ref": "SYM-MAR-JUNCTION"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-005",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-005",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-005",
+        "ref": "SYM-MAR-CABLE"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-005",
+        "ref": "SYM-MAR-BURIAL"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-006",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-006",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-006",
+        "ref": "SYM-MAR-CABLE"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-006",
+        "ref": "SYM-MAR-HDD"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-007",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-007",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-007",
+        "ref": "SYM-MAR-FOUNDATION"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-007",
+        "ref": "SYM-MAR-SCOUR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-008",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-008",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-008",
+        "ref": "SYM-MAR-FOUNDATION"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-008",
+        "ref": "SYM-MAR-SOIL"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-008",
+        "ref": "SYM-MAR-GROWTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-009",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-009",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-009",
+        "ref": "SYM-MAR-TRANSFORMER"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-009",
+        "ref": "SYM-MAR-SWITCHGEAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-009",
+        "ref": "SYM-MAR-GROUNDING"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-010",
+        "ref": "SYM-ELEC-BREAKER"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-010",
+        "ref": "SYM-ELEC-TRANSFORMER"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-010",
+        "ref": "SYM-ELEC-RELAY"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-010",
+        "ref": "SYM-ELEC-CT"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-010",
+        "ref": "SYM-ELEC-PT"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-011",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-011",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-011",
+        "ref": "SYM-MAR-MOORING"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-011",
+        "ref": "SYM-MAR-ANCHOR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-012",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-012",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-012",
+        "ref": "SYM-MAR-CABLE"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-012",
+        "ref": "SYM-MAR-FLOATER"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-013",
+        "ref": "SYM-CTRL-PLC"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-013",
+        "ref": "SYM-CTRL-RTU"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-013",
+        "ref": "SYM-CTRL-HMI"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-013",
+        "ref": "SYM-CTRL-NETWORK"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-013",
+        "ref": "SYM-MAR-AIS"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-013",
+        "ref": "SYM-MAR-NAV_LIGHT"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-014",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-014",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-014",
+        "ref": "SYM-MAR-EXCLUSION"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-014",
+        "ref": "SYM-MAR-BUOY"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-014",
+        "ref": "SYM-MAR-MAMMAL"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-015",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-015",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-015",
+        "ref": "SYM-MAR-BUOY"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-015",
+        "ref": "SYM-MAR-EXCLUSION"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-015",
+        "ref": "SYM-MAR-AIS"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-016",
+        "ref": "SYM-PROC-PUMP"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-016",
+        "ref": "SYM-PROC-HEX"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-016",
+        "ref": "SYM-PROC-TURBINE"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-016",
+        "ref": "SYM-PROC-VESSEL"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-016",
+        "ref": "SYM-PROC-VALVE"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-017",
+        "ref": "SYM-COM-NORTH"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-017",
+        "ref": "SYM-COM-SCALEBAR"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-001",
+        "ref": "CONTAINER_SYMBOL|TRANSFORMER_SYMBOL|FENCE_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-002",
+        "ref": "BAT_ACTION_POINT|CONTROL_POINT"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-003",
+        "ref": "RACK_SYMBOL|HVAC_SYMBOL|FIRE_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-004",
+        "ref": "MODULE_SYMBOL|BMS_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-005",
+        "ref": "CELL_SYMBOL|BUSBAR_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-006",
+        "ref": "RACK_SYMBOL|BREAKER_SYMBOL|DISCONNECT_SYMBOL|PCS_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-007",
+        "ref": "PCS_SYMBOL|BREAKER_SYMBOL|XFR_SYMBOL|METER_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-008",
+        "ref": "GROUND_ROD_SYMBOL|AIR_TERMINAL_SYMBOL|DOWN_CONDUCTOR_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-009",
+        "ref": "SPRINKLER_SYMBOL|CLEAN_AGENT_SYMBOL|NOZZLE_SYMBOL|FIRE_PUMP_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-010",
+        "ref": "GAS_SENSOR_H2_SYMBOL|GAS_SENSOR_CO_SYMBOL|SMOKE_DETECTOR_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-011",
+        "ref": "HVAC_DUCT_SYMBOL|HVAC_FAN_SYMBOL|LOUVER_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-012",
+        "ref": "BMS_SYMBOL|EMS_SYMBOL|SCADA_GATEWAY_SYMBOL|RTU_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-013",
+        "ref": "NETWORK_SWITCH_SYMBOL|RTU_SYMBOL|GATEWAY_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-014",
+        "ref": "ZONE_1_SYMBOL|ZONE_2_SYMBOL|NON_HAZARDOUS_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-015",
+        "ref": "FOUNDATION_SYMBOL|REBAR_SYMBOL|ANCHOR_BOLT_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-016",
+        "ref": "ZONE_SYMBOL|CONDUIT_SYMBOL|FIREWALL_SYMBOL"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-017",
+        "ref": "ALL_SYMBOLS"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-001",
+        "ref": "PV_AREA_SYMBOL|WIND_TURBINE_SYMBOL|BESS_SYMBOL|PCC_SYMBOL|FENCE_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-002",
+        "ref": "BAT_ACTION_POINT|CONTROL_POINT"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-003",
+        "ref": "PV_SYMBOL|WIND_SYMBOL|BESS_SYMBOL|HYDRO_SYMBOL|DIESEL_SYMBOL|PCC_SYMBOL|XFR_SYMBOL|BREAKER_SYMBOL|METER_SYMBOL|RELAY_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-004",
+        "ref": "PCC_SYMBOL|BREAKER_SYMBOL|SYNC_CHECK_RELAY|CT|PT|METER_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-005",
+        "ref": "PV_MODULE_SYMBOL|PV_STRING_SYMBOL|PV_INVERTER_SYMBOL|BREAKER_SYMBOL|COMBINER_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-006",
+        "ref": "BESS_RACK_SYMBOL|BESS_PCS_SYMBOL|BREAKER_SYMBOL|DC_DISCONNECT"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-007",
+        "ref": "WIND_TURBINE_SYMBOL|WT_XFR_SYMBOL|BREAKER_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-008",
+        "ref": "HYDRO_TURBINE_SYMBOL|HYDRO_GEN_SYMBOL|BREAKER_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-009",
+        "ref": "REACTOR_SYMBOL|DIGESTER_SYMBOL|GAS_HOLDER_SYMBOL|FLARE_SYMBOL|ENGINE_GEN_SYMBOL|GEOTH_WELL_SYMBOL|BINARY_UNIT_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-010",
+        "ref": "EMS_SYMBOL|SCADA_SYMBOL|PLC_SYMBOL|RTU_SYMBOL|IED_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-011",
+        "ref": "SCADA_GATEWAY_SYMBOL|SWITCH_SYMBOL|FIBER_SYMBOL|RADIO_SYMBOL|CELLULAR_SYMBOL|IED_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-012",
+        "ref": "RELAY_SYMBOL|CT_SYMBOL|PT_SYMBOL|BREAKER_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-013",
+        "ref": "GROUNDING_GRID_SYMBOL|GROUND_ROD_SYMBOL|AIR_TERMINAL_SYMBOL|DOWN_CONDUCTOR_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-014",
+        "ref": "ZONE_SYMBOL|CONDUIT_SYMBOL|FIREWALL_SYMBOL|IDS_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-015",
+        "ref": "EMS_SYMBOL|OPTIMIZER_SYMBOL|FORECAST_SYMBOL|DR_CONTROLLER_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-016",
+        "ref": "DR_CONTROLLER_SYMBOL|EV_CHARGER_SYMBOL|EV_CIRCUIT_SYMBOL|METER_SYMBOL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-017",
+        "ref": "EQUIPMENT_SYMBOL|COORDINATE_SYMBOL"
+      }
+    ],
+    "layer_ids": [
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-001",
+        "ref": "PVG-CIV-SITEPLAN"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-002",
+        "ref": "PVG-CIV-IMPLANT"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-002",
+        "ref": "PVG-CIV-FENCE"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-002",
+        "ref": "PVG-CIV-ROAD"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-003",
+        "ref": "PVG-CIV-REPLANT"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-004",
+        "ref": "PVG-ELEC-ARRAY"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-004",
+        "ref": "PVG-ELEC-STRING"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-005",
+        "ref": "PVG-ELEC-STRING"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-006",
+        "ref": "PVG-ELEC-DC-COLLECTION"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-007",
+        "ref": "PVG-ELEC-AC-COLLECTION"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-008",
+        "ref": "PVG-ELEC-SLD"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-009",
+        "ref": "PVG-CIV-FOUNDATION"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-010",
+        "ref": "PVG-MECH-STRUCTURE"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-011",
+        "ref": "PVG-MECH-TRACKER"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-012",
+        "ref": "PVG-ELEC-GROUNDING"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-013",
+        "ref": "PVG-CIV-TRENCH"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-014",
+        "ref": "PVG-CIV-SECTION"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-015",
+        "ref": "PVG-CTRL-SCADA"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-016",
+        "ref": "PVG-FIRE-DETECTION"
+      },
+      {
+        "file": "01_pv_ground/E",
+        "drawing_id": "PVG-DRW-017",
+        "ref": "GEN-ALL-ASBUILT"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-001",
+        "ref": "HYD-CIV-CUENCA"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-002",
+        "ref": "HYD-CIV-SITEPLAN"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-003",
+        "ref": "HYD-CIV-INTAKE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-004",
+        "ref": "HYD-CIV-INTAKE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-005",
+        "ref": "HYD-CIV-CANAL"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-006",
+        "ref": "HYD-CIV-PENSTOCK"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-007",
+        "ref": "HYD-CIV-POWERHOUSE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-008",
+        "ref": "HYD-CIV-POWERHOUSE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-009",
+        "ref": "HYD-MECH-TURBINE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-010",
+        "ref": "HYD-ELEC-GENERATOR"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-011",
+        "ref": "HYD-ELEC-SLD"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-012",
+        "ref": "HYD-CIV-TAILRACE"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-013",
+        "ref": "HYD-CIV-SPILLWAY"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-014",
+        "ref": "HYD-CIV-SPILLWAY"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-015",
+        "ref": "HYD-ELEC-CONTROL"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-016",
+        "ref": "HYD-ELEC-GROUND"
+      },
+      {
+        "file": "06_hydro/E",
+        "drawing_id": "HYD-DRW-017",
+        "ref": "HYD-CIV-ASBUILT"
+      },
+      {
+        "file": "07_biomass/E",
+        "drawing_id": "BIO-DRW-004",
+        "ref": "MECH-ALL-WT-TOWER"
+      },
+      {
+        "file": "07_biomass/E",
+        "drawing_id": "BIO-DRW-005",
+        "ref": "MECH-ALL-WT-TOWER"
+      },
+      {
+        "file": "07_biomass/E",
+        "drawing_id": "BIO-DRW-013",
+        "ref": "MECH-ALL-WT-TOWER"
+      },
+      {
+        "file": "07_biomass/E",
+        "drawing_id": "BIO-DRW-017",
+        "ref": "As-built stamp"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-001",
+        "ref": "GEO-CIV-SITEPLAN"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-002",
+        "ref": "GEO-CIV-IMPLANT"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-003",
+        "ref": "GEO-CIV-WELLS"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-004",
+        "ref": "GEO-PIPING-GATHERING"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-005",
+        "ref": "GEO-PIPING-PROFILE"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-006",
+        "ref": "GEO-MECH-SEPARATOR"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-007",
+        "ref": "GEO-PROC-PID-SEP"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-008",
+        "ref": "GEO-MECH-TURBINE"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-009",
+        "ref": "GEO-MECH-TURBINE-SECTION"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-010",
+        "ref": "GEO-MECH-ORC"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-011",
+        "ref": "GEO-ELEC-SLD"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-012",
+        "ref": "GEO-MECH-CONDENSER"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-013",
+        "ref": "GEO-PROC-NCG"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-014",
+        "ref": "GEO-CTRL-SCADA"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-015",
+        "ref": "GEO-FIRE-DETECTION"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-016",
+        "ref": "GEO-PROC-AREA-CLASS"
+      },
+      {
+        "file": "09_geothermal/E",
+        "drawing_id": "GEO-DRW-017",
+        "ref": "GEN-ALL-ASBUILT"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-001",
+        "ref": "CSP-CIV-SITEPLAN"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-002",
+        "ref": "CSP-CIV-IMPLANT"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-003",
+        "ref": "CSP-CIV-HELIOSTAT-FIELD"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-004",
+        "ref": "CSP-CIV-TROUGH-FIELD"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-005",
+        "ref": "CSP-MECH-TOWER-PLAN"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-006",
+        "ref": "CSP-MECH-TOWER-SECTION"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-007",
+        "ref": "CSP-PROC-PFD-HTF"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-008",
+        "ref": "CSP-PROC-PID-HTF"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-009",
+        "ref": "CSP-PROC-PID-TES"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-010",
+        "ref": "CSP-PROC-PID-STEAM"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-011",
+        "ref": "CSP-MECH-TURBINE-HALL"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-012",
+        "ref": "CSP-ELEC-SLD"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-013",
+        "ref": "CSP-CTRL-SCADA"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-014",
+        "ref": "CSP-FIRE-DETECTION"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-015",
+        "ref": "CSP-OPS-MIRROR-WASHING"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-016",
+        "ref": "CSP-ELEC-GROUNDING"
+      },
+      {
+        "file": "10_solar_thermal_csp/E",
+        "drawing_id": "CSP-DRW-017",
+        "ref": "GEN-ALL-ASBUILT"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-001",
+        "ref": "MAR-CIV-BATHY"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-002",
+        "ref": "MAR-CIV-SITE"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-003",
+        "ref": "MAR-CIV-DEVICE"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-004",
+        "ref": "MAR-ELEC-CABLE"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-005",
+        "ref": "MAR-ELEC-EXPORT"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-006",
+        "ref": "MAR-CIV-LANDFALL"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-007",
+        "ref": "MAR-CIV-FOUNDATION"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-008",
+        "ref": "MAR-CIV-FOUNDATION"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-009",
+        "ref": "MAR-ELEC-SUBSTATION"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-010",
+        "ref": "MAR-ELEC-SLD"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-011",
+        "ref": "MAR-CIV-MOORING"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-012",
+        "ref": "MAR-ELEC-DYN-CABLE"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-013",
+        "ref": "MAR-CTRL-SCADA"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-014",
+        "ref": "MAR-ENV-EXCLUSION"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-015",
+        "ref": "MAR-NAV-CORRIDOR"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-016",
+        "ref": "MAR-PROC-OTEC"
+      },
+      {
+        "file": "11_marine/E",
+        "drawing_id": "MAR-DRW-017",
+        "ref": "MAR-CIV-ASBUILT"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-001",
+        "ref": "A-NPLT|A-CONT|A-ROAD|A-FENC|E-GRID"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-002",
+        "ref": "A-IMPL|A-PADS|C-FOUND"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-003",
+        "ref": "A-CONT|A-RACK|M-HVAC|S-FIRE"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-004",
+        "ref": "A-RACK|A-MODU|E-BMS"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-005",
+        "ref": "A-MODU|A-CELL|E-BUS"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-006",
+        "ref": "E-DCSL|E-DCBK|E-DCCT"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-007",
+        "ref": "E-ACSL|E-ACBK|E-REL|E-MTR"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-008",
+        "ref": "E-GRID|E-LTGN"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-009",
+        "ref": "S-FIRE|S-FLWD|S-DET"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-010",
+        "ref": "S-GDET|S-SDET"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-011",
+        "ref": "M-HVAC|M-DUCT|M-FAN"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-012",
+        "ref": "E-CTRL|E-NETW|E-SCADA"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-013",
+        "ref": "E-NETW|E-PROT"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-014",
+        "ref": "S-AREA|S-ZONE"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-015",
+        "ref": "C-FOUND|C-REBR|C-ANCH"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-016",
+        "ref": "E-CYBR|E-ZONE"
+      },
+      {
+        "file": "12_bess/E",
+        "drawing_id": "BESS-DRW-017",
+        "ref": "A-ASBL|A-CONT|E-GRID|S-FIRE|S-CYBR"
+      },
+      {
+        "file": "13_hydrogen/E",
+        "drawing_id": "H2-DRW-017",
+        "ref": "As-built stamp"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-001",
+        "ref": "A-NPLT|A-PV|A-WIND|A-BESS|A-PCC|E-GRID"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-002",
+        "ref": "A-IMPL|A-PADS|C-FOUND"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-003",
+        "ref": "E-ACSL|E-DCSL|E-PROT|E-METER"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-004",
+        "ref": "E-PCC|E-SYNC|E-AISL"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-005",
+        "ref": "E-PV-DC|E-PV-AC"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-006",
+        "ref": "E-BESS-DC|E-BESS-AC"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-007",
+        "ref": "E-WIND-AC"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-008",
+        "ref": "E-HYDRO-AC"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-009",
+        "ref": "P-BIO|P-GAS|P-GEOTH|S-AEx"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-010",
+        "ref": "C-ARCH|C-EMS|C-SCADA"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-011",
+        "ref": "C-SCADA|C-COMM"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-012",
+        "ref": "E-PROT|E-RELAY"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-013",
+        "ref": "E-GRID|E-GND|E-LTG"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-014",
+        "ref": "C-CYBER|C-ZONE"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-015",
+        "ref": "C-EMS|C-OPT"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-016",
+        "ref": "E-DR|E-EV|E-METER"
+      },
+      {
+        "file": "14_hybrid_microgrid/E",
+        "drawing_id": "MG-DRW-017",
+        "ref": "A-ASBLT|A-EQIP|E-GRID"
+      }
+    ]
+  },
+  "missing_symbols_without_primitives": [],
+  "missing_geometry_algorithm": [
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-001"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-002"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-003"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-004"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-005"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-006"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-007"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-008"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-009"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-010"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-011"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-012"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-013"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-014"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-015"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-016"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-017"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-018"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-019"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-020"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-021"
+    },
+    {
+      "file": "03_pv_floating/D_geometry_rules.json",
+      "geometry_rule_id": "PVF-GEO-022"
+    }
+  ],
+  "formulas_without_units_or_outputs": [
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-001"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-002"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-003"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-004"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-005"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-006"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-007"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-008"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-009"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-010"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-011"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-012"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-013"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-014"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-015"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-016"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-017"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-018"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-019"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-020"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-021"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-022"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-023"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-024"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-025"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-026"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-027"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-028"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-029"
+    },
+    {
+      "file": "02_pv_roof_carport/C_formulas.json",
+      "calculation_id": "PVR-C-030"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-001"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-002"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-003"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-004"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-005"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-006"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-007"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-008"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-009"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-010"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-011"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-012"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-013"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-014"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-015"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-016"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-017"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-018"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-019"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-020"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-021"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-022"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-023"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-024"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-025"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-026"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-027"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-028"
+    },
+    {
+      "file": "03_pv_floating/C_formulas.json",
+      "calculation_id": "PVF-CAL-029"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-001"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-002"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-003"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-004"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-005"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-006"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-007"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-008"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-009"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-010"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-011"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-012"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-013"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-014"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-015"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-016"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-017"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-018"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-019"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-020"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-021"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-022"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-023"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-024"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-025"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-026"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-027"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-028"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-029"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-030"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-031"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-032"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-033"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-034"
+    },
+    {
+      "file": "04_wind_onshore/C_formulas.json",
+      "calculation_id": "WON-CALC-035"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-001"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-002"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-003"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-004"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-005"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-006"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-007"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-008"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-009"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-010"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-011"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-012"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-013"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-014"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-015"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-016"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-017"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-018"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-019"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-020"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-021"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-022"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-023"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-024"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-025"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-026"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-027"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-028"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-029"
+    },
+    {
+      "file": "05_wind_offshore/C_formulas.json",
+      "calculation_id": "WOF-CALC-030"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-001"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-002"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-003"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-004"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-005"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-006"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-007"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-008"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-009"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-010"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-011"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-012"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-013"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-014"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-015"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-016"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-017"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-018"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-019"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-020"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-021"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-022"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-023"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-024"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-025"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-026"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-027"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-028"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-029"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-030"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-031"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-032"
+    },
+    {
+      "file": "08_biogas/C_formulas.json",
+      "calculation_id": "BIG-CALC-033"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-001"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-002"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-003"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-004"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-005"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-006"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-007"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-008"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-009"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-010"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-011"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-012"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-013"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-014"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-015"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-016"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-017"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-018"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-019"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-020"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-021"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-022"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-023"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-024"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-025"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-026"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-027"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-028"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-029"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-030"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-031"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-032"
+    },
+    {
+      "file": "09_geothermal/C_formulas.json",
+      "calculation_id": "GEO-C-033"
+    }
+  ],
+  "drawings_without_minimum_deps": [
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-001",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-002",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-003",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-004",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-005",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-006",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-007",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-008",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-009",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-010",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-011",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-012",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-013",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-014",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-015",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-016",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "02_pv_roof_carport/E_drawing_catalog.csv",
+      "drawing_id": "PVR-DRW-017",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-001",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-002",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-003",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-004",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-005",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-006",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-007",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-008",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-009",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-010",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-011",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-012",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-013",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-014",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-015",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-016",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "03_pv_floating/E_drawing_catalog.csv",
+      "drawing_id": "PVF-DRW-017",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-001",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-002",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-003",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-004",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-005",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-006",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-007",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-008",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-009",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-010",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-011",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-012",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-013",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-014",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-015",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-016",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "04_wind_onshore/E_drawing_catalog.csv",
+      "drawing_id": "WON-DRW-017",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-001",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-002",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-003",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-004",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-005",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-006",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-007",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-008",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-009",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-010",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-011",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-012",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-013",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-014",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-015",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-016",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-017",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-018",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-019",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "05_wind_offshore/E_drawing_catalog.csv",
+      "drawing_id": "WOF-DRW-020",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "07_biomass/E_drawing_catalog.csv",
+      "drawing_id": "BIO-DRW-014",
+      "deps": {
+        "field_ids": [
+          "BIO-035"
+        ],
+        "calc_ids": [
+          "BIO-C-008"
+        ],
+        "geom_ids": [],
+        "symbol_ids": [
+          "SYM-ELEC-004",
+          "SYM-ELEC-005",
+          "SYM-ELEC-013"
+        ],
+        "layers": [
+          "ELEC-ALL-SLD"
+        ],
+        "qa_ids": [
+          "BIO-QA-014"
+        ]
+      }
+    },
+    {
+      "file": "07_biomass/E_drawing_catalog.csv",
+      "drawing_id": "BIO-DRW-015",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [
+          "SYM-INST-001",
+          "SYM-INST-002",
+          "SYM-INST-003"
+        ],
+        "layers": [
+          "INST-ALL-INSTRUMENT"
+        ],
+        "qa_ids": [
+          "BIO-QA-015"
+        ]
+      }
+    },
+    {
+      "file": "07_biomass/E_drawing_catalog.csv",
+      "drawing_id": "BIO-DRW-017",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [
+          "As-built stamp"
+        ],
+        "qa_ids": [
+          "AFC stamp required"
+        ]
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-001",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-002",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-003",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-004",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-005",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-006",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-007",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-008",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-009",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-010",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-011",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-012",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-013",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-014",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-015",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-016",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "08_biogas/E_drawing_catalog.csv",
+      "drawing_id": "BIG-DRW-017",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [],
+        "qa_ids": []
+      }
+    },
+    {
+      "file": "09_geothermal/E_drawing_catalog.csv",
+      "drawing_id": "GEO-DRW-016",
+      "deps": {
+        "field_ids": [
+          "GEO-084",
+          "GEO-085",
+          "GEO-022",
+          "GEO-023",
+          "GEO-074",
+          "GEO-115",
+          "GEO-080"
+        ],
+        "calc_ids": [],
+        "geom_ids": [
+          "GEO-GR-018",
+          "GEO-GR-019",
+          "GEO-GR-020"
+        ],
+        "symbol_ids": [
+          "SYM-GEO-ZONE-0",
+          "SYM-GEO-ZONE-1",
+          "SYM-GEO-ZONE-2",
+          "SYM-GEO-VENT-RAD-ZONE"
+        ],
+        "layers": [
+          "GEN-ALL-BORDER",
+          "GEN-ALL-TITLEBLOCK",
+          "GEO-PROC-AREA-CLASS"
+        ],
+        "qa_ids": [
+          "GEO-QA-015B",
+          "GEO-QA-031",
+          "GEO-QA-032"
+        ]
+      }
+    },
+    {
+      "file": "13_hydrogen/E_drawing_catalog.csv",
+      "drawing_id": "H2-DRW-017",
+      "deps": {
+        "field_ids": [],
+        "calc_ids": [],
+        "geom_ids": [],
+        "symbol_ids": [],
+        "layers": [
+          "As-built stamp"
+        ],
+        "qa_ids": [
+          "AFC stamp required"
+        ]
+      }
+    }
+  ],
+  "mandatory_fields_without_policy": [],
+  "placeholder_occurrences": [],
+  "role_names_in_source_ids": [
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-021",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-032",
+      "role": "MECHANICAL_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-038",
+      "role": "MECHANICAL_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-046",
+      "role": "ENVIRONMENTAL_LEAD"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-047",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-070",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-071",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-072",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-073",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-074",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-075",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-081",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-085",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-086",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-087",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-088",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-089",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-090",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-091",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-092",
+      "role": "MECHANICAL_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-093",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-095",
+      "role": "ENVIRONMENTAL_LEAD"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-096",
+      "role": "ENVIRONMENTAL_LEAD"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-097",
+      "role": "ENVIRONMENTAL_LEAD"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-098",
+      "role": "ENVIRONMENTAL_LEAD"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-099",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "07_biomass/A_input_fields.csv",
+      "field_id": "BIO-100",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-001",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-017",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-020",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-021",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-029",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-032",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-033",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-041",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-044",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-047",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-048",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-049",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-050",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-051",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-052",
+      "role": "ELECTRICAL_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-057",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-059",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-060",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-061",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-062",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-068",
+      "role": "ELECTRICAL_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-069",
+      "role": "ENVIRONMENTAL_LEAD"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-070",
+      "role": "ENVIRONMENTAL_LEAD"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-073",
+      "role": "CONTROL_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-074",
+      "role": "CONTROL_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-075",
+      "role": "CONTROL_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-080",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-081",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-082",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-083",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-084",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-085",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-086",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-088",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-089",
+      "role": "MECHANICAL_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-090",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-091",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-092",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-093",
+      "role": "SAFETY_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-094",
+      "role": "PROCESS_ENGINEER"
+    },
+    {
+      "file": "13_hydrogen/A_input_fields.csv",
+      "field_id": "H2-095",
+      "role": "ELECTRICAL_ENGINEER"
+    }
+  ],
+  "schemas_by_tech": {
+    "01_pv_ground": {
+      "A": "OK",
+      "B": "OK",
+      "C": "OK",
+      "D": "OK",
+      "E": "OK",
+      "F": "OK",
+      "G": "OK",
+      "H": "OK"
+    },
+    "02_pv_roof_carport": {
+      "A": "OK",
+      "B": "MISMATCH",
+      "C": "MISMATCH",
+      "D": "MISMATCH",
+      "E": "MISMATCH",
+      "F": "MISMATCH",
+      "G": "OK",
+      "H": "MISMATCH"
+    },
+    "03_pv_floating": {
+      "A": "OK",
+      "B": "MISMATCH",
+      "C": "MISMATCH",
+      "D": "MISMATCH",
+      "E": "MISMATCH",
+      "F": "MISMATCH",
+      "G": "OK",
+      "H": "MISMATCH"
+    },
+    "04_wind_onshore": {
+      "A": "OK",
+      "B": "MISMATCH",
+      "C": "MISMATCH",
+      "D": "MISMATCH",
+      "E": "MISMATCH",
+      "F": "MISMATCH",
+      "G": "OK",
+      "H": "MISMATCH"
+    },
+    "05_wind_offshore": {
+      "A": "OK",
+      "B": "MISMATCH",
+      "C": "MISMATCH",
+      "D": "MISMATCH",
+      "E": "MISMATCH",
+      "F": "MISMATCH",
+      "G": "OK",
+      "H": "MISMATCH"
+    },
+    "06_hydro": {
+      "A": "OK",
+      "B": "MISMATCH",
+      "C": "OK",
+      "D": "MISMATCH",
+      "E": "OK",
+      "F": "OK",
+      "G": "OK",
+      "H": "OK"
+    },
+    "07_biomass": {
+      "A": "OK",
+      "B": "OK",
+      "C": "OK",
+      "D": "OK",
+      "E": "OK",
+      "F": "OK",
+      "G": "OK",
+      "H": "OK"
+    },
+    "08_biogas": {
+      "A": "OK",
+      "B": "MISMATCH",
+      "C": "MISMATCH",
+      "D": "MISMATCH",
+      "E": "MISMATCH",
+      "F": "MISMATCH",
+      "G": "OK",
+      "H": "OK"
+    },
+    "09_geothermal": {
+      "A": "OK",
+      "B": "MISMATCH",
+      "C": "MISMATCH",
+      "D": "MISMATCH",
+      "E": "OK",
+      "F": "OK",
+      "G": "OK",
+      "H": "OK"
+    },
+    "10_solar_thermal_csp": {
+      "A": "OK",
+      "B": "MISMATCH",
+      "C": "MISMATCH",
+      "D": "MISMATCH",
+      "E": "OK",
+      "F": "OK",
+      "G": "OK",
+      "H": "OK"
+    },
+    "11_marine": {
+      "A": "OK",
+      "B": "MISMATCH",
+      "C": "OK",
+      "D": "MISMATCH",
+      "E": "OK",
+      "F": "OK",
+      "G": "OK",
+      "H": "OK"
+    },
+    "12_bess": {
+      "A": "OK",
+      "B": "MISMATCH",
+      "C": "OK",
+      "D": "OK",
+      "E": "OK",
+      "F": "OK",
+      "G": "OK",
+      "H": "OK"
+    },
+    "13_hydrogen": {
+      "A": "OK",
+      "B": "OK",
+      "C": "OK",
+      "D": "OK",
+      "E": "OK",
+      "F": "OK",
+      "G": "OK",
+      "H": "OK"
+    },
+    "14_hybrid_microgrid": {
+      "A": "OK",
+      "B": "MISMATCH",
+      "C": "OK",
+      "D": "OK",
+      "E": "OK",
+      "F": "OK",
+      "G": "OK",
+      "H": "OK"
+    }
+  },
+  "summary": {
+    "files_read": 112,
+    "syntax_errors_count": 0,
+    "schema_mismatches_count": 41,
+    "duplicate_ids_count": 8,
+    "broken_source_ids_count": 91,
+    "broken_field_ids_count": 34,
+    "broken_calculation_ids_count": 33,
+    "broken_geometry_rule_ids_count": 29,
+    "broken_drawing_ids_count": 0,
+    "broken_qa_rule_ids_count": 37,
+    "broken_symbol_ids_count": 359,
+    "broken_layer_ids_count": 127,
+    "missing_symbols_without_primitives_count": 0,
+    "missing_geometry_algorithm_count": 22,
+    "formulas_without_units_or_outputs_count": 190,
+    "drawings_without_minimum_deps_count": 93,
+    "mandatory_fields_without_policy_count": 0,
+    "placeholder_occurrences_count": 0,
+    "role_names_in_source_ids_count": 68,
+    "schemas_ok_count": 71,
+    "schemas_mismatch_count": 41,
+    "total_schemas_expected": 112,
+    "sources_registered": 214,
+    "common_field_ids": 152,
+    "common_layer_ids": 280,
+    "common_symbol_ids": 139,
+    "tech_field_ids_total": 1718,
+    "tech_calc_ids_total": 440,
+    "tech_geom_ids_total": 225,
+    "tech_drawing_ids_total": 241,
+    "tech_qa_ids_total": 492,
+    "tech_equipment_ids_total": 270
+  }
+}

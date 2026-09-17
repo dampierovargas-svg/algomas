@@ -1,0 +1,17 @@
+{
+  "technology": "01_pv_ground",
+  "project_id": "TEST-PVG-001",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {
+    "PVG-001": "value_0",
+    "PVG-002": "value_1",
+    "PVG-003": "value_2",
+    "PVG-004": "value_3",
+    "PVG-005": "value_4"
+  },
+  "drawings_to_generate": [
+    "PVG-DRW-001",
+    "PVG-DRW-002",
+    "PVG-DRW-003"
+  ]
+}

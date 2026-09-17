@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/drawing.schema.json",
+  "title": "Plano CAD",
+  "description": "Catálogo de plano con campos, cálculos, geometrías y QA asociados",
+  "type": "object",
+  "required": [
+    "drawing_id",
+    "name_es",
+    "discipline",
+    "domain_tags",
+    "required_fields",
+    "required_calculations",
+    "required_geometries",
+    "required_symbols",
+    "qa_rules"
+  ],
+  "properties": {
+    "drawing_id": {
+      "type": "string",
+      "pattern": "^DWG-[A-Z]{3,6}-\\d{4}$"
+    },
+    "name_es": {
+      "type": "string",
+      "minLength": 10
+    },
+    "name_en": {
+      "type": "string"
+    },
+    "discipline": {
+      "type": "string",
+      "enum": ["ELEC", "CIVIL", "STR", "MECH", "HYD", "PROC", "INST", "SAFETY", "FIRE", "GEO", "ENV", "GEN"]
+    },
+    "domain_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["pv", "wind", "hydro", "biomass", "biogas", "geothermal", "csp", "marine", "bess", "hydrogen", "hybrid"]
+      },
+      "uniqueItems": true
+    },
+    "required_fields": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "required_calculations": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "required_geometries": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "required_symbols": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "qa_rules": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "layers_used": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}

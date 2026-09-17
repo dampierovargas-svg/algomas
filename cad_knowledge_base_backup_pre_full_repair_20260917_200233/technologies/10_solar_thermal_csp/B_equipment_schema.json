@@ -1,0 +1,1318 @@
+[
+  {
+    "equipment_type_id": "HELIOSTAT",
+    "name_es": "Heliostato de campo solar (con pedestal, espejo y drive)",
+    "subsystem": "SOLAR_FIELD",
+    "properties": [
+      {
+        "name_es": "Área de apertura",
+        "field_id": "CSP-029",
+        "data_type": "float",
+        "unit": "m2",
+        "min": 1,
+        "max": 200
+      },
+      {
+        "name_es": "Altura",
+        "field_id": "CSP-030",
+        "data_type": "float",
+        "unit": "m",
+        "min": 2,
+        "max": 15
+      },
+      {
+        "name_es": "Ancho",
+        "field_id": "CSP-031",
+        "data_type": "float",
+        "unit": "m",
+        "min": 2,
+        "max": 15
+      },
+      {
+        "name_es": "Reflectancia",
+        "field_id": "CSP-032",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0.85,
+        "max": 0.95
+      },
+      {
+        "name_es": "Modo de seguimiento",
+        "field_id": "CSP-033",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Altura de pedestal",
+        "field_id": "CSP-095",
+        "data_type": "float",
+        "unit": "m",
+        "min": 1,
+        "max": 10
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "PARABOLIC_TROUGH",
+    "name_es": "Colector parabólico (trough)",
+    "subsystem": "SOLAR_FIELD",
+    "properties": [
+      {
+        "name_es": "Longitud de lazo",
+        "field_id": "CSP-103",
+        "data_type": "float",
+        "unit": "m",
+        "min": 100,
+        "max": 1000
+      },
+      {
+        "name_es": "Ancho de apertura",
+        "field_id": "CSP-104",
+        "data_type": "float",
+        "unit": "m",
+        "min": 3,
+        "max": 9
+      },
+      {
+        "name_es": "IAM",
+        "field_id": "CSP-020",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0.85,
+        "max": 1.05
+      },
+      {
+        "name_es": "End-loss",
+        "field_id": "CSP-021",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0.5,
+        "max": 1.0
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "PARABOLIC_DISH",
+    "name_es": "Colector parabólico tipo dish (Stirling)",
+    "subsystem": "SOLAR_FIELD",
+    "properties": [
+      {
+        "name_es": "CR",
+        "field_id": "CSP-026",
+        "data_type": "float",
+        "unit": "-",
+        "min": 100,
+        "max": 3000
+      },
+      {
+        "name_es": "Tracking mode",
+        "field_id": "CSP-033",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Reflectancia",
+        "field_id": "CSP-024",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0.85,
+        "max": 0.95
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "LINEAR_FRESNEL",
+    "name_es": "Reflector lineal Fresnel",
+    "subsystem": "SOLAR_FIELD",
+    "properties": [
+      {
+        "name_es": "Longitud de lazo",
+        "field_id": "CSP-103",
+        "data_type": "float",
+        "unit": "m",
+        "min": 100,
+        "max": 1000
+      },
+      {
+        "name_es": "Ancho de apertura",
+        "field_id": "CSP-104",
+        "data_type": "float",
+        "unit": "m",
+        "min": 3,
+        "max": 16
+      },
+      {
+        "name_es": "End-loss",
+        "field_id": "CSP-021",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0.5,
+        "max": 1.0
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "RECEIVER_TOWER",
+    "name_es": "Torre receptora solar (tower)",
+    "subsystem": "SOLAR_RECEIVER",
+    "properties": [
+      {
+        "name_es": "Altura de torre",
+        "field_id": "CSP-093",
+        "data_type": "float",
+        "unit": "m",
+        "min": 20,
+        "max": 250
+      },
+      {
+        "name_es": "Tipo de fundación",
+        "field_id": "CSP-094",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "PGA sísmica",
+        "field_id": "CSP-118",
+        "data_type": "float",
+        "unit": "g",
+        "min": 0.05,
+        "max": 1.5
+      },
+      {
+        "name_es": "Capacidad de suelo",
+        "field_id": "CSP-117",
+        "data_type": "float",
+        "unit": "kPa",
+        "min": 50,
+        "max": 1000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "RECEIVER_TUBE_HCE",
+    "name_es": "Tubo absorbedor (Heat Collection Element - HCE) para trough",
+    "subsystem": "SOLAR_RECEIVER",
+    "properties": [
+      {
+        "name_es": "Diámetro HCE",
+        "field_id": "CSP-105",
+        "data_type": "float",
+        "unit": "mm",
+        "min": 50,
+        "max": 150
+      },
+      {
+        "name_es": "Absortancia",
+        "field_id": "CSP-106",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0.9,
+        "max": 0.97
+      },
+      {
+        "name_es": "Emisividad",
+        "field_id": "CSP-107",
+        "data_type": "float",
+        "unit": "-",
+        "min": 0.07,
+        "max": 0.2
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "RECEIVER_VOLUMETRIC",
+    "name_es": "Receptor volumétrico (tower, aire)",
+    "subsystem": "SOLAR_RECEIVER",
+    "properties": [
+      {
+        "name_es": "Tipo de receptor",
+        "field_id": "CSP-040",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Altura",
+        "field_id": "CSP-041",
+        "data_type": "float",
+        "unit": "m",
+        "min": 1,
+        "max": 30
+      },
+      {
+        "name_es": "Diámetro",
+        "field_id": "CSP-042",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.5,
+        "max": 20
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "HTF_PUMP_MOLTEN_SALT",
+    "name_es": "Bomba de sal fundida (molten salt) para HTF",
+    "subsystem": "HTF_CIRCUIT",
+    "properties": [
+      {
+        "name_es": "Tipo de HTF",
+        "field_id": "CSP-046",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "T cold",
+        "field_id": "CSP-051",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 200,
+        "max": 400
+      },
+      {
+        "name_es": "T hot",
+        "field_id": "CSP-052",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 300,
+        "max": 650
+      },
+      {
+        "name_es": "Diámetro header",
+        "field_id": "CSP-074",
+        "data_type": "float",
+        "unit": "in",
+        "min": 6,
+        "max": 48
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "HTF_PUMP_OIL",
+    "name_es": "Bomba de aceite sintético para HTF",
+    "subsystem": "HTF_CIRCUIT",
+    "properties": [
+      {
+        "name_es": "Tipo de HTF",
+        "field_id": "CSP-046",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "T de degradación",
+        "field_id": "CSP-053",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 300,
+        "max": 650
+      },
+      {
+        "name_es": "Clase NFPA 30",
+        "field_id": "CSP-083",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "HTF_PUMP_SCO2",
+    "name_es": "Compresor / bomba de sCO2 para HTF",
+    "subsystem": "HTF_CIRCUIT",
+    "properties": [
+      {
+        "name_es": "Tipo de HTF",
+        "field_id": "CSP-046",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "T hot",
+        "field_id": "CSP-052",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 300,
+        "max": 650
+      },
+      {
+        "name_es": "Detección CO2",
+        "field_id": "CSP-087",
+        "data_type": "bool",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TES_TANK_HOT",
+    "name_es": "Tanque caliente de TES (molten salt)",
+    "subsystem": "TES",
+    "properties": [
+      {
+        "name_es": "Tipo TES",
+        "field_id": "CSP-054",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Volumen hot",
+        "field_id": "CSP-055",
+        "data_type": "float",
+        "unit": "m3",
+        "min": 100,
+        "max": 50000
+      },
+      {
+        "name_es": "T hot",
+        "field_id": "CSP-052",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 300,
+        "max": 650
+      },
+      {
+        "name_es": "Capacidad kWhth",
+        "field_id": "CSP-057",
+        "data_type": "float",
+        "unit": "kWh",
+        "min": 1000,
+        "max": 10000000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TES_TANK_COLD",
+    "name_es": "Tanque frío de TES (molten salt)",
+    "subsystem": "TES",
+    "properties": [
+      {
+        "name_es": "Tipo TES",
+        "field_id": "CSP-054",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Volumen cold",
+        "field_id": "CSP-056",
+        "data_type": "float",
+        "unit": "m3",
+        "min": 100,
+        "max": 50000
+      },
+      {
+        "name_es": "T cold",
+        "field_id": "CSP-051",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 200,
+        "max": 400
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TES_THERMOCLINE",
+    "name_es": "Tanque de thermocline TES (estratificado)",
+    "subsystem": "TES",
+    "properties": [
+      {
+        "name_es": "Tipo TES",
+        "field_id": "CSP-054",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Volumen hot",
+        "field_id": "CSP-055",
+        "data_type": "float",
+        "unit": "m3",
+        "min": 100,
+        "max": 50000
+      },
+      {
+        "name_es": "Horas de almacenamiento",
+        "field_id": "CSP-058",
+        "data_type": "float",
+        "unit": "h",
+        "min": 3,
+        "max": 18
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "STEAM_GENERATOR_ECON",
+    "name_es": "Economizador del generador de vapor (SG)",
+    "subsystem": "POWER_BLOCK",
+    "properties": [
+      {
+        "name_es": "Duty economizador",
+        "field_id": "CSP-059",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 1,
+        "max": 500
+      },
+      {
+        "name_es": "Material HTF pipe",
+        "field_id": "CSP-075",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "STEAM_GENERATOR_EVAP",
+    "name_es": "Evaporador del generador de vapor (SG)",
+    "subsystem": "POWER_BLOCK",
+    "properties": [
+      {
+        "name_es": "Duty evaporador",
+        "field_id": "CSP-060",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 5,
+        "max": 800
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "STEAM_GENERATOR_SH",
+    "name_es": "Superheater del generador de vapor (SG)",
+    "subsystem": "POWER_BLOCK",
+    "properties": [
+      {
+        "name_es": "Duty superheater",
+        "field_id": "CSP-061",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 1,
+        "max": 300
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "STEAM_GENERATOR_RH",
+    "name_es": "Reheater del generador de vapor (SG)",
+    "subsystem": "POWER_BLOCK",
+    "properties": [
+      {
+        "name_es": "Duty reheater",
+        "field_id": "CSP-062",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 0,
+        "max": 200
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TURBINE_RANKINE",
+    "name_es": "Turbina de vapor Rankine (convencional / supercrítica)",
+    "subsystem": "POWER_BLOCK",
+    "properties": [
+      {
+        "name_es": "Tipo de turbina",
+        "field_id": "CSP-066",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Presión de admisión",
+        "field_id": "CSP-067",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 5,
+        "max": 250
+      },
+      {
+        "name_es": "Temperatura de admisión",
+        "field_id": "CSP-068",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 300,
+        "max": 650
+      },
+      {
+        "name_es": "Eficiencia isoentrópica",
+        "field_id": "CSP-069",
+        "data_type": "float",
+        "unit": "%",
+        "min": 75,
+        "max": 92
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TURBINE_SCO2_BRAYTON",
+    "name_es": "Turbina sCO2 Brayton (supercrítica)",
+    "subsystem": "POWER_BLOCK",
+    "properties": [
+      {
+        "name_es": "Tipo de turbina",
+        "field_id": "CSP-066",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Presión de admisión",
+        "field_id": "CSP-067",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 75,
+        "max": 250
+      },
+      {
+        "name_es": "Temperatura de admisión",
+        "field_id": "CSP-068",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 500,
+        "max": 750
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CONDENSER_WET",
+    "name_es": "Condensador húmedo de superficie (wet cooling)",
+    "subsystem": "HEAT_REJECTION",
+    "properties": [
+      {
+        "name_es": "Tipo de condensador",
+        "field_id": "CSP-070",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Duty condensador",
+        "field_id": "CSP-071",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 5,
+        "max": 500
+      },
+      {
+        "name_es": "Presión de condensación",
+        "field_id": "CSP-072",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 0.02,
+        "max": 1.0
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CONDENSER_ACC",
+    "name_es": "Condensador enfriado por aire (Air Cooled Condenser)",
+    "subsystem": "HEAT_REJECTION",
+    "properties": [
+      {
+        "name_es": "Tipo de condensador",
+        "field_id": "CSP-070",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Potencia fans",
+        "field_id": "CSP-073",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 50,
+        "max": 5000
+      },
+      {
+        "name_es": "Duty condensador",
+        "field_id": "CSP-071",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 5,
+        "max": 500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CONDENSER_HYBRID",
+    "name_es": "Condensador híbrido (wet + ACC)",
+    "subsystem": "HEAT_REJECTION",
+    "properties": [
+      {
+        "name_es": "Tipo de condensador",
+        "field_id": "CSP-070",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Duty condensador",
+        "field_id": "CSP-071",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 5,
+        "max": 500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GENERATOR",
+    "name_es": "Generador principal sincronizante",
+    "subsystem": "POWER_CONVERSION",
+    "properties": [
+      {
+        "name_es": "Capacidad MVA",
+        "field_id": "CSP-078",
+        "data_type": "float",
+        "unit": "MVA",
+        "min": 1,
+        "max": 600
+      },
+      {
+        "name_es": "Voltaje nominal",
+        "field_id": "CSP-079",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 6,
+        "max": 30
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TRANSFORMER",
+    "name_es": "Transformador principal step-up",
+    "subsystem": "ELECTRICAL_DISTRIBUTION",
+    "properties": [
+      {
+        "name_es": "Capacidad MVA",
+        "field_id": "CSP-080",
+        "data_type": "float",
+        "unit": "MVA",
+        "min": 1,
+        "max": 600
+      },
+      {
+        "name_es": "Voltaje HV",
+        "field_id": "CSP-081",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 10,
+        "max": 500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CSP-SWITCHGEAR",
+    "name_es": "Switchgear principal MV/HV",
+    "subsystem": "ELECTRICAL_DISTRIBUTION",
+    "properties": [
+      {
+        "name_es": "Voltaje HV",
+        "field_id": "CSP-081",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 10,
+        "max": 500
+      },
+      {
+        "name_es": "Capacidad MVA",
+        "field_id": "CSP-080",
+        "data_type": "float",
+        "unit": "MVA",
+        "min": 1,
+        "max": 600
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "HTF_DRAIN_TANK",
+    "name_es": "Tanque de drenaje del HTF (sentinel)",
+    "subsystem": "HTF_CIRCUIT",
+    "properties": [
+      {
+        "name_es": "Tipo de HTF",
+        "field_id": "CSP-046",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Freeze protection",
+        "field_id": "CSP-112",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "EXPANSION_TANK",
+    "name_es": "Tanque de expansión del HTF (con N2 blanket)",
+    "subsystem": "HTF_CIRCUIT",
+    "properties": [
+      {
+        "name_es": "Tipo de HTF",
+        "field_id": "CSP-046",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Presión N2",
+        "field_id": "CSP-114",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 0.5,
+        "max": 5
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "FREEZE_PROTECTION",
+    "name_es": "Sistema de protección de congelamiento HTF",
+    "subsystem": "HTF_CIRCUIT",
+    "properties": [
+      {
+        "name_es": "Método freeze protection",
+        "field_id": "CSP-112",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Capacidad steam tracing",
+        "field_id": "CSP-113",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 10,
+        "max": 2000
+      },
+      {
+        "name_es": "T ambiente mínima",
+        "field_id": "CSP-011",
+        "data_type": "float",
+        "unit": "degC",
+        "min": -30,
+        "max": 40
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "N2_BLANKET",
+    "name_es": "Sistema de colchón de nitrógeno (N2 blanket)",
+    "subsystem": "HTF_CIRCUIT",
+    "properties": [
+      {
+        "name_es": "Presión N2",
+        "field_id": "CSP-114",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 0.5,
+        "max": 5
+      },
+      {
+        "name_es": "Tipo de HTF",
+        "field_id": "CSP-046",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "MIRROR_WASHING_SYSTEM",
+    "name_es": "Sistema de lavado de espejos (camión / robot)",
+    "subsystem": "OPERATIONS",
+    "properties": [
+      {
+        "name_es": "Método de lavado",
+        "field_id": "CSP-102",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Frecuencia",
+        "field_id": "CSP-101",
+        "data_type": "int",
+        "unit": "1/yr",
+        "min": 4,
+        "max": 200
+      },
+      {
+        "name_es": "Consumo de agua",
+        "field_id": "CSP-100",
+        "data_type": "float",
+        "unit": "m3/yr",
+        "min": 1000,
+        "max": 50000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CSP-COOLING-TOWER",
+    "name_es": "Torre de enfriamiento (wet) para condensador",
+    "subsystem": "HEAT_REJECTION",
+    "properties": [
+      {
+        "name_es": "Duty cooling tower",
+        "field_id": "CSP-119",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 5,
+        "max": 500
+      },
+      {
+        "name_es": "Drift eliminator",
+        "field_id": "CSP-116",
+        "data_type": "float",
+        "unit": "%",
+        "min": 99.0,
+        "max": 99.99
+      },
+      {
+        "name_es": "Consumo de agua",
+        "field_id": "CSP-115",
+        "data_type": "float",
+        "unit": "L/kWh",
+        "min": 0.5,
+        "max": 5.0
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "AIR_COOLED_CONDENSER",
+    "name_es": "Condensador enfriado por aire (ACC) standalone",
+    "subsystem": "HEAT_REJECTION",
+    "properties": [
+      {
+        "name_es": "Duty condensador",
+        "field_id": "CSP-071",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 5,
+        "max": 500
+      },
+      {
+        "name_es": "Potencia fans",
+        "field_id": "CSP-073",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 50,
+        "max": 5000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "COLLECTOR_DRIVE",
+    "name_es": "Drive de seguimiento (collector / heliostato)",
+    "subsystem": "SOLAR_FIELD",
+    "properties": [
+      {
+        "name_es": "Tracking mode",
+        "field_id": "CSP-033",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Error de seguimiento",
+        "field_id": "CSP-028",
+        "data_type": "float",
+        "unit": "mrad",
+        "min": 0.5,
+        "max": 10
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TRACKING_CONTROLLER",
+    "name_es": "Controlador de seguimiento solar",
+    "subsystem": "CONTROL",
+    "properties": [
+      {
+        "name_es": "Tracking mode",
+        "field_id": "CSP-033",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Arquitectura SCADA",
+        "field_id": "CSP-089",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "DNI_SENSOR",
+    "name_es": "Piranómetro / sensor DNI (pyrheliometer)",
+    "subsystem": "INSTRUMENTATION",
+    "properties": [
+      {
+        "name_es": "DNI anual",
+        "field_id": "CSP-006",
+        "data_type": "float",
+        "unit": "kWh/m2/yr",
+        "min": 1000,
+        "max": 3000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "WEATHER_STATION",
+    "name_es": "Estación meteorológica del sitio",
+    "subsystem": "INSTRUMENTATION",
+    "properties": [
+      {
+        "name_es": "T ambiente",
+        "field_id": "CSP-011",
+        "data_type": "float",
+        "unit": "degC",
+        "min": -30,
+        "max": 40
+      },
+      {
+        "name_es": "Velocidad de viento",
+        "field_id": "CSP-013",
+        "data_type": "float",
+        "unit": "m/s",
+        "min": 10,
+        "max": 60
+      },
+      {
+        "name_es": "DNI anual",
+        "field_id": "CSP-006",
+        "data_type": "float",
+        "unit": "kWh/m2/yr",
+        "min": 1000,
+        "max": 3000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  }
+]

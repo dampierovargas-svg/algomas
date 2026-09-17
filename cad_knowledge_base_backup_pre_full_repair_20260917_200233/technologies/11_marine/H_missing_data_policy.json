@@ -1,0 +1,2097 @@
+[
+  {
+    "field_id": "MAR-001",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-024",
+    "required_document": "Estudio topográfico o GPS georreferenciado",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "MAR-C-024",
+      "MAR-C-026"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-002",
+      "MAR-DRW-017"
+    ]
+  },
+  {
+    "field_id": "MAR-002",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-024",
+    "required_document": "Estudio topográfico o GPS georreferenciado",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "MAR-C-024",
+      "MAR-C-026"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-002",
+      "MAR-DRW-017"
+    ]
+  },
+  {
+    "field_id": "MAR-003",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Resolución de concesión marina o levantamiento",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MAR-C-025",
+      "MAR-C-026"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-002"
+    ]
+  },
+  {
+    "field_id": "MAR-004",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-024",
+    "required_document": "Ubicación geopolítica del sitio",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MAR-C-024",
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-013"
+    ]
+  },
+  {
+    "field_id": "MAR-005",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Estudio logístico-marino",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MAR-C-025",
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-009",
+      "MAR-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MAR-006",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-001",
+    "required_document": "Carta náutica o batimetría multihaz",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "MAR-C-001",
+      "MAR-C-004",
+      "MAR-C-014",
+      "MAR-C-022"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-007",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-014",
+    "required_document": "Levantamiento batimétrico multihaz",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "MAR-C-014",
+      "MAR-C-024",
+      "MAR-C-026"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003",
+      "MAR-DRW-005"
+    ]
+  },
+  {
+    "field_id": "MAR-008",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-014",
+    "required_document": "Modelo batimétrico derivado",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-014",
+      "MAR-C-022"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-009",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-008",
+    "required_document": "Estudio geotécnico marino (CPT)",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-008",
+      "MAR-C-009",
+      "MAR-C-014"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-010",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-008",
+    "required_document": "Ensayos de laboratorio (corte directo/triaxial)",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-008",
+      "MAR-C-009",
+      "MAR-C-014"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-011",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-001",
+    "required_document": "Estudio metocean extremal (Gumbel/Weibull)",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-001",
+      "MAR-C-004",
+      "MAR-C-006"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003",
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-012",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-001",
+    "required_document": "Estudio metocean extremal",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-001",
+      "MAR-C-004",
+      "MAR-C-006",
+      "MAR-C-030"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-013",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-001",
+    "required_document": "Estudio metocean",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-001",
+      "MAR-C-004"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MAR-014",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-001",
+    "required_document": "Estudio metocean",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-001",
+      "MAR-C-002",
+      "MAR-C-030"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MAR-015",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-002",
+    "required_document": "Estudio metocean espectral",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-002",
+      "MAR-C-030"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MAR-016",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-030",
+    "required_document": "Análisis espectral del estudio metocean",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-030",
+      "MAR-C-004"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MAR-017",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-026",
+    "required_document": "Estudio de recurso undimotriz",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-026",
+      "MAR-C-027"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MAR-018",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-026",
+    "required_document": "Estudio metocean con rosa de olas",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-026",
+      "MAR-C-004",
+      "MAR-C-030"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-019",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-001",
+    "required_document": "Estudio metocean extremal",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-001",
+      "MAR-C-006"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-020",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-001",
+    "required_document": "Estudio metocean",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-001",
+      "MAR-C-006"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-021",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-006",
+    "required_document": "Estudio metocean con rosa de vientos",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-006",
+      "MAR-C-026"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-022",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-003",
+    "required_document": "Estudio metocean ADCP",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-003",
+      "MAR-C-004",
+      "MAR-C-022",
+      "MAR-C-024"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-023",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-022",
+    "required_document": "Estudio metocean ADCP",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-022",
+      "MAR-C-024",
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MAR-024",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-024",
+    "required_document": "Estudio metocean ADCP",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-024",
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MAR-025",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-003",
+    "required_document": "Estudio oceanográfico",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-003",
+      "MAR-C-004",
+      "MAR-C-022"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MAR-026",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-017",
+    "required_document": "Estudio oceanográfico CTD",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-017",
+      "MAR-C-018",
+      "MAR-C-020"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MAR-027",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-017",
+    "required_document": "Estudio oceanográfico CTD profundo",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-017",
+      "MAR-C-018",
+      "MAR-C-019",
+      "MAR-C-020"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MAR-028",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-017",
+    "required_document": "Estudio oceanográfico CTD",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-017",
+      "MAR-C-018",
+      "MAR-C-020"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MAR-029",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-001",
+    "required_document": "Estudio metocean extremal",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-001",
+      "MAR-C-004",
+      "MAR-C-006"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-030",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-024",
+    "required_document": "Tabla de mareas locales o estudio oceanográfico",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-024",
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MAR-031",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-003",
+    "required_document": "Estudio de bioincrustación local o DNV-RP-C205",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-003",
+      "MAR-C-015"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-032",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-014",
+    "required_document": "Estudio geotécnico marino o Soulsby",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-014"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-033",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-015",
+    "required_document": "Estudio de bioincrustación local",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-015"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-034",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-021",
+    "required_document": "Memoria descriptiva del proyecto",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MAR-C-021",
+      "MAR-C-022",
+      "MAR-C-023",
+      "MAR-C-026",
+      "MAR-C-027"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-011",
+      "MAR-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MAR-035",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-021",
+    "required_document": "Hoja de datos del fabricante del dispositivo",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-021",
+      "MAR-C-022",
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MAR-036",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Memoria descriptiva del proyecto",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MAR-C-025",
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MAR-037",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Estudio de layout del array",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MAR-038",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-001",
+    "required_document": "Estudio metocean clasificación IEC TS 62600-2",
+    "responsible_role": "METOCEAN_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-001",
+      "MAR-C-004",
+      "MAR-C-006"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MAR-039",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-022",
+    "required_document": "Hoja de datos del dispositivo",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-022",
+      "MAR-C-023"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-040",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-022",
+    "required_document": "Hoja de datos del dispositivo",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-022",
+      "MAR-C-023"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-041",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-022",
+    "required_document": "Hoja de datos del fabricante",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-022",
+      "MAR-C-023"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-013"
+    ]
+  },
+  {
+    "field_id": "MAR-042",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-022",
+    "required_document": "Hoja de datos del fabricante o curva Cp",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-022",
+      "MAR-C-023"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MAR-043",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-022",
+    "required_document": "Hoja de datos del fabricante",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-022",
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-013"
+    ]
+  },
+  {
+    "field_id": "MAR-044",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-021",
+    "required_document": "Memoria descriptiva del proyecto",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MAR-C-021",
+      "MAR-C-026",
+      "MAR-C-027"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-045",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-021",
+    "required_document": "Ensayos en tanque o报告中 IEA",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-021",
+      "MAR-C-027"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-003"
+    ]
+  },
+  {
+    "field_id": "MAR-046",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-021",
+    "required_document": "Hoja de datos del WEC",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-021"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-013"
+    ]
+  },
+  {
+    "field_id": "MAR-047",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-004",
+    "required_document": "Hoja de datos del WEC",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-004",
+      "MAR-C-026"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-048",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-004",
+    "required_document": "Hoja de datos del WEC",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-004",
+      "MAR-C-006"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-049",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-017",
+    "required_document": "Memoria descriptiva del proyecto",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-017",
+      "MAR-C-018",
+      "MAR-C-019",
+      "MAR-C-020"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MAR-050",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-018",
+    "required_document": "Memoria descriptiva del proyecto OTEC",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-018",
+      "MAR-C-019",
+      "MAR-C-020"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MAR-051",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-017",
+    "required_document": "Hoja de datos del sistema OTEC",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-017",
+      "MAR-C-020"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MAR-052",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-017",
+    "required_document": "Estudio oceanográfico CTD profundo",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-017",
+      "MAR-C-020"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MAR-053",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-017",
+    "required_document": "Estudio oceanográfico CTD",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-017",
+      "MAR-C-020"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MAR-054",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-017",
+    "required_document": "Cálculo de proceso OTEC",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-017",
+      "MAR-C-018",
+      "MAR-C-020"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MAR-055",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-017",
+    "required_document": "Cálculo de proceso OTEC",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-017",
+      "MAR-C-018",
+      "MAR-C-020"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MAR-056",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-019",
+    "required_document": "Cálculo de proceso OTEC",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-019"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MAR-057",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-003",
+    "required_document": "Estudio de cargas o DNV-RP-C205",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-003",
+      "MAR-C-004"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-058",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-003",
+    "required_document": "Estudio de cargas o DNV-RP-C205",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-003",
+      "MAR-C-004"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-059",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-004",
+    "required_document": "Análisis hidrodinámico del dispositivo",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-004"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-060",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-005",
+    "required_document": "Estudio de fatiga del dispositivo",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-005",
+      "MAR-C-007"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-061",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-004",
+    "required_document": "Estudio de cargas extremas",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-004",
+      "MAR-C-006"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-062",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-004",
+    "required_document": "Estudio de cargas operativas",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-004",
+      "MAR-C-005"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-063",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-008",
+    "required_document": "Memoria descriptiva del proyecto",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-008",
+      "MAR-C-009",
+      "MAR-C-010"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-064",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-008",
+    "required_document": "Diseño geotécnico del ancla",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-008",
+      "MAR-C-009",
+      "MAR-C-010"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-065",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-008",
+    "required_document": "Ensayo de ancla o diseño geotécnico",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-008",
+      "MAR-C-009",
+      "MAR-C-010"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-066",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-006",
+    "required_document": "Cálculo de cargas del sistema de fondeo",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-006",
+      "MAR-C-008",
+      "MAR-C-009",
+      "MAR-C-010"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-067",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-008",
+    "required_document": "Cálculo de seguridad del ancla",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-008",
+      "MAR-C-009",
+      "MAR-C-010"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-068",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-006",
+    "required_document": "Especificación del chain",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-006",
+      "MAR-C-007"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-069",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-006",
+    "required_document": "Memoria descriptiva del proyecto",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-006",
+      "MAR-C-007"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-070",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-006",
+    "required_document": "Especificación del sistema de fondeo",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-006",
+      "MAR-C-007"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-071",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-006",
+    "required_document": "Hoja de datos de la línea",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-006",
+      "MAR-C-007"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-072",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-006",
+    "required_document": "Diseño del sistema de fondeo",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-006",
+      "MAR-C-007"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-073",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-006",
+    "required_document": "Certificado de la línea MBL",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-006",
+      "MAR-C-007"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-074",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-006",
+    "required_document": "Diseño del sistema de fondeo",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-006",
+      "MAR-C-007"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-075",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-016",
+    "required_document": "Diseño eléctrico del parque",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-016",
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-004",
+      "MAR-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MAR-076",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-016",
+    "required_document": "Diseño eléctrico del parque",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-016",
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-005",
+      "MAR-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MAR-077",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-011",
+    "required_document": "Diseño de cables submarinos",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-011",
+      "MAR-C-012"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-004",
+      "MAR-DRW-012"
+    ]
+  },
+  {
+    "field_id": "MAR-078",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-011",
+    "required_document": "Diseño de cables submarinos",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-011",
+      "MAR-C-012"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-004",
+      "MAR-DRW-005"
+    ]
+  },
+  {
+    "field_id": "MAR-079",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-011",
+    "required_document": "Hoja de datos del cable",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-011",
+      "MAR-C-016"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-004",
+      "MAR-DRW-005"
+    ]
+  },
+  {
+    "field_id": "MAR-080",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-011",
+    "required_document": "Diseño eléctrico y ruteo",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-011",
+      "MAR-C-013"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-004"
+    ]
+  },
+  {
+    "field_id": "MAR-081",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-011",
+    "required_document": "Diseño eléctrico y ruteo",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-011",
+      "MAR-C-013"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-005",
+      "MAR-DRW-006"
+    ]
+  },
+  {
+    "field_id": "MAR-082",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-013",
+    "required_document": "Plan de instalación del cable",
+    "responsible_role": "CONSTRUCTION_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-013"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-005",
+      "MAR-DRW-006"
+    ]
+  },
+  {
+    "field_id": "MAR-083",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-013",
+    "required_document": "Plan de instalación del cable",
+    "responsible_role": "CONSTRUCTION_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-013"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-005",
+      "MAR-DRW-006"
+    ]
+  },
+  {
+    "field_id": "MAR-084",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-011",
+    "required_document": "Hoja de datos del cable",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-011",
+      "MAR-C-012"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-004",
+      "MAR-DRW-005"
+    ]
+  },
+  {
+    "field_id": "MAR-085",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-013",
+    "required_document": "Diseño de protección de cables",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-013",
+      "MAR-C-014"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-005",
+      "MAR-DRW-006"
+    ]
+  },
+  {
+    "field_id": "MAR-086",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-014",
+    "required_document": "Memoria descriptiva del proyecto",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-014"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-087",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-014",
+    "required_document": "Diseño geotécnico de la fundación",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-014"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-088",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-004",
+    "required_document": "Cálculo de cargas en fundación",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-004",
+      "MAR-C-014"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-089",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-014",
+    "required_document": "Estudio geotécnico de fundación",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-014"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-090",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-014",
+    "required_document": "Diseño de protección de fundaciones",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-014"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-091",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-028",
+    "required_document": "Diseño eléctrico de subestación",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-009",
+      "MAR-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MAR-092",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-028",
+    "required_document": "Hoja de datos del transformador",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-009",
+      "MAR-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MAR-093",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-028",
+    "required_document": "Diseño eléctrico de subestación",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-009",
+      "MAR-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MAR-094",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-028",
+    "required_document": "Diseño HVDC de subestación",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-009",
+      "MAR-DRW-010"
+    ]
+  },
+  {
+    "field_id": "MAR-095",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-028",
+    "required_document": "Cálculo de malla IEEE 80",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-028",
+      "MAR-C-029"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-009"
+    ]
+  },
+  {
+    "field_id": "MAR-096",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Estudio de impacto ambiental (EIA)",
+    "responsible_role": "ENVIRONMENTAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-014",
+      "MAR-DRW-002"
+    ]
+  },
+  {
+    "field_id": "MAR-097",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Estudio de impacto ambiental",
+    "responsible_role": "ENVIRONMENTAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-014"
+    ]
+  },
+  {
+    "field_id": "MAR-098",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Evaluación de riesgo de avifauna",
+    "responsible_role": "ENVIRONMENTAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-014"
+    ]
+  },
+  {
+    "field_id": "MAR-099",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Estudio de impacto ambiental EMF",
+    "responsible_role": "ENVIRONMENTAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-014"
+    ]
+  },
+  {
+    "field_id": "MAR-100",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Evaluación de impacto positivo",
+    "responsible_role": "ENVIRONMENTAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-014"
+    ]
+  },
+  {
+    "field_id": "MAR-101",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Estudio de impacto acústico submarino",
+    "responsible_role": "ENVIRONMENTAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-014"
+    ]
+  },
+  {
+    "field_id": "MAR-102",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Estudio de rutas marítimas (DMA)",
+    "responsible_role": "NAVIGATION_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MAR-103",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Carta náutica o DMA",
+    "responsible_role": "NAVIGATION_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MAR-104",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Memoria descriptiva del proyecto",
+    "responsible_role": "NAVIGATION_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MAR-105",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Carta náutica o DMA",
+    "responsible_role": "NAVIGATION_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-025"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MAR-106",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Estudio logístico-marino",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MAR-C-025",
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-009",
+      "MAR-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MAR-107",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Estudio logístico-marino",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MAR-C-025",
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-009"
+    ]
+  },
+  {
+    "field_id": "MAR-108",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Estudio logístico-marino",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MAR-C-025",
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-009"
+    ]
+  },
+  {
+    "field_id": "MAR-109",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Memoria descriptiva del proyecto O&M",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "MAR-C-025",
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MAR-110",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-029",
+    "required_document": "Diseño de protección catódica",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-029"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-111",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-029",
+    "required_document": "Especificación de pintura",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-029"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-112",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-015",
+    "required_document": "Especificación de pintura submarina",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-015",
+      "MAR-C-029"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-113",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-029",
+    "required_document": "Especificación de material",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-029"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-114",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-029",
+    "required_document": "Especificación de CP",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-029"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-115",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-004",
+    "required_document": "Especificación de materiales",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-004",
+      "MAR-C-005"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-116",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-004",
+    "required_document": "Especificación de concreto",
+    "responsible_role": "CIVIL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-004",
+      "MAR-C-014"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-008"
+    ]
+  },
+  {
+    "field_id": "MAR-117",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-020",
+    "required_document": "Especificación de materiales",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-020"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-016"
+    ]
+  },
+  {
+    "field_id": "MAR-118",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-004",
+    "required_document": "Especificación de materiales",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-004"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-119",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-004",
+    "required_document": "Hoja de datos del material",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-004",
+      "MAR-C-005"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ]
+  },
+  {
+    "field_id": "MAR-120",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": "MAR-C-028",
+    "required_document": "Memoria de control del parque",
+    "responsible_role": "CONTROL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-013"
+    ]
+  },
+  {
+    "field_id": "MAR-121",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-028",
+    "required_document": "Memoria de control del parque",
+    "responsible_role": "CONTROL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-013"
+    ]
+  },
+  {
+    "field_id": "MAR-122",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Memoria de seguridad marítima",
+    "responsible_role": "NAVIGATION_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-025",
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-013",
+      "MAR-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MAR-123",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-025",
+    "required_document": "Memoria de seguridad marítima",
+    "responsible_role": "NAVIGATION_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-025",
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-013",
+      "MAR-DRW-015"
+    ]
+  },
+  {
+    "field_id": "MAR-124",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "BASIC_ENGINEERING",
+    "safe_to_derive": true,
+    "derivation_rule_id": "MAR-C-028",
+    "required_document": "Memoria de control del parque",
+    "responsible_role": "CONTROL_ENGINEER",
+    "blocked_calculations": [
+      "MAR-C-028"
+    ],
+    "blocked_drawings": [
+      "MAR-DRW-013"
+    ]
+  }
+]

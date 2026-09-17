@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/equipment.schema.json",
+  "title": "Equipo técnico",
+  "description": "Definición de equipo con parámetros y conexiones",
+  "type": "object",
+  "required": ["equipment_id", "name_es", "discipline", "domain_tags"],
+  "properties": {
+    "equipment_id": {"type": "string", "pattern": "^EQP-[A-Z]{3,6}-\\d{4}$"},
+    "name_es": {"type": "string", "minLength": 5},
+    "name_en": {"type": "string"},
+    "discipline": {"type": "string", "enum": ["ELEC", "CIVIL", "STR", "MECH", "HYD", "PROC", "INST", "SAFETY", "FIRE", "GEO", "ENV", "GEN"]},
+    "domain_tags": {"type": "array", "items": {"type": "string"}},
+    "parameters": {"type": "array", "items": {"type": "object"}},
+    "connections": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": false
+}

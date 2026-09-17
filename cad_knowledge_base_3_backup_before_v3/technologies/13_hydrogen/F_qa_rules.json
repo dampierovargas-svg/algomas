@@ -1,0 +1,980 @@
+[
+  {
+    "rule_id": "H2-QA-001",
+    "name_es": "Plot plan exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "plot_plan_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Plot plan must exist",
+    "required_evidence": [
+      "H2-QA-001_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19650_2"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-002",
+    "name_es": "Implantation drawing exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "implantation_drawing_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Implantation drawing must exist",
+    "required_evidence": [
+      "H2-QA-002_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19650_2"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-003",
+    "name_es": "Electrolyzer hall exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "electrolyzer_hall_drawing_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Electrolyzer hall must exist",
+    "required_evidence": [
+      "H2-QA-003_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62282_2"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-004",
+    "name_es": "Electrolyzer P&ID exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "electrolyzer_pid_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Electrolyzer P&ID must exist",
+    "required_evidence": [
+      "H2-QA-004_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62282_2"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-005",
+    "name_es": "Water P&ID exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "water_pid_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Water P&ID must exist",
+    "required_evidence": [
+      "H2-QA-005_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASTM_D638"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-006",
+    "name_es": "Compression P&ID exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "compression_pid_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Compression P&ID must exist",
+    "required_evidence": [
+      "H2-QA-006_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-007",
+    "name_es": "Storage P&ID exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "storage_pid_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Storage P&ID must exist",
+    "required_evidence": [
+      "H2-QA-007_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-008",
+    "name_es": "H2 piping P&ID exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "h2_piping_pid_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "H2 piping P&ID must exist",
+    "required_evidence": [
+      "H2-QA-008_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-009",
+    "name_es": "SLD exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "sld_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "SLD must exist",
+    "required_evidence": [
+      "H2-QA-009_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-010",
+    "name_es": "Vent stack plan exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "vent_stack_plan_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Vent stack plan must exist",
+    "required_evidence": [
+      "H2-QA-010_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "API_521"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-011",
+    "name_es": "Flare plan exists",
+    "category": "documentary",
+    "applicability_expression": "flare_type != null",
+    "assertion_expression": "flare_plan_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Flare plan must exist",
+    "required_evidence": [
+      "H2-QA-011_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "API_521"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-012",
+    "name_es": "Area classification drawing exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "area_class_drawing_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Area classification drawing must exist",
+    "required_evidence": [
+      "H2-QA-012_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-013",
+    "name_es": "Control architecture exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "control_arch_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Control architecture must exist",
+    "required_evidence": [
+      "H2-QA-013_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-014",
+    "name_es": "Gas detection layout exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "gas_detection_layout_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "Gas detection layout must exist",
+    "required_evidence": [
+      "H2-QA-014_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60079_29_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-015",
+    "name_es": "ESD layout exists",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "esd_layout_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "ESD layout must exist",
+    "required_evidence": [
+      "H2-QA-015_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-016",
+    "name_es": "NH3 synthesis plan exists",
+    "category": "documentary",
+    "applicability_expression": "storage_type == ammonia_carrier",
+    "assertion_expression": "nh3_plan_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "NH3 synthesis plan must exist",
+    "required_evidence": [
+      "H2-QA-016_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-017",
+    "name_es": "As-built exists",
+    "category": "documentary",
+    "applicability_expression": "stage==AS_BUILT",
+    "assertion_expression": "asbuilt_exists == true",
+    "severity": "BLOCKED",
+    "message_template": "As-built must exist with AFC stamp",
+    "required_evidence": [
+      "H2-QA-017_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19650_2"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-018",
+    "name_es": "Energy consumption < 80 kWh/kg",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-008 < 80",
+    "severity": "BLOCKED",
+    "message_template": "Energy consumption must be < 80 kWh/kg H2",
+    "required_evidence": [
+      "H2-008"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62282_2"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-019",
+    "name_es": "Water consumption < 15 L/kg",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-012 < 15",
+    "severity": "BLOCKED",
+    "message_template": "Water consumption must be < 15 L/kg H2",
+    "required_evidence": [
+      "H2-012"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62282_2"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-020",
+    "name_es": "Storage pressure per ASME BPVC",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-035 satisfies ASME BPVC VIII Div 1",
+    "severity": "BLOCKED",
+    "message_template": "Storage pressure must satisfy ASME BPVC",
+    "required_evidence": [
+      "H2-035"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-021",
+    "name_es": "Pipe material per NACE MR0175",
+    "category": "normative",
+    "applicability_expression": "ultimate_sulfur_daf_pct > 0.05",
+    "assertion_expression": "H2-047 == true",
+    "severity": "BLOCKED",
+    "message_template": "Pipe material must comply with NACE MR0175",
+    "required_evidence": [
+      "H2-047"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-022",
+    "name_es": "HE susceptibility test for carbon steel",
+    "category": "normative",
+    "applicability_expression": "pipe_material_class contains carbon_steel",
+    "assertion_expression": "H2-048 == true",
+    "severity": "BLOCKED",
+    "message_template": "HE susceptibility test required for carbon steel H2 service",
+    "required_evidence": [
+      "H2-048"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-023",
+    "name_es": "H2 velocity < 30 m/s",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-045 < 30",
+    "severity": "BLOCKED",
+    "message_template": "H2 velocity must be < 30 m/s",
+    "required_evidence": [
+      "H2-045"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-024",
+    "name_es": "Area classification per IEC 60079-10-1",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-049 satisfies IEC 60079-10-1",
+    "severity": "BLOCKED",
+    "message_template": "Area classification must satisfy IEC 60079-10-1",
+    "required_evidence": [
+      "H2-049"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60079_10_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-025",
+    "name_es": "Gas detection setpoint < 25% LEL",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-054 < 25",
+    "severity": "BLOCKED",
+    "message_template": "H2 detection setpoint must be < 25% LEL",
+    "required_evidence": [
+      "H2-054"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60079_29_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-026",
+    "name_es": "Vent stack height per API 521",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-055 satisfies API 521",
+    "severity": "BLOCKED",
+    "message_template": "Vent stack height must satisfy API 521",
+    "required_evidence": [
+      "H2-055"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "API_521"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-027",
+    "name_es": "Vent stack velocity > 20 m/s",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-056 >= 20",
+    "severity": "BLOCKED",
+    "message_template": "Vent stack velocity must be > 20 m/s",
+    "required_evidence": [
+      "H2-056"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "API_521"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-028",
+    "name_es": "Flare destruction > 99%",
+    "category": "numeric",
+    "applicability_expression": "flare_type != null",
+    "assertion_expression": "H2-C-025 DRE >= 99",
+    "severity": "BLOCKED",
+    "message_template": "Flare destruction efficiency must be > 99%",
+    "required_evidence": [
+      "H2-058"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "API_521"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-029",
+    "name_es": "ESD SIL 2 minimum",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-060 in [SIL2,SIL3,SIL4]",
+    "severity": "BLOCKED",
+    "message_template": "ESD must be SIL 2 minimum per IEC 61511",
+    "required_evidence": [
+      "H2-060"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-030",
+    "name_es": "HAZOP complete",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-061 == true",
+    "severity": "BLOCKED",
+    "message_template": "HAZOP must be complete",
+    "required_evidence": [
+      "H2-061"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-031",
+    "name_es": "SIL verified",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-062 == true",
+    "severity": "BLOCKED",
+    "message_template": "SIL must be verified",
+    "required_evidence": [
+      "H2-062"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-032",
+    "name_es": "ESD response time < 500 ms",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-063 < 500",
+    "severity": "BLOCKED",
+    "message_template": "ESD response time must be < 500 ms",
+    "required_evidence": [
+      "H2-063"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-033",
+    "name_es": "IEEE 1547 interconnection",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "ieee_1547_compliance == true",
+    "severity": "BLOCKED",
+    "message_template": "Must comply with IEEE 1547",
+    "required_evidence": [
+      "H2-QA-033_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-034",
+    "name_es": "CNE compliance",
+    "category": "normative",
+    "applicability_expression": "country_iso==PE",
+    "assertion_expression": "cne_compliance == true",
+    "severity": "BLOCKED",
+    "message_template": "Must comply with CNE Suministro",
+    "required_evidence": [
+      "H2-QA-034_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "CNE_2011"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-035",
+    "name_es": "Sprinklers NFPA 13",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "sprinklers_satisfy_NFPA_13 == true",
+    "severity": "BLOCKED",
+    "message_template": "Sprinklers must satisfy NFPA 13",
+    "required_evidence": [
+      "H2-QA-035_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-036",
+    "name_es": "NFPA 853 fuel cell",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "nfpa_853_compliance == true",
+    "severity": "WARNING",
+    "message_template": "Should comply with NFPA 853",
+    "required_evidence": [
+      "H2-QA-036_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": true,
+    "override_role": "SAFETY_ENGINEER",
+    "source_ids": [
+      "NFPA_853_2023"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-037",
+    "name_es": "NFPA 2 hydrogen code",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "nfpa_2_compliance == true",
+    "severity": "WARNING",
+    "message_template": "Should comply with NFPA 2",
+    "required_evidence": [
+      "H2-QA-037_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": true,
+    "override_role": "SAFETY_ENGINEER",
+    "source_ids": [
+      "NFPA_853_2023"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-038",
+    "name_es": "Cybersecurity IEC 62443",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "cybersecurity_compliant == true",
+    "severity": "WARNING",
+    "message_template": "Should comply with IEC 62443",
+    "required_evidence": [
+      "H2-QA-038_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": true,
+    "override_role": "CONTROL_ENGINEER",
+    "source_ids": [
+      "IEC_61508_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-039",
+    "name_es": "MINEM DS 032-2003-EM hydrocarbons",
+    "category": "normative",
+    "applicability_expression": "country_iso==PE",
+    "assertion_expression": "minem_ds_032_compliance == true",
+    "severity": "BLOCKED",
+    "message_template": "Must comply with MINEM DS 032-2003-EM",
+    "required_evidence": [
+      "H2-QA-039_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-040",
+    "name_es": "Layers per CAD standard",
+    "category": "graphic",
+    "applicability_expression": "always",
+    "assertion_expression": "layers_match_CAD_standard == true",
+    "severity": "WARNING",
+    "message_template": "Layers must match CAD standard",
+    "required_evidence": [
+      "H2-QA-040_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": true,
+    "override_role": "CAD_MANAGER",
+    "source_ids": [
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-041",
+    "name_es": "Lineweights per CAD standard",
+    "category": "graphic",
+    "applicability_expression": "always",
+    "assertion_expression": "lineweights_match_CAD_standard == true",
+    "severity": "WARNING",
+    "message_template": "Lineweights must match CAD standard",
+    "required_evidence": [
+      "H2-QA-041_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": true,
+    "override_role": "CAD_MANAGER",
+    "source_ids": [
+      "ISO_128_20"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-042",
+    "name_es": "No text overlaps",
+    "category": "topological",
+    "applicability_expression": "always",
+    "assertion_expression": "no_text_overlaps == true",
+    "severity": "BLOCKED",
+    "message_template": "Text must not overlap",
+    "required_evidence": [
+      "H2-QA-042_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_129_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-043",
+    "name_es": "Rectifier efficiency > 90%",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-065 >= 90",
+    "severity": "BLOCKED",
+    "message_template": "Rectifier efficiency must be > 90%",
+    "required_evidence": [
+      "H2-065"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62282_8_201"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-044",
+    "name_es": "Faraday efficiency > 95%",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-006 >= 95",
+    "severity": "BLOCKED",
+    "message_template": "Faraday efficiency must be > 95%",
+    "required_evidence": [
+      "H2-006"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62282_2"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-045",
+    "name_es": "Dew point < -40C",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-030 <= -40",
+    "severity": "BLOCKED",
+    "message_template": "Dew point must be < -40C",
+    "required_evidence": [
+      "H2-030"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_853_2023"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-046",
+    "name_es": "SIL target verified by LOPA",
+    "category": "normative",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-060 sil_target_verified_by_lopa == true",
+    "severity": "BLOCKED",
+    "message_template": "SIL target must be verified by LOPA",
+    "required_evidence": [
+      "H2-060"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-047",
+    "name_es": "As-built stamps",
+    "category": "documentary",
+    "applicability_expression": "stage==AS_BUILT",
+    "assertion_expression": "asbuilt_stamps_complete == true",
+    "severity": "BLOCKED",
+    "message_template": "All as-built drawings must have stamps",
+    "required_evidence": [
+      "H2-QA-047_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19650_2"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-048",
+    "name_es": "Fire water demand",
+    "category": "numeric",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-072 satisfies fire_protection_study",
+    "severity": "BLOCKED",
+    "message_template": "Fire water demand must satisfy fire protection study",
+    "required_evidence": [
+      "H2-072"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-049",
+    "name_es": "EIA category",
+    "category": "documentary",
+    "applicability_expression": "always",
+    "assertion_expression": "H2-070 satisfies SEIA",
+    "severity": "BLOCKED",
+    "message_template": "EIA must be classified per SEIA",
+    "required_evidence": [
+      "H2-070"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "H2-QA-050",
+    "name_es": "Water extraction permit",
+    "category": "documentary",
+    "applicability_expression": "water_source in [river,sea,well]",
+    "assertion_expression": "H2-069 == true",
+    "severity": "BLOCKED",
+    "message_template": "Water extraction permit required",
+    "required_evidence": [
+      "H2-069"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ]
+  }
+]

@@ -1,0 +1,1257 @@
+[
+  {
+    "geometry_rule_id": "PVG-GR-001",
+    "name_es": "Layout de arreglo en grilla (array layout grid)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-005",
+      "PVG-009",
+      "PVG-095",
+      "PVG-096",
+      "PVG-097",
+      "PVG-114",
+      "PVG-115",
+      "PVG-040",
+      "PVG-041"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-001",
+      "PVG-C-017"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Grid layout algorithm with N-S / E-W orientation",
+    "algorithm_pseudocode": [
+      "for each row r in 0..N_rows-1:",
+      "  for each table t in 0..N_tables_per_row-1:",
+      "    compute table_origin = (E0 + t*table_pitch, N0 + r*row_spacing)",
+      "    place table_polygon(table_origin, length_module*modules_per_table, tilt)",
+      "    assert within boundary - fence_offset"
+    ],
+    "generated_entity_types": [
+      "TABLE_POLYGON",
+      "STRING_POLYGON",
+      "MODULE_RECT"
+    ],
+    "clearances": [
+      {
+        "name": "fence",
+        "value": "PVG-009",
+        "min_m": 3
+      },
+      {
+        "name": "table_to_table",
+        "value": "PVG-114",
+        "min_m": 1
+      },
+      {
+        "name": "module_to_module",
+        "value": "PVG-115",
+        "min_mm": 5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no overlap of tables",
+        "error": "tables overlap"
+      },
+      {
+        "rule": "no overlap with fence polygon",
+        "error": "table overlaps fence"
+      },
+      {
+        "rule": "no overlap with road polygon",
+        "error": "table overlaps road"
+      }
+    ],
+    "routing_costs": [
+      {
+        "entity": "TABLE",
+        "cost_per_m": 1
+      }
+    ],
+    "tolerances": {
+      "position_mm": 10,
+      "angle_deg": 0.1
+    },
+    "failure_conditions": [
+      {
+        "condition": "boundary_clash",
+        "action": "reduce table count"
+      },
+      {
+        "condition": "row_spacing < shading_min",
+        "action": "reject layout"
+      }
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "ISO_19111"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-002",
+    "name_es": "Layout de string (módulos por mesa y orientación)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-047",
+      "PVG-048",
+      "PVG-050",
+      "PVG-040",
+      "PVG-041"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-006",
+      "PVG-C-008"
+    ],
+    "coordinate_space": "TABLE_LOCAL",
+    "algorithm": "Module placement within a table respecting string count",
+    "algorithm_pseudocode": [
+      "compute modules_per_table = modules_per_string * strings_per_table",
+      "for each module m in 0..modules_per_table-1:",
+      "  row = m // modules_per_row",
+      "  col = m % modules_per_row",
+      "  place module_rect(row, col, orientation)"
+    ],
+    "generated_entity_types": [
+      "MODULE_RECT",
+      "STRING_POLYLINE"
+    ],
+    "clearances": [
+      {
+        "name": "module_gap_ew",
+        "value": "PVG-115",
+        "min_mm": 0
+      },
+      {
+        "name": "module_gap_ns",
+        "value": "PVG-115",
+        "min_mm": 0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no overlap modules",
+        "error": "module overlap"
+      },
+      {
+        "rule": "module count matches string config",
+        "error": "count mismatch"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 1,
+      "angle_deg": 0.1
+    },
+    "failure_conditions": [
+      {
+        "condition": "count_mismatch",
+        "action": "reject table layout"
+      }
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "ISO_19111"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-003",
+    "name_es": "Layout de mesa (table layout - posting y girts)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-099",
+      "PVG-100",
+      "PVG-098",
+      "PVG-096",
+      "PVG-040",
+      "PVG-041"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-001"
+    ],
+    "coordinate_space": "TABLE_LOCAL",
+    "algorithm": "Posting and girts placement under the module surface",
+    "algorithm_pseudocode": [
+      "place N_postings at table corners",
+      "place girts at intervals of module_length/2 along posting",
+      "verify clearance to ground"
+    ],
+    "generated_entity_types": [
+      "POSTING_LINE",
+      "GIRT_LINE",
+      "CLAMP_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "clearance_to_ground",
+        "value": "PVG-098",
+        "min_mm": 200
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "posting inside table polygon",
+        "error": "posting outside table"
+      },
+      {
+        "rule": "girts parallel to module rows",
+        "error": "girts not parallel"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 1
+    },
+    "failure_conditions": [
+      {
+        "condition": "ground_clearance_violation",
+        "action": "raise structure"
+      }
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-004",
+    "name_es": "Ruteo de zanjas (trench layout)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-005",
+      "PVG-009",
+      "PVG-110",
+      "PVG-111",
+      "PVG-069",
+      "PVG-075"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-026",
+      "PVG-C-027"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Minimum cost trench network connecting combiner boxes to central point",
+    "algorithm_pseudocode": [
+      "build graph nodes = combiner_boxes + inverter_pad",
+      "build edges weighted by Manhattan distance * terrain_factor",
+      "compute Minimum Spanning Tree (Prim or Kruskal)",
+      "emit trench polyline per MST edge",
+      "verify trench depth PVG-111 and width PVG-110"
+    ],
+    "generated_entity_types": [
+      "TRENCH_POLYLINE",
+      "TRENCH_SECTION"
+    ],
+    "clearances": [
+      {
+        "name": "fence",
+        "value": "PVG-009",
+        "min_m": 1
+      },
+      {
+        "name": "table",
+        "value": "PVG-115",
+        "min_m": 0.5
+      },
+      {
+        "name": "road",
+        "value": "PVG-010",
+        "min_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no trench crossing tables",
+        "error": "trench through table"
+      },
+      {
+        "rule": "no crossing trenches without manhole",
+        "error": "crossing without MH"
+      },
+      {
+        "rule": "trench depth > cable depth",
+        "error": "insufficient cover"
+      }
+    ],
+    "routing_costs": [
+      {
+        "entity": "TRENCH",
+        "cost_per_m": 10
+      }
+    ],
+    "tolerances": {
+      "position_mm": 50,
+      "depth_mm": 10
+    },
+    "failure_conditions": [
+      {
+        "condition": "MST infeasible",
+        "action": "add manhole"
+      }
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023",
+      "ISO_19111"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-005",
+    "name_es": "Ruteo de conduit (conduit route inside trench)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-110",
+      "PVG-111",
+      "PVG-112",
+      "PVG-113",
+      "PVG-064",
+      "PVG-075"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-014",
+      "PVG-C-015"
+    ],
+    "coordinate_space": "TRENCH_LOCAL",
+    "algorithm": "Conduit placement inside trench with fill ratio",
+    "algorithm_pseudocode": [
+      "compute fill area = sum(pi * r_i^2)",
+      "compute conduit_area = trench_width * trench_depth * 0.4",
+      "assert fill <= conduit_area"
+    ],
+    "generated_entity_types": [
+      "CONDUIT_LINE"
+    ],
+    "clearances": [
+      {
+        "name": "trench_width",
+        "value": "PVG-110",
+        "min_mm": 200
+      },
+      {
+        "name": "conduit_to_conduit",
+        "min_mm": 25
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "fill < 40% trench",
+        "error": "fill violation NEC"
+      },
+      {
+        "rule": "conduit parallel to trench",
+        "error": "oblique conduit"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 5
+    },
+    "failure_conditions": [
+      {
+        "condition": "fill > 40%",
+        "action": "increase trench size"
+      }
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-006",
+    "name_es": "Espaciamiento entre módulos para sombreado (shading row spacing)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-096",
+      "PVG-097",
+      "PVG-114",
+      "PVG-040",
+      "PVG-041",
+      "PVG-020"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-001",
+      "PVG-C-017"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Compute minimum row spacing to avoid inter-row shading at winter solstice",
+    "algorithm_pseudocode": [
+      "compute sun_elevation_min at winter solstice (lat PVG-001)",
+      "compute row_spacing_min = module_length * sin(tilt) / tan(sun_elevation_min)",
+      "place rows at >= row_spacing_min"
+    ],
+    "generated_entity_types": [
+      "ROW_LINE"
+    ],
+    "clearances": [
+      {
+        "name": "row_spacing",
+        "value": "PVG-114",
+        "min_m": 1
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "row_spacing >= row_spacing_min",
+        "error": "insufficient spacing"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50
+    },
+    "failure_conditions": [
+      {
+        "condition": "spacing < min",
+        "action": "increase row spacing"
+      }
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "NREL_SAM_2024"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-007",
+    "name_es": "Espaciamiento de filas de tracker",
+    "applicability_expression": "structure_type_class contains TRACKER",
+    "required_field_ids": [
+      "PVG-101",
+      "PVG-102",
+      "PVG-114",
+      "PVG-104"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-029"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Tracker row spacing with backtracking constraint",
+    "algorithm_pseudocode": [
+      "for each tracker row:",
+      "  compute backtrack angle PVG-C-029",
+      "  assert row_spacing >= module_width * sin(theta_rot_max)",
+      "  emit row polyline"
+    ],
+    "generated_entity_types": [
+      "ROW_LINE",
+      "TRACKER_AXIS"
+    ],
+    "clearances": [
+      {
+        "name": "row_spacing",
+        "value": "PVG-114",
+        "min_m": 1
+      },
+      {
+        "name": "tracker_to_tracker_NS",
+        "min_m": 2
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "tracker_to_tracker_NS >= 2",
+        "error": "insufficient tracker spacing"
+      },
+      {
+        "rule": "backtrack angle in range",
+        "error": "backtrack violation"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "angle_deg": 0.1
+    },
+    "failure_conditions": [
+      {
+        "condition": "theta_rot invalid",
+        "action": "adjust spacing"
+      }
+    ],
+    "source_ids": [
+      "NREL_SAM_2024",
+      "IEC_TS_63049"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-008",
+    "name_es": "Posiciones de cimentación (foundation positions)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-095",
+      "PVG-099",
+      "PVG-105",
+      "PVG-106",
+      "PVG-007"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-030"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Place foundation points at posting locations",
+    "algorithm_pseudocode": [
+      "for each table:",
+      "  for each posting position in PVG-099:",
+      "    place foundation_point",
+      "  assert soil_capacity >= load"
+    ],
+    "generated_entity_types": [
+      "FOUNDATION_POINT",
+      "FOUNDATION_POLYGON"
+    ],
+    "clearances": [
+      {
+        "name": "foundation_to_foundation",
+        "min_m": 1
+      },
+      {
+        "name": "foundation_to_fence",
+        "value": "PVG-009",
+        "min_m": 1
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no foundation overlap",
+        "error": "foundation overlap"
+      },
+      {
+        "rule": "soil capacity sufficient",
+        "error": "insufficient soil capacity"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 25
+    },
+    "failure_conditions": [
+      {
+        "condition": "soil_capacity low",
+        "action": "use ballast"
+      }
+    ],
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "IEEE_80_2013"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-009",
+    "name_es": "Posiciones de inversores (inverter positions)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-052",
+      "PVG-059",
+      "PVG-005",
+      "PVG-009"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Place central inverter pads at central points of DC combiner clusters",
+    "algorithm_pseudocode": [
+      "cluster combiner boxes by KMeans(k=N_inverters)",
+      "for each cluster compute centroid",
+      "place inverter pad at centroid",
+      "verify pad size and access"
+    ],
+    "generated_entity_types": [
+      "INVERTER_PAD_POLYGON",
+      "INVERTER_SYMBOL"
+    ],
+    "clearances": [
+      {
+        "name": "inverter_to_table",
+        "min_m": 1
+      },
+      {
+        "name": "inverter_to_fence",
+        "value": "PVG-009",
+        "min_m": 2
+      },
+      {
+        "name": "inverter_to_road",
+        "value": "PVG-010",
+        "min_m": 1
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no inverter pad inside table",
+        "error": "inverter in table"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 25
+    },
+    "failure_conditions": [
+      {
+        "condition": "cluster infeasible",
+        "action": "adjust inverter count"
+      }
+    ],
+    "source_ids": [
+      "IEC_62109_1",
+      "ISO_19111"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-010",
+    "name_es": "Posiciones de transformadores (transformer positions)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-077",
+      "PVG-078",
+      "PVG-079",
+      "PVG-005",
+      "PVG-009"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Place transformer pads adjacent to inverter pads",
+    "algorithm_pseudocode": [
+      "for each inverter pad:",
+      "  place transformer pad at offset (3, 0) m",
+      "  connect with AC cable trench"
+    ],
+    "generated_entity_types": [
+      "TRANSFORMER_PAD_POLYGON",
+      "TRANSFORMER_SYMBOL"
+    ],
+    "clearances": [
+      {
+        "name": "transformer_to_inverter",
+        "min_m": 1,
+        "max_m": 10
+      },
+      {
+        "name": "transformer_to_fence",
+        "value": "PVG-009",
+        "min_m": 3
+      },
+      {
+        "name": "oil_retention_berm",
+        "min_m": 1
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no transformer inside fence",
+        "error": "transformer in fence"
+      },
+      {
+        "rule": "berm volume >= oil volume",
+        "error": "berm insufficient"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 25
+    },
+    "failure_conditions": [
+      {
+        "condition": "berm insufficient",
+        "action": "enlarge berm"
+      }
+    ],
+    "source_ids": [
+      "IEEE_C2_2023",
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-011",
+    "name_es": "Zanjas de colección AC (AC collection trenches)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-005",
+      "PVG-009",
+      "PVG-110",
+      "PVG-111",
+      "PVG-070",
+      "PVG-075"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-013",
+      "PVG-C-027"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Route AC collection trenches from inverter pads to substation",
+    "algorithm_pseudocode": [
+      "build graph nodes = inverter_pads + substation",
+      "compute MST weighted by Euclidean distance * AC cable cost factor",
+      "emit AC trench polyline"
+    ],
+    "generated_entity_types": [
+      "AC_TRENCH_POLYLINE",
+      "AC_TRENCH_SECTION"
+    ],
+    "clearances": [
+      {
+        "name": "fence",
+        "value": "PVG-009",
+        "min_m": 1
+      },
+      {
+        "name": "DC_trench",
+        "min_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no AC trench crossing DC trench without MH",
+        "error": "crossing"
+      },
+      {
+        "rule": "AC trench depth >= cable depth",
+        "error": "cover insuff"
+      }
+    ],
+    "routing_costs": [
+      {
+        "entity": "AC_TRENCH",
+        "cost_per_m": 15
+      }
+    ],
+    "tolerances": {
+      "position_mm": 50,
+      "depth_mm": 10
+    },
+    "failure_conditions": [
+      {
+        "condition": "crossing > 2",
+        "action": "reconsider substation location"
+      }
+    ],
+    "source_ids": [
+      "IEEE_C2_2023",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-012",
+    "name_es": "Cableados DC home-runs (DC home runs)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-005",
+      "PVG-009",
+      "PVG-069",
+      "PVG-075"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-012",
+      "PVG-C-026"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Route DC home-run cables from combiner boxes to inverter pads",
+    "algorithm_pseudocode": [
+      "for each combiner_box:",
+      "  find nearest inverter pad",
+      "  emit DC cable polyline inside trench"
+    ],
+    "generated_entity_types": [
+      "DC_CABLE_POLYLINE"
+    ],
+    "clearances": [
+      {
+        "name": "combiner_to_inverter",
+        "max_m": 500
+      },
+      {
+        "name": "cable_to_cable",
+        "min_mm": 25
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "DC cable inside trench",
+        "error": "cable outside trench"
+      },
+      {
+        "rule": "no DC + AC in same conduit",
+        "error": "mixed DC/AC"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 10
+    },
+    "failure_conditions": [
+      {
+        "condition": "distance > 500",
+        "action": "add combiner box"
+      }
+    ],
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60364_7_712"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-013",
+    "name_es": "Malla de tierra (grounding grid)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-005",
+      "PVG-007",
+      "PVG-091",
+      "PVG-094",
+      "PVG-090"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-028"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Place grounding grid conductors below the entire PV plant area",
+    "algorithm_pseudocode": [
+      "compute grid_mesh_size = max(3, sqrt(A_grid/100))",
+      "for each x in 0..N_x-1:",
+      "  for each y in 0..N_y-1:",
+      "    place horizontal conductor (x,y) to (x+1,y+1)",
+      "place ground rods at corners",
+      "verify R_grid < 1 ohm"
+    ],
+    "generated_entity_types": [
+      "GROUNDING_CONDUCTOR",
+      "GROUND_ROD_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "conductor_to_fence",
+        "min_m": 0.5
+      },
+      {
+        "name": "conductor_depth",
+        "min_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no grounding conductor above ground",
+        "error": "grounding above"
+      },
+      {
+        "rule": "all metallic parts bonded",
+        "error": "unbonded"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 25,
+      "depth_mm": 10
+    },
+    "failure_conditions": [
+      {
+        "condition": "R_grid > 1",
+        "action": "increase conductor length"
+      }
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEC_60364_5_54"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-014",
+    "name_es": "Cerca perimetral (fence layout)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-005",
+      "PVG-009"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Draw fence polygon offset from property boundary",
+    "algorithm_pseudocode": [
+      "read property polygon",
+      "compute offset polygon by -fence_offset_m",
+      "emit fence polyline",
+      "place gate at road access"
+    ],
+    "generated_entity_types": [
+      "FENCE_POLYLINE",
+      "GATE_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "fence_to_property",
+        "value": "PVG-009",
+        "min_m": 0
+      },
+      {
+        "name": "fence_height",
+        "min_m": 2
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "fence surrounds all equipment",
+        "error": "equipment outside fence"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50
+    },
+    "failure_conditions": [
+      {
+        "condition": "property boundary unclear",
+        "action": "request catastro"
+      }
+    ],
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-015",
+    "name_es": "Caminos internos (internal roads)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-005",
+      "PVG-009",
+      "PVG-010"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Layout of internal roads connecting access to substation and O&M areas",
+    "algorithm_pseudocode": [
+      "compute road centerline from main gate to substation",
+      "for each inverter pad:",
+      "  add spur road to pad",
+      "verify road width and turning radius"
+    ],
+    "generated_entity_types": [
+      "ROAD_POLYLINE",
+      "ROAD_POLYGON"
+    ],
+    "clearances": [
+      {
+        "name": "road_to_table",
+        "min_m": 1
+      },
+      {
+        "name": "road_to_fence",
+        "value": "PVG-009",
+        "min_m": 1
+      },
+      {
+        "name": "turning_radius",
+        "min_m": 9
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "road width >= PVG-010",
+        "error": "road too narrow"
+      },
+      {
+        "rule": "turning radius sufficient",
+        "error": "radius insuff"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50
+    },
+    "failure_conditions": [
+      {
+        "condition": "road overlaps table",
+        "action": "redesign"
+      }
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-016",
+    "name_es": "Posiciones de combiner boxes (combiner box positions)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-051",
+      "PVG-123",
+      "PVG-005",
+      "PVG-009"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-026"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Place combiner boxes at cluster centroids of strings",
+    "algorithm_pseudocode": [
+      "cluster strings by KMeans(k=N_combiners)",
+      "place combiner box at each cluster centroid",
+      "verify outdoor access"
+    ],
+    "generated_entity_types": [
+      "COMBINER_BOX_SYMBOL",
+      "COMBINER_BOX_PAD"
+    ],
+    "clearances": [
+      {
+        "name": "combiner_to_table",
+        "min_m": 0.5,
+        "max_m": 50
+      },
+      {
+        "name": "combiner_to_fence",
+        "value": "PVG-009",
+        "min_m": 1
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "combiner accessible by road",
+        "error": "no road access"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 25
+    },
+    "failure_conditions": [
+      {
+        "condition": "centroid inside table",
+        "action": "move combiner"
+      }
+    ],
+    "source_ids": [
+      "IEC_62817",
+      "ISO_19111"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-017",
+    "name_es": "Posiciones de cajas de string (string box positions)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-051",
+      "PVG-005",
+      "PVG-009"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Place string boxes at table ends",
+    "algorithm_pseudocode": [
+      "for each table:",
+      "  place string box at table end facing trench",
+      "  verify access"
+    ],
+    "generated_entity_types": [
+      "STRING_BOX_SYMBOL"
+    ],
+    "clearances": [
+      {
+        "name": "string_box_to_table",
+        "min_m": 0,
+        "max_m": 5
+      },
+      {
+        "name": "string_box_to_fence",
+        "value": "PVG-009",
+        "min_m": 1
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "string box inside fence",
+        "error": "string box outside"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 25
+    },
+    "failure_conditions": [
+      {
+        "condition": "no table end accessible",
+        "action": "rotate table"
+      }
+    ],
+    "source_ids": [
+      "IEC_62817",
+      "IEC_60529"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-018",
+    "name_es": "Posiciones de gabinetes SCADA (SCADA cabinet positions)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-122",
+      "PVG-005",
+      "PVG-009"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Place SCADA cabinets in substation control room",
+    "algorithm_pseudocode": [
+      "identify substation control room",
+      "place cabinets along walls",
+      "verify cable entry"
+    ],
+    "generated_entity_types": [
+      "SCADA_CABINET_SYMBOL",
+      "SCADA_CABLE_POLYLINE"
+    ],
+    "clearances": [
+      {
+        "name": "cabinet_to_cabinet",
+        "min_m": 0.5,
+        "max_m": 2
+      },
+      {
+        "name": "cabinet_to_wall",
+        "min_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "cabinet accessible",
+        "error": "no access"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 25
+    },
+    "failure_conditions": [
+      {
+        "condition": "no room",
+        "action": "expand room"
+      }
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEEE_1547_4"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-019",
+    "name_es": "Posiciones de estación meteorológica (weather station positions)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-005",
+      "PVG-009",
+      "PVG-011"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-001",
+      "PVG-C-004"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Place weather stations at representative locations across plant",
+    "algorithm_pseudocode": [
+      "compute N_stations = max(2, floor(site_area_m2/1e6))",
+      "place stations at stratified random points",
+      "verify no shadowing"
+    ],
+    "generated_entity_types": [
+      "WEATHER_STATION_SYMBOL"
+    ],
+    "clearances": [
+      {
+        "name": "station_to_table",
+        "min_m": 10
+      },
+      {
+        "name": "station_to_fence",
+        "value": "PVG-009",
+        "min_m": 5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "station unshaded",
+        "error": "station shaded"
+      },
+      {
+        "rule": "no obstructions 30m",
+        "error": "obstruction nearby"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 100
+    },
+    "failure_conditions": [
+      {
+        "condition": "station shaded",
+        "action": "relocate"
+      }
+    ],
+    "source_ids": [
+      "IEC_61724_1",
+      "NSRDB_NREL"
+    ]
+  },
+  {
+    "geometry_rule_id": "PVG-GR-020",
+    "name_es": "Posiciones de cámaras de seguridad (security camera positions)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "PVG-005",
+      "PVG-009"
+    ],
+    "required_calculation_ids": [
+      "PVG-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Place security cameras covering perimeter and key assets",
+    "algorithm_pseudocode": [
+      "compute camera_polygon (FOV)",
+      "place cameras at fence corners and asset points",
+      "verify complete coverage"
+    ],
+    "generated_entity_types": [
+      "CAMERA_SYMBOL",
+      "FOV_POLYGON"
+    ],
+    "clearances": [
+      {
+        "name": "camera_to_camera",
+        "max_m": 200
+      },
+      {
+        "name": "camera_to_fence",
+        "value": "PVG-009",
+        "min_m": 0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "complete coverage",
+        "error": "blind spots"
+      }
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 25
+    },
+    "failure_conditions": [
+      {
+        "condition": "blind spots",
+        "action": "add camera"
+      }
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023"
+    ]
+  }
+]

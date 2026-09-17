@@ -1,0 +1,2310 @@
+[
+  {
+    "field_id": "WON-001",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de campaña de medición eólica",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de campaña de medición eólica",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NREL_TP_5000_87434"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-002",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de campaña de medición eólica",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de campaña de medición eólica",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "ISO_19111"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-003",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de campaña de medición eólica",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de campaña de medición eólica",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "IEC_61400_15_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-004",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de campaña de medición eólica",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de campaña de medición eólica",
+    "source_ids": [
+      "IEC_61400_12_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-005",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de incertidumbre P50/P90",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de incertidumbre P50/P90",
+    "source_ids": [
+      "IEC_61400_15_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-006",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de campaña de medición eólica",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de campaña de medición eólica",
+    "source_ids": [
+      "IEC_61400_12_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-007",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de campaña de medición eólica",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de campaña de medición eólica",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "IEC_61400_15_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-010",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de recurso eólico",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de recurso eólico",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NREL_TP_5000_87434"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-011",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de recurso eólico",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de recurso eólico",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NREL_TP_5000_87434"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-012",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de recurso eólico",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de recurso eólico",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NREL_TP_5000_87434"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-013",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de turbulencia",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de turbulencia",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_13"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-014",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de recurso eólico",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de recurso eólico",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "IEC_61400_15_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-015",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de recurso eólico",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de recurso eólico",
+    "source_ids": [
+      "IEC_61400_12_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-016",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de cargas extremas IEC",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de cargas extremas IEC",
+    "source_ids": [
+      "IEC_61400_1",
+      "DNV_RP_C205"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-017",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Reporte de recurso eólico",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Reporte de recurso eólico",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NREL_TP_5000_87434"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-020",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_MECHANICAL el dato desde Datasheet del fabricante de turbinas / spec de diseño",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Datasheet del fabricante de turbinas / spec de diseño",
+    "source_ids": [
+      "IEC_61400_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-021",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_MECHANICAL el dato desde Memoria de cálculo de cargas",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Memoria de cálculo de cargas",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_15_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-030",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a ENVIRONMENTAL_ENGINEER el dato desde Estudio meteorológico del sitio",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio meteorológico del sitio",
+    "source_ids": [
+      "IEC_61400_1",
+      "NASA_POWER"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-031",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a ENVIRONMENTAL_ENGINEER el dato desde Estudio meteorológico del sitio",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio meteorológico del sitio",
+    "source_ids": [
+      "IEC_61400_1",
+      "NASA_POWER"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-032",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_on_missing": "PROCEED_WITH_NOTE",
+    "fallback_strategy": "conservative assumption documented in revision cloud",
+    "escalation_path": "Si condicional () aplica, solicitar a ENVIRONMENTAL_ENGINEER",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio meteorológico del sitio",
+    "source_ids": [
+      "IEC_61400_1",
+      "NASA_POWER"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-033",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN_IF_CONDITION_MET",
+    "fallback_strategy": "none",
+    "escalation_path": "Si condicional (distancia_mar_km<50) aplica, solicitar a ENVIRONMENTAL_ENGINEER",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio ambiental del sitio",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_5"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-034",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN_IF_CONDITION_MET",
+    "fallback_strategy": "none",
+    "escalation_path": "Si condicional (temp_min_extrema_C<0) aplica, solicitar a ENVIRONMENTAL_ENGINEER",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio meteorológico del sitio",
+    "source_ids": [
+      "IEC_61400_1",
+      "NASA_POWER"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-035",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_on_missing": "PROCEED_WITH_NOTE",
+    "fallback_strategy": "conservative assumption documented in revision cloud",
+    "escalation_path": "Si condicional () aplica, solicitar a ENVIRONMENTAL_ENGINEER",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio ambiental del sitio",
+    "source_ids": [
+      "IEC_61400_5",
+      "MINAM_DS_019_2009"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-040",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Estudio de micrositing",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Estudio de micrositing",
+    "source_ids": [
+      "IEC_61400_15_1",
+      "NREL_TP_5000_87434"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-041",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_on_missing": "PROCEED_WITH_NOTE",
+    "fallback_strategy": "conservative assumption documented in revision cloud",
+    "escalation_path": "Si condicional () aplica, solicitar a ENVIRONMENTAL_ENGINEER",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio ambiental del sitio",
+    "source_ids": [
+      "SERFOR_DS_020_2015",
+      "MINAM_DS_019_2009"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-042",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Modelo digital de elevación",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Modelo digital de elevación",
+    "source_ids": [
+      "ISO_14685",
+      "NREL_TP_5000_87434"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-043",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a PROJECT_MANAGER el dato desde Título de propiedad / servidumbre",
+    "review_role": "PROJECT_MANAGER",
+    "expected_source_document": "Título de propiedad / servidumbre",
+    "source_ids": [
+      "ISO_19111",
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-044",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a PROJECT_MANAGER el dato desde Estudio de micrositing",
+    "review_role": "PROJECT_MANAGER",
+    "expected_source_document": "Estudio de micrositing",
+    "source_ids": [
+      "ISO_19111",
+      "IEC_61400_15_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-050",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Memoria de cálculo AEP",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Memoria de cálculo AEP",
+    "source_ids": [
+      "IEC_61400_15_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-051",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Memoria de cálculo AEP",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Memoria de cálculo AEP",
+    "source_ids": [
+      "IEC_61400_15_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-052",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Memoria de micrositing",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Memoria de micrositing",
+    "source_ids": [
+      "IEC_61400_15_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-053",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Memoria de micrositing",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Memoria de micrositing",
+    "source_ids": [
+      "IEC_61400_15_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-060",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Memoria de cálculo AEP",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Memoria de cálculo AEP",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-061",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Memoria de cálculo AEP",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Memoria de cálculo AEP",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-062",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_ELECTRICAL el dato desde Memoria de cálculo AEP",
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "expected_source_document": "Memoria de cálculo AEP",
+    "source_ids": [
+      "IEC_61400_21_1",
+      "IEEE_1547_2018"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-063",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a O_AND_M_LEAD el dato desde Memoria de cálculo AEP",
+    "review_role": "O_AND_M_LEAD",
+    "expected_source_document": "Memoria de cálculo AEP",
+    "source_ids": [
+      "IEC_61400_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-064",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a ENVIRONMENTAL_ENGINEER el dato desde Memoria de cálculo AEP",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Memoria de cálculo AEP",
+    "source_ids": [
+      "IEC_61400_1",
+      "NASA_POWER"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-065",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_ELECTRICAL el dato desde Memoria de diseño eléctrico",
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "expected_source_document": "Memoria de diseño eléctrico",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "OSINERGMIN_PR_17"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-066",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Memoria de cálculo AEP",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Memoria de cálculo AEP",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-070",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_MECHANICAL el dato desde Datasheet del fabricante",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Datasheet del fabricante",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_12_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-071",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_MECHANICAL el dato desde Datasheet del fabricante",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Datasheet del fabricante",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_5"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-072",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_MECHANICAL el dato desde Datasheet del fabricante",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Datasheet del fabricante",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_6"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-073",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_MECHANICAL el dato desde Datasheet del fabricante",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Datasheet del fabricante",
+    "source_ids": [
+      "IEC_61400_12_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-074",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_MECHANICAL el dato desde Datasheet del fabricante",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Datasheet del fabricante",
+    "source_ids": [
+      "IEC_61400_12_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-075",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_MECHANICAL el dato desde Datasheet del fabricante",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Datasheet del fabricante",
+    "source_ids": [
+      "IEC_61400_12_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-076",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_MECHANICAL el dato desde Datasheet del fabricante + certificado",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Datasheet del fabricante + certificado",
+    "source_ids": [
+      "IEC_61400_12_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-077",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a WIND_RESOURCE_ENGINEER el dato desde Datasheet del fabricante",
+    "review_role": "WIND_RESOURCE_ENGINEER",
+    "expected_source_document": "Datasheet del fabricante",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "IEC_61400_27_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-078",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a ENVIRONMENTAL_ENGINEER el dato desde Datasheet del fabricante + certificado IEC 61400-14",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Datasheet del fabricante + certificado IEC 61400-14",
+    "source_ids": [
+      "IEC_61400_11",
+      "IEC_61400_14"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-079",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_ELECTRICAL el dato desde Datasheet del fabricante + memoria LPS",
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "expected_source_document": "Datasheet del fabricante + memoria LPS",
+    "source_ids": [
+      "IEC_61400_24",
+      "IEC_62305_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-080",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_MECHANICAL el dato desde Datasheet del fabricante",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Datasheet del fabricante",
+    "source_ids": [
+      "IEC_61400_5"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-081",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_MECHANICAL el dato desde Datasheet del fabricante",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Datasheet del fabricante",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_13"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-082",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_on_missing": "PROCEED_WITH_NOTE",
+    "fallback_strategy": "conservative assumption documented in revision cloud",
+    "escalation_path": "Si condicional () aplica, solicitar a LEAD_ENGINEER_MECHANICAL",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Datasheet del fabricante",
+    "source_ids": [
+      "IEC_61400_12_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-090",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Datasheet del fabricante + memoria estructural",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Datasheet del fabricante + memoria estructural",
+    "source_ids": [
+      "IEC_61400_6"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-091",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Datasheet del fabricante",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Datasheet del fabricante",
+    "source_ids": [
+      "IEC_61400_6"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-092",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Datasheet del fabricante",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Datasheet del fabricante",
+    "source_ids": [
+      "IEC_61400_6"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-093",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Memoria de cargas del fabricante",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Memoria de cargas del fabricante",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_6"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-094",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_MECHANICAL el dato desde Memoria estructural del fabricante",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Memoria estructural del fabricante",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_6"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-095",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_MECHANICAL el dato desde Datasheet del fabricante",
+    "review_role": "LEAD_ENGINEER_MECHANICAL",
+    "expected_source_document": "Datasheet del fabricante",
+    "source_ids": [
+      "IEC_61400_6"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-100",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Memoria geotécnica + memoria de cimentaciones",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Memoria geotécnica + memoria de cimentaciones",
+    "source_ids": [
+      "IEC_61400_6",
+      "ISO_14685"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-101",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a GEOTECHNICAL_ENGINEER el dato desde Reporte geotécnico del sitio",
+    "review_role": "GEOTECHNICAL_ENGINEER",
+    "expected_source_document": "Reporte geotécnico del sitio",
+    "source_ids": [
+      "ISO_14685",
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-102",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a GEOTECHNICAL_ENGINEER el dato desde Memoria de cimentaciones",
+    "review_role": "GEOTECHNICAL_ENGINEER",
+    "expected_source_document": "Memoria de cimentaciones",
+    "source_ids": [
+      "IEC_61400_6",
+      "ISO_14685"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-103",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Memoria de cimentaciones",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Memoria de cimentaciones",
+    "source_ids": [
+      "IEC_61400_6",
+      "ISO_14685"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-104",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Memoria de cimentaciones",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Memoria de cimentaciones",
+    "source_ids": [
+      "IEC_61400_6",
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-105",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN_IF_CONDITION_MET",
+    "fallback_strategy": "none",
+    "escalation_path": "Si condicional (fundacion_tipo==pile) aplica, solicitar a GEOTECHNICAL_ENGINEER",
+    "review_role": "GEOTECHNICAL_ENGINEER",
+    "expected_source_document": "Reporte geotécnico del sitio",
+    "source_ids": [
+      "ISO_14685",
+      "IEC_61400_6"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-110",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Memoria de caminos / especificaciones civiles",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Memoria de caminos / especificaciones civiles",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "NREL_TP_5000_87434"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-111",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Memoria de caminos / especificaciones civiles",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Memoria de caminos / especificaciones civiles",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-112",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Memoria de caminos / especificaciones civiles",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Memoria de caminos / especificaciones civiles",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "MINEM_DS_043_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-113",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Memoria de caminos / especificaciones civiles",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Memoria de caminos / especificaciones civiles",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-114",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Memoria de caminos",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Memoria de caminos",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-120",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LOGISTICS_LEAD el dato desde Memoria logística",
+    "review_role": "LOGISTICS_LEAD",
+    "expected_source_document": "Memoria logística",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "NREL_TP_5000_87434"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-121",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LOGISTICS_LEAD el dato desde Memoria logística",
+    "review_role": "LOGISTICS_LEAD",
+    "expected_source_document": "Memoria logística",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-122",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LOGISTICS_LEAD el dato desde Memoria logística",
+    "review_role": "LOGISTICS_LEAD",
+    "expected_source_document": "Memoria logística",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-130",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Memoria de izajes",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Memoria de izajes",
+    "source_ids": [
+      "MINEM_DS_043_2006",
+      "NREL_TP_5000_87434"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-131",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_on_missing": "PROCEED_WITH_NOTE",
+    "fallback_strategy": "conservative assumption documented in revision cloud",
+    "escalation_path": "Si condicional () aplica, solicitar a CIVIL_ENGINEER",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Memoria de izajes",
+    "source_ids": [
+      "MINEM_DS_043_2006"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-132",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a CIVIL_ENGINEER el dato desde Memoria de izajes + planos civiles",
+    "review_role": "CIVIL_ENGINEER",
+    "expected_source_document": "Memoria de izajes + planos civiles",
+    "source_ids": [
+      "ISO_14685",
+      "NREL_TP_5000_87434"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-133",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a GEOTECHNICAL_ENGINEER el dato desde Memoria de izajes",
+    "review_role": "GEOTECHNICAL_ENGINEER",
+    "expected_source_document": "Memoria de izajes",
+    "source_ids": [
+      "ISO_14685"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-140",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_ELECTRICAL el dato desde Memoria de diseño eléctrico",
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "expected_source_document": "Memoria de diseño eléctrico",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "OSINERGMIN_PR_17"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-141",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_ELECTRICAL el dato desde Memoria de diseño eléctrico",
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "expected_source_document": "Memoria de diseño eléctrico",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_835"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-142",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_ELECTRICAL el dato desde Memoria de control SCADA",
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "expected_source_document": "Memoria de control SCADA",
+    "source_ids": [
+      "IEC_61400_25",
+      "OSINERGMIN_PR_17"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-143",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_ELECTRICAL el dato desde Memoria de diseño eléctrico",
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "expected_source_document": "Memoria de diseño eléctrico",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "OSINERGMIN_PR_17"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-144",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a LEAD_ENGINEER_ELECTRICAL el dato desde Memoria de diseño eléctrico",
+    "review_role": "LEAD_ENGINEER_ELECTRICAL",
+    "expected_source_document": "Memoria de diseño eléctrico",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEC_61400_21_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-150",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN_IF_CONDITION_MET",
+    "fallback_strategy": "none",
+    "escalation_path": "Si condicional (receptor_residencial_existe==true) aplica, solicitar a ENVIRONMENTAL_ENGINEER",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio de línea base de ruido",
+    "source_ids": [
+      "IEC_61400_11",
+      "MINAM_DS_019_2009"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-151",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a ENVIRONMENTAL_ENGINEER el dato desde Estudio de impacto sonoro",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio de impacto sonoro",
+    "source_ids": [
+      "IEC_61400_11",
+      "MINAM_DS_019_2009"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-152",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a ENVIRONMENTAL_ENGINEER el dato desde Estudio de impacto sonoro",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio de impacto sonoro",
+    "source_ids": [
+      "IEC_61400_11"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-160",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a ENVIRONMENTAL_ENGINEER el dato desde Estudio de flicker",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio de flicker",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "NREL_TP_5000_87434"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-161",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a ENVIRONMENTAL_ENGINEER el dato desde Estudio de flicker",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio de flicker",
+    "source_ids": [
+      "NREL_TP_5000_87434",
+      "MINAM_DS_019_2009"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-170",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN_IF_CONDITION_MET",
+    "fallback_strategy": "none",
+    "escalation_path": "Si condicional (torre_altura_buje_m>150 OR sitio_cerca_aeropuerto==true) aplica, solicitar a ENVIRONMENTAL_ENGINEER",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio de aviación",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEEE_C2_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-171",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN_IF_CONDITION_MET",
+    "fallback_strategy": "none",
+    "escalation_path": "Si condicional (aviation_requiere_luces_bool==true) aplica, solicitar a ENVIRONMENTAL_ENGINEER",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio de aviación",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEEE_C2_2023"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-180",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN_IF_CONDITION_MET",
+    "fallback_strategy": "none",
+    "escalation_path": "Si condicional (sitio_con_patrimonio_arqueologico==true) aplica, solicitar a ENVIRONMENTAL_ENGINEER",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio arqueológico (CIRA)",
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-181",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN_IF_CONDITION_MET",
+    "fallback_strategy": "none",
+    "escalation_path": "Si condicional (sitio_cerca_anp==true) aplica, solicitar a ENVIRONMENTAL_ENGINEER",
+    "review_role": "ENVIRONMENTAL_ENGINEER",
+    "expected_source_document": "Estudio de impacto ambiental",
+    "source_ids": [
+      "SERNANP_DS_007_2016",
+      "MINAM_DS_019_2009"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-190",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_on_missing": "PROCEED_WITH_NOTE",
+    "fallback_strategy": "conservative assumption documented in revision cloud",
+    "escalation_path": "Si condicional () aplica, solicitar a PROJECT_MANAGER",
+    "review_role": "PROJECT_MANAGER",
+    "expected_source_document": "Memoria de cierre",
+    "source_ids": [
+      "MIMP_Ambiental_GLA",
+      "MINAM_DS_019_2009"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-191",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_on_missing": "PROCEED_WITH_NOTE",
+    "fallback_strategy": "conservative assumption documented in revision cloud",
+    "escalation_path": "Si condicional () aplica, solicitar a PROJECT_MANAGER",
+    "review_role": "PROJECT_MANAGER",
+    "expected_source_document": "Memoria de cierre",
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-200",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a PROJECT_MANAGER el dato desde Memoria de diseño",
+    "review_role": "PROJECT_MANAGER",
+    "expected_source_document": "Memoria de diseño",
+    "source_ids": [
+      "IEC_61400_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-201",
+    "requirement_class": "CONDITIONAL",
+    "blocking_if_missing": false,
+    "policy_on_missing": "PROCEED_WITH_NOTE",
+    "fallback_strategy": "conservative assumption documented in revision cloud",
+    "escalation_path": "Si condicional () aplica, solicitar a PROJECT_MANAGER",
+    "review_role": "PROJECT_MANAGER",
+    "expected_source_document": "Memoria económica",
+    "source_ids": [
+      "IRENA_COST_2024"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-202",
+    "requirement_class": "PROJECT_MANDATORY",
+    "blocking_if_missing": true,
+    "policy_on_missing": "BLOCK_DESIGN",
+    "fallback_strategy": "none",
+    "escalation_path": "Solicitar a PROJECT_MANAGER el dato desde Memoria económica",
+    "review_role": "PROJECT_MANAGER",
+    "expected_source_document": "Memoria económica",
+    "source_ids": [
+      "IEC_61400_1"
+    ],
+    "missing_action": "",
+    "allowed_until_stage": "",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "",
+    "responsible_role": "",
+    "blocked_calculations": [],
+    "blocked_drawings": []
+  },
+  {
+    "field_id": "WON-096",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Wind measurement report",
+    "responsible_role": "METEOROLOGIST",
+    "blocked_calculations": [
+      "WON-C-001"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-001",
+      "WON-DRW-003"
+    ]
+  },
+  {
+    "field_id": "WON-097",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "WT datasheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "WON-C-001",
+      "WON-C-003"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-003"
+    ]
+  },
+  {
+    "field_id": "WON-098",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "WT datasheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "WON-C-001",
+      "WON-C-003"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-003"
+    ]
+  },
+  {
+    "field_id": "WON-099",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "WT datasheet",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "WON-C-001",
+      "WON-C-006"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-003"
+    ]
+  },
+  {
+    "field_id": "WON-106",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Geotechnical report",
+    "responsible_role": "GEOTECH_ENGINEER",
+    "blocked_calculations": [
+      "WON-C-004"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-006",
+      "WON-DRW-007"
+    ]
+  },
+  {
+    "field_id": "WON-107",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "INGEMMET fault map",
+    "responsible_role": "GEOTECH_ENGINEER",
+    "blocked_calculations": [
+      "WON-C-004"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-006"
+    ]
+  },
+  {
+    "field_id": "WON-108",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "WON-C-006"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-011"
+    ]
+  },
+  {
+    "field_id": "WON-109",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "WON-C-006"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-011"
+    ]
+  },
+  {
+    "field_id": "WON-300",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Geotechnical report",
+    "responsible_role": "GEOTECH_ENGINEER",
+    "blocked_calculations": [
+      "WON-C-004"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-006",
+      "WON-DRW-007"
+    ]
+  },
+  {
+    "field_id": "WON-301",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "INGEMMET fault map",
+    "responsible_role": "GEOTECH_ENGINEER",
+    "blocked_calculations": [
+      "WON-C-004"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-006"
+    ]
+  },
+  {
+    "field_id": "WON-302",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "WON-C-006"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-011"
+    ]
+  },
+  {
+    "field_id": "WON-303",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Grid study",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "WON-C-006"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-011"
+    ]
+  },
+  {
+    "field_id": "WON-304",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "AEP calculation",
+    "responsible_role": "METEOROLOGIST",
+    "blocked_calculations": [
+      "WON-C-003"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-003"
+    ]
+  },
+  {
+    "field_id": "WON-305",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Logistics study",
+    "responsible_role": "LOGISTICS_LEAD",
+    "blocked_calculations": [
+      "WON-C-005"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-004"
+    ]
+  },
+  {
+    "field_id": "WON-306",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Crane specification",
+    "responsible_role": "LOGISTICS_LEAD",
+    "blocked_calculations": [
+      "WON-C-005"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-008"
+    ]
+  },
+  {
+    "field_id": "WON-307",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "AS_BUILT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Road design",
+    "responsible_role": "CIVIL_ENGINEER",
+    "blocked_calculations": [
+      "WON-C-005"
+    ],
+    "blocked_drawings": [
+      "WON-DRW-004",
+      "WON-DRW-005"
+    ]
+  }
+]

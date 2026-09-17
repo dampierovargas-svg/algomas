@@ -1,0 +1,1371 @@
+[
+  {
+    "qa_rule_id": "BIG-QA-001",
+    "name_es": "Estabilidad de temperatura del digestor (mesofílico ±2°C)",
+    "applies_to": [
+      "DIGESTER_CSTR",
+      "DIGESTER_PLUG_FLOW",
+      "DIGESTER_LAGOON"
+    ],
+    "validation_expression": "abs(T_operacion_C - 35) <= 2 if digestion_temperatura_operacion_C == mesofilic else abs(T_operacion_C - 55) <= 3",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "rule_id": "BIG-QA-001",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "abs(T_operacion_C - 35) <= 2 if digestion_temperatura_operacion_C == mesofilic else abs(T_operacion_C - 55) <= 3",
+    "message_template": "Regla BIG-QA-001 (Estabilidad de temperatura del digestor (mesofílico ±2°C)): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-001_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-002",
+    "name_es": "HRT mínimo 15 días en digestión mesofílica",
+    "applies_to": [
+      "DIGESTER_CSTR",
+      "DIGESTER_PLUG_FLOW",
+      "DIGESTER_LAGOON"
+    ],
+    "validation_expression": "HRT_d >= 15 if digestion_temperatura_operacion_C <= 40 else HRT_d >= 12",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "rule_id": "BIG-QA-002",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "HRT_d >= 15 if digestion_temperatura_operacion_C <= 40 else HRT_d >= 12",
+    "message_template": "Regla BIG-QA-002 (HRT mínimo 15 días en digestión mesofílica): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-002_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-003",
+    "name_es": "HRT mínimo 12 días en digestión termofílica",
+    "applies_to": [
+      "DIGESTER_CSTR",
+      "DIGESTER_PLUG_FLOW",
+      "DIGESTER_LAGOON"
+    ],
+    "validation_expression": "HRT_d >= 12 if digestion_temperatura_operacion_C >= 50",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "rule_id": "BIG-QA-003",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "HRT_d >= 12 if digestion_temperatura_operacion_C >= 50",
+    "message_template": "Regla BIG-QA-003 (HRT mínimo 12 días en digestión termofílica): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-003_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-004",
+    "name_es": "VS destrucción mínima 50%",
+    "applies_to": [
+      "DIGESTER_CSTR",
+      "DIGESTER_PLUG_FLOW",
+      "DIGESTER_LAGOON"
+    ],
+    "validation_expression": "digestion_VS_destruccion_pct >= 50",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ],
+    "rule_id": "BIG-QA-004",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "digestion_VS_destruccion_pct >= 50",
+    "message_template": "Regla BIG-QA-004 (VS destrucción mínima 50%): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-004_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-005",
+    "name_es": "Concentración CH4 en biogás crudo >= 50%",
+    "applies_to": [
+      "DIGESTER_CSTR",
+      "DIGESTER_PLUG_FLOW",
+      "DIGESTER_LAGOON"
+    ],
+    "validation_expression": "biogas_CH4_pct_vol >= 50",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "rule_id": "BIG-QA-005",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "biogas_CH4_pct_vol >= 50",
+    "message_template": "Regla BIG-QA-005 (Concentración CH4 en biogás crudo >= 50%): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-005_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-006",
+    "name_es": "Concentración CH4 en biometano >= 96%",
+    "applies_to": [
+      "UPGRADING_PSA",
+      "UPGRADING_WATER_SCRUBBER",
+      "UPGRADING_AMINE",
+      "UPGRADING_MEMBRANE"
+    ],
+    "validation_expression": "upgrade_CH4_salida_pct >= 96",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "rule_id": "BIG-QA-006",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "upgrade_CH4_salida_pct >= 96",
+    "message_template": "Regla BIG-QA-006 (Concentración CH4 en biometano >= 96%): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-006_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-007",
+    "name_es": "Recuperación CH4 upgrading >= 90%",
+    "applies_to": [
+      "UPGRADING_PSA",
+      "UPGRADING_WATER_SCRUBBER",
+      "UPGRADING_AMINE",
+      "UPGRADING_MEMBRANE"
+    ],
+    "validation_expression": "upgrade_recuperacion_CH4_pct >= 90",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790"
+    ],
+    "rule_id": "BIG-QA-007",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "upgrade_recuperacion_CH4_pct >= 90",
+    "message_template": "Regla BIG-QA-007 (Recuperación CH4 upgrading >= 90%): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-007_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-008",
+    "name_es": "H2S en biogás a motor < 200 ppm",
+    "applies_to": [
+      "H2S_SCRUBBER_BIOLOGICAL",
+      "H2S_SCRUBBER_IRON_OXIDE"
+    ],
+    "validation_expression": "upgrade_H2S_outlet_ppm < 200 if chp_engine present",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_29_1"
+    ],
+    "rule_id": "BIG-QA-008",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "upgrade_H2S_outlet_ppm < 200 if chp_engine present",
+    "message_template": "Regla BIG-QA-008 (H2S en biogás a motor < 200 ppm): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-008_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-009",
+    "name_es": "H2S en biometano a grid < 5 ppm",
+    "applies_to": [
+      "UPGRADING_PSA",
+      "UPGRADING_WATER_SCRUBBER",
+      "UPGRADING_AMINE",
+      "UPGRADING_MEMBRANE"
+    ],
+    "validation_expression": "upgrade_H2S_outlet_ppm < 5 if biomethane_to_grid",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_29_1"
+    ],
+    "rule_id": "BIG-QA-009",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "upgrade_H2S_outlet_ppm < 5 if biomethane_to_grid",
+    "message_template": "Regla BIG-QA-009 (H2S en biometano a grid < 5 ppm): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-009_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-010",
+    "name_es": "Eficiencia de destrucción de antorcha > 98%",
+    "applies_to": [
+      "FLARE_OPEN",
+      "FLARE_ENCLOSED"
+    ],
+    "validation_expression": "flare_destruction_efficiency_pct > 98",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "API_521",
+      "API_520_1",
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "BIG-QA-010",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "flare_destruction_efficiency_pct > 98",
+    "message_template": "Regla BIG-QA-010 (Eficiencia de destrucción de antorcha > 98%): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-010_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-011",
+    "name_es": "Eficiencia eléctrica CHP >= 30%",
+    "applies_to": [
+      "CHP_ENGINE"
+    ],
+    "validation_expression": "chp_eficiencia_electrica_pct >= 30",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006"
+    ],
+    "rule_id": "BIG-QA-011",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "chp_eficiencia_electrica_pct >= 30",
+    "message_template": "Regla BIG-QA-011 (Eficiencia eléctrica CHP >= 30%): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-011_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-012",
+    "name_es": "Eficiencia térmica CHP >= 35%",
+    "applies_to": [
+      "CHP_ENGINE"
+    ],
+    "validation_expression": "chp_eficiencia_termica_pct >= 35",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "ISO_15547_1"
+    ],
+    "rule_id": "BIG-QA-012",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "chp_eficiencia_termica_pct >= 35",
+    "message_template": "Regla BIG-QA-012 (Eficiencia térmica CHP >= 35%): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-012_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-013",
+    "name_es": "Digestor conectado a gas holder por tubería de biogás",
+    "applies_to": [
+      "DIGESTER_CSTR",
+      "GAS_HOLDER_DOUBLE_MEMBRANE"
+    ],
+    "validation_expression": "biogas_piping path exists between digester_biogas_outlet and gas_holder_inlet",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_10628",
+      "ISO_10628_2",
+      "ISO_14617",
+      "ISO_14617_2",
+      "ISO_22790"
+    ],
+    "rule_id": "BIG-QA-013",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "biogas_piping path exists between digester_biogas_outlet and gas_holder_inlet",
+    "message_template": "Regla BIG-QA-013 (Digestor conectado a gas holder por tubería de biogás): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-013_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-014",
+    "name_es": "Gas holder conectado a antorcha por tubería",
+    "applies_to": [
+      "GAS_HOLDER_DOUBLE_MEMBRANE",
+      "FLARE_OPEN",
+      "FLARE_ENCLOSED"
+    ],
+    "validation_expression": "biogas_piping path exists between gas_holder_outlet and flare_inlet",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_10628",
+      "ISO_10628_2",
+      "ISO_14617",
+      "ISO_14617_2",
+      "ISO_22790",
+      "API_521",
+      "API_520_1"
+    ],
+    "rule_id": "BIG-QA-014",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "biogas_piping path exists between gas_holder_outlet and flare_inlet",
+    "message_template": "Regla BIG-QA-014 (Gas holder conectado a antorcha por tubería): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-014_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-015",
+    "name_es": "Gas holder conectado a CHP por tubería",
+    "applies_to": [
+      "GAS_HOLDER_DOUBLE_MEMBRANE",
+      "CHP_ENGINE"
+    ],
+    "validation_expression": "biogas_piping path exists between gas_holder_outlet and chp_gas_train_inlet",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_10628",
+      "ISO_10628_2",
+      "ISO_14617",
+      "ISO_14617_2",
+      "ISO_22790"
+    ],
+    "rule_id": "BIG-QA-015",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "biogas_piping path exists between gas_holder_outlet and chp_gas_train_inlet",
+    "message_template": "Regla BIG-QA-015 (Gas holder conectado a CHP por tubería): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-015_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-016",
+    "name_es": "Scrubber H2S ubicado antes del upgrading/CHP",
+    "applies_to": [
+      "H2S_SCRUBBER_BIOLOGICAL",
+      "H2S_SCRUBBER_IRON_OXIDE"
+    ],
+    "validation_expression": "h2s_scrubber in path: digester_biogas_outlet -> h2s_scrubber -> chp_or_upgrading",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_10628",
+      "ISO_10628_2",
+      "ISO_14617",
+      "ISO_14617_2",
+      "ISO_22790"
+    ],
+    "rule_id": "BIG-QA-016",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "h2s_scrubber in path: digester_biogas_outlet -> h2s_scrubber -> chp_or_upgrading",
+    "message_template": "Regla BIG-QA-016 (Scrubber H2S ubicado antes del upgrading/CHP): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-016_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-017",
+    "name_es": "Compresor de biometano aguas abajo del upgrading",
+    "applies_to": [
+      "BIOMETHANE_COMPRESSOR"
+    ],
+    "validation_expression": "biomethane_compressor downstream of upgrading_outlet",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_10628",
+      "ISO_10628_2",
+      "ISO_14617",
+      "ISO_14617_2",
+      "ISO_22790"
+    ],
+    "rule_id": "BIG-QA-017",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "biomethane_compressor downstream of upgrading_outlet",
+    "message_template": "Regla BIG-QA-017 (Compresor de biometano aguas abajo del upgrading): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-017_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-018",
+    "name_es": "Separador de digestato entre digestor y tanque de almacenamiento",
+    "applies_to": [
+      "DIGESTATE_SEPARATOR_SCREW_PRESS",
+      "DIGESTATE_SEPARATOR_DECANTER",
+      "DIGESTATE_STORAGE_TANK"
+    ],
+    "validation_expression": "digestate_separator between digestor_outlet and digestate_storage_inlet",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_10628",
+      "ISO_10628_2",
+      "ISO_14617",
+      "ISO_14617_2",
+      "ISO_22790"
+    ],
+    "rule_id": "BIG-QA-018",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "digestate_separator between digestor_outlet and digestate_storage_inlet",
+    "message_template": "Regla BIG-QA-018 (Separador de digestato entre digestor y tanque de almacenamiento): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-018_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-019",
+    "name_es": "Recuperación térmica CHP conectada a intercambiador del digestor",
+    "applies_to": [
+      "CHP_HEAT_RECOVERY",
+      "HEAT_EXCHANGER_DIGESTER"
+    ],
+    "validation_expression": "hot_water_circuit between chp_heat_recovery_outlet and digester_heat_exchanger_inlet",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_10628",
+      "ISO_10628_2",
+      "ISO_14617",
+      "ISO_14617_2",
+      "ISO_22790",
+      "ISO_15547_1"
+    ],
+    "rule_id": "BIG-QA-019",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "hot_water_circuit between chp_heat_recovery_outlet and digester_heat_exchanger_inlet",
+    "message_template": "Regla BIG-QA-019 (Recuperación térmica CHP conectada a intercambiador del digestor): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-019_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-020",
+    "name_es": "Sistema ESD conectado a final elements (válvulas)",
+    "applies_to": [
+      "ESD_SYSTEM"
+    ],
+    "validation_expression": "esd_final_elements connected to feed_shutdown_valve and flare_open_valve",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61508_1",
+      "ISO_10628",
+      "ISO_10628_2",
+      "ISO_14617",
+      "ISO_14617_2",
+      "IEC_60079_10_1",
+      "NFPA_497_2024"
+    ],
+    "rule_id": "BIG-QA-020",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "esd_final_elements connected to feed_shutdown_valve and flare_open_valve",
+    "message_template": "Regla BIG-QA-020 (Sistema ESD conectado a final elements (válvulas)): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-020_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-021",
+    "name_es": "Distancia digestor a límite de propiedad >= 30 m",
+    "applies_to": [
+      "DIGESTER_CSTR",
+      "DIGESTER_PLUG_FLOW",
+      "DIGESTER_LAGOON"
+    ],
+    "validation_expression": "distance(digester, property_line) >= 30",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "BIG-QA-021",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "distance(digester, property_line) >= 30",
+    "message_template": "Regla BIG-QA-021 (Distancia digestor a límite de propiedad >= 30 m): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-021_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-022",
+    "name_es": "Distancia gas holder a flare >= 15 m",
+    "applies_to": [
+      "GAS_HOLDER_DOUBLE_MEMBRANE",
+      "FLARE_OPEN",
+      "FLARE_ENCLOSED"
+    ],
+    "validation_expression": "distance(gas_holder, flare) >= 15",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "API_521",
+      "API_520_1"
+    ],
+    "rule_id": "BIG-QA-022",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "distance(gas_holder, flare) >= 15",
+    "message_template": "Regla BIG-QA-022 (Distancia gas holder a flare >= 15 m): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-022_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-023",
+    "name_es": "Distancia flare a property line >= 15 m o radiación <= 6.3 kW/m2",
+    "applies_to": [
+      "FLARE_OPEN",
+      "FLARE_ENCLOSED"
+    ],
+    "validation_expression": "distance(flare, property_line) >= 15 OR thermal_radiation_property_line_kW_m2 <= 6.3",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "API_521",
+      "API_520_1",
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "BIG-QA-023",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "distance(flare, property_line) >= 15 OR thermal_radiation_property_line_kW_m2 <= 6.3",
+    "message_template": "Regla BIG-QA-023 (Distancia flare a property line >= 15 m o radiación <= 6.3 kW/m2): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-023_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-024",
+    "name_es": "Distancia digestor a cuarto CHP >= 15 m o muro cortafuego 1h",
+    "applies_to": [
+      "DIGESTER_CSTR",
+      "CHP_ENGINE"
+    ],
+    "validation_expression": "distance(digester, chp_room) >= 15 OR fire_wall_1h present",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "NFPA_13_2022",
+      "NFPA_15_2022"
+    ],
+    "rule_id": "BIG-QA-024",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "distance(digester, chp_room) >= 15 OR fire_wall_1h present",
+    "message_template": "Regla BIG-QA-024 (Distancia digestor a cuarto CHP >= 15 m o muro cortafuego 1h): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-024_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-025",
+    "name_es": "Distancia máxima entre sensores de gas <= 7.5 m",
+    "applies_to": [
+      "GAS_DETECTION_CABINET"
+    ],
+    "validation_expression": "max_distance_between_gas_sensors_m <= 7.5",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_60079_29_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "IEC_61511_1",
+      "IEC_61508_1"
+    ],
+    "rule_id": "BIG-QA-025",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "max_distance_between_gas_sensors_m <= 7.5",
+    "message_template": "Regla BIG-QA-025 (Distancia máxima entre sensores de gas <= 7.5 m): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-025_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-026",
+    "name_es": "ESD pushbuttons cada <= 30 m",
+    "applies_to": [
+      "ESD_SYSTEM"
+    ],
+    "validation_expression": "distance_between_esd_pushbuttons_m <= 30",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61508_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024"
+    ],
+    "rule_id": "BIG-QA-026",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "distance_between_esd_pushbuttons_m <= 30",
+    "message_template": "Regla BIG-QA-026 (ESD pushbuttons cada <= 30 m): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-026_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-027",
+    "name_es": "Cuarto de control >= 15 m de cualquier zona clasificada",
+    "applies_to": [
+      "CONTROL_SYSTEM"
+    ],
+    "validation_expression": "distance(control_room, any_hazard_zone) >= 15",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "IEC_61511_1",
+      "IEC_61508_1"
+    ],
+    "rule_id": "BIG-QA-027",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "distance(control_room, any_hazard_zone) >= 15",
+    "message_template": "Regla BIG-QA-027 (Cuarto de control >= 15 m de cualquier zona clasificada): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-027_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-028",
+    "name_es": "Anillo de agua contra incendio cubre todos los equipos críticos",
+    "applies_to": [
+      "fire_water_loop"
+    ],
+    "validation_expression": "all critical_equipment within 90m of a hydrant",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "NFPA_20_2022",
+      "NFPA_13_2022",
+      "NFPA_15_2022",
+      "ASME_B31_3_2022"
+    ],
+    "rule_id": "BIG-QA-028",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "all critical_equipment within 90m of a hydrant",
+    "message_template": "Regla BIG-QA-028 (Anillo de agua contra incendio cubre todos los equipos críticos): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-028_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-029",
+    "name_es": "Memoria de cálculo de balance de masa disponible",
+    "applies_to": [
+      "DIGESTER_CSTR",
+      "FEED_PUMP_PROGRESSIVE_CAVITY"
+    ],
+    "validation_expression": "document mass_balance_calculation_memoria exists",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_22790",
+      "ISO_10628",
+      "ISO_10628_2"
+    ],
+    "rule_id": "BIG-QA-029",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "document mass_balance_calculation_memoria exists",
+    "message_template": "Regla BIG-QA-029 (Memoria de cálculo de balance de masa disponible): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-029_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-030",
+    "name_es": "Estudio de clasificación de áreas ATEX disponible",
+    "applies_to": [
+      "DIGESTER_CSTR",
+      "GAS_HOLDER_DOUBLE_MEMBRANE",
+      "FLARE_OPEN"
+    ],
+    "validation_expression": "document area_classification_study exists",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "IEC_60079_0",
+      "NFPA_30_2024"
+    ],
+    "rule_id": "BIG-QA-030",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "document area_classification_study exists",
+    "message_template": "Regla BIG-QA-030 (Estudio de clasificación de áreas ATEX disponible): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-030_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-031",
+    "name_es": "Estudio SIL/LOPA disponible para sistema ESD",
+    "applies_to": [
+      "ESD_SYSTEM"
+    ],
+    "validation_expression": "document sil_lopa_study exists",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61508_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024"
+    ],
+    "rule_id": "BIG-QA-031",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "document sil_lopa_study exists",
+    "message_template": "Regla BIG-QA-031 (Estudio SIL/LOPA disponible para sistema ESD): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-031_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-032",
+    "name_es": "Memoria de cálculo de flare (API 521) disponible",
+    "applies_to": [
+      "FLARE_OPEN",
+      "FLARE_ENCLOSED"
+    ],
+    "validation_expression": "document flare_sizing_calculation_memoria exists",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "API_521",
+      "API_520_1",
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "BIG-QA-032",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "document flare_sizing_calculation_memoria exists",
+    "message_template": "Regla BIG-QA-032 (Memoria de cálculo de flare (API 521) disponible): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-032_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-033",
+    "name_es": "Memoria de cálculo mecánico ASME BPVC disponible",
+    "applies_to": [
+      "DIGESTER_CSTR",
+      "GAS_HOLDER_DOUBLE_MEMBRANE",
+      "BIOMETHANE_STORAGE"
+    ],
+    "validation_expression": "document asme_bpvc_mechanical_calculation_memoria exists",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_B31_3_2022",
+      "ISO_4287"
+    ],
+    "rule_id": "BIG-QA-033",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "document asme_bpvc_mechanical_calculation_memoria exists",
+    "message_template": "Regla BIG-QA-033 (Memoria de cálculo mecánico ASME BPVC disponible): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-033_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-034",
+    "name_es": "Estudio de interconexión eléctrica IEEE 1547 disponible",
+    "applies_to": [
+      "CHP_ENGINE",
+      "TRANSFORMER",
+      "SWITCHGEAR"
+    ],
+    "validation_expression": "document ieee_1547_interconnection_study exists",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006"
+    ],
+    "rule_id": "BIG-QA-034",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "document ieee_1547_interconnection_study exists",
+    "message_template": "Regla BIG-QA-034 (Estudio de interconexión eléctrica IEEE 1547 disponible): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-034_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-035",
+    "name_es": "Clasificación de áreas per IEC 60079-10-1 Zone 1/2",
+    "applies_to": [
+      "area_classification_zone"
+    ],
+    "validation_expression": "all hazardous areas classified per IEC 60079-10-1 with Zone 1 or Zone 2",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "IEC_60079_0",
+      "NFPA_30_2024"
+    ],
+    "rule_id": "BIG-QA-035",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "all hazardous areas classified per IEC 60079-10-1 with Zone 1 or Zone 2",
+    "message_template": "Regla BIG-QA-035 (Clasificación de áreas per IEC 60079-10-1 Zone 1/2): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-035_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-036",
+    "name_es": "Tubería de biogás per ASME B31.3",
+    "applies_to": [
+      "biogas_piping"
+    ],
+    "validation_expression": "all biogas piping designed and fabricated per ASME B31.3",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ASME_B31_3_2022",
+      "ISO_15649"
+    ],
+    "rule_id": "BIG-QA-036",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "all biogas piping designed and fabricated per ASME B31.3",
+    "message_template": "Regla BIG-QA-036 (Tubería de biogás per ASME B31.3): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-036_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-037",
+    "name_es": "Recipiente a presión per ASME BPVC VIII-1",
+    "applies_to": [
+      "DIGESTER_CSTR",
+      "GAS_HOLDER_DOUBLE_MEMBRANE",
+      "BIOMETHANE_STORAGE"
+    ],
+    "validation_expression": "all pressure vessels designed fabricated tested per ASME BPVC VIII-1",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023"
+    ],
+    "rule_id": "BIG-QA-037",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "all pressure vessels designed fabricated tested per ASME BPVC VIII-1",
+    "message_template": "Regla BIG-QA-037 (Recipiente a presión per ASME BPVC VIII-1): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-037_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-038",
+    "name_es": "Interconexión eléctrica per IEEE 1547-2018",
+    "applies_to": [
+      "CHP_ENGINE",
+      "TRANSFORMER",
+      "SWITCHGEAR"
+    ],
+    "validation_expression": "all generators interconnected per IEEE 1547-2018 with anti-islanding",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_1547_2018"
+    ],
+    "rule_id": "BIG-QA-038",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "all generators interconnected per IEEE 1547-2018 with anti-islanding",
+    "message_template": "Regla BIG-QA-038 (Interconexión eléctrica per IEEE 1547-2018): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-038_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-039",
+    "name_es": "Sistema ESD per IEC 61511 SIL 2 mínimo",
+    "applies_to": [
+      "ESD_SYSTEM"
+    ],
+    "validation_expression": "esd_sil_nivel >= 2 per IEC 61511-1",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61508_1"
+    ],
+    "rule_id": "BIG-QA-039",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "esd_sil_nivel >= 2 per IEC 61511-1",
+    "message_template": "Regla BIG-QA-039 (Sistema ESD per IEC 61511 SIL 2 mínimo): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-039_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-040",
+    "name_es": "Detección de gas per IEC 60079-29-1",
+    "applies_to": [
+      "GAS_DETECTION_CABINET"
+    ],
+    "validation_expression": "gas detectors per IEC 60079-29-1 with CH4 H2S O2 sensors",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_60079_29_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "IEC_61511_1",
+      "IEC_61508_1"
+    ],
+    "rule_id": "BIG-QA-040",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "gas detectors per IEC 60079-29-1 with CH4 H2S O2 sensors",
+    "message_template": "Regla BIG-QA-040 (Detección de gas per IEC 60079-29-1): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-040_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-041",
+    "name_es": "Símbolos P&ID per ISO 14617 / ISO 10628",
+    "applies_to": [
+      "P&ID_drawings"
+    ],
+    "validation_expression": "all P&ID symbols follow ISO 14617 and ISO 10628",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_10628",
+      "ISO_10628_2",
+      "ISO_14617",
+      "ISO_14617_2",
+      "ISO_5457",
+      "ISO_7200",
+      "ISO_128_20",
+      "ISO_129_1"
+    ],
+    "rule_id": "BIG-QA-041",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "all P&ID symbols follow ISO 14617 and ISO 10628",
+    "message_template": "Regla BIG-QA-041 (Símbolos P&ID per ISO 14617 / ISO 10628): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-041_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-042",
+    "name_es": "Capas CAD per ISO 13567-1",
+    "applies_to": [
+      "all_cad_drawings"
+    ],
+    "validation_expression": "all CAD layers per ISO 13567-1 naming convention",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_13567_1",
+      "ISO_5457",
+      "ISO_7200",
+      "ISO_128_20",
+      "ISO_129_1"
+    ],
+    "rule_id": "BIG-QA-042",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "all CAD layers per ISO 13567-1 naming convention",
+    "message_template": "Regla BIG-QA-042 (Capas CAD per ISO 13567-1): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-042_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-043",
+    "name_es": "Bloque de título per ISO 7200",
+    "applies_to": [
+      "all_cad_drawings"
+    ],
+    "validation_expression": "all drawings have title block per ISO 7200",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_5457",
+      "ISO_7200",
+      "ISO_128_20",
+      "ISO_129_1"
+    ],
+    "rule_id": "BIG-QA-043",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "all drawings have title block per ISO 7200",
+    "message_template": "Regla BIG-QA-043 (Bloque de título per ISO 7200): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-043_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-044",
+    "name_es": "Escalas estándar per ISO 5455",
+    "applies_to": [
+      "all_cad_drawings"
+    ],
+    "validation_expression": "all drawings use ISO 5455 standard scales",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_5457",
+      "ISO_7200",
+      "ISO_128_20",
+      "ISO_129_1",
+      "ISO_5455"
+    ],
+    "rule_id": "BIG-QA-044",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "all drawings use ISO 5455 standard scales",
+    "message_template": "Regla BIG-QA-044 (Escalas estándar per ISO 5455): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-044_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-045",
+    "name_es": "Sprinklers en cuarto CHP per NFPA 13",
+    "applies_to": [
+      "CHP_ENGINE"
+    ],
+    "validation_expression": "chp_room has sprinkler coverage per NFPA 13-2022",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_15_2022",
+      "NFPA_30_2024"
+    ],
+    "rule_id": "BIG-QA-045",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "chp_room has sprinkler coverage per NFPA 13-2022",
+    "message_template": "Regla BIG-QA-045 (Sprinklers en cuarto CHP per NFPA 13): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-045_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-046",
+    "name_es": "Bomba contra incendio per NFPA 20",
+    "applies_to": [
+      "fire_water_loop"
+    ],
+    "validation_expression": "fire_pump designed per NFPA 20-2022 with redundant power",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "NFPA_20_2022",
+      "NFPA_70_2023"
+    ],
+    "rule_id": "BIG-QA-046",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "fire_pump designed per NFPA 20-2022 with redundant power",
+    "message_template": "Regla BIG-QA-046 (Bomba contra incendio per NFPA 20): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-046_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-047",
+    "name_es": "Emisiones del motor CHP per MINAM DS 019-2009",
+    "applies_to": [
+      "CHP_ENGINE"
+    ],
+    "validation_expression": "chp_engine NOx CO CH2O emissions per MINAM DS 019-2009 limits",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "ISO_22790"
+    ],
+    "rule_id": "BIG-QA-047",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "chp_engine NOx CO CH2O emissions per MINAM DS 019-2009 limits",
+    "message_template": "Regla BIG-QA-047 (Emisiones del motor CHP per MINAM DS 019-2009): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-047_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "BIG-QA-048",
+    "name_es": "Conexión al SEIN per MINEM DS 032-2003-EM",
+    "applies_to": [
+      "TRANSFORMER",
+      "SWITCHGEAR"
+    ],
+    "validation_expression": "grid interconnection per MINEM DS 032-2003-EM and COES procedures",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006",
+      "IEEE_1547_2018"
+    ],
+    "rule_id": "BIG-QA-048",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "grid interconnection per MINEM DS 032-2003-EM and COES procedures",
+    "message_template": "Regla BIG-QA-048 (Conexión al SEIN per MINEM DS 032-2003-EM): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "BIG-QA-048_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  }
+]

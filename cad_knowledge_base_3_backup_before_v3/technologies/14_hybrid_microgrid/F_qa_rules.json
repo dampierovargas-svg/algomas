@@ -1,0 +1,1373 @@
+[
+  {
+    "rule_id": "MG-QA-001",
+    "name_es": "Balance de energia diario (gen >= demanda)",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "E_gen_day >= E_day * 0.95",
+    "severity": "BLOCKED",
+    "message_template": "Energia generada {E_gen_day} kWh < 95% de la demanda {E_day} kWh.",
+    "required_evidence": [
+      "A_field_MG-026",
+      "MG-C-004_output"
+    ],
+    "affected_fields": [
+      "MG-026",
+      "MG-018",
+      "MG-101",
+      "MG-102",
+      "MG-104",
+      "MG-105",
+      "MG-106",
+      "MG-107"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_2030_2",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-002",
+    "name_es": "RenewableShare objetivo alcanzado",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "RenewableShare_calc >= MG-133",
+    "severity": "BLOCKED",
+    "message_template": "RenewableShare {RenewableShare_calc}% < objetivo {MG-133}%.",
+    "required_evidence": [
+      "A_field_MG-133",
+      "MG-C-007_output"
+    ],
+    "affected_fields": [
+      "MG-133",
+      "MG-028",
+      "MG-101",
+      "MG-104",
+      "MG-105",
+      "MG-106",
+      "MG-107",
+      "MG-108"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINEM_DS_013_2019",
+      "COES_NCO_2019",
+      "IEEE_2030_2",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-003",
+    "name_es": "StorageShare objetivo alcanzado",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "StorageShare_calc >= MG-134",
+    "severity": "WARNING",
+    "message_template": "StorageShare {StorageShare_calc}% < objetivo {MG-134}%.",
+    "required_evidence": [
+      "A_field_MG-134",
+      "MG-C-007_output"
+    ],
+    "affected_fields": [
+      "MG-134",
+      "MG-103",
+      "MG-028"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "override_allowed": true,
+    "override_role": "PROCESS_ENGINEER",
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEC_62933_2_1",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-004",
+    "name_es": "ConventionalShare maximo respetado",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "ConventionalShare_calc <= MG-135",
+    "severity": "BLOCKED",
+    "message_template": "ConventionalShare {ConventionalShare_calc}% > maximo {MG-135}%.",
+    "required_evidence": [
+      "A_field_MG-135",
+      "MG-C-007_output"
+    ],
+    "affected_fields": [
+      "MG-135",
+      "MG-108",
+      "MG-028"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINEM_DS_013_2019",
+      "COES_NCO_2019",
+      "IEEE_2030_2",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-005",
+    "name_es": "BESS capacidad >= E_required",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-103 >= E_required_calc",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad BESS {MG-103} kWh < capacidad requerida {E_required_calc} kWh.",
+    "required_evidence": [
+      "A_field_MG-103",
+      "MG-C-008_output"
+    ],
+    "affected_fields": [
+      "MG-103",
+      "MG-029",
+      "MG-052",
+      "MG-040",
+      "MG-063"
+    ],
+    "affected_drawings": [
+      "MG-DRW-006",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62933_2_1",
+      "IEEE_2030_2",
+      "IEEE_1547_4",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-006",
+    "name_es": "BESS autonomia horas >= diseno",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "T_aut >= T_aut_design",
+    "severity": "WARNING",
+    "message_template": "Autonomia BESS {T_aut} h < objetivo de diseno {T_aut_design} h.",
+    "required_evidence": [
+      "MG-C-009_output",
+      "A_field_MG-103"
+    ],
+    "affected_fields": [
+      "MG-103",
+      "MG-029",
+      "MG-040",
+      "MG-063"
+    ],
+    "affected_drawings": [
+      "MG-DRW-006",
+      "MG-DRW-015"
+    ],
+    "override_allowed": true,
+    "override_role": "PROCESS_ENGINEER",
+    "source_ids": [
+      "IEC_62933_2_1",
+      "IEEE_1547_4",
+      "IEEE_2030_2",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-007",
+    "name_es": "EMS tiempo de respuesta < 5000 ms",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-041 == 'YES'",
+    "assertion_expression": "MG-045 <= 5000",
+    "severity": "BLOCKED",
+    "message_template": "Tiempo de respuesta EMS {MG-045} ms > 5000 ms.",
+    "required_evidence": [
+      "A_field_MG-045"
+    ],
+    "affected_fields": [
+      "MG-045",
+      "MG-041",
+      "MG-046"
+    ],
+    "affected_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-008",
+    "name_es": "Ramp rate EMS <= COES NCO",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-044 <= COES_ramp_rate_max",
+    "severity": "BLOCKED",
+    "message_template": "Ramp rate {MG-044}%MW/min excede COES NCO.",
+    "required_evidence": [
+      "COES_connection_agreement"
+    ],
+    "affected_fields": [
+      "MG-044",
+      "MG-102",
+      "MG-104"
+    ],
+    "affected_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "COES_NCO_2019",
+      "COES_Proyectos_Conexion",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-009",
+    "name_es": "Capacidad firming objetivo alcanzado",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-121 == 'YES'",
+    "assertion_expression": "T_firming >= T_firming_design",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad firming {T_firming} h < objetivo {T_firming_design} h.",
+    "required_evidence": [
+      "MG-C-012_output",
+      "A_field_MG-103"
+    ],
+    "affected_fields": [
+      "MG-103",
+      "MG-102",
+      "MG-040",
+      "MG-121"
+    ],
+    "affected_drawings": [
+      "MG-DRW-006",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62933_2_1",
+      "IEEE_2030_2",
+      "IEEE_1547_4",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-010",
+    "name_es": "Peak shaving objetivo alcanzado",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-122 == 'YES'",
+    "assertion_expression": "P_shaved >= (MG-023 - MG-031)",
+    "severity": "BLOCKED",
+    "message_template": "Peak shaving {P_shaved} kW < objetivo {(MG-023 - MG-031)} kW.",
+    "required_evidence": [
+      "MG-C-013_output"
+    ],
+    "affected_fields": [
+      "MG-023",
+      "MG-031",
+      "MG-122",
+      "MG-102",
+      "MG-040"
+    ],
+    "affected_drawings": [
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_2030_2",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-011",
+    "name_es": "Estabilidad de frecuencia",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-076 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "Estudio de estabilidad de frecuencia no realizado.",
+    "required_evidence": [
+      "Frequency_stability_study"
+    ],
+    "affected_fields": [
+      "MG-076",
+      "MG-080",
+      "MG-114"
+    ],
+    "affected_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-012",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_1547_4",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-012",
+    "name_es": "Estabilidad de tension IEEE 1547",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-077 == 'YES' AND MG-141 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "Estudio de estabilidad de tension / ride-through sags/swells no cumplido.",
+    "required_evidence": [
+      "Voltage_stability_study",
+      "IEEE_1547_test_report"
+    ],
+    "affected_fields": [
+      "MG-077",
+      "MG-141",
+      "MG-110"
+    ],
+    "affected_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-013",
+    "name_es": "Estabilidad transitoria",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-078 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "Estudio de estabilidad transitoria no realizado.",
+    "required_evidence": [
+      "Transient_stability_study"
+    ],
+    "affected_fields": [
+      "MG-078",
+      "MG-080",
+      "MG-114"
+    ],
+    "affected_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-012",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_1547_4",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-014",
+    "name_es": "Coordinacion de protecciones TCC",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-083 == 'YES' AND CTI >= 0.2",
+    "severity": "BLOCKED",
+    "message_template": "Coordinacion TCC incompleta o CTI < 0.2 s.",
+    "required_evidence": [
+      "TCC_coordination_study"
+    ],
+    "affected_fields": [
+      "MG-083",
+      "MG-084",
+      "MG-087",
+      "MG-090"
+    ],
+    "affected_drawings": [
+      "MG-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_C2_2023",
+      "NFPA_70_2023",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-015",
+    "name_es": "Primary Frequency Response (PFR)",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-080 == 'YES'",
+    "assertion_expression": "|dP_PFR| <= MG-102 AND T_PFR >= MG-081",
+    "severity": "BLOCKED",
+    "message_template": "PFR capacidad {dP_PFR} kW excede BESS {MG-102} kW o tiempo < {MG-081} s.",
+    "required_evidence": [
+      "PFR_test_report"
+    ],
+    "affected_fields": [
+      "MG-080",
+      "MG-081",
+      "MG-102",
+      "MG-114"
+    ],
+    "affected_drawings": [
+      "MG-DRW-010",
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "COES_NCO_2019",
+      "IEEE_1547_4",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-016",
+    "name_es": "Anti-islanding IEEE 1547.4 / IEC 62116",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-085 == 'YES' AND t_trip < 2",
+    "severity": "BLOCKED",
+    "message_template": "Anti-islanding no implementado o t_trip > 2 s (IEC 62116).",
+    "required_evidence": [
+      "Anti_islanding_test_report_IEC_62116"
+    ],
+    "affected_fields": [
+      "MG-085",
+      "MG-086",
+      "MG-088",
+      "MG-089"
+    ],
+    "affected_drawings": [
+      "MG-DRW-004",
+      "MG-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "IEC_62116",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-017",
+    "name_es": "ROCOF umbral plausible",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-086 == 'ROCOF'",
+    "assertion_expression": "MG-088 >= 0.1 AND MG-088 <= 5.0",
+    "severity": "WARNING",
+    "message_template": "Umbral ROCOF {MG-088} Hz/s fuera de rango plausible [0.1, 5] Hz/s.",
+    "required_evidence": [
+      "A_field_MG-088"
+    ],
+    "affected_fields": [
+      "MG-088",
+      "MG-086"
+    ],
+    "affected_drawings": [
+      "MG-DRW-012"
+    ],
+    "override_allowed": true,
+    "override_role": "ELECTRICAL_ENGINEER",
+    "source_ids": [
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "IEC_62116",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-018",
+    "name_es": "Vector shift umbral plausible",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-086 == 'VECTOR_SHIFT'",
+    "assertion_expression": "MG-089 >= 1 AND MG-089 <= 30",
+    "severity": "WARNING",
+    "message_template": "Umbral vector shift {MG-089} deg fuera de rango plausible [1, 30] deg.",
+    "required_evidence": [
+      "A_field_MG-089"
+    ],
+    "affected_fields": [
+      "MG-089",
+      "MG-086"
+    ],
+    "affected_drawings": [
+      "MG-DRW-012"
+    ],
+    "override_allowed": true,
+    "override_role": "ELECTRICAL_ENGINEER",
+    "source_ids": [
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "IEC_62116",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-019",
+    "name_es": "Sync check presente en PCC",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-093 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "Rele sync check (25) no instalado en PCC.",
+    "required_evidence": [
+      "Drawing_MG-DRW-004"
+    ],
+    "affected_fields": [
+      "MG-093",
+      "MG-091",
+      "MG-092"
+    ],
+    "affected_drawings": [
+      "MG-DRW-004",
+      "MG-DRW-010",
+      "MG-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-020",
+    "name_es": "SAIDI objetivo cumplido",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "SAIDI_calc <= MG-053",
+    "severity": "BLOCKED",
+    "message_template": "SAIDI {SAIDI_calc} min/cliente/ano > objetivo {MG-053}.",
+    "required_evidence": [
+      "A_field_MG-053",
+      "MG-C-026_output"
+    ],
+    "affected_fields": [
+      "MG-053",
+      "MG-058",
+      "MG-059"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_4",
+      "COES_NCO_2019",
+      "OSINERGMIN_PR_27",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-021",
+    "name_es": "SAIFI objetivo cumplido",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "SAIFI_calc <= MG-054",
+    "severity": "BLOCKED",
+    "message_template": "SAIFI {SAIFI_calc} 1/cliente/ano > objetivo {MG-054}.",
+    "required_evidence": [
+      "A_field_MG-054",
+      "MG-C-027_output"
+    ],
+    "affected_fields": [
+      "MG-054",
+      "MG-058"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_4",
+      "COES_NCO_2019",
+      "OSINERGMIN_PR_27",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-022",
+    "name_es": "CAIDI objetivo cumplido",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "CAIDI_calc <= MG-055",
+    "severity": "BLOCKED",
+    "message_template": "CAIDI {CAIDI_calc} min/interrupcion > objetivo {MG-055}.",
+    "required_evidence": [
+      "A_field_MG-055",
+      "MG-C-028_output"
+    ],
+    "affected_fields": [
+      "MG-055",
+      "MG-053",
+      "MG-054"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_4",
+      "COES_NCO_2019",
+      "OSINERGMIN_PR_27",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-023",
+    "name_es": "LOLP objetivo cumplido",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "LOLP_calc <= MG-056",
+    "severity": "BLOCKED",
+    "message_template": "LOLP {LOLP_calc} > objetivo {MG-056}.",
+    "required_evidence": [
+      "A_field_MG-056",
+      "MG-C-029_output"
+    ],
+    "affected_fields": [
+      "MG-056",
+      "MG-058",
+      "MG-059",
+      "MG-024",
+      "MG-103"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_4",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-024",
+    "name_es": "EENS objetivo cumplido",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "EENS_calc <= MG-057",
+    "severity": "BLOCKED",
+    "message_template": "EENS {EENS_calc} kWh/ano > objetivo {MG-057} kWh/ano.",
+    "required_evidence": [
+      "A_field_MG-057",
+      "MG-C-030_output"
+    ],
+    "affected_fields": [
+      "MG-057",
+      "MG-056",
+      "MG-024",
+      "MG-103"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_4",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-025",
+    "name_es": "SCADA sample rate >= 1 Hz",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-096 >= 1.0",
+    "severity": "BLOCKED",
+    "message_template": "Tasa de muestreo SCADA {MG-096} Hz < 1 Hz.",
+    "required_evidence": [
+      "SCADA_datasheet"
+    ],
+    "affected_fields": [
+      "MG-096",
+      "MG-094",
+      "MG-095"
+    ],
+    "affected_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-026",
+    "name_es": "Resistencia malla de tierra <= 1 ohm",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-144 <= 1.0",
+    "severity": "BLOCKED",
+    "message_template": "Resistencia malla tierra {MG-144} ohm > 1 ohm IEEE 80.",
+    "required_evidence": [
+      "A_field_MG-144",
+      "Soil_resistivity_study"
+    ],
+    "affected_fields": [
+      "MG-144",
+      "MG-145",
+      "MG-146",
+      "MG-010"
+    ],
+    "affected_drawings": [
+      "MG-DRW-013"
+    ],
+    "override_allowed": true,
+    "override_role": "ELECTRICAL_ENGINEER",
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_142",
+      "IEC_60364_5_54",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-027",
+    "name_es": "IEEE 80 step & touch potential",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "E_step <= E_step_limit AND E_touch <= E_touch_limit",
+    "severity": "BLOCKED",
+    "message_template": "Step/touch potential excede IEEE 80.",
+    "required_evidence": [
+      "Grounding_study_IEEE_80"
+    ],
+    "affected_fields": [
+      "MG-144",
+      "MG-145",
+      "MG-146",
+      "MG-010"
+    ],
+    "affected_drawings": [
+      "MG-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_142",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-028",
+    "name_es": "IEC 62305 LPL definido",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-147 IN ('I','II','III','IV')",
+    "severity": "BLOCKED",
+    "message_template": "LPL IEC 62305 no definido.",
+    "required_evidence": [
+      "Lightning_protection_study"
+    ],
+    "affected_fields": [
+      "MG-147",
+      "MG-148"
+    ],
+    "affected_drawings": [
+      "MG-DRW-013",
+      "MG-DRW-001"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-029",
+    "name_es": "IEEE 519 THD V <= 5% (V < 1 kV)",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-140 <= 5.0",
+    "severity": "BLOCKED",
+    "message_template": "THD V {MG-140}% > 5% IEEE 519.",
+    "required_evidence": [
+      "IEEE_519_test_report"
+    ],
+    "affected_fields": [
+      "MG-140",
+      "MG-110",
+      "MG-069",
+      "MG-070"
+    ],
+    "affected_drawings": [
+      "MG-DRW-012"
+    ],
+    "override_allowed": true,
+    "override_role": "ELECTRICAL_ENGINEER",
+    "source_ids": [
+      "IEEE_519_2022",
+      "IEEE_1547_2018",
+      "UL_1741"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-030",
+    "name_es": "IEC 62305 risk assessment",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "R_T <= R_T_target",
+    "severity": "BLOCKED",
+    "message_template": "Riesgo de rayo R_T {R_T} > objetivo {R_T_target}.",
+    "required_evidence": [
+      "Lightning_risk_assessment_IEC_62305"
+    ],
+    "affected_fields": [
+      "MG-147",
+      "MG-148",
+      "MG-002",
+      "MG-003"
+    ],
+    "affected_drawings": [
+      "MG-DRW-013",
+      "MG-DRW-001"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-031",
+    "name_es": "Voltage drop <= 5% LV",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "dV_pct <= 5.0",
+    "severity": "BLOCKED",
+    "message_template": "Caida de tension {dV_pct}% > 5% LV (IEEE 1547).",
+    "required_evidence": [
+      "Voltage_drop_calculation"
+    ],
+    "affected_fields": [
+      "MG-023",
+      "MG-038",
+      "MG-110",
+      "MG-039"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "NFPA_70_2023",
+      "IEEE_C2_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-032",
+    "name_es": "Power quality flicker Pst <= 1.0",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-142 <= 1.0",
+    "severity": "BLOCKED",
+    "message_template": "Flicker Pst {MG-142} > 1.0.",
+    "required_evidence": [
+      "PQ_test_report"
+    ],
+    "affected_fields": [
+      "MG-142",
+      "MG-110"
+    ],
+    "affected_drawings": [
+      "MG-DRW-012"
+    ],
+    "override_allowed": true,
+    "override_role": "ELECTRICAL_ENGINEER",
+    "source_ids": [
+      "IEEE_519_2022",
+      "IEEE_1547_2018",
+      "UL_1741"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-033",
+    "name_es": "Voltage unbalance <= 3%",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-143 <= 3.0",
+    "severity": "BLOCKED",
+    "message_template": "Desbalance de tension {MG-143}% > 3%.",
+    "required_evidence": [
+      "PQ_test_report"
+    ],
+    "affected_fields": [
+      "MG-143",
+      "MG-110"
+    ],
+    "affected_drawings": [
+      "MG-DRW-012"
+    ],
+    "override_allowed": true,
+    "override_role": "ELECTRICAL_ENGINEER",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "UL_1741"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-034",
+    "name_es": "Capacidad interruptiva breaker >= I_SCC",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-090 >= I_SCC_calc * 1.25",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad interruptiva AC {MG-090} kA < I_SCC*1.25 {I_SCC_calc} kA.",
+    "required_evidence": [
+      "Short_circuit_study"
+    ],
+    "affected_fields": [
+      "MG-090",
+      "MG-110",
+      "MG-111",
+      "MG-113",
+      "MG-069",
+      "MG-070"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-004",
+      "MG-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_C2_2023",
+      "NFPA_70_2023",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-035",
+    "name_es": "IEEE 1547 interconnection compliance",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-112 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "Cumplimiento IEEE 1547-2018 no verificado en PCC.",
+    "required_evidence": [
+      "IEEE_1547_test_report",
+      "IEEE_1547_1_conformance"
+    ],
+    "affected_fields": [
+      "MG-112",
+      "MG-109",
+      "MG-110",
+      "MG-111",
+      "MG-113",
+      "MG-114"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-004",
+      "MG-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_1547_1",
+      "UL_1741",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-036",
+    "name_es": "IEEE 1547.4 islanding compliance",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-060 == 'YES'",
+    "assertion_expression": "MG-061 <= 60 AND MG-085 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "Cumplimiento IEEE 1547.4 no verificado para operacion isla.",
+    "required_evidence": [
+      "IEEE_1547_4_islanding_report"
+    ],
+    "affected_fields": [
+      "MG-060",
+      "MG-061",
+      "MG-062",
+      "MG-063",
+      "MG-085",
+      "MG-112"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-004",
+      "MG-DRW-010",
+      "MG-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "IEC_62116",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-037",
+    "name_es": "IEEE 2030.2 interoperability",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "interop == TRUE AND MG-094 INCLUDES 'IEC 61850' OR 'DNP3' OR 'Modbus'",
+    "severity": "BLOCKED",
+    "message_template": "No cumple interoperabilidad IEEE 2030.2 / pila SCADA.",
+    "required_evidence": [
+      "Protocol_stack_doc"
+    ],
+    "affected_fields": [
+      "MG-094",
+      "MG-095",
+      "MG-096"
+    ],
+    "affected_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-014",
+      "MG-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEEE_1547_2018",
+      "IEC_61508_1",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-038",
+    "name_es": "Soil bearing verified",
+    "category": "GEOMETRIC",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "soil_bearing_capacity >= bearing_calc",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad de carga del suelo < carga aplicada.",
+    "required_evidence": [
+      "Geotechnical_study"
+    ],
+    "affected_fields": [
+      "MG-005",
+      "MG-002",
+      "MG-003"
+    ],
+    "affected_drawings": [
+      "MG-DRW-015"
+    ],
+    "override_allowed": true,
+    "override_role": "CIVIL_ENGINEER",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "DNV_RP_0585",
+      "ISO_5457"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-039",
+    "name_es": "Lat/Lon within Peru (if project in Peru)",
+    "category": "TOPOLOGIC",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-009 == 'PE'",
+    "assertion_expression": "MG-002 IN [-18.341,-0.05] AND MG-003 IN [-81.328,-68.675]",
+    "severity": "WARNING",
+    "message_template": "Coordenadas fuera de Peru (lat={MG-002}, lon={MG-003}).",
+    "required_evidence": [
+      "Topographic_study"
+    ],
+    "affected_fields": [
+      "MG-002",
+      "MG-003"
+    ],
+    "affected_drawings": [
+      "MG-DRW-001",
+      "MG-DRW-002"
+    ],
+    "override_allowed": true,
+    "override_role": "PROJECT_MANAGER",
+    "source_ids": [
+      "ISO_19111",
+      "MINEM_DS_013_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-040",
+    "name_es": "NFPA 855 separation distances",
+    "category": "GEOMETRIC",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-129 INCLUDES 'BESS'",
+    "assertion_expression": "d_building >= 1.5 AND d_property_line >= 3 AND d_hazard >= 7.5",
+    "severity": "BLOCKED",
+    "message_template": "Distancias NFPA 855 incumplidas: d_building={d_building} m, d_property={d_property} m, d_hazard={d_hazard} m.",
+    "required_evidence": [
+      "Plot_plan_with_distances"
+    ],
+    "affected_fields": [
+      "MG-102",
+      "MG-103",
+      "MG-008",
+      "MG-148"
+    ],
+    "affected_drawings": [
+      "MG-DRW-001",
+      "MG-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_855_2023",
+      "DNV_RP_0585",
+      "ISO_5457"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-041",
+    "name_es": "Cybersecurity zones 1-4 defined",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-099 IN (1,2,3,4)",
+    "severity": "BLOCKED",
+    "message_template": "Zonas de cyberseguridad {MG-099} no definidas (1-4).",
+    "required_evidence": [
+      "Cybersecurity_architecture"
+    ],
+    "affected_fields": [
+      "MG-099",
+      "MG-100",
+      "MG-136",
+      "MG-137",
+      "MG-138"
+    ],
+    "affected_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62368_1",
+      "IEEE_1547_2018",
+      "IEC_61508_1",
+      "IEEE_2030_2",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-042",
+    "name_es": "MFA on SCADA",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-100 == 'YES'",
+    "severity": "BLOCKED",
+    "message_template": "SCADA sin MFA.",
+    "required_evidence": [
+      "Cybersecurity_architecture"
+    ],
+    "affected_fields": [
+      "MG-100",
+      "MG-099"
+    ],
+    "affected_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62368_1",
+      "IEC_61508_1",
+      "IEEE_1547_2018",
+      "IEEE_2030_2",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-043",
+    "name_es": "IDS in SCADA",
+    "category": "NORMATIVE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "MG-136 == 'YES'",
+    "severity": "HUMAN_REVIEW",
+    "message_template": "SCADA sin IDS.",
+    "required_evidence": [
+      "Cybersecurity_architecture"
+    ],
+    "affected_fields": [
+      "MG-136",
+      "MG-137",
+      "MG-138"
+    ],
+    "affected_drawings": [
+      "MG-DRW-011",
+      "MG-DRW-014"
+    ],
+    "override_allowed": true,
+    "override_role": "IT_SECURITY_ENGINEER",
+    "source_ids": [
+      "IEC_62368_1",
+      "IEEE_1547_2018",
+      "IEC_61508_1",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-044",
+    "name_es": "As-built georef coordinates match design",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND stage == 'AS_BUILT'",
+    "assertion_expression": "|lat_asbuilt - MG-002| < 1e-4 AND |lon_asbuilt - MG-003| < 1e-4",
+    "severity": "BLOCKED",
+    "message_template": "Coordenadas as-built no coinciden con diseno.",
+    "required_evidence": [
+      "As-built_survey"
+    ],
+    "affected_fields": [
+      "MG-002",
+      "MG-003"
+    ],
+    "affected_drawings": [
+      "MG-DRW-001",
+      "MG-DRW-017"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111",
+      "ISO_5457",
+      "ISO_7200",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-045",
+    "name_es": "Transformer rating >= 1.1 * P_total",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "assertion_expression": "S_xfr >= 1.1 * P_total",
+    "severity": "BLOCKED",
+    "message_template": "Transformador {S_xfr} kVA < 1.1 * P_total {P_total} kW.",
+    "required_evidence": [
+      "Transformer_sizing_calculation"
+    ],
+    "affected_fields": [
+      "MG-110",
+      "MG-023",
+      "MG-102",
+      "MG-101",
+      "MG-104",
+      "MG-105",
+      "MG-106",
+      "MG-107",
+      "MG-108"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-004"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023",
+      "NFPA_70_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "rule_id": "MG-QA-046",
+    "name_es": "EV charging load <= 10% of P_peak",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-118 > 0",
+    "assertion_expression": "P_EV <= 0.10 * MG-023",
+    "severity": "WARNING",
+    "message_template": "Carga EV {P_EV} kW > 10% de pico {MG-023} kW (gestion DR requerida).",
+    "required_evidence": [
+      "EV_load_calculation"
+    ],
+    "affected_fields": [
+      "MG-118",
+      "MG-023"
+    ],
+    "affected_drawings": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ],
+    "override_allowed": true,
+    "override_role": "ELECTRICAL_ENGINEER",
+    "source_ids": [
+      "IEC_61851_1",
+      "IEEE_2030_2",
+      "NFPA_70_2023",
+      "DNV_RP_0585"
+    ]
+  }
+]

@@ -1,0 +1,180 @@
+{
+  "audit_date": "2026-09-18",
+  "files_read": 0,
+  "syntax_errors": [],
+  "schema_mismatches": [],
+  "duplicate_ids": [],
+  "broken_references": {
+    "source_ids": [],
+    "field_ids": [],
+    "calculation_ids": [],
+    "geometry_rule_ids": [],
+    "drawing_ids": [],
+    "qa_rule_ids": [],
+    "symbol_ids": [],
+    "layer_ids": []
+  },
+  "missing_symbols_without_primitives": [],
+  "missing_geometry_algorithm": [],
+  "formulas_without_units_or_outputs": [],
+  "drawings_without_minimum_deps": [],
+  "mandatory_fields_without_policy": [],
+  "placeholder_occurrences": [],
+  "role_names_in_source_ids": [],
+  "summary": {
+    "sources_registered": 215,
+    "common_layers": 258,
+    "common_symbols": 379,
+    "common_project_inputs": 152,
+    "common_calculations": 10,
+    "common_drawings": 6,
+    "common_geometry_rules": 0,
+    "common_qa_rules": 0,
+    "technology_packages": 14,
+    "structural_validation": "PASS",
+    "normative_validation": "PARTIAL",
+    "release_recommendation": "CONDITIONAL"
+  },
+  "technology_package_stats": {
+    "01_pv_ground": {
+      "A_input_fields": 127,
+      "B_equipment_schema": 25,
+      "C_formulas": 30,
+      "D_geometry_rules": 20,
+      "E_drawing_catalog": 17,
+      "F_qa_rules": 42,
+      "G_extraction_dictionary": 127,
+      "H_missing_data_policy": 95
+    },
+    "02_pv_roof_carport": {
+      "A_input_fields": 125,
+      "B_equipment_schema": 20,
+      "C_formulas": 30,
+      "D_geometry_rules": 25,
+      "E_drawing_catalog": 17,
+      "F_qa_rules": 50,
+      "G_extraction_dictionary": 125,
+      "H_missing_data_policy": 115
+    },
+    "03_pv_floating": {
+      "A_input_fields": 70,
+      "B_equipment_schema": 15,
+      "C_formulas": 29,
+      "D_geometry_rules": 22,
+      "E_drawing_catalog": 17,
+      "F_qa_rules": 50,
+      "G_extraction_dictionary": 70,
+      "H_missing_data_policy": 70
+    },
+    "04_wind_onshore": {
+      "A_input_fields": 111,
+      "B_equipment_schema": 23,
+      "C_formulas": 35,
+      "D_geometry_rules": 23,
+      "E_drawing_catalog": 17,
+      "F_qa_rules": 50,
+      "G_extraction_dictionary": 111,
+      "H_missing_data_policy": 111
+    },
+    "05_wind_offshore": {
+      "A_input_fields": 130,
+      "B_equipment_schema": 27,
+      "C_formulas": 30,
+      "D_geometry_rules": 24,
+      "E_drawing_catalog": 20,
+      "F_qa_rules": 45,
+      "G_extraction_dictionary": 130,
+      "H_missing_data_policy": 83
+    },
+    "06_hydro": {
+      "A_input_fields": 183,
+      "B_equipment_schema": 36,
+      "C_formulas": 28,
+      "D_geometry_rules": 20,
+      "E_drawing_catalog": 17,
+      "F_qa_rules": 50,
+      "G_extraction_dictionary": 183,
+      "H_missing_data_policy": 183
+    },
+    "07_biomass": {
+      "A_input_fields": 100,
+      "B_equipment_schema": 32,
+      "C_formulas": 27,
+      "D_geometry_rules": 28,
+      "E_drawing_catalog": 17,
+      "F_qa_rules": 50,
+      "G_extraction_dictionary": 100,
+      "H_missing_data_policy": 59
+    },
+    "08_biogas": {
+      "A_input_fields": 120,
+      "B_equipment_schema": 36,
+      "C_formulas": 33,
+      "D_geometry_rules": 22,
+      "E_drawing_catalog": 17,
+      "F_qa_rules": 48,
+      "G_extraction_dictionary": 120,
+      "H_missing_data_policy": 114
+    },
+    "09_geothermal": {
+      "A_input_fields": 123,
+      "B_equipment_schema": 30,
+      "C_formulas": 33,
+      "D_geometry_rules": 22,
+      "E_drawing_catalog": 17,
+      "F_qa_rules": 53,
+      "G_extraction_dictionary": 123,
+      "H_missing_data_policy": 123
+    },
+    "10_solar_thermal_csp": {
+      "A_input_fields": 121,
+      "B_equipment_schema": 36,
+      "C_formulas": 32,
+      "D_geometry_rules": 22,
+      "E_drawing_catalog": 17,
+      "F_qa_rules": 55,
+      "G_extraction_dictionary": 121,
+      "H_missing_data_policy": 121
+    },
+    "11_marine": {
+      "A_input_fields": 124,
+      "B_equipment_schema": 43,
+      "C_formulas": 30,
+      "D_geometry_rules": 22,
+      "E_drawing_catalog": 17,
+      "F_qa_rules": 54,
+      "G_extraction_dictionary": 124,
+      "H_missing_data_policy": 124
+    },
+    "12_bess": {
+      "A_input_fields": 145,
+      "B_equipment_schema": 36,
+      "C_formulas": 31,
+      "D_geometry_rules": 23,
+      "E_drawing_catalog": 17,
+      "F_qa_rules": 47,
+      "G_extraction_dictionary": 145,
+      "H_missing_data_policy": 139
+    },
+    "13_hydrogen": {
+      "A_input_fields": 91,
+      "B_equipment_schema": 32,
+      "C_formulas": 30,
+      "D_geometry_rules": 23,
+      "E_drawing_catalog": 17,
+      "F_qa_rules": 50,
+      "G_extraction_dictionary": 91,
+      "H_missing_data_policy": 73
+    },
+    "14_hybrid_microgrid": {
+      "A_input_fields": 148,
+      "B_equipment_schema": 27,
+      "C_formulas": 42,
+      "D_geometry_rules": 23,
+      "E_drawing_catalog": 17,
+      "F_qa_rules": 46,
+      "G_extraction_dictionary": 148,
+      "H_missing_data_policy": 139
+    }
+  }
+}

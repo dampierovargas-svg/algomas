@@ -1,0 +1,143 @@
+{
+  "total_mutations": 15,
+  "detected": 15,
+  "missed": 0,
+  "detection_rate": 1.0,
+  "mutations": [
+    {
+      "id": "MUT_01_GENERIC_FORMULA",
+      "description": "Introducir y = f(x) en una fórmula",
+      "expected_detection": true,
+      "expected_error_code": "E_FORMULA_GENERIC",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:04.536794\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_02_GENERIC_GEOMETRY",
+      "description": "Introducir tech_specific_layout_algorithm",
+      "expected_detection": true,
+      "expected_error_code": "E_GEOMETRY_GENERIC",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:04.658201\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_03_CONSTANT_ASSERTION",
+      "description": "Reemplazar assertion_expression por true",
+      "expected_detection": true,
+      "expected_error_code": "E_QA_CONSTANT",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:04.774128\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_04_MISSING_MESSAGE",
+      "description": "Eliminar message_template de regla QA",
+      "expected_detection": true,
+      "expected_error_code": "E_QA_GENERIC_EVIDENCE",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:04.886976\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_05_INVALID_FIELD_ID",
+      "description": "Introducir campo *-INPUT",
+      "expected_detection": true,
+      "expected_error_code": "E_REF_FIELD",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:05.014455\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_06_INVALID_SOURCE",
+      "description": "Usar fuente PROCESS_ENGINEER",
+      "expected_detection": true,
+      "expected_error_code": "E_SOURCE_UNKNOWN",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:05.130052\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_07_INVALID_SYMBOL_ID",
+      "description": "Crear símbolo con ID que contiene |",
+      "expected_detection": true,
+      "expected_error_code": "E_SYMBOL_GENERIC",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:05.302512\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_08_RECT_TEXT_SYMBOL",
+      "description": "Convertir símbolo en rectángulo+texto",
+      "expected_detection": true,
+      "expected_error_code": "E_SYMBOL_GENERIC",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:05.478672\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 23 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_09_MISSING_POLICY",
+      "description": "Borrar política obligatoria",
+      "expected_detection": true,
+      "expected_error_code": "E_POLICY_GAP",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:05.605545\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_10_BROKEN_GEOMETRY",
+      "description": "Romper geometría común",
+      "expected_detection": true,
+      "expected_error_code": "E_GEOMETRY_GENERIC",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:05.725344\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_11_INVALID_LAYER",
+      "description": "Asignar capa inexistente",
+      "expected_detection": true,
+      "expected_error_code": "E_REF_LAYER",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:05.854347\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_12_FORMULA_ROTATION",
+      "description": "Asignar fórmula de potencia a cálculo de ruido",
+      "expected_detection": true,
+      "expected_error_code": "E_FORMULA_DOMAIN_MISMATCH",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:05.993535\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_13_VIEWBOX_OVERFLOW",
+      "description": "Insertar elemento fuera del viewBox del atlas",
+      "expected_detection": true,
+      "expected_error_code": "E_RENDER_BOUNDS",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:06.111648\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_14_SPANISH_CHARS_CSV",
+      "description": "Guardar CSV con caracteres españoles sin UTF-8",
+      "expected_detection": true,
+      "expected_error_code": "E_UTF8",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:06.229541\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    },
+    {
+      "id": "MUT_15_DUPLICATE_EQUATION",
+      "description": "Usar misma ecuación para propósitos diferentes",
+      "expected_detection": true,
+      "expected_error_code": "E_FORMULA_DOMAIN_MISMATCH",
+      "detected": true,
+      "actual_exit_code": 1,
+      "output": "================================================================================\nVALIDADOR CAD KNOWLEDGE BASE V3\nFecha: 2026-09-17T20:09:06.362944\n================================================================================\n\n[1/6] Validando archivos comunes...\n  - 05_common_calculations.json: 11 cálculos, 11 verificados\n  - 07_common_geometry_rules.json: 6 reglas\n  - 08_common_qa_rules.json: 8 reglas\n  - 04_common_symbols.json: 471 símbolos, 22 errores\n\n[2/6] Validando tecnologías...\n  Total"
+    }
+  ]
+}

@@ -1,0 +1,1256 @@
+[
+  {
+    "rule_id": "HYD-QA-001",
+    "name_es": "Coherencia de coordenadas lat/lon",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "abs(site_centroid_lat_deg)<=90 AND abs(site_centroid_lon_deg)<=180",
+    "severity": "BLOCKED",
+    "message_template": "Latitud o longitud fuera de rango valido",
+    "required_evidence": [
+      "geodetic_control"
+    ],
+    "affected_fields": [
+      "HYD-002",
+      "HYD-003"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-001",
+      "HYD-DRW-002",
+      "HYD-DRW-017"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111",
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-002",
+    "name_es": "Area de cuenca positiva",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "catchment_area_km2>0",
+    "severity": "BLOCKED",
+    "message_template": "Area de cuenca invalida",
+    "required_evidence": [
+      "hydrological_study"
+    ],
+    "affected_fields": [
+      "HYD-010"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-001"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_60",
+      "ISO_19111"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-003",
+    "name_es": "Avenida de diseño Q100 presente",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "design_flood_Q100_m3s IS NOT NULL",
+    "severity": "BLOCKED",
+    "message_template": "Avenida Q100 no definida",
+    "required_evidence": [
+      "hydrological_study"
+    ],
+    "affected_fields": [
+      "HYD-018"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_60"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-004",
+    "name_es": "Caudal ecologico cumple ANA",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "ecological_flow_m3s >= 0.10 * mean_flow_m3s",
+    "severity": "BLOCKED",
+    "message_template": "Caudal ecologico por debajo del 10% del medio",
+    "required_evidence": [
+      "ANA_resolution"
+    ],
+    "affected_fields": [
+      "HYD-013",
+      "HYD-017"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-001",
+      "HYD-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "ICOLD_Bull_60"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-005",
+    "name_es": "Potencia instalada coherente con clase",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "(plant_classification=='MICRO' AND nominal_installed_capacity_kW<100) OR (plant_classification=='MINI' AND nominal_installed_capacity_kW BETWEEN 100 AND 1000) OR (plant_classification=='PEQUENA' AND nominal_installed_capacity_kW BETWEEN 1000 AND 10000) OR (plant_classification=='MEDIA' AND nominal_installed_capacity_kW BETWEEN 10000 AND 100000)",
+    "severity": "BLOCKED",
+    "message_template": "Clase de central no coherente con potencia",
+    "required_evidence": [
+      "concession_resolution"
+    ],
+    "affected_fields": [
+      "HYD-005",
+      "HYD-006"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "COES_Proyectos_Conexion"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-006",
+    "name_es": "Acceso por camino",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "ROAD_ACCESS EXISTS",
+    "severity": "BLOCKED",
+    "message_template": "Acceso por carretera no definido",
+    "required_evidence": [
+      "site_plan",
+      "access_road_study"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "HYD-DRW-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-007",
+    "name_es": "Cota de cresta de bocatoma sobre NMNE",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "intake_crest_elev_m >= normal_pool_level_m",
+    "severity": "BLOCKED",
+    "message_template": "Cresta de bocatoma por debajo de NMNE",
+    "required_evidence": [
+      "civil_drawings"
+    ],
+    "affected_fields": [
+      "HYD-039",
+      "HYD-050"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-003",
+      "HYD-DRW-004"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-008",
+    "name_es": "Separacion de rejilla coherente con tipo de turbina",
+    "category": "NORMATIVE",
+    "applicability_expression": "turbine_type==PELTON OR turbine_type==TURGO",
+    "assertion_expression": "trash_rack_clear_spacing_mm <= 30",
+    "severity": "BLOCKED",
+    "message_template": "Separacion libre excesiva para turbina Pelton/Turgo",
+    "required_evidence": [
+      "mechanical_drawings"
+    ],
+    "affected_fields": [
+      "HYD-052",
+      "HYD-110"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60193",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-009",
+    "name_es": "Velocidad de aproximacion a rejilla <= 1.5 m/s",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "intake_velocity_m_s <= 1.5",
+    "severity": "BLOCKED",
+    "message_template": "Velocidad de aproximacion excesiva",
+    "required_evidence": [
+      "hydraulic_calc"
+    ],
+    "affected_fields": [
+      "HYD-055"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-010",
+    "name_es": "Tipo de compuerta de bocatoma definido",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "gate_type IS NOT NULL",
+    "severity": "BLOCKED",
+    "message_template": "Tipo de compuerta de bocatoma no definido",
+    "required_evidence": [
+      "mechanical_drawings"
+    ],
+    "affected_fields": [
+      "HYD-060"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "IEC_60545"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-011",
+    "name_es": "Subpresion aliviada por drenes",
+    "category": "NORMATIVE",
+    "applicability_expression": "hydrostatic_uplift_kPa>0",
+    "assertion_expression": "subdrainage_system_present == true",
+    "severity": "BLOCKED",
+    "message_template": "Subpresion presente sin sistema de drenaje",
+    "required_evidence": [
+      "civil_drawings"
+    ],
+    "affected_fields": [
+      "HYD-222",
+      "HYD-228"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-004",
+      "HYD-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "ISO_14685"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-012",
+    "name_es": "Factor de seguridad al deslizamiento >= 1.5",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "sliding_safety_factor >= 1.5",
+    "severity": "BLOCKED",
+    "message_template": "FS al deslizamiento insuficiente",
+    "required_evidence": [
+      "stability_calc"
+    ],
+    "affected_fields": [
+      "HYD-230"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-004",
+      "HYD-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-013",
+    "name_es": "Factor de seguridad capacidad portante >= 3",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "(soil_bearing_capacity_kPa / applied_pressure) >= 3",
+    "severity": "BLOCKED",
+    "message_template": "FS de capacidad portante insuficiente",
+    "required_evidence": [
+      "geotechnical_study"
+    ],
+    "affected_fields": [
+      "HYD-220"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-004",
+      "HYD-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_14685",
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-014",
+    "name_es": "Pendiente uniforme en canal de aduccion",
+    "category": "GEOMETRIC",
+    "applicability_expression": "headrace_canal_length_m>0",
+    "assertion_expression": "headrace_slope IS CONSTANT",
+    "severity": "BLOCKED",
+    "message_template": "Pendiente del canal de aduccion no uniforme",
+    "required_evidence": [
+      "civil_drawings"
+    ],
+    "affected_fields": [
+      "HYD-260",
+      "HYD-261"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "ISO_14685"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-015",
+    "name_es": "Invert del canal sobre el lecho rocoso",
+    "category": "GEOMETRIC",
+    "applicability_expression": "headrace_canal_length_m>0",
+    "assertion_expression": "headrace_invert_elev >= bedrock_elev",
+    "severity": "BLOCKED",
+    "message_template": "Invert del canal por debajo del lecho rocoso",
+    "required_evidence": [
+      "geotechnical_study"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "HYD-DRW-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_14685"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-016",
+    "name_es": "Espesor de pared cumple ASME B31.1",
+    "category": "NORMATIVE",
+    "applicability_expression": "penstock_material in [STEEL_CARBON,STEEL_ALLOY]",
+    "assertion_expression": "penstock_wall_thickness_mm >= t_min_ASME(P,D,S,E,W,CA)",
+    "severity": "BLOCKED",
+    "message_template": "Espesor de pared insuficiente per ASME B31.1",
+    "required_evidence": [
+      "stress_calc_memo"
+    ],
+    "affected_fields": [
+      "HYD-075",
+      "HYD-077",
+      "HYD-070",
+      "HYD-073"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-017",
+    "name_es": "Presion de prueba >= 1.25 * presion de diseño",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "penstock_material in [STEEL_CARBON,STEEL_ALLOY]",
+    "assertion_expression": "penstock_test_pressure_MPa >= 1.25 * penstock_design_pressure_MPa",
+    "severity": "BLOCKED",
+    "message_template": "Presion de prueba insuficiente",
+    "required_evidence": [
+      "stress_calc_memo"
+    ],
+    "affected_fields": [
+      "HYD-075",
+      "HYD-076"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-018",
+    "name_es": "Golpe de ariete dentro de 2x salto neto",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "waterhammer_dH <= 2 * net_head_m",
+    "severity": "BLOCKED",
+    "message_template": "Sobrepress por golpe de ariete excesivo",
+    "required_evidence": [
+      "surge_calc"
+    ],
+    "affected_fields": [
+      "HYD-030",
+      "HYD-031",
+      "HYD-084",
+      "HYD-085"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-019",
+    "name_es": "Tanque de equilibrio dimensionado (Thoma)",
+    "category": "NORMATIVE",
+    "applicability_expression": "surge_tank_type != NONE",
+    "assertion_expression": "surge_tank_diameter_m >= sqrt(4*A_thoma/pi) AND surge_tank_height_m >= 1.5*max_upsurge",
+    "severity": "BLOCKED",
+    "message_template": "Tanque de equilibrio insuficiente per Thoma",
+    "required_evidence": [
+      "surge_calc"
+    ],
+    "affected_fields": [
+      "HYD-081",
+      "HYD-082",
+      "HYD-083"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-020",
+    "name_es": "Tiempo de cierre coherente con constante Allievi",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "penstock_length_m>100",
+    "assertion_expression": "wicket_gate_closure_time_s <= 2*L/waterhammer_wave_speed_m_s",
+    "severity": "BLOCKED",
+    "message_template": "Tiempo de cierre menor que fase de onda",
+    "required_evidence": [
+      "governor_spec"
+    ],
+    "affected_fields": [
+      "HYD-084",
+      "HYD-085",
+      "HYD-086",
+      "HYD-071"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-006",
+      "HYD-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "IEC_60308"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-021",
+    "name_es": "Luz de puente-grua menor que ancho de casa de maquinas",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "bridge_crane_span_m <= powerhouse_width_m - 1",
+    "severity": "BLOCKED",
+    "message_template": "Luz de puente-grua excede ancho de casa de maquinas",
+    "required_evidence": [
+      "mechanical_drawings"
+    ],
+    "affected_fields": [
+      "HYD-091",
+      "HYD-094"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-007",
+      "HYD-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_1940_1",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-022",
+    "name_es": "Capacidad del puente-grua mayor que peso del estator",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "bridge_crane_capacity_ton >= stator_weight_ton",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad de puente-grua insuficiente",
+    "required_evidence": [
+      "mechanical_drawings"
+    ],
+    "affected_fields": [
+      "HYD-093"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-007",
+      "HYD-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_1940_1",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-023",
+    "name_es": "Ventilacion mecanica ACH >= 6",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "powerhouse_ventilation_rate_m3s * 3600 / powerhouse_volume_m3 >= 6",
+    "severity": "BLOCKED",
+    "message_template": "Renovaciones horarias insuficientes",
+    "required_evidence": [
+      "ventilation_calc"
+    ],
+    "affected_fields": [
+      "HYD-092",
+      "HYD-100"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-007"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "IEC_60545"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-024",
+    "name_es": "Cavitacion: sigma planta >= sigma modelo",
+    "category": "NORMATIVE",
+    "applicability_expression": "turbine_type in [FRANCIS,KAPLAN,PROPELLER]",
+    "assertion_expression": "sigma_thoma_plant >= sigma_thoma_model",
+    "severity": "BLOCKED",
+    "message_template": "Riesgo de cavitacion: sigma planta < sigma modelo",
+    "required_evidence": [
+      "cavitation_calc"
+    ],
+    "affected_fields": [
+      "HYD-120",
+      "HYD-121"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-008",
+      "HYD-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60193",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-025",
+    "name_es": "NPSH disponible >= NPSH requerido",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "turbine_type in [FRANCIS,KAPLAN,PROPELLER]",
+    "assertion_expression": "NPSH_available_m >= NPSH_required_m",
+    "severity": "BLOCKED",
+    "message_template": "NPSH insuficiente",
+    "required_evidence": [
+      "cavitation_calc"
+    ],
+    "affected_fields": [
+      "HYD-210",
+      "HYD-211"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-008",
+      "HYD-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60193",
+      "IEC_60041"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-026",
+    "name_es": "Sumergencia del tubo de aspiracion",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "turbine_type in [FRANCIS,KAPLAN,PROPELLER]",
+    "assertion_expression": "draft_tube_submergence_m >= 0.5*runner_diameter_m",
+    "severity": "BLOCKED",
+    "message_template": "Sumergencia del tubo de aspiracion insuficiente",
+    "required_evidence": [
+      "cavitation_calc"
+    ],
+    "affected_fields": [
+      "HYD-116",
+      "HYD-214"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-008",
+      "HYD-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60193",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-027",
+    "name_es": "Eficiencia pico de turbina >= 88%",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "turbine_peak_efficiency_pct >= 88",
+    "severity": "BLOCKED",
+    "message_template": "Eficiencia pico de turbina por debajo del 88%",
+    "required_evidence": [
+      "turbine_data_sheet",
+      "model_test_report"
+    ],
+    "affected_fields": [
+      "HYD-118"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60193",
+      "IEC_60041"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-028",
+    "name_es": "Estabilidad sismica FS >= 1.3",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "seismic_slope_stability_factor >= 1.3",
+    "severity": "BLOCKED",
+    "message_template": "FS sismico de taludes insuficiente",
+    "required_evidence": [
+      "seismic_study"
+    ],
+    "affected_fields": [
+      "HYD-245"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "ISO_14685"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-029",
+    "name_es": "PGA definido para sitio",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "peak_ground_acceleration_g IS NOT NULL",
+    "severity": "BLOCKED",
+    "message_template": "PGA sismico no definido",
+    "required_evidence": [
+      "seismic_study"
+    ],
+    "affected_fields": [
+      "HYD-241"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "ISO_14685"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-030",
+    "name_es": "Subpresion <= capacidad portante",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "hydrostatic_uplift_kPa <= soil_bearing_capacity_kPa",
+    "severity": "BLOCKED",
+    "message_template": "Subpresion excede capacidad portante",
+    "required_evidence": [
+      "geotechnical_study"
+    ],
+    "affected_fields": [
+      "HYD-220",
+      "HYD-222"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_14685",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-031",
+    "name_es": "Velocidad sincronica estandar",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "turbine_synchronous_speed_rpm IN (50,75,100,150,200,250,300,375,400,500,600,750,1000,1200,1500)",
+    "severity": "BLOCKED",
+    "message_template": "Velocidad sincronica no estandar",
+    "required_evidence": [
+      "turbine_data_sheet"
+    ],
+    "affected_fields": [
+      "HYD-114"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-009",
+      "HYD-DRW-010"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60193",
+      "IEC_61366"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-032",
+    "name_es": "Ensayo de modelo IEC 60193 disponible",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "MODEL_TEST_REPORT_IEC_60193 EXISTS",
+    "severity": "BLOCKED",
+    "message_template": "Ensayo de modelo IEC 60193 no disponible",
+    "required_evidence": [
+      "model_test_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "HYD-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60193",
+      "IEC_60041"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-033",
+    "name_es": "Velocidad especifica coherente con tipo",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "(turbine_type=='PELTON' AND turbine_specific_speed_nsq BETWEEN 5 AND 70) OR (turbine_type=='FRANCIS' AND turbine_specific_speed_nsq BETWEEN 50 AND 400) OR (turbine_type=='KAPLAN' AND turbine_specific_speed_nsq BETWEEN 300 AND 1000) OR (turbine_type=='TURGO' AND turbine_specific_speed_nsq BETWEEN 20 AND 120)",
+    "severity": "BLOCKED",
+    "message_template": "Velocidad especifica incoherente con tipo de turbina",
+    "required_evidence": [
+      "turbine_data_sheet"
+    ],
+    "affected_fields": [
+      "HYD-110",
+      "HYD-122"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60193",
+      "IEC_60041",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-034",
+    "name_es": "Eficiencia de modelo Hill cumple IEC 60193",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "model_test_report_hill_curve_exists AND model_test_report_weighted_efficiency >= 90",
+    "severity": "BLOCKED",
+    "message_template": "Eficiencia ponderada de modelo < 90% per IEC 60193",
+    "required_evidence": [
+      "model_test_report"
+    ],
+    "affected_fields": [
+      "HYD-118",
+      "HYD-119"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60193",
+      "IEC_60041"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-035",
+    "name_es": "Generador cumple IEC 61366",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "GENERATOR_DATA_SHEET_IEC_61366 EXISTS",
+    "severity": "BLOCKED",
+    "message_template": "Hoja de datos del generador no conforme IEC 61366",
+    "required_evidence": [
+      "generator_data_sheet"
+    ],
+    "affected_fields": [
+      "HYD-130",
+      "HYD-131",
+      "HYD-132",
+      "HYD-133",
+      "HYD-134",
+      "HYD-135"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-010"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61366",
+      "IEC_60041"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-036",
+    "name_es": "Refrigeracion del generador dimensionada",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "cooling_water_flow_m3s >= P_gen_kW * 0.001",
+    "severity": "BLOCKED",
+    "message_template": "Caudal de refrigeracion insuficiente",
+    "required_evidence": [
+      "cooling_calc"
+    ],
+    "affected_fields": [
+      "HYD-131",
+      "HYD-181"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-007",
+      "HYD-DRW-010"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61366",
+      "API_610_2024"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-037",
+    "name_es": "Interconexion cumple IEEE 1547",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "IEEE_1547_INTERCONNECTION_STUDY EXISTS",
+    "severity": "BLOCKED",
+    "message_template": "Estudio de interconexion IEEE 1547 no disponible",
+    "required_evidence": [
+      "interconnection_study"
+    ],
+    "affected_fields": [
+      "HYD-130",
+      "HYD-131",
+      "HYD-160",
+      "HYD-168"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_1547_1",
+      "COES_Proyectos_Conexion"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-038",
+    "name_es": "Funciones de proteccion ANSI definidas",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "protection_relay_ansi_code IS NOT NULL",
+    "severity": "BLOCKED",
+    "message_template": "Funciones ANSI de proteccion no definidas",
+    "required_evidence": [
+      "protection_scheme"
+    ],
+    "affected_fields": [
+      "HYD-193"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-011",
+      "HYD-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023",
+      "IEC_61511_1"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-039",
+    "name_es": "Contencion de aceite del transformador >= 110%",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "transformer_oil_containment_volume_L >= 1.1 * transformer_oil_volume_L",
+    "severity": "BLOCKED",
+    "message_template": "Volumen de contencion de aceite insuficiente",
+    "required_evidence": [
+      "civil_drawings",
+      "transformer_data_sheet"
+    ],
+    "affected_fields": [
+      "HYD-167"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_30_2024",
+      "MINAM_DS_019_2009",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-040",
+    "name_es": "Curva de duracion de caudales presente",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "flow_duration_curve_table IS NOT NULL",
+    "severity": "BLOCKED",
+    "message_template": "Curva de duracion de caudales ausente",
+    "required_evidence": [
+      "hydrological_study"
+    ],
+    "affected_fields": [
+      "HYD-016"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-001",
+      "HYD-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_60",
+      "ISO_14685"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-041",
+    "name_es": "Capacidad del aliviadero >= avenida de diseño",
+    "category": "NORMATIVE",
+    "applicability_expression": "spillway_type != NONE",
+    "assertion_expression": "spillway_discharge_capacity_m3s >= design_flood_Q1000_m3s",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad del aliviadero menor que Q1000",
+    "required_evidence": [
+      "hydraulic_calc"
+    ],
+    "affected_fields": [
+      "HYD-019",
+      "HYD-253"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_60",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-042",
+    "name_es": "Carga de diseño del vertedero definida",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "spillway_type != NONE",
+    "assertion_expression": "spillway_design_head_m IS NOT NULL AND spillway_crest_length_m IS NOT NULL",
+    "severity": "BLOCKED",
+    "message_template": "Carga/longitud de vertedero no definida",
+    "required_evidence": [
+      "civil_drawings"
+    ],
+    "affected_fields": [
+      "HYD-251",
+      "HYD-252"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-013",
+      "HYD-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-043",
+    "name_es": "Cuenca amortiguadora dimensionada USBR",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "spillway_type != NONE",
+    "assertion_expression": "stilling_basin_length_m >= 4.5 * tailwater_depth_m",
+    "severity": "BLOCKED",
+    "message_template": "Longitud del cuenco amortiguador insuficiente",
+    "required_evidence": [
+      "hydraulic_calc"
+    ],
+    "affected_fields": [
+      "HYD-254"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_120",
+      "ICOLD_Bull_60"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-044",
+    "name_es": "SCADA con SIL verificado",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "SIL_VERIFICATION_REPORT EXISTS",
+    "severity": "BLOCKED",
+    "message_template": "Verificacion SIL (IEC 61511) ausente",
+    "required_evidence": [
+      "safety_integrity_report"
+    ],
+    "affected_fields": [
+      "HYD-190",
+      "HYD-192"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61508_1"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-045",
+    "name_es": "Resistencia de malla de tierra <= 5 ohm",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "grounding_resistance_ohm <= 5",
+    "severity": "BLOCKED",
+    "message_template": "Resistencia de malla de tierra > 5 ohm",
+    "required_evidence": [
+      "grounding_calc"
+    ],
+    "affected_fields": [
+      "HYD-198"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEC_60364_5_54"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-046",
+    "name_es": "Nivel de proteccion contra rayo LPL definido",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "LPL_lightning_protection_level IS NOT NULL",
+    "severity": "BLOCKED",
+    "message_template": "LPL no definido",
+    "required_evidence": [
+      "lightning_study"
+    ],
+    "affected_fields": [
+      "HYD-200"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-047",
+    "name_es": "As-built georreferenciado",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "stage==POST_CONSTRUCTION",
+    "assertion_expression": "asbuilt_georeferencing_wgs84 EXISTS",
+    "severity": "BLOCKED",
+    "message_template": "As-built no georreferenciado",
+    "required_evidence": [
+      "asbuilt_survey"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "HYD-DRW-017"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111",
+      "ISO_5457"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-048",
+    "name_es": "Caudal de restitucion respeta caudal ecologico",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "tailrace_canal_velocity_m_s * tailrace_cross_section_area_m2 >= ecological_flow_m3s",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad de restitucion menor que caudal ecologico",
+    "required_evidence": [
+      "hydraulic_calc"
+    ],
+    "affected_fields": [
+      "HYD-017",
+      "HYD-262",
+      "HYD-263"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "ICOLD_Bull_60"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-049",
+    "name_es": "Concentracion de sedimentos monitoreada",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "sediment_d50_mm<0.5",
+    "assertion_expression": "sediment_concentration_mg_L <= 5000",
+    "severity": "BLOCKED",
+    "message_template": "Concentracion de sedimentos excesiva sin desarenador",
+    "required_evidence": [
+      "sediment_study"
+    ],
+    "affected_fields": [
+      "HYD-022",
+      "HYD-024",
+      "HYD-056"
+    ],
+    "affected_drawings": [
+      "HYD-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_14685",
+      "ICOLD_Bull_120"
+    ]
+  },
+  {
+    "rule_id": "HYD-QA-050",
+    "name_es": "ICOLD Bulletin 60 - metodo de avenida documentado",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "design_flood_method IN (GUMBEL,LOG_PEARSON,GEV,PMF)",
+    "severity": "BLOCKED",
+    "message_template": "Metodo de avenida no conforme ICOLD Bull 60",
+    "required_evidence": [
+      "hydrological_study"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "HYD-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ICOLD_Bull_60"
+    ]
+  }
+]

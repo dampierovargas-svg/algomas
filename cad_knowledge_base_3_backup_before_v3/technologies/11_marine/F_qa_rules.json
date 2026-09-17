@@ -1,0 +1,1409 @@
+[
+  {
+    "rule_id": "MAR-QA-001",
+    "name_es": "Coherencia de coordenadas lat/lon",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "abs(site_latitude_deg)<=90 AND abs(site_longitude_deg)<=180",
+    "severity": "BLOCKED",
+    "message_template": "Latitud o longitud fuera de rango válido",
+    "required_evidence": [
+      "geodetic_control"
+    ],
+    "affected_fields": [
+      "MAR-001",
+      "MAR-002"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-002",
+      "MAR-DRW-017"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111",
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-002",
+    "name_es": "Profundidad de agua LAT positiva",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "water_depth_at_site_m_LAT>=1",
+    "severity": "BLOCKED",
+    "message_template": "Profundidad de agua inválida",
+    "required_evidence": [
+      "bathymetry_study"
+    ],
+    "affected_fields": [
+      "MAR-006"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003",
+      "MAR-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_RP_C205",
+      "ISO_19111"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-003",
+    "name_es": "Hs extremal 50 años positivo",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "Hs_50yr_m>0",
+    "severity": "BLOCKED",
+    "message_template": "Hs extremal 50 años no positivo",
+    "required_evidence": [
+      "metocean_study"
+    ],
+    "affected_fields": [
+      "MAR-011"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003",
+      "MAR-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "DNV_RP_C205"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-004",
+    "name_es": "Distancia a costa coherente con acceso O&M",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "distance_to_shore_km>0 AND CTV_berth_distance_km>0",
+    "severity": "BLOCKED",
+    "message_template": "Distancia a costa no definida",
+    "required_evidence": [
+      "logistic_study"
+    ],
+    "affected_fields": [
+      "MAR-005",
+      "MAR-106"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-009",
+      "MAR-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IRENA_OFFSHORE_2023",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-005",
+    "name_es": "Número de dispositivos positivo",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "device_count_total>0",
+    "severity": "BLOCKED",
+    "message_template": "Número de dispositivos inválido",
+    "required_evidence": [
+      "project_memo"
+    ],
+    "affected_fields": [
+      "MAR-036"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "IRENA_OFFSHORE_2023"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-006",
+    "name_es": "Potencia nominal del dispositivo positiva",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "device_rated_power_kW>0",
+    "severity": "BLOCKED",
+    "message_template": "Potencia nominal inválida",
+    "required_evidence": [
+      "device_data_sheet"
+    ],
+    "affected_fields": [
+      "MAR-035"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-010"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "IEC_TS_62600_30"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-007",
+    "name_es": "Diámetro de rotor positivo",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "device_type contains [tidal_stream_turbine,current_turbine]",
+    "assertion_expression": "tidal_turbine_rotor_diameter_m>0",
+    "severity": "BLOCKED",
+    "message_template": "Diámetro de rotor no positivo",
+    "required_evidence": [
+      "device_data_sheet"
+    ],
+    "affected_fields": [
+      "MAR-039"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-008",
+    "name_es": "Tensión inter-array estándar",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "device_count_total > 1",
+    "assertion_expression": "inter_array_voltage_kV IN [11,22,33,66]",
+    "severity": "BLOCKED",
+    "message_template": "Tensión inter-array no estándar",
+    "required_evidence": [
+      "electrical_design"
+    ],
+    "affected_fields": [
+      "MAR-075"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-004",
+      "MAR-DRW-010"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-009",
+    "name_es": "Tensión de exportación estándar",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "device_count_total > 0",
+    "assertion_expression": "export_voltage_kV IN [33,66,132,220,525]",
+    "severity": "BLOCKED",
+    "message_template": "Tensión de exportación no estándar",
+    "required_evidence": [
+      "electrical_design"
+    ],
+    "affected_fields": [
+      "MAR-076"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-005",
+      "MAR-DRW-010"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_1547_2018",
+      "CNE_2011"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-010",
+    "name_es": "Profundidad de burial mínima 1.0 m",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "cable_type_static_present == true",
+    "assertion_expression": "cable_burial_depth_m>=1.0",
+    "severity": "BLOCKED",
+    "message_template": "Profundidad de burial menor que 1.0 m",
+    "required_evidence": [
+      "cable_installation_plan"
+    ],
+    "affected_fields": [
+      "MAR-083"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-005",
+      "MAR-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_OS_J101",
+      "IEC_TS_62600_2",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-011",
+    "name_es": "Capacidad de retención de ancla SF >= 1.5",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "anchor_type != none",
+    "assertion_expression": "anchor_holding_capacity_kN/anchor_design_load_kN>=1.5",
+    "severity": "BLOCKED",
+    "message_template": "SF de ancla menor que 1.5",
+    "required_evidence": [
+      "anchor_design"
+    ],
+    "affected_fields": [
+      "MAR-065",
+      "MAR-066"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_OS_C101"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-012",
+    "name_es": "SF de mooring line MBL >= 1.5",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "mooring_type != none",
+    "assertion_expression": "mooring_line_MBL_kN/mooring_design_load_kN>=1.5",
+    "severity": "BLOCKED",
+    "message_template": "SF de mooring line menor que 1.5",
+    "required_evidence": [
+      "mooring_design"
+    ],
+    "affected_fields": [
+      "MAR-073",
+      "MAR-066"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_OS_E301",
+      "IEC_TS_62600_10"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-013",
+    "name_es": "Dispositivos dentro del polígono de concesión",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "ALL devices inside concession polygon",
+    "severity": "BLOCKED",
+    "message_template": "Dispositivo fuera del polígono de concesión",
+    "required_evidence": [
+      "site_plan",
+      "concession_resolution"
+    ],
+    "affected_fields": [
+      "MAR-034",
+      "MAR-003"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "ISO_19111"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-014",
+    "name_es": "Cables ruteados dentro del polígono de concesión",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "device_count_total > 0",
+    "assertion_expression": "ALL cables inside concession polygon",
+    "severity": "BLOCKED",
+    "message_template": "Cable fuera del polígono de concesión",
+    "required_evidence": [
+      "cable_route_plan"
+    ],
+    "affected_fields": [
+      "MAR-080",
+      "MAR-081",
+      "MAR-003"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-004",
+      "MAR-DRW-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "DNV_OS_J101"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-015",
+    "name_es": "Subestación de costa dentro del terreno",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "device_count_total > 0",
+    "assertion_expression": "onshore_substation inside site polygon",
+    "severity": "BLOCKED",
+    "message_template": "Subestación fuera del terreno",
+    "required_evidence": [
+      "site_plan"
+    ],
+    "affected_fields": [
+      "MAR-091",
+      "MAR-003"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-009",
+      "MAR-DRW-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-016",
+    "name_es": "Anclas separadas de cables",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "anchor_type != none AND device_count_total > 0",
+    "assertion_expression": "distance(anchor, cable) >= 50m",
+    "severity": "BLOCKED",
+    "message_template": "Ancla sobre ruta de cable",
+    "required_evidence": [
+      "mooring_plan",
+      "cable_route_plan"
+    ],
+    "affected_fields": [
+      "MAR-063",
+      "MAR-080",
+      "MAR-081"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-011",
+      "MAR-DRW-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_OS_J101",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-017",
+    "name_es": "Malla de tierra en subestación",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "device_count_total > 0",
+    "assertion_expression": "grounding_grid present in substation",
+    "severity": "BLOCKED",
+    "message_template": "Malla de tierra ausente",
+    "required_evidence": [
+      "grounding_design"
+    ],
+    "affected_fields": [
+      "MAR-095"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-009",
+      "MAR-DRW-010"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEC_60364_5_54"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-018",
+    "name_es": "Zona de exclusión de seguridad definida",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "exclusion_zone_radius_m>=100",
+    "severity": "BLOCKED",
+    "message_template": "Zona de exclusión no definida o menor que 100m",
+    "required_evidence": [
+      "site_plan",
+      "navigation_study"
+    ],
+    "affected_fields": [
+      "MAR-104"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "API_RP_14C"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-019",
+    "name_es": "Corredor de navegación permitido",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "navigation_corridor_width_m>=500",
+    "severity": "BLOCKED",
+    "message_template": "Corredor de navegación no definido o menor que 500m",
+    "required_evidence": [
+      "navigation_study"
+    ],
+    "affected_fields": [
+      "MAR-105"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "API_RP_14C"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-020",
+    "name_es": "Protección catódica presente",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "cathodic_protection_current_A>0",
+    "severity": "BLOCKED",
+    "message_template": "Protección catódica no definida",
+    "required_evidence": [
+      "cp_design"
+    ],
+    "affected_fields": [
+      "MAR-110"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_OS_C101"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-021",
+    "name_es": "Espaciamiento entre dispositivos >= 7D",
+    "category": "GEOMETRIC",
+    "applicability_expression": "device_type contains [tidal_stream_turbine,current_turbine]",
+    "assertion_expression": "device_spacing_multiple_diameter>=7",
+    "severity": "BLOCKED",
+    "message_template": "Espaciamiento menor que 7D",
+    "required_evidence": [
+      "array_layout"
+    ],
+    "affected_fields": [
+      "MAR-037"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "DNV_OS_C101",
+      "DNV_RP_C205"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-022",
+    "name_es": "Distancia a ruta de navegación",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "shipping_lane_distance_m>=500",
+    "severity": "BLOCKED",
+    "message_template": "Distancia a ruta de navegación menor que 500m",
+    "required_evidence": [
+      "navigation_study"
+    ],
+    "affected_fields": [
+      "MAR-102"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "DNV_OS_J101"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-023",
+    "name_es": "Distancia a zona de anclaje",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "anchorage_zone_distance_m>=1000",
+    "severity": "BLOCKED",
+    "message_template": "Distancia a zona de anclaje menor que 1000m",
+    "required_evidence": [
+      "navigation_study"
+    ],
+    "affected_fields": [
+      "MAR-103"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "DNV_OS_J101"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-024",
+    "name_es": "Longitud de cable inter-array por dispositivo",
+    "category": "GEOMETRIC",
+    "applicability_expression": "device_count_total > 1",
+    "assertion_expression": "inter_array_cable_length_m/device_count_total >= 100",
+    "severity": "BLOCKED",
+    "message_template": "Longitud por dispositivo menor que 100m",
+    "required_evidence": [
+      "cable_route_plan"
+    ],
+    "affected_fields": [
+      "MAR-080",
+      "MAR-036"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-004"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_OS_J101",
+      "IEC_60287_1_1"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-025",
+    "name_es": "Longitud de cable de exportación coherente",
+    "category": "GEOMETRIC",
+    "applicability_expression": "device_count_total > 0",
+    "assertion_expression": "export_cable_length_m>=distance_to_shore_km*1000",
+    "severity": "BLOCKED",
+    "message_template": "Longitud de exportación menor que distancia a costa",
+    "required_evidence": [
+      "cable_route_plan"
+    ],
+    "affected_fields": [
+      "MAR-081",
+      "MAR-005"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-005",
+      "MAR-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_OS_J101",
+      "IEC_60287_1_1"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-026",
+    "name_es": "Penetración de fundación según geotecnia",
+    "category": "GEOMETRIC",
+    "applicability_expression": "foundation_type in [monopile,jacket,pile_supported,suction_caisson]",
+    "assertion_expression": "foundation_penetration_m>=2*tidal_turbine_rotor_diameter_m",
+    "severity": "BLOCKED",
+    "message_template": "Penetración de fundación insuficiente",
+    "required_evidence": [
+      "geotechnical_study"
+    ],
+    "affected_fields": [
+      "MAR-087",
+      "MAR-039"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_OS_C101",
+      "ISO_14656"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-027",
+    "name_es": "Volumen de protección contra socavación",
+    "category": "GEOMETRIC",
+    "applicability_expression": "foundation_type in [monopile,jacket]",
+    "assertion_expression": "scour_protection_volume_m3>0",
+    "severity": "WARNING",
+    "message_template": "Volumen de protección contra socavación no definido",
+    "required_evidence": [
+      "scour_protection_design"
+    ],
+    "affected_fields": [
+      "MAR-090",
+      "MAR-087"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-007",
+      "MAR-DRW-008"
+    ],
+    "override_allowed": true,
+    "override_role": "GEOTECHNICAL_ENGINEER",
+    "source_ids": [
+      "DNV_OS_J101",
+      "ISO_14656"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-028",
+    "name_es": "Radio de exclusión de seguridad",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "exclusion_zone_radius_m>=rotor_diameter_m*5",
+    "severity": "BLOCKED",
+    "message_template": "Radio de exclusión insuficiente",
+    "required_evidence": [
+      "navigation_study"
+    ],
+    "affected_fields": [
+      "MAR-104",
+      "MAR-039"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-002",
+      "MAR-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "API_RP_14C",
+      "DNV_OS_J101"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-029",
+    "name_es": "Estudio metocean extremal presente",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "Hs_50yr_m AND Tp_50yr_s AND wind_speed_50yr_10m_ms AND current_speed_50yr_ms IS NOT NULL",
+    "severity": "BLOCKED",
+    "message_template": "Estudio metocean extremal no completo",
+    "required_evidence": [
+      "metocean_study"
+    ],
+    "affected_fields": [
+      "MAR-011",
+      "MAR-012",
+      "MAR-019",
+      "MAR-022"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-001"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_RP_C205",
+      "IEC_TS_62600_2",
+      "NASA_POWER"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-030",
+    "name_es": "Batimetría multihaz presente",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "bathymetry_grid_WKT IS NOT NULL",
+    "severity": "BLOCKED",
+    "message_template": "Batimetría multihaz no definida",
+    "required_evidence": [
+      "bathymetry_study"
+    ],
+    "affected_fields": [
+      "MAR-007"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003",
+      "MAR-DRW-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_OS_J101",
+      "ISO_19111",
+      "NASA_POWER"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-031",
+    "name_es": "Estudio de impacto ambiental (EIA) presente",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "EIA_approved",
+    "severity": "BLOCKED",
+    "message_template": "EIA no aprobado",
+    "required_evidence": [
+      "EIA_resolution"
+    ],
+    "affected_fields": [
+      "MAR-096",
+      "MAR-097",
+      "MAR-098",
+      "MAR-099",
+      "MAR-100",
+      "MAR-101"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "IEC_TS_62600_40",
+      "SERFOR_DS_020_2015"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-032",
+    "name_es": "Tipo de dispositivo definido",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "device_type IS NOT NULL",
+    "severity": "BLOCKED",
+    "message_template": "Tipo de dispositivo no definido",
+    "required_evidence": [
+      "project_memo"
+    ],
+    "affected_fields": [
+      "MAR-034"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-003",
+      "MAR-DRW-011",
+      "MAR-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_TS_62600_1",
+      "IEC_TS_62600_2"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-033",
+    "name_es": "Hoja de datos del dispositivo presente",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "device_data_sheet IS NOT NULL",
+    "severity": "BLOCKED",
+    "message_template": "Hoja de datos del dispositivo ausente",
+    "required_evidence": [
+      "device_data_sheet"
+    ],
+    "affected_fields": [
+      "MAR-035",
+      "MAR-039",
+      "MAR-041",
+      "MAR-042",
+      "MAR-043"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "IEC_TS_62600_30"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-034",
+    "name_es": "Plan de instalación de cable presente",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "cable_type_static_present == true",
+    "assertion_expression": "cable_installation_method IS NOT NULL",
+    "severity": "BLOCKED",
+    "message_template": "Plan de instalación de cable ausente",
+    "required_evidence": [
+      "cable_installation_plan"
+    ],
+    "affected_fields": [
+      "MAR-082",
+      "MAR-083"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-005",
+      "MAR-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_OS_J101",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-035",
+    "name_es": "Cumplimiento IEC TS 62600-2 (requisitos de diseño)",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "IEC_TS_62600_class IN [1,2,3,4]",
+    "severity": "BLOCKED",
+    "message_template": "Clase de severidad IEC TS 62600-2 no definida",
+    "required_evidence": [
+      "metocean_study",
+      "classification_report"
+    ],
+    "affected_fields": [
+      "MAR-038"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003",
+      "MAR-DRW-008"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_TS_62600_2"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-036",
+    "name_es": "Cumplimiento IEC TS 62600-10 (sistema de fondeo)",
+    "category": "NORMATIVE",
+    "applicability_expression": "mooring_type != none",
+    "assertion_expression": "mooring_design_per_IEC_TS_62600_10",
+    "severity": "BLOCKED",
+    "message_template": "Diseño de fondeo no cumple IEC TS 62600-10",
+    "required_evidence": [
+      "mooring_design"
+    ],
+    "affected_fields": [
+      "MAR-069",
+      "MAR-070",
+      "MAR-071",
+      "MAR-072",
+      "MAR-073",
+      "MAR-074"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_TS_62600_10",
+      "DNV_OS_E301"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-037",
+    "name_es": "Cumplimiento IEC TS 62600-30 (calidad de potencia)",
+    "category": "NORMATIVE",
+    "applicability_expression": "device_count_total > 0",
+    "assertion_expression": "power_quality_per_IEC_TS_62600_30",
+    "severity": "BLOCKED",
+    "message_template": "Calidad de potencia no cumple IEC TS 62600-30",
+    "required_evidence": [
+      "power_quality_study"
+    ],
+    "affected_fields": [
+      "MAR-091",
+      "MAR-092",
+      "MAR-093",
+      "MAR-094"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-010"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_TS_62600_30",
+      "IEEE_519_2022",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-038",
+    "name_es": "Cumplimiento DNV-OS-E301 (position mooring)",
+    "category": "NORMATIVE",
+    "applicability_expression": "mooring_type != none",
+    "assertion_expression": "mooring_design_load_kN <= mooring_line_MBL_kN/1.5",
+    "severity": "BLOCKED",
+    "message_template": "Mooring no cumple DNV-OS-E301 (SF < 1.5)",
+    "required_evidence": [
+      "mooring_design"
+    ],
+    "affected_fields": [
+      "MAR-066",
+      "MAR-073"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_OS_E301"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-039",
+    "name_es": "Cumplimiento DNV-OS-C101 (LRFD acero)",
+    "category": "NORMATIVE",
+    "applicability_expression": "device_count_total > 0",
+    "assertion_expression": "steel_design_per_DNV_OS_C101",
+    "severity": "BLOCKED",
+    "message_template": "Diseño de acero no cumple DNV-OS-C101",
+    "required_evidence": [
+      "structural_design"
+    ],
+    "affected_fields": [
+      "MAR-115",
+      "MAR-119"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_OS_C101",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-040",
+    "name_es": "Cumplimiento DNV-RP-C205 (cargas metocean)",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "loads_per_DNV_RP_C205",
+    "severity": "BLOCKED",
+    "message_template": "Cargas no cumplen DNV-RP-C205",
+    "required_evidence": [
+      "load_calculation"
+    ],
+    "affected_fields": [
+      "MAR-011",
+      "MAR-022",
+      "MAR-057",
+      "MAR-058",
+      "MAR-061"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_OS_J101"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-041",
+    "name_es": "Cumplimiento IEC TS 62600-40 (ruido acústico)",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "underwater_noise_level_dB_re_1uPa <= 180",
+    "severity": "BLOCKED",
+    "message_template": "Nivel de ruido submarino excede 180 dB re 1uPa",
+    "required_evidence": [
+      "acoustic_study"
+    ],
+    "affected_fields": [
+      "MAR-101"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_TS_62600_40",
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-042",
+    "name_es": "Cumplimiento IEEE 1547 (interconexión DER)",
+    "category": "NORMATIVE",
+    "applicability_expression": "device_count_total > 0",
+    "assertion_expression": "interconnection_per_IEEE_1547",
+    "severity": "BLOCKED",
+    "message_template": "Interconexión no cumple IEEE 1547-2018",
+    "required_evidence": [
+      "interconnection_study"
+    ],
+    "affected_fields": [
+      "MAR-091",
+      "MAR-092",
+      "MAR-094"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-010",
+      "MAR-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "CNE_2011"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-043",
+    "name_es": "Cumplimiento MINAM DS 019-2009 (EIA)",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "EIA_approved_per_MINAM",
+    "severity": "BLOCKED",
+    "message_template": "EIA no aprobado según MINAM DS 019-2009",
+    "required_evidence": [
+      "EIA_resolution"
+    ],
+    "affected_fields": [
+      "MAR-096",
+      "MAR-097",
+      "MAR-098",
+      "MAR-099",
+      "MAR-101"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "MIMP_Ambiental_GLA",
+      "SERFOR_DS_020_2015"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-044",
+    "name_es": "Cumplimiento API RP 14C (safety systems offshore)",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "safety_systems_per_API_RP_14C",
+    "severity": "BLOCKED",
+    "message_template": "Sistemas de seguridad no cumplen API RP 14C",
+    "required_evidence": [
+      "safety_system_design"
+    ],
+    "affected_fields": [
+      "MAR-122",
+      "MAR-123",
+      "MAR-124"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-013",
+      "MAR-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "API_RP_14C",
+      "IEC_61511_1",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-045",
+    "name_es": "Escala de plano batimetría adecuado",
+    "category": "GRAPHIC",
+    "applicability_expression": "always",
+    "assertion_expression": "MAR-DRW-001 scale = 1:25000",
+    "severity": "WARNING",
+    "message_template": "Escala de plano batimetría no estándar",
+    "required_evidence": [
+      "drawing_review"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "MAR-DRW-001"
+    ],
+    "override_allowed": true,
+    "override_role": "DRAFTING_LEAD",
+    "source_ids": [
+      "ISO_5457",
+      "ISO_5455"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-046",
+    "name_es": "Simbología marina presente",
+    "category": "GRAPHIC",
+    "applicability_expression": "always",
+    "assertion_expression": "MAR symbols used in drawings",
+    "severity": "WARNING",
+    "message_template": "Simbología marina no aplicada",
+    "required_evidence": [
+      "drawing_review"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003",
+      "MAR-DRW-008"
+    ],
+    "override_allowed": true,
+    "override_role": "DRAFTING_LEAD",
+    "source_ids": [
+      "ISO_14617",
+      "ISO_14617_2",
+      "ISO_81714"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-047",
+    "name_es": "Capas CAD estructuradas",
+    "category": "GRAPHIC",
+    "applicability_expression": "always",
+    "assertion_expression": "MAR layers per ISO 13567",
+    "severity": "INFO",
+    "message_template": "Capas CAD no estructuradas según ISO 13567",
+    "required_evidence": [
+      "drawing_review"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ],
+    "override_allowed": true,
+    "override_role": "DRAFTING_LEAD",
+    "source_ids": [
+      "ISO_13567_1",
+      "ISO_13567_2"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-048",
+    "name_es": "Bloque de título completo",
+    "category": "GRAPHIC",
+    "applicability_expression": "always",
+    "assertion_expression": "title_block_complete_per_ISO_7200",
+    "severity": "INFO",
+    "message_template": "Bloque de título incompleto",
+    "required_evidence": [
+      "drawing_review"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "MAR-DRW-001",
+      "MAR-DRW-002",
+      "MAR-DRW-003"
+    ],
+    "override_allowed": true,
+    "override_role": "DRAFTING_LEAD",
+    "source_ids": [
+      "ISO_7200",
+      "ISO_5457"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-049",
+    "name_es": "As-built georreferenciado",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "ASBUILT_GEOREF present",
+    "severity": "BLOCKED",
+    "message_template": "As-built no georreferenciado",
+    "required_evidence": [
+      "asbuilt_survey"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [
+      "MAR-DRW-017"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111",
+      "ISO_5457",
+      "ISO_7200"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-050",
+    "name_es": "Redundancia de mooring line",
+    "category": "NORMATIVE",
+    "applicability_expression": "mooring_type != none",
+    "assertion_expression": "mooring_line_redundancy_count>=2",
+    "severity": "WARNING",
+    "message_template": "Redundancia de mooring line menor que 2",
+    "required_evidence": [
+      "mooring_design"
+    ],
+    "affected_fields": [
+      "MAR-074"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-011"
+    ],
+    "override_allowed": true,
+    "override_role": "STRUCTURAL_ENGINEER",
+    "source_ids": [
+      "DNV_OS_E301",
+      "IEC_TS_62600_10"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-051",
+    "name_es": "Eficiencia OTEC cumple rango",
+    "category": "NORMATIVE",
+    "applicability_expression": "device_type contains OTEC",
+    "assertion_expression": "OTEC_efficiency_Rankine >= 0.02",
+    "severity": "WARNING",
+    "message_template": "Eficiencia OTEC Rankine menor que 2%",
+    "required_evidence": [
+      "otec_design"
+    ],
+    "affected_fields": [
+      "MAR-049",
+      "MAR-050",
+      "MAR-027",
+      "MAR-026"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-016"
+    ],
+    "override_allowed": true,
+    "override_role": "PROCESS_ENGINEER",
+    "source_ids": [
+      "IAPWS_IF97",
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-052",
+    "name_es": "Compensación reactiva en HVDC",
+    "category": "NORMATIVE",
+    "applicability_expression": "onshore_substation_type == HVDC",
+    "assertion_expression": "onshore_reactive_compensation_MVAr>0",
+    "severity": "WARNING",
+    "message_template": "Compensación reactiva no definida en HVDC",
+    "required_evidence": [
+      "electrical_design"
+    ],
+    "affected_fields": [
+      "MAR-093",
+      "MAR-094"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-009",
+      "MAR-DRW-010"
+    ],
+    "override_allowed": true,
+    "override_role": "ELECTRICAL_ENGINEER",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "IEEE_2030_2"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-053",
+    "name_es": "Malla de tierra resistencia <= 1 ohm",
+    "category": "NORMATIVE",
+    "applicability_expression": "device_count_total > 0",
+    "assertion_expression": "onshore_grounding_resistance_ohm<=1",
+    "severity": "BLOCKED",
+    "message_template": "Resistencia de malla mayor que 1 ohm",
+    "required_evidence": [
+      "grounding_calc"
+    ],
+    "affected_fields": [
+      "MAR-095"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEC_60364_5_54"
+    ]
+  },
+  {
+    "rule_id": "MAR-QA-054",
+    "name_es": "Otros:navegación - luces y AIS presente",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "navigation_light_present AND AIS_transponder_present",
+    "severity": "WARNING",
+    "message_template": "Luces de navegación o AIS no presentes",
+    "required_evidence": [
+      "safety_system_design"
+    ],
+    "affected_fields": [
+      "MAR-122",
+      "MAR-123"
+    ],
+    "affected_drawings": [
+      "MAR-DRW-013",
+      "MAR-DRW-015"
+    ],
+    "override_allowed": true,
+    "override_role": "NAVIGATION_ENGINEER",
+    "source_ids": [
+      "MINEM_DS_032_2003",
+      "API_RP_14C",
+      "DNV_OS_J101"
+    ]
+  }
+]

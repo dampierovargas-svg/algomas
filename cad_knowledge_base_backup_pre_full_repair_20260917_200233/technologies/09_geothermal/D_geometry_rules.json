@@ -1,0 +1,1307 @@
+[
+  {
+    "geometry_rule_id": "GEO-GR-001",
+    "name_es": "Layout de plataformas de pozos (well pads)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-001",
+      "GEO-002",
+      "GEO-026",
+      "GEO-027",
+      "GEO-121",
+      "GEO-123"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-004"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Distribución de wellpads según localización de pozos y distancia entre productores/reinyectores",
+    "algorithm_pseudocode": [
+      "for each well w in wells_list:",
+      "  place wellpad polygon(w.location, area)",
+      "  ensure clearance(w, road_access, >= 4 m)",
+      "  assert distance(w_prod, w_inj) >= min_reinj_offset"
+    ],
+    "generated_entity_types": [
+      "WELL_POLYGON",
+      "WELLPAD_POLYGON",
+      "ROAD_POLYLINE"
+    ],
+    "clearances": [
+      {
+        "name": "wellpad_to_fence",
+        "value": "GEO-121",
+        "min_m": 5
+      },
+      {
+        "name": "access_road",
+        "value": "GEO-123",
+        "min_m": 4
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no overlap of wellpads",
+        "error": "wellpads overlap"
+      },
+      {
+        "rule": "access road reaches each wellpad",
+        "error": "missing access"
+      }
+    ],
+    "references": [
+      "ISO_19111;ISO_14685;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-001: required input field missing or invalid",
+      "GEO-GR-001: collision between generated entities detected",
+      "GEO-GR-001: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-002",
+    "name_es": "Ruteo del gathering system (tubería bifásica)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-036",
+      "GEO-037",
+      "GEO-038",
+      "GEO-039",
+      "GEO-026",
+      "GEO-103"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-005",
+      "GEO-C-006"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ruteo de tubería bifásica con la menor longitud y la pendiente permisible ASME B31.3",
+    "algorithm_pseudocode": [
+      "for each well w in production_wells:",
+      "  path = shortest_route(w.wellhead, separator_plant)",
+      "  assert slope(path) <= max_slope",
+      "  place two_phase_pipe(path, diameter=GEO-036)"
+    ],
+    "generated_entity_types": [
+      "GATHERING_POLYLINE",
+      "TWO_PHASE_PIPE"
+    ],
+    "clearances": [
+      {
+        "name": "pipe_to_pipe",
+        "value": "GEO-037",
+        "min_m": 0.3
+      },
+      {
+        "name": "pipe_to_road",
+        "value": "GEO-037",
+        "min_m": 1.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no overlap with existing utilities",
+        "error": "utility clash"
+      },
+      {
+        "rule": "no vertical loop > 5 m",
+        "error": "liquid trap"
+      }
+    ],
+    "references": [
+      "ASME_B31_3_2022;API_1104_2021;ASME_BPVC_VIII_1_2023;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-002: required input field missing or invalid",
+      "GEO-GR-002: collision between generated entities detected",
+      "GEO-GR-002: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-003",
+    "name_es": "Posición de separadores bifásicos",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-040",
+      "GEO-041",
+      "GEO-042",
+      "GEO-043",
+      "GEO-057"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-007",
+      "GEO-C-008"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación de separadores en planta con acceso de grúa para mantenimiento",
+    "algorithm_pseudocode": [
+      "place_separator(separator_type, D, L) at grid location",
+      "  assert access_crane_clearance >= 3 m",
+      "  assert grade_elevation > 100 year flood"
+    ],
+    "generated_entity_types": [
+      "SEPARATOR_RECT",
+      "NOZZLE_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "separator_to_separator",
+        "value": "GEO-041",
+        "min_m": 1.5
+      },
+      {
+        "name": "crane_access",
+        "value": "GEO-040",
+        "min_m": 3.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no overlap with cable trays",
+        "error": "clash"
+      }
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;ASME_B31_3_2022;IAPWS_IF97;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-003: required input field missing or invalid",
+      "GEO-GR-003: collision between generated entities detected",
+      "GEO-GR-003: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-004",
+    "name_es": "Posición de flash vessels HP y LP",
+    "applicability_expression": "plant_type contains flash",
+    "required_field_ids": [
+      "GEO-044",
+      "GEO-045",
+      "GEO-046",
+      "GEO-047",
+      "GEO-057"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-009"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación de flash vessels con elevación gradiente para flujo por gravedad",
+    "algorithm_pseudocode": [
+      "place_flash_vessel(HP) at higher elevation",
+      "place_flash_vessel(LP) at lower elevation",
+      "  assert HP_elevation > LP_elevation + 2 m"
+    ],
+    "generated_entity_types": [
+      "FLASH_VESSEL_RECT",
+      "PLATFORM"
+    ],
+    "clearances": [
+      {
+        "name": "HP_to_LP_elevation",
+        "value": "GEO-046",
+        "min_m": 2.0
+      },
+      {
+        "name": "platform_access",
+        "value": "GEO-047",
+        "min_m": 1.2
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "LP must be lower than HP",
+        "error": "flash vessel elevation error"
+      }
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;IAPWS_IF97;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-004: required input field missing or invalid",
+      "GEO-GR-004: collision between generated entities detected",
+      "GEO-GR-004: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-005",
+    "name_es": "Ruteo de tubería de vapor (ASME B31.1)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-051",
+      "GEO-052",
+      "GEO-053",
+      "GEO-060",
+      "GEO-061"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-028"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ruteo de tubería de vapor a turbina con expansión térmica",
+    "algorithm_pseudocode": [
+      "route steam_pipe(separator_outlet, turbine_inlet)",
+      "  place expansion_loops every 30 m",
+      "  assert support_spacing per ASME B31.1"
+    ],
+    "generated_entity_types": [
+      "STEAM_PIPE_POLYLINE",
+      "EXPANSION_LOOP",
+      "SUPPORT_POINT"
+    ],
+    "clearances": [
+      {
+        "name": "steam_pipe_to_structures",
+        "value": "GEO-053",
+        "min_m": 0.5
+      },
+      {
+        "name": "expansion_loop_spacing",
+        "value": "GEO-051",
+        "max_m": 30
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "expansion loop present",
+        "error": "thermal expansion risk"
+      }
+    ],
+    "references": [
+      "ASME_B31_1_2022;ASME_BPVC_VIII_1_2023;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-005: required input field missing or invalid",
+      "GEO-GR-005: collision between generated entities detected",
+      "GEO-GR-005: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-006",
+    "name_es": "Ruteo de tubería de salmuera (ASME B31.3)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-054",
+      "GEO-055",
+      "GEO-056",
+      "GEO-099",
+      "GEO-100"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-029"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ruteo de tubería de salmuera a reinyección con drenaje continuo",
+    "algorithm_pseudocode": [
+      "route brine_pipe(separator, reinjection_pump)",
+      "  assert slope(pipe) >= 0.5% to drain",
+      "  place brine_valves every 50 m"
+    ],
+    "generated_entity_types": [
+      "BRINE_PIPE_POLYLINE",
+      "DRAIN_VALVE"
+    ],
+    "clearances": [
+      {
+        "name": "brine_pipe_to_steam_pipe",
+        "value": "GEO-054",
+        "min_m": 0.2
+      },
+      {
+        "name": "pipe_slope",
+        "min_pct": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no liquid traps",
+        "error": "brine accumulation"
+      }
+    ],
+    "references": [
+      "ASME_B31_3_2022;ASME_BPVC_VIII_1_2023;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-006: required input field missing or invalid",
+      "GEO-GR-006: collision between generated entities detected",
+      "GEO-GR-006: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-007",
+    "name_es": "Ruteo de pozos de reinyección",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-027",
+      "GEO-099",
+      "GEO-100",
+      "GEO-101",
+      "GEO-104",
+      "GEO-008"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-023"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ubicación de pozos reinyectores considerando distancia mínima a productores y fractura hidráulica",
+    "algorithm_pseudocode": [
+      "for each inj well i:",
+      "  place well polygon(i.location)",
+      "  assert distance(i, producer) >= 500 m",
+      "  assert P_reinj < P_fracture"
+    ],
+    "generated_entity_types": [
+      "INJECTION_WELL_POLYGON",
+      "BRINE_HEADER"
+    ],
+    "clearances": [
+      {
+        "name": "injection_to_production",
+        "min_m": 500
+      },
+      {
+        "name": "injection_wellpad",
+        "value": "GEO-121",
+        "min_m": 5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "P_reinj < P_fracture",
+        "error": "formation fracture risk"
+      }
+    ],
+    "references": [
+      "ASME_B31_3_2022;API_1104_2021;MINAM_DS_019_2009;ISO_14685;ISO_19111;ISO_14685"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-007: required input field missing or invalid",
+      "GEO-GR-007: collision between generated entities detected",
+      "GEO-GR-007: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-008",
+    "name_es": "Layout de torre de enfriamiento",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-068",
+      "GEO-069",
+      "GEO-005"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-015"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación de la torre de enfriamiento con predominio de viento y distancia a subestación",
+    "algorithm_pseudocode": [
+      "place_cooling_tower(plant_corner, downwind)",
+      "  assert distance(tower, substation) >= 30 m",
+      "  assert drift direction away from electrical"
+    ],
+    "generated_entity_types": [
+      "COOLING_TOWER_RECT",
+      "DRIFT_FAN"
+    ],
+    "clearances": [
+      {
+        "name": "tower_to_substation",
+        "min_m": 30
+      },
+      {
+        "name": "tower_to_fence",
+        "min_m": 10
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "tower not upwind of substation",
+        "error": "drift contamination"
+      }
+    ],
+    "references": [
+      "ASME_B31_1_2022;ASME_BPVC_VIII_1_2023;IAPWS_IF97;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-008: required input field missing or invalid",
+      "GEO-GR-008: collision between generated entities detected",
+      "GEO-GR-008: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-009",
+    "name_es": "Layout del condensador principal",
+    "applicability_expression": "plant_type in [dry_steam,single_flash,double_flash,flash_binary_hybrid]",
+    "required_field_ids": [
+      "GEO-065",
+      "GEO-066",
+      "GEO-067",
+      "GEO-069"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-015"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación del condensador al pie de la turbina de vapor",
+    "algorithm_pseudocode": [
+      "place_condenser(turbine_base)",
+      "  assert height(condenser) < 5 m",
+      "  connect to cooling_water_loop"
+    ],
+    "generated_entity_types": [
+      "CONDENSER_RECT",
+      "COOLING_WATER_NOZZLE"
+    ],
+    "clearances": [
+      {
+        "name": "condenser_to_turbine",
+        "min_m": 2.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "condenser aligned with turbine shaft",
+        "error": "misalignment"
+      }
+    ],
+    "references": [
+      "ASME_BPVC_VIII_1_2023;IAPWS_IF97;ASME_B31_1_2022;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-009: required input field missing or invalid",
+      "GEO-GR-009: collision between generated entities detected",
+      "GEO-GR-009: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-010",
+    "name_es": "Layout de la unidad turbina-generador",
+    "applicability_expression": "plant_type in [dry_steam,single_flash,double_flash,flash_binary_hybrid]",
+    "required_field_ids": [
+      "GEO-060",
+      "GEO-061",
+      "GEO-062",
+      "GEO-063",
+      "GEO-064",
+      "GEO-106"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-014"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Layout del eje turbina-generador con acceso para izaje",
+    "algorithm_pseudocode": [
+      "place_turbine_generator(TG_axis, capacity)",
+      "  assert crane_coverage(40 t)",
+      "  assert foundation_isolated_from_pipes"
+    ],
+    "generated_entity_types": [
+      "TG_RECT",
+      "FOUNDATION_RECT",
+      "CRANE_RAIL"
+    ],
+    "clearances": [
+      {
+        "name": "TG_to_wall",
+        "min_m": 3.0
+      },
+      {
+        "name": "crane_height_clearance",
+        "min_m": 2.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "crane covers TG fully",
+        "error": "hoist access missing"
+      }
+    ],
+    "references": [
+      "ASME_PTC_10;IAPWS_IF97;ISO_1940_1;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-010: required input field missing or invalid",
+      "GEO-GR-010: collision between generated entities detected",
+      "GEO-GR-010: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-011",
+    "name_es": "Patio de transformadores",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-107",
+      "GEO-109",
+      "GEO-110",
+      "GEO-005"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-033"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación de patio de transformadores con malla de tierra dedicada",
+    "algorithm_pseudocode": [
+      "place_transformer_yard(boundary)",
+      "  assert step_voltage < 65 V",
+      "  assert touch_voltage < 230 V"
+    ],
+    "generated_entity_types": [
+      "TRANSFORMER_RECT",
+      "GROUNDING_GRID",
+      "OIL_CONTAINMENT"
+    ],
+    "clearances": [
+      {
+        "name": "transformer_to_wall",
+        "min_m": 3.0
+      },
+      {
+        "name": "oil_containment_volume",
+        "min_factor": 1.1
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "oil containment present",
+        "error": "oil spill risk"
+      }
+    ],
+    "references": [
+      "IEEE_80_2013;IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_043_2006;CNE_2011;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-011: required input field missing or invalid",
+      "GEO-GR-011: collision between generated entities detected",
+      "GEO-GR-011: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-012",
+    "name_es": "Layout del switchgear principal",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-108",
+      "GEO-109",
+      "GEO-110"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-027"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación del switchgear con accesos frontales y traseros",
+    "algorithm_pseudocode": [
+      "place_switchgear(aligned with transformer)",
+      "  assert front_clearance >= 1.5 m",
+      "  assert rear_clearance >= 1.0 m"
+    ],
+    "generated_entity_types": [
+      "SWITCHGEAR_RECT",
+      "CABLE_TRENCH"
+    ],
+    "clearances": [
+      {
+        "name": "front_access",
+        "min_m": 1.5
+      },
+      {
+        "name": "rear_access",
+        "min_m": 1.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "front/rear access clear",
+        "error": "safety access violation"
+      }
+    ],
+    "references": [
+      "IEEE_1547_2018;IEEE_519_2022;IEEE_80_2013;IEC_60364_5_54;MINEM_DS_043_2006;CNE_2011;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-012: required input field missing or invalid",
+      "GEO-GR-012: collision between generated entities detected",
+      "GEO-GR-012: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-013",
+    "name_es": "Layout de la unidad ORC binaria",
+    "applicability_expression": "plant_type contains binary",
+    "required_field_ids": [
+      "GEO-090",
+      "GEO-091",
+      "GEO-092",
+      "GEO-093",
+      "GEO-095",
+      "GEO-103"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-024",
+      "GEO-C-025",
+      "GEO-C-026",
+      "GEO-C-027"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Layout modular de unidades ORC con vaporizador, preheater, condensador, turbina y bomba de fluido",
+    "algorithm_pseudocode": [
+      "place_orc_module(skid, dimension)",
+      "  connect to brine_header_in",
+      "  connect to ACC_fans"
+    ],
+    "generated_entity_types": [
+      "ORC_SKID_RECT",
+      "WORKING_FLUID_LOOP"
+    ],
+    "clearances": [
+      {
+        "name": "orc_skid_to_skid",
+        "min_m": 1.5
+      },
+      {
+        "name": "orc_skid_to_wall",
+        "min_m": 2.0
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "working fluid containment dyke present",
+        "error": "flammable fluid risk"
+      }
+    ],
+    "references": [
+      "ISO_15547_1;ASME_BPVC_VIII_1_2023;ASME_PTC_10;IAPWS_IF97;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-013: required input field missing or invalid",
+      "GEO-GR-013: collision between generated entities detected",
+      "GEO-GR-013: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-014",
+    "name_es": "Layout del condensador enfriado por aire (ACC)",
+    "applicability_expression": "plant_type contains binary",
+    "required_field_ids": [
+      "GEO-096",
+      "GEO-097",
+      "GEO-098"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-026"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación del ACC con orientación según viento predominante",
+    "algorithm_pseudocode": [
+      "place_ACC_module(boundary, fan_count)",
+      "  assert ACC_orientation perpendicular to prevailing_wind",
+      "  assert foundation_isolated"
+    ],
+    "generated_entity_types": [
+      "ACC_RECT",
+      "FAN_CIRCLE"
+    ],
+    "clearances": [
+      {
+        "name": "ACC_to_ORC",
+        "min_m": 5.0
+      },
+      {
+        "name": "ACC_to_transformer",
+        "min_m": 10
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "ACC orientation perpendicular to wind",
+        "error": "recirculation risk"
+      }
+    ],
+    "references": [
+      "ISO_15547_1;ASME_BPVC_VIII_1_2023;ASME_PTC_10;IAPWS_IF97;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-014: required input field missing or invalid",
+      "GEO-GR-014: collision between generated entities detected",
+      "GEO-GR-014: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-015",
+    "name_es": "Loop de agua de enfriamiento",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-068",
+      "GEO-069",
+      "GEO-065",
+      "GEO-066"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-015"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ruteo del loop de agua de enfriamiento entre condensador y torre",
+    "algorithm_pseudocode": [
+      "route_pipe(condenser, cooling_tower) circular",
+      "  place pump_station",
+      "  assert flow_velocity < 3 m/s"
+    ],
+    "generated_entity_types": [
+      "COOLING_WATER_PIPE",
+      "PUMP_RECT"
+    ],
+    "clearances": [
+      {
+        "name": "pipe_to_electrical",
+        "min_m": 0.5
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no water near HV equipment",
+        "error": "electrical hazard"
+      }
+    ],
+    "references": [
+      "ASME_B31_1_2022;ASME_BPVC_VIII_1_2023;IAPWS_IF97;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-015: required input field missing or invalid",
+      "GEO-GR-015: collision between generated entities detected",
+      "GEO-GR-015: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-016",
+    "name_es": "Loop de agua contra incendio",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-114",
+      "GEO-115",
+      "GEO-116",
+      "GEO-117"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-032"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ruteo del loop de agua contra incendio con hidrantes perimetrales",
+    "algorithm_pseudocode": [
+      "route_fire_water_loop(perimeter)",
+      "  place_hydrant every 60 m",
+      "  assert fire_pump_house connected"
+    ],
+    "generated_entity_types": [
+      "FIRE_WATER_PIPE",
+      "HYDRANT_POINT",
+      "FIRE_PUMP_HOUSE"
+    ],
+    "clearances": [
+      {
+        "name": "hydrant_spacing",
+        "max_m": 60
+      },
+      {
+        "name": "fire_pump_to_tank",
+        "min_m": 3
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "hydrant coverage 100% of plant",
+        "error": "blind spot"
+      }
+    ],
+    "references": [
+      "NFPA_13_2022;NFPA_15_2022;NFPA_20_2022;NFPA_497_2024;NFPA_30_2024;MINEM_DS_032_2003;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-016: required input field missing or invalid",
+      "GEO-GR-016: collision between generated entities detected",
+      "GEO-GR-016: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-017",
+    "name_es": "Sistema de drenaje de planta",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-005",
+      "GEO-003"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-001"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Drenaje pluvial y de efluentes con pendiente mínima 0.5%",
+    "algorithm_pseudocode": [
+      "route_drainage(network, slope >= 0.5%)",
+      "  connect to oil_water_separator",
+      "  discharge to holding_pond"
+    ],
+    "generated_entity_types": [
+      "DRAIN_POLYLINE",
+      "OIL_WATER_SEPARATOR",
+      "HOLDING_POND"
+    ],
+    "clearances": [
+      {
+        "name": "drain_to_potable",
+        "min_m": 10
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "oily water separated from storm water",
+        "error": "environmental violation"
+      }
+    ],
+    "references": [
+      "MINAM_DS_019_2009;MINEM_DS_032_2003;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-017: required input field missing or invalid",
+      "GEO-GR-017: collision between generated entities detected",
+      "GEO-GR-017: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-018",
+    "name_es": "Posición de chimenea de vente NCG (API 521)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-078",
+      "GEO-079",
+      "GEO-080",
+      "GEO-084"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-001"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación de la chimenea de vente con radio de exclusión según API 521",
+    "algorithm_pseudocode": [
+      "place_vent_stack(plant_corner, height=GEO-078)",
+      "  assert radiation_zone_radius >= computed",
+      "  assert no building within zone"
+    ],
+    "generated_entity_types": [
+      "VENT_STACK_POINT",
+      "RADIATION_ZONE_CIRCLE"
+    ],
+    "clearances": [
+      {
+        "name": "vent_to_control_room",
+        "min_m": "GEO-080"
+      },
+      {
+        "name": "vent_to_fence",
+        "min_m": "GEO-080"
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no occupied building within radiation zone",
+        "error": "thermal radiation hazard"
+      }
+    ],
+    "references": [
+      "API_521;IEC_60079_10_1;NFPA_497_2024;MINEM_DS_032_2003;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-018: required input field missing or invalid",
+      "GEO-GR-018: collision between generated entities detected",
+      "GEO-GR-018: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-019",
+    "name_es": "Layout del sistema de abatimiento de H2S",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-074",
+      "GEO-075",
+      "GEO-076",
+      "GEO-084"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-019",
+      "GEO-C-020"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación del sistema H2S abatement con área clasificada y contención",
+    "algorithm_pseudocode": [
+      "place_H2S_abatement(process_type, capacity)",
+      "  assert area_classification Zone 1",
+      "  assert containment dyke present"
+    ],
+    "generated_entity_types": [
+      "H2S_ABATEMENT_RECT",
+      "CONTAINMENT_DYKE"
+    ],
+    "clearances": [
+      {
+        "name": "abatement_to_control_room",
+        "min_m": 30
+      },
+      {
+        "name": "abatement_to_boundary",
+        "min_m": 15
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no ignition source within Zone 1",
+        "error": "explosion risk"
+      }
+    ],
+    "references": [
+      "MINEM_DS_032_2003;MINAM_DS_019_2009;API_521;IEC_60079_10_1;NFPA_497_2024;MINEM_DS_032_2003;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-019: required input field missing or invalid",
+      "GEO-GR-019: collision between generated entities detected",
+      "GEO-GR-019: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-020",
+    "name_es": "Cuarto de control",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-111",
+      "GEO-112",
+      "GEO-113",
+      "GEO-122"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-001"
+    ],
+    "coordinate_space": "PLANT_NORTH_EAST",
+    "algorithm": "Ubicación del cuarto de control fuera de zona clasificada y con ventilación positiva",
+    "algorithm_pseudocode": [
+      "place_control_room(safe_zone, area=GEO-122)",
+      "  assert distance to H2S_abatement > 30 m",
+      "  assert pressurized_ventilation == true"
+    ],
+    "generated_entity_types": [
+      "CONTROL_ROOM_RECT",
+      "BATTERY_ROOM"
+    ],
+    "clearances": [
+      {
+        "name": "control_room_to_vent_stack",
+        "min_m": 50
+      },
+      {
+        "name": "control_room_to_H2S_abatement",
+        "min_m": 30
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "control room outside Zone 2",
+        "error": "safety violation"
+      }
+    ],
+    "references": [
+      "IEC_61511_1;MINEM_DS_032_2003;MINEM_DS_043_2006;IEC_60079_10_1;NFPA_497_2024;MINEM_DS_032_2003;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-020: required input field missing or invalid",
+      "GEO-GR-020: collision between generated entities detected",
+      "GEO-GR-020: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-021",
+    "name_es": "Cerramiento perimetral (fence)",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-005",
+      "GEO-001",
+      "GEO-002"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Cerramiento perimetral con portones de acceso",
+    "algorithm_pseudocode": [
+      "offset polygon(boundary, -3 m)",
+      "  place fence polygon",
+      "  place access_gates at access points"
+    ],
+    "generated_entity_types": [
+      "FENCE_POLYLINE",
+      "ACCESS_GATE"
+    ],
+    "clearances": [
+      {
+        "name": "fence_offset_from_boundary",
+        "min_m": 3
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "no equipment inside fence offset",
+        "error": "equipment clash"
+      }
+    ],
+    "references": [
+      "ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1;MINAM_DS_019_2009;MINEM_DS_032_2003"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-021: required input field missing or invalid",
+      "GEO-GR-021: collision between generated entities detected",
+      "GEO-GR-021: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "geometry_rule_id": "GEO-GR-022",
+    "name_es": "Vías de acceso a pozos",
+    "applicability_expression": "always",
+    "required_field_ids": [
+      "GEO-001",
+      "GEO-002",
+      "GEO-123",
+      "GEO-026",
+      "GEO-027"
+    ],
+    "required_calculation_ids": [
+      "GEO-C-001"
+    ],
+    "coordinate_space": "SITE_UTM",
+    "algorithm": "Ruteo de vías de acceso a pozos con ancho mínimo GEO-123",
+    "algorithm_pseudocode": [
+      "for each well w:",
+      "  route_access_road(w, road_width=GEO-123)",
+      "  assert slope < 8%",
+      "  assert turning_radius >= 12 m"
+    ],
+    "generated_entity_types": [
+      "ACCESS_ROAD_POLYLINE",
+      "TURNING_RADIUS_ARC"
+    ],
+    "clearances": [
+      {
+        "name": "road_to_fence",
+        "min_m": 1.0
+      },
+      {
+        "name": "road_slope",
+        "max_pct": 8
+      }
+    ],
+    "collision_rules": [
+      {
+        "rule": "access road reaches each wellpad",
+        "error": "no access"
+      }
+    ],
+    "references": [
+      "ISO_19111;ISO_14685;ISO_5457;ISO_7200;ISO_129_1;ISO_128_20;ISO_5455;ANSI_Y14_5;ISO_13567_1"
+    ],
+    "routing_costs": [],
+    "tolerances": {
+      "position_mm": 50,
+      "dimension_mm": 10
+    },
+    "failure_conditions": [
+      "GEO-GR-022: required input field missing or invalid",
+      "GEO-GR-022: collision between generated entities detected",
+      "GEO-GR-022: clearance violation"
+    ],
+    "source_ids": [
+      "ISO_19111",
+      "ISO_13567_1"
+    ]
+  }
+]

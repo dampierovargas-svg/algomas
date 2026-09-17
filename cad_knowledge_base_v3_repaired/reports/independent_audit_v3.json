@@ -1,0 +1,1864 @@
+{
+  "structure": {
+    "total_files": 231,
+    "json_files": 157,
+    "csv_files": 46,
+    "svg_files": 22,
+    "py_files": 6,
+    "schema_files": 0,
+    "readable": 203,
+    "unreadable": 0,
+    "files": [
+      {
+        "path": "03_common_layers.csv",
+        "size": 39307,
+        "hash": "7fe0210a079537453968d41be6caca14e6eb9216ffc499837f0375668a339a5d",
+        "type": ".csv",
+        "records": 258
+      },
+      {
+        "path": "07_common_geometry_rules.json",
+        "size": 14888,
+        "hash": "6efc61cadd11904deaabc5a483658f0e61b52ff42f3ae82d1c223ad6d1b6f1d0",
+        "type": ".json",
+        "records": 6
+      },
+      {
+        "path": "08_common_qa_rules.json",
+        "size": 6424,
+        "hash": "7acde2a65591457874426126c0cb6287b29382d0c61ebe4fb00c46d4b9c4fc1c",
+        "type": ".json",
+        "records": 8
+      },
+      {
+        "path": "02_common_cad_standard.json",
+        "size": 52495,
+        "hash": "a4d534eb6a37ed12f10efaaec6ade6d5c893c07038ae5b83ccdcb2b1fbf28e30",
+        "type": ".json",
+        "records": 95
+      },
+      {
+        "path": "validation_report.json",
+        "size": 36307,
+        "hash": "810ee388bf69524d57bbff648585ded13212c69c0436033b4e1cf0d71ea67ef7",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "audit_after_correction.json",
+        "size": 4863,
+        "hash": "ef85142d86975e74c411cbb44516d5be075eae08bd64bb945f45d45a04478bdd",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "audit_v3_before.json",
+        "size": 165982,
+        "hash": "20ccb63fccf0998838d0d7154a491947d5ea3777589b290c9af58178e6bea9a6",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "00_source_register.csv",
+        "size": 53067,
+        "hash": "453209018f8e5b7bef0c96087026498b384f11c3d1f0867c1dad582c9cb08814",
+        "type": ".csv",
+        "records": 215
+      },
+      {
+        "path": "audit_before_forensic_v2.json",
+        "size": 552512,
+        "hash": "4984d266a40e6e8224fed20682d6dcdb795a8ad467b0db1549d9f0961bb77cce",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "correction_manifest_v2.json",
+        "size": 71813,
+        "hash": "b761a09a23b04efad868827a387f69e32fd782b4ca30d29d0596793ceff09f89",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "05_common_calculations.json",
+        "size": 51494,
+        "hash": "3032e580c4aea1cab238c6d4a61841315960ed970cd294641a5595c35fddda9b",
+        "type": ".json",
+        "records": 11
+      },
+      {
+        "path": "audit_before_correction.json",
+        "size": 166708,
+        "hash": "c5047619f30eac5e4df6a4cd6bd92651ed8a11b2ce89132a49e114f77b475513",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "04_common_symbols.json",
+        "size": 654252,
+        "hash": "9a1a8076dcc0a79a13a8b0509c6536c12a4a5fbdf818afb451144f20033e155d",
+        "type": ".json",
+        "records": 471
+      },
+      {
+        "path": "correction_manifest.json",
+        "size": 17530,
+        "hash": "4ae9fd355773c966c5ec4f4fa5498bed2419c870facd41040734ff6b4ebcd70d",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "01_common_project_inputs.csv",
+        "size": 32680,
+        "hash": "26939abfdd9d0109b7f929cec62e98a49fbf167e1448df1341bec8243dc14ed8",
+        "type": ".csv",
+        "records": 152
+      },
+      {
+        "path": "jurisdiction_international.json",
+        "size": 41097,
+        "hash": "070efd1663a04d857e2ed067bc7ac0004098566fd5af17658d0c09d8d6857ddb",
+        "type": ".json",
+        "records": 47
+      },
+      {
+        "path": "audit_after_forensic_v2.json",
+        "size": 24253,
+        "hash": "1d2b71142aa7299105db3b69125d8a7cbb317de68d8fc3176329b852c80a1bdf",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "jurisdiction_peru.json",
+        "size": 19523,
+        "hash": "1f0985f61ce51006486af465e9f9e2df742c354925c3e3d8757c1d4ec9d6ec29",
+        "type": ".json",
+        "records": 23
+      },
+      {
+        "path": "test_results.json",
+        "size": 21605,
+        "hash": "fd22f16aec99e667317dc88d3cdedf96fcccba8edfd3eda1a5b1139961243bca",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "validation_report_v3.json",
+        "size": 270188,
+        "hash": "3af74519b014fed8b33fb494190f1f2fcb364700dec183aea4ae0529b7e20b6a",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "06_common_drawing_catalog.csv",
+        "size": 3685,
+        "hash": "319c58e232111047475d669089866b176dbc5b7039cce6861a235a0d7efb91ff",
+        "type": ".csv",
+        "records": 6
+      },
+      {
+        "path": "tests/run_tests.py",
+        "size": 31153,
+        "hash": "45134d70906c3af30ce13b97e2797a80299f8374b4dd2f422d3abc46bdf9bba0",
+        "type": ".py"
+      },
+      {
+        "path": "reports/render_report_v3.json",
+        "size": 1309527,
+        "hash": "bad841148ecde27d643c5d850ac1393975c3ae24af32ed9ed8533e77b85ede44",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "reports/geometry_test_results_v3.json",
+        "size": 2687129,
+        "hash": "4d1ae75649116cc1712dfa949d3d3ea6cecfa2c50dad53243e8cd94483b96d0f",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "reports/formula_test_results_v3.json",
+        "size": 351672,
+        "hash": "6c93019ece898320203561d42367461ee86318b131dce61d21f1bf8bd7fdcad2",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tools/evaluate_formulas.py",
+        "size": 13962,
+        "hash": "75717932ca0868fe30136e5101eb2699c9714d4eb00ebc7f15f12140cb2fb336",
+        "type": ".py"
+      },
+      {
+        "path": "tools/test_geometry.py",
+        "size": 13090,
+        "hash": "82aa709ab994c6dff7f2bc3343a62573f662eba2383816b9f1353bf4e578488a",
+        "type": ".py"
+      },
+      {
+        "path": "tools/validate_knowledge_base_v3.py",
+        "size": 16482,
+        "hash": "903707e84ef95e7a6650ae0942a091de6e8b461fe16b5531a205efe4455a73b1",
+        "type": ".py"
+      },
+      {
+        "path": "tools/independent_audit_v3.py",
+        "size": 20657,
+        "hash": "adc97d0cac8d240e023762623baaf1823f017ac89ff729e0ed1a948b334e94d3",
+        "type": ".py"
+      },
+      {
+        "path": "tools/render_symbol_atlas.py",
+        "size": 13262,
+        "hash": "bebd181ba4e266f3b3ab28e7bf177eaff36eec93657c7a3821b8f20795c38370",
+        "type": ".py"
+      },
+      {
+        "path": "symbol_atlas_v3/atlas_STR_v3.svg",
+        "size": 1356,
+        "hash": "ba0bb7afa204bf5be2d188c98485439a5fe0d9078abd752b26431ccbe026b923",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas_v3/atlas_INST_v3.svg",
+        "size": 4945,
+        "hash": "76c9e04544ff9279115435c2623d01ea6e92d533a45fb49b9faf1b821eb9febb",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas_v3/atlas_GEN_v3.svg",
+        "size": 44734,
+        "hash": "4c7f37a267f14182348ab1a8d58b67edf3b050cea2a4c78d0332a02408507d87",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas_v3/atlas_ELEC_PV_v3.svg",
+        "size": 1370,
+        "hash": "50ff691e566eea12b3a81455a1ac174428bbc47bbdb8e863eaf9c6645756c7e7",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas_v3/atlas_ELEC_v3.svg",
+        "size": 31505,
+        "hash": "b7b693d35faa3f657d3421332c2d3d438b593a61706f7322f1d5810a3c4c27a8",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas_v3/atlas_COMM_v3.svg",
+        "size": 4529,
+        "hash": "312a9981cd1db70e9217eb62d65e219655eb77c12ae492bc69b95fc7e4e3bee8",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas_v3/atlas_HYD_v3.svg",
+        "size": 3323,
+        "hash": "e453ebdecf989a8e51e6442825987eb19d82c425afc1baeaf9e7458c357eec10",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas_v3/atlas_CIVIL_v3.svg",
+        "size": 47447,
+        "hash": "a7882d20e8546905e11eca6100b6b0785987fcf2dedc662c1cf7ce18fae8d0ab",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas_v3/atlas_MECH_v3.svg",
+        "size": 17071,
+        "hash": "0e660c1034abb8c6a42f94f22ee1d12017153301414270afd2825594f3cf06d7",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas_v3/atlas_FIRE_v3.svg",
+        "size": 6152,
+        "hash": "2170fceef8b5e33e0e8ddb32df4e836067642958b2e63db18391d7f7493761cb",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas_v3/atlas_PROC_v3.svg",
+        "size": 28754,
+        "hash": "d87dce4d73865b679a9d161b4210458655e7116bbf7d29113fc71be9e59fbae7",
+        "type": ".svg"
+      },
+      {
+        "path": "schemas/geometry_rule.schema.json",
+        "size": 6232,
+        "hash": "a03be0fc5882991b5278fda43d4e1901ff1201003dfe5d3da40016ef576ce4fc",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "schemas/absence_policy.schema.json",
+        "size": 1817,
+        "hash": "c41ecfdfdf2e5e8cb831f399605bdc0fce3dca5a2e015568e6762de1949977e2",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "schemas/calculation.schema.json",
+        "size": 6722,
+        "hash": "847335b9e56ddf4051a1ae2f970504a706dc3aaed5881c975945ef4f978d4243",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "schemas/field.schema.json",
+        "size": 3674,
+        "hash": "be90fca96707d259f7250cb65064c9bb42ed2b8d301c647eefc3ac43a2636df1",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "schemas/symbol.schema.json",
+        "size": 4454,
+        "hash": "29f47efbe5a31ff53b456e89bd85f86dcd16bd5f802ac5b2abef55b32f82a081",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "schemas/validation_report.schema.json",
+        "size": 5115,
+        "hash": "39a61a01190a27f950fe91737dd1654d6165493c75bbf6708fb5a33943f03404",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "schemas/source.schema.json",
+        "size": 2826,
+        "hash": "9802a2b9b65514bb44c836e4017d5f248d07eb87891966a3a1601e0a57e4849f",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "schemas/equipment.schema.json",
+        "size": 860,
+        "hash": "906d3a300f8b5d05840d320871e65ee68e792e442c0e5fb8f559518054590a29",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "schemas/test_fixture.schema.json",
+        "size": 1963,
+        "hash": "6f1b36c21030f3357c688e33ebe8b2a2907df9b0e40310cbb30ebac49de1949c",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "schemas/qa_rule.schema.json",
+        "size": 3337,
+        "hash": "45540ab8ae6fe6df144be5df05739fa1c9abcc109c02e6ee1d1bd1fa36b1e0e3",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "schemas/drawing.schema.json",
+        "size": 1762,
+        "hash": "fcf6c98b4e35cde22653bb927a4bb54b2b2fd558f851b9137bdda8ebd3972cc8",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "symbol_atlas/atlas_MECH.svg",
+        "size": 15788,
+        "hash": "d8eed18dd1e1c7f0f66c8a9de30b32f14e6d33c8b4ba60b40074502f025c2573",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas/atlas_COMM.svg",
+        "size": 3760,
+        "hash": "dcc3835d21e2e499a5017c87ddd7301d384ebfa18c5ca9eb89c266469b70b990",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas/atlas_ELEC_PV.svg",
+        "size": 1263,
+        "hash": "a83a619776874d8150852ac83457b1c57a8bc2d3878dbbbb8c1aba3c771568e2",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas/atlas_ELEC.svg",
+        "size": 26919,
+        "hash": "459dec7b7b5fd8a8f9223b4b1e72453ead9c886d0ac32189cd2013f81d425e77",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas/atlas_CIVIL.svg",
+        "size": 40782,
+        "hash": "bf271a67ccc90c3643aa4e79361fc881ac303387e80c385cede17120c3b75875",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas/atlas_GEN.svg",
+        "size": 40164,
+        "hash": "ccfd7268d21297f4b78e12a8ed258c40621293fc6d4cbc9fb191a3d15be7c88b",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas/atlas_PROC.svg",
+        "size": 25214,
+        "hash": "c3361879ef15ad02dbd6cb508384fbd3bd7a6d1bac0da3109d8061743cee1ecc",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas/atlas_STR.svg",
+        "size": 1258,
+        "hash": "c701de112d74ea2180eed2b40c3d388cc2afaf60c0ea3a7d8fe96d8db3dfbaf3",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas/atlas_HYD.svg",
+        "size": 2889,
+        "hash": "f77b8a365038875f49b96a6abd8f08d64a9b353892d20cf85d55e2ddc6d024bc",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas/atlas_INST.svg",
+        "size": 4079,
+        "hash": "96a32465782012c263ad9197807a837a24f5f99d8b3ef752128a25ae9c464243",
+        "type": ".svg"
+      },
+      {
+        "path": "symbol_atlas/atlas_FIRE.svg",
+        "size": 5176,
+        "hash": "c4b242375ad19752e05c216f786b29010d05c0e67c3543ee7f0eaa3e491fddb6",
+        "type": ".svg"
+      },
+      {
+        "path": "tests/06_hydro/expected_results.json",
+        "size": 760,
+        "hash": "86506f3bb1df376d3aaaa03f90b2ef981200051a5dea8dbaced0d704b0dde004",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/06_hydro/fixture_missing_mandatory.json",
+        "size": 354,
+        "hash": "6db771d6fbb9c9e8d51dec476d095d01335e0cfe3397a32f9b561c8ab400ef3a",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/06_hydro/fixture_invalid_ref.json",
+        "size": 305,
+        "hash": "2a69bc030cb0650082db1b3246c57fe17c8610724586f3f704b961ed3e19e74d",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/06_hydro/fixture_valid.json",
+        "size": 339,
+        "hash": "d70114944495f2f4be8cf257fbe0031758ab85e57f1393721d5d0f8df16d6b58",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/05_wind_offshore/expected_results.json",
+        "size": 760,
+        "hash": "62156563b9ae57d35a2a2f6b950d9821ebbb8d193a228e224c6693417b0b40b7",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/05_wind_offshore/fixture_missing_mandatory.json",
+        "size": 362,
+        "hash": "dc70726695151dd809441af39fe3877f371aa5482f28b387727c808daec17c53",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/05_wind_offshore/fixture_invalid_ref.json",
+        "size": 313,
+        "hash": "d50a66219bf55f0d4a520f538e31515332cca483929c17ed2d5561d32d46bd9f",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/05_wind_offshore/fixture_valid.json",
+        "size": 347,
+        "hash": "db0aea853df5c1d42503f68f74a239cb5a9412342c5ba0161652036dea36b312",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/07_biomass/expected_results.json",
+        "size": 760,
+        "hash": "3109d7a6813d1f7191b0fcdaf834c24f683b7dd4abb9adeef66e50765c011d5c",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/07_biomass/fixture_missing_mandatory.json",
+        "size": 356,
+        "hash": "d820b366d6afc5518b1c425ab93bc18c2663500e9fbb78682a51abf5af4284c4",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/07_biomass/fixture_invalid_ref.json",
+        "size": 307,
+        "hash": "87369ab5d000cac023e48cb4139a9c2782739d08db66bcfe3dbbddeb796fd431",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/07_biomass/fixture_valid.json",
+        "size": 341,
+        "hash": "c1815990a6445cf3cfb795cda16afe63e2351c6f8695588c62b27b51391e5910",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/03_pv_floating/expected_results.json",
+        "size": 760,
+        "hash": "61bf8d99d936750ae77d99e978d48bb270172892d3b345d5f96b42fc6efa4209",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/03_pv_floating/fixture_missing_mandatory.json",
+        "size": 254,
+        "hash": "9a0fc807d2f47aafd3607bdc5729301e9adf0b694ef5595329eacd74e4c50b82",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/03_pv_floating/fixture_invalid_ref.json",
+        "size": 179,
+        "hash": "67029c6e852d5461089c8f26f94efabc87afdba738437cf526126d23a96ba5c8",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/03_pv_floating/fixture_valid.json",
+        "size": 213,
+        "hash": "ddcae954b63a95bd5c47145509fd540fb9dd2f543fac43deb107c4180c014431",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/14_hybrid_microgrid/expected_results.json",
+        "size": 759,
+        "hash": "5608e77f3e447d8a66d41f184d22eb6fdb288e227f345cdec73838879c2139c7",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/14_hybrid_microgrid/fixture_missing_mandatory.json",
+        "size": 356,
+        "hash": "fc6da510d0edecbdb775f3d63cc25b2a1f883059ca9f0f03f8ae04f07aa06327",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/14_hybrid_microgrid/fixture_invalid_ref.json",
+        "size": 310,
+        "hash": "b7b9441773e00e07a986fb03fca5ab5bbe5700680aa8415ce35cb97c813ff2ca",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/14_hybrid_microgrid/fixture_valid.json",
+        "size": 341,
+        "hash": "24fbd33a50f32f793ef7307e3fdd86adfcbfddb303557505663e8a1de0eeee79",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/09_geothermal/expected_results.json",
+        "size": 760,
+        "hash": "9f4b750936bd1c1a76109a7e8e53ffc4e7b9c9c746e9ed2b3871b6e70a872891",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/09_geothermal/fixture_missing_mandatory.json",
+        "size": 359,
+        "hash": "a78d975e89eb23433b2cd208c28f541a4149cc0c0739b087dfedf9ab5faf1b42",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/09_geothermal/fixture_invalid_ref.json",
+        "size": 310,
+        "hash": "44de503c4253be4dd47c3422ac8e43b2fef26f2bd87312032a7d7ebea23449c6",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/09_geothermal/fixture_valid.json",
+        "size": 344,
+        "hash": "d9e15163171d2e14c0b4695b3d6d2e401af2818b503e5850c3ba53184a3f27ba",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/11_marine/expected_results.json",
+        "size": 760,
+        "hash": "350df4701a3484db58b598c5013138b12b1a06387e413029e5ab193cd7eee513",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/11_marine/fixture_missing_mandatory.json",
+        "size": 355,
+        "hash": "126804e02e4d0e1291d4cdc15cdd13a6fce8245ef6b7c77d508407c1b4147559",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/11_marine/fixture_invalid_ref.json",
+        "size": 306,
+        "hash": "2b46e7e6d2b12102da4dd6bc752542a63f57e75788f479b4e0c87af38746f504",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/11_marine/fixture_valid.json",
+        "size": 340,
+        "hash": "666dbe2d546d67a2bd3043a98455aff0c0e3f839381416b10be02eacca4acfcd",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/04_wind_onshore/expected_results.json",
+        "size": 760,
+        "hash": "75dac9e0a276e7917a1591dd499b3a9c3e3317d25a65540893699a2c46c7e9e7",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/04_wind_onshore/fixture_missing_mandatory.json",
+        "size": 361,
+        "hash": "b1f6807f926f45dc23ac54ffdfebd070a5d3385c120d7de71e917179ea196f94",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/04_wind_onshore/fixture_invalid_ref.json",
+        "size": 312,
+        "hash": "d5e8668ae0259b303192b8166d0f0e1af5c4eb9adb7111ac1e9ea40b866c9e71",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/04_wind_onshore/fixture_valid.json",
+        "size": 346,
+        "hash": "1c05122774df9aca52837275d79bb37d934af5cd4ddd1a833bf1ad0a77412eba",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/13_hydrogen/expected_results.json",
+        "size": 759,
+        "hash": "1493424dc7207a799aede89163235ac6c5052d0f8b7d8c1ac4a1d015b6fb9533",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/13_hydrogen/fixture_missing_mandatory.json",
+        "size": 348,
+        "hash": "c1221a6fa5d3d87ea018e1bef031fb6015856ccb81031242d5c718bd6dbf9f25",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/13_hydrogen/fixture_invalid_ref.json",
+        "size": 302,
+        "hash": "5aa9beb11bd68af0c93c6e2a3d8a538a36825d2b1caed0d529c7be325ba4ffe8",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/13_hydrogen/fixture_valid.json",
+        "size": 333,
+        "hash": "4ce82c0c13563b1aba882c57daf3e1ee96a8b80c1ad60b2351aa809274486ef4",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/01_pv_ground/expected_results.json",
+        "size": 760,
+        "hash": "7384e19afe062acb1f2968d2b3588e25a5b897c00fa5339899ef052c674f48ef",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/01_pv_ground/fixture_missing_mandatory.json",
+        "size": 358,
+        "hash": "d2d34e5751a891eb29cf1cba95490e9a22ab7d7b7d83f0de4e0e5426da64a8ac",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/01_pv_ground/fixture_invalid_ref.json",
+        "size": 309,
+        "hash": "7123cfd818ce2c095468e8457796d95a302b08b05298b6c5f1bf4b19a0bf7c09",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/01_pv_ground/fixture_valid.json",
+        "size": 343,
+        "hash": "fb44817fd228743ade1756b4770c3b2cf1d60cbcf54cca0aec037abdfe19f55f",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/02_pv_roof_carport/expected_results.json",
+        "size": 760,
+        "hash": "2a1c67df70cc4dc587a175a45cd6b7c949a8d732a34071bd05fd39807d1e5511",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/02_pv_roof_carport/fixture_missing_mandatory.json",
+        "size": 364,
+        "hash": "80b8d82de2c825b7f0db7de72526dd6ef1f7124bb036d5c4bedd5f96fa8a4138",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/02_pv_roof_carport/fixture_invalid_ref.json",
+        "size": 315,
+        "hash": "660c9552a98c38f7f57c38fed18c493125a36ed91ceff609001b108246502fae",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/02_pv_roof_carport/fixture_valid.json",
+        "size": 349,
+        "hash": "947b6c29aa9c85f92d37f53f11f96ff8e1c90b462958e3c0b8e417958fd18fbd",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/12_bess/expected_results.json",
+        "size": 761,
+        "hash": "a8c68dba494b801873144d91d21ba9d09d9534f7002696e67613c8ebfca75c23",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/12_bess/fixture_missing_mandatory.json",
+        "size": 362,
+        "hash": "270cf02dd122999e287f9cdf235b669dd4ab26064ad55682719ca8d0dc7eb93a",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/12_bess/fixture_invalid_ref.json",
+        "size": 310,
+        "hash": "f32cebf92771743293c618364a532b7c729e5dc92e03758c31b14d67e56264a4",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/12_bess/fixture_valid.json",
+        "size": 347,
+        "hash": "6089b11b3c5e5c82e3793f7b7adebc30489a20ef4fbd0ece2ac6cd137ec1e631",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/10_solar_thermal_csp/expected_results.json",
+        "size": 760,
+        "hash": "9e4a90c9390efb6fec7c394d3fc8aca4a5707c1bae37ce6b4da3b9d81006f474",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/10_solar_thermal_csp/fixture_missing_mandatory.json",
+        "size": 366,
+        "hash": "618a84f9267b5bf124ebb7526165326777e06fee11fc4c6772c4dbfed4cb9f8b",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/10_solar_thermal_csp/fixture_invalid_ref.json",
+        "size": 317,
+        "hash": "b45b683cb9c8f1f23aa3fe83be1379ecb2553cd4cf5a7007d5e07959277893b0",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/10_solar_thermal_csp/fixture_valid.json",
+        "size": 351,
+        "hash": "6c3d9b3a0e2eaa4c5e87831ccfa9d372fad50526881209b5883cf06b393863a2",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/08_biogas/expected_results.json",
+        "size": 760,
+        "hash": "c33845de556670746c6d73825bcee78c004e5198b52036f294ea0b898228b469",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/08_biogas/fixture_missing_mandatory.json",
+        "size": 355,
+        "hash": "ddd789ea746f0cd3ebc3729964c5177aff5cf61f48ab3c3287c9cd82189022ea",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/08_biogas/fixture_invalid_ref.json",
+        "size": 306,
+        "hash": "f219eb22b781edde1bc60da54695a9b0bc7925b2c3e08c2107004dc7c7ba0049",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "tests/08_biogas/fixture_valid.json",
+        "size": 340,
+        "hash": "1341d237a18966e2e66c848830d2241222e98b7aec24e3aaae59496b8041c147",
+        "type": ".json",
+        "records": 1
+      },
+      {
+        "path": "technologies/06_hydro/C_formulas.json",
+        "size": 65566,
+        "hash": "92931570a46c51a941f1b11c470406351e93f942bebd12eec61de132490a18e6",
+        "type": ".json",
+        "records": 28
+      },
+      {
+        "path": "technologies/06_hydro/G_extraction_dictionary.csv",
+        "size": 54258,
+        "hash": "18760befeff319b7af8d59290f5678fb969b7eafe3acc82da21fe51b09882f14",
+        "type": ".csv",
+        "records": 183
+      },
+      {
+        "path": "technologies/06_hydro/B_equipment_schema.json",
+        "size": 35457,
+        "hash": "2fe5dac34d410fd6be36313f1bf7a1f4568c6510122be38de17d4430033ed44a",
+        "type": ".json",
+        "records": 36
+      },
+      {
+        "path": "technologies/06_hydro/A_input_fields.csv",
+        "size": 49635,
+        "hash": "3d92a64abcbc67ea8f71c94be5acdfc3195d8794e076d46f4a15595df12dda22",
+        "type": ".csv",
+        "records": 183
+      },
+      {
+        "path": "technologies/06_hydro/F_qa_rules.json",
+        "size": 33445,
+        "hash": "c24067d7067b733dfd41dfb170331eb1f70a638487e224265c8472b7139ea7ed",
+        "type": ".json",
+        "records": 50
+      },
+      {
+        "path": "technologies/06_hydro/D_geometry_rules.json",
+        "size": 33935,
+        "hash": "3fac3d869ae89a4957a41a103b56ea78316035f31aa622a2f5247a0913c112b5",
+        "type": ".json",
+        "records": 20
+      },
+      {
+        "path": "technologies/06_hydro/E_drawing_catalog.csv",
+        "size": 13689,
+        "hash": "fe989fa7181808e54fb7fc8ae656f3cf6dabe79fe8c53017b64394d1cf650ada",
+        "type": ".csv",
+        "records": 17
+      },
+      {
+        "path": "technologies/06_hydro/H_missing_data_policy.json",
+        "size": 73224,
+        "hash": "c5ed253937b8196a4c9e6aaaa2b0a5ecc76bca0e5f7aa7b1920fb04fc335f432",
+        "type": ".json",
+        "records": 183
+      },
+      {
+        "path": "technologies/05_wind_offshore/C_formulas.json",
+        "size": 64057,
+        "hash": "741538170477aa9cb845e431e6d650cf36b680d1f4b65e9641e59c6b692cfb94",
+        "type": ".json",
+        "records": 30
+      },
+      {
+        "path": "technologies/05_wind_offshore/G_extraction_dictionary.csv",
+        "size": 40200,
+        "hash": "1ee795cded54787b160a3e72086576744e72d09844b691806920ecb9d055af65",
+        "type": ".csv",
+        "records": 130
+      },
+      {
+        "path": "technologies/05_wind_offshore/B_equipment_schema.json",
+        "size": 10786,
+        "hash": "755fc14800fca724fcd8fd4bb2737f939d00f7d23c3b55fba6dc0e719400d786",
+        "type": ".json",
+        "records": 27
+      },
+      {
+        "path": "technologies/05_wind_offshore/A_input_fields.csv",
+        "size": 34483,
+        "hash": "5c2e3aba52c9d35a98bc033c047a1d736b7ca912d1b9c296f78cb25b2213170d",
+        "type": ".csv",
+        "records": 130
+      },
+      {
+        "path": "technologies/05_wind_offshore/F_qa_rules.json",
+        "size": 41255,
+        "hash": "353d630e5d8d5093d7c76c9f98a60f96dfecc0aaacf20f3bf384c020a12fd80e",
+        "type": ".json",
+        "records": 45
+      },
+      {
+        "path": "technologies/05_wind_offshore/D_geometry_rules.json",
+        "size": 40819,
+        "hash": "86fa9cc4595477d34b8da6267e6618f3172a49757575fd9d3b4da1af8923219a",
+        "type": ".json",
+        "records": 24
+      },
+      {
+        "path": "technologies/05_wind_offshore/E_drawing_catalog.csv",
+        "size": 8354,
+        "hash": "7be17118ab6e4ee0663c2e09f8034bb912e5a6fd4980461ce802afc9802a5f9d",
+        "type": ".csv",
+        "records": 20
+      },
+      {
+        "path": "technologies/05_wind_offshore/H_missing_data_policy.json",
+        "size": 70830,
+        "hash": "9009189de00ee6bff9069989d91b2e89d7af85388ff4f1f74e173eb530a66789",
+        "type": ".json",
+        "records": 130
+      },
+      {
+        "path": "technologies/07_biomass/C_formulas.json",
+        "size": 38228,
+        "hash": "a527d49eb14536c500fd5f82c28248fe445d82077d11697b443d46b633121038",
+        "type": ".json",
+        "records": 27
+      },
+      {
+        "path": "technologies/07_biomass/G_extraction_dictionary.csv",
+        "size": 50399,
+        "hash": "cf5b91c57d6234898af2ed0a7e96fa783ad0691f5dfd2d8ea2bec1208b44ffde",
+        "type": ".csv",
+        "records": 100
+      },
+      {
+        "path": "technologies/07_biomass/B_equipment_schema.json",
+        "size": 40267,
+        "hash": "561bd9eab25876ccee17aa4beb4566beb704586e4bf0e6f5acc2d47c7806d902",
+        "type": ".json",
+        "records": 32
+      },
+      {
+        "path": "technologies/07_biomass/A_input_fields.csv",
+        "size": 23382,
+        "hash": "7bd12de0577a19d53428ee7a1799c3899c3776f313916f108d91e12c660e3f7b",
+        "type": ".csv",
+        "records": 100
+      },
+      {
+        "path": "technologies/07_biomass/F_qa_rules.json",
+        "size": 26721,
+        "hash": "bfb54e946c7957a1d1c20b5c05b67fe3ccb762196c635c105ca3ed7665beaae6",
+        "type": ".json",
+        "records": 50
+      },
+      {
+        "path": "technologies/07_biomass/D_geometry_rules.json",
+        "size": 34857,
+        "hash": "e62a4167c4bae7f3cef31e082d99d1430a7df231743a899722f9c89d643d9dda",
+        "type": ".json",
+        "records": 28
+      },
+      {
+        "path": "technologies/07_biomass/E_drawing_catalog.csv",
+        "size": 5173,
+        "hash": "f022224089abeae03ef96f319695ac8b37025ea7af5bf1f9d2d3b9324aa2aadd",
+        "type": ".csv",
+        "records": 17
+      },
+      {
+        "path": "technologies/07_biomass/H_missing_data_policy.json",
+        "size": 27890,
+        "hash": "e12e2b5f2dd7054207e71e75a26df0a93d8921e62306cce1f5d27948db48f7df",
+        "type": ".json",
+        "records": 78
+      },
+      {
+        "path": "technologies/03_pv_floating/C_formulas.json",
+        "size": 74227,
+        "hash": "199bb461a4ab223847d25991cb1b898a850a683c56c8779ca272a13ae3c16033",
+        "type": ".json",
+        "records": 29
+      },
+      {
+        "path": "technologies/03_pv_floating/G_extraction_dictionary.csv",
+        "size": 23059,
+        "hash": "2b9976c154f8af60a5cac484b24e6611cf270d1cde5326d32b380e67e1ba2e00",
+        "type": ".csv",
+        "records": 70
+      },
+      {
+        "path": "technologies/03_pv_floating/B_equipment_schema.json",
+        "size": 6299,
+        "hash": "8a04a196143d137edbfbb38802556504824d1651bc633132645aaa6ec2823652",
+        "type": ".json",
+        "records": 15
+      },
+      {
+        "path": "technologies/03_pv_floating/A_input_fields.csv",
+        "size": 26392,
+        "hash": "2e234180166aa3bf9f6e4026eec2b8c7cb1ac1610e0ff5fc16054e409835bb16",
+        "type": ".csv",
+        "records": 70
+      },
+      {
+        "path": "technologies/03_pv_floating/F_qa_rules.json",
+        "size": 42983,
+        "hash": "9f14eeb1811323c38a48a92671baa738f646a66259bf086e8d6a63c328086f4f",
+        "type": ".json",
+        "records": 50
+      },
+      {
+        "path": "technologies/03_pv_floating/D_geometry_rules.json",
+        "size": 39679,
+        "hash": "e03c2d362dd3770a026ac399e4dc837ccfc933ce9cef346ea89871358eb8e8bd",
+        "type": ".json",
+        "records": 22
+      },
+      {
+        "path": "technologies/03_pv_floating/E_drawing_catalog.csv",
+        "size": 7673,
+        "hash": "89c183e746a867c9b180e3207fccde31c9a0c45397bc7f032c1eb3d60fbc43dc",
+        "type": ".csv",
+        "records": 17
+      },
+      {
+        "path": "technologies/03_pv_floating/H_missing_data_policy.json",
+        "size": 53171,
+        "hash": "b8d76a0581cc9ef2b82ad6c67c83ee5a8bb591773c67022ed2b222387bff8fd9",
+        "type": ".json",
+        "records": 70
+      },
+      {
+        "path": "technologies/14_hybrid_microgrid/C_formulas.json",
+        "size": 72657,
+        "hash": "9596ce803b36a2526ff80afebff4bac855a088f810145715636ae1c795850062",
+        "type": ".json",
+        "records": 42
+      },
+      {
+        "path": "technologies/14_hybrid_microgrid/G_extraction_dictionary.csv",
+        "size": 59465,
+        "hash": "7198030c39daf7ddc350af2fc1ec7697729b33636db95bfea8794ae624528370",
+        "type": ".csv",
+        "records": 148
+      },
+      {
+        "path": "technologies/14_hybrid_microgrid/B_equipment_schema.json",
+        "size": 9821,
+        "hash": "645491b5ac01f5341fbcfcf3a166bdb769876ff6b04f468fa92711bd3db7923f",
+        "type": ".json",
+        "records": 27
+      },
+      {
+        "path": "technologies/14_hybrid_microgrid/A_input_fields.csv",
+        "size": 56580,
+        "hash": "932767af6b842c60a87c0a19bda29de6ae14d75b21c3de0a6eb004aa4964ac43",
+        "type": ".csv",
+        "records": 148
+      },
+      {
+        "path": "technologies/14_hybrid_microgrid/F_qa_rules.json",
+        "size": 34986,
+        "hash": "8d3ee56af22694f6bc3001dcb91770d476766eb5da292acbed0c7224fc97277f",
+        "type": ".json",
+        "records": 46
+      },
+      {
+        "path": "technologies/14_hybrid_microgrid/D_geometry_rules.json",
+        "size": 29006,
+        "hash": "826917378eb5561c9c02b686f0a6deb990713e7986379e4cc0238e18cc7dbb95",
+        "type": ".json",
+        "records": 23
+      },
+      {
+        "path": "technologies/14_hybrid_microgrid/E_drawing_catalog.csv",
+        "size": 12747,
+        "hash": "fb00402ec5ec262a46cd28de9e1ac70e4a3b6fb1b3e378f09d9fd87823c562f5",
+        "type": ".csv",
+        "records": 17
+      },
+      {
+        "path": "technologies/14_hybrid_microgrid/H_missing_data_policy.json",
+        "size": 57598,
+        "hash": "ec1c42d3bcc1645ae1589282d53c6afdedf89848d681b44cd9a4ce59387bef69",
+        "type": ".json",
+        "records": 139
+      },
+      {
+        "path": "technologies/09_geothermal/C_formulas.json",
+        "size": 64348,
+        "hash": "810ec0a42d45ada233cd54922eeecc18355ba37d8b5aafd8315002bbca18fe17",
+        "type": ".json",
+        "records": 33
+      },
+      {
+        "path": "technologies/09_geothermal/G_extraction_dictionary.csv",
+        "size": 36362,
+        "hash": "0ebfd92feae3d124177c958f9c52810885cff26d1cd910e424473d1225a7d610",
+        "type": ".csv",
+        "records": 123
+      },
+      {
+        "path": "technologies/09_geothermal/B_equipment_schema.json",
+        "size": 27479,
+        "hash": "b41d05b0df6f9d1abd5cdc38b4a9a5724d7cf355af203eaea8e53a80934d4b66",
+        "type": ".json",
+        "records": 30
+      },
+      {
+        "path": "technologies/09_geothermal/A_input_fields.csv",
+        "size": 43666,
+        "hash": "7219e83bbb14f7d2e294c917f9e9c20d44e988609353ac94031b40fdf19fc08a",
+        "type": ".csv",
+        "records": 123
+      },
+      {
+        "path": "technologies/09_geothermal/F_qa_rules.json",
+        "size": 40502,
+        "hash": "fbf2d9c66b321a7d496011dbd51e58106bbe9a39c36bf73ad2e74bb29fe62b23",
+        "type": ".json",
+        "records": 53
+      },
+      {
+        "path": "technologies/09_geothermal/D_geometry_rules.json",
+        "size": 34799,
+        "hash": "e2a7e03029c34736daacdcc1a062405992733961e725cdcc995684414d633c3e",
+        "type": ".json",
+        "records": 22
+      },
+      {
+        "path": "technologies/09_geothermal/E_drawing_catalog.csv",
+        "size": 13229,
+        "hash": "354e8f7778b2704228e946a94fe8043c6f3010661080ef2d61adcad7c4c5e152",
+        "type": ".csv",
+        "records": 17
+      },
+      {
+        "path": "technologies/09_geothermal/H_missing_data_policy.json",
+        "size": 49072,
+        "hash": "af392b154fb781ec153d7208962434029ff2933fad95339946023b816c74d572",
+        "type": ".json",
+        "records": 123
+      },
+      {
+        "path": "technologies/11_marine/C_formulas.json",
+        "size": 69233,
+        "hash": "a3f69e3c6aa54d225a9083ccd339628e1cb39b88918a2585834186250b9da04f",
+        "type": ".json",
+        "records": 30
+      },
+      {
+        "path": "technologies/11_marine/G_extraction_dictionary.csv",
+        "size": 40665,
+        "hash": "f891b087d69e96b41aeb1a1decf128afeb5fe4119d93f081e1ef5795ec5ad934",
+        "type": ".csv",
+        "records": 124
+      },
+      {
+        "path": "technologies/11_marine/B_equipment_schema.json",
+        "size": 30405,
+        "hash": "aa69ee9251bf32987badedc403ecb0dce14adce04bbb09fdb406231d92c373da",
+        "type": ".json",
+        "records": 43
+      },
+      {
+        "path": "technologies/11_marine/A_input_fields.csv",
+        "size": 51163,
+        "hash": "02bd11361eb76c56dc5f6a0389270ad82065843e9bd067829fc7d55639f8d81a",
+        "type": ".csv",
+        "records": 124
+      },
+      {
+        "path": "technologies/11_marine/F_qa_rules.json",
+        "size": 36084,
+        "hash": "8d02b57defe8e3c206d4f1877c8ca66d1e87774c3e34766c300228245d70e5fd",
+        "type": ".json",
+        "records": 54
+      },
+      {
+        "path": "technologies/11_marine/D_geometry_rules.json",
+        "size": 37536,
+        "hash": "1071418ba8ea303ecc075bc812c92edc8edbd98a077475133fbf2529483cae6c",
+        "type": ".json",
+        "records": 22
+      },
+      {
+        "path": "technologies/11_marine/E_drawing_catalog.csv",
+        "size": 13172,
+        "hash": "51a0eb760a18ba1fb36f75f57a498c45750b0717c0734aabe849217687fe2213",
+        "type": ".csv",
+        "records": 17
+      },
+      {
+        "path": "technologies/11_marine/H_missing_data_policy.json",
+        "size": 54249,
+        "hash": "8193860cbab90b8b1808abbfd098ce51ea3edbb2bbfaf9c89f87b74063ac1d06",
+        "type": ".json",
+        "records": 124
+      },
+      {
+        "path": "technologies/04_wind_onshore/C_formulas.json",
+        "size": 74706,
+        "hash": "d5e630825159e6ab42499d987534e88e9aeb1bc0b0ed89d87e89ec6eba4f78b2",
+        "type": ".json",
+        "records": 35
+      },
+      {
+        "path": "technologies/04_wind_onshore/G_extraction_dictionary.csv",
+        "size": 36881,
+        "hash": "ed2bf1fd7327838e6dace35c1f9fd8d33ab02b29ba2a1c21480159677215dd9b",
+        "type": ".csv",
+        "records": 111
+      },
+      {
+        "path": "technologies/04_wind_onshore/B_equipment_schema.json",
+        "size": 15222,
+        "hash": "6180121df8f4b1c0d76714089ee123a3db87c6ba8f18a07a042f43a1d4abaab4",
+        "type": ".json",
+        "records": 23
+      },
+      {
+        "path": "technologies/04_wind_onshore/A_input_fields.csv",
+        "size": 34218,
+        "hash": "c1d157d995353fd4db4a27754312d8c5009ea4b2ea910b1faa4dab989724cf37",
+        "type": ".csv",
+        "records": 111
+      },
+      {
+        "path": "technologies/04_wind_onshore/F_qa_rules.json",
+        "size": 42672,
+        "hash": "f57bf8c49a014ed2fb49a6f2940b3d4ee1ae8c1729979476be3885074e84174d",
+        "type": ".json",
+        "records": 50
+      },
+      {
+        "path": "technologies/04_wind_onshore/D_geometry_rules.json",
+        "size": 42303,
+        "hash": "fa707838b47b9725fdd478189078a92a00c163132b61b30ec0f168c78a8cea18",
+        "type": ".json",
+        "records": 23
+      },
+      {
+        "path": "technologies/04_wind_onshore/E_drawing_catalog.csv",
+        "size": 6718,
+        "hash": "66fc0cb9ab97c122b7c32831d64d01b02b5f04086df9bb5a4122a734aaf98047",
+        "type": ".csv",
+        "records": 17
+      },
+      {
+        "path": "technologies/04_wind_onshore/H_missing_data_policy.json",
+        "size": 72736,
+        "hash": "cbec6b3aff5eb5bf80690362d2f109dd4c10b696d964d34c02c37a3b38090cdc",
+        "type": ".json",
+        "records": 111
+      },
+      {
+        "path": "technologies/13_hydrogen/C_formulas.json",
+        "size": 41975,
+        "hash": "58e8bf757c4ac787bf22c403044efea736e2fa89aa208cf2eb0ffafff5ceacb4",
+        "type": ".json",
+        "records": 30
+      },
+      {
+        "path": "technologies/13_hydrogen/G_extraction_dictionary.csv",
+        "size": 25759,
+        "hash": "b2d861814ad26ed5fed389b3add55f3203010bfe640fe8c8b859350e8bff6446",
+        "type": ".csv",
+        "records": 91
+      },
+      {
+        "path": "technologies/13_hydrogen/B_equipment_schema.json",
+        "size": 39663,
+        "hash": "b65208609ec96a0ee71c7274d06891913195012fd1e495c0bc85d5ace36e88e9",
+        "type": ".json",
+        "records": 32
+      },
+      {
+        "path": "technologies/13_hydrogen/A_input_fields.csv",
+        "size": 20850,
+        "hash": "0b4a170f3184e9a407815cef6e471970c545645c19a3faf45b04e28229218200",
+        "type": ".csv",
+        "records": 91
+      },
+      {
+        "path": "technologies/13_hydrogen/F_qa_rules.json",
+        "size": 26673,
+        "hash": "129ff1d65d1dee4e4e4dfc7830fa28980f9a9d2b61527254caec4ad4b74277b3",
+        "type": ".json",
+        "records": 50
+      },
+      {
+        "path": "technologies/13_hydrogen/D_geometry_rules.json",
+        "size": 30938,
+        "hash": "d21100ef4dc67b3d7c19787d2139a14a25fa0b7277c6680cf26ce8df8042ca69",
+        "type": ".json",
+        "records": 23
+      },
+      {
+        "path": "technologies/13_hydrogen/E_drawing_catalog.csv",
+        "size": 4990,
+        "hash": "518b7f91dab25eb8da8879e8365e890c0b07243e018361596f689f581c203dff",
+        "type": ".csv",
+        "records": 17
+      },
+      {
+        "path": "technologies/13_hydrogen/H_missing_data_policy.json",
+        "size": 30082,
+        "hash": "e93171301c0f44af44bd5a8013a3f86f7cb56bb3e559110db880ad9d40dc7023",
+        "type": ".json",
+        "records": 88
+      },
+      {
+        "path": "technologies/01_pv_ground/C_formulas.json",
+        "size": 69345,
+        "hash": "86eb196d2fb7fdb5509f50ebab2c6f45a8efe626c1aaab402ac3169553f6124d",
+        "type": ".json",
+        "records": 30
+      },
+      {
+        "path": "technologies/01_pv_ground/G_extraction_dictionary.csv",
+        "size": 22342,
+        "hash": "46d38ec46bb99c0428a71f2390a4fbfb9e35c139ecc0b8abab76b418f30f1cb3",
+        "type": ".csv",
+        "records": 127
+      },
+      {
+        "path": "technologies/01_pv_ground/B_equipment_schema.json",
+        "size": 53561,
+        "hash": "b26f6fca6ef0e264f2bb5e1cd7b07243c04866b391b8df96c83278e248adc037",
+        "type": ".json",
+        "records": 25
+      },
+      {
+        "path": "technologies/01_pv_ground/A_input_fields.csv",
+        "size": 41755,
+        "hash": "61345a0fdf3e4e9eb75a27d0a461ded71a89cbdbde8177a697358013b1798329",
+        "type": ".csv",
+        "records": 127
+      },
+      {
+        "path": "technologies/01_pv_ground/F_qa_rules.json",
+        "size": 29799,
+        "hash": "0d3914305939caaa512a50c58401d647d9a3b632afc10e76e724885f4eacd670",
+        "type": ".json",
+        "records": 42
+      },
+      {
+        "path": "technologies/01_pv_ground/D_geometry_rules.json",
+        "size": 29127,
+        "hash": "91e1bf16b92acb4cca0bfd97d2d9812be45877cfd806a5300c6f51de15ba656d",
+        "type": ".json",
+        "records": 20
+      },
+      {
+        "path": "technologies/01_pv_ground/E_drawing_catalog.csv",
+        "size": 10978,
+        "hash": "b045583e3418f2257524f6832fb22dd53092bbb0a64eb513e2a20c9308f9fa2a",
+        "type": ".csv",
+        "records": 17
+      },
+      {
+        "path": "technologies/01_pv_ground/H_missing_data_policy.json",
+        "size": 42655,
+        "hash": "07d095f4b674280237d0b560c8b1efba2ce4b19c251f837161b02883c78d5dff",
+        "type": ".json",
+        "records": 107
+      },
+      {
+        "path": "technologies/02_pv_roof_carport/C_formulas.json",
+        "size": 60691,
+        "hash": "78596130133f4033cb270ccb33812494e45cebaf8502bf5a22e8747f8f768a57",
+        "type": ".json",
+        "records": 30
+      },
+      {
+        "path": "technologies/02_pv_roof_carport/G_extraction_dictionary.csv",
+        "size": 42511,
+        "hash": "5e6e1d131a3308f98f594be6c1ef67fe6196bf6075d3635c2445942d79d4e796",
+        "type": ".csv",
+        "records": 125
+      },
+      {
+        "path": "technologies/02_pv_roof_carport/B_equipment_schema.json",
+        "size": 8519,
+        "hash": "c9849065254652b6beddb8d2e5202fdec99c76a294a98e4aac728c049e0f3764",
+        "type": ".json",
+        "records": 20
+      },
+      {
+        "path": "technologies/02_pv_roof_carport/A_input_fields.csv",
+        "size": 43478,
+        "hash": "7611ca50993fbfc0d066e5642a66e3fec66bd3af5151c6114327c2060c61179a",
+        "type": ".csv",
+        "records": 125
+      },
+      {
+        "path": "technologies/02_pv_roof_carport/F_qa_rules.json",
+        "size": 44587,
+        "hash": "b8ba491c51097f759421dc1d4575fb5ce5976a8c31e9b39f53c82dc6ed8bff66",
+        "type": ".json",
+        "records": 50
+      },
+      {
+        "path": "technologies/02_pv_roof_carport/D_geometry_rules.json",
+        "size": 45750,
+        "hash": "623bf5660dedbb7f21af2b5b2bbf4384545b23ee43087cccab249eb48e5d7165",
+        "type": ".json",
+        "records": 25
+      },
+      {
+        "path": "technologies/02_pv_roof_carport/E_drawing_catalog.csv",
+        "size": 7197,
+        "hash": "2c47a8de42051db48f1b16dc1b97e67d99dbb21f4f6660011884df3194eac36b",
+        "type": ".csv",
+        "records": 17
+      },
+      {
+        "path": "technologies/02_pv_roof_carport/H_missing_data_policy.json",
+        "size": 73971,
+        "hash": "d84e4e3ef69ae67449ff0907af78bf11a6da09bf3fdebd13beb40717e6479b83",
+        "type": ".json",
+        "records": 115
+      },
+      {
+        "path": "technologies/12_bess/C_formulas.json",
+        "size": 49391,
+        "hash": "4717e9c0a8eea0cea1ef7eb497d640025eb685a72d9f6e83d63cc8e5689808b2",
+        "type": ".json",
+        "records": 31
+      },
+      {
+        "path": "technologies/12_bess/G_extraction_dictionary.csv",
+        "size": 59389,
+        "hash": "c90c9dee4e4d08d78fb9300465173639eaaafe6fd88fe43e9c913528eb3dd98d",
+        "type": ".csv",
+        "records": 145
+      },
+      {
+        "path": "technologies/12_bess/B_equipment_schema.json",
+        "size": 42297,
+        "hash": "229b02453039fa7796c4f23c1fd4909aa74e9340ea2ae2c4e4118a5aa1bb76bc",
+        "type": ".json",
+        "records": 36
+      },
+      {
+        "path": "technologies/12_bess/A_input_fields.csv",
+        "size": 58322,
+        "hash": "9ac0fb6a9c02ac2c7f0545606c4fff0d7f4871eb5de2ec7b03f96b69718ae30b",
+        "type": ".csv",
+        "records": 145
+      },
+      {
+        "path": "technologies/12_bess/F_qa_rules.json",
+        "size": 33804,
+        "hash": "77fdda657c1532986badb5e22260bcc8bf41c41e4fd603fd5427ce7483a3ccee",
+        "type": ".json",
+        "records": 47
+      },
+      {
+        "path": "technologies/12_bess/D_geometry_rules.json",
+        "size": 28318,
+        "hash": "928b067c88df86c5625aa56746397e2fbcfcd5ee1b5bfc84d4405aebc3c9c700",
+        "type": ".json",
+        "records": 23
+      },
+      {
+        "path": "technologies/12_bess/E_drawing_catalog.csv",
+        "size": 12564,
+        "hash": "8e953d7d4bcec2f34955aac9679b16c01b7c30f63e7fbfe21bf55f1a37aebd99",
+        "type": ".csv",
+        "records": 17
+      },
+      {
+        "path": "technologies/12_bess/H_missing_data_policy.json",
+        "size": 59127,
+        "hash": "939d1fe2b9c6c7d9fa25151aade877d8aa63f7e188f254ca92d55fd45db56750",
+        "type": ".json",
+        "records": 139
+      },
+      {
+        "path": "technologies/10_solar_thermal_csp/C_formulas.json",
+        "size": 63552,
+        "hash": "93ccd489851d61a20a4dbcb7b151651006d9d384a24c239edf79a2f9022183ff",
+        "type": ".json",
+        "records": 32
+      },
+      {
+        "path": "technologies/10_solar_thermal_csp/G_extraction_dictionary.csv",
+        "size": 39375,
+        "hash": "033207911b49d564dfc00bd4b1106aa5b92f30f3918d7ec93052a43872247d82",
+        "type": ".csv",
+        "records": 121
+      },
+      {
+        "path": "technologies/10_solar_thermal_csp/B_equipment_schema.json",
+        "size": 31321,
+        "hash": "ba0bb78d976baafcb94244fee864a986d93474414dd2fd224d7ae7d84e33e8b3",
+        "type": ".json",
+        "records": 36
+      },
+      {
+        "path": "technologies/10_solar_thermal_csp/A_input_fields.csv",
+        "size": 41744,
+        "hash": "1c5bb695ada091b7d5fdf5925bc40c961a7d999cb166c959a8ca8cd23054f276",
+        "type": ".csv",
+        "records": 121
+      },
+      {
+        "path": "technologies/10_solar_thermal_csp/F_qa_rules.json",
+        "size": 43589,
+        "hash": "89489c84ca684ea4af52b4f0d653bc585932a3ab7f13b00347c55015c0dbb4dc",
+        "type": ".json",
+        "records": 55
+      },
+      {
+        "path": "technologies/10_solar_thermal_csp/D_geometry_rules.json",
+        "size": 33017,
+        "hash": "e527e0da64f0e7935f92c99f97852ce412ea25cc8379553ab93ba790baad677a",
+        "type": ".json",
+        "records": 22
+      },
+      {
+        "path": "technologies/10_solar_thermal_csp/E_drawing_catalog.csv",
+        "size": 14373,
+        "hash": "b209ea0b770cf49df5c195ba0fc947eee3a477b61b46553617c6fb0f29098d5a",
+        "type": ".csv",
+        "records": 17
+      },
+      {
+        "path": "technologies/10_solar_thermal_csp/H_missing_data_policy.json",
+        "size": 48599,
+        "hash": "3dc8141f7da5e3529471c1bea69fe103ad5c2fc70a6b9a30a2af09dfbf59573b",
+        "type": ".json",
+        "records": 121
+      },
+      {
+        "path": "technologies/08_biogas/C_formulas.json",
+        "size": 72907,
+        "hash": "2d648109a9584c17575f652abe5de3c2e271a0f960a2526d93969313fde834f6",
+        "type": ".json",
+        "records": 33
+      },
+      {
+        "path": "technologies/08_biogas/G_extraction_dictionary.csv",
+        "size": 38071,
+        "hash": "0cc3b66b79f99d19f70e022243153fc8a12c7d7e12befc33c9efbe42c4b2414d",
+        "type": ".csv",
+        "records": 120
+      },
+      {
+        "path": "technologies/08_biogas/B_equipment_schema.json",
+        "size": 34384,
+        "hash": "78cdaa7808b3a80b40d8ba343268fc93777ca4b3fab9226d44f420b3b9c1e499",
+        "type": ".json",
+        "records": 36
+      },
+      {
+        "path": "technologies/08_biogas/A_input_fields.csv",
+        "size": 42972,
+        "hash": "955879fa367d1907310f1790f9c160995908dd7079f3a2d0a446865f55d0219f",
+        "type": ".csv",
+        "records": 120
+      },
+      {
+        "path": "technologies/08_biogas/F_qa_rules.json",
+        "size": 44482,
+        "hash": "e8331c3adda57b2f7debab622f5e9a05a812dc4c9fbb8b5248eb6aea27eeda99",
+        "type": ".json",
+        "records": 48
+      },
+      {
+        "path": "technologies/08_biogas/D_geometry_rules.json",
+        "size": 42124,
+        "hash": "03c42013dbc6b57f3dc865fb9fd42b7ea1b5707bd08284d950f0ed36e1721ba5",
+        "type": ".json",
+        "records": 22
+      },
+      {
+        "path": "technologies/08_biogas/E_drawing_catalog.csv",
+        "size": 7749,
+        "hash": "2af24eb6cfa6fea322d3827edc47fef10d10ab17c5f807288409f34b6b593989",
+        "type": ".csv",
+        "records": 17
+      },
+      {
+        "path": "technologies/08_biogas/H_missing_data_policy.json",
+        "size": 49818,
+        "hash": "9af302c2f9ca7209e4a06d13632282947fd5afaf561ae29644d2e110f8013a6f",
+        "type": ".json",
+        "records": 114
+      }
+    ]
+  },
+  "formulas": {
+    "common_formulas": 11,
+    "technology_formulas": 275,
+    "formulas_with_domain_tags": 0,
+    "formulas_with_generic_content": 0,
+    "formulas_with_undefined_vars": 0,
+    "by_technology": {
+      "01_pv_ground": {
+        "total": 30,
+        "with_domain_tags": 0,
+        "generic": 0
+      },
+      "02_pv_roof_carport": {
+        "total": 30,
+        "with_domain_tags": 0,
+        "generic": 0
+      },
+      "03_pv_floating": {
+        "total": 29,
+        "with_domain_tags": 0,
+        "generic": 0
+      },
+      "04_wind_onshore": {
+        "total": 35,
+        "with_domain_tags": 0,
+        "generic": 0
+      },
+      "05_wind_offshore": {
+        "total": 30,
+        "with_domain_tags": 0,
+        "generic": 0
+      },
+      "06_hydro": {
+        "total": 28,
+        "with_domain_tags": 0,
+        "generic": 0
+      },
+      "07_biomass": {
+        "total": 27,
+        "with_domain_tags": 0,
+        "generic": 0
+      },
+      "08_biogas": {
+        "total": 33,
+        "with_domain_tags": 0,
+        "generic": 0
+      },
+      "09_geothermal": {
+        "total": 33,
+        "with_domain_tags": 0,
+        "generic": 0
+      }
+    }
+  },
+  "geometries": {
+    "common_geometries": 6,
+    "technology_geometries": 206,
+    "geometries_with_domain_tags": 0,
+    "geometries_with_generic_algorithm": 144,
+    "by_technology": {
+      "01_pv_ground": {
+        "total": 20,
+        "with_domain_tags": 0,
+        "generic_algorithm": 0
+      },
+      "02_pv_roof_carport": {
+        "total": 25,
+        "with_domain_tags": 0,
+        "generic_algorithm": 25
+      },
+      "03_pv_floating": {
+        "total": 22,
+        "with_domain_tags": 0,
+        "generic_algorithm": 22
+      },
+      "04_wind_onshore": {
+        "total": 23,
+        "with_domain_tags": 0,
+        "generic_algorithm": 23
+      },
+      "05_wind_offshore": {
+        "total": 24,
+        "with_domain_tags": 0,
+        "generic_algorithm": 24
+      },
+      "06_hydro": {
+        "total": 20,
+        "with_domain_tags": 0,
+        "generic_algorithm": 0
+      },
+      "07_biomass": {
+        "total": 28,
+        "with_domain_tags": 0,
+        "generic_algorithm": 28
+      },
+      "08_biogas": {
+        "total": 22,
+        "with_domain_tags": 0,
+        "generic_algorithm": 22
+      },
+      "09_geothermal": {
+        "total": 22,
+        "with_domain_tags": 0,
+        "generic_algorithm": 0
+      }
+    }
+  },
+  "qa_rules": {
+    "common_qa": 8,
+    "technology_qa": 438,
+    "qa_with_constant_assertion": 50,
+    "qa_with_generic_message": 243,
+    "qa_with_fake_evidence": 0,
+    "by_technology": {
+      "01_pv_ground": {
+        "total": 42,
+        "constant_assertion": 0,
+        "generic_message": 0,
+        "fake_evidence": 0
+      },
+      "02_pv_roof_carport": {
+        "total": 50,
+        "constant_assertion": 0,
+        "generic_message": 50,
+        "fake_evidence": 0
+      },
+      "03_pv_floating": {
+        "total": 50,
+        "constant_assertion": 50,
+        "generic_message": 50,
+        "fake_evidence": 0
+      },
+      "04_wind_onshore": {
+        "total": 50,
+        "constant_assertion": 0,
+        "generic_message": 50,
+        "fake_evidence": 0
+      },
+      "05_wind_offshore": {
+        "total": 45,
+        "constant_assertion": 0,
+        "generic_message": 45,
+        "fake_evidence": 0
+      },
+      "06_hydro": {
+        "total": 50,
+        "constant_assertion": 0,
+        "generic_message": 0,
+        "fake_evidence": 0
+      },
+      "07_biomass": {
+        "total": 50,
+        "constant_assertion": 0,
+        "generic_message": 0,
+        "fake_evidence": 0
+      },
+      "08_biogas": {
+        "total": 48,
+        "constant_assertion": 0,
+        "generic_message": 48,
+        "fake_evidence": 0
+      },
+      "09_geothermal": {
+        "total": 53,
+        "constant_assertion": 0,
+        "generic_message": 0,
+        "fake_evidence": 0
+      }
+    }
+  },
+  "symbols": {
+    "total_symbols": 471,
+    "symbols_with_generic_name": 0,
+    "symbols_with_gen_discipline": 111,
+    "symbols_with_generic_ports": 0,
+    "by_discipline": {
+      "ELEC": {
+        "count": 78,
+        "generic_name": 0,
+        "generic_ports": 0
+      },
+      "MECH": {
+        "count": 42,
+        "generic_name": 0,
+        "generic_ports": 0
+      },
+      "CIVIL": {
+        "count": 117,
+        "generic_name": 0,
+        "generic_ports": 0
+      },
+      "HYD": {
+        "count": 8,
+        "generic_name": 0,
+        "generic_ports": 0
+      },
+      "PROC": {
+        "count": 71,
+        "generic_name": 0,
+        "generic_ports": 0
+      },
+      "INST": {
+        "count": 12,
+        "generic_name": 0,
+        "generic_ports": 0
+      },
+      "FIRE": {
+        "count": 15,
+        "generic_name": 0,
+        "generic_ports": 0
+      },
+      "COMM": {
+        "count": 11,
+        "generic_name": 0,
+        "generic_ports": 0
+      },
+      "GEN": {
+        "count": 111,
+        "generic_name": 0,
+        "generic_ports": 0
+      },
+      "STR": {
+        "count": 3,
+        "generic_name": 0,
+        "generic_ports": 0
+      },
+      "ELEC_PV": {
+        "count": 3,
+        "generic_name": 0,
+        "generic_ports": 0
+      }
+    }
+  },
+  "sources": {
+    "total_sources": 215,
+    "primary_sources": 0,
+    "secondary_sources": 4,
+    "accessible_primary": 0,
+    "verified_primary": 0
+  },
+  "summary": {
+    "files_audited": 231,
+    "formulas_total": 286,
+    "geometries_total": 212,
+    "qa_total": 446,
+    "symbols_total": 471,
+    "sources_total": 215,
+    "verified_primary_sources": 0,
+    "errors_found": 0,
+    "warnings_found": 0
+  },
+  "comparison_with_validator": {
+    "match": false,
+    "discrepancies": [
+      {
+        "field": "verified_primary_sources",
+        "audit_value": 0,
+        "validator_value": -1
+      }
+    ]
+  }
+}

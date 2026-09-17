@@ -1,0 +1,3261 @@
+[
+  {
+    "calculation_id": "MG-C-001",
+    "name_es": "Demanda pico activa",
+    "purpose": "Calcula la demanda pico activa a partir del perfil diario 24h.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-023",
+      "MG-032",
+      "MG-036"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_peak = max(P_24h)",
+      "P_peak_adj = P_peak * f_simultaneidad"
+    ],
+    "equations_latex": [
+      "P_{peak} = \\max(P_{24h})",
+      "P_{peak,adj} = P_{peak} \\cdot f_{sim}"
+    ],
+    "variables": [
+      {
+        "name": "P_24h",
+        "unit": "kW"
+      },
+      {
+        "name": "f_sim",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "P_peak [kW] = max(P_24h [kW])",
+      "P_peak_adj [kW] = P_peak [kW] * f_sim [-]"
+    ],
+    "numerical_method": "Array max",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0
+    },
+    "validity_limits": [
+      "Valores de P_24h no negativos"
+    ],
+    "outputs": [
+      {
+        "name": "P_peak",
+        "unit": "kW",
+        "min": 1,
+        "max": 100000
+      }
+    ],
+    "acceptance_rules": [
+      "|P_peak - MG-023| < 5%"
+    ],
+    "failure_modes": [
+      "Perfil 24h sin datos"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ],
+    "source_ids": [
+      "COES_NCO_2019",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-002",
+    "name_es": "Demanda base activa",
+    "purpose": "Calcula la demanda base (minima sostenida) del perfil 24h.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-024",
+      "MG-032"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_base = min(P_24h)"
+    ],
+    "equations_latex": [
+      "P_{base} = \\min(P_{24h})"
+    ],
+    "variables": [
+      {
+        "name": "P_24h",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      "P_base [kW] = min(P_24h [kW])"
+    ],
+    "numerical_method": "Array min",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0
+    },
+    "validity_limits": [
+      "Valores de P_24h no negativos"
+    ],
+    "outputs": [
+      {
+        "name": "P_base",
+        "unit": "kW",
+        "min": 0,
+        "max": 100000
+      }
+    ],
+    "acceptance_rules": [
+      "|P_base - MG-024| < 5%"
+    ],
+    "failure_modes": [
+      "Perfil 24h sin datos"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ],
+    "source_ids": [
+      "COES_NCO_2019",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-003",
+    "name_es": "Factor de carga",
+    "purpose": "Calcula el factor de carga a partir de la energia diaria y el pico.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-026",
+      "MG-023",
+      "MG-025"
+    ],
+    "derived_input_ids": [
+      "MG-C-001"
+    ],
+    "equations_ascii": [
+      "f_load = E_day / (P_peak * 24)"
+    ],
+    "equations_latex": [
+      "f_{load} = \\frac{E_{day}}{P_{peak} \\cdot 24}"
+    ],
+    "variables": [
+      {
+        "name": "E_day",
+        "unit": "kWh"
+      },
+      {
+        "name": "P_peak",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      "f_load [-] = E_day [kWh] / (P_peak [kW] * 24 [h])"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "f_load en [0,1]"
+    ],
+    "outputs": [
+      {
+        "name": "f_load",
+        "unit": "-",
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "acceptance_rules": [
+      "|f_load - MG-025| < 0.05"
+    ],
+    "failure_modes": [
+      "Pico fuera de rango"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ],
+    "source_ids": [
+      "COES_NCO_2019",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-004",
+    "name_es": "Balance de energia diario",
+    "purpose": "Verifica el balance de energia activa diario (gen vs demanda).",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-026",
+      "MG-011",
+      "MG-012",
+      "MG-013",
+      "MG-014",
+      "MG-101",
+      "MG-104",
+      "MG-105",
+      "MG-106",
+      "MG-107",
+      "MG-108",
+      "MG-018"
+    ],
+    "derived_input_ids": [
+      "MG-C-001",
+      "MG-C-002"
+    ],
+    "equations_ascii": [
+      "E_gen_day = sum(E_i_day) for i in (PV,wind,hydro,bio,geoth,diesel)",
+      "E_balance = E_gen_day - E_day - E_losses"
+    ],
+    "equations_latex": [
+      "E_{gen,day} = \\sum_i E_{i,day}",
+      "E_{balance} = E_{gen,day} - E_{day} - E_{losses}"
+    ],
+    "variables": [
+      {
+        "name": "E_PV_day",
+        "unit": "kWh"
+      },
+      {
+        "name": "E_wind_day",
+        "unit": "kWh"
+      },
+      {
+        "name": "E_hydro_day",
+        "unit": "kWh"
+      },
+      {
+        "name": "E_bio_day",
+        "unit": "kWh"
+      },
+      {
+        "name": "E_geoth_day",
+        "unit": "kWh"
+      },
+      {
+        "name": "E_diesel_day",
+        "unit": "kWh"
+      }
+    ],
+    "unit_equations": [
+      "E_gen_day [kWh] = sum(E_i_day [kWh])",
+      "E_balance [kWh] = E_gen_day [kWh] - E_day [kWh] - E_losses [kWh]"
+    ],
+    "numerical_method": "Direct sum",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "E_balance >= 0"
+    ],
+    "outputs": [
+      {
+        "name": "E_balance",
+        "unit": "kWh",
+        "min": -1000000,
+        "max": 10000000
+      }
+    ],
+    "acceptance_rules": [
+      "E_balance >= -5% of E_day"
+    ],
+    "failure_modes": [
+      "Deficit > 5%"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEEE_1547_2018",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-005",
+    "name_es": "Balance de energia semanal",
+    "purpose": "Verifica el balance de energia activa semanal (gen vs demanda).",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-026",
+      "MG-033"
+    ],
+    "derived_input_ids": [
+      "MG-C-004"
+    ],
+    "equations_ascii": [
+      "E_gen_week = sum(E_i_week)",
+      "E_balance_week = E_gen_week - E_week - E_losses"
+    ],
+    "equations_latex": [
+      "E_{gen,week} = \\sum_i E_{i,week}",
+      "E_{balance,week} = E_{gen,week} - E_{week} - E_{losses}"
+    ],
+    "variables": [
+      {
+        "name": "E_week",
+        "unit": "kWh"
+      },
+      {
+        "name": "E_gen_week",
+        "unit": "kWh"
+      }
+    ],
+    "unit_equations": [
+      "E_balance_week [kWh] = E_gen_week [kWh] - E_week [kWh] - E_losses [kWh]"
+    ],
+    "numerical_method": "Direct sum",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "E_balance_week >= 0"
+    ],
+    "outputs": [
+      {
+        "name": "E_balance_week",
+        "unit": "kWh"
+      }
+    ],
+    "acceptance_rules": [
+      "E_balance_week >= -5% of E_week"
+    ],
+    "failure_modes": [
+      "Deficit semanal > 5%"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-006",
+    "name_es": "Balance de energia mensual",
+    "purpose": "Verifica el balance de energia activa mensual (gen vs demanda).",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-027",
+      "MG-034",
+      "MG-028",
+      "MG-037"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "E_gen_month = sum(E_i_month)",
+      "E_balance_month = E_gen_month - E_month - E_losses",
+      "E_balance_year = sum(E_balance_month)"
+    ],
+    "equations_latex": [
+      "E_{gen,month} = \\sum_i E_{i,month}",
+      "E_{balance,month} = E_{gen,month} - E_{month} - E_{losses}",
+      "E_{balance,year} = \\sum_{month} E_{balance,month}"
+    ],
+    "variables": [
+      {
+        "name": "E_month",
+        "unit": "kWh"
+      },
+      {
+        "name": "E_gen_month",
+        "unit": "kWh"
+      }
+    ],
+    "unit_equations": [
+      "E_balance_month [kWh] = E_gen_month [kWh] - E_month [kWh] - E_losses [kWh]"
+    ],
+    "numerical_method": "Direct sum",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "E_balance_year >= 0"
+    ],
+    "outputs": [
+      {
+        "name": "E_balance_year",
+        "unit": "kWh"
+      }
+    ],
+    "acceptance_rules": [
+      "E_balance_year >= -5% of E_year"
+    ],
+    "failure_modes": [
+      "Deficit anual > 5%"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-007",
+    "name_es": "Renewable share calculation",
+    "purpose": "Calcula la participacion renovable del total generado anualmente.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-133",
+      "MG-028",
+      "MG-101",
+      "MG-104",
+      "MG-105",
+      "MG-106",
+      "MG-107",
+      "MG-108"
+    ],
+    "derived_input_ids": [
+      "MG-C-006"
+    ],
+    "equations_ascii": [
+      "E_re = sum(E_PV + E_wind + E_hydro + E_bio + E_geoth)",
+      "E_conv = E_diesel + E_grid_import",
+      "RenewableShare = E_re / (E_re + E_conv) * 100",
+      "StorageShare = E_BESS_discharge / (E_re + E_conv) * 100",
+      "ConventionalShare = E_conv / (E_re + E_conv) * 100"
+    ],
+    "equations_latex": [
+      "E_{re} = \\sum E_{PV} + E_{wind} + E_{hydro} + E_{bio} + E_{geoth}",
+      "E_{conv} = E_{diesel} + E_{grid}",
+      "RS = \\frac{E_{re}}{E_{re} + E_{conv}} \\cdot 100",
+      "SS = \\frac{E_{BESS,dch}}{E_{re} + E_{conv}} \\cdot 100",
+      "CS = \\frac{E_{conv}}{E_{re} + E_{conv}} \\cdot 100"
+    ],
+    "variables": [
+      {
+        "name": "E_re",
+        "unit": "kWh"
+      },
+      {
+        "name": "E_conv",
+        "unit": "kWh"
+      },
+      {
+        "name": "E_BESS_dch",
+        "unit": "kWh"
+      }
+    ],
+    "unit_equations": [
+      "RenewableShare [%] = E_re [kWh] / (E_re [kWh] + E_conv [kWh]) * 100",
+      "StorageShare [%] = E_BESS_dch [kWh] / (E_re [kWh] + E_conv [kWh]) * 100",
+      "ConventionalShare [%] = E_conv [kWh] / (E_re [kWh] + E_conv [kWh]) * 100"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "RenewableShare + ConventionalShare = 100%"
+    ],
+    "outputs": [
+      {
+        "name": "RenewableShare",
+        "unit": "%",
+        "min": 0,
+        "max": 100
+      },
+      {
+        "name": "StorageShare",
+        "unit": "%",
+        "min": 0,
+        "max": 100
+      },
+      {
+        "name": "ConventionalShare",
+        "unit": "%",
+        "min": 0,
+        "max": 100
+      }
+    ],
+    "acceptance_rules": [
+      "RenewableShare >= MG-133"
+    ],
+    "failure_modes": [
+      "RenewableShare < MG-133"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "source_ids": [
+      "MINEM_DS_013_2019",
+      "COES_NCO_2019",
+      "IEEE_2030_2",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-008",
+    "name_es": "Storage capacity sizing (kWh)",
+    "purpose": "Dimensiona la capacidad de almacenamiento para autonomia y reserva.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-103",
+      "MG-029",
+      "MG-052",
+      "MG-040",
+      "MG-063",
+      "MG-024"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "E_required = max(E_autonomy, E_reserve, E_peak_shaving, E_island)",
+      "E_autonomy = P_crit * T_autonomy / DoD / eta",
+      "E_reserve = E_reserve_kWh",
+      "E_peak_shaving = (P_peak - P_target) * T_peak",
+      "E_island = P_island * T_island / DoD / eta",
+      "E_BESS = max(E_required, E_BESS_spec)"
+    ],
+    "equations_latex": [
+      "E_{req} = \\max(E_{aut}, E_{res}, E_{ps}, E_{isl})",
+      "E_{aut} = \\frac{P_{crit} T_{aut}}{DoD \\cdot \\eta}",
+      "E_{ps} = (P_{peak} - P_{target}) T_{peak}",
+      "E_{isl} = \\frac{P_{isl} T_{isl}}{DoD \\cdot \\eta}"
+    ],
+    "variables": [
+      {
+        "name": "P_crit",
+        "unit": "kW"
+      },
+      {
+        "name": "T_aut",
+        "unit": "h"
+      },
+      {
+        "name": "DoD",
+        "unit": "-"
+      },
+      {
+        "name": "eta",
+        "unit": "-"
+      },
+      {
+        "name": "P_peak",
+        "unit": "kW"
+      },
+      {
+        "name": "P_target",
+        "unit": "kW"
+      },
+      {
+        "name": "T_peak",
+        "unit": "h"
+      },
+      {
+        "name": "P_island",
+        "unit": "kW"
+      },
+      {
+        "name": "T_island",
+        "unit": "h"
+      }
+    ],
+    "unit_equations": [
+      "E_aut [kWh] = P_crit [kW] * T_aut [h] / (DoD [-] * eta [-])",
+      "E_peak_shaving [kWh] = (P_peak [kW] - P_target [kW]) * T_peak [h]",
+      "E_BESS [kWh] = max(E_aut [kWh], E_reserve [kWh], E_peak_shaving [kWh], E_island [kWh])"
+    ],
+    "numerical_method": "Direct max",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "DoD en [0.5,1]",
+      "eta en [0.85,0.99]"
+    ],
+    "outputs": [
+      {
+        "name": "E_BESS",
+        "unit": "kWh",
+        "min": 1,
+        "max": 1000000
+      }
+    ],
+    "acceptance_rules": [
+      "E_BESS >= E_required"
+    ],
+    "failure_modes": [
+      "E_BESS < E_required"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-006",
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_62933_2_1",
+      "IEEE_2030_2",
+      "IEEE_1547_4",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-009",
+    "name_es": "Storage autonomy hours",
+    "purpose": "Calcula las horas de autonomia del almacenamiento.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-103",
+      "MG-029",
+      "MG-040",
+      "MG-063"
+    ],
+    "derived_input_ids": [
+      "MG-C-008"
+    ],
+    "equations_ascii": [
+      "T_aut = E_BESS * DoD * eta / P_crit"
+    ],
+    "equations_latex": [
+      "T_{aut} = \\frac{E_{BESS} \\cdot DoD \\cdot \\eta}{P_{crit}}"
+    ],
+    "variables": [
+      {
+        "name": "E_BESS",
+        "unit": "kWh"
+      },
+      {
+        "name": "DoD",
+        "unit": "-"
+      },
+      {
+        "name": "eta",
+        "unit": "-"
+      },
+      {
+        "name": "P_crit",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      "T_aut [h] = E_BESS [kWh] * DoD [-] * eta [-] / P_crit [kW]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "T_aut >= 0"
+    ],
+    "outputs": [
+      {
+        "name": "T_aut",
+        "unit": "h",
+        "min": 0,
+        "max": 720
+      }
+    ],
+    "acceptance_rules": [
+      "T_aut >= T_aut_design"
+    ],
+    "failure_modes": [
+      "T_aut < T_aut_design"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-006",
+      "MG-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_62933_2_1",
+      "IEEE_1547_4",
+      "IEEE_2030_2",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-010",
+    "name_es": "Dispatch optimization (MILP cost)",
+    "purpose": "Optimiza el despacho por MILP minimizando costo.",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-041 == 'YES' AND MG-042 == 'COST'",
+    "input_field_ids": [
+      "MG-041",
+      "MG-042",
+      "MG-043",
+      "MG-044",
+      "MG-045",
+      "MG-046",
+      "MG-047",
+      "MG-048",
+      "MG-049",
+      "MG-050",
+      "MG-101",
+      "MG-102",
+      "MG-103",
+      "MG-104",
+      "MG-105",
+      "MG-106",
+      "MG-107",
+      "MG-108",
+      "MG-108"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "min J = sum_t (c_grid*P_grid + c_diesel*P_diesel + c_BESS*|P_BESS|)",
+      "s.t. P_balance(t): sum P_i = P_load(t)",
+      "     SOC(t+1) = SOC(t) + (P_ch*eta_ch - P_dch/eta_dch) * dt / E_BESS",
+      "     SOC_min <= SOC <= SOC_max",
+      "     P_i_min <= P_i <= P_i_max",
+      "     -Ramp_max <= dP_i/dt <= Ramp_max"
+    ],
+    "equations_latex": [
+      "\\min J = \\sum_t (c_{grid} P_{grid} + c_{diesel} P_{diesel} + c_{BESS} |P_{BESS}|)",
+      "\\text{s.t. } \\sum_i P_i = P_{load}",
+      "SOC(t+1) = SOC(t) + \\frac{P_{ch} \\eta_{ch} - P_{dch}/\\eta_{dch}}{E_{BESS}} dt",
+      "SOC_{min} \\le SOC \\le SOC_{max}",
+      "-R_{max} \\le \\frac{dP_i}{dt} \\le R_{max}"
+    ],
+    "variables": [
+      {
+        "name": "c_grid",
+        "unit": "USD/kWh"
+      },
+      {
+        "name": "c_diesel",
+        "unit": "USD/kWh"
+      },
+      {
+        "name": "c_BESS",
+        "unit": "USD/kWh"
+      },
+      {
+        "name": "P_load",
+        "unit": "kW"
+      },
+      {
+        "name": "dt",
+        "unit": "h"
+      }
+    ],
+    "unit_equations": [
+      "J [USD] = sum_t (c_grid [USD/kWh] * P_grid [kW] * dt [h] + c_diesel [USD/kWh] * P_diesel [kW] * dt [h] + c_BESS [USD/kWh] * |P_BESS [kW]| * dt [h])"
+    ],
+    "numerical_method": "Mixed Integer Linear Programming (MILP) / Branch-and-Bound",
+    "iteration_limits": {
+      "max_iter": 10000,
+      "tolerance_obj": 0.001,
+      "horizon_h": 168
+    },
+    "validity_limits": [
+      "Variables no negativas",
+      "SOC en [0,1]"
+    ],
+    "outputs": [
+      {
+        "name": "P_dispatch",
+        "unit": "kW"
+      },
+      {
+        "name": "J",
+        "unit": "USD"
+      }
+    ],
+    "acceptance_rules": [
+      "Solver converge",
+      "Residual < 1% of P_load"
+    ],
+    "failure_modes": [
+      "No convergence",
+      "Infeasibility"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-010",
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "IEEE_1547_4",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-011",
+    "name_es": "Dispatch optimization (MILP CO2)",
+    "purpose": "Optimiza el despacho por MILP minimizando emisiones CO2.",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-041 == 'YES' AND MG-042 == 'CO2'",
+    "input_field_ids": [
+      "MG-041",
+      "MG-042",
+      "MG-043",
+      "MG-044",
+      "MG-045",
+      "MG-046",
+      "MG-047",
+      "MG-048",
+      "MG-101",
+      "MG-102",
+      "MG-103",
+      "MG-104",
+      "MG-105",
+      "MG-106",
+      "MG-107",
+      "MG-108"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "min J = sum_t (e_grid*P_grid + e_diesel*P_diesel)",
+      "s.t. P_balance(t): sum P_i = P_load(t)",
+      "     SOC_min <= SOC <= SOC_max"
+    ],
+    "equations_latex": [
+      "\\min J = \\sum_t (e_{grid} P_{grid} + e_{diesel} P_{diesel})",
+      "\\text{s.t. } \\sum_i P_i = P_{load}",
+      "SOC_{min} \\le SOC \\le SOC_{max}"
+    ],
+    "variables": [
+      {
+        "name": "e_grid",
+        "unit": "kgCO2/kWh"
+      },
+      {
+        "name": "e_diesel",
+        "unit": "kgCO2/kWh"
+      },
+      {
+        "name": "P_load",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      "J [kgCO2] = sum_t (e_grid [kgCO2/kWh] * P_grid [kW] * dt [h] + e_diesel [kgCO2/kWh] * P_diesel [kW] * dt [h])"
+    ],
+    "numerical_method": "MILP / Branch-and-Bound",
+    "iteration_limits": {
+      "max_iter": 10000,
+      "tolerance_obj": 0.001,
+      "horizon_h": 168
+    },
+    "validity_limits": [
+      "Variables no negativas",
+      "SOC en [0,1]"
+    ],
+    "outputs": [
+      {
+        "name": "P_dispatch",
+        "unit": "kW"
+      },
+      {
+        "name": "J",
+        "unit": "kgCO2"
+      }
+    ],
+    "acceptance_rules": [
+      "Solver converge"
+    ],
+    "failure_modes": [
+      "No convergence"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-010",
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "MINAM_DS_019_2009",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-012",
+    "name_es": "Capacity firming duration",
+    "purpose": "Calcula la duracion de capacity firming que el BESS puede sostener.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-103",
+      "MG-102",
+      "MG-040",
+      "MG-121"
+    ],
+    "derived_input_ids": [
+      "MG-C-008"
+    ],
+    "equations_ascii": [
+      "T_firming = E_BESS * DoD * eta / (P_RE_target - P_RE_actual)"
+    ],
+    "equations_latex": [
+      "T_{firm} = \\frac{E_{BESS} \\cdot DoD \\cdot \\eta}{P_{RE,target} - P_{RE,actual}}"
+    ],
+    "variables": [
+      {
+        "name": "E_BESS",
+        "unit": "kWh"
+      },
+      {
+        "name": "P_RE_target",
+        "unit": "kW"
+      },
+      {
+        "name": "P_RE_actual",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      "T_firming [h] = E_BESS [kWh] * DoD [-] * eta [-] / (P_RE_target [kW] - P_RE_actual [kW])"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "P_RE_target > P_RE_actual"
+    ],
+    "outputs": [
+      {
+        "name": "T_firming",
+        "unit": "h",
+        "min": 0,
+        "max": 24
+      }
+    ],
+    "acceptance_rules": [
+      "T_firming >= T_firming_design"
+    ],
+    "failure_modes": [
+      "T_firming < T_firming_design"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-006",
+      "MG-DRW-010",
+      "MG-DRW-015"
+    ],
+    "source_ids": [
+      "IEC_62933_2_1",
+      "IEEE_2030_2",
+      "IEEE_1547_4",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-013",
+    "name_es": "Peak shaving demand",
+    "purpose": "Calcula la capacidad de peak shaving (kW reducidos del pico).",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-023",
+      "MG-031",
+      "MG-122",
+      "MG-102"
+    ],
+    "derived_input_ids": [
+      "MG-C-008"
+    ],
+    "equations_ascii": [
+      "P_shaved = min(P_peak - P_target, P_BESS)",
+      "E_required = P_shaved * T_peak",
+      "P_BESS = P_BESS_rating"
+    ],
+    "equations_latex": [
+      "P_{shaved} = \\min(P_{peak} - P_{target}, P_{BESS})",
+      "E_{req} = P_{shaved} \\cdot T_{peak}"
+    ],
+    "variables": [
+      {
+        "name": "P_peak",
+        "unit": "kW"
+      },
+      {
+        "name": "P_target",
+        "unit": "kW"
+      },
+      {
+        "name": "P_BESS",
+        "unit": "kW"
+      },
+      {
+        "name": "T_peak",
+        "unit": "h"
+      }
+    ],
+    "unit_equations": [
+      "P_shaved [kW] = min(P_peak [kW] - P_target [kW], P_BESS [kW])",
+      "E_required [kWh] = P_shaved [kW] * T_peak [h]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "P_target < P_peak"
+    ],
+    "outputs": [
+      {
+        "name": "P_shaved",
+        "unit": "kW",
+        "min": 0,
+        "max": 50000
+      },
+      {
+        "name": "E_required",
+        "unit": "kWh",
+        "min": 0,
+        "max": 500000
+      }
+    ],
+    "acceptance_rules": [
+      "P_shaved >= P_target_delta"
+    ],
+    "failure_modes": [
+      "P_shaved < objetivo"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ],
+    "source_ids": [
+      "IEEE_2030_2",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-014",
+    "name_es": "Primary Frequency Response power (PFR)",
+    "purpose": "Calcula la potencia de respuesta primaria de frecuencia segun droop.",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-080 == 'YES'",
+    "input_field_ids": [
+      "MG-080",
+      "MG-081",
+      "MG-071",
+      "MG-114",
+      "MG-102",
+      "MG-119"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "dP_PFR = -P_nom / (droop * f_nom) * df",
+      "dP_PFR_max = min(|dP_PFR|, P_BESS)"
+    ],
+    "equations_latex": [
+      "\\Delta P_{PFR} = -\\frac{P_{nom}}{droop \\cdot f_{nom}} \\Delta f",
+      "\\Delta P_{PFR,max} = \\min(|\\Delta P_{PFR}|, P_{BESS})"
+    ],
+    "variables": [
+      {
+        "name": "P_nom",
+        "unit": "kW"
+      },
+      {
+        "name": "droop",
+        "unit": "-"
+      },
+      {
+        "name": "f_nom",
+        "unit": "Hz"
+      },
+      {
+        "name": "df",
+        "unit": "Hz"
+      }
+    ],
+    "unit_equations": [
+      "dP_PFR [kW] = -P_nom [kW] / (droop [-] * f_nom [Hz]) * df [Hz]",
+      "dP_PFR_max [kW] = min(|dP_PFR| [kW], P_BESS [kW])"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "droop en [0.01,0.10]"
+    ],
+    "outputs": [
+      {
+        "name": "dP_PFR",
+        "unit": "kW",
+        "min": -50000,
+        "max": 50000
+      }
+    ],
+    "acceptance_rules": [
+      "|dP_PFR| <= P_BESS"
+    ],
+    "failure_modes": [
+      "dP_PFR > P_BESS"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-010",
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "COES_NCO_2019",
+      "IEEE_1547_4",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-015",
+    "name_es": "Fast Frequency Response (FFR)",
+    "purpose": "Calcula la potencia y energia de Fast Frequency Response.",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-075 == 'YES'",
+    "input_field_ids": [
+      "MG-075",
+      "MG-120",
+      "MG-074",
+      "MG-045",
+      "MG-102",
+      "MG-103"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "dP_FFR = K_FFR * df/dt",
+      "E_FFR = dP_FFR * T_FFR",
+      "T_FFR_max = 30 s (tipico)"
+    ],
+    "equations_latex": [
+      "\\Delta P_{FFR} = K_{FFR} \\frac{df}{dt}",
+      "E_{FFR} = \\Delta P_{FFR} \\cdot T_{FFR}",
+      "T_{FFR,max} = 30 \\, s"
+    ],
+    "variables": [
+      {
+        "name": "K_FFR",
+        "unit": "kW*s/Hz"
+      },
+      {
+        "name": "df/dt",
+        "unit": "Hz/s"
+      },
+      {
+        "name": "T_FFR",
+        "unit": "s"
+      }
+    ],
+    "unit_equations": [
+      "dP_FFR [kW] = K_FFR [kW*s/Hz] * df/dt [Hz/s]",
+      "E_FFR [kWh] = dP_FFR [kW] * T_FFR [s] / 3600"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "T_FFR <= 30 s"
+    ],
+    "outputs": [
+      {
+        "name": "dP_FFR",
+        "unit": "kW",
+        "min": -50000,
+        "max": 50000
+      },
+      {
+        "name": "E_FFR",
+        "unit": "kWh",
+        "min": 0,
+        "max": 500
+      }
+    ],
+    "acceptance_rules": [
+      "E_FFR <= E_BESS*DoD"
+    ],
+    "failure_modes": [
+      "E_FFR > E_BESS*DoD"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-010",
+      "MG-DRW-015",
+      "MG-DRW-016"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-016",
+    "name_es": "Synthetic inertia constant H",
+    "purpose": "Calcula la constante de inercia sintetica H equivalente de los PCS.",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND (MG-072 == 'YES' OR MG-074 > 0)",
+    "input_field_ids": [
+      "MG-072",
+      "MG-074",
+      "MG-102",
+      "MG-114"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "E_kinetic = 0.5 * J_eq * omega^2",
+      "H = E_kinetic / S_base",
+      "J_eq = 2 * H_syn * S_base / omega^2",
+      "H_syn = E_syn / S_base"
+    ],
+    "equations_latex": [
+      "E_{kin} = \\frac{1}{2} J_{eq} \\omega^2",
+      "H = \\frac{E_{kin}}{S_{base}}",
+      "H_{syn} = \\frac{E_{syn}}{S_{base}}"
+    ],
+    "variables": [
+      {
+        "name": "J_eq",
+        "unit": "kg*m2"
+      },
+      {
+        "name": "omega",
+        "unit": "rad/s"
+      },
+      {
+        "name": "S_base",
+        "unit": "kVA"
+      },
+      {
+        "name": "E_syn",
+        "unit": "kW*s"
+      }
+    ],
+    "unit_equations": [
+      "H_syn [s] = E_syn [kW*s] / S_base [kVA]",
+      "E_kinetic [kW*s] = 0.5 * J_eq [kg*m2] * omega^2 [rad2/s2] / 1000"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "H_syn en [0,10] s"
+    ],
+    "outputs": [
+      {
+        "name": "H_syn",
+        "unit": "s",
+        "min": 0,
+        "max": 10
+      }
+    ],
+    "acceptance_rules": [
+      "H_syn >= H_min (3-5 s tipico)"
+    ],
+    "failure_modes": [
+      "H_syn < H_min"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-010",
+      "MG-DRW-012",
+      "MG-DRW-015"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-017",
+    "name_es": "Droop control",
+    "purpose": "Calcula la respuesta de frecuencia de los PCS en modo droop.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-071",
+      "MG-102",
+      "MG-114"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "dP = -1/droop * P_nom/f_nom * df",
+      "dQ = -1/droop_Q * Q_nom/V_nom * dV"
+    ],
+    "equations_latex": [
+      "\\Delta P = -\\frac{1}{droop} \\frac{P_{nom}}{f_{nom}} \\Delta f",
+      "\\Delta Q = -\\frac{1}{droop_Q} \\frac{Q_{nom}}{V_{nom}} \\Delta V"
+    ],
+    "variables": [
+      {
+        "name": "droop",
+        "unit": "-"
+      },
+      {
+        "name": "P_nom",
+        "unit": "kW"
+      },
+      {
+        "name": "f_nom",
+        "unit": "Hz"
+      },
+      {
+        "name": "df",
+        "unit": "Hz"
+      }
+    ],
+    "unit_equations": [
+      "dP [kW] = -1/droop [-] * P_nom [kW] / f_nom [Hz] * df [Hz]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "droop en [0.01,0.10]"
+    ],
+    "outputs": [
+      {
+        "name": "dP",
+        "unit": "kW",
+        "min": -50000,
+        "max": 50000
+      }
+    ],
+    "acceptance_rules": [
+      "|dP| <= P_nom"
+    ],
+    "failure_modes": [
+      "dP fuera de rango"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-010",
+      "MG-DRW-012",
+      "MG-DRW-015"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-018",
+    "name_es": "VSG tuning",
+    "purpose": "Calcula parametros de sintonizacion del VSG (J y D).",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-072 == 'YES'",
+    "input_field_ids": [
+      "MG-072",
+      "MG-074",
+      "MG-102",
+      "MG-114"
+    ],
+    "derived_input_ids": [
+      "MG-C-016"
+    ],
+    "equations_ascii": [
+      "J_VSG = 2 * H_VSG * S_base / omega_nom^2",
+      "D_VSG = D_p * S_base / omega_nom",
+      "omega_dot = (P_m - P_e - D*omega_dot)/J"
+    ],
+    "equations_latex": [
+      "J_{VSG} = \\frac{2 H_{VSG} S_{base}}{\\omega_{nom}^2}",
+      "D_{VSG} = \\frac{D_p S_{base}}{\\omega_{nom}}",
+      "\\dot{\\omega} = \\frac{P_m - P_e - D \\dot{\\omega}}{J}"
+    ],
+    "variables": [
+      {
+        "name": "H_VSG",
+        "unit": "s"
+      },
+      {
+        "name": "S_base",
+        "unit": "kVA"
+      },
+      {
+        "name": "omega_nom",
+        "unit": "rad/s"
+      },
+      {
+        "name": "D_p",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "J_VSG [kg*m2] = 2 * H_VSG [s] * S_base [kVA] / omega_nom^2 [rad2/s2]",
+      "D_VSG [N*m*s] = D_p [-] * S_base [kVA] / omega_nom [rad/s]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "H_VSG en [2,8] s"
+    ],
+    "outputs": [
+      {
+        "name": "J_VSG",
+        "unit": "kg*m2",
+        "min": 1,
+        "max": 10000
+      },
+      {
+        "name": "D_VSG",
+        "unit": "N*m*s",
+        "min": 0.01,
+        "max": 1000
+      }
+    ],
+    "acceptance_rules": [
+      "Stability margin > 6 dB",
+      "Damping ratio > 0.3"
+    ],
+    "failure_modes": [
+      "Underdamped"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-010",
+      "MG-DRW-012",
+      "MG-DRW-015"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-019",
+    "name_es": "Grid-forming inverter V-f control",
+    "purpose": "Modela el control V-f de inversores grid-forming.",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-069 NOT NULL",
+    "input_field_ids": [
+      "MG-069",
+      "MG-061",
+      "MG-062",
+      "MG-102",
+      "MG-114"
+    ],
+    "derived_input_ids": [
+      "MG-C-017",
+      "MG-C-018"
+    ],
+    "equations_ascii": [
+      "V_inv = V_ref + R_drop * I_inv",
+      "f_inv = f_ref - droop * P_inv / P_nom",
+      "Z_VSC = R_drop + j * X_L"
+    ],
+    "equations_latex": [
+      "V_{inv} = V_{ref} + R_{drop} I_{inv}",
+      "f_{inv} = f_{ref} - droop \\frac{P_{inv}}{P_{nom}}",
+      "Z_{VSC} = R_{drop} + j X_L"
+    ],
+    "variables": [
+      {
+        "name": "V_ref",
+        "unit": "V"
+      },
+      {
+        "name": "R_drop",
+        "unit": "ohm"
+      },
+      {
+        "name": "I_inv",
+        "unit": "A"
+      },
+      {
+        "name": "f_ref",
+        "unit": "Hz"
+      }
+    ],
+    "unit_equations": [
+      "V_inv [V] = V_ref [V] + R_drop [ohm] * I_inv [A]",
+      "f_inv [Hz] = f_ref [Hz] - droop [-] * P_inv [kW] / P_nom [kW]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 10,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "V_inv en [0.88,1.10] * V_nom",
+      "f_inv en [49.5,50.5] Hz"
+    ],
+    "outputs": [
+      {
+        "name": "V_inv",
+        "unit": "V"
+      },
+      {
+        "name": "f_inv",
+        "unit": "Hz"
+      }
+    ],
+    "acceptance_rules": [
+      "V_inv within IEEE 1547 limits"
+    ],
+    "failure_modes": [
+      "V/f fuera de rango"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-010",
+      "MG-DRW-012"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-020",
+    "name_es": "Grid-following inverter PQ control",
+    "purpose": "Modela el control PQ de inversores grid-following.",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-070 NOT NULL",
+    "input_field_ids": [
+      "MG-070",
+      "MG-102",
+      "MG-110",
+      "MG-114"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_inv = P_ref (seguimiento PLL)",
+      "Q_inv = Q_ref + V_drop / X * (V_grid - V_inv)",
+      "theta_PLL = integral(Kp_PLL + Ki_PLL/s) * (V_grid angle)"
+    ],
+    "equations_latex": [
+      "P_{inv} = P_{ref}",
+      "Q_{inv} = Q_{ref} + \\frac{V_{drop}}{X} (V_{grid} - V_{inv})",
+      "\\theta_{PLL} = \\int (K_{p,PLL} + K_{i,PLL}/s) (\\angle V_{grid})"
+    ],
+    "variables": [
+      {
+        "name": "P_ref",
+        "unit": "kW"
+      },
+      {
+        "name": "Q_ref",
+        "unit": "kvar"
+      },
+      {
+        "name": "V_grid",
+        "unit": "V"
+      },
+      {
+        "name": "X",
+        "unit": "ohm"
+      }
+    ],
+    "unit_equations": [
+      "P_inv [kW] = P_ref [kW]",
+      "Q_inv [kvar] = Q_ref [kvar] + V_drop [V] / X [ohm] * (V_grid [V] - V_inv [V])"
+    ],
+    "numerical_method": "Direct with PLL",
+    "iteration_limits": {
+      "max_iter": 1000,
+      "tolerance": 0.01,
+      "PLL_bandwidth_Hz": 10
+    },
+    "validity_limits": [
+      "P_inv en [0,P_nom]"
+    ],
+    "outputs": [
+      {
+        "name": "P_inv",
+        "unit": "kW"
+      },
+      {
+        "name": "Q_inv",
+        "unit": "kvar"
+      }
+    ],
+    "acceptance_rules": [
+      "Tracking error < 5%"
+    ],
+    "failure_modes": [
+      "Tracking error > 5%"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-010",
+      "MG-DRW-012"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-021",
+    "name_es": "Protection coordination TCC",
+    "purpose": "Verifica la coordinacion TCC entre reles upstream/downstream.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-083",
+      "MG-084",
+      "MG-087",
+      "MG-090",
+      "MG-111"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "t_up = TCC_up(I_fault)",
+      "t_down = TCC_down(I_fault)",
+      "CTI = t_up - t_down >= 0.2-0.3 s"
+    ],
+    "equations_latex": [
+      "t_{up} = TCC_{up}(I_{fault})",
+      "t_{down} = TCC_{down}(I_{fault})",
+      "CTI = t_{up} - t_{down} \\ge 0.2-0.3 \\, s"
+    ],
+    "variables": [
+      {
+        "name": "I_fault",
+        "unit": "A"
+      },
+      {
+        "name": "TCC",
+        "unit": "s"
+      },
+      {
+        "name": "CTI",
+        "unit": "s"
+      }
+    ],
+    "unit_equations": [
+      "t_up [s] = TCC_up(I_fault [A])",
+      "t_down [s] = TCC_down(I_fault [A])",
+      "CTI [s] = t_up [s] - t_down [s] >= 0.2-0.3 s"
+    ],
+    "numerical_method": "Curve comparison",
+    "iteration_limits": {
+      "max_iter": 100,
+      "tolerance": 0.05
+    },
+    "validity_limits": [
+      "CTI >= 0.2 s"
+    ],
+    "outputs": [
+      {
+        "name": "CTI",
+        "unit": "s",
+        "min": 0,
+        "max": 10
+      }
+    ],
+    "acceptance_rules": [
+      "CTI >= 0.2 s (IEEE 242)"
+    ],
+    "failure_modes": [
+      "CTI < 0.2 s -> miscoordination"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-012"
+    ],
+    "source_ids": [
+      "IEEE_C2_2023",
+      "NFPA_70_2023",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-022",
+    "name_es": "Islanding detection ROCOF",
+    "purpose": "Calcula el ROCOF en isla y verifica el umbral.",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-085 == 'YES' AND MG-086 == 'ROCOF'",
+    "input_field_ids": [
+      "MG-085",
+      "MG-086",
+      "MG-088",
+      "MG-060",
+      "MG-061",
+      "MG-114"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "ROCOF = df/dt",
+      "Trip if |ROCOF| > ROCOF_threshold"
+    ],
+    "equations_latex": [
+      "ROCOF = \\frac{df}{dt}",
+      "\\text{Trip if } |ROCOF| > ROCOF_{th}"
+    ],
+    "variables": [
+      {
+        "name": "f",
+        "unit": "Hz"
+      },
+      {
+        "name": "t",
+        "unit": "s"
+      },
+      {
+        "name": "ROCOF_th",
+        "unit": "Hz/s"
+      }
+    ],
+    "unit_equations": [
+      "ROCOF [Hz/s] = df [Hz] / dt [s]",
+      "Trip if |ROCOF| [Hz/s] > ROCOF_threshold [Hz/s]"
+    ],
+    "numerical_method": "Derivative",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "ROCOF_threshold en [0.1,5] Hz/s"
+    ],
+    "outputs": [
+      {
+        "name": "ROCOF",
+        "unit": "Hz/s",
+        "min": -10,
+        "max": 10
+      }
+    ],
+    "acceptance_rules": [
+      "|ROCOF| < ROCOF_threshold en grid-tied"
+    ],
+    "failure_modes": [
+      "ROCOF out of range"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-012"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "IEC_62116",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-023",
+    "name_es": "Islanding detection vector shift",
+    "purpose": "Calcula el corrimiento de fase para deteccion vector shift.",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-085 == 'YES' AND MG-086 == 'VECTOR_SHIFT'",
+    "input_field_ids": [
+      "MG-085",
+      "MG-086",
+      "MG-089"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "dphi = angle(V(t+dt)) - angle(V(t)) - omega_nom*dt",
+      "Trip if |dphi| > phi_threshold"
+    ],
+    "equations_latex": [
+      "\\Delta\\phi = \\angle V(t+\\Delta t) - \\angle V(t) - \\omega_{nom} \\Delta t",
+      "\\text{Trip if } |\\Delta\\phi| > \\phi_{th}"
+    ],
+    "variables": [
+      {
+        "name": "V",
+        "unit": "V"
+      },
+      {
+        "name": "omega_nom",
+        "unit": "rad/s"
+      },
+      {
+        "name": "dt",
+        "unit": "s"
+      },
+      {
+        "name": "phi_th",
+        "unit": "deg"
+      }
+    ],
+    "unit_equations": [
+      "dphi [deg] = angle(V(t+dt) [V]) - angle(V(t) [V]) - omega_nom [rad/s] * dt [s] * 180/pi",
+      "Trip if |dphi| [deg] > phi_threshold [deg]"
+    ],
+    "numerical_method": "Phase difference",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "phi_threshold en [1,30] deg"
+    ],
+    "outputs": [
+      {
+        "name": "dphi",
+        "unit": "deg",
+        "min": -180,
+        "max": 180
+      }
+    ],
+    "acceptance_rules": [
+      "|dphi| < phi_threshold en grid-tied"
+    ],
+    "failure_modes": [
+      "dphi fuera de rango"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-012"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "IEC_62116",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-024",
+    "name_es": "Anti-islanding test (IEC 62116)",
+    "purpose": "Determina el resultado del ensayo anti-islanding IEC 62116.",
+    "applicability_expression": "technology == '14_hybrid_microgrid' AND MG-085 == 'YES'",
+    "input_field_ids": [
+      "MG-085",
+      "MG-086",
+      "MG-088",
+      "MG-089",
+      "MG-112",
+      "MG-061"
+    ],
+    "derived_input_ids": [
+      "MG-C-022",
+      "MG-C-023"
+    ],
+    "equations_ascii": [
+      "t_trip < 2 s (IEC 62116)",
+      "Match: Q_load = Q_gen",
+      "Quality factor QF = R * sqrt(C/L)"
+    ],
+    "equations_latex": [
+      "t_{trip} < 2 \\, s",
+      "Q_{load} = Q_{gen}",
+      "QF = R \\sqrt{C/L}"
+    ],
+    "variables": [
+      {
+        "name": "t_trip",
+        "unit": "s"
+      },
+      {
+        "name": "QF",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "t_trip [s] < 2 s",
+      "QF [-] = R [ohm] * sqrt(C [F] / L [H])"
+    ],
+    "numerical_method": "Test procedure IEC 62116",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0
+    },
+    "validity_limits": [
+      "QF <= 1 (resonant load)"
+    ],
+    "outputs": [
+      {
+        "name": "t_trip",
+        "unit": "s",
+        "min": 0,
+        "max": 5
+      }
+    ],
+    "acceptance_rules": [
+      "t_trip < 2 s"
+    ],
+    "failure_modes": [
+      "t_trip > 2 s -> fail"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-012"
+    ],
+    "source_ids": [
+      "IEC_62116",
+      "IEEE_1547_4",
+      "IEEE_1547_2018",
+      "UL_1741"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-025",
+    "name_es": "Sync check parameters",
+    "purpose": "Calcula las tolerancias de sync check (dV, df, dphi).",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-091",
+      "MG-092",
+      "MG-093",
+      "MG-114",
+      "MG-110"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "dV_max = 5-10% V_nom",
+      "df_max = 0.1-0.2 Hz",
+      "dphi_max = 10-20 deg"
+    ],
+    "equations_latex": [
+      "\\Delta V_{max} = (5-10)\\% V_{nom}",
+      "\\Delta f_{max} = 0.1-0.2 \\, Hz",
+      "\\Delta\\phi_{max} = 10-20 \\, deg"
+    ],
+    "variables": [
+      {
+        "name": "V_nom",
+        "unit": "V"
+      },
+      {
+        "name": "f_nom",
+        "unit": "Hz"
+      }
+    ],
+    "unit_equations": [
+      "dV_max [%] = (5-10) % of V_nom [V]",
+      "df_max [Hz] = 0.1-0.2 Hz",
+      "dphi_max [deg] = 10-20 deg"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "dV en [0.05,0.10] V_nom",
+      "df en [0.1,0.2] Hz"
+    ],
+    "outputs": [
+      {
+        "name": "dV_max",
+        "unit": "%"
+      },
+      {
+        "name": "df_max",
+        "unit": "Hz"
+      },
+      {
+        "name": "dphi_max",
+        "unit": "deg"
+      }
+    ],
+    "acceptance_rules": [
+      "dV/df/dphi dentro de tolerancias IEEE 1547"
+    ],
+    "failure_modes": [
+      "Fuera de tolerancias"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-004",
+      "MG-DRW-010",
+      "MG-DRW-012"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-026",
+    "name_es": "SAIDI calculation",
+    "purpose": "Calcula el indice SAIDI (System Average Interruption Duration Index).",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-053",
+      "MG-058",
+      "MG-059"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "SAIDI = sum(N_i * t_i) / N_total"
+    ],
+    "equations_latex": [
+      "SAIDI = \\frac{\\sum_i N_i t_i}{N_{total}}"
+    ],
+    "variables": [
+      {
+        "name": "N_i",
+        "unit": "cust"
+      },
+      {
+        "name": "t_i",
+        "unit": "h"
+      },
+      {
+        "name": "N_total",
+        "unit": "cust"
+      }
+    ],
+    "unit_equations": [
+      "SAIDI [min/cust/year] = sum_i (N_i [cust] * t_i [min]) / N_total [cust]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "SAIDI en [0,2000]"
+    ],
+    "outputs": [
+      {
+        "name": "SAIDI",
+        "unit": "min/cust/year",
+        "min": 0,
+        "max": 2000
+      }
+    ],
+    "acceptance_rules": [
+      "SAIDI <= MG-053"
+    ],
+    "failure_modes": [
+      "SAIDI > objetivo"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "COES_NCO_2019",
+      "OSINERGMIN_PR_27",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-027",
+    "name_es": "SAIFI calculation",
+    "purpose": "Calcula el indice SAIFI (System Average Interruption Frequency Index).",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-054",
+      "MG-058"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "SAIFI = sum(N_i) / N_total"
+    ],
+    "equations_latex": [
+      "SAIFI = \\frac{\\sum_i N_i}{N_{total}}"
+    ],
+    "variables": [
+      {
+        "name": "N_i",
+        "unit": "cust"
+      },
+      {
+        "name": "N_total",
+        "unit": "cust"
+      }
+    ],
+    "unit_equations": [
+      "SAIFI [1/cust/year] = sum_i (N_i [cust]) / N_total [cust]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "SAIFI en [0,50]"
+    ],
+    "outputs": [
+      {
+        "name": "SAIFI",
+        "unit": "1/cust/year",
+        "min": 0,
+        "max": 50
+      }
+    ],
+    "acceptance_rules": [
+      "SAIFI <= MG-054"
+    ],
+    "failure_modes": [
+      "SAIFI > objetivo"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "COES_NCO_2019",
+      "OSINERGMIN_PR_27",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-028",
+    "name_es": "CAIDI calculation",
+    "purpose": "Calcula el indice CAIDI (Customer Average Interruption Duration Index).",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-055",
+      "MG-053",
+      "MG-054"
+    ],
+    "derived_input_ids": [
+      "MG-C-026",
+      "MG-C-027"
+    ],
+    "equations_ascii": [
+      "CAIDI = SAIDI / SAIFI"
+    ],
+    "equations_latex": [
+      "CAIDI = \\frac{SAIDI}{SAIFI}"
+    ],
+    "variables": [
+      {
+        "name": "SAIDI",
+        "unit": "min/cust/yr"
+      },
+      {
+        "name": "SAIFI",
+        "unit": "1/cust/yr"
+      }
+    ],
+    "unit_equations": [
+      "CAIDI [min/interruption] = SAIDI [min/cust/year] / SAIFI [1/cust/year]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "SAIFI > 0"
+    ],
+    "outputs": [
+      {
+        "name": "CAIDI",
+        "unit": "min/interruption",
+        "min": 0,
+        "max": 500
+      }
+    ],
+    "acceptance_rules": [
+      "CAIDI <= MG-055"
+    ],
+    "failure_modes": [
+      "CAIDI > objetivo"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "COES_NCO_2019",
+      "OSINERGMIN_PR_27",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-029",
+    "name_es": "LOLP calculation",
+    "purpose": "Calcula el Loss of Load Probability (LOLP).",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-056",
+      "MG-058",
+      "MG-059",
+      "MG-024",
+      "MG-103"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "LOLP = sum_t P(L > G_t)",
+      "P_LOLP = sum over failure states"
+    ],
+    "equations_latex": [
+      "LOLP = \\sum_t P(L > G_t)",
+      "P_{LOLP} = \\sum_{state} P_{state} \\cdot \\delta_{L>G}"
+    ],
+    "variables": [
+      {
+        "name": "L",
+        "unit": "kW"
+      },
+      {
+        "name": "G",
+        "unit": "kW"
+      }
+    ],
+    "unit_equations": [
+      "LOLP [-] = sum_t P(L [kW] > G_t [kW])"
+    ],
+    "numerical_method": "Monte Carlo / capacity outage probability table",
+    "iteration_limits": {
+      "max_iter": 10000,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "LOLP en [0,1]"
+    ],
+    "outputs": [
+      {
+        "name": "LOLP",
+        "unit": "-",
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "acceptance_rules": [
+      "LOLP <= MG-056"
+    ],
+    "failure_modes": [
+      "LOLP > objetivo"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-030",
+    "name_es": "EENS calculation",
+    "purpose": "Calcula el Expected Energy Not Served (EENS).",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-057",
+      "MG-056",
+      "MG-024",
+      "MG-103"
+    ],
+    "derived_input_ids": [
+      "MG-C-029"
+    ],
+    "equations_ascii": [
+      "EENS = sum_t max(0, L_t - G_t) * dt * P_state"
+    ],
+    "equations_latex": [
+      "EENS = \\sum_t \\max(0, L_t - G_t) \\cdot dt \\cdot P_{state}"
+    ],
+    "variables": [
+      {
+        "name": "L_t",
+        "unit": "kW"
+      },
+      {
+        "name": "G_t",
+        "unit": "kW"
+      },
+      {
+        "name": "dt",
+        "unit": "h"
+      },
+      {
+        "name": "P_state",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "EENS [kWh/year] = sum_t max(0, L_t [kW] - G_t [kW]) * dt [h] * P_state [-]"
+    ],
+    "numerical_method": "Monte Carlo / COPT",
+    "iteration_limits": {
+      "max_iter": 10000,
+      "tolerance": 1.0
+    },
+    "validity_limits": [
+      "EENS >= 0"
+    ],
+    "outputs": [
+      {
+        "name": "EENS",
+        "unit": "kWh/year",
+        "min": 0,
+        "max": 1000000
+      }
+    ],
+    "acceptance_rules": [
+      "EENS <= MG-057"
+    ],
+    "failure_modes": [
+      "EENS > objetivo"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-015"
+    ],
+    "source_ids": [
+      "IEEE_1547_4",
+      "COES_NCO_2019",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-031",
+    "name_es": "Harmonic study THD",
+    "purpose": "Calcula la distorsion armonica total de tension (THD V).",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-140",
+      "MG-110",
+      "MG-069",
+      "MG-070",
+      "MG-082"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "THD_V = sqrt(sum_h>=2 V_h^2) / V_1",
+      "THD_V_limit = 5% (IEEE 519, V < 1 kV)",
+      "THD_V_limit = 8% (IEEE 519, V > 1 kV)"
+    ],
+    "equations_latex": [
+      "THD_V = \\frac{\\sqrt{\\sum_{h \\ge 2} V_h^2}}{V_1}",
+      "THD_{V,lim} = 5\\% (V < 1 \\, kV)",
+      "THD_{V,lim} = 8\\% (V > 1 \\, kV)"
+    ],
+    "variables": [
+      {
+        "name": "V_1",
+        "unit": "V"
+      },
+      {
+        "name": "V_h",
+        "unit": "V"
+      }
+    ],
+    "unit_equations": [
+      "THD_V [%] = sqrt(sum_{h>=2} (V_h [V])^2) / V_1 [V] * 100"
+    ],
+    "numerical_method": "FFT",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "h <= 50"
+    ],
+    "outputs": [
+      {
+        "name": "THD_V",
+        "unit": "%",
+        "min": 0,
+        "max": 50
+      }
+    ],
+    "acceptance_rules": [
+      "THD_V <= MG-140 (IEEE 519)"
+    ],
+    "failure_modes": [
+      "THD_V > limite IEEE 519"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-012"
+    ],
+    "source_ids": [
+      "IEEE_519_2022",
+      "IEEE_1547_2018",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-032",
+    "name_es": "Individual harmonic",
+    "purpose": "Calcula el contenido de cada armonica individual.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-140",
+      "MG-110",
+      "MG-069",
+      "MG-070"
+    ],
+    "derived_input_ids": [
+      "MG-C-031"
+    ],
+    "equations_ascii": [
+      "V_h% = V_h / V_1 * 100",
+      "Limit_h = IEEE 519 Table 1"
+    ],
+    "equations_latex": [
+      "V_{h,\\%} = \\frac{V_h}{V_1} \\cdot 100",
+      "Limit_{h} = \\text{IEEE 519 Tabla 1}"
+    ],
+    "variables": [
+      {
+        "name": "V_h",
+        "unit": "V"
+      },
+      {
+        "name": "V_1",
+        "unit": "V"
+      }
+    ],
+    "unit_equations": [
+      "V_h [%] = V_h [V] / V_1 [V] * 100"
+    ],
+    "numerical_method": "FFT",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "h <= 50"
+    ],
+    "outputs": [
+      {
+        "name": "V_h_pct",
+        "unit": "%",
+        "min": 0,
+        "max": 30
+      }
+    ],
+    "acceptance_rules": [
+      "V_h% <= IEEE 519 Table 1 limit"
+    ],
+    "failure_modes": [
+      "Individual harmonic > limite"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-012"
+    ],
+    "source_ids": [
+      "IEEE_519_2022",
+      "IEEE_1547_2018",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-033",
+    "name_es": "Voltage drop study",
+    "purpose": "Calcula la caida de tension en circuitos AC.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-023",
+      "MG-038",
+      "MG-039",
+      "MG-110"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "dV = sqrt(3) * I * (R*cos(phi) + X*sin(phi)) * L",
+      "dV% = dV / V_nom * 100"
+    ],
+    "equations_latex": [
+      "\\Delta V = \\sqrt{3} I (R \\cos\\phi + X \\sin\\phi) L",
+      "\\Delta V\\% = \\frac{\\Delta V}{V_{nom}} \\cdot 100"
+    ],
+    "variables": [
+      {
+        "name": "I",
+        "unit": "A"
+      },
+      {
+        "name": "R",
+        "unit": "ohm/km"
+      },
+      {
+        "name": "X",
+        "unit": "ohm/km"
+      },
+      {
+        "name": "L",
+        "unit": "km"
+      },
+      {
+        "name": "cos_phi",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "dV [V] = sqrt(3) * I [A] * (R [ohm/km] * cos_phi [-] + X [ohm/km] * sin_phi [-]) * L [km]",
+      "dV [%] = dV [V] / V_nom [V] * 100"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "dV% <= 5% (IEEE 1547)"
+    ],
+    "outputs": [
+      {
+        "name": "dV",
+        "unit": "V"
+      },
+      {
+        "name": "dV_pct",
+        "unit": "%"
+      }
+    ],
+    "acceptance_rules": [
+      "dV% <= 5% en circuitos BT; <= 3% MT"
+    ],
+    "failure_modes": [
+      "dV% > 5% BT o > 3% MT"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-012"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "NFPA_70_2023",
+      "IEEE_C2_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-034",
+    "name_es": "Fault current study",
+    "purpose": "Calcula la corriente de falla trifasica en el PCC.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-110",
+      "MG-113",
+      "MG-090",
+      "MG-111"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "I_3ph = V_nom / (sqrt(3) * Z_eq)",
+      "Z_eq = Z_grid || Z_PCS || Z_gen",
+      "I_peak = k * sqrt(2) * I_3ph"
+    ],
+    "equations_latex": [
+      "I_{3ph} = \\frac{V_{nom}}{\\sqrt{3} Z_{eq}}",
+      "Z_{eq} = Z_{grid} \\parallel Z_{PCS} \\parallel Z_{gen}",
+      "I_{peak} = k \\sqrt{2} I_{3ph}"
+    ],
+    "variables": [
+      {
+        "name": "V_nom",
+        "unit": "V"
+      },
+      {
+        "name": "Z_eq",
+        "unit": "ohm"
+      },
+      {
+        "name": "k",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "I_3ph [kA] = V_nom [V] / (sqrt(3) * Z_eq [ohm]) / 1000",
+      "I_peak [kA] = k [-] * sqrt(2) * I_3ph [kA]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "I_3ph <= I_breaker"
+    ],
+    "outputs": [
+      {
+        "name": "I_3ph",
+        "unit": "kA",
+        "min": 1,
+        "max": 80
+      },
+      {
+        "name": "I_peak",
+        "unit": "kA",
+        "min": 1,
+        "max": 200
+      }
+    ],
+    "acceptance_rules": [
+      "I_3ph <= MG-090 (break rating)"
+    ],
+    "failure_modes": [
+      "I_3ph > break rating"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-004",
+      "MG-DRW-012"
+    ],
+    "source_ids": [
+      "IEEE_C2_2023",
+      "NFPA_70_2023",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-035",
+    "name_es": "Short circuit study (NFPA 70 / IEC conceptual)",
+    "purpose": "Estudio de cortocircuito conforme a NFPA 70 / IEEE C2 (NESC).",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-090",
+      "MG-111",
+      "MG-110",
+      "MG-113",
+      "MG-069",
+      "MG-070"
+    ],
+    "derived_input_ids": [
+      "MG-C-034"
+    ],
+    "equations_ascii": [
+      "I_SCC = E / sqrt(3) * Z_total",
+      "MVA_SCC = sqrt(3) * V_nom * I_SCC / 1e6",
+      "I_breaker >= I_SCC * 1.25 (margen)"
+    ],
+    "equations_latex": [
+      "I_{SCC} = \\frac{E}{\\sqrt{3} Z_{total}}",
+      "MVA_{SCC} = \\sqrt{3} V_{nom} I_{SCC} / 10^6",
+      "I_{brk} \\ge 1.25 I_{SCC}"
+    ],
+    "variables": [
+      {
+        "name": "E",
+        "unit": "V"
+      },
+      {
+        "name": "Z_total",
+        "unit": "ohm"
+      },
+      {
+        "name": "V_nom",
+        "unit": "V"
+      }
+    ],
+    "unit_equations": [
+      "I_SCC [kA] = E [V] / (sqrt(3) * Z_total [ohm]) / 1000",
+      "MVA_SCC [MVA] = sqrt(3) * V_nom [V] * I_SCC [kA] * 1000 / 1e6"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "I_breaker >= I_SCC * 1.25"
+    ],
+    "outputs": [
+      {
+        "name": "I_SCC",
+        "unit": "kA",
+        "min": 1,
+        "max": 80
+      },
+      {
+        "name": "MVA_SCC",
+        "unit": "MVA",
+        "min": 1,
+        "max": 10000
+      }
+    ],
+    "acceptance_rules": [
+      "MG-090 >= I_SCC * 1.25"
+    ],
+    "failure_modes": [
+      "Breaker underrated"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-004",
+      "MG-DRW-012"
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023",
+      "IEEE_1547_2018",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-036",
+    "name_es": "Grounding study (IEEE 80)",
+    "purpose": "Estudio de malla de tierra segun IEEE 80.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-144",
+      "MG-145",
+      "MG-146",
+      "MG-010",
+      "MG-005"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "R_g = rho * (1 + 1.41*sqrt(A/L_total))",
+      "E_step = (R_g) * (rho / (pi*L_step))",
+      "E_touch = (R_g) * (rho / (pi*L_touch))"
+    ],
+    "equations_latex": [
+      "R_g = \\rho \\left(1 + \\frac{1.41 \\sqrt{A}}{L_{total}}\\right)",
+      "E_{step} = R_g \\cdot \\frac{\\rho}{\\pi L_{step}}",
+      "E_{touch} = R_g \\cdot \\frac{\\rho}{\\pi L_{touch}}"
+    ],
+    "variables": [
+      {
+        "name": "rho",
+        "unit": "ohm-m"
+      },
+      {
+        "name": "A",
+        "unit": "m2"
+      },
+      {
+        "name": "L_total",
+        "unit": "m"
+      },
+      {
+        "name": "L_step",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "R_g [ohm] = rho [ohm-m] * (1 + 1.41 * sqrt(A [m2]) / L_total [m])",
+      "E_step [V] = R_g [ohm] * rho [ohm-m] / (pi * L_step [m])",
+      "E_touch [V] = R_g [ohm] * rho [ohm-m] / (pi * L_touch [m])"
+    ],
+    "numerical_method": "Sverak / IEEE 80",
+    "iteration_limits": {
+      "max_iter": 100,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "R_g <= 1 ohm (ideally)",
+      "E_step, E_touch < IEEE 80 limits"
+    ],
+    "outputs": [
+      {
+        "name": "R_g",
+        "unit": "ohm",
+        "min": 0.1,
+        "max": 25
+      },
+      {
+        "name": "E_step",
+        "unit": "V",
+        "min": 0,
+        "max": 5000
+      },
+      {
+        "name": "E_touch",
+        "unit": "V",
+        "min": 0,
+        "max": 5000
+      }
+    ],
+    "acceptance_rules": [
+      "R_g <= 1 ohm",
+      "E_step <= IEEE 80 limit",
+      "E_touch <= IEEE 80 limit"
+    ],
+    "failure_modes": [
+      "R_g > 1 ohm",
+      "Step/touch potential > limit"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-013"
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_142",
+      "NFPA_70_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-037",
+    "name_es": "Grounding resistance (Sverak)",
+    "purpose": "Calcula resistencia de malla de tierra por Sverak IEEE 80.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-144",
+      "MG-010"
+    ],
+    "derived_input_ids": [
+      "MG-C-036"
+    ],
+    "equations_ascii": [
+      "R_g = rho * (1/L_total + 1/(sqrt(20*A)))",
+      "simplified R_g = rho / (4 * sqrt(pi/A))"
+    ],
+    "equations_latex": [
+      "R_g = \\rho \\left(\\frac{1}{L_{total}} + \\frac{1}{\\sqrt{20 A}}\\right)",
+      "R_{g,simple} = \\frac{\\rho}{4 \\sqrt{\\pi/A}}"
+    ],
+    "variables": [
+      {
+        "name": "rho",
+        "unit": "ohm-m"
+      },
+      {
+        "name": "A",
+        "unit": "m2"
+      },
+      {
+        "name": "L_total",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "R_g [ohm] = rho [ohm-m] * (1/L_total [m] + 1/sqrt(20 * A [m2]))"
+    ],
+    "numerical_method": "Sverak formula",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "A > 0",
+      "L_total > 0"
+    ],
+    "outputs": [
+      {
+        "name": "R_g",
+        "unit": "ohm",
+        "min": 0.1,
+        "max": 25
+      }
+    ],
+    "acceptance_rules": [
+      "R_g <= 1 ohm IEEE 80"
+    ],
+    "failure_modes": [
+      "R_g > 1 ohm"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-013"
+    ],
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_142",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-038",
+    "name_es": "Lightning risk assessment (IEC 62305-2 conceptual)",
+    "purpose": "Estima el riesgo de rayo segun IEC 62305 / NFPA 780.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-147",
+      "MG-148",
+      "MG-002",
+      "MG-003",
+      "MG-005"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "N_D = N_g * Ae * C1",
+      "R = N_D * P_loss * L1",
+      "R_T = sum R_components"
+    ],
+    "equations_latex": [
+      "N_D = N_g A_e C_1",
+      "R = N_D P_{loss} L_1",
+      "R_T = \\sum R_{comp}"
+    ],
+    "variables": [
+      {
+        "name": "N_g",
+        "unit": "1/km2/yr"
+      },
+      {
+        "name": "Ae",
+        "unit": "m2"
+      },
+      {
+        "name": "C1",
+        "unit": "-"
+      },
+      {
+        "name": "P_loss",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "N_D [1/yr] = N_g [1/km2/yr] * Ae [m2] / 1e6 * C1 [-]",
+      "R [1/yr] = N_D [1/yr] * P_loss [-] * L1 [-]",
+      "R_T [1/yr] = sum R_comp [1/yr]"
+    ],
+    "numerical_method": "Risk components method",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.001
+    },
+    "validity_limits": [
+      "R_T <= R_T_target (1e-5 typical)"
+    ],
+    "outputs": [
+      {
+        "name": "N_D",
+        "unit": "1/yr",
+        "min": 0,
+        "max": 10
+      },
+      {
+        "name": "R_T",
+        "unit": "1/yr",
+        "min": 0,
+        "max": 1
+      }
+    ],
+    "acceptance_rules": [
+      "R_T <= R_T_target"
+    ],
+    "failure_modes": [
+      "R_T > R_T_target"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-013"
+    ],
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-039",
+    "name_es": "DC bus sizing",
+    "purpose": "Dimensiona el bus DC para la corriente maxima.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-069",
+      "MG-102",
+      "MG-103"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "I_DC = P_DC / V_DC",
+      "A_bus = I_DC / J_max",
+      "V_drop_DC = I_DC * R_bus * L"
+    ],
+    "equations_latex": [
+      "I_{DC} = \\frac{P_{DC}}{V_{DC}}",
+      "A_{bus} = \\frac{I_{DC}}{J_{max}}",
+      "V_{drop,DC} = I_{DC} R_{bus} L"
+    ],
+    "variables": [
+      {
+        "name": "P_DC",
+        "unit": "kW"
+      },
+      {
+        "name": "V_DC",
+        "unit": "V"
+      },
+      {
+        "name": "J_max",
+        "unit": "A/mm2"
+      },
+      {
+        "name": "R_bus",
+        "unit": "ohm/m"
+      },
+      {
+        "name": "L",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "I_DC [A] = P_DC [kW] * 1000 / V_DC [V]",
+      "A_bus [mm2] = I_DC [A] / J_max [A/mm2]",
+      "V_drop_DC [V] = I_DC [A] * R_bus [ohm/m] * L [m]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "J_max en [1,4] A/mm2"
+    ],
+    "outputs": [
+      {
+        "name": "I_DC",
+        "unit": "A",
+        "min": 1,
+        "max": 10000
+      },
+      {
+        "name": "A_bus",
+        "unit": "mm2",
+        "min": 1,
+        "max": 5000
+      }
+    ],
+    "acceptance_rules": [
+      "V_drop_DC <= 1.5% V_DC"
+    ],
+    "failure_modes": [
+      "V_drop_DC > 1.5%"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-006"
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023",
+      "UL_1741",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-040",
+    "name_es": "AC bus sizing",
+    "purpose": "Dimensiona el bus AC para la corriente maxima.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-110",
+      "MG-023",
+      "MG-102"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "I_AC = P_AC / (sqrt(3) * V_AC * cos(phi))",
+      "A_bus = I_AC / J_max"
+    ],
+    "equations_latex": [
+      "I_{AC} = \\frac{P_{AC}}{\\sqrt{3} V_{AC} \\cos\\phi}",
+      "A_{bus} = \\frac{I_{AC}}{J_{max}}"
+    ],
+    "variables": [
+      {
+        "name": "P_AC",
+        "unit": "kW"
+      },
+      {
+        "name": "V_AC",
+        "unit": "V"
+      },
+      {
+        "name": "cos_phi",
+        "unit": "-"
+      },
+      {
+        "name": "J_max",
+        "unit": "A/mm2"
+      }
+    ],
+    "unit_equations": [
+      "I_AC [A] = P_AC [kW] * 1000 / (sqrt(3) * V_AC [V] * cos_phi [-])",
+      "A_bus [mm2] = I_AC [A] / J_max [A/mm2]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.01
+    },
+    "validity_limits": [
+      "J_max en [1,4] A/mm2"
+    ],
+    "outputs": [
+      {
+        "name": "I_AC",
+        "unit": "A",
+        "min": 1,
+        "max": 10000
+      },
+      {
+        "name": "A_bus",
+        "unit": "mm2",
+        "min": 1,
+        "max": 5000
+      }
+    ],
+    "acceptance_rules": [
+      "I_AC <= I_breaker"
+    ],
+    "failure_modes": [
+      "I_AC > I_breaker"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-012"
+    ],
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_C2_2023",
+      "IEEE_835",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-041",
+    "name_es": "Transformer rating",
+    "purpose": "Calcula la potencia del transformador a partir de la carga.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-110",
+      "MG-023",
+      "MG-102",
+      "MG-101",
+      "MG-104",
+      "MG-105",
+      "MG-106",
+      "MG-107",
+      "MG-108"
+    ],
+    "derived_input_ids": [
+      "MG-C-040"
+    ],
+    "equations_ascii": [
+      "S_xfr = (P_total * PF * 1.1) / (1 - z_xfr) / 1000",
+      "P_total = P_PV + P_wind + P_hydro + P_bio + P_geoth + P_diesel + P_BESS",
+      "S_xfr_check >= P_total * 1.1"
+    ],
+    "equations_latex": [
+      "S_{xfr} = \\frac{P_{total} \\cdot PF \\cdot 1.1}{(1 - z_{xfr}) \\cdot 1000}",
+      "P_{total} = \\sum P_i",
+      "S_{xfr,check} \\ge 1.1 P_{total}"
+    ],
+    "variables": [
+      {
+        "name": "P_total",
+        "unit": "kW"
+      },
+      {
+        "name": "PF",
+        "unit": "-"
+      },
+      {
+        "name": "z_xfr",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "S_xfr [kVA] = P_total [kW] * PF [-] * 1.1 / (1 - z_xfr [-]) / 1000",
+      "Check: S_xfr [kVA] >= 1.1 * P_total [kW]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "z_xfr en [0.04,0.10]"
+    ],
+    "outputs": [
+      {
+        "name": "S_xfr",
+        "unit": "kVA",
+        "min": 50,
+        "max": 50000
+      }
+    ],
+    "acceptance_rules": [
+      "S_xfr >= 1.1 * P_total"
+    ],
+    "failure_modes": [
+      "S_xfr < 1.1 * P_total"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-004"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023",
+      "NFPA_70_2023",
+      "DNV_RP_0585"
+    ]
+  },
+  {
+    "calculation_id": "MG-C-042",
+    "name_es": "EV charging load",
+    "purpose": "Calcula la carga agregada de cargadores EV.",
+    "applicability_expression": "technology == '14_hybrid_microgrid'",
+    "input_field_ids": [
+      "MG-118",
+      "MG-023"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_EV = N_EV * P_EV_per * f_diversity",
+      "E_EV = P_EV * T_charge"
+    ],
+    "equations_latex": [
+      "P_{EV} = N_{EV} P_{EV,per} f_{div}",
+      "E_{EV} = P_{EV} T_{charge}"
+    ],
+    "variables": [
+      {
+        "name": "N_EV",
+        "unit": "-"
+      },
+      {
+        "name": "P_EV_per",
+        "unit": "kW"
+      },
+      {
+        "name": "f_diversity",
+        "unit": "-"
+      },
+      {
+        "name": "T_charge",
+        "unit": "h"
+      }
+    ],
+    "unit_equations": [
+      "P_EV [kW] = N_EV [-] * P_EV_per [kW] * f_diversity [-]",
+      "E_EV [kWh] = P_EV [kW] * T_charge [h]"
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1,
+      "tolerance": 0.1
+    },
+    "validity_limits": [
+      "f_diversity en [0.3,1]"
+    ],
+    "outputs": [
+      {
+        "name": "P_EV",
+        "unit": "kW",
+        "min": 0,
+        "max": 10000
+      },
+      {
+        "name": "E_EV",
+        "unit": "kWh",
+        "min": 0,
+        "max": 100000
+      }
+    ],
+    "acceptance_rules": [
+      "P_EV <= 10% de P_peak"
+    ],
+    "failure_modes": [
+      "P_EV > 10% de P_peak -> DR management"
+    ],
+    "drawing_impacts": [
+      "MG-DRW-003",
+      "MG-DRW-016"
+    ],
+    "source_ids": [
+      "IEC_61851_1",
+      "IEEE_2030_2",
+      "NFPA_70_2023",
+      "DNV_RP_0585"
+    ]
+  }
+]

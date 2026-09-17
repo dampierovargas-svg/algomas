@@ -1,0 +1,1705 @@
+[
+  {
+    "rule_id": "CSP-QA-001",
+    "name_es": "Coherencia de coordenadas lat/lon",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "abs(CSP-001)<=90 AND abs(CSP-002)<=180",
+    "severity": "BLOCKED",
+    "message_template": "Latitud o longitud fuera de rango válido",
+    "required_evidence": [
+      "topographic_survey",
+      "geodetic_control"
+    ],
+    "affected_fields": [
+      "CSP-001",
+      "CSP-002"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-001",
+      "CSP-DRW-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111",
+      "ISO_19111",
+      "NASA_POWER",
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-002",
+    "name_es": "Capacidad de planta coherente con DNI y área",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-064 <= (CSP-006/8760 * CSP-005 * 0.001 * eta_optical * eta_cycle)",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad de planta excede recurso solar disponible",
+    "required_evidence": [
+      "solar_resource_report",
+      "prefeasibility_study"
+    ],
+    "affected_fields": [
+      "CSP-006",
+      "CSP-005",
+      "CSP-064",
+      "CSP-108"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-001",
+      "CSP-DRW-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NSRDB_NREL",
+      "NREL_SAM_2024",
+      "ASTM_E891",
+      "ISO_9806",
+      "NREL_SAM_2024",
+      "NREL_TES_CSP",
+      "ASTM_C1549"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-003",
+    "name_es": "DNI anual >= 1800 kWh/m2/yr para viabilidad CSP",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-006 >= 1800",
+    "severity": "BLOCKED",
+    "message_template": "DNI anual inferior a 1800 kWh/m2/yr (sitio no viable para CSP)",
+    "required_evidence": [
+      "solar_resource_report",
+      "tmy_file"
+    ],
+    "affected_fields": [
+      "CSP-006",
+      "CSP-007",
+      "CSP-008"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-001",
+      "CSP-DRW-003",
+      "CSP-DRW-004"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NSRDB_NREL",
+      "NREL_SAM_2024",
+      "ASTM_E891",
+      "ISO_9806",
+      "NREL_SAM_2024"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-004",
+    "name_es": "Eficiencia óptica del campo de heliostatos > 60%",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "plant_type == tower_heliostat",
+    "assertion_expression": "CSP-038 >= 0.55 AND CSP-038 * CSP-032 >= 0.50",
+    "severity": "BLOCKED",
+    "message_template": "Eficiencia óptica del campo de heliostatos menor a 60%",
+    "required_evidence": [
+      "optical_analysis_report",
+      "solarpiLOT_output"
+    ],
+    "affected_fields": [
+      "CSP-038",
+      "CSP-032",
+      "CSP-036",
+      "CSP-037",
+      "CSP-039"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NREL_SAM_2024",
+      "ISO_9806",
+      "ASHRAE_93",
+      "ASTM_C1549",
+      "NREL_SAM_2024"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-005",
+    "name_es": "Eficiencia térmica del colector parabólico > 40%",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "plant_type == parabolic_trough",
+    "assertion_expression": "CSP-C-026 >= 0.40",
+    "severity": "BLOCKED",
+    "message_template": "Eficiencia térmica del colector parabólico menor a 40%",
+    "required_evidence": [
+      "collector_test_report",
+      "sandin_model"
+    ],
+    "affected_fields": [
+      "CSP-103",
+      "CSP-104",
+      "CSP-105",
+      "CSP-106",
+      "CSP-107"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-004"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NREL_SAM_2024",
+      "ISO_9806",
+      "ASHRAE_93",
+      "ASTM_C1549",
+      "ASHRAE_93"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-006",
+    "name_es": "Altura de torre receptora > 20 m",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "plant_type == tower_heliostat",
+    "assertion_expression": "CSP-093 >= 20",
+    "severity": "BLOCKED",
+    "message_template": "Altura de torre receptora menor a 20 m",
+    "required_evidence": [
+      "tower_design",
+      "structural_calc"
+    ],
+    "affected_fields": [
+      "CSP-093",
+      "CSP-094",
+      "CSP-117",
+      "CSP-118"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "ISO_14685",
+      "ANSI_Y14_5",
+      "NREL_SAM_2024",
+      "NREL_TES_CSP",
+      "ASTM_C1549"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-007",
+    "name_es": "Receptor conforme ASME BPVC VIII-1",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "vessel_stamp(ASME_BPVC_VIII_1_2023, receiver) == true",
+    "severity": "BLOCKED",
+    "message_template": "Receptor solar sin sello ASME BPVC VIII-1",
+    "required_evidence": [
+      "receiver_cert",
+      "design_calc"
+    ],
+    "affected_fields": [
+      "CSP-040",
+      "CSP-041",
+      "CSP-042",
+      "CSP-043",
+      "CSP-045"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_BPVC_VIII_1_2023",
+      "ISO_9806",
+      "NREL_TES_CSP",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-008",
+    "name_es": "Tubería HTF conforme ASME B31.1",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "pipe_stamp(ASME_B31_1_2022, CSP-074) == true",
+    "severity": "BLOCKED",
+    "message_template": "Tubería HTF no cumple ASME B31.1",
+    "required_evidence": [
+      "pipe_calculation",
+      "pipe_material_cert"
+    ],
+    "affected_fields": [
+      "CSP-074",
+      "CSP-075",
+      "CSP-076"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-007",
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-009",
+    "name_es": "Tanques TES conforme ASME BPVC VIII-1",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "vessel_stamp(ASME_BPVC_VIII_1_2023, TES_tanks) == true",
+    "severity": "BLOCKED",
+    "message_template": "Tanques de TES sin sello ASME BPVC VIII-1",
+    "required_evidence": [
+      "tes_cert",
+      "vessel_design"
+    ],
+    "affected_fields": [
+      "CSP-054",
+      "CSP-055",
+      "CSP-056",
+      "CSP-057"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_BPVC_VIII_1_2023",
+      "NREL_TES_CSP",
+      "NREL_SAM_2024"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-010",
+    "name_es": "Horas de TES >= 6 h a plena carga",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-058 >= 6",
+    "severity": "BLOCKED",
+    "message_template": "Horas de TES menor a 6 h (mínimo NREL best practices)",
+    "required_evidence": [
+      "tes_capacity_calc",
+      "nrel_best_practices"
+    ],
+    "affected_fields": [
+      "CSP-054",
+      "CSP-057",
+      "CSP-058"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NREL_TES_CSP",
+      "ASME_BPVC_VIII_1_2023",
+      "NREL_TES_CSP",
+      "NREL_SAM_2024"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-011",
+    "name_es": "Eficiencia del ciclo Rankine > 35%",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "power_block_type in [Rankine_conventional,Rankine_supercritical]",
+    "assertion_expression": "CSP-C-017 >= 0.35",
+    "severity": "BLOCKED",
+    "message_template": "Eficiencia del ciclo Rankine menor a 35%",
+    "required_evidence": [
+      "cycle_calc",
+      "iapsw_if97_steam_tables"
+    ],
+    "affected_fields": [
+      "CSP-063",
+      "CSP-064",
+      "CSP-066",
+      "CSP-067",
+      "CSP-068",
+      "CSP-069"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-010",
+      "CSP-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_PTC_10",
+      "IAPWS_IF97",
+      "ISO_1940_1",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-012",
+    "name_es": "Eficiencia del ciclo sCO2 Brayton > 45%",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "power_block_type == sCO2_Brayton",
+    "assertion_expression": "CSP-C-018 >= 0.45",
+    "severity": "BLOCKED",
+    "message_template": "Eficiencia del ciclo sCO2 menor a 45%",
+    "required_evidence": [
+      "sco2_cycle_calc",
+      "nist_webbook"
+    ],
+    "affected_fields": [
+      "CSP-046",
+      "CSP-052",
+      "CSP-066",
+      "CSP-067",
+      "CSP-068",
+      "CSP-069"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-010",
+      "CSP-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_PTC_10",
+      "IAPWS_IF97",
+      "ISO_1940_1",
+      "NIST_WEBBOOK"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-013",
+    "name_es": "Eficiencia isoentrópica de turbina >= 75%",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-069 >= 75",
+    "severity": "BLOCKED",
+    "message_template": "Eficiencia isoentrópica de turbina menor a 75%",
+    "required_evidence": [
+      "turbine_datasheet"
+    ],
+    "affected_fields": [
+      "CSP-066",
+      "CSP-067",
+      "CSP-068",
+      "CSP-069"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_PTC_10",
+      "IAPWS_IF97",
+      "ISO_1940_1"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-014",
+    "name_es": "Capacidad de bridge crane del turbine hall >= 40 t",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "crane_capacity(turbine_hall) >= 40",
+    "severity": "BLOCKED",
+    "message_template": "Bridge crane del turbine hall menor a 40 t",
+    "required_evidence": [
+      "turbine_hall_layout",
+      "crane_datasheet"
+    ],
+    "affected_fields": [
+      "CSP-064",
+      "CSP-065",
+      "CSP-066",
+      "CSP-097"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "ISO_5457",
+      "NFPA_70_2023",
+      "ISO_1940_1"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-015",
+    "name_es": "Interconexión IEEE 1547 con SEIN",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "compliance(IEEE_1547_2018, CSP-082) == true",
+    "severity": "BLOCKED",
+    "message_template": "Punto de interconexión no cumple IEEE 1547-2018",
+    "required_evidence": [
+      "interconnection_study",
+      "coordination_study"
+    ],
+    "affected_fields": [
+      "CSP-080",
+      "CSP-081",
+      "CSP-082"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "IEEE_80_2013",
+      "IEC_60364_5_54",
+      "MINEM_DS_013_2019",
+      "CNE_2011"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-016",
+    "name_es": "Punto de interconexión COES definido",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-082 defined AND PCC_code_in(COES_registry) == true",
+    "severity": "BLOCKED",
+    "message_template": "Punto de interconexión COES no definido",
+    "required_evidence": [
+      "coes_resolution",
+      "interconnection_contract"
+    ],
+    "affected_fields": [
+      "CSP-082",
+      "CSP-080",
+      "CSP-081"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "COES_NCO_2019",
+      "COES_Proyectos_Conexion"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-017",
+    "name_es": "SCADA redundante y protocolo estándar",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-090 in [DNP3,IEC_61850,OPC_UA] AND CSP-091 == true",
+    "severity": "BLOCKED",
+    "message_template": "SCADA sin redundancia o protocolo no estándar",
+    "required_evidence": [
+      "scada_architecture",
+      "iec_61511_sil"
+    ],
+    "affected_fields": [
+      "CSP-089",
+      "CSP-090",
+      "CSP-091",
+      "CSP-092"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1",
+      "IEEE_2030_2",
+      "IEEE_1547_4",
+      "IEC_61724_1",
+      "IEC_61511_1"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-018",
+    "name_es": "SIL asignado al sistema instrumentado de seguridad",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-092 in [SIL1,SIL2,SIL3]",
+    "severity": "BLOCKED",
+    "message_template": "SIL no asignado al sistema instrumentado de seguridad (IEC 61511)",
+    "required_evidence": [
+      "sil_lopa_analysis"
+    ],
+    "affected_fields": [
+      "CSP-089",
+      "CSP-092"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-013",
+      "CSP-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61508_1",
+      "IEC_61511_1",
+      "IEC_61508_1",
+      "MINEM_DS_043_2006"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-019",
+    "name_es": "Clasificación de área NFPA 497 / IEC 60079-10-1 si HTF es oil",
+    "category": "NORMATIVE",
+    "applicability_expression": "HTF_type == synthetic_oil_dowtherm_a",
+    "assertion_expression": "CSP-084 in [Zone_0,Zone_1,Zone_2,non_hazardous]",
+    "severity": "BLOCKED",
+    "message_template": "Clasificación de área no definida para HTF oil (NFPA 497 / IEC 60079-10-1)",
+    "required_evidence": [
+      "area_classification_study"
+    ],
+    "affected_fields": [
+      "CSP-046",
+      "CSP-083",
+      "CSP-084"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-014",
+      "CSP-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_497_2024",
+      "IEC_60079_10_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-020",
+    "name_es": "Tanque de agua contra incendio según NFPA 20",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-085 >= computed_fire_water_demand",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad de tanque de agua contra incendio menor a demanda NFPA 20",
+    "required_evidence": [
+      "fire_water_calc",
+      "nfpa_20_compliance"
+    ],
+    "affected_fields": [
+      "CSP-085",
+      "CSP-086",
+      "CSP-088"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_20_2022",
+      "NFPA_30_2024",
+      "NFPA_13_2022",
+      "NFPA_15_2022",
+      "NFPA_20_2022",
+      "NFPA_497_2024",
+      "NFPA_780_2023",
+      "NFPA_853_2023",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-021",
+    "name_es": "Densidad de rociadores NFPA 13 si HTF es oil",
+    "category": "NORMATIVE",
+    "applicability_expression": "HTF_type == synthetic_oil_dowtherm_a",
+    "assertion_expression": "CSP-086 >= 4.1 AND CSP-086 <= 12.2",
+    "severity": "BLOCKED",
+    "message_template": "Densidad de rociadores fuera de rango NFPA 13",
+    "required_evidence": [
+      "sprinkler_calc"
+    ],
+    "affected_fields": [
+      "CSP-083",
+      "CSP-086"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_13_2022",
+      "NFPA_30_2024"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-022",
+    "name_es": "Frecuencia de lavado de espejos >= semanal",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-101 >= 4",
+    "severity": "BLOCKED",
+    "message_template": "Frecuencia de lavado de espejos menor a 4 veces por año",
+    "required_evidence": [
+      "soiling_study",
+      "operations_plan"
+    ],
+    "affected_fields": [
+      "CSP-027",
+      "CSP-100",
+      "CSP-101",
+      "CSP-102"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "NREL_SAM_2024",
+      "ASTM_C1549",
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-023",
+    "name_es": "Malla de tierra < 1 ohm según IEEE 80",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-109 <= 1.0",
+    "severity": "BLOCKED",
+    "message_template": "Resistencia de malla de tierra excede 1 ohm IEEE 80",
+    "required_evidence": [
+      "grounding_study"
+    ],
+    "affected_fields": [
+      "CSP-001",
+      "CSP-003",
+      "CSP-005",
+      "CSP-109",
+      "CSP-110",
+      "CSP-111"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-012",
+      "CSP-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "IEEE_80_2013",
+      "IEC_60364_5_54",
+      "MINEM_DS_013_2019",
+      "CNE_2011"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-024",
+    "name_es": "Voltaje de paso y contacto dentro de límites IEEE 80",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-110 <= 65 AND CSP-111 <= 230",
+    "severity": "BLOCKED",
+    "message_template": "Voltaje de paso o contacto excede límites IEEE 80",
+    "required_evidence": [
+      "grounding_study",
+      "step_touch_calc"
+    ],
+    "affected_fields": [
+      "CSP-109",
+      "CSP-110",
+      "CSP-111"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEEE_142"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-025",
+    "name_es": "Sello as-built en plano final",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-121 == true",
+    "severity": "BLOCKED",
+    "message_template": "Plano as-built sin sello o fecha de relevamiento",
+    "required_evidence": [
+      "asbuilt_stamp",
+      "survey_report"
+    ],
+    "affected_fields": [
+      "CSP-001",
+      "CSP-002",
+      "CSP-064",
+      "CSP-121"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-017"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_5457",
+      "ISO_7200",
+      "ISO_129_1",
+      "ISO_128_20",
+      "ISO_5455",
+      "ANSI_Y14_5",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-026",
+    "name_es": "Capacity factor anual > 20%",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "computed_capacity_factor >= 0.20",
+    "severity": "BLOCKED",
+    "message_template": "Capacity factor anual menor a 20% (con TES)",
+    "required_evidence": [
+      "sam_yield_report",
+      "annual_production_calc"
+    ],
+    "affected_fields": [
+      "CSP-006",
+      "CSP-064",
+      "CSP-058",
+      "CSP-108"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-017"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NREL_SAM_2024",
+      "NSRDB_NREL",
+      "NREL_SAM_2024",
+      "ASTM_E891",
+      "ISO_9806"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-027",
+    "name_es": "HTF temp hot < temp de degradación",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-052 <= CSP-053",
+    "severity": "BLOCKED",
+    "message_template": "Temperatura HTF hot excede temperatura de degradación",
+    "required_evidence": [
+      "htf_datasheet",
+      "degradation_test"
+    ],
+    "affected_fields": [
+      "CSP-046",
+      "CSP-051",
+      "CSP-052",
+      "CSP-053"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-007",
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "NIST_WEBBOOK",
+      "NREL_TES_CSP",
+      "NIST_WEBBOOK"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-028",
+    "name_es": "HTF temp cold > freeze point si HTF es salt",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "HTF_type contains salt",
+    "assertion_expression": "CSP-051 > CSP-050 + 10",
+    "severity": "BLOCKED",
+    "message_template": "Temperatura HTF cold insuficiente para evitar congelamiento",
+    "required_evidence": [
+      "freeze_protection_calc",
+      "htf_freeze_test"
+    ],
+    "affected_fields": [
+      "CSP-046",
+      "CSP-050",
+      "CSP-051",
+      "CSP-112",
+      "CSP-113"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "NIST_WEBBOOK",
+      "IAPWS_IF97",
+      "NREL_TES_CSP",
+      "NREL_TES_CSP"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-029",
+    "name_es": "Freeze protection presente si HTF es sal fundida",
+    "category": "NORMATIVE",
+    "applicability_expression": "HTF_type contains salt",
+    "assertion_expression": "CSP-112 in [steam_tracing,electric_tracing,N2_blanket,drain_to_tank]",
+    "severity": "BLOCKED",
+    "message_template": "Freeze protection no definido para HTF sal fundida",
+    "required_evidence": [
+      "freeze_protection_design",
+      "nrel_tes_best_practices"
+    ],
+    "affected_fields": [
+      "CSP-046",
+      "CSP-050",
+      "CSP-112",
+      "CSP-113",
+      "CSP-114"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "NIST_WEBBOOK",
+      "IAPWS_IF97",
+      "NREL_TES_CSP",
+      "NREL_TES_CSP"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-030",
+    "name_es": "Detección de CO2 obligatoria si HTF es sCO2",
+    "category": "NORMATIVE",
+    "applicability_expression": "HTF_type == sCO2",
+    "assertion_expression": "CSP-087 == true",
+    "severity": "BLOCKED",
+    "message_template": "Detección de CO2 no presente para HTF sCO2 (riesgo de asfixia)",
+    "required_evidence": [
+      "gas_detection_design",
+      "safety_study"
+    ],
+    "affected_fields": [
+      "CSP-046",
+      "CSP-087"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_853_2023",
+      "NFPA_30_2024",
+      "NFPA_13_2022",
+      "NFPA_15_2022",
+      "NFPA_20_2022",
+      "NFPA_497_2024",
+      "NFPA_780_2023",
+      "NFPA_853_2023",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-031",
+    "name_es": "Consumo de agua de enfriamiento < 3 L/kWh en wet cooling",
+    "category": "NORMATIVE",
+    "applicability_expression": "condenser_type == wet_surface",
+    "assertion_expression": "CSP-115 <= 3.0",
+    "severity": "BLOCKED",
+    "message_template": "Consumo de agua de enfriamiento excede 3 L/kWh (MINAM DS 019)",
+    "required_evidence": [
+      "cooling_water_balance",
+      "environmental_permit"
+    ],
+    "affected_fields": [
+      "CSP-070",
+      "CSP-115",
+      "CSP-116",
+      "CSP-119"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-011",
+      "CSP-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "ASME_BPVC_VIII_1_2023",
+      "IAPWS_IF97",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-032",
+    "name_es": "Drift eliminator >= 99% si cooling tower wet",
+    "category": "NORMATIVE",
+    "applicability_expression": "condenser_type == wet_surface",
+    "assertion_expression": "CSP-116 >= 99.0",
+    "severity": "BLOCKED",
+    "message_template": "Drift eliminator menor a 99% en cooling tower wet",
+    "required_evidence": [
+      "cooling_tower_datasheet"
+    ],
+    "affected_fields": [
+      "CSP-070",
+      "CSP-116",
+      "CSP-119"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-011",
+      "CSP-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "IAPWS_IF97",
+      "ASME_B31_1_2022"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-033",
+    "name_es": "NFPA 30 clasificación HTF oil y NFPA 13 sprinklers",
+    "category": "NORMATIVE",
+    "applicability_expression": "HTF_type == synthetic_oil_dowtherm_a",
+    "assertion_expression": "CSP-083 in [Class_II_combustible,Class_IIIA_combustible] AND CSP-086 >= 4.1",
+    "severity": "BLOCKED",
+    "message_template": "Clasificación NFPA 30 o densidad NFPA 13 no aplicada para HTF oil",
+    "required_evidence": [
+      "fire_protection_design",
+      "nfpa_30_study"
+    ],
+    "affected_fields": [
+      "CSP-046",
+      "CSP-083",
+      "CSP-086",
+      "CSP-088"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_30_2024",
+      "NFPA_13_2022"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-034",
+    "name_es": "Hojas de plano conforme ISO 5457 / 7200",
+    "category": "GRAPHIC",
+    "applicability_expression": "always",
+    "assertion_expression": "sheet_format(CSP-DRW-X) in [A0,A1,A2,A3] AND titleblock(ISO_7200) == true",
+    "severity": "BLOCKED",
+    "message_template": "Formato de hoja o bloque de título no conforme ISO 5457/7200",
+    "required_evidence": [
+      "drawing_checklist"
+    ],
+    "affected_fields": [
+      "CSP-099",
+      "CSP-121"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-001",
+      "CSP-DRW-002",
+      "CSP-DRW-017"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_5457",
+      "ISO_7200"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-035",
+    "name_es": "Símbolos P&ID conforme ISO 10628 / 14617",
+    "category": "GRAPHIC",
+    "applicability_expression": "always",
+    "assertion_expression": "symbols_used(ISO_10628, ISO_14617) == true",
+    "severity": "BLOCKED",
+    "message_template": "P&ID usa símbolos no normalizados por ISO 10628/14617",
+    "required_evidence": [
+      "pid_review"
+    ],
+    "affected_fields": [
+      "CSP-046",
+      "CSP-074",
+      "CSP-075"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-007",
+      "CSP-DRW-008",
+      "CSP-DRW-009",
+      "CSP-DRW-010"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_10628",
+      "ISO_14617",
+      "ISO_10628_2"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-036",
+    "name_es": "Protección contra rayos conforme IEC 62305 / NFPA 780",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "lps_compliance(IEC_62305, NFPA_780_2023) == true",
+    "severity": "BLOCKED",
+    "message_template": "Sistema de protección contra rayos no cumple IEC 62305/NFPA 780",
+    "required_evidence": [
+      "lps_design",
+      "rolling_sphere_calc"
+    ],
+    "affected_fields": [
+      "CSP-003",
+      "CSP-093",
+      "CSP-109",
+      "CSP-110",
+      "CSP-111"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-002",
+      "CSP-DRW-005",
+      "CSP-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023",
+      "IEC_61400_24"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-037",
+    "name_es": "Capacidad de suelo > 200 kPa para fundación de torre",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "plant_type == tower_heliostat",
+    "assertion_expression": "CSP-117 >= 200",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad de suelo < 200 kPa para fundación de torre",
+    "required_evidence": [
+      "geotechnical_study",
+      "iso_14685"
+    ],
+    "affected_fields": [
+      "CSP-093",
+      "CSP-094",
+      "CSP-117",
+      "CSP-118"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111",
+      "ISO_14685",
+      "MINAM_DS_019_2009",
+      "ISO_14685"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-038",
+    "name_es": "PGA sísmica < 1.5 g para sitio CSP",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-118 <= 1.5",
+    "severity": "BLOCKED",
+    "message_template": "PGA sísmica excede 1.5 g en sitio CSP",
+    "required_evidence": [
+      "seismic_study",
+      "geotechnical_report"
+    ],
+    "affected_fields": [
+      "CSP-093",
+      "CSP-094",
+      "CSP-118"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111",
+      "ISO_14685",
+      "MINAM_DS_019_2009",
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-039",
+    "name_es": "Wind speed V50 < 60 m/s para estructuras de heliostato",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-013 <= 60",
+    "severity": "BLOCKED",
+    "message_template": "V50 de viento excede 60 m/s (revisar diseño estructural de heliostatos)",
+    "required_evidence": [
+      "wind_study",
+      "iec_61400_1_compliance"
+    ],
+    "affected_fields": [
+      "CSP-013",
+      "CSP-093",
+      "CSP-095"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-003",
+      "CSP-DRW-005"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_19111",
+      "NASA_POWER",
+      "MINAM_DS_019_2009",
+      "IEC_61400_1"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-040",
+    "name_es": "Coordenadas en implantación general",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "has_coordinates(CSP-DRW-002) AND coordinate_count >= equipment_count",
+    "severity": "BLOCKED",
+    "message_template": "Faltan coordenadas en plano de implantación general",
+    "required_evidence": [
+      "implant_plan"
+    ],
+    "affected_fields": [
+      "CSP-001",
+      "CSP-002",
+      "CSP-005",
+      "CSP-064"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_5457",
+      "ISO_7200",
+      "ISO_129_1",
+      "ISO_128_20",
+      "ISO_5455",
+      "ANSI_Y14_5",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-041",
+    "name_es": "Capacidad de planta reportada en implantación",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-064 displayed_on(CSP-DRW-002) AND CSP-065 displayed_on(CSP-DRW-002)",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad bruta/neta no reportada en plano de implantación",
+    "required_evidence": [
+      "implant_plan"
+    ],
+    "affected_fields": [
+      "CSP-064",
+      "CSP-065"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-002"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_5457",
+      "ISO_7200",
+      "ISO_129_1",
+      "ISO_128_20",
+      "ISO_5455",
+      "ANSI_Y14_5",
+      "ISO_13567_1",
+      "ASME_PTC_10",
+      "IAPWS_IF97",
+      "ISO_1940_1"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-042",
+    "name_es": "Packing density del campo de heliostatos en [0.10, 0.50]",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "plant_type == tower_heliostat",
+    "assertion_expression": "CSP-035 >= 0.10 AND CSP-035 <= 0.50",
+    "severity": "BLOCKED",
+    "message_template": "Packing density del campo fuera de [0.10, 0.50]",
+    "required_evidence": [
+      "solarpiLOT_layout",
+      "optical_analysis_report"
+    ],
+    "affected_fields": [
+      "CSP-034",
+      "CSP-035",
+      "CSP-036",
+      "CSP-037"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-003"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NREL_SAM_2024",
+      "NREL_TES_CSP",
+      "ASTM_C1549",
+      "NREL_SAM_2024"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-043",
+    "name_es": "Tubo absorbedor HCE con absortancia > 0.90 y emisividad < 0.20",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "plant_type == parabolic_trough",
+    "assertion_expression": "CSP-106 >= 0.90 AND CSP-107 <= 0.20",
+    "severity": "BLOCKED",
+    "message_template": "HCE no cumple absortancia >= 0.90 o emisividad <= 0.20",
+    "required_evidence": [
+      "hce_datasheet",
+      "iso_9806_test"
+    ],
+    "affected_fields": [
+      "CSP-105",
+      "CSP-106",
+      "CSP-107"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-004"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_9806",
+      "ISO_22975_1",
+      "ASME_BPVC_VIII_1_2023",
+      "ISO_9806",
+      "NREL_TES_CSP",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-044",
+    "name_es": "Presión de diseño del receptor conforme ASME BPVC VIII-1",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-043 >= computed_design_pressure_receiver",
+    "severity": "BLOCKED",
+    "message_template": "Presión de diseño del receptor menor a presión calculada ASME BPVC",
+    "required_evidence": [
+      "receiver_design_calc",
+      "asme_bpvc_stamp"
+    ],
+    "affected_fields": [
+      "CSP-040",
+      "CSP-041",
+      "CSP-042",
+      "CSP-043",
+      "CSP-045"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_BPVC_VIII_1_2023",
+      "ISO_9806",
+      "NREL_TES_CSP",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-045",
+    "name_es": "Freeze protection tracing activo si T_amb < T_freeze + 10",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "HTF_type contains salt",
+    "assertion_expression": "CSP-011 < CSP-050 + 10 AND CSP-112 in [steam_tracing,electric_tracing]",
+    "severity": "BLOCKED",
+    "message_template": "Freeze protection tracing no activo cuando T_amb < T_freeze+10",
+    "required_evidence": [
+      "freeze_protection_design",
+      "climate_data"
+    ],
+    "affected_fields": [
+      "CSP-011",
+      "CSP-050",
+      "CSP-112",
+      "CSP-113"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "NIST_WEBBOOK",
+      "IAPWS_IF97",
+      "NREL_TES_CSP",
+      "NREL_TES_CSP"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-046",
+    "name_es": "Tanque de expansión HTF con N2 blanket",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "HTF_type in [synthetic_oil_dowtherm_a,molten_salt_60NaNO3_40KNO3]",
+    "assertion_expression": "N2_blanket_present(expansion_tank) == true",
+    "severity": "BLOCKED",
+    "message_template": "Tanque de expansión del HTF sin colchón de N2",
+    "required_evidence": [
+      "htf_expansion_tank_design"
+    ],
+    "affected_fields": [
+      "CSP-046",
+      "CSP-112",
+      "CSP-114"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASME_B31_1_2022",
+      "NIST_WEBBOOK",
+      "IAPWS_IF97",
+      "NREL_TES_CSP",
+      "NREL_TES_CSP"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-047",
+    "name_es": "Balance de rotor según ISO 1940-1 en turbina",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "ISO_1940_balance_grade displayed_on(CSP-DRW-011)",
+    "severity": "BLOCKED",
+    "message_template": "Plano del turbine hall no reporta balance ISO 1940-1",
+    "required_evidence": [
+      "rotor_balance_test"
+    ],
+    "affected_fields": [
+      "CSP-064",
+      "CSP-066",
+      "CSP-069"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-011"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ISO_1940_1",
+      "ASME_PTC_10",
+      "IAPWS_IF97",
+      "ISO_1940_1"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-048",
+    "name_es": "Protección y vector group reportados en SLD",
+    "category": "DOCUMENTARY",
+    "applicability_expression": "always",
+    "assertion_expression": "has_protection_table(CSP-DRW-012) AND has_vector_group",
+    "severity": "BLOCKED",
+    "message_template": "SLD sin tabla de protecciones o vector group",
+    "required_evidence": [
+      "sld_drawing"
+    ],
+    "affected_fields": [
+      "CSP-078",
+      "CSP-079",
+      "CSP-080",
+      "CSP-081",
+      "CSP-082"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "IEEE_80_2013",
+      "IEC_60364_5_54",
+      "MINEM_DS_013_2019",
+      "CNE_2011",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-049",
+    "name_es": "DCS redundante y SIL verificado IEC 61511",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-091 == true AND CSP-092 in [SIL1,SIL2,SIL3]",
+    "severity": "BLOCKED",
+    "message_template": "DCS no redundante o SIL no verificado (IEC 61511)",
+    "required_evidence": [
+      "sil_verification",
+      "dc_redundancy_test"
+    ],
+    "affected_fields": [
+      "CSP-089",
+      "CSP-091",
+      "CSP-092"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-013"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61508_1",
+      "IEC_61511_1",
+      "IEC_61508_1",
+      "MINEM_DS_043_2006"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-050",
+    "name_es": "Cobertura de hidrantes 100% en planta",
+    "category": "TOPOLOGICAL",
+    "applicability_expression": "always",
+    "assertion_expression": "hydrant_coverage(CSP-DRW-014) >= 1.0",
+    "severity": "BLOCKED",
+    "message_template": "Hidrantes no cubren toda el área de planta CSP",
+    "required_evidence": [
+      "fire_water_layout"
+    ],
+    "affected_fields": [
+      "CSP-085",
+      "CSP-086",
+      "CSP-088"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_30_2024",
+      "NFPA_13_2022",
+      "NFPA_15_2022",
+      "NFPA_20_2022",
+      "NFPA_497_2024",
+      "NFPA_780_2023",
+      "NFPA_853_2023",
+      "NFPA_70_2023",
+      "NFPA_20_2022"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-051",
+    "name_es": "Camino de lavado con ancho >= 4 m y pendiente < 8%",
+    "category": "GEOMETRIC",
+    "applicability_expression": "always",
+    "assertion_expression": "road_width(CSP-DRW-015) >= 4 AND road_slope(CSP-DRW-015) < 8",
+    "severity": "BLOCKED",
+    "message_template": "Camino de lavado con ancho < 4 m o pendiente > 8%",
+    "required_evidence": [
+      "washing_road_layout"
+    ],
+    "affected_fields": [
+      "CSP-005",
+      "CSP-100",
+      "CSP-101",
+      "CSP-102"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "NREL_SAM_2024",
+      "ASTM_C1549",
+      "ISO_5457",
+      "ISO_7200",
+      "ISO_129_1",
+      "ISO_128_20",
+      "ISO_5455",
+      "ANSI_Y14_5",
+      "ISO_13567_1"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-052",
+    "name_es": "LPS con rolling sphere method (IEC 62305)",
+    "category": "GRAPHIC",
+    "applicability_expression": "always",
+    "assertion_expression": "rolling_sphere_method(CSP-DRW-016) == true",
+    "severity": "BLOCKED",
+    "message_template": "LPS no diseñado con método rolling sphere IEC 62305",
+    "required_evidence": [
+      "lps_design",
+      "rolling_sphere_calc"
+    ],
+    "affected_fields": [
+      "CSP-003",
+      "CSP-093",
+      "CSP-109",
+      "CSP-110"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-016"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-053",
+    "name_es": "Capacidad del transformador MVA >= capacidad del generador",
+    "category": "NUMERIC_COHERENCE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-080 >= CSP-078 * 1.05",
+    "severity": "BLOCKED",
+    "message_template": "Capacidad del transformador menor al 105% del generador",
+    "required_evidence": [
+      "transformer_datasheet",
+      "generator_datasheet"
+    ],
+    "affected_fields": [
+      "CSP-078",
+      "CSP-080",
+      "CSP-081"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-012"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "IEEE_80_2013",
+      "IEC_60364_5_54",
+      "MINEM_DS_013_2019",
+      "CNE_2011"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-054",
+    "name_es": "Mantenimiento de reflectancia de espejos según ASTM C1549",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "CSP-024 >= 0.85 AND CSP-032 >= 0.85",
+    "severity": "BLOCKED",
+    "message_template": "Reflectancia de espejos < 0.85 (ASTM C1549)",
+    "required_evidence": [
+      "mirror_reflectance_report",
+      "astm_c1549_test"
+    ],
+    "affected_fields": [
+      "CSP-024",
+      "CSP-032",
+      "CSP-027"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-003",
+      "CSP-DRW-004",
+      "CSP-DRW-015"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "ASTM_C1549",
+      "ASTM_E891"
+    ]
+  },
+  {
+    "rule_id": "CSP-QA-055",
+    "name_es": "NFPA 850 / NFPA 853 cumplimiento protección contra incendios planta CSP",
+    "category": "NORMATIVE",
+    "applicability_expression": "always",
+    "assertion_expression": "compliance(NFPA_850_equivalent, CSP_fire_protection) == true AND NFPA_853_auxiliary_compliance == true",
+    "severity": "BLOCKED",
+    "message_template": "Sistema de protección contra incendios no cumple NFPA 30/13/15/20 (equivalente NFPA 850)",
+    "required_evidence": [
+      "fire_safety_report",
+      "nfpa_13_design",
+      "nfpa_20_design"
+    ],
+    "affected_fields": [
+      "CSP-046",
+      "CSP-083",
+      "CSP-084",
+      "CSP-085",
+      "CSP-086",
+      "CSP-087",
+      "CSP-088"
+    ],
+    "affected_drawings": [
+      "CSP-DRW-014"
+    ],
+    "override_allowed": false,
+    "override_role": null,
+    "source_ids": [
+      "NFPA_30_2024",
+      "NFPA_13_2022",
+      "NFPA_15_2022",
+      "NFPA_20_2022",
+      "NFPA_853_2023"
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "technology": "03_pv_floating",
+  "project_id": "TEST-PVF-002",
+  "project_stage": "BASIC_ENGINEERING",
+  "fields": {},
+  "missing_fields": [
+    "PVF-001"
+  ],
+  "drawings_to_generate": [
+    "PVF-DRW-001",
+    "PVF-DRW-002",
+    "PVF-DRW-003"
+  ]
+}

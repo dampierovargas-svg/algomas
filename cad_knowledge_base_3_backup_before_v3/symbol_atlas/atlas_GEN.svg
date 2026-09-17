@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="1430" viewBox="0 0 320 1430">
+  <rect width="320" height="1430" fill="white"/>
+  <text x="160" y="20" font-size="14" text-anchor="middle" font-weight="bold">Atlas: GEN (111 símbolos)</text>
+  <rect x="10" y="40" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="29.0,49.0 61.0,49.0 61.0,81.0 29.0,81.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="45" y="65" font-size="5.0" text-anchor="middle">ZONE <class></text>
+  <text x="40" y="97" font-size="6" text-anchor="middle">SYM-MISC-001</text>
+  <rect x="70" y="40" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="89.0,49.0 121.0,49.0 121.0,81.0 89.0,81.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <line x1="89" y1="49" x2="121" y2="81" stroke="black" stroke-width="1.0"/>
+  <text x="100" y="97" font-size="6" text-anchor="middle">SYM-MISC-002</text>
+  <rect x="130" y="40" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="147" y="47" width="76" height="36" fill="none" stroke="black" stroke-width="1.0"/>
+  <line x1="147" y1="53" x2="223" y2="53" stroke="black" stroke-width="1.0"/>
+  <text x="160" y="97" font-size="6" text-anchor="middle">SYM-MISC-003</text>
+  <rect x="190" y="40" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="207" y="47" width="76" height="36" fill="none" stroke="black" stroke-width="1.0"/>
+  <line x1="221" y1="47" x2="221" y2="83" stroke="black" stroke-width="1.0"/>
+  <line x1="245" y1="47" x2="245" y2="83" stroke="black" stroke-width="1.0"/>
+  <line x1="265" y1="47" x2="265" y2="83" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="97" font-size="6" text-anchor="middle">SYM-MISC-004</text>
+  <rect x="250" y="40" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="267" y="47" width="76" height="56" fill="none" stroke="black" stroke-width="1.0"/>
+  <line x1="267" y1="53" x2="343" y2="53" stroke="black" stroke-width="1.0"/>
+  <text x="280" y="97" font-size="6" text-anchor="middle">SYM-MISC-005</text>
+  <rect x="10" y="100" width="60" height="60" fill="none" stroke="#ccc"/>
+  <circle cx="55" cy="120.0" r="14" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="55" y="120.0" font-size="5.0" text-anchor="middle">AFC</text>
+  <text x="40" y="157" font-size="6" text-anchor="middle">SYM-MISC-006</text>
+  <rect x="70" y="100" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="87" y="107" width="26" height="26" fill="none" stroke="black" stroke-width="1.0"/>
+  <line x1="87" y1="119" x2="113" y2="119" stroke="black" stroke-width="1.0"/>
+  <line x1="99" y1="107" x2="99" y2="133" stroke="black" stroke-width="1.0"/>
+  <text x="100" y="157" font-size="6" text-anchor="middle">SYM-MISC-007</text>
+  <rect x="130" y="100" width="60" height="60" fill="none" stroke="#ccc"/>
+  <circle cx="165" cy="115" r="8" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="165" y="115" font-size="5.0" text-anchor="middle">REV</text>
+  <text x="160" y="157" font-size="6" text-anchor="middle">SYM-MISC-008</text>
+  <rect x="190" y="100" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="205.0,111.0 235.0,111.0 220.0,105.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <line x1="220.0" y1="111" x2="220.0" y2="115" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="157" font-size="6" text-anchor="middle">SYM-MISC-009</text>
+  <rect x="250" y="100" width="60" height="60" fill="none" stroke="#ccc"/>
+  <polygon points="265.0,107.0 281.0,107.0 281.0,105.0 285.0,110.0 281.0,115.0 281.0,113.0 265.0,113.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="280" y="157" font-size="6" text-anchor="middle">SYM-MISC-010</text>
+  <rect x="10" y="160" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="169" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="185" font-size="5.0" text-anchor="middle">COM-AS-B</text>
+  <text x="40" y="217" font-size="6" text-anchor="middle">SYM-COM-AS-BUIL</text>
+  <rect x="70" y="160" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="169" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="185" font-size="5.0" text-anchor="middle">COM-LEGE</text>
+  <text x="100" y="217" font-size="6" text-anchor="middle">SYM-COM-LEGEND</text>
+  <rect x="130" y="160" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="145" y1="175" x2="153" y2="175" stroke="black" stroke-width="2.0"/>
+  <line x1="157" y1="175" x2="165" y2="175" stroke="black" stroke-width="2.0"/>
+  <line x1="153" y1="175" x2="157" y2="169" stroke="black" stroke-width="2.0"/>
+  <circle cx="155" cy="171" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="160" y="217" font-size="6" text-anchor="middle">SYM-COM-LPS</text>
+  <rect x="190" y="160" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="169" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="185" font-size="5.0" text-anchor="middle">COM-NETW</text>
+  <text x="220" y="217" font-size="6" text-anchor="middle">SYM-COM-NETWORK</text>
+  <rect x="250" y="160" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="169" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="185" font-size="5.0" text-anchor="middle">COM-NORT</text>
+  <text x="280" y="217" font-size="6" text-anchor="middle">SYM-COM-NORTH</text>
+  <rect x="10" y="220" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="25" y1="235" x2="33" y2="235" stroke="black" stroke-width="2.0"/>
+  <line x1="37" y1="235" x2="45" y2="235" stroke="black" stroke-width="2.0"/>
+  <line x1="33" y1="235" x2="37" y2="229" stroke="black" stroke-width="2.0"/>
+  <circle cx="35" cy="231" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="40" y="277" font-size="6" text-anchor="middle">SYM-COM-ROAD</text>
+  <rect x="70" y="220" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="229" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="245" font-size="5.0" text-anchor="middle">COM-SCAL</text>
+  <text x="100" y="277" font-size="6" text-anchor="middle">SYM-COM-SCALEBA</text>
+  <rect x="130" y="220" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="229" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="245" font-size="5.0" text-anchor="middle">COM-WATE</text>
+  <text x="160" y="277" font-size="6" text-anchor="middle">SYM-COM-WATER</text>
+  <rect x="190" y="220" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="205" y1="235" x2="213" y2="235" stroke="black" stroke-width="2.0"/>
+  <line x1="217" y1="235" x2="225" y2="235" stroke="black" stroke-width="2.0"/>
+  <line x1="213" y1="235" x2="217" y2="229" stroke="black" stroke-width="2.0"/>
+  <circle cx="215" cy="231" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="277" font-size="6" text-anchor="middle">SYM-CTRL-HMI</text>
+  <rect x="250" y="220" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="229" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="245" font-size="5.0" text-anchor="middle">CTRL-NET</text>
+  <text x="280" y="277" font-size="6" text-anchor="middle">SYM-CTRL-NETWOR</text>
+  <rect x="10" y="280" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="25" y1="295" x2="33" y2="295" stroke="black" stroke-width="2.0"/>
+  <line x1="37" y1="295" x2="45" y2="295" stroke="black" stroke-width="2.0"/>
+  <line x1="33" y1="295" x2="37" y2="289" stroke="black" stroke-width="2.0"/>
+  <circle cx="35" cy="291" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="40" y="337" font-size="6" text-anchor="middle">SYM-CTRL-PLC</text>
+  <rect x="70" y="280" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="85" y1="295" x2="93" y2="295" stroke="black" stroke-width="2.0"/>
+  <line x1="97" y1="295" x2="105" y2="295" stroke="black" stroke-width="2.0"/>
+  <line x1="93" y1="295" x2="97" y2="289" stroke="black" stroke-width="2.0"/>
+  <circle cx="95" cy="291" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="100" y="337" font-size="6" text-anchor="middle">SYM-CTRL-RTU</text>
+  <rect x="130" y="280" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="289" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="305" font-size="5.0" text-anchor="middle">ELEC-BRE</text>
+  <text x="160" y="337" font-size="6" text-anchor="middle">SYM-ELEC-BREAKE</text>
+  <rect x="190" y="280" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="205" y1="295" x2="213" y2="295" stroke="black" stroke-width="2.0"/>
+  <line x1="217" y1="295" x2="225" y2="295" stroke="black" stroke-width="2.0"/>
+  <line x1="213" y1="295" x2="217" y2="289" stroke="black" stroke-width="2.0"/>
+  <circle cx="215" cy="291" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="337" font-size="6" text-anchor="middle">SYM-ELEC-CT</text>
+  <rect x="250" y="280" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="265" y1="295" x2="273" y2="295" stroke="black" stroke-width="2.0"/>
+  <line x1="277" y1="295" x2="285" y2="295" stroke="black" stroke-width="2.0"/>
+  <line x1="273" y1="295" x2="277" y2="289" stroke="black" stroke-width="2.0"/>
+  <circle cx="275" cy="291" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="280" y="337" font-size="6" text-anchor="middle">SYM-ELEC-PT</text>
+  <rect x="10" y="340" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="349" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="365" font-size="5.0" text-anchor="middle">ELEC-REL</text>
+  <text x="40" y="397" font-size="6" text-anchor="middle">SYM-ELEC-RELAY</text>
+  <rect x="70" y="340" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="349" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="365" font-size="5.0" text-anchor="middle">ELEC-TRA</text>
+  <text x="100" y="397" font-size="6" text-anchor="middle">SYM-ELEC-TRANSF</text>
+  <rect x="130" y="340" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="349" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="365" font-size="5.0" text-anchor="middle">PFD-DEMI</text>
+  <text x="160" y="397" font-size="6" text-anchor="middle">SYM-PFD-DEMISTE</text>
+  <rect x="190" y="340" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="205" y1="355" x2="213" y2="355" stroke="black" stroke-width="2.0"/>
+  <line x1="217" y1="355" x2="225" y2="355" stroke="black" stroke-width="2.0"/>
+  <line x1="213" y1="355" x2="217" y2="349" stroke="black" stroke-width="2.0"/>
+  <circle cx="215" cy="351" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="397" font-size="6" text-anchor="middle">SYM-PFD-HEX</text>
+  <rect x="250" y="340" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="265" y1="355" x2="273" y2="355" stroke="black" stroke-width="2.0"/>
+  <line x1="277" y1="355" x2="285" y2="355" stroke="black" stroke-width="2.0"/>
+  <line x1="273" y1="355" x2="277" y2="349" stroke="black" stroke-width="2.0"/>
+  <circle cx="275" cy="351" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="280" y="397" font-size="6" text-anchor="middle">SYM-PFD-PUMP</text>
+  <rect x="10" y="400" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="409" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="425" font-size="5.0" text-anchor="middle">PFD-SEPA</text>
+  <text x="40" y="457" font-size="6" text-anchor="middle">SYM-PFD-SEPARAT</text>
+  <rect x="70" y="400" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="85" y1="415" x2="93" y2="415" stroke="black" stroke-width="2.0"/>
+  <line x1="97" y1="415" x2="105" y2="415" stroke="black" stroke-width="2.0"/>
+  <line x1="93" y1="415" x2="97" y2="409" stroke="black" stroke-width="2.0"/>
+  <circle cx="95" cy="411" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="100" y="457" font-size="6" text-anchor="middle">SYM-PFD-TANK</text>
+  <rect x="130" y="400" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="409" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="425" font-size="5.0" text-anchor="middle">PFD-VALV</text>
+  <text x="160" y="457" font-size="6" text-anchor="middle">SYM-PFD-VALVE</text>
+  <rect x="190" y="400" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="409" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="425" font-size="5.0" text-anchor="middle">PFD-VALV</text>
+  <text x="220" y="457" font-size="6" text-anchor="middle">SYM-PFD-VALVE-C</text>
+  <rect x="250" y="400" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="409" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="425" font-size="5.0" text-anchor="middle">PID-COND</text>
+  <text x="280" y="457" font-size="6" text-anchor="middle">SYM-PID-CONDENS</text>
+  <rect x="10" y="460" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="25" y1="475" x2="33" y2="475" stroke="black" stroke-width="2.0"/>
+  <line x1="37" y1="475" x2="45" y2="475" stroke="black" stroke-width="2.0"/>
+  <line x1="33" y1="475" x2="37" y2="469" stroke="black" stroke-width="2.0"/>
+  <circle cx="35" cy="471" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="40" y="517" font-size="6" text-anchor="middle">SYM-PID-FT</text>
+  <rect x="70" y="460" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="85" y1="475" x2="93" y2="475" stroke="black" stroke-width="2.0"/>
+  <line x1="97" y1="475" x2="105" y2="475" stroke="black" stroke-width="2.0"/>
+  <line x1="93" y1="475" x2="97" y2="469" stroke="black" stroke-width="2.0"/>
+  <circle cx="95" cy="471" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="100" y="517" font-size="6" text-anchor="middle">SYM-PID-PUMP</text>
+  <rect x="130" y="460" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="145" y1="475" x2="153" y2="475" stroke="black" stroke-width="2.0"/>
+  <line x1="157" y1="475" x2="165" y2="475" stroke="black" stroke-width="2.0"/>
+  <line x1="153" y1="475" x2="157" y2="469" stroke="black" stroke-width="2.0"/>
+  <circle cx="155" cy="471" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="160" y="517" font-size="6" text-anchor="middle">SYM-PID-SG</text>
+  <rect x="190" y="460" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="205" y1="475" x2="213" y2="475" stroke="black" stroke-width="2.0"/>
+  <line x1="217" y1="475" x2="225" y2="475" stroke="black" stroke-width="2.0"/>
+  <line x1="213" y1="475" x2="217" y2="469" stroke="black" stroke-width="2.0"/>
+  <circle cx="215" cy="471" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="517" font-size="6" text-anchor="middle">SYM-PID-TANK</text>
+  <rect x="250" y="460" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="265" y1="475" x2="273" y2="475" stroke="black" stroke-width="2.0"/>
+  <line x1="277" y1="475" x2="285" y2="475" stroke="black" stroke-width="2.0"/>
+  <line x1="273" y1="475" x2="277" y2="469" stroke="black" stroke-width="2.0"/>
+  <circle cx="275" cy="471" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="280" y="517" font-size="6" text-anchor="middle">SYM-PID-TT</text>
+  <rect x="10" y="520" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="529" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="545" font-size="5.0" text-anchor="middle">PID-TURB</text>
+  <text x="40" y="577" font-size="6" text-anchor="middle">SYM-PID-TURBINE</text>
+  <rect x="70" y="520" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="529" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="545" font-size="5.0" text-anchor="middle">PID-VALV</text>
+  <text x="100" y="577" font-size="6" text-anchor="middle">SYM-PID-VALVE</text>
+  <rect x="130" y="520" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="529" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="545" font-size="5.0" text-anchor="middle">PID-VALV</text>
+  <text x="160" y="577" font-size="6" text-anchor="middle">SYM-PID-VALVE-C</text>
+  <rect x="190" y="520" width="60" height="60" fill="none" stroke="#ccc"/>
+  <line x1="205" y1="535" x2="213" y2="535" stroke="black" stroke-width="2.0"/>
+  <line x1="217" y1="535" x2="225" y2="535" stroke="black" stroke-width="2.0"/>
+  <line x1="213" y1="535" x2="217" y2="529" stroke="black" stroke-width="2.0"/>
+  <circle cx="215" cy="531" r="3.0" fill="none" stroke="black" stroke-width="1.0"/>
+  <text x="220" y="577" font-size="6" text-anchor="middle">SYM-PROC-HEX</text>
+  <rect x="250" y="520" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="529" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="545" font-size="5.0" text-anchor="middle">PROC-PUM</text>
+  <text x="280" y="577" font-size="6" text-anchor="middle">SYM-PROC-PUMP</text>
+  <rect x="10" y="580" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="589" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="605" font-size="5.0" text-anchor="middle">PROC-TUR</text>
+  <text x="40" y="637" font-size="6" text-anchor="middle">SYM-PROC-TURBIN</text>
+  <rect x="70" y="580" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="589" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="605" font-size="5.0" text-anchor="middle">PROC-VAL</text>
+  <text x="100" y="637" font-size="6" text-anchor="middle">SYM-PROC-VALVE</text>
+  <rect x="130" y="580" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="589" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="605" font-size="5.0" text-anchor="middle">PROC-VES</text>
+  <text x="160" y="637" font-size="6" text-anchor="middle">SYM-PROC-VESSEL</text>
+  <rect x="190" y="580" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="589" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <line x1="205" y1="605" x2="209" y2="605" stroke="black" stroke-width="1.0"/>
+  <line x1="241" y1="605" x2="245" y2="605" stroke="black" stroke-width="1.0"/>
+  <text x="225" y="605" font-size="5.0" text-anchor="middle">BREAKER SYMB</text>
+  <text x="220" y="637" font-size="6" text-anchor="middle">BREAKER_SYMBOL</text>
+  <rect x="250" y="580" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="589" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <line x1="265" y1="605" x2="269" y2="605" stroke="black" stroke-width="1.0"/>
+  <line x1="301" y1="605" x2="305" y2="605" stroke="black" stroke-width="1.0"/>
+  <text x="285" y="605" font-size="5.0" text-anchor="middle">DC DISCONNEC</text>
+  <text x="280" y="637" font-size="6" text-anchor="middle">DC_DISCONNECT</text>
+  <rect x="10" y="640" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="649" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <line x1="25" y1="665" x2="29" y2="665" stroke="black" stroke-width="1.0"/>
+  <line x1="61" y1="665" x2="65" y2="665" stroke="black" stroke-width="1.0"/>
+  <text x="45" y="665" font-size="5.0" text-anchor="middle">PV MODULE SY</text>
+  <text x="40" y="697" font-size="6" text-anchor="middle">PV_MODULE_SYMBO</text>
+  <rect x="70" y="640" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="649" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <line x1="85" y1="665" x2="89" y2="665" stroke="black" stroke-width="1.0"/>
+  <line x1="121" y1="665" x2="125" y2="665" stroke="black" stroke-width="1.0"/>
+  <text x="105" y="665" font-size="5.0" text-anchor="middle">PV STRING SY</text>
+  <text x="100" y="697" font-size="6" text-anchor="middle">PV_STRING_SYMBO</text>
+  <rect x="130" y="640" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="649" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <line x1="145" y1="665" x2="149" y2="665" stroke="black" stroke-width="1.0"/>
+  <line x1="181" y1="665" x2="185" y2="665" stroke="black" stroke-width="1.0"/>
+  <text x="165" y="665" font-size="5.0" text-anchor="middle">PV INVERTER </text>
+  <text x="160" y="697" font-size="6" text-anchor="middle">PV_INVERTER_SYM</text>
+  <rect x="190" y="640" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="649" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <line x1="205" y1="665" x2="209" y2="665" stroke="black" stroke-width="1.0"/>
+  <line x1="241" y1="665" x2="245" y2="665" stroke="black" stroke-width="1.0"/>
+  <text x="225" y="665" font-size="5.0" text-anchor="middle">COMBINER SYM</text>
+  <text x="220" y="697" font-size="6" text-anchor="middle">COMBINER_SYMBOL</text>
+  <rect x="250" y="640" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="649" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="665" font-size="5.0" text-anchor="middle">BAT_ACTI</text>
+  <text x="280" y="697" font-size="6" text-anchor="middle">BAT_ACTION_POIN</text>
+  <rect x="10" y="700" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="709" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="725" font-size="5.0" text-anchor="middle">BAT_ACTI</text>
+  <text x="40" y="757" font-size="6" text-anchor="middle">CONTROL_POINT</text>
+  <rect x="70" y="700" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="709" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="725" font-size="5.0" text-anchor="middle">CONTAINE</text>
+  <text x="100" y="757" font-size="6" text-anchor="middle">CONTAINER_SYMBO</text>
+  <rect x="130" y="700" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="709" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="725" font-size="5.0" text-anchor="middle">DR_CONTR</text>
+  <text x="160" y="757" font-size="6" text-anchor="middle">DR_CONTROLLER_S</text>
+  <rect x="190" y="700" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="709" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="725" font-size="5.0" text-anchor="middle">DR_CONTR</text>
+  <text x="220" y="757" font-size="6" text-anchor="middle">EV_CHARGER_SYMB</text>
+  <rect x="250" y="700" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="709" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="725" font-size="5.0" text-anchor="middle">DR_CONTR</text>
+  <text x="280" y="757" font-size="6" text-anchor="middle">EV_CIRCUIT_SYMB</text>
+  <rect x="10" y="760" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="769" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="785" font-size="5.0" text-anchor="middle">DR_CONTR</text>
+  <text x="40" y="817" font-size="6" text-anchor="middle">METER_SYMBOL</text>
+  <rect x="70" y="760" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="769" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="785" font-size="5.0" text-anchor="middle">EMS_SYMB</text>
+  <text x="100" y="817" font-size="6" text-anchor="middle">OPTIMIZER_SYMBO</text>
+  <rect x="130" y="760" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="769" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="785" font-size="5.0" text-anchor="middle">EMS_SYMB</text>
+  <text x="160" y="817" font-size="6" text-anchor="middle">FORECAST_SYMBOL</text>
+  <rect x="190" y="760" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="769" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="785" font-size="5.0" text-anchor="middle">EMS_SYMB</text>
+  <text x="220" y="817" font-size="6" text-anchor="middle">DR_CONTROLLER_S</text>
+  <rect x="250" y="760" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="769" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="785" font-size="5.0" text-anchor="middle">EMS_SYMB</text>
+  <text x="280" y="817" font-size="6" text-anchor="middle">PLC_SYMBOL</text>
+  <rect x="10" y="820" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="829" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="845" font-size="5.0" text-anchor="middle">EMS_SYMB</text>
+  <text x="40" y="877" font-size="6" text-anchor="middle">IED_SYMBOL</text>
+  <rect x="70" y="820" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="829" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="845" font-size="5.0" text-anchor="middle">EQUIPMEN</text>
+  <text x="100" y="877" font-size="6" text-anchor="middle">EQUIPMENT_SYMBO</text>
+  <rect x="130" y="820" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="829" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="845" font-size="5.0" text-anchor="middle">EQUIPMEN</text>
+  <text x="160" y="877" font-size="6" text-anchor="middle">COORDINATE_SYMB</text>
+  <rect x="190" y="820" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="829" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="845" font-size="5.0" text-anchor="middle">GROUNDIN</text>
+  <text x="220" y="877" font-size="6" text-anchor="middle">AIR_TERMINAL_SY</text>
+  <rect x="250" y="820" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="829" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="845" font-size="5.0" text-anchor="middle">GROUND_R</text>
+  <text x="280" y="877" font-size="6" text-anchor="middle">AIR_TERMINAL_SY</text>
+  <rect x="10" y="880" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="889" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="905" font-size="5.0" text-anchor="middle">HVAC_DUC</text>
+  <text x="40" y="937" font-size="6" text-anchor="middle">HVAC_DUCT_SYMBO</text>
+  <rect x="70" y="880" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="889" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="905" font-size="5.0" text-anchor="middle">HVAC_DUC</text>
+  <text x="100" y="937" font-size="6" text-anchor="middle">HVAC_FAN_SYMBOL</text>
+  <rect x="130" y="880" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="889" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="905" font-size="5.0" text-anchor="middle">HVAC_DUC</text>
+  <text x="160" y="937" font-size="6" text-anchor="middle">LOUVER_SYMBOL</text>
+  <rect x="190" y="880" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="889" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="905" font-size="5.0" text-anchor="middle">NETWORK_</text>
+  <text x="220" y="937" font-size="6" text-anchor="middle">NETWORK_SWITCH_</text>
+  <rect x="250" y="880" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="889" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="905" font-size="5.0" text-anchor="middle">PCC_SYMB</text>
+  <text x="280" y="937" font-size="6" text-anchor="middle">PCC_SYMBOL</text>
+  <rect x="10" y="940" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="949" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="965" font-size="5.0" text-anchor="middle">PCC_SYMB</text>
+  <text x="40" y="997" font-size="6" text-anchor="middle">SYNC_CHECK_RELA</text>
+  <rect x="70" y="940" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="949" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="965" font-size="5.0" text-anchor="middle">PCC_SYMB</text>
+  <text x="100" y="997" font-size="6" text-anchor="middle">CT</text>
+  <rect x="130" y="940" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="949" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="965" font-size="5.0" text-anchor="middle">PCC_SYMB</text>
+  <text x="160" y="997" font-size="6" text-anchor="middle">PT</text>
+  <rect x="190" y="940" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="949" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="965" font-size="5.0" text-anchor="middle">PCC_SYMB</text>
+  <text x="220" y="997" font-size="6" text-anchor="middle">METER_SYMBOL</text>
+  <rect x="250" y="940" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="949" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="965" font-size="5.0" text-anchor="middle">PCS_SYMB</text>
+  <text x="280" y="997" font-size="6" text-anchor="middle">XFR_SYMBOL</text>
+  <rect x="10" y="1000" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1009" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1025" font-size="5.0" text-anchor="middle">PCS_SYMB</text>
+  <text x="40" y="1057" font-size="6" text-anchor="middle">METER_SYMBOL</text>
+  <rect x="70" y="1000" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="1009" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="1025" font-size="5.0" text-anchor="middle">PV_AREA_</text>
+  <text x="100" y="1057" font-size="6" text-anchor="middle">PV_AREA_SYMBOL</text>
+  <rect x="130" y="1000" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="1009" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="1025" font-size="5.0" text-anchor="middle">PV_AREA_</text>
+  <text x="160" y="1057" font-size="6" text-anchor="middle">PCC_SYMBOL</text>
+  <rect x="190" y="1000" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="1009" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="1025" font-size="5.0" text-anchor="middle">PV_SYMBO</text>
+  <text x="220" y="1057" font-size="6" text-anchor="middle">PV_SYMBOL</text>
+  <rect x="250" y="1000" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="1009" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="1025" font-size="5.0" text-anchor="middle">PV_SYMBO</text>
+  <text x="280" y="1057" font-size="6" text-anchor="middle">DIESEL_SYMBOL</text>
+  <rect x="10" y="1060" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1069" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1085" font-size="5.0" text-anchor="middle">PV_SYMBO</text>
+  <text x="40" y="1117" font-size="6" text-anchor="middle">PCC_SYMBOL</text>
+  <rect x="70" y="1060" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="1069" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="1085" font-size="5.0" text-anchor="middle">PV_SYMBO</text>
+  <text x="100" y="1117" font-size="6" text-anchor="middle">XFR_SYMBOL</text>
+  <rect x="130" y="1060" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="1069" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="1085" font-size="5.0" text-anchor="middle">PV_SYMBO</text>
+  <text x="160" y="1117" font-size="6" text-anchor="middle">METER_SYMBOL</text>
+  <rect x="190" y="1060" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="1069" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="1085" font-size="5.0" text-anchor="middle">PV_SYMBO</text>
+  <text x="220" y="1117" font-size="6" text-anchor="middle">RELAY_SYMBOL</text>
+  <rect x="250" y="1060" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="1069" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="1085" font-size="5.0" text-anchor="middle">RACK_SYM</text>
+  <text x="280" y="1117" font-size="6" text-anchor="middle">HVAC_SYMBOL</text>
+  <rect x="10" y="1120" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1129" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1145" font-size="5.0" text-anchor="middle">REACTOR_</text>
+  <text x="40" y="1177" font-size="6" text-anchor="middle">REACTOR_SYMBOL</text>
+  <rect x="70" y="1120" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="1129" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="1145" font-size="5.0" text-anchor="middle">REACTOR_</text>
+  <text x="100" y="1177" font-size="6" text-anchor="middle">DIGESTER_SYMBOL</text>
+  <rect x="130" y="1120" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="1129" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="1145" font-size="5.0" text-anchor="middle">REACTOR_</text>
+  <text x="160" y="1177" font-size="6" text-anchor="middle">GAS_HOLDER_SYMB</text>
+  <rect x="190" y="1120" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="1129" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="1145" font-size="5.0" text-anchor="middle">REACTOR_</text>
+  <text x="220" y="1177" font-size="6" text-anchor="middle">ENGINE_GEN_SYMB</text>
+  <rect x="250" y="1120" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="1129" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="1145" font-size="5.0" text-anchor="middle">REACTOR_</text>
+  <text x="280" y="1177" font-size="6" text-anchor="middle">GEOTH_WELL_SYMB</text>
+  <rect x="10" y="1180" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1189" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1205" font-size="5.0" text-anchor="middle">REACTOR_</text>
+  <text x="40" y="1237" font-size="6" text-anchor="middle">BINARY_UNIT_SYM</text>
+  <rect x="70" y="1180" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="1189" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="1205" font-size="5.0" text-anchor="middle">RELAY_SY</text>
+  <text x="100" y="1237" font-size="6" text-anchor="middle">RELAY_SYMBOL</text>
+  <rect x="130" y="1180" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="1189" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="1205" font-size="5.0" text-anchor="middle">RELAY_SY</text>
+  <text x="160" y="1237" font-size="6" text-anchor="middle">CT_SYMBOL</text>
+  <rect x="190" y="1180" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="1189" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="1205" font-size="5.0" text-anchor="middle">RELAY_SY</text>
+  <text x="220" y="1237" font-size="6" text-anchor="middle">PT_SYMBOL</text>
+  <rect x="250" y="1180" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="1189" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="1205" font-size="5.0" text-anchor="middle">SCADA_GA</text>
+  <text x="280" y="1237" font-size="6" text-anchor="middle">SWITCH_SYMBOL</text>
+  <rect x="10" y="1240" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1249" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1265" font-size="5.0" text-anchor="middle">SCADA_GA</text>
+  <text x="40" y="1297" font-size="6" text-anchor="middle">RADIO_SYMBOL</text>
+  <rect x="70" y="1240" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="1249" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="1265" font-size="5.0" text-anchor="middle">SCADA_GA</text>
+  <text x="100" y="1297" font-size="6" text-anchor="middle">IED_SYMBOL</text>
+  <rect x="130" y="1240" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="1249" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="1265" font-size="5.0" text-anchor="middle">SPRINKLE</text>
+  <text x="160" y="1297" font-size="6" text-anchor="middle">CLEAN_AGENT_SYM</text>
+  <rect x="190" y="1240" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="1249" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="1265" font-size="5.0" text-anchor="middle">SPRINKLE</text>
+  <text x="220" y="1297" font-size="6" text-anchor="middle">NOZZLE_SYMBOL</text>
+  <rect x="250" y="1240" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="1249" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="1265" font-size="5.0" text-anchor="middle">WIND_TUR</text>
+  <text x="280" y="1297" font-size="6" text-anchor="middle">WT_XFR_SYMBOL</text>
+  <rect x="10" y="1300" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1309" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1325" font-size="5.0" text-anchor="middle">ZONE_1_S</text>
+  <text x="40" y="1357" font-size="6" text-anchor="middle">ZONE_1_SYMBOL</text>
+  <rect x="70" y="1300" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="89" y="1309" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="105" y="1325" font-size="5.0" text-anchor="middle">ZONE_1_S</text>
+  <text x="100" y="1357" font-size="6" text-anchor="middle">ZONE_2_SYMBOL</text>
+  <rect x="130" y="1300" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="149" y="1309" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="165" y="1325" font-size="5.0" text-anchor="middle">ZONE_1_S</text>
+  <text x="160" y="1357" font-size="6" text-anchor="middle">NON_HAZARDOUS_S</text>
+  <rect x="190" y="1300" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="209" y="1309" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="225" y="1325" font-size="5.0" text-anchor="middle">ZONE_SYM</text>
+  <text x="220" y="1357" font-size="6" text-anchor="middle">ZONE_SYMBOL</text>
+  <rect x="250" y="1300" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="269" y="1309" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="285" y="1325" font-size="5.0" text-anchor="middle">ZONE_SYM</text>
+  <text x="280" y="1357" font-size="6" text-anchor="middle">ZONE_SYMBOL</text>
+  <rect x="10" y="1360" width="60" height="60" fill="none" stroke="#ccc"/>
+  <rect x="29" y="1369" width="32" height="32" fill="none" stroke="black" stroke-width="2.0"/>
+  <text x="45" y="1385" font-size="5.0" text-anchor="middle">ZONE_SYM</text>
+  <text x="40" y="1417" font-size="6" text-anchor="middle">IDS_SYMBOL</text>
+</svg>

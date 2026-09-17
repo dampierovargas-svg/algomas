@@ -1,0 +1,2436 @@
+[
+  {
+    "calculation_id": "PVR-C-001",
+    "name_es": "Irradiancia en el plano del array (POA)",
+    "description": "Calcula irradiancia efectiva sobre plano inclinado a partir de GHI, DNI, DHI del NSRDB o NASA POWER.",
+    "formula": "POA = DNI * cos(aoi) + DHI * (1 + cos(beta))/2 + GHI * albedo * (1 - cos(beta))/2",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "G_plane",
+        "symbol": "G_plane",
+        "unit": "W/m2",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "W/m2",
+      "W/m2",
+      "W/m2",
+      "W/m2",
+      "deg",
+      "deg",
+      "-"
+    ],
+    "references": "Modelo isotrópico de Liu-Jordan / anisotrópico Perez",
+    "source_ids": [
+      "NREL_SAM_2024",
+      "NSRDB_NREL",
+      "NASA_POWER",
+      "ASTM_E891"
+    ],
+    "applicable_when": "always",
+    "purpose": "Irradiancia en el plano del array (POA)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "G_plane = G_horizontal * cos(theta_incidence) * (1 + beta_ground * albedo)"
+    ],
+    "equations_latex": [
+      "G_{plane} = G_{horizontal} * cos(theta_{incidence}) * (1 + beta_{ground} * albedo)"
+    ],
+    "unit_equations": [
+      {
+        "name": "G_plane",
+        "value": "W/m2"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "G_plane",
+        "unit": "W/m2",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "G_plane within valid physical range",
+      "G_plane > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-002",
+    "name_es": "Carga de nieve sobre cubierta ps",
+    "description": "Calcula carga de nieve sobre cubierta inclinada según ASCE 7 capítulo 7.",
+    "formula": "ps = 0.7 * Ce * Ct * Is * pg * Cs",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "T_cell_roof",
+        "symbol": "T_cell_roof",
+        "unit": "degree C",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "kN/m2",
+      "-",
+      "-",
+      "-",
+      "kN/m2",
+      "-"
+    ],
+    "references": "ASCE 7-22 Ch.7 / IEC 62548 para cargas en cubierta PV",
+    "source_ids": [
+      "IEC_62548",
+      "NASA_POWER",
+      "RNE_DS_011_2006"
+    ],
+    "applicable_when": "climate_zone == snow OR pg > 0",
+    "purpose": "Carga de nieve sobre cubierta ps",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "T_cell_roof = T_ambient + 30 * G_plane / 1000"
+    ],
+    "equations_latex": [
+      "T_cell_{roof} = T_{ambient} + 30 * G_{plane} / 1000"
+    ],
+    "unit_equations": [
+      {
+        "name": "T_cell_roof",
+        "value": "degree C"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "T_cell_roof",
+        "unit": "degree C",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "T_cell_roof within valid physical range",
+      "T_cell_roof > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-003",
+    "name_es": "Carga de viento ASCE 7 (Components & Cladding)",
+    "description": "Calcula presión de viento de diseño sobre módulo en cubierta según ASCE 7 Método 2 para C&C.",
+    "formula": "p = qh * (GCp - GCpi)  con  qh = 0.5 * 1.225 * Kz * Kzt * Kd * V^2",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "P_module_roof",
+        "symbol": "P_module_roof",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "kPa",
+      "kPa",
+      "-",
+      "-",
+      "-",
+      "m/s",
+      "-",
+      "-"
+    ],
+    "references": "ASCE 7-22 Método Components & Cladding (sin fabricante)",
+    "source_ids": [
+      "IEC_62548",
+      "DNV_RP_C205",
+      "NASA_POWER"
+    ],
+    "applicable_when": "always",
+    "purpose": "Carga de viento ASCE 7 (Components & Cladding)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_module_roof = P_stc * (G_plane/1000) * (1 + gamma_pct * (T_cell_roof - 25))"
+    ],
+    "equations_latex": [
+      "P_module_{roof} = P_{stc} * (G_{plane}/1000) * (1 + gamma_{pct} * (T_cell_{roof} - 25))"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_module_roof",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_module_roof",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_module_roof within valid physical range",
+      "P_module_roof > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-004",
+    "name_es": "Uplift sobre balast y peso requerido",
+    "description": "Calcula peso total de balast para resistir uplift de succión del viento con factor de seguridad 1.5.",
+    "formula": "W_balast_total = 1.5 * Uplift * A_module * N_modules - W_module_total",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "M_wind_pressure",
+        "symbol": "M_wind_pressure",
+        "unit": "N/m2",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "N",
+      "kPa",
+      "m2",
+      "-",
+      "N"
+    ],
+    "references": "Ecuación de equilibrio de uplift",
+    "source_ids": [
+      "IEC_62548",
+      "UL_1703",
+      "RNE_DS_011_2006"
+    ],
+    "applicable_when": "PVR-081 contains ballasted",
+    "purpose": "Uplift sobre balast y peso requerido",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "M_wind_pressure = 0.5 * rho_air * v_wind^2 * C_p * A_module"
+    ],
+    "equations_latex": [
+      "M_wind_{pressure} = 0.5 * rho_{air} * v_{wind}^2 * C_{p} * A_{module}"
+    ],
+    "unit_equations": [
+      {
+        "name": "M_wind_pressure",
+        "value": "N/m2"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "M_wind_pressure",
+        "unit": "N/m2",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "M_wind_pressure within valid physical range",
+      "M_wind_pressure > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-005",
+    "name_es": "Capacidad de pull-out del perno de anclaje",
+    "description": "Calcula capacidad de pull-out según ACI 318 para perno post-instalado en concreto.",
+    "formula": "N_p = (pi * d_b * h_ef * tau_c) / FS  con  tau_c = 8 * sqrt(f'c)",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "F_uplift",
+        "symbol": "F_uplift",
+        "unit": "N",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "N",
+      "mm",
+      "mm",
+      "MPa",
+      "-",
+      "MPa"
+    ],
+    "references": "ACI 318-19 Cap.17 / IEEE 80 para subestaciones",
+    "source_ids": [
+      "IEEE_80_2013",
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ],
+    "applicable_when": "PVR-081 contains attached OR PVR-026==true",
+    "purpose": "Capacidad de pull-out del perno de anclaje",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F_uplift = M_wind_pressure * A_module * 1.5"
+    ],
+    "equations_latex": [
+      "F_{uplift} = M_wind_{pressure} * A_{module} * 1.5"
+    ],
+    "unit_equations": [
+      {
+        "name": "F_uplift",
+        "value": "N"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "F_uplift",
+        "unit": "N",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "F_uplift within valid physical range",
+      "F_uplift > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-006",
+    "name_es": "Ganancia por uso de optimizers",
+    "description": "Estima ganancia anual de energía por optimizers bajo sombreado parcial y mismatch.",
+    "formula": "E_optimizer = E_baseline * (1 + mismatch_reduction + shade_recovery)",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "W_ballast_required",
+        "symbol": "W_ballast_required",
+        "unit": "kg",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "kWh",
+      "kWh",
+      "%",
+      "%"
+    ],
+    "references": "Modelo empírico IEA PVPS",
+    "source_ids": [
+      "IEA_PVPS_T1_2024",
+      "IEC_62109_1",
+      "IEC_62548"
+    ],
+    "applicable_when": "PVR-056==optimizer_string",
+    "purpose": "Ganancia por uso de optimizers",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "W_ballast_required = F_uplift / g"
+    ],
+    "equations_latex": [
+      "W_ballast_{required} = F_{uplift} / g"
+    ],
+    "unit_equations": [
+      {
+        "name": "W_ballast_required",
+        "value": "kg"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "W_ballast_required",
+        "unit": "kg",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "W_ballast_required within valid physical range",
+      "W_ballast_required > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-007",
+    "name_es": "Ganancia por uso de microinversores",
+    "description": "Estima ganancia anual por harvest independiente por módulo (sin clipping string).",
+    "formula": "E_micro = E_baseline * (1 + mismatch_module + shade_module - clip_loss_string)",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "M_snow_pressure",
+        "symbol": "M_snow_pressure",
+        "unit": "Pa",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "kWh",
+      "kWh",
+      "%",
+      "%",
+      "%"
+    ],
+    "references": "Modelo empírico IEA PVPS",
+    "source_ids": [
+      "IEA_PVPS_T1_2024",
+      "IEC_62109_1"
+    ],
+    "applicable_when": "PVR-056==microinverter",
+    "purpose": "Ganancia por uso de microinversores",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "M_snow_pressure = density_snow * depth_snow * g * cos(slope_roof)"
+    ],
+    "equations_latex": [
+      "M_snow_{pressure} = density_{snow} * depth_{snow} * g * cos(slope_{roof})"
+    ],
+    "unit_equations": [
+      {
+        "name": "M_snow_pressure",
+        "value": "Pa"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "M_snow_pressure",
+        "unit": "Pa",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "M_snow_pressure within valid physical range",
+      "M_snow_pressure > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-008",
+    "name_es": "Ganancia bifacial absoluta",
+    "description": "Calcula producción adicional por lado trasero del módulo bifacial.",
+    "formula": "E_bifacial_gain = E_front * bifaciality_factor * bifacial_gain_pct / 100",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "I_string_roof",
+        "symbol": "I_string_roof",
+        "unit": "A",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "kWh",
+      "kWh",
+      "-",
+      "%"
+    ],
+    "references": "Modelo bifacial NREL SAM",
+    "source_ids": [
+      "NREL_SAM_2024",
+      "IEC_TS_62804_1",
+      "NSRDB_NREL"
+    ],
+    "applicable_when": "PVR-039 contains bifacial",
+    "purpose": "Ganancia bifacial absoluta",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "I_string_roof = I_sc_module * N_parallel * (G_plane/1000)"
+    ],
+    "equations_latex": [
+      "I_string_{roof} = I_sc_{module} * N_{parallel} * (G_{plane}/1000)"
+    ],
+    "unit_equations": [
+      {
+        "name": "I_string_roof",
+        "value": "A"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "I_string_roof",
+        "unit": "A",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "I_string_roof within valid physical range",
+      "I_string_roof > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-009",
+    "name_es": "Derate térmico y Vmax string en frío",
+    "description": "Calcula tensión máxima de string a T_min ambiente y derate de potencia a T_oper.",
+    "formula": "V_max_string = N_modules * Voc * (1 + coef_Voc * (T_min - 25))  ;  P_oper = P_STC * (1 + coef_Pmax * (T_oper - 25))",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "V_string_roof",
+        "symbol": "V_string_roof",
+        "unit": "V",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "V",
+      "-",
+      "V",
+      "%/K",
+      "degC",
+      "W",
+      "W",
+      "%/K",
+      "degC"
+    ],
+    "references": "IEC 60904-1 + IEC 62548 sizing string",
+    "source_ids": [
+      "IEC_60904_1",
+      "IEC_62548",
+      "NASA_POWER"
+    ],
+    "applicable_when": "always",
+    "purpose": "Derate térmico y Vmax string en frío",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_string_roof = N_series * V_oc_module * (1 + beta_voc * (T_cell_roof - 25))"
+    ],
+    "equations_latex": [
+      "V_string_{roof} = N_{series} * V_oc_{module} * (1 + beta_{voc} * (T_cell_{roof} - 25))"
+    ],
+    "unit_equations": [
+      {
+        "name": "V_string_roof",
+        "value": "V"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "V_string_roof",
+        "unit": "V",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "V_string_roof within valid physical range",
+      "V_string_roof > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-010",
+    "name_es": "Pérdida por sombreado propio y vecino",
+    "description": "Calcula pérdidas por sombreado usando modelo de factor de vista al cielo (view factor).",
+    "formula": "Loss_shade = 1 - (sky_view_factor_array * (1 - neighbor_obstruction_angle/90))",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "P_inverter_roof",
+        "symbol": "P_inverter_roof",
+        "unit": "kW",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "-",
+      "-",
+      "deg"
+    ],
+    "references": "Modelo anisotrópico de vista al cielo",
+    "source_ids": [
+      "NREL_SAM_2024",
+      "IEC_62548",
+      "NASA_POWER"
+    ],
+    "applicable_when": "always",
+    "purpose": "Pérdida por sombreado propio y vecino",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_inverter_roof = P_dc_array / eta_inverter"
+    ],
+    "equations_latex": [
+      "P_inverter_{roof} = P_dc_{array} / eta_{inverter}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_inverter_roof",
+        "value": "kW"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_inverter_roof",
+        "unit": "kW",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_inverter_roof within valid physical range",
+      "P_inverter_roof > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-011",
+    "name_es": "Rendimiento eléctrico PVT anual",
+    "description": "Calcula producción eléctrica anual del módulo PVT considerando enfriamiento por fluido térmico.",
+    "formula": "E_pvt_elec = P_STC * H_POA * PR_elec * (1 + cooling_bonus)",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "I_ac_roof",
+        "symbol": "I_ac_roof",
+        "unit": "A",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "kWh",
+      "Wp",
+      "kWh/m2",
+      "-",
+      "%"
+    ],
+    "references": "Modelo PVT híbrido",
+    "source_ids": [
+      "ISO_9806",
+      "ASHRAE_93",
+      "IEC_61215_1"
+    ],
+    "applicable_when": "PVR-091==true",
+    "purpose": "Rendimiento eléctrico PVT anual",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "I_ac_roof = P_inverter_roof * 1000 / (sqrt(3) * V_ac_3ph * PF)"
+    ],
+    "equations_latex": [
+      "I_ac_{roof} = P_inverter_{roof} * 1000 / (sqrt(3) * V_ac_{3ph} * PF)"
+    ],
+    "unit_equations": [
+      {
+        "name": "I_ac_roof",
+        "value": "A"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "I_ac_roof",
+        "unit": "A",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "I_ac_roof within valid physical range",
+      "I_ac_roof > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-012",
+    "name_es": "Rendimiento térmico PVT anual",
+    "description": "Calcula energía térmica útil anual del módulo PVT según eficiencia ISO 9806.",
+    "formula": "Q_pvt_thermal = H_POA * A_pvt * eta_thermal * (1 - (T_in - T_amb)/(G * 0.9 + 273))",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "A_cable_ac",
+        "symbol": "A_cable_ac",
+        "unit": "mm2",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "kWh",
+      "kWh/m2",
+      "m2",
+      "-",
+      "degC",
+      "degC",
+      "W/m2"
+    ],
+    "references": "Modelo PVT ISO 9806 / ASHRAE 93",
+    "source_ids": [
+      "ISO_9806",
+      "ASHRAE_93",
+      "ASTM_C1549"
+    ],
+    "applicable_when": "PVR-091==true",
+    "purpose": "Rendimiento térmico PVT anual",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "A_cable_ac = I_ac_roof / J_max"
+    ],
+    "equations_latex": [
+      "A_cable_{ac} = I_ac_{roof} / J_{max}"
+    ],
+    "unit_equations": [
+      {
+        "name": "A_cable_ac",
+        "value": "mm2"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "A_cable_ac",
+        "unit": "mm2",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "A_cable_ac within valid physical range",
+      "A_cable_ac > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-013",
+    "name_es": "Ampacidad del cable AC (NEC 690.8)",
+    "description": "Calcula ampacidad continua del circuito AC según NEC 690.8 y factor de temperatura.",
+    "formula": "I_cont = 1.25 * I_max_inv * Ca * Cb  y  ampacity_cable >= I_cont",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "V_drop_ac",
+        "symbol": "V_drop_ac",
+        "unit": "V",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "A",
+      "A",
+      "-",
+      "-",
+      "A"
+    ],
+    "references": "NFPA 70 NEC 690.8 + IEC 60287",
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEC_60287_1_1",
+      "IEC_62548"
+    ],
+    "applicable_when": "always",
+    "purpose": "Ampacidad del cable AC (NEC 690.8)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_drop_ac = sqrt(3) * I_ac_roof * rho_conductor * L_cable / A_cable_ac"
+    ],
+    "equations_latex": [
+      "V_drop_{ac} = sqrt(3) * I_ac_{roof} * rho_{conductor} * L_{cable} / A_cable_{ac}"
+    ],
+    "unit_equations": [
+      {
+        "name": "V_drop_ac",
+        "value": "V"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "V_drop_ac",
+        "unit": "V",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "V_drop_ac within valid physical range",
+      "V_drop_ac > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-014",
+    "name_es": "Ampacidad del cable DC (IEC 62548)",
+    "description": "Calcula ampacidad DC según IEC 62548 e IEC 60287 con factor 1.25 Isc.",
+    "formula": "I_dc_cont = 1.25 * Isc_string * Ca_DC  y  ampacity_dc_cable >= I_dc_cont",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "P_loss_ac",
+        "symbol": "P_loss_ac",
+        "unit": "W",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "A",
+      "A",
+      "-",
+      "A"
+    ],
+    "references": "IEC 62548 + IEC 60287-1-1",
+    "source_ids": [
+      "IEC_62548",
+      "IEC_60287_1_1"
+    ],
+    "applicable_when": "always",
+    "purpose": "Ampacidad del cable DC (IEC 62548)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_loss_ac = 3 * I_ac_roof^2 * rho_conductor * L_cable / A_cable_ac"
+    ],
+    "equations_latex": [
+      "P_loss_{ac} = 3 * I_ac_{roof}^2 * rho_{conductor} * L_{cable} / A_cable_{ac}"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_loss_ac",
+        "value": "W"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_loss_ac",
+        "unit": "W",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_loss_ac within valid physical range",
+      "P_loss_ac > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-015",
+    "name_es": "Carga de nieve por deslizamiento",
+    "description": "Calcula carga adicional sobre módulos inferiores por deslizamiento de nieve desde módulos superiores.",
+    "formula": "p_s_slide = 0.5 * Cs * pg * (L_upper / L_lower)",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "E_annual_roof",
+        "symbol": "E_annual_roof",
+        "unit": "kWh/year",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "kN/m2",
+      "-",
+      "kN/m2",
+      "m",
+      "m"
+    ],
+    "references": "ASCE 7-22 sección 7.4 surcharge sliding",
+    "source_ids": [
+      "IEC_62548",
+      "NASA_POWER",
+      "RNE_DS_011_2006"
+    ],
+    "applicable_when": "PVR-108 in [medium, high]",
+    "purpose": "Carga de nieve por deslizamiento",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "E_annual_roof = sum(P_inverter(t) * dt for t in 8760) * PR * availability"
+    ],
+    "equations_latex": [
+      "E_annual_{roof} = sum(P_{inverter}(t) * dt for t in 8760) * PR * availability"
+    ],
+    "unit_equations": [
+      {
+        "name": "E_annual_roof",
+        "value": "kWh/year"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "E_annual_roof",
+        "unit": "kWh/year",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "E_annual_roof within valid physical range",
+      "E_annual_roof > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-016",
+    "name_es": "Capacidad de drenaje de cubierta",
+    "description": "Calcula capacidad mínima del drenaje primario según intensidad de lluvia local y área tributaria.",
+    "formula": "Q_req = i_rain * A_tributary / 3600  (L/s)  y  Q_drain_installed >= Q_req * 1.25",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "P_pct_shading",
+        "symbol": "P_pct_shading",
+        "unit": "percent",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "L/s",
+      "mm/h",
+      "m2",
+      "L/s"
+    ],
+    "references": "RNE NTE-020 + ASCE 7 cap. 8 rainfall",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "NASA_POWER",
+      "IEC_62548"
+    ],
+    "applicable_when": "always",
+    "purpose": "Capacidad de drenaje de cubierta",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_pct_shading = (1 - G_shaded / G_unshaded) * 100"
+    ],
+    "equations_latex": [
+      "P_pct_{shading} = (1 - G_{shaded} / G_{unshaded}) * 100"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_pct_shading",
+        "value": "percent"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_pct_shading",
+        "unit": "percent",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_pct_shading within valid physical range",
+      "P_pct_shading > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-017",
+    "name_es": "Deflexión máxima del riel estructural",
+    "description": "Calcula deflexión de viga simple bajo carga distribuida (viento + nieve + peso módulo).",
+    "formula": "delta = (5 * w * L^4) / (384 * E * I)  <=  L / 180",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "P_pct_soiling",
+        "symbol": "P_pct_soiling",
+        "unit": "percent",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "mm",
+      "N/mm",
+      "mm",
+      "MPa",
+      "mm4"
+    ],
+    "references": "Resistencia de materiales / RNE",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ],
+    "applicable_when": "PVR-081 in [attached, ballasted] OR PVR-026==true",
+    "purpose": "Deflexión máxima del riel estructural",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_pct_soiling = soiling_loss_factor * 100"
+    ],
+    "equations_latex": [
+      "P_pct_{soiling} = soiling_loss_{factor} * 100"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_pct_soiling",
+        "value": "percent"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_pct_soiling",
+        "unit": "percent",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_pct_soiling within valid physical range",
+      "P_pct_soiling > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-018",
+    "name_es": "Spacing de attachments por capacidad de pull-out",
+    "description": "Calcula spacing máximo entre attachments para resistir uplift de viento.",
+    "formula": "s_max = (N_p * FS) / (Uplift * (w_module + w_rail) / 1000)",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "P_pct_thermal",
+        "symbol": "P_pct_thermal",
+        "unit": "percent",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "mm",
+      "N",
+      "-",
+      "kPa",
+      "N/mm",
+      "N/mm"
+    ],
+    "references": "Modelo de equilibrio de uplift por attachment",
+    "source_ids": [
+      "IEC_62548",
+      "UL_1703",
+      "RNE_DS_011_2006"
+    ],
+    "applicable_when": "PVR-081 contains attached",
+    "purpose": "Spacing de attachments por capacidad de pull-out",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_pct_thermal = gamma_pct * (T_cell_roof - 25) * 100"
+    ],
+    "equations_latex": [
+      "P_pct_{thermal} = gamma_{pct} * (T_cell_{roof} - 25) * 100"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_pct_thermal",
+        "value": "percent"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_pct_thermal",
+        "unit": "percent",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_pct_thermal within valid physical range",
+      "P_pct_thermal > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-019",
+    "name_es": "Peso total de balast requerido",
+    "description": "Calcula peso total de balast como suma de uplift resistido menos peso propio del sistema PV.",
+    "formula": "W_balast = max(1.5 * Uplift_total - W_module_self - W_structure_self, 0)",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "P_pct_mismatch",
+        "symbol": "P_pct_mismatch",
+        "unit": "percent",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "N",
+      "N",
+      "N",
+      "N"
+    ],
+    "references": "Equilibrio de uplift contra viento",
+    "source_ids": [
+      "IEC_62548",
+      "UL_1703"
+    ],
+    "applicable_when": "PVR-081 contains ballasted",
+    "purpose": "Peso total de balast requerido",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_pct_mismatch = 0.5 * (sqrt(P_module_max/P_module_min) - 1) * 100"
+    ],
+    "equations_latex": [
+      "P_pct_{mismatch} = 0.5 * (sqrt(P_module_{max}/P_module_{min}) - 1) * 100"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_pct_mismatch",
+        "value": "percent"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_pct_mismatch",
+        "unit": "percent",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_pct_mismatch within valid physical range",
+      "P_pct_mismatch > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-020",
+    "name_es": "Cantidad de unidades de flashing por attachment",
+    "description": "Calcula número de unidades de flashing en base a cantidad de penetraciones en cubierta.",
+    "formula": "N_flashing = N_attachments * 1.0  (un flashing por attachment perimetrado)",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "P_pct_lid",
+        "symbol": "P_pct_lid",
+        "unit": "percent",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "-",
+      "-"
+    ],
+    "references": "Especificación RNE / IEC 62548",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "IEC_62548"
+    ],
+    "applicable_when": "PVR-081 contains attached OR PVR-090 contains flashing_metal",
+    "purpose": "Cantidad de unidades de flashing por attachment",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_pct_lid = lid_factor * 100"
+    ],
+    "equations_latex": [
+      "P_pct_{lid} = lid_{factor} * 100"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_pct_lid",
+        "value": "percent"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_pct_lid",
+        "unit": "percent",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_pct_lid within valid physical range",
+      "P_pct_lid > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-021",
+    "name_es": "Combinación de cargas de cubierta con PV (LRFD)",
+    "description": "Calcula carga mayorada sobre la cubierta con PV instalado.",
+    "formula": "U = 1.2 * D + 1.6 * (Lr + S + R) + 0.5 * W",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "P_pct_availability",
+        "symbol": "P_pct_availability",
+        "unit": "percent",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "kN/m2",
+      "kN/m2",
+      "kN/m2",
+      "kN/m2",
+      "kN/m2",
+      "kN/m2"
+    ],
+    "references": "ASCE 7 LRFD 2.3",
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006",
+      "DNV_RP_C205"
+    ],
+    "applicable_when": "always",
+    "purpose": "Combinación de cargas de cubierta con PV (LRFD)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_pct_availability = (1 - availability_factor) * 100"
+    ],
+    "equations_latex": [
+      "P_pct_{availability} = (1 - availability_{factor}) * 100"
+    ],
+    "unit_equations": [
+      {
+        "name": "P_pct_availability",
+        "value": "percent"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "P_pct_availability",
+        "unit": "percent",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "P_pct_availability within valid physical range",
+      "P_pct_availability > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-022",
+    "name_es": "Caída de tensión AC (NEC 690.7)",
+    "description": "Calcula caída de tensión AC trifásica y monofásica desde inversor a tablero.",
+    "formula": "dV_AC_3ph = sqrt(3) * I * L * (rho/A)  ;  dV_AC_1ph = 2 * I * L * (rho/A)",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "PR_roof",
+        "symbol": "PR_roof",
+        "unit": "dimensionless_ratio",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "V",
+      "V",
+      "A",
+      "m",
+      "ohm*mm2/m",
+      "mm2"
+    ],
+    "references": "NFPA 70 NEC 690.7 + IEEE 835",
+    "source_ids": [
+      "NFPA_70_2023",
+      "IEEE_835",
+      "IEC_60364_7_712"
+    ],
+    "applicable_when": "always",
+    "purpose": "Caída de tensión AC (NEC 690.7)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "PR_roof = E_annual_roof / (P_stc_total * H_hours)"
+    ],
+    "equations_latex": [
+      "PR_{roof} = E_annual_{roof} / (P_stc_{total} * H_{hours})"
+    ],
+    "unit_equations": [
+      {
+        "name": "PR_roof",
+        "value": "dimensionless_ratio"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "PR_roof",
+        "unit": "dimensionless_ratio",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "PR_roof within valid physical range",
+      "PR_roof > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-023",
+    "name_es": "Recorte por clipping AC anual",
+    "description": "Calcula energía anual perdida por clipping cuando DC>AC inversor.",
+    "formula": "E_clip = sum_over_hours(max(0, P_dc(t) - P_ac_max))",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "Y_f_roof",
+        "symbol": "Y_f_roof",
+        "unit": "kWh/kWp/year",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "kWh",
+      "kW",
+      "kW"
+    ],
+    "references": "Modelo de simulación horaria",
+    "source_ids": [
+      "IEA_PVPS_T1_2024",
+      "NREL_SAM_2024",
+      "IEC_62109_1"
+    ],
+    "applicable_when": "always",
+    "purpose": "Recorte por clipping AC anual",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Y_f_roof = E_annual_roof / P_dc_array"
+    ],
+    "equations_latex": [
+      "Y_f_{roof} = E_annual_{roof} / P_dc_{array}"
+    ],
+    "unit_equations": [
+      {
+        "name": "Y_f_roof",
+        "value": "kWh/kWp/year"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Y_f_roof",
+        "unit": "kWh/kWp/year",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "Y_f_roof within valid physical range",
+      "Y_f_roof > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-024",
+    "name_es": "Producción anual del sistema PV",
+    "description": "Calcula producción anual total tras derates.",
+    "formula": "E_annual = P_dc_total * H_POA * PR  con  PR = eta_inv * (1 - L_shade) * (1 - L_temp) * (1 - L_cable) * (1 - L_clip)",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "A_roof_usable",
+        "symbol": "A_roof_usable",
+        "unit": "m2",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "kWh",
+      "kW",
+      "kWh/m2",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-"
+    ],
+    "references": "Modelo NREL PVWatts / SAM",
+    "source_ids": [
+      "NREL_PVWatts",
+      "NREL_SAM_2024",
+      "ASTM_E2848",
+      "IEC_61724_1"
+    ],
+    "applicable_when": "always",
+    "purpose": "Producción anual del sistema PV",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "A_roof_usable = A_roof_total * (1 - setback_pct/100) * (1 - obstacle_pct/100)"
+    ],
+    "equations_latex": [
+      "A_roof_{usable} = A_roof_{total} * (1 - setback_{pct}/100) * (1 - obstacle_{pct}/100)"
+    ],
+    "unit_equations": [
+      {
+        "name": "A_roof_usable",
+        "value": "m2"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "A_roof_usable",
+        "unit": "m2",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "A_roof_usable within valid physical range",
+      "A_roof_usable > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-025",
+    "name_es": "DC/AC ratio del sistema",
+    "description": "Calcula relación DC/AC del sistema y verifica límites de diseño.",
+    "formula": "DC_AC_ratio = P_dc_total / P_ac_total  ;  recomendado 1.10 - 1.35",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "N_modules_max",
+        "symbol": "N_modules_max",
+        "unit": "integer",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "-",
+      "kW",
+      "kW"
+    ],
+    "references": "Modelo IEA PVPS / IEC 62109",
+    "source_ids": [
+      "IEA_PVPS_T1_2024",
+      "IEC_62109_1",
+      "IEC_62894"
+    ],
+    "applicable_when": "always",
+    "purpose": "DC/AC ratio del sistema",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "N_modules_max = floor(A_roof_usable / (W_module * H_module / 1000000))"
+    ],
+    "equations_latex": [
+      "N_modules_{max} = floor(A_roof_{usable} / (W_{module} * H_{module} / 1000000))"
+    ],
+    "unit_equations": [
+      {
+        "name": "N_modules_max",
+        "value": "integer"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "N_modules_max",
+        "unit": "integer",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "N_modules_max within valid physical range",
+      "N_modules_max > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-026",
+    "name_es": "Caída de tensión DC por string",
+    "description": "Calcula caída de tensión DC y pérdidas ohmicas por string.",
+    "formula": "dV_DC = 2 * I * L * (rho/A)  ;  P_loss_DC = dV_DC * I",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "DC_AC_ratio_roof",
+        "symbol": "DC_AC_ratio_roof",
+        "unit": "dimensionless_ratio",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "V",
+      "A",
+      "m",
+      "ohm*mm2/m",
+      "mm2",
+      "W"
+    ],
+    "references": "IEC 62548 + IEEE 835",
+    "source_ids": [
+      "IEC_62548",
+      "IEEE_835",
+      "IEC_60287_1_1"
+    ],
+    "applicable_when": "always",
+    "purpose": "Caída de tensión DC por string",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "DC_AC_ratio_roof = P_dc_array / P_inverter_rated"
+    ],
+    "equations_latex": [
+      "DC_AC_ratio_{roof} = P_dc_{array} / P_inverter_{rated}"
+    ],
+    "unit_equations": [
+      {
+        "name": "DC_AC_ratio_roof",
+        "value": "dimensionless_ratio"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "DC_AC_ratio_roof",
+        "unit": "dimensionless_ratio",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "DC_AC_ratio_roof within valid physical range",
+      "DC_AC_ratio_roof > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-027",
+    "name_es": "Área cubierta por pararrayos (método esfera rodante)",
+    "description": "Calcula radio de esfera rodante según IEC 62305 y área protegida.",
+    "formula": "R_sphere = 10 * (1.5)^(LPL-1)  ;  A_protected = pi * (R_sphere - h_rod)^2",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "R_grounding_roof",
+        "symbol": "R_grounding_roof",
+        "unit": "ohm",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "m",
+      "-",
+      "m2",
+      "m"
+    ],
+    "references": "IEC 62305-1 / NFPA 780 rolling sphere",
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3",
+      "NFPA_780_2023"
+    ],
+    "applicable_when": "PVR-110==true",
+    "purpose": "Área cubierta por pararrayos (método esfera rodante)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "R_grounding_roof = rho_soil * (1 + 1/(L_grid + 1.15*sqrt(A_grid)))"
+    ],
+    "equations_latex": [
+      "R_grounding_{roof} = rho_{soil} * (1 + 1/(L_{grid} + 1.15*sqrt(A_{grid})))"
+    ],
+    "unit_equations": [
+      {
+        "name": "R_grounding_roof",
+        "value": "ohm"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "R_grounding_roof",
+        "unit": "ohm",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "R_grounding_roof within valid physical range",
+      "R_grounding_roof > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-028",
+    "name_es": "Resistencia de malla de PAT",
+    "description": "Calcula resistencia del electrodo de PAT tipo malla según IEEE 80.",
+    "formula": "R_mesh = rho_soil * (0.5/A + 1/L_total + 0.65/L_total)  (aprox)",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "Z_surge_arrester",
+        "symbol": "Z_surge_arrester",
+        "unit": "V",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "ohm",
+      "ohm*m",
+      "m2",
+      "m"
+    ],
+    "references": "IEEE 80 / IEC 60364-5-54",
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEC_60364_5_54",
+      "NFPA_70_2023"
+    ],
+    "applicable_when": "PVR-079 == mesh",
+    "purpose": "Resistencia de malla de PAT",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Z_surge_arrester = V_nominal * 1.25"
+    ],
+    "equations_latex": [
+      "Z_surge_{arrester} = V_{nominal} * 1.25"
+    ],
+    "unit_equations": [
+      {
+        "name": "Z_surge_arrester",
+        "value": "V"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "Z_surge_arrester",
+        "unit": "V",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "Z_surge_arrester within valid physical range",
+      "Z_surge_arrester > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-029",
+    "name_es": "GPR (Ground Potential Rise)",
+    "description": "Calcula elevación de potencial de tierra durante falla o rayo.",
+    "formula": "GPR = I_fault * R_ground  ;  debe <= 5000 V (touch voltage limit)",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "I_bfault_roof",
+        "symbol": "I_bfault_roof",
+        "unit": "A",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "V",
+      "A",
+      "ohm"
+    ],
+    "references": "IEEE 80 / NFPA 70",
+    "source_ids": [
+      "IEEE_80_2013",
+      "NFPA_70_2023",
+      "IEC_60364_5_54"
+    ],
+    "applicable_when": "always",
+    "purpose": "GPR (Ground Potential Rise)",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "I_bfault_roof = V_oc_string / (2 * R_loop_fault)"
+    ],
+    "equations_latex": [
+      "I_bfault_{roof} = V_oc_{string} / (2 * R_loop_{fault})"
+    ],
+    "unit_equations": [
+      {
+        "name": "I_bfault_roof",
+        "value": "A"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "I_bfault_roof",
+        "unit": "A",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "I_bfault_roof within valid physical range",
+      "I_bfault_roof > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  },
+  {
+    "calculation_id": "PVR-C-030",
+    "name_es": "Verificación del momento de vuelco del carport",
+    "description": "Calcula momento de vuelco por viento sobre cantilever y verifica contra momento estabilizador.",
+    "formula": "M_overturn = F_wind * h_clear  ;  M_stable = (W_struct + W_module + W_ballast) * (L/2)  ;  FS = M_stable / M_overturn >= 1.5",
+    "variables": [
+      {
+        "name": "input",
+        "symbol": "x",
+        "unit": "various",
+        "type": "input"
+      },
+      {
+        "name": "E_bipv_thermal",
+        "symbol": "E_bipv_thermal",
+        "unit": "kWh/year",
+        "type": "output"
+      }
+    ],
+    "units": [
+      "kN*m",
+      "kN",
+      "m",
+      "kN*m",
+      "kN",
+      "kN",
+      "kN",
+      "m",
+      "-"
+    ],
+    "references": "Equilibrio estático de vuelco",
+    "source_ids": [
+      "IEC_62548",
+      "RNE_DS_011_2006",
+      "DNV_RP_C205"
+    ],
+    "applicable_when": "PVR-027 in [cantilever, double_cantilever]",
+    "purpose": "Verificación del momento de vuelco del carport",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "PVR-001",
+      "PVR-002",
+      "PVR-003"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "E_bipv_thermal = P_module_bipv * eta_thermal * 8760"
+    ],
+    "equations_latex": [
+      "E_bipv_{thermal} = P_module_{bipv} * eta_{thermal} * 8760"
+    ],
+    "unit_equations": [
+      {
+        "name": "E_bipv_thermal",
+        "value": "kWh/year"
+      }
+    ],
+    "numerical_method": "Direct",
+    "iteration_limits": {
+      "max_iter": 1
+    },
+    "validity_limits": [
+      "inputs within valid ranges"
+    ],
+    "outputs": [
+      {
+        "name": "E_bipv_thermal",
+        "unit": "kWh/year",
+        "type": "number"
+      }
+    ],
+    "acceptance_rules": [
+      "E_bipv_thermal within valid physical range",
+      "E_bipv_thermal > 0 for positive-definite quantities",
+      "no division by zero in computation"
+    ],
+    "failure_modes": [
+      "input outside valid physical range",
+      "numerical instability (division by zero)",
+      "missing required input field"
+    ],
+    "drawing_impacts": [
+      "DRW-COM-002"
+    ]
+  }
+]

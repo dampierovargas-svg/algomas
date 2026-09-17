@@ -1,0 +1,1309 @@
+[
+  {
+    "qa_rule_id": "WON-QA-001",
+    "name_es": "Espaciamiento cross-wind mínimo 3D entre turbinas",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "spacing_crosswind_D >= 3",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_15_1",
+      "NREL_TP_5000_87434"
+    ],
+    "rule_id": "WON-QA-001",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "spacing_crosswind_D >= 3",
+    "message_template": "Regla WON-QA-001 (Espaciamiento cross-wind mínimo 3D entre turbinas): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-001_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-002",
+    "name_es": "Espaciamiento downwind mínimo 5D entre turbinas",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "spacing_downwind_D >= 5",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_15_1",
+      "NREL_TP_5000_87434"
+    ],
+    "rule_id": "WON-QA-002",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "spacing_downwind_D >= 5",
+    "message_template": "Regla WON-QA-002 (Espaciamiento downwind mínimo 5D entre turbinas): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-002_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-003",
+    "name_es": "Pérdida por estela total <= 10%",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "wake_loss_pct <= 10",
+    "severity": "WARNING",
+    "source_ids": [
+      "IEC_61400_15_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "rule_id": "WON-QA-003",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "wake_loss_pct <= 10",
+    "message_template": "Regla WON-QA-003 (Pérdida por estela total <= 10%): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-003_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-004",
+    "name_es": "Distancia mínima de turbina a límite del sitio",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "WT to boundary >= 1.1 * rotor_diameter",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "NREL_TP_5000_87434",
+      "RNE_DS_011_2006"
+    ],
+    "rule_id": "WON-QA-004",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WT to boundary >= 1.1 * rotor_diameter",
+    "message_template": "Regla WON-QA-004 (Distancia mínima de turbina a límite del sitio): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-004_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-005",
+    "name_es": "Pendiente máxima de caminos de acceso <= 12%",
+    "applies_to": [
+      "ACCESS_ROAD"
+    ],
+    "validation_expression": "road_gradient_max_pct <= 12",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "NREL_TP_5000_87434"
+    ],
+    "rule_id": "WON-QA-005",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "road_gradient_max_pct <= 12",
+    "message_template": "Regla WON-QA-005 (Pendiente máxima de caminos de acceso <= 12%): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-005_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-006",
+    "name_es": "Ancho mínimo de camino de acceso >= 6 m",
+    "applies_to": [
+      "ACCESS_ROAD"
+    ],
+    "validation_expression": "road_width_m >= 6",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "MINEM_DS_043_2006"
+    ],
+    "rule_id": "WON-QA-006",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "road_width_m >= 6",
+    "message_template": "Regla WON-QA-006 (Ancho mínimo de camino de acceso >= 6 m): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-006_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-007",
+    "name_es": "Capacidad de carga admisible del suelo verificada para cimentación raft",
+    "applies_to": [
+      "FOUNDATION_RAFT"
+    ],
+    "validation_expression": "fundacion_q_max_kpa <= capacidad_carga_admisible_kPa",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_6",
+      "ISO_14685",
+      "RNE_DS_011_2006"
+    ],
+    "rule_id": "WON-QA-007",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "fundacion_q_max_kpa <= capacidad_carga_admisible_kPa",
+    "message_template": "Regla WON-QA-007 (Capacidad de carga admisible del suelo verificada para cimentación raft): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-007_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-008",
+    "name_es": "Capacidad axial de pilote verificada según reporte geotécnico",
+    "applies_to": [
+      "FOUNDATION_PILE"
+    ],
+    "validation_expression": "applied_load_kn <= pilote_capacidad_axial_kN / FoS",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_6",
+      "ISO_14685"
+    ],
+    "rule_id": "WON-QA-008",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "applied_load_kn <= pilote_capacidad_axial_kN / FoS",
+    "message_template": "Regla WON-QA-008 (Capacidad axial de pilote verificada según reporte geotécnico): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-008_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-009",
+    "name_es": "Capacidad portante del crane pad verificada",
+    "applies_to": [
+      "CRANE_PAD"
+    ],
+    "validation_expression": "grua_pad_carga_kpa <= grua_pad_capacidad_carga_kPa",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_14685",
+      "RNE_DS_011_2006"
+    ],
+    "rule_id": "WON-QA-009",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "grua_pad_carga_kpa <= grua_pad_capacidad_carga_kPa",
+    "message_template": "Regla WON-QA-009 (Capacidad portante del crane pad verificada): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-009_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-010",
+    "name_es": "Dimensiones del hardstand conforme a especificación de grúa",
+    "applies_to": [
+      "HARDSTAND"
+    ],
+    "validation_expression": "hardstand dimensions >= grua spec required",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_14685",
+      "NREL_TP_5000_87434"
+    ],
+    "rule_id": "WON-QA-010",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "hardstand dimensions >= grua spec required",
+    "message_template": "Regla WON-QA-010 (Dimensiones del hardstand conforme a especificación de grúa): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-010_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-011",
+    "name_es": "Ampacidad del cable colector verificada para corriente nominal",
+    "applies_to": [
+      "LV_MV_TRANSFORMER_WT",
+      "SWITCHGEAR_MV"
+    ],
+    "validation_expression": "cable ampacity >= I_design * 1.25",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_835"
+    ],
+    "rule_id": "WON-QA-011",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "cable ampacity >= I_design * 1.25",
+    "message_template": "Regla WON-QA-011 (Ampacidad del cable colector verificada para corriente nominal): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-011_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-012",
+    "name_es": "Caída de tensión en circuito colector <= 2%",
+    "applies_to": [
+      "SWITCHGEAR_MV"
+    ],
+    "validation_expression": "delta_V_collector_pct <= 2",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_835"
+    ],
+    "rule_id": "WON-QA-012",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "delta_V_collector_pct <= 2",
+    "message_template": "Regla WON-QA-012 (Caída de tensión en circuito colector <= 2%): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-012_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-013",
+    "name_es": "Resistencia de puesta a tierra de turbina <= 5 ohm",
+    "applies_to": [
+      "WT",
+      "FOUNDATION_RAFT"
+    ],
+    "validation_expression": "grounding_resistance_WT <= 5",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_24",
+      "IEC_60364_5_54",
+      "IEEE_80_2013"
+    ],
+    "rule_id": "WON-QA-013",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "grounding_resistance_WT <= 5",
+    "message_template": "Regla WON-QA-013 (Resistencia de puesta a tierra de turbina <= 5 ohm): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-013_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-014",
+    "name_es": "Resistencia de malla de tierra de subestación cumple step & touch",
+    "applies_to": [
+      "SWITCHGEAR_HV"
+    ],
+    "validation_expression": "E_touch <= E_touch_50 AND E_step <= E_step_50",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_80_2013",
+      "IEC_60364_5_54"
+    ],
+    "rule_id": "WON-QA-014",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "E_touch <= E_touch_50 AND E_step <= E_step_50",
+    "message_template": "Regla WON-QA-014 (Resistencia de malla de tierra de subestación cumple step & touch): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-014_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-015",
+    "name_es": "Clase LPS conforme a IEC 61400-24 y nivel de rayos del sitio",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "turbina_clase_proteccion_rayo_lps >= LPS_required",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_24",
+      "IEC_62305_1"
+    ],
+    "rule_id": "WON-QA-015",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "turbina_clase_proteccion_rayo_lps >= LPS_required",
+    "message_template": "Regla WON-QA-015 (Clase LPS conforme a IEC 61400-24 y nivel de rayos del sitio): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-015_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-016",
+    "name_es": "Nivel de ruido en receptor sensible <= 4 dBA sobre el ambiente",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "Lp_receptor - Lp_ambient <= 4",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_11",
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "WON-QA-016",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "Lp_receptor - Lp_ambient <= 4",
+    "message_template": "Regla WON-QA-016 (Nivel de ruido en receptor sensible <= 4 dBA sobre el ambiente): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-016_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-017",
+    "name_es": "Horas anuales de shadow flicker en receptor <= 30 h/año",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "shadow_flicker_calculado_horas_ano <= shadow_flicker_limite_horas_ano",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "NREL_TP_5000_87434"
+    ],
+    "rule_id": "WON-QA-017",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "shadow_flicker_calculado_horas_ano <= shadow_flicker_limite_horas_ano",
+    "message_template": "Regla WON-QA-017 (Horas anuales de shadow flicker en receptor <= 30 h/año): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-017_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-018",
+    "name_es": "Clase IEC de turbina coincide con v_extrema_50yr y TI del sitio",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "iec_site_class_match == true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_15_1"
+    ],
+    "rule_id": "WON-QA-018",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "iec_site_class_match == true",
+    "message_template": "Regla WON-QA-018 (Clase IEC de turbina coincide con v_extrema_50yr y TI del sitio): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-018_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-019",
+    "name_es": "Sistema de iluminación de aviación conforme a normativa cuando aplica",
+    "applies_to": [
+      "AVIATION_LIGHT"
+    ],
+    "validation_expression": "aviation_requiere_luces_bool==true implies lights installed per WON-GEO-018",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEEE_C2_2023"
+    ],
+    "rule_id": "WON-QA-019",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "aviation_requiere_luces_bool==true implies lights installed per WON-GEO-018",
+    "message_template": "Regla WON-QA-019 (Sistema de iluminación de aviación conforme a normativa cuando aplica): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-019_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-020",
+    "name_es": "Diseño conforme a IEC 61400-1 ed. 4",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "IEC_61400_1_edition >= 4",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_1"
+    ],
+    "rule_id": "WON-QA-020",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "IEC_61400_1_edition >= 4",
+    "message_template": "Regla WON-QA-020 (Diseño conforme a IEC 61400-1 ed. 4): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-020_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-021",
+    "name_es": "Conexión a red conforme a IEEE 1547-2018",
+    "applies_to": [
+      "SWITCHGEAR_HV",
+      "SWITCHGEAR_MV"
+    ],
+    "validation_expression": "PCC settings compliant with IEEE 1547-2018 categories",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_1547_1"
+    ],
+    "rule_id": "WON-QA-021",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "PCC settings compliant with IEEE 1547-2018 categories",
+    "message_template": "Regla WON-QA-021 (Conexión a red conforme a IEEE 1547-2018): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-021_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-022",
+    "name_es": "Cumplimiento de armónicos IEEE 519 en PCC",
+    "applies_to": [
+      "HARMONIC_FILTER",
+      "STATCOM"
+    ],
+    "validation_expression": "THD_V at PCC <= 5% AND ITHD <= 5%",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_519_2022",
+      "IEC_61400_21_1",
+      "OSINERGMIN_PR_19"
+    ],
+    "rule_id": "WON-QA-022",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "THD_V at PCC <= 5% AND ITHD <= 5%",
+    "message_template": "Regla WON-QA-022 (Cumplimiento de armónicos IEEE 519 en PCC): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-022_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-023",
+    "name_es": "EIA aprobado por MINAM/SEIA",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "EIA_approved == true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINAM_DS_019_2009",
+      "MIMP_Ambiental_GLA"
+    ],
+    "rule_id": "WON-QA-023",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "EIA_approved == true",
+    "message_template": "Regla WON-QA-023 (EIA aprobado por MINAM/SEIA): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-023_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-024",
+    "name_es": "Zonas arqueológicas respetadas (sin traslape con cimentaciones)",
+    "applies_to": [
+      "WT",
+      "FOUNDATION_RAFT"
+    ],
+    "validation_expression": "no overlap WT/foundation with archaeological_exclusion_zones",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "WON-QA-024",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "no overlap WT/foundation with archaeological_exclusion_zones",
+    "message_template": "Regla WON-QA-024 (Zonas arqueológicas respetadas (sin traslape con cimentaciones)): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-024_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-025",
+    "name_es": "Respeto de ANP (áreas naturales protegidas)",
+    "applies_to": [
+      "WT",
+      "ACCESS_ROAD"
+    ],
+    "validation_expression": "no overlap with SERNANP protected areas",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "SERNANP_DS_007_2016",
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "WON-QA-025",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "no overlap with SERNANP protected areas",
+    "message_template": "Regla WON-QA-025 (Respeto de ANP (áreas naturales protegidas)): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-025_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-026",
+    "name_es": "Calidad de potencia conforme a procedimientos OSINERGMIN",
+    "applies_to": [
+      "SWITCHGEAR_HV"
+    ],
+    "validation_expression": "PR-17 and PR-19 compliance verified",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "OSINERGMIN_PR_17",
+      "OSINERGMIN_PR_19",
+      "OSINERGMIN_PR_27"
+    ],
+    "rule_id": "WON-QA-026",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "PR-17 and PR-19 compliance verified",
+    "message_template": "Regla WON-QA-026 (Calidad de potencia conforme a procedimientos OSINERGMIN): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-026_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-027",
+    "name_es": "Holgura de punta de pala a torre > 0 m",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "tip_clearance_m > 0",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_6"
+    ],
+    "rule_id": "WON-QA-027",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "tip_clearance_m > 0",
+    "message_template": "Regla WON-QA-027 (Holgura de punta de pala a torre > 0 m): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-027_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-028",
+    "name_es": "Frecuencia natural de torre separada de 1P/3P",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "f_tower_natural not in [0.9*1P, 1.1*1P] and not in [0.9*3P, 1.1*3P]",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_6"
+    ],
+    "rule_id": "WON-QA-028",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "f_tower_natural not in [0.9*1P, 1.1*1P] and not in [0.9*3P, 1.1*3P]",
+    "message_template": "Regla WON-QA-028 (Frecuencia natural de torre separada de 1P/3P): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-028_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-029",
+    "name_es": "Daño por fatiga < 1.0 en vida útil",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "fatigue_damage Mx,My,Mz < 1.0",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_13"
+    ],
+    "rule_id": "WON-QA-029",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "fatigue_damage Mx,My,Mz < 1.0",
+    "message_template": "Regla WON-QA-029 (Daño por fatiga < 1.0 en vida útil): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-029_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-030",
+    "name_es": "Curva de potencia certificada IEC 61400-12-1",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "power curve has IEC 61400-12-1 type certificate",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_12_1"
+    ],
+    "rule_id": "WON-QA-030",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "power curve has IEC 61400-12-1 type certificate",
+    "message_template": "Regla WON-QA-030 (Curva de potencia certificada IEC 61400-12-1): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-030_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-031",
+    "name_es": "Tensión de contacto y paso en subestación",
+    "applies_to": [
+      "SWITCHGEAR_HV"
+    ],
+    "validation_expression": "E_touch <= E_touch_50 AND E_step <= E_step_50",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_80_2013"
+    ],
+    "rule_id": "WON-QA-031",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "E_touch <= E_touch_50 AND E_step <= E_step_50",
+    "message_template": "Regla WON-QA-031 (Tensión de contacto y paso en subestación): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-031_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-032",
+    "name_es": "Radio de curva horizontal >= 50 m",
+    "applies_to": [
+      "ACCESS_ROAD"
+    ],
+    "validation_expression": "road_curve_radius_min_m >= 50",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ],
+    "rule_id": "WON-QA-032",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "road_curve_radius_min_m >= 50",
+    "message_template": "Regla WON-QA-032 (Radio de curva horizontal >= 50 m): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-032_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-033",
+    "name_es": "Peso de transporte <= capacidad de puentes",
+    "applies_to": [
+      "ACCESS_ROAD"
+    ],
+    "validation_expression": "transporte_puente_peso_max_t <= road_weight_limit_t",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "MINEM_DS_043_2006"
+    ],
+    "rule_id": "WON-QA-033",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "transporte_puente_peso_max_t <= road_weight_limit_t",
+    "message_template": "Regla WON-QA-033 (Peso de transporte <= capacidad de puentes): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-033_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-034",
+    "name_es": "Capacidad de grúa >= peso de componente más pesado",
+    "applies_to": [
+      "CRANE_PAD"
+    ],
+    "validation_expression": "grua_capacidad_principal_t >= max_component_mass_t * 1.25",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINEM_DS_043_2006",
+      "NREL_TP_5000_87434"
+    ],
+    "rule_id": "WON-QA-034",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "grua_capacidad_principal_t >= max_component_mass_t * 1.25",
+    "message_template": "Regla WON-QA-034 (Capacidad de grúa >= peso de componente más pesado): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-034_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-035",
+    "name_es": "Disponibilidad técnica mínima del parque >= 95%",
+    "applies_to": [
+      "WT",
+      "SCADA_CABINET"
+    ],
+    "validation_expression": "Availability >= 0.95",
+    "severity": "WARNING",
+    "source_ids": [
+      "IEC_61400_1",
+      "NREL_TK_6A20_78595"
+    ],
+    "rule_id": "WON-QA-035",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "Availability >= 0.95",
+    "message_template": "Regla WON-QA-035 (Disponibilidad técnica mínima del parque >= 95%): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-035_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-036",
+    "name_es": "Protección funcional conforme a IEC 61508/61511",
+    "applies_to": [
+      "SWITCHGEAR_MV",
+      "SWITCHGEAR_HV"
+    ],
+    "validation_expression": "SIL verified for safety functions",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61508_1",
+      "IEC_61511_1"
+    ],
+    "rule_id": "WON-QA-036",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "SIL verified for safety functions",
+    "message_template": "Regla WON-QA-036 (Protección funcional conforme a IEC 61508/61511): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-036_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-037",
+    "name_es": "Comunicaciones SCADA conforme a IEC 61400-25",
+    "applies_to": [
+      "SCADA_CABINET"
+    ],
+    "validation_expression": "scada_protocolo_comunicaciones == IEC_61400_25 OR IEC_61850",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_25",
+      "OSINERGMIN_PR_17"
+    ],
+    "rule_id": "WON-QA-037",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "scada_protocolo_comunicaciones == IEC_61400_25 OR IEC_61850",
+    "message_template": "Regla WON-QA-037 (Comunicaciones SCADA conforme a IEC 61400-25): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-037_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-038",
+    "name_es": "Cimentación con profundidad mínima de desplante",
+    "applies_to": [
+      "FOUNDATION_RAFT",
+      "FOUNDATION_PILE"
+    ],
+    "validation_expression": "fundacion_profundidad_desplante_m >= depth frost + 0.5",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_6",
+      "RNE_DS_011_2006"
+    ],
+    "rule_id": "WON-QA-038",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "fundacion_profundidad_desplante_m >= depth frost + 0.5",
+    "message_template": "Regla WON-QA-038 (Cimentación con profundidad mínima de desplante): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-038_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-039",
+    "name_es": "Cumplimiento de seguridad eléctrica NESC",
+    "applies_to": [
+      "SWITCHGEAR_HV"
+    ],
+    "validation_expression": "clearances per NESC IEEE C2-2023",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_C2_2023"
+    ],
+    "rule_id": "WON-QA-039",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "clearances per NESC IEEE C2-2023",
+    "message_template": "Regla WON-QA-039 (Cumplimiento de seguridad eléctrica NESC): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-039_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-040",
+    "name_es": "Modelo eléctrico de WT conforme a IEC 61400-27-1",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "electrical simulation model provided",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_27_1",
+      "IEEE_1547_2018"
+    ],
+    "rule_id": "WON-QA-040",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "electrical simulation model provided",
+    "message_template": "Regla WON-QA-040 (Modelo eléctrico de WT conforme a IEC 61400-27-1): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-040_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-041",
+    "name_es": "Densidad de aire de sitio ajustada en cálculo de AEP",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "rho_site adjustment applied in AEP per IEC 61400-12-1",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NASA_POWER"
+    ],
+    "rule_id": "WON-QA-041",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "rho_site adjustment applied in AEP per IEC 61400-12-1",
+    "message_template": "Regla WON-QA-041 (Densidad de aire de sitio ajustada en cálculo de AEP): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-041_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-042",
+    "name_es": "Garantía financiera de descommissioning prevista",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "decom_financial_garantia_monto_USD > 0 when required",
+    "severity": "WARNING",
+    "source_ids": [
+      "MIMP_Ambiental_GLA",
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "WON-QA-042",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "decom_financial_garantia_monto_USD > 0 when required",
+    "message_template": "Regla WON-QA-042 (Garantía financiera de descommissioning prevista): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-042_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-043",
+    "name_es": "Cobertura de medición eólica mínima",
+    "applies_to": [
+      "ANEM_MAST",
+      "MET_MAST"
+    ],
+    "validation_expression": "anemometro_data_anios >= 1 AND data_recovery_rate_pct >= 90",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "IEC_61400_15_1"
+    ],
+    "rule_id": "WON-QA-043",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "anemometro_data_anios >= 1 AND data_recovery_rate_pct >= 90",
+    "message_template": "Regla WON-QA-043 (Cobertura de medición eólica mínima): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-043_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-044",
+    "name_es": "Distancia del met mast a turbina >= 2D",
+    "applies_to": [
+      "ANEM_MAST"
+    ],
+    "validation_expression": "met_mast_distancia_turbina_d >= 2",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "IEC_61400_15_1"
+    ],
+    "rule_id": "WON-QA-044",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "met_mast_distancia_turbina_d >= 2",
+    "message_template": "Regla WON-QA-044 (Distancia del met mast a turbina >= 2D): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-044_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-045",
+    "name_es": "Protección contra rayos conforme a IEC 62305 para subestación",
+    "applies_to": [
+      "SWITCHGEAR_HV"
+    ],
+    "validation_expression": "LPS substation per IEC 62305-3 verified",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62305_3",
+      "NFPA_780_2023"
+    ],
+    "rule_id": "WON-QA-045",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "LPS substation per IEC 62305-3 verified",
+    "message_template": "Regla WON-QA-045 (Protección contra rayos conforme a IEC 62305 para subestación): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-045_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-046",
+    "name_es": "Reglamentación de seguridad eléctrica MINEM aplicada",
+    "applies_to": [
+      "SWITCHGEAR_HV",
+      "SWITCHGEAR_MV"
+    ],
+    "validation_expression": "MINEM_DS_043_2006 compliance verified",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINEM_DS_043_2006"
+    ],
+    "rule_id": "WON-QA-046",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "MINEM_DS_043_2006 compliance verified",
+    "message_template": "Regla WON-QA-046 (Reglamentación de seguridad eléctrica MINEM aplicada): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-046_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-047",
+    "name_es": "Diseño de camino considera precipitación y drenaje",
+    "applies_to": [
+      "ACCESS_ROAD"
+    ],
+    "validation_expression": "culverts sized per 25-yr storm event",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "NASA_POWER"
+    ],
+    "rule_id": "WON-QA-047",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "culverts sized per 25-yr storm event",
+    "message_template": "Regla WON-QA-047 (Diseño de camino considera precipitación y drenaje): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-047_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-048",
+    "name_es": "Setback arqueológico respetado en caminos",
+    "applies_to": [
+      "ACCESS_ROAD"
+    ],
+    "validation_expression": "no overlap with archaeological_exclusion_zones",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINAM_DS_019_2009"
+    ],
+    "rule_id": "WON-QA-048",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "no overlap with archaeological_exclusion_zones",
+    "message_template": "Regla WON-QA-048 (Setback arqueológico respetado en caminos): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-048_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-049",
+    "name_es": "Cumplimiento de reglamento de generación distribuida MINEM",
+    "applies_to": [
+      "SWITCHGEAR_HV"
+    ],
+    "validation_expression": "MINEM_DS_013_2019 compliance verified for DG",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "MINEM_DS_013_2019",
+      "MINEM_RM_304_2014"
+    ],
+    "rule_id": "WON-QA-049",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "MINEM_DS_013_2019 compliance verified for DG",
+    "message_template": "Regla WON-QA-049 (Cumplimiento de reglamento de generación distribuida MINEM): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-049_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "qa_rule_id": "WON-QA-050",
+    "name_es": "Documentación as-built conforme a IEC 62446-1",
+    "applies_to": [
+      "WT"
+    ],
+    "validation_expression": "as-built documentation per IEC 62446-1 available",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62446_1",
+      "MINEM_DS_043_2006"
+    ],
+    "rule_id": "WON-QA-050",
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "as-built documentation per IEC 62446-1 available",
+    "message_template": "Regla WON-QA-050 (Documentación as-built conforme a IEC 62446-1): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WON-QA-050_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  }
+]

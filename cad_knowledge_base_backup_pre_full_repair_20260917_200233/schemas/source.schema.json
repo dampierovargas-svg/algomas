@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/source.schema.json",
+  "title": "Fuente de conocimiento técnica",
+  "description": "Registro de fuente normativa, estándar o referencia técnica",
+  "type": "object",
+  "required": [
+    "source_id",
+    "name_es",
+    "authority",
+    "edition_year",
+    "primary_or_secondary",
+    "accessible_full_text",
+    "url_official"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "pattern": "^SRC-[A-Z]{2,4}-\\d{4}(-[A-Z0-9]+)?$",
+      "description": "ID único: SRC-ORG-AÑO-OPCIONAL"
+    },
+    "name_es": {
+      "type": "string",
+      "minLength": 10
+    },
+    "name_en": {
+      "type": "string",
+      "minLength": 10
+    },
+    "authority": {
+      "type": "string",
+      "enum": [
+        "IEC", "IEEE", "ISO", "ANSI", "NFPA", "ASCE", "AISC", "ACI",
+        "MINEM", "OSINERGMIN", "INDECI", "SENAMHI", "ANA", "MTPE",
+        "DNV", "IEA", "IRENA", "NREL", "IPCC", "WMO", "IMO",
+        "ASHRAE", "API", "ASTM", "AWWA", "CGA", "CSA", "UL",
+        "OTHER"
+      ]
+    },
+    "edition_year": {
+      "type": "integer",
+      "minimum": 1900,
+      "maximum": 2100
+    },
+    "primary_or_secondary": {
+      "type": "string",
+      "enum": ["primary", "secondary"]
+    },
+    "accessible_full_text": {
+      "type": "boolean"
+    },
+    "url_official": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "doi": {
+      "type": "string",
+      "pattern": "^10\\.\\d{4,9}/[-._;()/:A-Z0-9]+$"
+    },
+    "isbn": {
+      "type": "string",
+      "pattern": "^(ISBN[- ]?)?(978[- ]?)?[0-9]{10}([0-9X])?$"
+    },
+    "jurisdiction_applicable": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["international", "peru", "usa", "eu", "latin_america"]
+      }
+    },
+    "domain_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "electrical", "civil", "structural", "mechanical", "hydraulic",
+          "process", "instrumentation", "safety", "fire_protection",
+          "environmental", "geotechnical", "renewable", "grid",
+          "pv", "wind", "hydro", "biomass", "biogas", "geothermal",
+          "csp", "marine", "bess", "hydrogen", "hybrid"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "clause_references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["clause_id", "text_excerpt"],
+        "properties": {
+          "clause_id": {"type": "string"},
+          "text_excerpt": {"type": "string"},
+          "page_number": {"type": "integer"}
+        }
+      }
+    },
+    "verified_by": {
+      "type": "string"
+    },
+    "verification_date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "additionalProperties": false
+}

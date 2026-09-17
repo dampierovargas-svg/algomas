@@ -1,0 +1,1140 @@
+[
+  {
+    "equipment_type_id": "PRODUCTION_WELL",
+    "name_es": "Pozo productor geotérmico",
+    "subsystem": "RESOURCE_PRODUCTION",
+    "properties": [
+      {
+        "name_es": "Diámetro revestidor",
+        "field_id": "GEO-028",
+        "data_type": "float",
+        "unit": "in",
+        "min": 6,
+        "max": 20
+      },
+      {
+        "name_es": "Profundidad reservorio",
+        "field_id": "GEO-008",
+        "data_type": "float",
+        "unit": "m",
+        "min": 500,
+        "max": 5000
+      },
+      {
+        "name_es": "Trayectoria",
+        "field_id": "GEO-029",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Flujo másico por pozo",
+        "field_id": "GEO-103",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 10,
+        "max": 300
+      },
+      {
+        "name_es": "Presión de diseño revestidor",
+        "field_id": "GEO-030",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 50,
+        "max": 400
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "INJECTION_WELL",
+    "name_es": "Pozo reinyector geotérmico",
+    "subsystem": "REINJECTION",
+    "properties": [
+      {
+        "name_es": "Capacidad por pozo",
+        "field_id": "GEO-104",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 10,
+        "max": 400
+      },
+      {
+        "name_es": "Presión de reinyección",
+        "field_id": "GEO-099",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 5,
+        "max": 200
+      },
+      {
+        "name_es": "Temperatura de reinyección",
+        "field_id": "GEO-100",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 40,
+        "max": 180
+      },
+      {
+        "name_es": "Número de pozos",
+        "field_id": "GEO-027",
+        "data_type": "int",
+        "unit": "-",
+        "min": 1,
+        "max": 100
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "WELLHEAD_TREE",
+    "name_es": "Árbol de válvulas de cabezal (API 6A rating)",
+    "subsystem": "WELLHEAD",
+    "properties": [
+      {
+        "name_es": "Clase de presión API 6A",
+        "field_id": "GEO-033",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Presión de cabezal",
+        "field_id": "GEO-031",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 2,
+        "max": 100
+      },
+      {
+        "name_es": "Temperatura de cabezal",
+        "field_id": "GEO-032",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 80,
+        "max": 350
+      },
+      {
+        "name_es": "Strainer en cabezal",
+        "field_id": "GEO-034",
+        "data_type": "bool",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Separador en cabezal",
+        "field_id": "GEO-035",
+        "data_type": "bool",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "WELLHEAD_SEPARATOR",
+    "name_es": "Separador bifásico en cabezal de pozo (flash individual)",
+    "subsystem": "SEPARATION",
+    "properties": [
+      {
+        "name_es": "Tipo de separador",
+        "field_id": "GEO-040",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Diámetro",
+        "field_id": "GEO-041",
+        "data_type": "float",
+        "unit": "m",
+        "min": 0.5,
+        "max": 5.0
+      },
+      {
+        "name_es": "Longitud",
+        "field_id": "GEO-042",
+        "data_type": "float",
+        "unit": "m",
+        "min": 2,
+        "max": 15
+      },
+      {
+        "name_es": "Tiempo de residencia",
+        "field_id": "GEO-043",
+        "data_type": "float",
+        "unit": "s",
+        "min": 5,
+        "max": 180
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "FLASH_VESSEL_HP",
+    "name_es": "Vessel de flash de alta presión",
+    "subsystem": "SEPARATION",
+    "properties": [
+      {
+        "name_es": "Presión de operación HP",
+        "field_id": "GEO-044",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 3,
+        "max": 30
+      },
+      {
+        "name_es": "Diámetro del vessel",
+        "field_id": "GEO-046",
+        "data_type": "float",
+        "unit": "m",
+        "min": 1.0,
+        "max": 6.0
+      },
+      {
+        "name_es": "Longitud del vessel",
+        "field_id": "GEO-047",
+        "data_type": "float",
+        "unit": "m",
+        "min": 3,
+        "max": 20
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "FLASH_VESSEL_LP",
+    "name_es": "Vessel de flash de baja presión",
+    "subsystem": "SEPARATION",
+    "properties": [
+      {
+        "name_es": "Presión de operación LP",
+        "field_id": "GEO-045",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 0.5,
+        "max": 5
+      },
+      {
+        "name_es": "Diámetro del vessel",
+        "field_id": "GEO-046",
+        "data_type": "float",
+        "unit": "m",
+        "min": 1.0,
+        "max": 6.0
+      },
+      {
+        "name_es": "Longitud del vessel",
+        "field_id": "GEO-047",
+        "data_type": "float",
+        "unit": "m",
+        "min": 3,
+        "max": 20
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "STEAM_SCRUBBER_DEMISTER",
+    "name_es": "Scrubber de vapor con demister",
+    "subsystem": "STEAM_CONDITIONING",
+    "properties": [
+      {
+        "name_es": "Capacidad másica demister",
+        "field_id": "GEO-048",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 5,
+        "max": 300
+      },
+      {
+        "name_es": "Eficiencia del moisture remover",
+        "field_id": "GEO-049",
+        "data_type": "float",
+        "unit": "%",
+        "min": 95,
+        "max": 99.9
+      },
+      {
+        "name_es": "Caída de presión",
+        "field_id": "GEO-050",
+        "data_type": "float",
+        "unit": "mbar",
+        "min": 5,
+        "max": 200
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "STEAM_TURBINE_CONDENSING",
+    "name_es": "Turbina de vapor condensante",
+    "subsystem": "POWER_CONVERSION",
+    "properties": [
+      {
+        "name_es": "Capacidad nominal",
+        "field_id": "GEO-060",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 1,
+        "max": 150
+      },
+      {
+        "name_es": "Presión de admisión",
+        "field_id": "GEO-061",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 3,
+        "max": 80
+      },
+      {
+        "name_es": "Temperatura de admisión",
+        "field_id": "GEO-062",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 120,
+        "max": 350
+      },
+      {
+        "name_es": "Presión de escape",
+        "field_id": "GEO-063",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 0.02,
+        "max": 0.2
+      },
+      {
+        "name_es": "Eficiencia isoentrópica",
+        "field_id": "GEO-064",
+        "data_type": "float",
+        "unit": "%",
+        "min": 75,
+        "max": 90
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CONDENSER_DIRECT_CONTACT",
+    "name_es": "Condensador de contacto directo (spray)",
+    "subsystem": "HEAT_REJECTION",
+    "properties": [
+      {
+        "name_es": "Tipo de condensador",
+        "field_id": "GEO-065",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Presión de operación",
+        "field_id": "GEO-066",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 0.02,
+        "max": 0.2
+      },
+      {
+        "name_es": "Duty térmico",
+        "field_id": "GEO-067",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 5,
+        "max": 500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "CONDENSER_SURFACE",
+    "name_es": "Condensador de superficie (shell-tube)",
+    "subsystem": "HEAT_REJECTION",
+    "properties": [
+      {
+        "name_es": "Tipo de condensador",
+        "field_id": "GEO-065",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Presión de operación",
+        "field_id": "GEO-066",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 0.02,
+        "max": 0.2
+      },
+      {
+        "name_es": "Duty térmico",
+        "field_id": "GEO-067",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 5,
+        "max": 500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "NCG_EJECTOR_SYSTEM",
+    "name_es": "Sistema eyector de vapor para extracción de NCG",
+    "subsystem": "NCG_EXTRACTION",
+    "properties": [
+      {
+        "name_es": "Capacidad de extracción",
+        "field_id": "GEO-071",
+        "data_type": "float",
+        "unit": "kg/h",
+        "min": 10,
+        "max": 50000
+      },
+      {
+        "name_es": "Consumo de vapor motriz",
+        "field_id": "GEO-072",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 0.5,
+        "max": 30
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "VACUUM_PUMP_LIQUID_RING",
+    "name_es": "Bomba de anillo líquido para vacío de NCG",
+    "subsystem": "NCG_EXTRACTION",
+    "properties": [
+      {
+        "name_es": "Capacidad de extracción",
+        "field_id": "GEO-071",
+        "data_type": "float",
+        "unit": "kg/h",
+        "min": 10,
+        "max": 50000
+      },
+      {
+        "name_es": "Potencia eléctrica",
+        "field_id": "GEO-073",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 5,
+        "max": 500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "H2S_ABATEMENT_STRETFORD",
+    "name_es": "Sistema de abatimiento de H2S (proceso Stretford)",
+    "subsystem": "H2S_ABATEMENT",
+    "properties": [
+      {
+        "name_es": "Eficiencia de remoción",
+        "field_id": "GEO-075",
+        "data_type": "float",
+        "unit": "%",
+        "min": 99,
+        "max": 99.99
+      },
+      {
+        "name_es": "Capacidad de tratamiento",
+        "field_id": "GEO-076",
+        "data_type": "float",
+        "unit": "kg/h",
+        "min": 1,
+        "max": 1000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "H2S_ABATEMENT_LOCAT",
+    "name_es": "Sistema de abatimiento de H2S (proceso LO-CAT)",
+    "subsystem": "H2S_ABATEMENT",
+    "properties": [
+      {
+        "name_es": "Eficiencia de remoción",
+        "field_id": "GEO-075",
+        "data_type": "float",
+        "unit": "%",
+        "min": 99,
+        "max": 99.99
+      },
+      {
+        "name_es": "Capacidad de tratamiento",
+        "field_id": "GEO-076",
+        "data_type": "float",
+        "unit": "kg/h",
+        "min": 1,
+        "max": 1000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BINARY_ORC_UNIT",
+    "name_es": "Unidad de ciclo orgánico Rankine (ORC) binaria",
+    "subsystem": "BINARY_POWER",
+    "properties": [
+      {
+        "name_es": "Fluido de trabajo",
+        "field_id": "GEO-090",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Flujo másico fluido",
+        "field_id": "GEO-091",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 10,
+        "max": 500
+      },
+      {
+        "name_es": "Duty vaporizador",
+        "field_id": "GEO-092",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 2,
+        "max": 200
+      },
+      {
+        "name_es": "Duty condensador",
+        "field_id": "GEO-093",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 1,
+        "max": 180
+      },
+      {
+        "name_es": "Eficiencia ORC",
+        "field_id": "GEO-094",
+        "data_type": "float",
+        "unit": "%",
+        "min": 8,
+        "max": 25
+      },
+      {
+        "name_es": "Capacidad turbina ORC",
+        "field_id": "GEO-095",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 1,
+        "max": 50
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "AIR_COOLED_CONDENSER_BINARY",
+    "name_es": "Condensador enfriado por aire (ACC) del ciclo ORC",
+    "subsystem": "BINARY_POWER",
+    "properties": [
+      {
+        "name_es": "Número de fans",
+        "field_id": "GEO-096",
+        "data_type": "int",
+        "unit": "-",
+        "min": 2,
+        "max": 50
+      },
+      {
+        "name_es": "Duty térmico",
+        "field_id": "GEO-097",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 1,
+        "max": 180
+      },
+      {
+        "name_es": "Potencia fans",
+        "field_id": "GEO-098",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 10,
+        "max": 1500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BRINE_PUMP",
+    "name_es": "Bomba de salmuera a reinyección",
+    "subsystem": "REINJECTION",
+    "properties": [
+      {
+        "name_es": "Presión de reinyección",
+        "field_id": "GEO-099",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 5,
+        "max": 200
+      },
+      {
+        "name_es": "Temperatura de bombeo",
+        "field_id": "GEO-100",
+        "data_type": "float",
+        "unit": "degC",
+        "min": 40,
+        "max": 180
+      },
+      {
+        "name_es": "Potencia de la bomba",
+        "field_id": "GEO-102",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 10,
+        "max": 2000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BRINE_FILTER",
+    "name_es": "Filtro de salmuera para remoción de sólidos",
+    "subsystem": "REINJECTION",
+    "properties": [
+      {
+        "name_es": "pH de salmuera",
+        "field_id": "GEO-101",
+        "data_type": "float",
+        "unit": "-",
+        "min": 2,
+        "max": 12
+      },
+      {
+        "name_es": "Diámetro de tubería",
+        "field_id": "GEO-054",
+        "data_type": "float",
+        "unit": "in",
+        "min": 4,
+        "max": 24
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "REINJECTION_PUMP",
+    "name_es": "Bomba de reinyección principal",
+    "subsystem": "REINJECTION",
+    "properties": [
+      {
+        "name_es": "Presión de reinyección",
+        "field_id": "GEO-099",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 5,
+        "max": 200
+      },
+      {
+        "name_es": "Potencia de la bomba",
+        "field_id": "GEO-102",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 10,
+        "max": 2000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "WELL_PUMP_SUBMERSIBLE",
+    "name_es": "Bomba sumergible en pozo (binary)",
+    "subsystem": "RESOURCE_PRODUCTION",
+    "properties": [
+      {
+        "name_es": "Potencia de la bomba",
+        "field_id": "GEO-105",
+        "data_type": "float",
+        "unit": "kW",
+        "min": 0,
+        "max": 1500
+      },
+      {
+        "name_es": "Flujo másico por pozo",
+        "field_id": "GEO-103",
+        "data_type": "float",
+        "unit": "kg/s",
+        "min": 10,
+        "max": 300
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "STEAM_PIPING_B31_1",
+    "name_es": "Tubería de vapor (ASME B31.1)",
+    "subsystem": "STEAM_DISTRIBUTION",
+    "properties": [
+      {
+        "name_es": "Diámetro nominal",
+        "field_id": "GEO-051",
+        "data_type": "float",
+        "unit": "in",
+        "min": 8,
+        "max": 48
+      },
+      {
+        "name_es": "Material",
+        "field_id": "GEO-052",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Presión de diseño",
+        "field_id": "GEO-053",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 5,
+        "max": 100
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "BRINE_PIPING_B31_3",
+    "name_es": "Tubería de salmuera (ASME B31.3)",
+    "subsystem": "BRINE_DISTRIBUTION",
+    "properties": [
+      {
+        "name_es": "Diámetro nominal",
+        "field_id": "GEO-054",
+        "data_type": "float",
+        "unit": "in",
+        "min": 4,
+        "max": 24
+      },
+      {
+        "name_es": "Material",
+        "field_id": "GEO-055",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      },
+      {
+        "name_es": "Presión de diseño",
+        "field_id": "GEO-056",
+        "data_type": "float",
+        "unit": "bar",
+        "min": 10,
+        "max": 200
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GATHERING_LINE_TWO_PHASE",
+    "name_es": "Tubería bifásica del gathering system",
+    "subsystem": "FIELD_GATHERING",
+    "properties": [
+      {
+        "name_es": "Diámetro nominal",
+        "field_id": "GEO-036",
+        "data_type": "float",
+        "unit": "in",
+        "min": 6,
+        "max": 36
+      },
+      {
+        "name_es": "Longitud total",
+        "field_id": "GEO-037",
+        "data_type": "float",
+        "unit": "m",
+        "min": 50,
+        "max": 5000
+      },
+      {
+        "name_es": "Velocidad bifásica",
+        "field_id": "GEO-038",
+        "data_type": "float",
+        "unit": "m/s",
+        "min": 5,
+        "max": 20
+      },
+      {
+        "name_es": "Material",
+        "field_id": "GEO-039",
+        "data_type": "enum",
+        "unit": "-",
+        "min": null,
+        "max": null
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "TURBINE_GENERATOR",
+    "name_es": "Generador principal de la turbina",
+    "subsystem": "POWER_CONVERSION",
+    "properties": [
+      {
+        "name_es": "Voltaje nominal",
+        "field_id": "GEO-106",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 6,
+        "max": 30
+      },
+      {
+        "name_es": "Capacidad nominal",
+        "field_id": "GEO-060",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 1,
+        "max": 150
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GEO-POWER-TRANSFORMER",
+    "name_es": "Transformador principal",
+    "subsystem": "ELECTRICAL_DISTRIBUTION",
+    "properties": [
+      {
+        "name_es": "Capacidad MVA",
+        "field_id": "GEO-107",
+        "data_type": "float",
+        "unit": "MVA",
+        "min": 1,
+        "max": 500
+      },
+      {
+        "name_es": "Voltaje de interconexión",
+        "field_id": "GEO-109",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 10,
+        "max": 500
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GEO-SWITCHGEAR",
+    "name_es": "Switchgear principal",
+    "subsystem": "ELECTRICAL_DISTRIBUTION",
+    "properties": [
+      {
+        "name_es": "Voltaje nominal",
+        "field_id": "GEO-108",
+        "data_type": "float",
+        "unit": "kV",
+        "min": 6,
+        "max": 220
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "NEUTRALIZATION_SYSTEM",
+    "name_es": "Sistema de neutralización de efluentes ácidos",
+    "subsystem": "ENVIRONMENTAL_TREATMENT",
+    "properties": [
+      {
+        "name_es": "pH de reinyección",
+        "field_id": "GEO-101",
+        "data_type": "float",
+        "unit": "-",
+        "min": 2,
+        "max": 12
+      },
+      {
+        "name_es": "H2S en vente",
+        "field_id": "GEO-077",
+        "data_type": "float",
+        "unit": "ppm",
+        "min": 0,
+        "max": 5000
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "GEO-COOLING-TOWER",
+    "name_es": "Torre de enfriamiento para condensador",
+    "subsystem": "HEAT_REJECTION",
+    "properties": [
+      {
+        "name_es": "Capacidad térmica",
+        "field_id": "GEO-068",
+        "data_type": "float",
+        "unit": "MW",
+        "min": 5,
+        "max": 500
+      },
+      {
+        "name_es": "Caudal de agua",
+        "field_id": "GEO-069",
+        "data_type": "float",
+        "unit": "m3/s",
+        "min": 0.05,
+        "max": 10
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "FIRE_WATER_SYSTEM",
+    "name_es": "Sistema de agua contra incendio",
+    "subsystem": "FIRE_PROTECTION",
+    "properties": [
+      {
+        "name_es": "Capacidad del tanque",
+        "field_id": "GEO-116",
+        "data_type": "float",
+        "unit": "m3",
+        "min": 50,
+        "max": 2000
+      },
+      {
+        "name_es": "Densidad de rociadores",
+        "field_id": "GEO-117",
+        "data_type": "float",
+        "unit": "mm/min",
+        "min": 4,
+        "max": 12
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  },
+  {
+    "equipment_type_id": "LIGHTNING_PROTECTION",
+    "name_es": "Sistema de protección contra rayos",
+    "subsystem": "SAFETY",
+    "properties": [
+      {
+        "name_es": "Resistencia de malla",
+        "field_id": "GEO-110",
+        "data_type": "float",
+        "unit": "ohm",
+        "min": 0.1,
+        "max": 10
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": []
+  }
+]

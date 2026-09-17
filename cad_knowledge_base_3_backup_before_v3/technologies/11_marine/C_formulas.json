@@ -1,0 +1,2944 @@
+[
+  {
+    "calculation_id": "MAR-C-001",
+    "name_es": "Altura significativa extremal 50 años (Gumbel/Weibull)",
+    "purpose": "Estimar el Hs extremal con período de retorno 50 años usando Gumbel o Weibull de 3 parámetros.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "MAR-011",
+      "MAR-012",
+      "MAR-013",
+      "MAR-014",
+      "MAR-029"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Hs_50 = mu_Hs + sigma_Hs * (sqrt(6)/pi)*(0.5772 + ln(ln(T/(T-1))))",
+      "T=50 años (Gumbel)",
+      "Alt: Hs_50 = W_loc + W_scale * (-ln(1 - 1/T))^(1/shape) (Weibull 3p)"
+    ],
+    "equations_latex": [
+      "H_{s,50} = \\mu + \\sigma\\frac{\\sqrt6}{\\pi}\\left[0.5772 + \\ln\\left(\\ln\\frac{T}{T-1}\\right)\\right]"
+    ],
+    "variables": [
+      {
+        "name": "Media Hs",
+        "symbol": "mu_Hs",
+        "unit": "m"
+      },
+      {
+        "name": "Desviación estándar Hs",
+        "symbol": "sigma_Hs",
+        "unit": "m"
+      },
+      {
+        "name": "Período de retorno",
+        "symbol": "T",
+        "unit": "years"
+      },
+      {
+        "name": "Parámetro loc Weibull",
+        "symbol": "W_loc",
+        "unit": "m"
+      },
+      {
+        "name": "Parámetro escala Weibull",
+        "symbol": "W_scale",
+        "unit": "m"
+      },
+      {
+        "name": "Parámetro forma Weibull",
+        "symbol": "shape",
+        "unit": "-"
+      },
+      {
+        "name": "Hs extremal 50 años",
+        "symbol": "Hs_50",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "Hs_50 [m] = mu_Hs [m] + sigma_Hs [m] * (sqrt(6)/pi) * (0.5772 + ln(ln(T/(T-1))))"
+    ],
+    "numerical_method": "Statistical fitting with annual maximum series (AMS); Gumbel L-moments or Weibull MLE.",
+    "iteration_limits": {
+      "max_iterations": 100,
+      "tolerance": 0.001,
+      "method": "MLE"
+    },
+    "validity_limits": [
+      {
+        "condition": "T>=10",
+        "message": "período de retorno muy corto para IEC TS 62600-2"
+      },
+      {
+        "condition": "record>=10 years",
+        "message": "insufficient record"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Hs 50 años",
+        "unit": "m"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "Hs_50>=mu_Hs",
+        "message": "Hs extremal menor que media"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "insufficient record",
+        "recovery": "usar datos de reanálisis NASA POWER"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-001",
+      "MAR-DRW-003",
+      "MAR-DRW-008"
+    ],
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "DNV_RP_C205",
+      "NASA_POWER"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-002",
+    "name_es": "Distribución de período medio de ola (Tm)",
+    "purpose": "Calcular Tm a partir de Tp y tipo de espectro.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "MAR-012",
+      "MAR-014",
+      "MAR-015",
+      "MAR-016"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "Tm = Tp * gamma_factor",
+      "gamma_factor JONSWAP: 0.78",
+      "gamma_factor Pierson-Moskowitz: 0.81"
+    ],
+    "equations_latex": [
+      "T_m = T_p \\cdot \\gamma_{spec}"
+    ],
+    "variables": [
+      {
+        "name": "Período pico",
+        "symbol": "Tp",
+        "unit": "s"
+      },
+      {
+        "name": "Factor espectral",
+        "symbol": "gamma_factor",
+        "unit": "-"
+      },
+      {
+        "name": "Período medio",
+        "symbol": "Tm",
+        "unit": "s"
+      }
+    ],
+    "unit_equations": [
+      "Tm [s] = Tp [s] * gamma_factor [-]"
+    ],
+    "numerical_method": "Closed-form factor from spectral moments; depends on JONSWAP gamma parameter.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "Tp in [3,25]",
+        "message": "Tp fuera de rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Período medio",
+        "unit": "s"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "Tm<Tp",
+        "message": "Tm debe ser menor que Tp"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "espectro desconocido",
+        "recovery": "asumir JONSWAP gamma=3.3"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "IEC_TS_62600_2"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-003",
+    "name_es": "Carga de corriente sobre pilote (Morison)",
+    "purpose": "Calcular la fuerza por unidad de longitud sobre un pilote cilíndrico según la ecuación de Morison.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "MAR-022",
+      "MAR-025",
+      "MAR-039",
+      "MAR-057",
+      "MAR-058"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F = rho*Cd*D*u*|u|/2 + rho*Cm*pi*D^2/4*du/dt",
+      "u = velocidad de corriente"
+    ],
+    "equations_latex": [
+      "F = \\rho C_d D u |u| \\frac{1}{2} + \\rho C_m \\frac{\\pi D^2}{4} \\frac{du}{dt}"
+    ],
+    "variables": [
+      {
+        "name": "Densidad agua",
+        "symbol": "rho",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Coeficiente arrastre",
+        "symbol": "Cd",
+        "unit": "-"
+      },
+      {
+        "name": "Diámetro pilote",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "Velocidad corriente",
+        "symbol": "u",
+        "unit": "m/s"
+      },
+      {
+        "name": "Coeficiente inercia",
+        "symbol": "Cm",
+        "unit": "-"
+      },
+      {
+        "name": "Carga por unidad de longitud",
+        "symbol": "F",
+        "unit": "N/m"
+      }
+    ],
+    "unit_equations": [
+      "F [N/m] = rho [kg/m3] * Cd [-] * D [m] * u [m/s] * |u [m/s]| / 2 + rho [kg/m3] * Cm [-] * pi * D^2 [m2] / 4 * du/dt [m/s2]"
+    ],
+    "numerical_method": "Morison equation per DNV-RP-C205; integrate over depth for total force.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form_per_unit_length"
+    },
+    "validity_limits": [
+      {
+        "condition": "D > 0",
+        "message": "diámetro debe ser positivo"
+      },
+      {
+        "condition": "Cd in [0.5,2.5]",
+        "message": "Cd fuera de rango DNV-RP-C205"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Carga por unidad de longitud",
+        "unit": "N/m"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "F>=0",
+        "message": "carga negativa no física"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "Diámetro grande KC<2",
+        "recovery": "usar régimen difracción"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_OS_J101",
+      "IEC_TS_62600_2"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-004",
+    "name_es": "Carga de ola sobre dispositivo (Morrison/difracción)",
+    "purpose": "Calcular la carga de ola sobre el dispositivo según régimen Morrison o difracción.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "MAR-011",
+      "MAR-012",
+      "MAR-022",
+      "MAR-025",
+      "MAR-039",
+      "MAR-047",
+      "MAR-057",
+      "MAR-058",
+      "MAR-059",
+      "MAR-061"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "KC = u*T/D",
+      "D < lambda/2: Morison",
+      "D > lambda/2: difracción con coeficientes de masa difractada",
+      "lambda = g*T^2/(2*pi)"
+    ],
+    "equations_latex": [
+      "KC = \\frac{uT}{D}",
+      "\\lambda = \\frac{gT^2}{2\\pi}"
+    ],
+    "variables": [
+      {
+        "name": "Número Keulegan-Carpenter",
+        "symbol": "KC",
+        "unit": "-"
+      },
+      {
+        "name": "Velocidad",
+        "symbol": "u",
+        "unit": "m/s"
+      },
+      {
+        "name": "Período",
+        "symbol": "T",
+        "unit": "s"
+      },
+      {
+        "name": "Diámetro",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "Longitud de ola",
+        "symbol": "lambda",
+        "unit": "m"
+      },
+      {
+        "name": "Gravedad",
+        "symbol": "g",
+        "unit": "m/s2"
+      }
+    ],
+    "unit_equations": [
+      "KC [-] = u [m/s] * T [s] / D [m]",
+      "lambda [m] = g [m/s2] * T^2 [s2] / (2*pi)"
+    ],
+    "numerical_method": "Régimen Morrison si D<lambda/2 (pequeño cuerpo); régimen de difracción si D>lambda/2 (cuerpo grande). Use BEM (WAMIT/AQWA) para difracción.",
+    "iteration_limits": {
+      "max_iterations": 50,
+      "tolerance": 0.01,
+      "method": "BEM_panel_method"
+    },
+    "validity_limits": [
+      {
+        "condition": "D > 0",
+        "message": "diámetro positivo"
+      },
+      {
+        "condition": "T > 0",
+        "message": "período positivo"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Régimen",
+        "unit": "-"
+      },
+      {
+        "name": "Carga de ola",
+        "unit": "kN"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "cálculo > 0",
+        "message": "carga negativa"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "régimen no claro",
+        "recovery": "usar análisis BEM difracción completo"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-008",
+      "MAR-DRW-011",
+      "MAR-DRW-003"
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_OS_J101",
+      "IEC_TS_62600_2"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-005",
+    "name_es": "Fatiga de estructura con curvas S-N",
+    "purpose": "Calcular la vida a la fatiga usando curvas S-N (DNV/IIW) y concentración de tensiones.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "MAR-060",
+      "MAR-061",
+      "MAR-062",
+      "MAR-115",
+      "MAR-119"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "log10(N) = log10(K) - m*log10(Stress_range)",
+      "N = número de ciclos",
+      "Stress_range = amplitud*2",
+      "Damage D = sum(n_i/N_i) <= 1"
+    ],
+    "equations_latex": [
+      "\\log_{10} N = \\log_{10} K - m \\log_{10} \\Delta\\sigma"
+    ],
+    "variables": [
+      {
+        "name": "Número de ciclos",
+        "symbol": "N",
+        "unit": "-"
+      },
+      {
+        "name": "Constante S-N",
+        "symbol": "K",
+        "unit": "-"
+      },
+      {
+        "name": "Pendiente S-N",
+        "symbol": "m",
+        "unit": "-"
+      },
+      {
+        "name": "Rango de tensión",
+        "symbol": "Stress_range",
+        "unit": "MPa"
+      },
+      {
+        "name": "Ciclos aplicados",
+        "symbol": "n_i",
+        "unit": "-"
+      },
+      {
+        "name": "Daño acumulado",
+        "symbol": "D",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "log10(N [-]) = log10(K [-]) - m [-] * log10(Stress_range [MPa])",
+      "D [-] = sum(n_i/N_i) <= 1"
+    ],
+    "numerical_method": "Miner lineal damage accumulation con S-N curves DNV-RP-C203 y curvas B1-C depending on detail class.",
+    "iteration_limits": {
+      "max_iterations": 1000,
+      "tolerance": 0.001,
+      "method": "rainflow_counting_Miner"
+    },
+    "validity_limits": [
+      {
+        "condition": "Stress_range > 0",
+        "message": "rango de tensión positivo"
+      },
+      {
+        "condition": "D <= 1",
+        "message": "daño total debe ser <= 1"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Vida a fatiga",
+        "unit": "years"
+      },
+      {
+        "name": "Daño",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "D<=1",
+        "message": "daño excede unidad"
+      },
+      {
+        "rule": "vida>=25 años",
+        "message": "vida de fatiga insuficiente"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "alta concentración de tensiones",
+        "recovery": "mejorar detalle o usar post-tratamiento"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ],
+    "source_ids": [
+      "DNV_OS_C101",
+      "DNV_RP_C205",
+      "IEC_TS_62600_2"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-006",
+    "name_es": "Tensión de línea de fondeo quasi-estática",
+    "purpose": "Calcular la tensión de la línea de fondeo en condición quasi-estática según DNV-OS-E301.",
+    "applicability_expression": "mooring_type != none",
+    "input_field_ids": [
+      "MAR-011",
+      "MAR-012",
+      "MAR-019",
+      "MAR-022",
+      "MAR-069",
+      "MAR-070",
+      "MAR-071",
+      "MAR-072",
+      "MAR-073"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F = F_inertia + F_drag + F_current",
+      "T = F + W_submerged * sin(theta)",
+      "theta = ángulo de la línea al horizontal",
+      "T <= MBL/SF",
+      "SF_min = 1.5 (DNV-OS-E301)"
+    ],
+    "equations_latex": [
+      "T = F_{inertia} + F_{drag} + F_{current} + W_s \\sin\\theta"
+    ],
+    "variables": [
+      {
+        "name": "Fuerza total dispositivo",
+        "symbol": "F",
+        "unit": "kN"
+      },
+      {
+        "name": "Tensión línea",
+        "symbol": "T",
+        "unit": "kN"
+      },
+      {
+        "name": "Peso sumergido línea",
+        "symbol": "W_submerged",
+        "unit": "kN/m"
+      },
+      {
+        "name": "Ángulo línea",
+        "symbol": "theta",
+        "unit": "deg"
+      },
+      {
+        "name": "MBL",
+        "symbol": "MBL",
+        "unit": "kN"
+      },
+      {
+        "name": "Factor de seguridad",
+        "symbol": "SF",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "T [kN] = F [kN] + W_submerged [kN/m] * sin(theta) [-]"
+    ],
+    "numerical_method": "Análisis quasi-estático per DNV-OS-E301; análisis dinámico requerido para líneas largas con corrientes variables.",
+    "iteration_limits": {
+      "max_iterations": 50,
+      "tolerance": 0.01,
+      "method": "quasi_static_catenary"
+    },
+    "validity_limits": [
+      {
+        "condition": "MBL > 0",
+        "message": "MBL positivo"
+      },
+      {
+        "condition": "SF >= 1.5",
+        "message": "SF mínimo 1.5 DNV-OS-E301"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Tensión línea",
+        "unit": "kN"
+      },
+      {
+        "name": "Factor de seguridad",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "T<=MBL/SF",
+        "message": "tensión excede MBL/SF"
+      },
+      {
+        "rule": "SF>=1.5",
+        "message": "SF por debajo de 1.5"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "catenaria no resuelve",
+        "recovery": "aumentar peso de línea o alargar"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-011",
+      "MAR-DRW-008"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_RP_C205",
+      "IEC_TS_62600_10"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-007",
+    "name_es": "Fatiga de línea de fondeo",
+    "purpose": "Calcular la vida a la fatiga de la línea de fondeo con S-N de T-N curves para cadena/cable.",
+    "applicability_expression": "mooring_type != none",
+    "input_field_ids": [
+      "MAR-060",
+      "MAR-068",
+      "MAR-071",
+      "MAR-072",
+      "MAR-073"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "T-T curve: log(N) = log(K) - m*log(T_range)",
+      "Damage D = sum(n_i/N_i)",
+      "T_range = T_max - T_min"
+    ],
+    "equations_latex": [
+      "\\log N = \\log K - m \\log \\Delta T"
+    ],
+    "variables": [
+      {
+        "name": "Ciclos",
+        "symbol": "N",
+        "unit": "-"
+      },
+      {
+        "name": "Constante T-N",
+        "symbol": "K",
+        "unit": "-"
+      },
+      {
+        "name": "Pendiente",
+        "symbol": "m",
+        "unit": "-"
+      },
+      {
+        "name": "Rango de tensión",
+        "symbol": "T_range",
+        "unit": "kN"
+      },
+      {
+        "name": "Ciclos aplicados",
+        "symbol": "n_i",
+        "unit": "-"
+      },
+      {
+        "name": "Daño",
+        "symbol": "D",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "log10(N [-]) = log10(K [-]) - m [-] * log10(T_range [kN])"
+    ],
+    "numerical_method": "T-N curves de DNV-OS-E301 Apéndice; Miner lineal para acumulación de daño.",
+    "iteration_limits": {
+      "max_iterations": 1000,
+      "tolerance": 0.001,
+      "method": "rainflow_counting_Miner"
+    },
+    "validity_limits": [
+      {
+        "condition": "T_range > 0",
+        "message": "rango positivo"
+      },
+      {
+        "condition": "D <= 1",
+        "message": "daño total <= 1"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Vida fatiga línea",
+        "unit": "years"
+      },
+      {
+        "name": "Daño",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "D<=1",
+        "message": "daño excede unidad"
+      },
+      {
+        "rule": "vida>=25 años",
+        "message": "vida insuficiente"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "alto ciclo",
+        "recovery": "usar synthetic rope mejor fatiga"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-011"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_RP_C205",
+      "IEC_TS_62600_10"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-008",
+    "name_es": "Capacidad de retención ancla drag embedment",
+    "purpose": "Calcular capacidad de retención de ancla drag embedment según DNV-OS-E301.",
+    "applicability_expression": "anchor_type == drag_embedment",
+    "input_field_ids": [
+      "MAR-009",
+      "MAR-010",
+      "MAR-063",
+      "MAR-064",
+      "MAR-065",
+      "MAR-066"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "H_max = N_c * A_embed * s_u",
+      "s_u = cohesión efectiva",
+      "SF = H_max / T_design",
+      "SF >= 1.5"
+    ],
+    "equations_latex": [
+      "H_{max} = N_c A_{embed} s_u"
+    ],
+    "variables": [
+      {
+        "name": "Factor capacidad",
+        "symbol": "N_c",
+        "unit": "-"
+      },
+      {
+        "name": "Área embebida",
+        "symbol": "A_embed",
+        "unit": "m2"
+      },
+      {
+        "name": "Cohesión",
+        "symbol": "s_u",
+        "unit": "kPa"
+      },
+      {
+        "name": "Capacidad retención",
+        "symbol": "H_max",
+        "unit": "kN"
+      },
+      {
+        "name": "Carga de diseño",
+        "symbol": "T_design",
+        "unit": "kN"
+      },
+      {
+        "name": "Factor de seguridad",
+        "symbol": "SF",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "H_max [kN] = N_c [-] * A_embed [m2] * s_u [kPa]",
+      "SF [-] = H_max [kN] / T_design [kN]"
+    ],
+    "numerical_method": "Cálculo de capacidad de retención según DNV-OS-E301 para drag embedment anchors en suelo cohesivo.",
+    "iteration_limits": {
+      "max_iterations": 50,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "A_embed > 0",
+        "message": "área embebida positiva"
+      },
+      {
+        "condition": "SF >= 1.5",
+        "message": "SF mínimo 1.5"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Capacidad de retención",
+        "unit": "kN"
+      },
+      {
+        "name": "SF",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "SF>=1.5",
+        "message": "SF insuficiente"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "suelo blando",
+        "recovery": "usar pilote de succión"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-007",
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_OS_C101",
+      "ISO_14656"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-009",
+    "name_es": "Capacidad de retención pilote de succión",
+    "purpose": "Calcular capacidad de retención de pilote de succión según DNV-OS-E301.",
+    "applicability_expression": "anchor_type == suction_pile",
+    "input_field_ids": [
+      "MAR-009",
+      "MAR-010",
+      "MAR-063",
+      "MAR-064",
+      "MAR-065",
+      "MAR-066"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "H_max = pi * D * L * s_u_avg * N_p",
+      "N_p = factor adhesión lateral",
+      "SF = H_max / T_design",
+      "SF >= 1.5"
+    ],
+    "equations_latex": [
+      "H_{max} = \\pi D L s_{u,avg} N_p"
+    ],
+    "variables": [
+      {
+        "name": "Diámetro pilote",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "Longitud pilote",
+        "symbol": "L",
+        "unit": "m"
+      },
+      {
+        "name": "Cohesión media",
+        "symbol": "s_u_avg",
+        "unit": "kPa"
+      },
+      {
+        "name": "Factor adhesión",
+        "symbol": "N_p",
+        "unit": "-"
+      },
+      {
+        "name": "Capacidad retención",
+        "symbol": "H_max",
+        "unit": "kN"
+      },
+      {
+        "name": "SF",
+        "symbol": "SF",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "H_max [kN] = pi * D [m] * L [m] * s_u_avg [kPa] * N_p [-]",
+      "SF [-] = H_max [kN] / T_design [kN]"
+    ],
+    "numerical_method": "Cálculo de capacidad según DNV-OS-E301 para suction pile en suelo cohesivo (blanco gamma).",
+    "iteration_limits": {
+      "max_iterations": 50,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "L > 0",
+        "message": "longitud positiva"
+      },
+      {
+        "condition": "SF >= 1.5",
+        "message": "SF mínimo 1.5"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Capacidad",
+        "unit": "kN"
+      },
+      {
+        "name": "SF",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "SF>=1.5",
+        "message": "SF insuficiente"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "suelo granular",
+        "recovery": "usar deadweight o pile"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-007",
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_OS_C101",
+      "ISO_14656"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-010",
+    "name_es": "Capacidad de retención ancla deadweight",
+    "purpose": "Calcular capacidad de retención de ancla deadweight (lastre) en lecho marino.",
+    "applicability_expression": "anchor_type == deadweight",
+    "input_field_ids": [
+      "MAR-009",
+      "MAR-010",
+      "MAR-063",
+      "MAR-065",
+      "MAR-066"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "H_max = W_submerged * mu + S_passive",
+      "W_submerged = W_dry - buoyancy",
+      "SF = H_max / T_design",
+      "SF >= 1.5"
+    ],
+    "equations_latex": [
+      "H_{max} = W_s \\mu + S_p"
+    ],
+    "variables": [
+      {
+        "name": "Peso sumergido",
+        "symbol": "W_submerged",
+        "unit": "kN"
+      },
+      {
+        "name": "Coeficiente fricción",
+        "symbol": "mu",
+        "unit": "-"
+      },
+      {
+        "name": "Resistencia pasiva suelo",
+        "symbol": "S_passive",
+        "unit": "kN"
+      },
+      {
+        "name": "SF",
+        "symbol": "SF",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "H_max [kN] = W_submerged [kN] * mu [-] + S_passive [kN]",
+      "SF [-] = H_max [kN] / T_design [kN]"
+    ],
+    "numerical_method": "Cálculo de capacidad deadweight per DNV-OS-E301.",
+    "iteration_limits": {
+      "max_iterations": 10,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "W_submerged > 0",
+        "message": "peso positivo"
+      },
+      {
+        "condition": "SF >= 1.5",
+        "message": "SF mínimo 1.5"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Capacidad",
+        "unit": "kN"
+      },
+      {
+        "name": "SF",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "SF>=1.5",
+        "message": "SF insuficiente"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "suelo blando",
+        "recovery": "aumentar peso o usar pilote"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-007",
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ],
+    "source_ids": [
+      "DNV_OS_E301",
+      "DNV_OS_C101",
+      "ISO_14656"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-011",
+    "name_es": "Tensión de cable dinámico por deriva",
+    "purpose": "Calcular la tensión del cable dinámico debido al drift del dispositivo flotante.",
+    "applicability_expression": "cable_type_dynamic_present == true",
+    "input_field_ids": [
+      "MAR-011",
+      "MAR-019",
+      "MAR-022",
+      "MAR-077",
+      "MAR-079",
+      "MAR-084"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "T_cable = sqrt(F_drag^2 + F_inertia^2) + W_submerged_cable * sin(theta)",
+      "F_drag = 0.5 * rho * Cd * D * u^2 * L"
+    ],
+    "equations_latex": [
+      "T_c = \\sqrt{F_d^2 + F_i^2} + W_s \\sin\\theta"
+    ],
+    "variables": [
+      {
+        "name": "Fuerza arrastre",
+        "symbol": "F_drag",
+        "unit": "kN"
+      },
+      {
+        "name": "Fuerza inercia",
+        "symbol": "F_inertia",
+        "unit": "kN"
+      },
+      {
+        "name": "Peso cable sumergido",
+        "symbol": "W_submerged_cable",
+        "unit": "kN/m"
+      },
+      {
+        "name": "Ángulo cable",
+        "symbol": "theta",
+        "unit": "deg"
+      },
+      {
+        "name": "Tensión cable",
+        "symbol": "T_cable",
+        "unit": "kN"
+      }
+    ],
+    "unit_equations": [
+      "T_cable [kN] = sqrt(F_drag^2 [kN2] + F_inertia^2 [kN2]) + W_submerged_cable [kN/m] * sin(theta) [-]"
+    ],
+    "numerical_method": "Análisis cuasi-estático de cable dinámico; análisis dinámico completo requerido para fatiga.",
+    "iteration_limits": {
+      "max_iterations": 50,
+      "tolerance": 0.01,
+      "method": "quasi_static"
+    },
+    "validity_limits": [
+      {
+        "condition": "T_cable > 0",
+        "message": "tensión positiva"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Tensión",
+        "unit": "kN"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "T_cable<=MBL_cable/SF",
+        "message": "tensión excede MBL/SF"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "deriva excesiva",
+        "recovery": "agregar flotadores o rediseñar lazy wave"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-012",
+      "MAR-DRW-004"
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "IEC_60287_1_1",
+      "DNV_OS_E301"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-012",
+    "name_es": "Fatiga del cable dinámico por VIV cross-flow/in-line",
+    "purpose": "Calcular la vida a la fatiga del cable dinámico por vibraciones inducidas por vórtices (VIV).",
+    "applicability_expression": "cable_type_dynamic_present == true",
+    "input_field_ids": [
+      "MAR-022",
+      "MAR-071",
+      "MAR-077",
+      "MAR-079",
+      "MAR-084",
+      "MAR-060"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "V_r = u / (f_n * D)",
+      "VIV onset si V_r > 5 (in-line), V_r > 3 (cross-flow)",
+      "log10(N) = log10(K) - m*log10(Stress_VIV)"
+    ],
+    "equations_latex": [
+      "V_r = \\frac{u}{f_n D}"
+    ],
+    "variables": [
+      {
+        "name": "Velocidad reducida",
+        "symbol": "V_r",
+        "unit": "-"
+      },
+      {
+        "name": "Velocidad corriente",
+        "symbol": "u",
+        "unit": "m/s"
+      },
+      {
+        "name": "Frecuencia natural",
+        "symbol": "f_n",
+        "unit": "Hz"
+      },
+      {
+        "name": "Diámetro cable",
+        "symbol": "D",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "V_r [-] = u [m/s] / (f_n [Hz] * D [m])"
+    ],
+    "numerical_method": "Análisis VIV per DNV-RP-C204 y DNV-RP-F204; usar modelos de in-line y cross-flow.",
+    "iteration_limits": {
+      "max_iterations": 1000,
+      "tolerance": 0.001,
+      "method": "rainflow_counting_Miner"
+    },
+    "validity_limits": [
+      {
+        "condition": "V_r > 3",
+        "message": "VIV onset posible"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Vida fatiga",
+        "unit": "years"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "vida>=25 años",
+        "message": "vida insuficiente"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "alto V_r",
+        "recovery": "agregar suppressors (helical strakes)"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-012",
+      "MAR-DRW-004"
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_RP_C205",
+      "IEC_60287_1_1"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-013",
+    "name_es": "Profundidad de enterramiento del cable submarino",
+    "purpose": "Calcular la profundidad mínima de enterramiento del cable submarino según riesgo de ancla y geotecnia.",
+    "applicability_expression": "cable_type_static_present == true",
+    "input_field_ids": [
+      "MAR-008",
+      "MAR-009",
+      "MAR-010",
+      "MAR-082",
+      "MAR-083",
+      "MAR-085"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "depth_min = anchor_penetration_max + scour_depth + freeboard",
+      "anchor_penetration_max depende de anclas locales",
+      "freeboard minimo 0.5 m"
+    ],
+    "equations_latex": [
+      "d_{min} = P_{anchor} + S_{scour} + F"
+    ],
+    "variables": [
+      {
+        "name": "Penetración máxima ancla",
+        "symbol": "anchor_penetration_max",
+        "unit": "m"
+      },
+      {
+        "name": "Profundidad scour",
+        "symbol": "scour_depth",
+        "unit": "m"
+      },
+      {
+        "name": "Freeboard",
+        "symbol": "freeboard",
+        "unit": "m"
+      },
+      {
+        "name": "Profundidad mínima",
+        "symbol": "depth_min",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "depth_min [m] = anchor_penetration_max [m] + scour_depth [m] + freeboard [m]"
+    ],
+    "numerical_method": "Método de cálculo según DNV-RP-C205; profundidad mínima recomendada 1.0 m.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.1,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "depth_min >= 1.0",
+        "message": "profundidad mínima 1.0 m según IEC"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Profundidad",
+        "unit": "m"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "depth_min>=1.0",
+        "message": "profundidad por debajo de 1.0 m"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "roca en superficie",
+        "recovery": "usar protección de roca o mattress"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-005",
+      "MAR-DRW-006"
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "IEC_TS_62600_2",
+      "MINEM_DS_032_2003"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-014",
+    "name_es": "Predicción de profundidad de socavación (Soulsby)",
+    "purpose": "Calcular la profundidad esperada de socavación alrededor de fundaciones según Soulsby.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "MAR-008",
+      "MAR-009",
+      "MAR-022",
+      "MAR-031",
+      "MAR-032",
+      "MAR-039",
+      "MAR-086",
+      "MAR-087"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "S/D = 1.3 * tanh(KC^0.5)",
+      "KC = u*T/D",
+      "S = scour depth",
+      "S_max = 1.3*D"
+    ],
+    "equations_latex": [
+      "\\frac{S}{D} = 1.3 \\tanh(\\sqrt{KC})"
+    ],
+    "variables": [
+      {
+        "name": "Profundidad scour",
+        "symbol": "S",
+        "unit": "m"
+      },
+      {
+        "name": "Diámetro",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "Número KC",
+        "symbol": "KC",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "S [m] = 1.3 * D [m] * tanh(sqrt(KC [-]))"
+    ],
+    "numerical_method": "Soulsby (1997) formula para scour en cilindros; DNV-RP-C205 referencia.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "D > 0",
+        "message": "diámetro positivo"
+      },
+      {
+        "condition": "S <= 1.3*D",
+        "message": "scour no excede 1.3*D"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Profundidad scour",
+        "unit": "m"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "S>=0",
+        "message": "scour no negativo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "suelo cohesivo",
+        "recovery": "usar scour predictor alternativo"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-007",
+      "MAR-DRW-008"
+    ],
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_RP_C205",
+      "ISO_14656"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-015",
+    "name_es": "Carga por crecimiento marino",
+    "purpose": "Calcular la carga adicional por marine growth en estructuras sumergidas.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "MAR-022",
+      "MAR-031",
+      "MAR-033",
+      "MAR-039"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "F_mg = rho_mg * g * V_mg",
+      "V_mg = pi * D * t_mg * L",
+      "t_mg = espesor marine growth"
+    ],
+    "equations_latex": [
+      "F_{mg} = \\rho_{mg} g V_{mg}"
+    ],
+    "variables": [
+      {
+        "name": "Densidad marine growth",
+        "symbol": "rho_mg",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Gravedad",
+        "symbol": "g",
+        "unit": "m/s2"
+      },
+      {
+        "name": "Volumen marine growth",
+        "symbol": "V_mg",
+        "unit": "m3"
+      },
+      {
+        "name": "Diámetro estructura",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "Espesor marine growth",
+        "symbol": "t_mg",
+        "unit": "m"
+      },
+      {
+        "name": "Longitud estructura",
+        "symbol": "L",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "F_mg [N] = rho_mg [kg/m3] * g [m/s2] * V_mg [m3]",
+      "V_mg [m3] = pi * D [m] * t_mg [m] * L [m]"
+    ],
+    "numerical_method": "Cálculo según DNV-RP-C205; marine growth incrementa peso y diámetro efectivo.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "t_mg > 0",
+        "message": "espesor positivo"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Carga marine growth",
+        "unit": "kN"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "F_mg>=0",
+        "message": "carga no negativa"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "marine growth excesivo",
+        "recovery": "programar limpieza periódica"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "IEC_TS_62600_2"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-016",
+    "name_es": "Ampacidad de cable submarino (IEC 60287)",
+    "purpose": "Calcular la ampacidad del cable submarino según IEC 60287-1-1.",
+    "applicability_expression": "device_count_total > 0",
+    "input_field_ids": [
+      "MAR-075",
+      "MAR-076",
+      "MAR-077",
+      "MAR-078",
+      "MAR-079",
+      "MAR-084"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "I = sqrt((T_c - T_a - W_d*(1/2))*R_T)/(R_ac*(1+alpha*(T_c-T_ref)) + R_T/(2*pi)*ln(D/d))",
+      "Ampacity depende de burial, soil thermal rho"
+    ],
+    "equations_latex": [
+      "I = \\sqrt{\\frac{\\Delta T - \\frac{1}{2}W_d R_T}{R_{ac}(1+\\alpha\\Delta T) + R_T/(2\\pi)\\ln(D/d)}}"
+    ],
+    "variables": [
+      {
+        "name": "Corriente",
+        "symbol": "I",
+        "unit": "A"
+      },
+      {
+        "name": "Temperatura conductor",
+        "symbol": "T_c",
+        "unit": "degC"
+      },
+      {
+        "name": "Temperatura ambiente",
+        "symbol": "T_a",
+        "unit": "degC"
+      },
+      {
+        "name": "Pérdidas dieléctricas",
+        "symbol": "W_d",
+        "unit": "W/m"
+      },
+      {
+        "name": "Resistencia térmica",
+        "symbol": "R_T",
+        "unit": "K*m/W"
+      },
+      {
+        "name": "Resistencia AC",
+        "symbol": "R_ac",
+        "unit": "ohm/m"
+      }
+    ],
+    "unit_equations": [
+      "I [A] = sqrt((T_c [degC] - T_a [degC] - W_d [W/m]/2 * R_T [K*m/W]) / (R_ac [ohm/m] * (1 + alpha [1/degC] * (T_c - T_ref))))"
+    ],
+    "numerical_method": "Cálculo IEC 60287-1-1; considera resistividad térmica del suelo marino y burial depth.",
+    "iteration_limits": {
+      "max_iterations": 50,
+      "tolerance": 0.01,
+      "method": "iterative"
+    },
+    "validity_limits": [
+      {
+        "condition": "T_c <= 90",
+        "message": "temperatura conductor típica XLPE 90C"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Ampacidad",
+        "unit": "A"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "I >= I_nominal",
+        "message": "ampacidad insuficiente"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "suelo alta resistividad",
+        "recovery": "aumentar sección o burial depth"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-004",
+      "MAR-DRW-005",
+      "MAR-DRW-010"
+    ],
+    "source_ids": [
+      "IEC_60287_1_1",
+      "IEEE_835",
+      "DNV_OS_J101"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-017",
+    "name_es": "Flujo de agua fría OTEC",
+    "purpose": "Calcular el flujo másico de agua fría necesario para el ciclo OTEC.",
+    "applicability_expression": "device_type contains OTEC",
+    "input_field_ids": [
+      "MAR-026",
+      "MAR-027",
+      "MAR-049",
+      "MAR-050",
+      "MAR-052",
+      "MAR-053",
+      "MAR-055",
+      "MAR-056"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_cw = Q_condenser / (cp * (T_cw_out - T_cw_in))",
+      "T_cw_in = T_profundidad",
+      "T_cw_out ~ T_in+5 a 10 C"
+    ],
+    "equations_latex": [
+      "\\dot m_{cw} = \\frac{\\dot Q_c}{c_p (T_{out} - T_{in})}"
+    ],
+    "variables": [
+      {
+        "name": "Flujo agua fría",
+        "symbol": "m_cw",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Duty condensador",
+        "symbol": "Q_condenser",
+        "unit": "kW"
+      },
+      {
+        "name": "Calor específico",
+        "symbol": "cp",
+        "unit": "kJ/kg-K"
+      },
+      {
+        "name": "T salida agua fría",
+        "symbol": "T_cw_out",
+        "unit": "degC"
+      },
+      {
+        "name": "T entrada agua fría",
+        "symbol": "T_cw_in",
+        "unit": "degC"
+      }
+    ],
+    "unit_equations": [
+      "m_cw [kg/s] = Q_condenser [kW] / (cp [kJ/kg-K] * (T_cw_out [degC] - T_cw_in [degC]))"
+    ],
+    "numerical_method": "Balance de energía en condensador OTEC; según IAPWS IF97 para agua de mar.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "T_cw_out > T_cw_in",
+        "message": "salida mayor que entrada"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Flujo agua fría",
+        "unit": "kg/s"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "m_cw>0",
+        "message": "flujo positivo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "delta T pequeño",
+        "recovery": "aumentar flujo o mejorar intercambiador"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-016"
+    ],
+    "source_ids": [
+      "IAPWS_IF97",
+      "ASME_BPVC_VIII_1_2023",
+      "ISO_15547_1"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-018",
+    "name_es": "Eficiencia OTEC (Carnot/Rankine)",
+    "purpose": "Calcular la eficiencia del ciclo OTEC según Carnot (teórica) y Rankine (real).",
+    "applicability_expression": "device_type contains OTEC",
+    "input_field_ids": [
+      "MAR-026",
+      "MAR-027",
+      "MAR-049",
+      "MAR-050",
+      "MAR-052",
+      "MAR-053"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "eta_Carnot = 1 - T_cold/T_hot",
+      "T_cold = T_water_deep + 273.15",
+      "T_hot = T_water_surface + 273.15",
+      "eta_Rankine = eta_Carnot * 0.7"
+    ],
+    "equations_latex": [
+      "\\eta_{C} = 1 - \\frac{T_c}{T_h}"
+    ],
+    "variables": [
+      {
+        "name": "Eficiencia Carnot",
+        "symbol": "eta_Carnot",
+        "unit": "-"
+      },
+      {
+        "name": "T agua fría",
+        "symbol": "T_cold",
+        "unit": "K"
+      },
+      {
+        "name": "T agua caliente",
+        "symbol": "T_hot",
+        "unit": "K"
+      },
+      {
+        "name": "Eficiencia Rankine",
+        "symbol": "eta_Rankine",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "eta_Carnot [-] = 1 - T_cold [K] / T_hot [K]",
+      "eta_Rankine [-] = eta_Carnot [-] * 0.7"
+    ],
+    "numerical_method": "Ciclo Rankine OTEC; eficiencia real menor por pérdidas en bombas y ciclo.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "T_hot > T_cold",
+        "message": "T_hot mayor que T_cold"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Eficiencia",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "eta_Rankine>=0.02",
+        "message": "eficiencia OTEC típica 2-3%"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "bajo delta T",
+        "recovery": "profundizar toma fría"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-016"
+    ],
+    "source_ids": [
+      "IAPWS_IF97",
+      "ASME_PTC_10",
+      "ASME_BPVC_VIII_1_2023"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-019",
+    "name_es": "Flujo másico de amoniaco OTEC",
+    "purpose": "Calcular el flujo másico de NH3 (fluido de trabajo) en el ciclo OTEC cerrado.",
+    "applicability_expression": "OTEC_cycle_type in [closed,hybrid]",
+    "input_field_ids": [
+      "MAR-050",
+      "MAR-054",
+      "MAR-055",
+      "MAR-056"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "m_NH3 = W_turbine / ((h_in - h_out_s) * eta_is)",
+      "h_in y h_out_s vía REFPROP/IAPWS para NH3"
+    ],
+    "equations_latex": [
+      "\\dot m_{NH3} = \\frac{\\dot W_{turb}}{(h_{in} - h_{out,s}) \\eta_{is}"
+    ],
+    "variables": [
+      {
+        "name": "Flujo másico NH3",
+        "symbol": "m_NH3",
+        "unit": "kg/s"
+      },
+      {
+        "name": "Potencia turbina",
+        "symbol": "W_turbine",
+        "unit": "kW"
+      },
+      {
+        "name": "Entalpía entrada",
+        "symbol": "h_in",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Entalpía salida isoentrópica",
+        "symbol": "h_out_s",
+        "unit": "kJ/kg"
+      },
+      {
+        "name": "Eficiencia isoentrópica",
+        "symbol": "eta_is",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "m_NH3 [kg/s] = W_turbine [kW] / ((h_in [kJ/kg] - h_out_s [kJ/kg]) * eta_is [-])"
+    ],
+    "numerical_method": "Cálculo termodinámico del ciclo OTEC cerrado con NH3 como fluido de trabajo.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "h_in > h_out_s",
+        "message": "entalpía entrada mayor"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Flujo másico",
+        "unit": "kg/s"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "m_NH3>0",
+        "message": "flujo positivo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "pureza NH3 baja",
+        "recovery": "purificar NH3 o usar mezcla"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-016"
+    ],
+    "source_ids": [
+      "IAPWS_IF97",
+      "ASME_B31_3_2022",
+      "ASME_PTC_10"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-020",
+    "name_es": "Esfuerzo en tubería de agua fría OTEC",
+    "purpose": "Calcular el esfuerzo en la tubería de agua fría OTEC (CWP) según ASME BPVC.",
+    "applicability_expression": "device_type contains OTEC",
+    "input_field_ids": [
+      "MAR-006",
+      "MAR-051",
+      "MAR-052",
+      "MAR-115",
+      "MAR-119"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "sigma = P*D/(2*t) + sigma_bending",
+      "P = rho_water * g * depth",
+      "t_min = P*D/(2*sigma_allow*S)"
+    ],
+    "equations_latex": [
+      "\\sigma = \\frac{P D}{2 t} + \\sigma_{bend}"
+    ],
+    "variables": [
+      {
+        "name": "Esfuerzo",
+        "symbol": "sigma",
+        "unit": "MPa"
+      },
+      {
+        "name": "Presión",
+        "symbol": "P",
+        "unit": "MPa"
+      },
+      {
+        "name": "Diámetro",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "Espesor pared",
+        "symbol": "t",
+        "unit": "m"
+      },
+      {
+        "name": "Esfuerzo admisible",
+        "symbol": "sigma_allow",
+        "unit": "MPa"
+      },
+      {
+        "name": "Factor de seguridad",
+        "symbol": "S",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "sigma [MPa] = P [MPa] * D [m] / (2 * t [m]) + sigma_bending [MPa]"
+    ],
+    "numerical_method": "Esfuerzo en pared según ASME BPVC VIII-1; combinado con flexión por corrientes.",
+    "iteration_limits": {
+      "max_iterations": 10,
+      "tolerance": 0.01,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "sigma <= sigma_allow*S",
+        "message": "esfuerzo menor que admisible"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Esfuerzo",
+        "unit": "MPa"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "sigma<=sigma_allow",
+        "message": "esfuerzo excede admisible"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "espesor insuficiente",
+        "recovery": "aumentar espesor pared"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-008",
+      "MAR-DRW-016"
+    ],
+    "source_ids": [
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_B31_3_2022",
+      "DNV_OS_C101"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-021",
+    "name_es": "Potencia del PTO del WEC",
+    "purpose": "Calcular la potencia del PTO (Power Take-Off) del WEC.",
+    "applicability_expression": "device_type contains WEC",
+    "input_field_ids": [
+      "MAR-017",
+      "MAR-035",
+      "MAR-044",
+      "MAR-045",
+      "MAR-046",
+      "MAR-047"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P_PTO = rho * g * Hs^2 * Tp * L_capture * CWR / (16*pi)",
+      "L_capture = ancho de captura",
+      "CWR = capture width ratio"
+    ],
+    "equations_latex": [
+      "P_{PTO} = \\frac{\\rho g H_s^2 T_p L_c C_{WR}}{16\\pi}"
+    ],
+    "variables": [
+      {
+        "name": "Densidad agua",
+        "symbol": "rho",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Gravedad",
+        "symbol": "g",
+        "unit": "m/s2"
+      },
+      {
+        "name": "Altura significativa",
+        "symbol": "Hs",
+        "unit": "m"
+      },
+      {
+        "name": "Período pico",
+        "symbol": "Tp",
+        "unit": "s"
+      },
+      {
+        "name": "Ancho de captura",
+        "symbol": "L_capture",
+        "unit": "m"
+      },
+      {
+        "name": "Capture width ratio",
+        "symbol": "CWR",
+        "unit": "-"
+      },
+      {
+        "name": "Potencia PTO",
+        "symbol": "P_PTO",
+        "unit": "W"
+      }
+    ],
+    "unit_equations": [
+      "P_PTO [W] = rho [kg/m3] * g [m/s2] * Hs^2 [m2] * Tp [s] * L_capture [m] * CWR [-] / (16*pi)"
+    ],
+    "numerical_method": "Potencia capturada por WEC; según IEC TS 62600-100 y lineal wave theory.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "Hs > 0",
+        "message": "Hs positivo"
+      },
+      {
+        "condition": "CWR in [0.05,0.80]",
+        "message": "CWR en rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Potencia PTO",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "P_PTO>=0",
+        "message": "potencia positiva"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "baja eficiencia",
+        "recovery": "rediseñar PTO o geometría WEC"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-003",
+      "MAR-DRW-013"
+    ],
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "IEC_TS_62600_30",
+      "DNV_RP_C205"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-022",
+    "name_es": "Potencia de turbina de marea (límite Betz)",
+    "purpose": "Calcular la potencia de la turbina de marea con límite de Betz.",
+    "applicability_expression": "device_type contains tidal_stream_turbine",
+    "input_field_ids": [
+      "MAR-022",
+      "MAR-025",
+      "MAR-035",
+      "MAR-039",
+      "MAR-042"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P = 0.5 * rho * A * Cp * u^3",
+      "A = pi * D^2 / 4",
+      "Cp <= 16/27 = 0.593 (Betz)"
+    ],
+    "equations_latex": [
+      "P = \\frac{1}{2}\\rho A C_p u^3"
+    ],
+    "variables": [
+      {
+        "name": "Densidad agua",
+        "symbol": "rho",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Área rotor",
+        "symbol": "A",
+        "unit": "m2"
+      },
+      {
+        "name": "Coeficiente potencia",
+        "symbol": "Cp",
+        "unit": "-"
+      },
+      {
+        "name": "Velocidad corriente",
+        "symbol": "u",
+        "unit": "m/s"
+      },
+      {
+        "name": "Diámetro rotor",
+        "symbol": "D",
+        "unit": "m"
+      },
+      {
+        "name": "Potencia",
+        "symbol": "P",
+        "unit": "W"
+      }
+    ],
+    "unit_equations": [
+      "P [W] = 0.5 * rho [kg/m3] * A [m2] * Cp [-] * u^3 [m3/s3]",
+      "A [m2] = pi * D^2 [m2] / 4",
+      "Cp [-] <= 16/27 = 0.593 (límite Betz)"
+    ],
+    "numerical_method": "Límite Betz 16/27; Cp real típicamente 0.35-0.45 en turbinas de marea.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "Cp <= 0.593",
+        "message": "Cp respeta límite Betz"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Potencia",
+        "unit": "kW"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "P<=P_rated",
+        "message": "potencia no excede nominal"
+      },
+      {
+        "rule": "Cp<=0.593",
+        "message": "Cp respeta Betz"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "velocidad baja",
+        "recovery": "aumentar rotor o cambiar de sitio"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-003",
+      "MAR-DRW-010"
+    ],
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "ASME_PTC_10",
+      "ISO_1940_1"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-023",
+    "name_es": "Empuje de turbina de marea",
+    "purpose": "Calcular el empuje (thrust) sobre la turbina de marea.",
+    "applicability_expression": "device_type contains tidal_stream_turbine",
+    "input_field_ids": [
+      "MAR-022",
+      "MAR-025",
+      "MAR-035",
+      "MAR-039",
+      "MAR-042"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "T = 0.5 * rho * A * Ct * u^2",
+      "Ct = coeficiente de empuje (tipico 0.7-0.9)"
+    ],
+    "equations_latex": [
+      "T = \\frac{1}{2}\\rho A C_t u^2"
+    ],
+    "variables": [
+      {
+        "name": "Empuje",
+        "symbol": "T",
+        "unit": "N"
+      },
+      {
+        "name": "Coeficiente empuje",
+        "symbol": "Ct",
+        "unit": "-"
+      },
+      {
+        "name": "Área rotor",
+        "symbol": "A",
+        "unit": "m2"
+      },
+      {
+        "name": "Velocidad",
+        "symbol": "u",
+        "unit": "m/s"
+      }
+    ],
+    "unit_equations": [
+      "T [N] = 0.5 * rho [kg/m3] * A [m2] * Ct [-] * u^2 [m2/s2]"
+    ],
+    "numerical_method": "Empuje sobre rotor de turbina de marea; Ct de hoja de datos o curva empírica.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "Ct in [0.5,1.0]",
+        "message": "Ct en rango típico"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Empuje",
+        "unit": "kN"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "T>=0",
+        "message": "empuje positivo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "empuje excesivo",
+        "recovery": "rediseñar fundación o pitch control"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ],
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "DNV_OS_J101"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-024",
+    "name_es": "Distribución de velocidad de corriente (Euler)",
+    "purpose": "Calcular la distribución de velocidad de corriente a lo largo del ciclo de marea.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "MAR-022",
+      "MAR-023",
+      "MAR-024",
+      "MAR-030",
+      "MAR-001",
+      "MAR-002"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "u(z,t) = u_mean + u_amp * sin(2*pi*t/T_tide)",
+      "T_tide = período de marea (12.42h semidiurna)",
+      "F vertical: u(z) = u_surface * (z/h)^(1/7)"
+    ],
+    "equations_latex": [
+      "u(z,t) = \\bar u + u_{amp} \\sin\\left(\\frac{2\\pi t}{T}\\right)"
+    ],
+    "variables": [
+      {
+        "name": "Velocidad",
+        "symbol": "u",
+        "unit": "m/s"
+      },
+      {
+        "name": "Velocidad media",
+        "symbol": "u_mean",
+        "unit": "m/s"
+      },
+      {
+        "name": "Amplitud",
+        "symbol": "u_amp",
+        "unit": "m/s"
+      },
+      {
+        "name": "Tiempo",
+        "symbol": "t",
+        "unit": "s"
+      },
+      {
+        "name": "Período marea",
+        "symbol": "T_tide",
+        "unit": "s"
+      },
+      {
+        "name": "Profundidad",
+        "symbol": "z",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "u [m/s] = u_mean [m/s] + u_amp [m/s] * sin(2*pi*t/T_tide [-])"
+    ],
+    "numerical_method": "Análisis de armónicos de marea (Euler); perfil vertical 1/7 power law.",
+    "iteration_limits": {
+      "max_iterations": 100,
+      "tolerance": 0.01,
+      "method": "harmonic_analysis"
+    },
+    "validity_limits": [
+      {
+        "condition": "T_tide > 0",
+        "message": "período positivo"
+      },
+      {
+        "condition": "u_amp <= u_mean",
+        "message": "amplitud menor que media"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Velocidad en profundidad",
+        "unit": "m/s"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "u>=0",
+        "message": "velocidad no negativa"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "marea mixta",
+        "recovery": "usar armónicos K1 O1 M2 S2"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "IEC_TS_62600_2",
+      "ISO_6107_1"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-025",
+    "name_es": "Evaluación del recurso mareomotriz",
+    "purpose": "Calcular la energía total capturable del recurso mareomotriz.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "MAR-022",
+      "MAR-023",
+      "MAR-003",
+      "MAR-035",
+      "MAR-036",
+      "MAR-037",
+      "MAR-038",
+      "MAR-101",
+      "MAR-102",
+      "MAR-103",
+      "MAR-104"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "E_annual = sum(P_i * dt_i)",
+      "P_i = 0.5 * rho * A * Cp * u_i^3",
+      "CF = E_annual / (P_rated * 8760)"
+    ],
+    "equations_latex": [
+      "E = \\sum_i P_i \\Delta t_i"
+    ],
+    "variables": [
+      {
+        "name": "Energía anual",
+        "symbol": "E_annual",
+        "unit": "MWh/year"
+      },
+      {
+        "name": "Potencia intervalo",
+        "symbol": "P_i",
+        "unit": "W"
+      },
+      {
+        "name": "Intervalo tiempo",
+        "symbol": "dt_i",
+        "unit": "s"
+      },
+      {
+        "name": "Factor capacidad",
+        "symbol": "CF",
+        "unit": "-"
+      },
+      {
+        "name": "Potencia nominal",
+        "symbol": "P_rated",
+        "unit": "W"
+      }
+    ],
+    "unit_equations": [
+      "E_annual [MWh/year] = sum(P_i [W] * dt_i [s]) / 3.6e9",
+      "CF [-] = E_annual [MWh/year] / (P_rated [MW] * 8760 [h])"
+    ],
+    "numerical_method": "Integración temporal sobre distribución de velocidades; considera VS y CF según IEC TS 62600-200.",
+    "iteration_limits": {
+      "max_iterations": 1000,
+      "tolerance": 0.001,
+      "method": "time_series_integration"
+    },
+    "validity_limits": [
+      {
+        "condition": "u_i >= 0",
+        "message": "velocidades no negativas"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Energía anual",
+        "unit": "MWh/year"
+      },
+      {
+        "name": "Factor capacidad",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "CF in [0.25,0.5]",
+        "message": "CF típico marea 25-50%"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "recurso insuficiente",
+        "recovery": "relocar parque o reducir capacidad"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-001",
+      "MAR-DRW-002",
+      "MAR-DRW-003"
+    ],
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "IRENA_OFFSHORE_2023",
+      "NASA_POWER"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-026",
+    "name_es": "Flujo de potencia de ola por metro de cresta",
+    "purpose": "Calcular el flujo de potencia de ola por unidad de cresta según teoría lineal de olas.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "MAR-011",
+      "MAR-015",
+      "MAR-016",
+      "MAR-017",
+      "MAR-018",
+      "MAR-025"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "P = rho * g * Hs^2 * Tm / (16*pi)",
+      "o con Tp: P = rho * g * Hs^2 * Tp / (64*pi) en aguas profundas"
+    ],
+    "equations_latex": [
+      "P = \\frac{\\rho g H_s^2 T_e}{16\\pi}"
+    ],
+    "variables": [
+      {
+        "name": "Densidad agua",
+        "symbol": "rho",
+        "unit": "kg/m3"
+      },
+      {
+        "name": "Gravedad",
+        "symbol": "g",
+        "unit": "m/s2"
+      },
+      {
+        "name": "Altura significativa",
+        "symbol": "Hs",
+        "unit": "m"
+      },
+      {
+        "name": "Período energía",
+        "symbol": "T_e",
+        "unit": "s"
+      },
+      {
+        "name": "Flujo por metro",
+        "symbol": "P",
+        "unit": "W/m"
+      }
+    ],
+    "unit_equations": [
+      "P [W/m] = rho [kg/m3] * g [m/s2] * Hs^2 [m2] * T_e [s] / (16*pi)"
+    ],
+    "numerical_method": "Teoría lineal de olas en aguas profundas; período de energía T_e = 0.9*Tp en JONSWAP.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "Hs > 0",
+        "message": "Hs positivo"
+      },
+      {
+        "condition": "T_e > 0",
+        "message": "período positivo"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Flujo potencia",
+        "unit": "kW/m"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "P>=0",
+        "message": "flujo no negativo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "aguas someras",
+        "recovery": "usar teoría finita amplitud"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "IEC_TS_62600_2",
+      "IRENA_OFFSHORE_2023"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-027",
+    "name_es": "Ancho de captura relativo del WEC",
+    "purpose": "Calcular el ancho de captura efectivo del WEC como relación de energía capturada.",
+    "applicability_expression": "device_type contains WEC",
+    "input_field_ids": [
+      "MAR-017",
+      "MAR-035",
+      "MAR-044",
+      "MAR-045",
+      "MAR-047"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "CWR = P_captured / P_wave_per_m",
+      "L_capture_eff = P_captured / P_wave_per_m",
+      "L_capture_eff/L_characteristic = CWR"
+    ],
+    "equations_latex": [
+      "CWR = \\frac{P_c}{P_w}"
+    ],
+    "variables": [
+      {
+        "name": "Capture width ratio",
+        "symbol": "CWR",
+        "unit": "-"
+      },
+      {
+        "name": "Potencia capturada",
+        "symbol": "P_captured",
+        "unit": "W"
+      },
+      {
+        "name": "Flujo potencia por metro",
+        "symbol": "P_wave_per_m",
+        "unit": "W/m"
+      },
+      {
+        "name": "Ancho de captura efectivo",
+        "symbol": "L_capture_eff",
+        "unit": "m"
+      }
+    ],
+    "unit_equations": [
+      "CWR [-] = P_captured [W] / P_wave_per_m [W/m]",
+      "L_capture_eff [m] = P_captured [W] / P_wave_per_m [W/m]"
+    ],
+    "numerical_method": "Definición según IEC TS 62600-100; ensayos en tanque o campo.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "P_wave_per_m > 0",
+        "message": "flujo positivo"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "CWR",
+        "unit": "-"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "CWR in [0.05,0.80]",
+        "message": "CWR en rango típico"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "CWR bajo",
+        "recovery": "rediseñar geometría WEC"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-003",
+      "MAR-DRW-001"
+    ],
+    "source_ids": [
+      "IEC_TS_62600_2",
+      "IEC_TS_62600_30",
+      "IRENA_OFFSHORE_2023"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-028",
+    "name_es": "Análisis de SLD de subestación de costa",
+    "purpose": "Calcular los flujos de carga y verificar la capacidad de la subestación de costa.",
+    "applicability_expression": "device_count_total > 0",
+    "input_field_ids": [
+      "MAR-035",
+      "MAR-036",
+      "MAR-075",
+      "MAR-076",
+      "MAR-080",
+      "MAR-081",
+      "MAR-091",
+      "MAR-092",
+      "MAR-093",
+      "MAR-094",
+      "MAR-095",
+      "MAR-120",
+      "MAR-121"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "S_total = sum(S_i) * 1e-3",
+      "I_total = S_total / (sqrt(3)*V)",
+      "Perdidas = I^2 * R",
+      "dV = sqrt(3) * I * L * (R*cos + X*sin)",
+      "V_drop <= 3%",
+      "PF_corr = P / (P + dP_reactive)"
+    ],
+    "equations_latex": [
+      "S_t = \\sum S_i \\times 10^{-3},\\quad I = \\frac{S}{\\sqrt3 V}"
+    ],
+    "variables": [
+      {
+        "name": "Potencia total",
+        "symbol": "S_total",
+        "unit": "MVA"
+      },
+      {
+        "name": "Corriente total",
+        "symbol": "I_total",
+        "unit": "A"
+      },
+      {
+        "name": "Tensión",
+        "symbol": "V",
+        "unit": "kV"
+      },
+      {
+        "name": "Caída tensión",
+        "symbol": "dV",
+        "unit": "V"
+      },
+      {
+        "name": "Resistencia",
+        "symbol": "R",
+        "unit": "ohm/km"
+      },
+      {
+        "name": "Reactancia",
+        "symbol": "X",
+        "unit": "ohm/km"
+      },
+      {
+        "name": "Longitud",
+        "symbol": "L",
+        "unit": "km"
+      }
+    ],
+    "unit_equations": [
+      "S_total [MVA] = sum(S_i [kVA]) * 1e-3",
+      "I_total [A] = S_total [MVA] * 1e6 / (sqrt(3) * V [V])",
+      "dV [V] = sqrt(3) * I_total [A] * L [km] * (R [ohm/km] * cos_phi + X [ohm/km] * sin_phi)"
+    ],
+    "numerical_method": "Análisis SLD per IEEE 1547; considera pérdidas y caída de tensión.",
+    "iteration_limits": {
+      "max_iterations": 10,
+      "tolerance": 0.01,
+      "method": "load_flow"
+    },
+    "validity_limits": [
+      {
+        "condition": "dV/V <= 0.03",
+        "message": "caída tensión menor 3%"
+      },
+      {
+        "condition": "PF >= 0.95",
+        "message": "PF mayor 0.95"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Potencia total",
+        "unit": "MVA"
+      },
+      {
+        "name": "Corriente",
+        "unit": "A"
+      },
+      {
+        "name": "Caída tensión",
+        "unit": "%"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "dV/V<=0.03",
+        "message": "caída excesiva"
+      },
+      {
+        "rule": "PF>=0.95",
+        "message": "PF bajo"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "capacidad insuficiente",
+        "recovery": "aumentar MVA o compensación reactiva"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-009",
+      "MAR-DRW-010"
+    ],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_519_2022",
+      "IEEE_80_2013",
+      "CNE_2011"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-029",
+    "name_es": "Corriente de protección catódica",
+    "purpose": "Calcular la corriente requerida de protección catódica para estructuras marinas.",
+    "applicability_expression": "always",
+    "input_field_ids": [
+      "MAR-006",
+      "MAR-031",
+      "MAR-036",
+      "MAR-110",
+      "MAR-114"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "I_total = sum(A_i * i_density)",
+      "A_i = área de cada zona (m2)",
+      "i_density = densidad de corriente (mA/m2) según DNV-RP-C205"
+    ],
+    "equations_latex": [
+      "I_{tot} = \\sum A_i i_{dens}"
+    ],
+    "variables": [
+      {
+        "name": "Corriente total",
+        "symbol": "I_total",
+        "unit": "A"
+      },
+      {
+        "name": "Área por zona",
+        "symbol": "A_i",
+        "unit": "m2"
+      },
+      {
+        "name": "Densidad de corriente",
+        "symbol": "i_density",
+        "unit": "mA/m2"
+      }
+    ],
+    "unit_equations": [
+      "I_total [A] = sum(A_i [m2] * i_density [mA/m2]) / 1000"
+    ],
+    "numerical_method": "Densidad de corriente según DNV-RP-C205; típico 50-150 mA/m2 en zona tropical.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "i_density >= 50",
+        "message": "densidad mínima 50 mA/m2"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Corriente total",
+        "unit": "A"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "I_total>=I_design",
+        "message": "corriente insuficiente"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "alta temperatura",
+        "recovery": "aumentar densidad de corriente"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-008",
+      "MAR-DRW-011"
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "DNV_OS_C101",
+      "IEC_TS_62600_2"
+    ]
+  },
+  {
+    "calculation_id": "MAR-C-030",
+    "name_es": "Espectro de ola JONSWAP",
+    "purpose": "Calcular el espectro JONSWAP para análisis de cargas y fatiga.",
+    "applicability_expression": "wave_spectrum_type == JONSWAP",
+    "input_field_ids": [
+      "MAR-011",
+      "MAR-012",
+      "MAR-015",
+      "MAR-016",
+      "MAR-018"
+    ],
+    "derived_input_ids": [],
+    "equations_ascii": [
+      "S(f) = (alpha*g^2)/(2*pi^4 * f^5) * exp(-1.25*(fp/f)^4) * gamma^exp(-0.5*((f-fp)/(sigma*f))^2)",
+      "fp = 1/Tp",
+      "sigma = 0.07 si f<fp, 0.09 si f>=fp"
+    ],
+    "equations_latex": [
+      "S(f) = \\frac{\\alpha g^2}{(2\\pi)^4 f^5} e^{-1.25(f_p/f)^4} \\gamma^{\\exp(-0.5((f-f_p)/(\\sigma f))^2)}"
+    ],
+    "variables": [
+      {
+        "name": "Densidad espectral",
+        "symbol": "S",
+        "unit": "m2*s"
+      },
+      {
+        "name": "Frecuencia",
+        "symbol": "f",
+        "unit": "Hz"
+      },
+      {
+        "name": "Constante Phillips",
+        "symbol": "alpha",
+        "unit": "-"
+      },
+      {
+        "name": "Gravedad",
+        "symbol": "g",
+        "unit": "m/s2"
+      },
+      {
+        "name": "Frecuencia pico",
+        "symbol": "fp",
+        "unit": "Hz"
+      },
+      {
+        "name": "Factor pico",
+        "symbol": "gamma",
+        "unit": "-"
+      },
+      {
+        "name": "Sigma",
+        "symbol": "sigma",
+        "unit": "-"
+      }
+    ],
+    "unit_equations": [
+      "S(f) [m2*s] = (alpha [-] * g^2 [m2/s4]) / (16 * pi^4 * f^5 [Hz5]) * exp(-1.25 * (fp/f)^4) * gamma^exp(-0.5 * ((f-fp)/(sigma*f))^2)"
+    ],
+    "numerical_method": "Espectro JONSWAP per DNV-RP-C205; gamma=3.3 típico mar del Norte.",
+    "iteration_limits": {
+      "max_iterations": 1,
+      "tolerance": 0.001,
+      "method": "closed_form"
+    },
+    "validity_limits": [
+      {
+        "condition": "gamma in [1,7]",
+        "message": "gamma en rango"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Espectro",
+        "unit": "m2*s"
+      }
+    ],
+    "acceptance_rules": [
+      {
+        "rule": "integral S(f) df = m0 = Hs^2/16",
+        "message": "consistencia espectral"
+      }
+    ],
+    "failure_modes": [
+      {
+        "mode": "gamma desconocido",
+        "recovery": "asumir gamma=3.3"
+      }
+    ],
+    "drawing_impacts": [
+      "MAR-DRW-001",
+      "MAR-DRW-003"
+    ],
+    "source_ids": [
+      "DNV_RP_C205",
+      "IEC_TS_62600_2"
+    ]
+  }
+]

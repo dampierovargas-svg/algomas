@@ -1,0 +1,1950 @@
+[
+  {
+    "field_id": "CSP-001",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio topográfico o GPS del sitio",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "CSP-C-030",
+      "CSP-C-032"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-001",
+      "CSP-DRW-002",
+      "CSP-DRW-017"
+    ]
+  },
+  {
+    "field_id": "CSP-002",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio topográfico o GPS del sitio",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "CSP-C-030",
+      "CSP-C-032"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-001",
+      "CSP-DRW-002",
+      "CSP-DRW-017"
+    ]
+  },
+  {
+    "field_id": "CSP-003",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio topográfico",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "CSP-C-021",
+      "CSP-C-022",
+      "CSP-C-032"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-001",
+      "CSP-DRW-002"
+    ]
+  },
+  {
+    "field_id": "CSP-004",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Ubicación geopolítica del sitio",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-013"
+    ]
+  },
+  {
+    "field_id": "CSP-005",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Título de propiedad o levantamiento topográfico",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "CSP-C-001",
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-001",
+      "CSP-DRW-002"
+    ]
+  },
+  {
+    "field_id": "CSP-006",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de recurso solar (TMY) basado en NSRDB/NASA POWER",
+    "responsible_role": "SOLAR_RESOURCE_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-001",
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-001",
+      "CSP-DRW-003",
+      "CSP-DRW-004"
+    ]
+  },
+  {
+    "field_id": "CSP-007",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de recurso solar",
+    "responsible_role": "SOLAR_RESOURCE_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-001"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-001"
+    ]
+  },
+  {
+    "field_id": "CSP-008",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Archivo TMY (NSRDB) del sitio",
+    "responsible_role": "SOLAR_RESOURCE_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-002",
+      "CSP-C-003",
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-009",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de recurso solar",
+    "responsible_role": "SOLAR_RESOURCE_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-002"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-001"
+    ]
+  },
+  {
+    "field_id": "CSP-010",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de recurso solar",
+    "responsible_role": "SOLAR_RESOURCE_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-002"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-001"
+    ]
+  },
+  {
+    "field_id": "CSP-011",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio meteorológico",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-024",
+      "CSP-C-023"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-007",
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ]
+  },
+  {
+    "field_id": "CSP-012",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio meteorológico",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-021",
+      "CSP-C-022"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-001"
+    ]
+  },
+  {
+    "field_id": "CSP-013",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio meteorológico / IEC 61400-1",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-028",
+      "CSP-C-029"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003",
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ]
+  },
+  {
+    "field_id": "CSP-014",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo solar (NREL SAM)",
+    "responsible_role": "SOLAR_RESOURCE_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-002",
+      "CSP-C-004",
+      "CSP-C-005"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003",
+      "CSP-DRW-004"
+    ]
+  },
+  {
+    "field_id": "CSP-015",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo solar (NREL SAM)",
+    "responsible_role": "SOLAR_RESOURCE_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-004",
+      "CSP-C-005"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003",
+      "CSP-DRW-004"
+    ]
+  },
+  {
+    "field_id": "CSP-016",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo solar (NREL SAM)",
+    "responsible_role": "SOLAR_RESOURCE_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-028"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-017",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo solar",
+    "responsible_role": "SOLAR_RESOURCE_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-002"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-001"
+    ]
+  },
+  {
+    "field_id": "CSP-018",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo solar",
+    "responsible_role": "SOLAR_RESOURCE_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-004"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-019",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis óptico (SolarPILOT/SAM)",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-004",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-020",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Curva IAM del fabricante del collector",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-005",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-004"
+    ]
+  },
+  {
+    "field_id": "CSP-021",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo óptico del colector",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-004"
+    ]
+  },
+  {
+    "field_id": "CSP-022",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis óptico (SolarPILOT)",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-006",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-023",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis óptico SANDIA / SolarPILOT",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-007",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-024",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del espejo (ASTM C1549)",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-010",
+      "CSP-C-025"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003",
+      "CSP-DRW-004"
+    ]
+  },
+  {
+    "field_id": "CSP-025",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis óptico (SolarPILOT)",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-008",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003",
+      "CSP-DRW-006"
+    ]
+  },
+  {
+    "field_id": "CSP-026",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo óptico",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-011",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ]
+  },
+  {
+    "field_id": "CSP-027",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de suciedad del sitio",
+    "responsible_role": "OPERATIONS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-025",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-015"
+    ]
+  },
+  {
+    "field_id": "CSP-028",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del drive / controlador",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-008",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003",
+      "CSP-DRW-004"
+    ]
+  },
+  {
+    "field_id": "CSP-029",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del heliostato",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-001",
+      "CSP-C-010",
+      "CSP-C-028"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-030",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del heliostato",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-028",
+      "CSP-C-029"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003",
+      "CSP-DRW-005"
+    ]
+  },
+  {
+    "field_id": "CSP-031",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del heliostato",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-028",
+      "CSP-C-029"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-032",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del heliostato (ASTM C1549)",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-010",
+      "CSP-C-025"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-033",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del heliostato",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-028"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003",
+      "CSP-DRW-013"
+    ]
+  },
+  {
+    "field_id": "CSP-034",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del campo solar",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-028",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-035",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del campo solar",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-028",
+      "CSP-C-029"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-036",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis óptico (SolarPILOT)",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-006",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-037",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis óptico SANDIA / SolarPILOT",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-007",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-038",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis óptico (SolarPILOT)",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-004",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-039",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis óptico (SolarPILOT)",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-009",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003",
+      "CSP-DRW-005"
+    ]
+  },
+  {
+    "field_id": "CSP-040",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del receptor",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-016",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ]
+  },
+  {
+    "field_id": "CSP-041",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del receptor",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-016",
+      "CSP-C-011"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ]
+  },
+  {
+    "field_id": "CSP-042",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del receptor",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-011",
+      "CSP-C-016"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ]
+  },
+  {
+    "field_id": "CSP-043",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del receptor",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-032"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006",
+      "CSP-DRW-007"
+    ]
+  },
+  {
+    "field_id": "CSP-044",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del receptor",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-016",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ]
+  },
+  {
+    "field_id": "CSP-045",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación mecánica del receptor",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-016"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ]
+  },
+  {
+    "field_id": "CSP-046",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del HTF",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-012",
+      "CSP-C-013",
+      "CSP-C-024"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-007",
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ]
+  },
+  {
+    "field_id": "CSP-047",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "NIST Webbook / hoja de datos del HTF",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-012",
+      "CSP-C-031"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-007"
+    ]
+  },
+  {
+    "field_id": "CSP-048",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "NIST Webbook / hoja de datos del HTF",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-012",
+      "CSP-C-013",
+      "CSP-C-014"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-007"
+    ]
+  },
+  {
+    "field_id": "CSP-049",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "NIST Webbook / hoja de datos del HTF",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-031"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-007"
+    ]
+  },
+  {
+    "field_id": "CSP-050",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del HTF",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-024"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ]
+  },
+  {
+    "field_id": "CSP-051",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del HTF",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-012",
+      "CSP-C-013",
+      "CSP-C-014",
+      "CSP-C-024"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-007",
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ]
+  },
+  {
+    "field_id": "CSP-052",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del HTF",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-012",
+      "CSP-C-013",
+      "CSP-C-014"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-007",
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ]
+  },
+  {
+    "field_id": "CSP-053",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del HTF",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-012",
+      "CSP-C-024"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-008"
+    ]
+  },
+  {
+    "field_id": "CSP-054",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del TES",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-014",
+      "CSP-C-015"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-009"
+    ]
+  },
+  {
+    "field_id": "CSP-055",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del TES",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-014"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-009"
+    ]
+  },
+  {
+    "field_id": "CSP-056",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del TES",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-014"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-009"
+    ]
+  },
+  {
+    "field_id": "CSP-057",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo de TES",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-014"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-009"
+    ]
+  },
+  {
+    "field_id": "CSP-058",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del TES",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-015"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-009"
+    ]
+  },
+  {
+    "field_id": "CSP-059",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del SG (ISO 15547-1)",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-017"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-010"
+    ]
+  },
+  {
+    "field_id": "CSP-060",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del SG (ISO 15547-1)",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-017"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-010"
+    ]
+  },
+  {
+    "field_id": "CSP-061",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del SG",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-017"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-010"
+    ]
+  },
+  {
+    "field_id": "CSP-062",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del SG",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-019"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-010"
+    ]
+  },
+  {
+    "field_id": "CSP-063",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del power block",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-017",
+      "CSP-C-018",
+      "CSP-C-019"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-010",
+      "CSP-DRW-011"
+    ]
+  },
+  {
+    "field_id": "CSP-064",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de prefactibilidad",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-001",
+      "CSP-C-030",
+      "CSP-C-017"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-001",
+      "CSP-DRW-011"
+    ]
+  },
+  {
+    "field_id": "CSP-065",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de prefactibilidad",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-017",
+      "CSP-C-018"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-011"
+    ]
+  },
+  {
+    "field_id": "CSP-066",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos de la turbina",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-017",
+      "CSP-C-018",
+      "CSP-C-019"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-011"
+    ]
+  },
+  {
+    "field_id": "CSP-067",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos de la turbina",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-017",
+      "CSP-C-018"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-010",
+      "CSP-DRW-011"
+    ]
+  },
+  {
+    "field_id": "CSP-068",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos de la turbina",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-017",
+      "CSP-C-018"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-010",
+      "CSP-DRW-011"
+    ]
+  },
+  {
+    "field_id": "CSP-069",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos de la turbina",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-017",
+      "CSP-C-018"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-011"
+    ]
+  },
+  {
+    "field_id": "CSP-070",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del condensador",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-020",
+      "CSP-C-022"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-011"
+    ]
+  },
+  {
+    "field_id": "CSP-071",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo del condensador",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-020"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-011"
+    ]
+  },
+  {
+    "field_id": "CSP-072",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del condensador",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-020"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-011"
+    ]
+  },
+  {
+    "field_id": "CSP-073",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del ACC",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-022"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-011"
+    ]
+  },
+  {
+    "field_id": "CSP-074",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Isométrico HTF (ASME B31.1)",
+    "responsible_role": "PIPING_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-031",
+      "CSP-C-032"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-008"
+    ]
+  },
+  {
+    "field_id": "CSP-075",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Especificación mecánica",
+    "responsible_role": "MATERIAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-032"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-008"
+    ]
+  },
+  {
+    "field_id": "CSP-076",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos de tubería ASME B31.1",
+    "responsible_role": "PIPING_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-032"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-008"
+    ]
+  },
+  {
+    "field_id": "CSP-077",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Cálculo térmico del HTF",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-023"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-008"
+    ]
+  },
+  {
+    "field_id": "CSP-078",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del generador",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-011",
+      "CSP-DRW-012"
+    ]
+  },
+  {
+    "field_id": "CSP-079",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del generador",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-012"
+    ]
+  },
+  {
+    "field_id": "CSP-080",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del transformador",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-012"
+    ]
+  },
+  {
+    "field_id": "CSP-081",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de interconexión (COES)",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-012"
+    ]
+  },
+  {
+    "field_id": "CSP-082",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de interconexión (COES)",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-012",
+      "CSP-DRW-017"
+    ]
+  },
+  {
+    "field_id": "CSP-083",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de seguridad (NFPA 30)",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-014",
+      "CSP-DRW-008"
+    ]
+  },
+  {
+    "field_id": "CSP-084",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de clasificación de área",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-014",
+      "CSP-DRW-016"
+    ]
+  },
+  {
+    "field_id": "CSP-085",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria contra incendio (NFPA 20)",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-014"
+    ]
+  },
+  {
+    "field_id": "CSP-086",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria contra incendio (NFPA 13)",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-014"
+    ]
+  },
+  {
+    "field_id": "CSP-087",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de seguridad sCO2",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-014"
+    ]
+  },
+  {
+    "field_id": "CSP-088",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de seguridad HTF",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-014",
+      "CSP-DRW-008"
+    ]
+  },
+  {
+    "field_id": "CSP-089",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de control (IEC 61511)",
+    "responsible_role": "CONTROL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-013"
+    ]
+  },
+  {
+    "field_id": "CSP-090",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de control",
+    "responsible_role": "CONTROL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-013"
+    ]
+  },
+  {
+    "field_id": "CSP-091",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de control",
+    "responsible_role": "CONTROL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-013"
+    ]
+  },
+  {
+    "field_id": "CSP-092",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Análisis LOPA / IEC 61511",
+    "responsible_role": "SAFETY_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-013"
+    ]
+  },
+  {
+    "field_id": "CSP-093",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño de la torre",
+    "responsible_role": "STRUCTURAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-029",
+      "CSP-C-028"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ]
+  },
+  {
+    "field_id": "CSP-094",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio geotécnico (ISO 14685)",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-029"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ]
+  },
+  {
+    "field_id": "CSP-095",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del heliostato",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-028",
+      "CSP-C-029"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-003"
+    ]
+  },
+  {
+    "field_id": "CSP-096",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Layout de planta",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "CSP-C-029"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-002",
+      "CSP-DRW-013"
+    ]
+  },
+  {
+    "field_id": "CSP-097",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Layout de planta",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "CSP-C-029"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-002",
+      "CSP-DRW-011"
+    ]
+  },
+  {
+    "field_id": "CSP-098",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Layout de planta",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "CSP-C-029"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-002"
+    ]
+  },
+  {
+    "field_id": "CSP-099",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Layout de planta",
+    "responsible_role": "LEAD_ENGINEER_CIVIL",
+    "blocked_calculations": [
+      "CSP-C-029"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-002",
+      "CSP-DRW-013"
+    ]
+  },
+  {
+    "field_id": "CSP-100",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de operaciones",
+    "responsible_role": "OPERATIONS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-025",
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-015"
+    ]
+  },
+  {
+    "field_id": "CSP-101",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de operaciones",
+    "responsible_role": "OPERATIONS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-025"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-015"
+    ]
+  },
+  {
+    "field_id": "CSP-102",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de operaciones",
+    "responsible_role": "OPERATIONS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-025"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-015"
+    ]
+  },
+  {
+    "field_id": "CSP-103",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de diseño del campo solar",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-026",
+      "CSP-C-001"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-004"
+    ]
+  },
+  {
+    "field_id": "CSP-104",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del colector",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-026",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-004"
+    ]
+  },
+  {
+    "field_id": "CSP-105",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del HCE",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-027",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-004"
+    ]
+  },
+  {
+    "field_id": "CSP-106",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del HCE",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-027",
+      "CSP-C-010"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-004"
+    ]
+  },
+  {
+    "field_id": "CSP-107",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos del HCE",
+    "responsible_role": "OPTICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-027"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-004"
+    ]
+  },
+  {
+    "field_id": "CSP-108",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de prefactibilidad",
+    "responsible_role": "LEAD_PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-001",
+      "CSP-C-026",
+      "CSP-C-028",
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-001",
+      "CSP-DRW-002",
+      "CSP-DRW-003",
+      "CSP-DRW-004"
+    ]
+  },
+  {
+    "field_id": "CSP-109",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de malla (IEEE 80)",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-032"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-012",
+      "CSP-DRW-016"
+    ]
+  },
+  {
+    "field_id": "CSP-110",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de malla (IEEE 80)",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-032"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-016"
+    ]
+  },
+  {
+    "field_id": "CSP-111",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de malla (IEEE 80)",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-032"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-016"
+    ]
+  },
+  {
+    "field_id": "CSP-112",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de freeze protection",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-024"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ]
+  },
+  {
+    "field_id": "CSP-113",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de freeze protection",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-024"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-008"
+    ]
+  },
+  {
+    "field_id": "CSP-114",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de freeze protection",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-024"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-008",
+      "CSP-DRW-009"
+    ]
+  },
+  {
+    "field_id": "CSP-115",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio ambiental (MINAM DS 019)",
+    "responsible_role": "ENVIRONMENTAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-021",
+      "CSP-C-022"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-014"
+    ]
+  },
+  {
+    "field_id": "CSP-116",
+    "missing_action": "ALLOW_FOR_STAGE",
+    "allowed_until_stage": "DETAILED_ENGINEERING",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Hoja de datos de la cooling tower",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-021"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-014"
+    ]
+  },
+  {
+    "field_id": "CSP-117",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio geotécnico (ISO 14685)",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-029",
+      "CSP-C-028"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ]
+  },
+  {
+    "field_id": "CSP-118",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio geotécnico / sismoresistente",
+    "responsible_role": "GEOTECHNICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-029",
+      "CSP-C-028"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-005",
+      "CSP-DRW-006"
+    ]
+  },
+  {
+    "field_id": "CSP-119",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Memoria de cooling tower (Merkel)",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-021"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-011",
+      "CSP-DRW-014"
+    ]
+  },
+  {
+    "field_id": "CSP-120",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Estudio de cables (IEC 60287 / IEEE 835)",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "CSP-C-032"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-012"
+    ]
+  },
+  {
+    "field_id": "CSP-121",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "CONTRACT",
+    "safe_to_derive": false,
+    "derivation_rule_id": null,
+    "required_document": "Plano finalizado as-built",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "CSP-C-030"
+    ],
+    "blocked_drawings": [
+      "CSP-DRW-017"
+    ]
+  }
+]

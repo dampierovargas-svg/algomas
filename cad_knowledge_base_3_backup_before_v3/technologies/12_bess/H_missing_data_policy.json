@@ -1,0 +1,2329 @@
+[
+  {
+    "field_id": "BESS-001",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Ficha de proyecto / contrato",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-028",
+      "BESS-C-018"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-002"
+    ]
+  },
+  {
+    "field_id": "BESS-002",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Estudio topografico / GPS",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-013",
+      "BESS-C-024"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-002",
+      "BESS-DRW-017"
+    ]
+  },
+  {
+    "field_id": "BESS-003",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Estudio topografico / GPS",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-013",
+      "BESS-C-024"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-002",
+      "BESS-DRW-017"
+    ]
+  },
+  {
+    "field_id": "BESS-004",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria descriptiva / layout",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-013"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-005",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Estudio meteorologico (NASA POWER/DNV)",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-013",
+      "BESS-C-014",
+      "BESS-C-028"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-011",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-006",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Estudio meteorologico",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-013",
+      "BESS-C-014"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-011",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-007",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet del fabricante de celdas",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-001",
+      "BESS-C-004",
+      "BESS-C-010",
+      "BESS-C-011"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BESS-008",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de celda (IEC 62660-1 condiciones)",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-004",
+      "BESS-C-007",
+      "BESS-C-008",
+      "BESS-C-009"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BESS-009",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de celda",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-001",
+      "BESS-C-007",
+      "BESS-C-008",
+      "BESS-C-009"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BESS-010",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de celda",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-001",
+      "BESS-C-007",
+      "BESS-C-008"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BESS-011",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de celda",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-001",
+      "BESS-C-007",
+      "BESS-C-008"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BESS-012",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de celda (IEC 61960)",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-004",
+      "BESS-C-010",
+      "BESS-C-013"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BESS-013",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de celda (mecanicas)",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-005"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005"
+    ]
+  },
+  {
+    "field_id": "BESS-014",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de celda",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-005"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005"
+    ]
+  },
+  {
+    "field_id": "BESS-015",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de celda",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-005"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005"
+    ]
+  },
+  {
+    "field_id": "BESS-016",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de celda",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-005"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-015"
+    ]
+  },
+  {
+    "field_id": "BESS-017",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de celda (IEC 62660-1)",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-011",
+      "BESS-C-012",
+      "BESS-C-013"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-006",
+      "BESS-DRW-005"
+    ]
+  },
+  {
+    "field_id": "BESS-019",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de modulo / BOM",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-006",
+      "BESS-C-007",
+      "BESS-C-008"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005"
+    ]
+  },
+  {
+    "field_id": "BESS-020",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de modulo",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-007",
+      "BESS-C-008"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BESS-021",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de modulo",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-007",
+      "BESS-C-008"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BESS-022",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de modulo",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-005",
+      "BESS-C-008"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-015"
+    ]
+  },
+  {
+    "field_id": "BESS-023",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de modulo / arquitectura BMS",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-015"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BESS-024",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de modulo",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-008"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-004"
+    ]
+  },
+  {
+    "field_id": "BESS-025",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de modulo",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-008"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-004"
+    ]
+  },
+  {
+    "field_id": "BESS-026",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de modulo",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-008"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-004"
+    ]
+  },
+  {
+    "field_id": "BESS-027",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de modulo",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-008"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-028",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de rack",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-008",
+      "BESS-C-009"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-004",
+      "BESS-DRW-005"
+    ]
+  },
+  {
+    "field_id": "BESS-029",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de rack / memoria electrica",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-007",
+      "BESS-C-008",
+      "BESS-C-009"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-004",
+      "BESS-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BESS-030",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de rack",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-008",
+      "BESS-C-009"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-004",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-031",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de rack",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-011",
+      "BESS-C-012",
+      "BESS-C-013"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-004",
+      "BESS-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BESS-032",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de rack",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-008"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-004",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-033",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de rack",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-008"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-004",
+      "BESS-DRW-015"
+    ]
+  },
+  {
+    "field_id": "BESS-034",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de rack",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-008",
+      "BESS-C-017"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-004",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-035",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de rack",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-008",
+      "BESS-C-017"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-004",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-036",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de rack",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-008",
+      "BESS-C-017"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-004",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-037",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de rack",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-013",
+      "BESS-C-014"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-004",
+      "BESS-DRW-011"
+    ]
+  },
+  {
+    "field_id": "BESS-038",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de contenedor / layout",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-009",
+      "BESS-C-010",
+      "BESS-C-017"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-003",
+      "BESS-DRW-004"
+    ]
+  },
+  {
+    "field_id": "BESS-039",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de contenedor / memoria de capacidad",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-010",
+      "BESS-C-011"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-003",
+      "BESS-DRW-006"
+    ]
+  },
+  {
+    "field_id": "BESS-040",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de contenedor / PCS",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-011",
+      "BESS-C-018"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-003",
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-041",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de contenedor / memoria HVAC",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-014"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-003",
+      "BESS-DRW-011"
+    ]
+  },
+  {
+    "field_id": "BESS-042",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de proteccion contra incendio",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-016",
+      "BESS-C-017"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-009",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-043",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de contenedor",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-010"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-044",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de contenedor",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-017"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-045",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de contenedor",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-017"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-046",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de contenedor",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-017",
+      "BESS-C-018"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-003",
+      "BESS-DRW-001"
+    ]
+  },
+  {
+    "field_id": "BESS-047",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de contenedor",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-017"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-003",
+      "BESS-DRW-011"
+    ]
+  },
+  {
+    "field_id": "BESS-048",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de dimensionamiento / contrato EPC",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-010",
+      "BESS-C-011",
+      "BESS-C-024",
+      "BESS-C-028"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-003",
+      "BESS-DRW-006",
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-049",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de dimensionamiento / contrato EPC",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-011",
+      "BESS-C-018",
+      "BESS-C-024"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-050",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de dimensionamiento",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-011",
+      "BESS-C-024",
+      "BESS-C-028"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-051",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de dimensionamiento / datasheet PCS",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-011",
+      "BESS-C-012"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-052",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de bateria / rack",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-011",
+      "BESS-C-012"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-053",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de dimensionamiento",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-011",
+      "BESS-C-018"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-054",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria electrica / SLD DC",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-007",
+      "BESS-C-008",
+      "BESS-C-009"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-006",
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-055",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Layout / plot plan",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-010",
+      "BESS-C-017",
+      "BESS-C-018"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-002",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-056",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de dimensionamiento / datasheet PCS",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-010",
+      "BESS-C-019",
+      "BESS-C-024"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-057",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de dimensionamiento / control BMS",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-012",
+      "BESS-C-013",
+      "BESS-C-015"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BESS-058",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet de bateria / garantia",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-015",
+      "BESS-C-016"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-059",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria economica / garantia",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-015",
+      "BESS-C-016",
+      "BESS-C-028"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001"
+    ]
+  },
+  {
+    "field_id": "BESS-060",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Arquitectura BMS / datasheet modulo",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-002",
+      "BESS-C-015"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BESS-061",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Arquitectura BMS",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-002",
+      "BESS-C-015"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-005",
+      "BESS-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BESS-062",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Arquitectura BMS",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-015"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-004",
+      "BESS-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BESS-063",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Arquitectura BMS",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-015"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-012",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-064",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria BMS / EMS",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-002",
+      "BESS-C-015",
+      "BESS-C-018"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-012",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-065",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria BMS / EMS",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-002",
+      "BESS-C-015",
+      "BESS-C-018"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-012",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-066",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria BMS / O&M",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-004",
+      "BESS-C-016"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-012",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-067",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet BMS",
+    "responsible_role": "BATTERY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-002",
+      "BESS-C-015"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-012",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-068",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria EMS / contrato de servicios",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-020",
+      "BESS-C-021",
+      "BESS-C-022",
+      "BESS-C-023",
+      "BESS-C-024"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-012",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-069",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "COES NCO / contrato EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-022",
+      "BESS-C-023"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BESS-070",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria EMS / modelo economico",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-015",
+      "BESS-C-016",
+      "BESS-C-028"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BESS-071",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet EMS / COES",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-020",
+      "BESS-C-021"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-012",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-072",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "COES NCO / contrato PFR",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-020"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-012"
+    ]
+  },
+  {
+    "field_id": "BESS-075",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet PCS (UL 1741/IEC 62109)",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-011",
+      "BESS-C-018",
+      "BESS-C-019"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-076",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet PCS",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-018",
+      "BESS-C-019"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-077",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Certificado IEEE 1547",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-020",
+      "BESS-C-025"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-078",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet PCS / EMS",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-020",
+      "BESS-C-024"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-079",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet PCS",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-007",
+      "BESS-C-008",
+      "BESS-C-009"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-006",
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-080",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet PCS",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-019"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-081",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet PCS",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-019"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-082",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet PCS / IEEE 519",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-019",
+      "BESS-C-025"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-083",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria electrica / SLD AC",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-019"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-084",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet transformador / memoria",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-019"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-085",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet transformador",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-019"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-086",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet transformador",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-019"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-087",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet transformador / SLD AC",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-019"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-088",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet transformador",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-019"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-089",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet switchgear",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-019"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-090",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet switchgear MV",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-019"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-091",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet disconnect DC",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-007",
+      "BESS-C-008",
+      "BESS-C-009"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-006",
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-092",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet breaker / estudio cortocircuito",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-019",
+      "BESS-C-025"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-093",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet breaker DC",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-007",
+      "BESS-C-008",
+      "BESS-C-009"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-006",
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-094",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria HVAC / balance termico",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-013",
+      "BESS-C-014"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-011",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-095",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet HVAC / memoria termica",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-013",
+      "BESS-C-014"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-011",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-096",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria HVAC",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-013",
+      "BESS-C-014"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-011"
+    ]
+  },
+  {
+    "field_id": "BESS-098",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet HVAC",
+    "responsible_role": "MECHANICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-013",
+      "BESS-C-014"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-011"
+    ]
+  },
+  {
+    "field_id": "BESS-099",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de proteccion contra incendio / NFPA 855",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-016",
+      "BESS-C-017"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BESS-100",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de proteccion contra incendio",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-016",
+      "BESS-C-017"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BESS-101",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de proteccion contra incendio / NFPA 13",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-016"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-009",
+      "BESS-DRW-001"
+    ]
+  },
+  {
+    "field_id": "BESS-102",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de proteccion contra incendio / NFPA 20",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-016"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-009",
+      "BESS-DRW-001"
+    ]
+  },
+  {
+    "field_id": "BESS-103",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de proteccion contra incendio",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-016",
+      "BESS-C-017"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BESS-104",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de proteccion contra incendio",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-016",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-009"
+    ]
+  },
+  {
+    "field_id": "BESS-105",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de deteccion de gas / IEC 60079-29-1",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-017",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-010"
+    ]
+  },
+  {
+    "field_id": "BESS-106",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de deteccion de gas",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-017",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-010"
+    ]
+  },
+  {
+    "field_id": "BESS-107",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de deteccion de incendio",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-016",
+      "BESS-C-017",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-010"
+    ]
+  },
+  {
+    "field_id": "BESS-108",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de deteccion de gas / IEC 60079-29-1",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-017",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-010"
+    ]
+  },
+  {
+    "field_id": "BESS-109",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Certificado UL 9540A",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-017",
+      "BESS-C-026",
+      "BESS-C-027"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-009",
+      "BESS-DRW-014"
+    ]
+  },
+  {
+    "field_id": "BESS-110",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Reporte UL 9540A",
+    "responsible_role": "FIRE_PROTECTION_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-017",
+      "BESS-C-026",
+      "BESS-C-027"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-009",
+      "BESS-DRW-014"
+    ]
+  },
+  {
+    "field_id": "BESS-111",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria ambiental / civil",
+    "responsible_role": "CIVIL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-026",
+      "BESS-C-027"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-003",
+      "BESS-DRW-014"
+    ]
+  },
+  {
+    "field_id": "BESS-112",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria ambiental / civil",
+    "responsible_role": "CIVIL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-026",
+      "BESS-C-027"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-003",
+      "BESS-DRW-014"
+    ]
+  },
+  {
+    "field_id": "BESS-114",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Estudio de malla de tierra / IEEE 80",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-020",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-008"
+    ]
+  },
+  {
+    "field_id": "BESS-115",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria electrica / IEC 60364-5-54",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-020",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-008"
+    ]
+  },
+  {
+    "field_id": "BESS-117",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de proteccion contra rayo",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-020",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-008",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-118",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de proteccion contra rayo",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-020",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-008"
+    ]
+  },
+  {
+    "field_id": "BESS-119",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de proteccion contra rayo",
+    "responsible_role": "ELECTRICAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-020",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-008",
+      "BESS-DRW-001"
+    ]
+  },
+  {
+    "field_id": "BESS-120",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Contrato de servicios / COES NCO",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-020",
+      "BESS-C-024",
+      "BESS-C-025"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-121",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Contrato de servicios / COES NCO",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-020",
+      "BESS-C-024"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-122",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Contrato de servicios / COES NCO",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-019",
+      "BESS-C-024"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-123",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Contrato de servicios / memoria EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-021",
+      "BESS-C-024"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-124",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Contrato de servicios",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-018",
+      "BESS-C-024"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-125",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Contrato de servicios",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-021",
+      "BESS-C-024"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-126",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Contrato de servicios / COES NCO",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-024",
+      "BESS-C-025"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007",
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-127",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Contrato VPP",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-023",
+      "BESS-C-024",
+      "BESS-C-025"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-128",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de emplazamiento",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-013",
+      "BESS-C-014",
+      "BESS-C-017"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-129",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Estudio meteorologico",
+    "responsible_role": "PROCESS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-013",
+      "BESS-C-014"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-011",
+      "BESS-DRW-003"
+    ]
+  },
+  {
+    "field_id": "BESS-130",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Estudio geotecnico / NTE-060",
+    "responsible_role": "CIVIL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-017",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-003",
+      "BESS-DRW-015"
+    ]
+  },
+  {
+    "field_id": "BESS-131",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet SCADA / EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-024",
+      "BESS-C-025"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-132",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet SCADA",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-024",
+      "BESS-C-025"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-133",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet SCADA / EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-024",
+      "BESS-C-025"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-134",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet SCADA",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-024",
+      "BESS-C-025"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-135",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de cyberseguridad",
+    "responsible_role": "IT_SECURITY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-025",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-013",
+      "BESS-DRW-016"
+    ]
+  },
+  {
+    "field_id": "BESS-136",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de cyberseguridad",
+    "responsible_role": "IT_SECURITY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-025",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-013",
+      "BESS-DRW-016"
+    ]
+  },
+  {
+    "field_id": "BESS-137",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria de cyberseguridad",
+    "responsible_role": "IT_SECURITY_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-025",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-013",
+      "BESS-DRW-016"
+    ]
+  },
+  {
+    "field_id": "BESS-138",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Datasheet SCADA / EMS",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-024",
+      "BESS-C-025"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-139",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria SCADA / O&M",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-024",
+      "BESS-C-025"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-140",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria SCADA",
+    "responsible_role": "EMS_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-024",
+      "BESS-C-025"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-013"
+    ]
+  },
+  {
+    "field_id": "BESS-141",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Contrato de garantia",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-015",
+      "BESS-C-016",
+      "BESS-C-028"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001"
+    ]
+  },
+  {
+    "field_id": "BESS-142",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Contrato de garantia",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-015",
+      "BESS-C-016",
+      "BESS-C-028"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001"
+    ]
+  },
+  {
+    "field_id": "BESS-143",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Contrato de garantia PCS",
+    "responsible_role": "PROJECT_MANAGER",
+    "blocked_calculations": [
+      "BESS-C-018",
+      "BESS-C-019"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-007"
+    ]
+  },
+  {
+    "field_id": "BESS-144",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria ambiental / MINAM DS 019-2009",
+    "responsible_role": "ENVIRONMENTAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-028",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001"
+    ]
+  },
+  {
+    "field_id": "BESS-145",
+    "missing_action": "BLOCK",
+    "allowed_until_stage": "FEASIBILITY",
+    "safe_to_derive": false,
+    "derivation_rule_id": "BESS-GR-000",
+    "required_document": "Memoria ambiental / contrato",
+    "responsible_role": "ENVIRONMENTAL_ENGINEER",
+    "blocked_calculations": [
+      "BESS-C-028",
+      "BESS-C-026"
+    ],
+    "blocked_drawings": [
+      "BESS-DRW-001"
+    ]
+  }
+]

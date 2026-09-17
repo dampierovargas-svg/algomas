@@ -1,0 +1,1276 @@
+[
+  {
+    "rule_id": "WOF-QA-001",
+    "name_es": "Separacion entre WT offshore >= 7D",
+    "applies_to": [
+      "micrositing"
+    ],
+    "parameters": {
+      "min_spacing_D": 7
+    },
+    "conditional_expression": "always",
+    "validation_expression": "min(dist(WT_i,WT_j)) >= 7*rotor_diameter_m",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_3_1",
+      "DNV_OS_J101"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-001: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-001 (Separacion entre WT offshore >= 7D): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-001_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-002",
+    "name_es": "Distancia minima WT a linea de navegacion",
+    "applies_to": [
+      "micrositing"
+    ],
+    "parameters": {
+      "min_distance_m": 1000
+    },
+    "conditional_expression": "always",
+    "validation_expression": "min(dist(WT,shipping_lane))>=1000",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-002: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-002 (Distancia minima WT a linea de navegacion): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-002_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-003",
+    "name_es": "Longitud de cable inter-array por WT",
+    "applies_to": [
+      "cable_routing"
+    ],
+    "parameters": {
+      "max_length_km": 2.0
+    },
+    "conditional_expression": "always",
+    "validation_expression": "array_cable_per_WT<=2.0",
+    "severity": "WARNING",
+    "source_ids": [
+      "DNV_ST_0519"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-003: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-003 (Longitud de cable inter-array por WT): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-003_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-004",
+    "name_es": "Longitud de cable de exportacion a OSS",
+    "applies_to": [
+      "cable_routing"
+    ],
+    "parameters": {
+      "max_length_km": 200
+    },
+    "conditional_expression": "always",
+    "validation_expression": "export_cable_to_OSS<=200",
+    "severity": "WARNING",
+    "source_ids": [
+      "DNV_ST_0519"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-004: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-004 (Longitud de cable de exportacion a OSS): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-004_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-005",
+    "name_es": "Penetracion del monopile segun geotecnia",
+    "applies_to": [
+      "foundation"
+    ],
+    "parameters": {
+      "min_penetration_factor": 4
+    },
+    "conditional_expression": "foundation_type==MONOPILE",
+    "validation_expression": "L_penetration>=4*D_outer",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_RP_C205"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-005: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-005 (Penetracion del monopile segun geotecnia): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-005_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-006",
+    "name_es": "Volumen minimo de proteccion contra socavacion",
+    "applies_to": [
+      "scour_protection"
+    ],
+    "parameters": {
+      "min_volume_m3": 100
+    },
+    "conditional_expression": "scour_protection_type != NONE",
+    "validation_expression": "volume>=100",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_OS_J101"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-006: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-006 (Volumen minimo de proteccion contra socavacion): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-006_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-007",
+    "name_es": "Factor de seguridad de capacidad de ancla >= 1.5",
+    "applies_to": [
+      "mooring"
+    ],
+    "parameters": {
+      "min_SF": 1.5
+    },
+    "conditional_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "validation_expression": "SF_anchor>=1.5",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-007: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-007 (Factor de seguridad de capacidad de ancla >= 1.5): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-007_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-008",
+    "name_es": "Redundancia de fondeo caso intacto",
+    "applies_to": [
+      "mooring"
+    ],
+    "parameters": {
+      "intact_redundancy": true
+    },
+    "conditional_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "validation_expression": "mooring_redundancy_intact==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_OS_E301",
+      "IEC_61400_3_2"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-008: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-008 (Redundancia de fondeo caso intacto): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-008_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-009",
+    "name_es": "Redundancia de fondeo con linea rota",
+    "applies_to": [
+      "mooring"
+    ],
+    "parameters": {
+      "damaged_redundancy": true
+    },
+    "conditional_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "validation_expression": "mooring_redundancy_damaged==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_OS_E301",
+      "IEC_61400_3_2"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-009: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-009 (Redundancia de fondeo con linea rota): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-009_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-010",
+    "name_es": "Estabilidad flotante GM >= 0.5 m",
+    "applies_to": [
+      "floating"
+    ],
+    "parameters": {
+      "min_GM_m": 0.5
+    },
+    "conditional_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "validation_expression": "GM>=0.5",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_OS_C101",
+      "IEC_61400_3_2"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-010: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-010 (Estabilidad flotante GM >= 0.5 m): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-010_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-011",
+    "name_es": "Profundidad de enterramiento de cable >= 1 m",
+    "applies_to": [
+      "cable"
+    ],
+    "parameters": {
+      "min_burial_m": 1.0
+    },
+    "conditional_expression": "export_cable_type==STATIC",
+    "validation_expression": "burial_depth>=1.0",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_ST_0519",
+      "DNV_RP_J202"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-011: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-011 (Profundidad de enterramiento de cable >= 1 m): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-011_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-012",
+    "name_es": "Seguridad a la navegacion per IMO",
+    "applies_to": [
+      "navigation"
+    ],
+    "parameters": {
+      "min_corridor_width_m": 1000
+    },
+    "conditional_expression": "always",
+    "validation_expression": "corridor>=1000",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-012: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-012 (Seguridad a la navegacion per IMO): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-012_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-013",
+    "name_es": "Evaluacion de impacto ambiental EIA",
+    "applies_to": [
+      "environmental"
+    ],
+    "parameters": {
+      "EIA_approved": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "EIA==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-013: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-013 (Evaluacion de impacto ambiental EIA): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-013_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-014",
+    "name_es": "Mitigacion de mamiferos marinos",
+    "applies_to": [
+      "environmental"
+    ],
+    "parameters": {
+      "mitigation_required": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "marine_mammal_mitigation in [PAM,SOFT_START,RAMP_UP]",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-014: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-014 (Mitigacion de mamiferos marinos): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-014_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-015",
+    "name_es": "Cumplimiento IEC 61400-3-1 diseno fixed",
+    "applies_to": [
+      "turbine"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "foundation_type in [MONOPILE,JACKET,TRIPOD,GRAVITY]",
+    "validation_expression": "IEC_61400_3_1_checklist_complete==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_3_1"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-015: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-015 (Cumplimiento IEC 61400-3-1 diseno fixed): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-015_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-016",
+    "name_es": "Cumplimiento IEC 61400-3-2 diseno floating",
+    "applies_to": [
+      "turbine"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "validation_expression": "IEC_61400_3_2_checklist_complete==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_3_2"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-016: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-016 (Cumplimiento IEC 61400-3-2 diseno floating): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-016_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-017",
+    "name_es": "Cumplimiento DNV-OS-J101 diseno cimentaciones",
+    "applies_to": [
+      "foundation"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "DNV_OS_J101_checklist_complete==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_OS_J101"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-017: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-017 (Cumplimiento DNV-OS-J101 diseno cimentaciones): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-017_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-018",
+    "name_es": "Cumplimiento DNV-OS-E301 fondeo",
+    "applies_to": [
+      "mooring"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "validation_expression": "DNV_OS_E301_checklist_complete==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_OS_E301"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-018: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-018 (Cumplimiento DNV-OS-E301 fondeo): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-018_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-019",
+    "name_es": "Cumplimiento DNV-OS-C101 estructuras flotantes",
+    "applies_to": [
+      "floating"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "validation_expression": "DNV_OS_C101_checklist_complete==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_OS_C101"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-019: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-019 (Cumplimiento DNV-OS-C101 estructuras flotantes): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-019_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-020",
+    "name_es": "Cumplimiento DNV-RP-C205 metocean",
+    "applies_to": [
+      "metocean"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "DNV_RP_C205_checklist_complete==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_RP_C205"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-020: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-020 (Cumplimiento DNV-RP-C205 metocean): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-020_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-021",
+    "name_es": "Cumplimiento DNV-ST-0519 cables submarinos",
+    "applies_to": [
+      "cable"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "DNV_ST_0519_checklist_complete==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_ST_0519"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-021: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-021 (Cumplimiento DNV-ST-0519 cables submarinos): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-021_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-022",
+    "name_es": "Cumplimiento DNV-OS-J103 jackets",
+    "applies_to": [
+      "foundation"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "foundation_type==JACKET",
+    "validation_expression": "DNV_OS_J103_checklist_complete==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_OS_J103"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-022: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-022 (Cumplimiento DNV-OS-J103 jackets): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-022_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-023",
+    "name_es": "Cumplimiento IEC 61400-1 base de diseno",
+    "applies_to": [
+      "turbine"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "IEC_61400_1_basis_defined==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_1"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-023: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-023 (Cumplimiento IEC 61400-1 base de diseno): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-023_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-024",
+    "name_es": "Cumplimiento IEC 61400-6 torre y cimentacion",
+    "applies_to": [
+      "turbine"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "IEC_61400_6_checklist_complete==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_6"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-024: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-024 (Cumplimiento IEC 61400-6 torre y cimentacion): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-024_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-025",
+    "name_es": "Cumplimiento IEC 61400-21-1 grid compliance",
+    "applies_to": [
+      "electrical"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "IEC_61400_21_1_checklist_complete==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_21_1"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-025: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-025 (Cumplimiento IEC 61400-21-1 grid compliance): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-025_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-026",
+    "name_es": "Cumplimiento IEC 61400-24 proteccion contra rayos",
+    "applies_to": [
+      "turbine"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "IEC_61400_24_checklist_complete==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_24"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-026: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-026 (Cumplimiento IEC 61400-24 proteccion contra rayos): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-026_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-027",
+    "name_es": "Cumplimiento IEC 61400-25 SCADA",
+    "applies_to": [
+      "control"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "IEC_61400_25_checklist_complete==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_25"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-027: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-027 (Cumplimiento IEC 61400-25 SCADA): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-027_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-028",
+    "name_es": "Clasificacion IP de gabinetes (IEC 60529)",
+    "applies_to": [
+      "electrical"
+    ],
+    "parameters": {
+      "min_ip": "IP56"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "ip_rating>=IP56",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_60529"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-028: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-028 (Clasificacion IP de gabinetes (IEC 60529)): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-028_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-029",
+    "name_es": "Metodo de ampacidad IEC 60287",
+    "applies_to": [
+      "cable"
+    ],
+    "parameters": {
+      "method_used": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "ampacity_method==IEC_60287",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_60287_1_1"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-029: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-029 (Metodo de ampacidad IEC 60287): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-029_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-030",
+    "name_es": "Proteccion contra rayos S/S onshore (IEC 62305)",
+    "applies_to": [
+      "electrical"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "IEC_62305_checklist_complete==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_62305_1",
+      "IEC_62305_3"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-030: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-030 (Proteccion contra rayos S/S onshore (IEC 62305)): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-030_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-031",
+    "name_es": "Interconexion a la red IEEE 1547",
+    "applies_to": [
+      "electrical"
+    ],
+    "parameters": {
+      "compliant": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "IEEE_1547_compliance==true",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_1547_2018"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-031: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-031 (Interconexion a la red IEEE 1547): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-031_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-032",
+    "name_es": "Control de armonicos IEEE 519",
+    "applies_to": [
+      "electrical"
+    ],
+    "parameters": {
+      "THD_V_pct_max": 5
+    },
+    "conditional_expression": "always",
+    "validation_expression": "THD_V<=5",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_519_2022"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-032: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-032 (Control de armonicos IEEE 519): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-032_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-033",
+    "name_es": "Puesta a tierra subestacion IEEE 80",
+    "applies_to": [
+      "electrical"
+    ],
+    "parameters": {
+      "touch_potential_V_max": 50
+    },
+    "conditional_expression": "always",
+    "validation_expression": "E_touch<=50",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEEE_80_2013"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-033: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-033 (Puesta a tierra subestacion IEEE 80): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-033_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-034",
+    "name_es": "Clase IEC del WT compatible con sitio",
+    "applies_to": [
+      "turbine"
+    ],
+    "parameters": {
+      "site_class_match": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "V_50yr_site<=V_ref_class AND I_50yr_site<=I_ref_class",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_3_1"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-034: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-034 (Clase IEC del WT compatible con sitio): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-034_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-035",
+    "name_es": "Capacidad de conexion grouted (ULTS)",
+    "applies_to": [
+      "foundation"
+    ],
+    "parameters": {
+      "min_SF_ult": 1.5
+    },
+    "conditional_expression": "foundation_type in [MONOPILE,JACKET]",
+    "validation_expression": "M_ult_grout>=1.5*M_design",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_OS_J101"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-035: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-035 (Capacidad de conexion grouted (ULTS)): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-035_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-036",
+    "name_es": "Perdidas del convertidor HVDC limite",
+    "applies_to": [
+      "electrical"
+    ],
+    "parameters": {
+      "max_losses_pct": 1.5
+    },
+    "conditional_expression": "oss_hvac_or_hvdc==HVDC",
+    "validation_expression": "losses_pct<=1.5",
+    "severity": "WARNING",
+    "source_ids": [
+      "IEC_61400_27_1"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-036: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-036 (Perdidas del convertidor HVDC limite): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-036_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-037",
+    "name_es": "Vida por fatiga de cimentacion >= 25 anos",
+    "applies_to": [
+      "foundation"
+    ],
+    "parameters": {
+      "min_fatigue_life_yr": 25
+    },
+    "conditional_expression": "always",
+    "validation_expression": "fatigue_life>=25",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_OS_J101",
+      "DNV_OS_C101"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-037: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-037 (Vida por fatiga de cimentacion >= 25 anos): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-037_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-038",
+    "name_es": "Periodo natural de plataforma flotante fuera de rango de ola",
+    "applies_to": [
+      "floating"
+    ],
+    "parameters": {
+      "min_heave_period_s": 20
+    },
+    "conditional_expression": "foundation_type in [SEMI,SPAR,TLP]",
+    "validation_expression": "T_n_heave>=20",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "DNV_OS_C101",
+      "IEC_61400_3_2"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-038: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-038 (Periodo natural de plataforma flotante fuera de rango de ola): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-038_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-039",
+    "name_es": "Incertidumbre de AEP yield assessment",
+    "applies_to": [
+      "energy"
+    ],
+    "parameters": {
+      "max_uncertainty_pct": 12
+    },
+    "conditional_expression": "always",
+    "validation_expression": "AEP_uncertainty<=12",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_12_1",
+      "IEC_61400_15_1"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-039: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-039 (Incertidumbre de AEP yield assessment): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-039_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-040",
+    "name_es": "Tolerancia de as-built en posicion de WT",
+    "applies_to": [
+      "as_built"
+    ],
+    "parameters": {
+      "max_pos_tolerance_m": 1.0
+    },
+    "conditional_expression": "stage==AS_BUILT",
+    "validation_expression": "abs(pos_asbuilt - pos_design)<=1.0",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "ISO_19650_2",
+      "ISO_19111"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-040: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-040 (Tolerancia de as-built en posicion de WT): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-040_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-041",
+    "name_es": "Modelo de riesgo de colision de aves",
+    "applies_to": [
+      "environmental"
+    ],
+    "parameters": {
+      "model_required": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "bird_collision_risk_model in [BAND,CRM,SOSS]",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-041: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-041 (Modelo de riesgo de colision de aves): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-041_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-042",
+    "name_es": "Evaluacion de arrecife artificial",
+    "applies_to": [
+      "environmental"
+    ],
+    "parameters": {
+      "assessment_done": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "fish_artificial_reef_assessment==true",
+    "severity": "WARNING",
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-042: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-042 (Evaluacion de arrecife artificial): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-042_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-043",
+    "name_es": "Plan de desmantelamiento requerido",
+    "applies_to": [
+      "environmental"
+    ],
+    "parameters": {
+      "plan_required": true
+    },
+    "conditional_expression": "always",
+    "validation_expression": "decommissioning_plan_reference != ''",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IRENA_OFFSHORE_2023"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-043: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-043 (Plan de desmantelamiento requerido): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-043_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-044",
+    "name_es": "Iluminacion aeronautica ICAO",
+    "applies_to": [
+      "aviation"
+    ],
+    "parameters": {
+      "standard": "ICAO"
+    },
+    "conditional_expression": "always",
+    "validation_expression": "aviation_lighting in [ICAO,FAA,EASA]",
+    "severity": "BLOCKED",
+    "source_ids": [
+      "IEC_61400_24",
+      "IEC_61400_3_1"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-044: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-044 (Iluminacion aeronautica ICAO): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-044_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  },
+  {
+    "rule_id": "WOF-QA-045",
+    "name_es": "Plataforma de acceso para helicoptero",
+    "applies_to": [
+      "om"
+    ],
+    "parameters": {
+      "helipad_compliant": true
+    },
+    "conditional_expression": "oss_topside_mass_t>0",
+    "validation_expression": "helicopter_access_pad==true",
+    "severity": "WARNING",
+    "source_ids": [
+      "IRENA_OFFSHORE_2023",
+      "DNV_OS_J103"
+    ],
+    "category": "",
+    "applicability_expression": "always",
+    "assertion_expression": "WOF-QA-045: structural_dependencies_resolved == true AND affected_fields_exist == true",
+    "message_template": "Regla WOF-QA-045 (Plataforma de acceso para helicoptero): verificación fallida, revisar dependencias y valores",
+    "required_evidence": [
+      "WOF-QA-045_evidence_record",
+      "validation_report"
+    ],
+    "affected_fields": [],
+    "affected_drawings": [],
+    "override_allowed": false,
+    "override_role": null
+  }
+]

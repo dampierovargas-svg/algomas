@@ -1,0 +1,738 @@
+[
+  {
+    "equipment_type_id": "WON-",
+    "name_es": "Aerogenerador",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_power_kw",
+        "unit": "kW"
+      },
+      {
+        "name": "rotor_diameter_m",
+        "unit": "m"
+      },
+      {
+        "name": "hub_height_m",
+        "unit": "m"
+      },
+      {
+        "name": "cut_in_speed_ms",
+        "unit": "m/s"
+      },
+      {
+        "name": "cut_out_speed_ms",
+        "unit": "m/s"
+      },
+      {
+        "name": "rated_speed_ms",
+        "unit": "m/s"
+      },
+      {
+        "name": "iec_class",
+        "unit": "-"
+      },
+      {
+        "name": "lps_class",
+        "unit": "-"
+      },
+      {
+        "name": "apparent_sound_power_dba",
+        "unit": "dBA"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_1",
+      "IEC_61400_5",
+      "IEC_61400_6",
+      "IEC_61400_12_1",
+      "IEC_61400_24"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_2",
+    "name_es": "Mástil anemométrico",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "mast_height_m",
+        "unit": "m"
+      },
+      {
+        "name": "anemometer_levels",
+        "unit": "-"
+      },
+      {
+        "name": "data_logger_model",
+        "unit": "-"
+      },
+      {
+        "name": "data_recovery_rate_pct",
+        "unit": "%"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_12_1",
+      "NREL_TP_5000_87434"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_3",
+    "name_es": "Mástil meteorológico extendido",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "mast_height_m",
+        "unit": "m"
+      },
+      {
+        "name": "instrument_count",
+        "unit": "-"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_12_1"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_4",
+    "name_es": "Transformador LV/MV de turbina",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_power_kva",
+        "unit": "kVA"
+      },
+      {
+        "name": "voltage_lv_v",
+        "unit": "V"
+      },
+      {
+        "name": "voltage_mv_v",
+        "unit": "V"
+      },
+      {
+        "name": "impedance_pct",
+        "unit": "%"
+      },
+      {
+        "name": "vector_group",
+        "unit": "-"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEC_61400_21_1"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_5",
+    "name_es": "Tablero de media tensión",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_voltage_kv",
+        "unit": "kV"
+      },
+      {
+        "name": "rated_current_a",
+        "unit": "A"
+      },
+      {
+        "name": "short_circuit_ka",
+        "unit": "kA"
+      },
+      {
+        "name": "protection_relay_protocol",
+        "unit": "-"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "OSINERGMIN_PR_17"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_6",
+    "name_es": "Tablero de alta tensión",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_voltage_kv",
+        "unit": "kV"
+      },
+      {
+        "name": "rated_current_a",
+        "unit": "A"
+      },
+      {
+        "name": "short_circuit_ka",
+        "unit": "kA"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "OSINERGMIN_PR_17",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_7",
+    "name_es": "Filtro de armónicos",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_tuning_harmonic",
+        "unit": "-"
+      },
+      {
+        "name": "rated_reactive_power_mvar",
+        "unit": "Mvar"
+      },
+      {
+        "name": "rated_voltage_kv",
+        "unit": "kV"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEEE_519_2022",
+      "IEC_61400_21_1",
+      "OSINERGMIN_PR_19"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_8",
+    "name_es": "Compensador estático",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_reactive_power_mvar",
+        "unit": "Mvar"
+      },
+      {
+        "name": "rated_voltage_kv",
+        "unit": "kV"
+      },
+      {
+        "name": "response_time_ms",
+        "unit": "ms"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEC_61400_27_1",
+      "OSINERGMIN_PR_19"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_9",
+    "name_es": "Plataforma de grúa",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "length_m",
+        "unit": "m"
+      },
+      {
+        "name": "width_m",
+        "unit": "m"
+      },
+      {
+        "name": "bearing_capacity_kpa",
+        "unit": "kPa"
+      },
+      {
+        "name": "crane_capacity_t",
+        "unit": "t"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_14685",
+      "NREL_TP_5000_87434"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_10",
+    "name_es": "Zona de acopio",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "area_m2",
+        "unit": "m2"
+      },
+      {
+        "name": "bearing_capacity_kpa",
+        "unit": "kPa"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "NREL_TP_5000_87434"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_11",
+    "name_es": "Almacén de repuestos",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "area_m2",
+        "unit": "m2"
+      },
+      {
+        "name": "fire_rating_min",
+        "unit": "min"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_12",
+    "name_es": "Edificio de operación y mantenimiento",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "area_m2",
+        "unit": "m2"
+      },
+      {
+        "name": "fire_rating_min",
+        "unit": "min"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "MINEM_DS_043_2006"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_13",
+    "name_es": "Camino de acceso",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "width_m",
+        "unit": "m"
+      },
+      {
+        "name": "gradient_max_pct",
+        "unit": "%"
+      },
+      {
+        "name": "curve_radius_min_m",
+        "unit": "m"
+      },
+      {
+        "name": "weight_limit_t",
+        "unit": "t"
+      },
+      {
+        "name": "length_km",
+        "unit": "km"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "NREL_TP_5000_87434"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_14",
+    "name_es": "Hardstand",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "length_m",
+        "unit": "m"
+      },
+      {
+        "name": "width_m",
+        "unit": "m"
+      },
+      {
+        "name": "bearing_capacity_kpa",
+        "unit": "kPa"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "RNE_DS_011_2006",
+      "ISO_14685"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_15",
+    "name_es": "Cimentación raft (zapata)",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "dimension_length_m",
+        "unit": "m"
+      },
+      {
+        "name": "dimension_width_m",
+        "unit": "m"
+      },
+      {
+        "name": "depth_m",
+        "unit": "m"
+      },
+      {
+        "name": "concrete_grade_mpa",
+        "unit": "MPa"
+      },
+      {
+        "name": "bearing_pressure_kpa",
+        "unit": "kPa"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_6",
+      "ISO_14685",
+      "RNE_DS_011_2006"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_16",
+    "name_es": "Cimentación por pilotes",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "pile_count",
+        "unit": "-"
+      },
+      {
+        "name": "pile_diameter_m",
+        "unit": "m"
+      },
+      {
+        "name": "pile_depth_m",
+        "unit": "m"
+      },
+      {
+        "name": "axial_capacity_kn",
+        "unit": "kN"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_6",
+      "ISO_14685"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_17",
+    "name_es": "Cimentación por anclajes en roca",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "anchor_count",
+        "unit": "-"
+      },
+      {
+        "name": "anchor_diameter_mm",
+        "unit": "mm"
+      },
+      {
+        "name": "anchor_depth_m",
+        "unit": "m"
+      },
+      {
+        "name": "tension_kn",
+        "unit": "kN"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_6",
+      "ISO_14685"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_18",
+    "name_es": "Gabinete SCADA",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "communication_protocol",
+        "unit": "-"
+      },
+      {
+        "name": "data_points_count",
+        "unit": "-"
+      },
+      {
+        "name": "ups_autonomy_min",
+        "unit": "min"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_25",
+      "OSINERGMIN_PR_17"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_19",
+    "name_es": "Luz de aviación",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "light_type",
+        "unit": "-"
+      },
+      {
+        "name": "intensity_cd",
+        "unit": "cd"
+      },
+      {
+        "name": "flash_rate_per_min",
+        "unit": "1/min"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_1",
+      "IEEE_C2_2023"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_20",
+    "name_es": "Anemómetro de copas",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "range_ms",
+        "unit": "m/s"
+      },
+      {
+        "name": "accuracy_ms",
+        "unit": "m/s"
+      },
+      {
+        "name": "resolution_ms",
+        "unit": "m/s"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_12_1"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_21",
+    "name_es": "Anemómetro sónico",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "range_ms",
+        "unit": "m/s"
+      },
+      {
+        "name": "sampling_rate_hz",
+        "unit": "Hz"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_12_1",
+      "IEC_61400_13"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_22",
+    "name_es": "Wind lidar",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "range_height_m",
+        "unit": "m"
+      },
+      {
+        "name": "range_velocity_ms",
+        "unit": "m/s"
+      },
+      {
+        "name": "data_rate_hz",
+        "unit": "Hz"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_12_1"
+    ]
+  },
+  {
+    "equipment_type_id": "WON-_23",
+    "name_es": "Wind sodar",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "range_height_m",
+        "unit": "m"
+      },
+      {
+        "name": "data_rate_hz",
+        "unit": "Hz"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61400_12_1"
+    ]
+  }
+]

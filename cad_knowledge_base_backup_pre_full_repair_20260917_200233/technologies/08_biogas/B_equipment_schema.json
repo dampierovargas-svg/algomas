@@ -1,0 +1,1586 @@
+[
+  {
+    "equipment_type_id": "BIG-",
+    "name_es": "Digestor CSTR",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "useful_volume_m3",
+        "unit": "m3",
+        "description": "Volumen útil líquido"
+      },
+      {
+        "name": "design_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": "Presión de diseño"
+      },
+      {
+        "name": "design_temperature_C",
+        "unit": "°C",
+        "description": "Temperatura de diseño"
+      },
+      {
+        "name": "diameter_m",
+        "unit": "m",
+        "description": "Diámetro interior"
+      },
+      {
+        "name": "height_m",
+        "unit": "m",
+        "description": "Altura total"
+      },
+      {
+        "name": "TS_inlet_pct",
+        "unit": "%",
+        "description": "Sólidos totales entrada"
+      },
+      {
+        "name": "OLR_kg_VS_m3_d",
+        "unit": "kg VS/m3/d",
+        "description": "Carga orgánica"
+      },
+      {
+        "name": "HRT_d",
+        "unit": "d",
+        "description": "Tiempo retención hidráulica"
+      },
+      {
+        "name": "mixer_power_kW",
+        "unit": "kW",
+        "description": "Potencia mezclador"
+      },
+      {
+        "name": "wall_thickness_mm",
+        "unit": "mm",
+        "description": "Espesor pared"
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "ISO_15547_1"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_2",
+    "name_es": "Digestor plug flow",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "useful_volume_m3",
+        "unit": "m3",
+        "description": ""
+      },
+      {
+        "name": "length_m",
+        "unit": "m",
+        "description": ""
+      },
+      {
+        "name": "diameter_m",
+        "unit": "m",
+        "description": ""
+      },
+      {
+        "name": "design_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "design_temperature_C",
+        "unit": "°C",
+        "description": ""
+      },
+      {
+        "name": "TS_inlet_pct",
+        "unit": "%",
+        "description": ""
+      },
+      {
+        "name": "HRT_d",
+        "unit": "d",
+        "description": ""
+      },
+      {
+        "name": "OLR_kg_VS_m3_d",
+        "unit": "kg VS/m3/d",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "ISO_15547_1"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_3",
+    "name_es": "Laguna anaerobia cubierta",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "useful_volume_m3",
+        "unit": "m3",
+        "description": ""
+      },
+      {
+        "name": "surface_area_m2",
+        "unit": "m2",
+        "description": ""
+      },
+      {
+        "name": "depth_m",
+        "unit": "m",
+        "description": ""
+      },
+      {
+        "name": "HRT_d",
+        "unit": "d",
+        "description": ""
+      },
+      {
+        "name": "cover_membrane_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "OLR_kg_VS_m3_d",
+        "unit": "kg VS/m3/d",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_10_1",
+      "NFPA_497_2024"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_4",
+    "name_es": "Gasómetro doble membrana",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "geometrical_volume_m3",
+        "unit": "m3",
+        "description": ""
+      },
+      {
+        "name": "operating_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "height_m",
+        "unit": "m",
+        "description": ""
+      },
+      {
+        "name": "diameter_m",
+        "unit": "m",
+        "description": ""
+      },
+      {
+        "name": "membrane_material",
+        "unit": "-",
+        "description": ""
+      },
+      {
+        "name": "design_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "relief_valve_set_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_5",
+    "name_es": "Bomba de alimentación cavidad progresiva",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_flow_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "rated_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "motor_power_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "max_solid_pct",
+        "unit": "%",
+        "description": ""
+      },
+      {
+        "name": "speed_rpm",
+        "unit": "rpm",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "API_610_2024",
+      "IEC_60079_0",
+      "ISO_22790"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_6",
+    "name_es": "Mezclador sumergido",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_power_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "specific_power_W_m3",
+        "unit": "W/m3",
+        "description": ""
+      },
+      {
+        "name": "propeller_diameter_mm",
+        "unit": "mm",
+        "description": ""
+      },
+      {
+        "name": "speed_rpm",
+        "unit": "rpm",
+        "description": ""
+      },
+      {
+        "name": "ex_classification",
+        "unit": "-",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_0"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_7",
+    "name_es": "Mezclador superior con eje",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_power_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "specific_power_W_m3",
+        "unit": "W/m3",
+        "description": ""
+      },
+      {
+        "name": "shaft_length_m",
+        "unit": "m",
+        "description": ""
+      },
+      {
+        "name": "impeller_diameter_mm",
+        "unit": "mm",
+        "description": ""
+      },
+      {
+        "name": "speed_rpm",
+        "unit": "rpm",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_0"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_8",
+    "name_es": "Intercambiador de calor del digestor",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "heat_duty_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "heat_transfer_area_m2",
+        "unit": "m2",
+        "description": ""
+      },
+      {
+        "name": "hot_water_inlet_C",
+        "unit": "°C",
+        "description": ""
+      },
+      {
+        "name": "hot_water_outlet_C",
+        "unit": "°C",
+        "description": ""
+      },
+      {
+        "name": "design_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_15547_1",
+      "ISO_22790",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_9",
+    "name_es": "Soplante Roots de biogás",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_flow_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "rated_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "motor_power_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "ex_classification",
+        "unit": "-",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_0",
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_10",
+    "name_es": "Soplante centrífugo de biogás",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_flow_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "rated_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "motor_power_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "ex_classification",
+        "unit": "-",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_0",
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_11",
+    "name_es": "Antorcha abierta (open flare)",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "stack_height_m",
+        "unit": "m",
+        "description": ""
+      },
+      {
+        "name": "tip_diameter_mm",
+        "unit": "mm",
+        "description": ""
+      },
+      {
+        "name": "max_capacity_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "design_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "destruction_efficiency_pct",
+        "unit": "%",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "API_521",
+      "API_520_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_12",
+    "name_es": "Antorcha cerrada (enclosed flare)",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "chamber_diameter_m",
+        "unit": "m",
+        "description": ""
+      },
+      {
+        "name": "stack_height_m",
+        "unit": "m",
+        "description": ""
+      },
+      {
+        "name": "max_capacity_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "destruction_efficiency_pct",
+        "unit": "%",
+        "description": ""
+      },
+      {
+        "name": "design_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "API_521",
+      "API_520_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "MINAM_DS_019_2009"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_13",
+    "name_es": "Compresor reciprocante de biogás/biometano",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_flow_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "discharge_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "motor_power_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "ex_classification",
+        "unit": "-",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_0",
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_14",
+    "name_es": "Compresor de tornillo de biogás/biometano",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_flow_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "discharge_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "motor_power_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "ex_classification",
+        "unit": "-",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_0",
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_15",
+    "name_es": "Scrubber biológico de H2S",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "capacity_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "inlet_H2S_ppm",
+        "unit": "ppm",
+        "description": ""
+      },
+      {
+        "name": "outlet_H2S_ppm",
+        "unit": "ppm",
+        "description": ""
+      },
+      {
+        "name": "S_load_g_S_m3_d",
+        "unit": "g S/m3/d",
+        "description": ""
+      },
+      {
+        "name": "design_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_0",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_16",
+    "name_es": "Scrubber químico de óxido de hierro",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "capacity_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "inlet_H2S_ppm",
+        "unit": "ppm",
+        "description": ""
+      },
+      {
+        "name": "outlet_H2S_ppm",
+        "unit": "ppm",
+        "description": ""
+      },
+      {
+        "name": "media_volume_m3",
+        "unit": "m3",
+        "description": ""
+      },
+      {
+        "name": "media_replacement_freq_d",
+        "unit": "d",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_0"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_17",
+    "name_es": "Enfriador de secado de biogás",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "cooling_duty_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "outlet_temperature_C",
+        "unit": "°C",
+        "description": ""
+      },
+      {
+        "name": "inlet_temperature_C",
+        "unit": "°C",
+        "description": ""
+      },
+      {
+        "name": "condensate_drain_L_h",
+        "unit": "L/h",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "ISO_15547_1",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_18",
+    "name_es": "Chiller para secado de biogás",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "cooling_capacity_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "chilled_water_outlet_C",
+        "unit": "°C",
+        "description": ""
+      },
+      {
+        "name": "compressor_power_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "refrigerant",
+        "unit": "-",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "ISO_15547_1",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_19",
+    "name_es": "Upgrading PSA",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "capacity_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "operating_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "methane_recovery_pct",
+        "unit": "%",
+        "description": ""
+      },
+      {
+        "name": "CH4_outlet_pct",
+        "unit": "%vol",
+        "description": ""
+      },
+      {
+        "name": "energy_consumption_kWh_m3",
+        "unit": "kWh/m3",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_B31_3_2022",
+      "IEC_60079_0"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_20",
+    "name_es": "Upgrading water scrubber",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "capacity_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "operating_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "water_flow_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "methane_recovery_pct",
+        "unit": "%",
+        "description": ""
+      },
+      {
+        "name": "CH4_outlet_pct",
+        "unit": "%vol",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_B31_3_2022",
+      "IEC_60079_0",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_21",
+    "name_es": "Upgrading amine scrubbing",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "capacity_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "operating_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "reboiler_duty_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "amine_solution_wt_pct",
+        "unit": "%",
+        "description": ""
+      },
+      {
+        "name": "methane_recovery_pct",
+        "unit": "%",
+        "description": ""
+      },
+      {
+        "name": "CH4_outlet_pct",
+        "unit": "%vol",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "ASME_BPVC_VIII_1_2023",
+      "ASME_B31_3_2022",
+      "ISO_15547_1",
+      "IEC_60079_0"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_22",
+    "name_es": "Upgrading membrane",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "capacity_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "operating_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "membrane_selectivity",
+        "unit": "-",
+        "description": ""
+      },
+      {
+        "name": "methane_recovery_pct",
+        "unit": "%",
+        "description": ""
+      },
+      {
+        "name": "CH4_outlet_pct",
+        "unit": "%vol",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "ASME_B31_3_2022",
+      "IEC_60079_0"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_23",
+    "name_es": "Compresor de biometano",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_flow_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "discharge_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "motor_power_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "ex_classification",
+        "unit": "-",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "IEC_60079_0",
+      "ASME_B31_3_2022",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_24",
+    "name_es": "Almacenamiento de biometano",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "volume_m3",
+        "unit": "m3",
+        "description": ""
+      },
+      {
+        "name": "operating_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "design_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "ASME_B31_3_2022"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_25",
+    "name_es": "Motor de cogeneración (CHP)",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_electrical_power_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "electrical_efficiency_pct",
+        "unit": "%",
+        "description": ""
+      },
+      {
+        "name": "thermal_efficiency_pct",
+        "unit": "%",
+        "description": ""
+      },
+      {
+        "name": "total_efficiency_pct",
+        "unit": "%",
+        "description": ""
+      },
+      {
+        "name": "rated_voltage_V",
+        "unit": "V",
+        "description": ""
+      },
+      {
+        "name": "NOx_emission_mg_Nm3",
+        "unit": "mg/Nm3",
+        "description": ""
+      },
+      {
+        "name": "CO_emission_mg_Nm3",
+        "unit": "mg/Nm3",
+        "description": ""
+      },
+      {
+        "name": "formaldehyde_emission_mg_Nm3",
+        "unit": "mg/Nm3",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006",
+      "MINAM_DS_019_2009",
+      "IEEE_1547_2018"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_26",
+    "name_es": "Recuperador térmico del CHP",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "recovered_thermal_power_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "hot_water_outlet_C",
+        "unit": "°C",
+        "description": ""
+      },
+      {
+        "name": "design_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_15547_1",
+      "ISO_22790",
+      "ISO_6107_1",
+      "IAPWS_IF97"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_27",
+    "name_es": "Separador de tornillo del digestato",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "capacity_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "motor_power_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "solid_pct_outlet",
+        "unit": "%",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "API_610_2024",
+      "ISO_22790",
+      "IEC_60079_0"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_28",
+    "name_es": "Decantador centrífugo del digestato",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "capacity_m3_h",
+        "unit": "m3/h",
+        "description": ""
+      },
+      {
+        "name": "motor_power_kW",
+        "unit": "kW",
+        "description": ""
+      },
+      {
+        "name": "bowl_speed_rpm",
+        "unit": "rpm",
+        "description": ""
+      },
+      {
+        "name": "solid_pct_outlet",
+        "unit": "%",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "API_610_2024",
+      "ISO_22790",
+      "IEC_60079_0"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_29",
+    "name_es": "Tanque de almacenamiento de digestato",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "volume_m3",
+        "unit": "m3",
+        "description": ""
+      },
+      {
+        "name": "diameter_m",
+        "unit": "m",
+        "description": ""
+      },
+      {
+        "name": "height_m",
+        "unit": "m",
+        "description": ""
+      },
+      {
+        "name": "storage_days_d",
+        "unit": "d",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "ASME_BPVC_VIII_1_2023",
+      "IEC_60079_10_1",
+      "NFPA_497_2024"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_30",
+    "name_es": "Sistema de control (SCADA/DCS)",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "io_count",
+        "unit": "-",
+        "description": ""
+      },
+      {
+        "name": "communication_protocol",
+        "unit": "-",
+        "description": ""
+      },
+      {
+        "name": " SIL_level",
+        "unit": "SIL",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006",
+      "IEC_61511_1",
+      "IEC_61508_1"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_31",
+    "name_es": "Gabinete de detección de gas",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "sensor_count",
+        "unit": "-",
+        "description": ""
+      },
+      {
+        "name": "LEL_setpoint_pct",
+        "unit": "%LEL",
+        "description": ""
+      },
+      {
+        "name": "H2S_setpoint_ppm",
+        "unit": "ppm",
+        "description": ""
+      },
+      {
+        "name": "O2_setpoints_pct",
+        "unit": "%vol",
+        "description": ""
+      },
+      {
+        "name": "voting_logic",
+        "unit": "-",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_60079_29_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "IEC_61511_1",
+      "IEC_61508_1"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_32",
+    "name_es": "Sistema ESD (Emergency Shutdown)",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "SIL_level",
+        "unit": "SIL",
+        "description": ""
+      },
+      {
+        "name": "safe_state_action",
+        "unit": "-",
+        "description": ""
+      },
+      {
+        "name": "voting_logic",
+        "unit": "-",
+        "description": ""
+      },
+      {
+        "name": "final_elements_count",
+        "unit": "-",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEC_61511_1",
+      "IEC_61508_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "IEC_60079_29_1"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_33",
+    "name_es": "Sistema de ignición de antorcha",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "pilot_gas_pressure_kPa_g",
+        "unit": "kPa(g)",
+        "description": ""
+      },
+      {
+        "name": "ignition_voltage_kV",
+        "unit": "kV",
+        "description": ""
+      },
+      {
+        "name": "flame_scanner_type",
+        "unit": "-",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "API_521",
+      "API_520_1",
+      "IEC_60079_10_1",
+      "NFPA_497_2024",
+      "NFPA_70_2023"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_34",
+    "name_es": "Silenciador de escape del motor CHP",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "design_temperature_C",
+        "unit": "°C",
+        "description": ""
+      },
+      {
+        "name": "insertion_loss_dB",
+        "unit": "dB",
+        "description": ""
+      },
+      {
+        "name": "catalyst_type",
+        "unit": "-",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "ISO_22790",
+      "MINAM_DS_019_2009",
+      "IEC_60079_0"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_35",
+    "name_es": "Transformador de potencia",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_power_kVA",
+        "unit": "kVA",
+        "description": ""
+      },
+      {
+        "name": "primary_voltage_kV",
+        "unit": "kV",
+        "description": ""
+      },
+      {
+        "name": "secondary_voltage_kV",
+        "unit": "kV",
+        "description": ""
+      },
+      {
+        "name": "efficiency_pct",
+        "unit": "%",
+        "description": ""
+      },
+      {
+        "name": "vector_group",
+        "unit": "-",
+        "description": ""
+      },
+      {
+        "name": "cooling_type",
+        "unit": "-",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006",
+      "IEEE_835"
+    ]
+  },
+  {
+    "equipment_type_id": "BIG-_36",
+    "name_es": "Switchgear (tablero)",
+    "subsystem": "",
+    "properties": [
+      {
+        "name": "rated_voltage_kV",
+        "unit": "kV",
+        "description": ""
+      },
+      {
+        "name": "rated_current_A",
+        "unit": "A",
+        "description": ""
+      },
+      {
+        "name": "short_circuit_kA",
+        "unit": "kA",
+        "description": ""
+      },
+      {
+        "name": "protection_type",
+        "unit": "-",
+        "description": ""
+      }
+    ],
+    "ports": [],
+    "geometric_envelope": {},
+    "operating_limits": [],
+    "datasheet_requirements": [],
+    "required_certificates": [],
+    "drawing_representations": [],
+    "validation_rules": [],
+    "source_ids": [
+      "IEEE_1547_2018",
+      "IEEE_C2_2023",
+      "MINEM_DS_032_2003",
+      "MINEM_DS_043_2006"
+    ]
+  }
+]
